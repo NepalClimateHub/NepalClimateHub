@@ -1,0 +1,65 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+---
+
+<footer>
+  <div class="container">
+    <div class="grid">
+      <div class="footer__info">
+        <h4>
+          <a href={getRelativeLocaleUrl('en', '')}>{t('footer.title')}</a>
+        </h4>
+        <p>{t('footer.description')}</p>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href={getRelativeLocaleUrl('en', 'docs')}>Docs</a></li>
+          <li>
+            <a href={getRelativeLocaleUrl('en', 'resources')}>Resources</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="wcb" class="carbonbadge wcb-d"></div>
+    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
+    ></script>
+  </div>
+</footer>
+
+<style>
+  body > footer {
+    padding-block: 4rem;
+    background: var(--pico-card-background-color);
+  }
+
+  .footer__info {
+    max-width: 20rem;
+  }
+
+  @media (min-width: 768px) {
+    footer nav {
+      margin-inline-start: auto;
+    }
+  }
+</style>
+<style is:global>
+  footer #wcb.carbonbadge {
+    --b1: var(--pico-primary-inverse);
+    --b2: var(--pico-primary);
+
+    text-align: inherit;
+    width: fit-content;
+  }
+
+  footer #wcb #wcb_g {
+    background-color: inherit;
+    color: var(--pico-color);
+  }
+</style>

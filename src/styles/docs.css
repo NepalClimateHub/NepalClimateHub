@@ -1,0 +1,20 @@
+/* Dark mode colors. */
+:root {
+  /* General colors */
+  --sl-color-accent-low: var(--pico-primary-inverse);
+  --sl-color-accent: var(--pico-primary);
+  --sl-color-accent-high: var(--pico-primary-background);
+  --sl-color-black: var(--pico-background-color);
+  font-size: 100%;
+
+  /* Specific element colors */
+  --sl-color-bg-sidebar: var(--pico-card-background-color);
+  --sl-color-bg-nav: var(--pico-card-background-color);
+}
+
+/* Light mode colors */
+:root[data-theme='light'] {
+  --sl-color-accent-low: var(--pico-primary-background);
+  --sl-color-accent: var(--pico-primary);
+  --sl-color-accent-high: var(--pico-primary-inverse);
+}

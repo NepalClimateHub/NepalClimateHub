@@ -1,0 +1,23 @@
+{
+  "name": "bizarre-belt",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/rss": "^4.0.6",
+    "@astrojs/sitemap": "^3.1.5",
+    "@picocss/pico": "^2.0.6",
+    "astro": "^4.8.7",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@tgwf/co2": "^0.15.0"
+  }
+}

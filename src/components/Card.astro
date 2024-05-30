@@ -1,0 +1,55 @@
+---
+interface Props {
+  href?: string
+}
+
+const { href } = Astro.props
+---
+
+{
+  href ? (
+    <a href={href} class="card">
+      <slot />
+    </a>
+  ) : (
+    <div class="card">
+      <slot />
+    </div>
+  )
+}
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-block: var(--pico-block-spacing-vertical);
+    padding: var(--pico-block-spacing-vertical)
+      var(--pico-block-spacing-horizontal);
+    border: 2px solid transparent;
+    border-radius: var(--pico-border-radius);
+    background: var(--pico-card-background-color);
+    box-shadow: var(--pico-card-box-shadow);
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+  }
+
+  .card:link {
+    text-decoration: none;
+  }
+  .card:hover:link,
+  .card:hover:visited {
+    border-color: var(--pico-primary);
+  }
+</style>
+
+<style is:global>
+  .card svg {
+    max-width: 5rem;
+  }
+  .card svg:first-child {
+    margin-block-end: 1rem;
+  }
+</style>

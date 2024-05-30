@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string
+  text?: string
+  button?: string
+  href?: string
+  size?: 'sm' | 'md' | 'lg'
+  center?: boolean
+}
+
+const { title, text, button, href, size, center } = Astro.props
+
+const classes = ['hero']
+if (center) {
+  classes.push('hero--center')
+}
+if (size) {
+  classes.push(`hero--${size}`)
+}
+---
+
+<section class={classes.join(' ')}>
+  <div class="container">
+    <h1 class="hero__title">{title}</h1>
+    {!!text && <p class="hero__text">{text}</p>}
+
+    {
+      href && button && (
+        <a role="button" href={href}>
+          {button}
+        </a>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: 50dvh;
+    padding-block: 5rem;
+    text-align: center;
+    background-color: var(--pico-background-color);
+    background: radial-gradient(
+      circle at 10% 90%,
+      var(--pico-background-color),
+      var(--pico-card-background-color)
+    );
+    background-size: 100% 200%;
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero--center .container {
+    align-items: center;
+  }
+
+  .hero--sm {
+    min-height: 0;
+    padding-block: 2rem;
+  }
+
+  .hero__title {
+    width: fit-content;
+    font-weight: 900;
+    color: transparent;
+    background: linear-gradient(
+      84deg,
+      var(--pico-primary),
+      var(--pico-secondary)
+    );
+    background-clip: text;
+  }
+  @media (min-width: 40em) {
+    .hero__title {
+      font-size: 5rem;
+    }
+  }
+</style>

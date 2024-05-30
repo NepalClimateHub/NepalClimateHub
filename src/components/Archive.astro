@@ -1,0 +1,46 @@
+---
+import Layout from '@layouts/Page.astro'
+import Hero from '@components/Hero.astro'
+import Card from '@components/Card.astro'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { defaultLang } from '@i18n/ui'
+
+interface Props {
+  title: string
+  entries: any[]
+  urlPrependWith: string
+  lang?: string
+}
+
+const { title, entries, lang = defaultLang, urlPrependWith } = Astro.props
+---
+
+<Layout title={title}>
+  <Hero title={title} center size="sm" />
+
+  <div class="container" style="max-width: 40rem;">
+    <ol>
+      {
+        entries.map((entry) => (
+          <li>
+            <Card
+              href={getRelativeLocaleUrl(lang, entry.slug, {
+                prependWith: urlPrependWith,
+              })}
+            >
+              <h2>{entry.data.title}</h2>
+              <p>{entry.body.substring(0, 100)}</p>
+            </Card>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</Layout>
+
+<style>
+  ol {
+    list-style-type: none;
+    padding: 0;
+  }
+</style>

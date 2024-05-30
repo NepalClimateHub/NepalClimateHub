@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string
+}
+
+import { getLangFromUrl } from '@i18n/utils'
+// Pico jade theme
+import '@picocss/pico/css/pico.jade.min.css'
+
+const lang = getLangFromUrl(Astro.url)
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={title}
+      href={`${Astro.site}/feeds/rss.xml`}
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+</style>

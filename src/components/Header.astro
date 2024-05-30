@@ -1,0 +1,69 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+---
+
+<header>
+  <div class="container grid">
+    <a href={translatePath('/')}>
+      <img src="/favicon.svg" alt="Net0.1" width="60" height="60" />
+    </a>
+
+    <nav>
+      <ul>
+        <li>
+          <a href={translatePath('/docs')}>{t('header.docs')}</a>
+        </li>
+        <li>
+          <a href={translatePath('/blog')}>{t('header.blog')}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    --pico-nav-element-spacing-vertical: 0.25rem;
+    --pico-block-spacing-vertical: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    position: sticky;
+    inset-block-start: 0;
+    /* padding-block: 0; */
+    backdrop-filter: blur(1rem);
+    background-color: var(--pico-card-background-color);
+    background-color: color(
+      from var(--pico-card-background-color) srgb r g b / 0.9
+    );
+    border-block-end: 1px solid var(--pico-muted-border-color);
+  }
+ 
+  header .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--pico-block-spacing-vertical);
+  }
+
+  header nav ul {
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 768px) {
+    header nav {
+      margin-inline-start: auto;
+    }
+  }
+  
+  header a {
+    display: block;
+  }
+
+  header
+</style>

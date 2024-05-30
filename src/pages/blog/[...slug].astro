@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Page.astro'
+import { defaultLang, getEntryStaticPaths } from '@i18n/utils'
+import Hero from '@components/Hero.astro'
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+  const staticPaths = getEntryStaticPaths(blogEntries).filter(
+    (path) => path.params.lang === defaultLang
+  )
+
+  return staticPaths
+}
+
+const { entry } = Astro.props
+if (!entry) {
+  throw new Error('No entry provided')
+}
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title}>
+  <article style="background: none;">
+    <Hero title={entry.data.title} center />
+    <div class="container" style="max-width: 34rem">
+      <Content />
+    </div>
+  </article>
+</Layout>

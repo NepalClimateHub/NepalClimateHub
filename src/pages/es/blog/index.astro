@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content'
+import Archive from '@components/Archive.astro'
+import { getEntryLangFilter } from '@i18n/utils'
+const blogEntries = await getCollection('blog', getEntryLangFilter('es'))
+---
+
+<Archive title="Blog" entries={blogEntries} lang="es" urlPrependWith="blog" />

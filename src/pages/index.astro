@@ -1,0 +1,51 @@
+---
+import Layout from '@layouts/Page.astro'
+import Hero from '@components/Hero.astro'
+import Card from '@components/Card.astro'
+import { Comment, Docs, Save, Sun } from '@components/icons'
+---
+
+<Layout title="Net0.1">
+  <Hero
+    title="Net0.1"
+    text="A starter template for building sustainable websites."
+    button="Get started"
+    href="/docs/getting-started"
+    center
+  />
+  <div class="grid container">
+    <Card>
+      <Sun />
+      <h2>Detailed carbon estimations</h2>
+      <p>
+        Automatically get detailed estimations of the carbon contributions of
+        all the code on each page your site
+      </p>
+    </Card>
+    <Card>
+      <Save />
+      <h2>Static by default</h2>
+      <p>
+        Generate truly static websites with no JavaScript by default, for the
+        the most lightweight, fast & efficient products. But with the option to
+        go dynamic if needed.
+      </p>
+    </Card>
+    <Card>
+      <Comment />
+      <h2>i18n</h2>
+      <p>
+        Internationalization out of the box to help make your website accessible
+        to as many people as possible.
+      </p>
+    </Card>
+    <Card>
+      <Docs />
+      <h2>Built in docs</h2>
+      <p>
+        Feature rich and easy to use documentation system included at no extra
+        cost
+      </p>
+    </Card>
+  </div>
+</Layout>
