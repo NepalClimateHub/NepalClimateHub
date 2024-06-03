@@ -4,23 +4,10 @@ interface Props {
 }
 
 import BaseLayout from './Layout.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+
 const { title } = Astro.props
 ---
 
 <!doctype html>
 <BaseLayout title={title}>
-  <Header />
-  <main>
-    <slot />
-  </main>
-  <Footer />
 </BaseLayout>
-
-<style>
-  body > main {
-    flex-grow: 1;
-    padding-block: 0;
-  }
-</style>
