@@ -1,4 +1,7 @@
 ---
+import Header from '@components/Header.astro'
+import '../styles/global.css'
+
 interface Props {
   title: string
 }
@@ -8,6 +11,11 @@ import BaseLayout from './Layout.astro'
 const { title } = Astro.props
 ---
 
-<!doctype html>
 <BaseLayout title={title}>
+  <div class="main-container">
+    <div class="wrapper">
+      <Header />
+    </div>
+  </div>
+  
 </BaseLayout>
