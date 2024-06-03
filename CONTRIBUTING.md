@@ -17,13 +17,15 @@ node: "^>=18.17.1"
 
 ### Setting up your local repo
 
-NepalClimateHub uses npm workspaces, so you should **always run `npm install` from the top-level project directory**. Running `npm install` in the top-level project root will install dependencies for `NepalClimateHub`, and every package in the repo.
+First, fork NepalClimateHub repository on your account
 
 ```shell
 git clone git@github.com:NepalClimateHub/NepalClimateHub.git && cd ...
 npm install
 npm run build
 ```
+
+NepalClimateHub uses npm workspaces, so you should **always run `npm install` from the top-level project directory**. Running `npm install` in the top-level project root will install dependencies for `NepalClimateHub`, and every package in the repo.
 
 ### Development
 
