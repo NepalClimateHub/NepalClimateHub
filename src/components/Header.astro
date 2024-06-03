@@ -67,6 +67,21 @@ import { Icon } from "astro-icon/components";
 
 
 
+<!-- script to toggle menu in mobile device -->
+<script>
+  const menuButton = document.querySelector(".header-cta"); // menu button
+  const nav = document.querySelector("nav"); // navigation menu bar
+  const crossIcon = document.querySelector(".cross-icon"); // icon to close menu modal
+
+  menuButton?.addEventListener("click", () => {
+    nav?.classList.toggle("active"); //active class provides style for mobile layout
+  });
+
+  crossIcon?.addEventListener("click", () => {
+    nav?.classList.remove("active");
+  });
+</script>
+
 
 <!-- CSS styles for header component -->
 <style>
