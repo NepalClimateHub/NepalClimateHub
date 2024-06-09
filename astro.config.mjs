@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-
+import icon from "astro-icon";
 import sitemap from '@astrojs/sitemap'
 import net0Integration from './toolbar/integration.ts'
 
@@ -17,5 +17,6 @@ export default defineConfig({
   integrations: [
     net0Integration,
     sitemap(),
+    [icon()],
   ],
 })
