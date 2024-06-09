@@ -13,7 +13,9 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/rss": "^4.0.6",
     "@astrojs/sitemap": "^3.1.5",
+    "@iconify-json/mdi": "^1.1.66",
     "astro": "^4.8.7",
+    "astro-icon": "^1.1.0",
     "typescript": "^5.4.5"
   },
   "devDependencies": {

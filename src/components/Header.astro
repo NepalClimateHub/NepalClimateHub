@@ -1,0 +1,334 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<!-- header section begins  -->
+<header class="section-container">
+	<div class="logo-wrapper">
+		<span class="logo">NEPAL CLIMATE HUB</span>
+	</div>
+
+	<!-- main nagivation bar -->
+	<nav>
+		<ul class="main-menu">
+			<li class="menu-heading">
+				<a href="#"
+					>Connect <span class="dropdown-icon"><Icon name="dropdown" /></span
+					></a
+				>
+				<ul class="sub-menu">
+					<li><a href="#">Organizations</a></li>
+					<li><a href="#">Activists</a></li>
+					<li><a href="#">Events</a></li>
+				</ul>
+			</li>
+
+			<li class="menu-heading">
+				<a href="#"
+					>Learn <span class="dropdown-icon"><Icon name="dropdown" /></span></a
+				>
+				<ul class="sub-menu">
+					<li><a href="#">Personal Commitments</a></li>
+					<li><a href="#">News & Stories</a></li>
+				</ul>
+			</li>
+
+			<li class="menu-heading">
+				<a href="#"
+					>Contribute <span class="dropdown-icon"><Icon name="dropdown" /></span
+					></a
+				>
+				<ul class="sub-menu">
+					<li><a href="#">Volunteer</a></li>
+					<li><a href="#">Submit Profile</a></li>
+				</ul>
+			</li>
+
+			<li class="menu-heading"><a href="#">About</a></li>
+		</ul>
+
+		<!-- bottom horizontal navigation for mobile device -->
+		<div class="bottom-nav">
+			<span>ABOUT NCH</span>
+			<ul>
+				<li><a href="#">Facts</a></li>
+				<li><a href="#">Mission</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+
+		<!-- cross icon for mobile layout -->
+		<div class="cross-icon"><Icon name="cross" /></div>
+	</nav>
+
+	<!-- menu button for mobile device -->
+	<button class="header-cta"><a href="#">Action Menu</a></button>
+</header>
+
+
+
+<!-- script to toggle menu in mobile device -->
+<script>
+  const menuButton = document.querySelector(".header-cta"); // menu button
+  const nav = document.querySelector("nav"); // navigation menu bar
+  const crossIcon = document.querySelector(".cross-icon"); // icon to close menu modal
+
+  menuButton?.addEventListener("click", () => {
+    nav?.classList.toggle("active"); //active class provides style for mobile layout
+  });
+
+  crossIcon?.addEventListener("click", () => {
+    nav?.classList.remove("active");
+  });
+</script>
+
+
+<!-- CSS styles for header component -->
+<style>
+  header {
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #cefe00;
+    color: #25262b;
+  }
+
+  .logo {
+    font-family: "Zilla Slab", serif;
+    display: inline-block;
+    width: 100px;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* mobile menu button */
+  .header-cta {
+    display: block;
+    width: 131px;
+    border: none;
+    border-radius: 16px;
+    align-self: end;
+    margin-bottom: 8px;
+  }
+
+  .header-cta a {
+    font-family: Roboto, sans-serif;
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #25262b;
+    background-color: #cefe00;
+    transition: all 0.3s ease;
+  }
+
+  .header-cta a:hover {
+    background-color: #c4f001;
+    color: black;
+  }
+
+  /* hide the navigation menu for mobile */
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 100%;
+    z-index: 12;
+    background-color: #cefe00;
+    padding: 44px 24px;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+  }
+
+  /* set active class for displaying menu */
+  nav.active {
+    transform: translateX(-100%);
+  }
+
+  nav li {
+    list-style: none;
+  }
+
+  /* menu sub-headings */
+  nav .menu-heading > a {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a1b1e;
+    display: block;
+    margin: 32px 0px 16px;
+    cursor: default;
+  }
+
+  nav .sub-menu a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1a1b1e;
+  }
+
+  /* bottom horizontal links */
+  .bottom-nav {
+    margin-top: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .bottom-nav span {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .bottom-nav ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .bottom-nav li a {
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #1a1b1e;
+  }
+
+  .cross-icon {
+    position: absolute;
+    right: 18px;
+    top: 40px;
+    font-size: 36px;
+    z-index: 12;
+    cursor: pointer;
+  }
+
+  .dropdown-icon {
+    display: none;
+  }
+
+  nav .menu-heading:last-of-type {
+    display: none;
+  }
+
+  /* media queries for desktop */
+
+  @media screen and (min-width: 768px) {
+    header {
+      margin: 24px auto;
+    }
+
+    /* hide the mobile menu button */
+    .header-cta {
+      display: none;
+    }
+
+    .cross-icon {
+      display: none;
+    }
+
+    /* display the deskop menu */
+    nav {
+      position: relative;
+      inset: 0;
+      transform: none;
+      height: 100%;
+      padding: 0;
+      z-index: 0;
+      background-color: white;
+    }
+
+    /* horizontal menu bar */
+    nav .main-menu {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+    }
+
+     /* refers to connect, learn, contribute, about menu items */
+    .main-menu li.menu-heading {
+      background-color: #cefe00;
+      border-radius: 16px;
+      position: relative; /* to position submenu */
+    }
+
+    nav .menu-heading a {
+      margin: 0;
+      text-transform: capitalize;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 8px 24px;
+      border-radius: 16px;
+    }
+
+    ul .menu-heading a:hover {
+      background-color: #c4f001;
+      color: black;
+    }
+
+    nav .menu-heading:last-of-type {
+      display: block;
+    }
+
+    .sub-menu {
+      display: none;
+      padding-top: 40px;
+      position: absolute;
+      width: 160px;
+      min-width: fit-content;
+      text-align: center;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      border-radius: 8px;
+    }
+
+    /* display the sub-menu on hovering  */
+    .menu-heading:hover .sub-menu {
+      display: block;
+    }
+
+    .sub-menu li {
+      border-radius: none;
+      border: 1px solid rgba(0, 0, 0, 0.116);
+    }
+
+    .sub-menu li:last-of-type {
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    .sub-menu li a {
+      display: block;
+      width: 100%;
+      border-radius: 0;
+    }
+
+    .bottom-nav {
+      display: none;
+    }
+
+    .dropdown-icon {
+      font-size: 20px;
+      display: inline-block;
+      float: right;
+    }
+  }
+</style>
