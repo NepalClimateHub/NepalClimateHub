@@ -1,0 +1,135 @@
+---
+import "../styles/global.css";
+---
+
+<div class="section-container">
+	<div class="content">
+		<p class="tagline">
+			A unifying knowledge hub to inspire collective climate action.
+		</p>
+		<button class="cta-button"><a href="#">Find Organizations</a></button>
+	</div>
+
+	<div class="video-section">
+		<h3 class="video-title">
+			UN Chief calls for climate action at Mt. Everest
+		</h3>
+		<div class="video">
+			<img
+				src="https://pbs.twimg.com/amplify_video_thumb/1718900177451245568/img/BPUuz77Q3vfyDjEy.jpg"
+				alt=""
+			/>
+		</div>
+		<p class="description">
+			“The world cannot wait!” –UN chief, Antonio Guterres from the base of Mt.
+			Everest, on the terrible impact of the climate crisis on the Himalayas.
+		</p>
+	</div>
+</div>
+
+<style>
+  .section-container {
+    padding: 24px 24px 28px;
+  }
+
+  .tagline {
+    font-family: "Zilla Slab";
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin-bottom: 20px;
+  }
+
+  .cta-button {
+    border: none;
+    background: none;
+  }
+
+  .cta-button a {
+    background-color: #1a1b1e;
+    padding: 8px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: white;
+    display: inline-block;
+    margin-bottom: 32px;
+  }
+
+  .video-section {
+    border-top: 2px solid #cefe00;
+    padding-top: 24px;
+  }
+
+  .video-title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700px;
+  }
+
+  .video {
+    height: 193px;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 16px 0px;
+  }
+
+  .video-section .description {
+    font-size: 12px;
+    font-weight: 400px;
+    line-height: 14px;
+  }
+
+  /* media queries for desktop */
+
+  @media screen and (min-width: 768px) {
+    .content {
+      border-bottom: 2px solid #cefe00;
+    }
+
+    .section-container {
+      margin: 40px auto 57px;
+      display: flex;
+      gap: 32px;
+      padding: 0;
+    }
+
+    .tagline {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+
+    .video-section {
+      padding: 0;
+      border-top: none;
+      display: grid;
+      grid-template-columns: 284px 1fr;
+      grid-template-rows: max-content auto;
+      grid-column-gap: 16px;
+      grid-template-areas: "video title" "video description";
+    }
+
+    .video {
+      grid-area: video;
+      margin: 0;
+      height: 162px;
+    }
+
+    .video-title {
+      grid-area: title;
+      margin-bottom: 8px;
+    }
+
+    .video-section .description  {
+      grid-area: description;
+      font-size: 16px;
+    }
+  }
+</style>
+
+
