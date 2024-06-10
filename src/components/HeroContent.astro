@@ -1,0 +1,47 @@
+---
+import '../styles/global.css'
+---
+
+<div class="hero-content section-container">
+  <h1><span class="first-keyword">Knowledge</span> <br>  +  &nbsp;<span class="second-keyword">Action</span> = <br> A Climate-Resilient Nepal</h1>
+</div>
+
+<style>
+  .hero-content {
+    margin: auto 24px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+    line-height: 48px;
+    color: white;
+  }
+
+  .first-keyword, .second-keyword {
+    display: inline-block;
+    padding: 0px 16px;
+    
+  }
+
+  .first-keyword {
+    color: white;
+    background-color: #1A1B1E; 
+    transform: rotate(-3deg);
+    margin-bottom: 8px;
+  }
+
+  .second-keyword {
+    background-color: #CEFE00;
+    color:  #1A1B1E; 
+    transform: rotate(6deg);
+  }
+
+  @media screen and (min-width: 768px) {
+    .hero-content {
+      height: 464px;
+      max-width: 1280px;
+      margin: 0 auto;
+      
+    }
+  }
+</style>
