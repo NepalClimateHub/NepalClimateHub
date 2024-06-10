@@ -1,6 +1,7 @@
 ---
 import Header from '@components/Header.astro'
 import HeroContent from '@components/HeroContent.astro'
+import CtaSection from '@components/CtaSection.astro'
 import '../styles/global.css'
 
 interface Props {
@@ -15,9 +16,13 @@ const { title } = Astro.props
 <BaseLayout title={title}>
 
   <div class="main-container">
-    <section class="section hero-section">
+    <section class="hero-section">
       <Header />
       <HeroContent />
+    </section>
+
+    <section class="cta-section">
+      <CtaSection />
     </section>
   </div>
   
