@@ -62,3 +62,96 @@ import { Icon } from "astro-icon/components";
 	</div>
 </div>
 
+
+<style>
+  .section-container {
+    padding: 48px;
+    position: relative;
+  }
+
+  .section-heading {
+    position: absolute;
+    top: -18px;
+    font-weight: 700;
+    font-size: 32px;
+    padding: 0px 16px;
+    color: white;
+    background-color: #1a1b1e;
+    transform: rotate(-3deg);
+    opacity: 1;
+  }
+
+  .fact-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .fact-card {
+    flex: 0 0 100%;
+    max-width: 384px;
+    border: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 18px 65px 10px 28px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .fact-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .fact-description {
+    font-size: 18px;
+    line-height: 24px;
+    font-style: italic;
+  }
+
+  .icon-wrapper {
+    border: 1px solid black;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #1a1b1e;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  .icon {
+    color: white;
+  }
+
+  .card-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+  }
+
+  .card-controls .bar {
+    display: block;
+    width: 25px;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #1a1b1e;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .card-controls .bar.active {
+    opacity: 1;
+  }
+
+</style>
