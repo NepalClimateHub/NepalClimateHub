@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="section-container">
+	<h2 class="section-heading">Facts</h2>
+
+  <!-- container to wrap all three facts -->
+
+	<div class="fact-container">
+
+    <!-- fact card one -->
+
+		<div class="fact-card">
+			<h3 class="fact-title">Rising Temperature</h3>
+			<p class="fact-description">
+				Nepal's average temperature has increased by about 0.6°C over the last
+				decade, higher than the global average rise, causing Himalayan glaciers
+				to melt at an accelerated rate of around 90 meters per year.
+			</p>
+			<div class="icon-wrapper">
+				<Icon name="mdi:temperature" class="icon" />
+			</div>
+		</div>
+
+    <!-- fact card two -->
+
+		<div class="fact-card">
+			<h3 class="fact-title">Economic Cost</h3>
+			<p class="fact-description">
+				The World Bank estimates the economic cost of climate change in Nepal to
+				be 2-3% of GDP per year by 2050.
+			</p>
+
+			<div class="icon-wrapper">
+				<Icon name="mdi:attach-money" class="icon" />
+			</div>
+		</div>
+
+    <!-- fact card three -->
+
+		<div class="fact-card">
+			<h3 class="fact-title">Natural Resource Vulnerability</h3>
+			<p class="fact-description">
+				Increased frequency of floods, landslides, forest fires and droughts are
+				threatening biodiversity, agriculture, hydropower generation, and
+				freshwater availability.
+			</p>
+			<div class="icon-wrapper">
+				<Icon name="mdi:fire" class="icon" />
+			</div>
+		</div>
+
+    <!-- slide control bars for mobile display -->
+
+		<div class="card-controls">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
+	</div>
+</div>
+
