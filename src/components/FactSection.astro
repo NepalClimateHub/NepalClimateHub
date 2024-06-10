@@ -65,7 +65,7 @@ import { Icon } from "astro-icon/components";
 
 <style>
   .section-container {
-    padding: 48px;
+    padding: 48px 0px;
     position: relative;
   }
 
@@ -83,13 +83,14 @@ import { Icon } from "astro-icon/components";
 
   .fact-container {
     display: flex;
+    justify-content: center;
     overflow: hidden;
     width: 100%;
     gap: 16px;
   }
 
   .fact-card {
-    flex: 0 0 100%;
+    /* flex: 0 1 100%; */
     max-width: 384px;
     border: none;
     background-color: white;
@@ -156,15 +157,18 @@ import { Icon } from "astro-icon/components";
 
   @media screen and (max-width: 768px) {
     .section-container {
-      margin-top: 24px;
+      margin: 24px 32px 32px;
     }
 
     .fact-container {
-      gap: 0;
+      overflow: hidden;
+      justify-content: flex-start;
+      gap: 0px;
+      max-width: 342px;
+      margin: 0 auto;
     }
 
     .fact-card {
-      flex: 0 0 100%;
       min-width: 100%;
     }
 
