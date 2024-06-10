@@ -1,0 +1,255 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="section-container">
+	<h2 class="section-heading">Facts</h2>
+
+  <!-- container to wrap all three facts -->
+
+	<div class="fact-container">
+
+    <!-- fact card one -->
+
+		<div class="fact-card">
+			<h3 class="fact-title">Rising Temperature</h3>
+			<p class="fact-description">
+				Nepal's average temperature has increased by about 0.6°C over the last
+				decade, higher than the global average rise, causing Himalayan glaciers
+				to melt at an accelerated rate of around 90 meters per year.
+			</p>
+			<div class="icon-wrapper">
+				<Icon name="mdi:temperature" class="icon" />
+			</div>
+		</div>
+
+    <!-- fact card two -->
+
+		<div class="fact-card">
+			<h3 class="fact-title">Economic Cost</h3>
+			<p class="fact-description">
+				The World Bank estimates the economic cost of climate change in Nepal to
+				be 2-3% of GDP per year by 2050.
+			</p>
+
+			<div class="icon-wrapper">
+				<Icon name="mdi:attach-money" class="icon" />
+			</div>
+		</div>
+
+    <!-- fact card three -->
+
+		<div class="fact-card">
+			<h3 class="fact-title">Natural Resource Vulnerability</h3>
+			<p class="fact-description">
+				Increased frequency of floods, landslides, forest fires and droughts are
+				threatening biodiversity, agriculture, hydropower generation, and
+				freshwater availability.
+			</p>
+			<div class="icon-wrapper">
+				<Icon name="mdi:fire" class="icon" />
+			</div>
+		</div>
+
+    <!-- slide control bars for mobile display -->
+
+		<div class="card-controls">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
+	</div>
+</div>
+
+
+<style>
+  .section-container {
+    padding: 48px;
+    position: relative;
+  }
+
+  .section-heading {
+    position: absolute;
+    top: -18px;
+    font-weight: 700;
+    font-size: 32px;
+    padding: 0px 16px;
+    color: white;
+    background-color: #1a1b1e;
+    transform: rotate(-3deg);
+    opacity: 1;
+  }
+
+  .fact-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .fact-card {
+    flex: 0 0 100%;
+    max-width: 384px;
+    border: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 18px 65px 10px 28px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .fact-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .fact-description {
+    font-size: 18px;
+    line-height: 24px;
+    font-style: italic;
+  }
+
+  .icon-wrapper {
+    border: 1px solid black;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #1a1b1e;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  .icon {
+    color: white;
+  }
+
+  .card-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+  }
+
+  .card-controls .bar {
+    display: block;
+    width: 25px;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #1a1b1e;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .card-controls .bar.active {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin-top: 24px;
+    }
+
+    .fact-container {
+      gap: 0;
+    }
+
+    .fact-card {
+      flex: 0 0 100%;
+      min-width: 100%;
+    }
+
+    .card-controls {
+      opacity: 1;
+    }
+  }
+
+</style>
+
+<!-- script to make slider which is triggered for devices screen width less than 768px -->
+
+<script>
+
+  // get the card items and slide control bars
+  const cards = document.querySelectorAll<HTMLElement>(".fact-card");
+  const slideControlButtons = document.querySelectorAll(".bar");
+
+  let currentIndex = 0;
+  const totalCards = cards.length;
+
+  // for dragging feature in mobile devices
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  // find the current screen width
+  const currentWidth = window.innerWidth;
+
+  // controls the slides
+  function showSlide(index: number) {
+    const offset = index * -100;
+    cards.forEach((card) => {
+      card.style.transform = `translateX(${offset}%)`;
+    });
+
+    // remove active class from all slideControlButtons
+    slideControlButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    // add active class to the button corresponding to the current slide
+    slideControlButtons[index].classList.add("active");
+  }
+
+  // event listeners for manual control
+  slideControlButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      currentIndex = index;
+      showSlide(currentIndex);
+    });
+  });
+
+  // initially show the first slide
+  showSlide(currentIndex);
+
+  // function to change slides automatically every four seconds for mobile devices
+  function autoChangeSlide() {
+    currentIndex = (currentIndex + 1) % totalCards;
+    showSlide(currentIndex);
+  }
+
+  // ff it's a mobile device, trigger the automatic slide change function
+  if (currentWidth <= 768) {
+    setInterval(autoChangeSlide, 4000);
+
+    // touch event listeners for swipe gesture
+    document.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      touchEndX = e.touches[0].clientX;
+    });
+
+    document.addEventListener("touchend", () => {
+      if (touchEndX < touchStartX - 50) {
+        // swipe left, show next slide
+        currentIndex = (currentIndex + 1) % totalCards;
+        showSlide(currentIndex);
+      } else if (touchEndX > touchStartX + 50) {
+        // swipe right, show previous slide
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        showSlide(currentIndex);
+      }
+    });
+  }
+  
+  </script>
