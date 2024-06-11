@@ -1,0 +1,40 @@
+{
+	"activists": [
+		{
+      "id": 1,
+			"name": "Shreya KC",
+			"address": "Kathmandu",
+			"aboutPreface": "Shreya KC is a passionate climate justice activist. She has been involved in spreading awareness, advocating policies, and taking action...",
+			"about": "An environmentalist and an advocate for climate action from Nepal. She has been part of Nepalese Youth in Climate Action (NYCA)",
+			"tags": ["youth", "community", "education", "policies"],
+			"profilePicture": "https://yesilgazete.org/wp-content/uploads/2022/08/shreya1-1.jpg"
+		},
+		{
+      "id": 2,
+			"name": "Abhishek Shrestha",
+			"address": "Kathmandu",
+			"aboutPreface": "Abhishek Shrestha is a co-founder of Digo Bikas Institute and leads Climate Justice Program. He graduated with a Masters in Climate Change...",
+			"about": "An environmentalist and an advocate for climate action from Nepal. She has been part of Nepalese Youth in Climate Action (NYCA)",
+			"tags": ["youth", "community", "policies", "advocacy"],
+			"profilePicture": "https://scontent.fktm21-1.fna.fbcdn.net/v/t39.30808-6/438173706_10231859448731899_8576194432812806381_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=e4N43hvTINMQ7kNvgHu3-HQ&_nc_ht=scontent.fktm21-1.fna&oh=00_AYB1BCqCL5bt7q8OJcnXPRB15HezeZuYoON5EQUwpXdgCQ&oe=666DA63E"
+		},
+		{
+      "id": 3,
+			"name": "Anjali Sai Chalise",
+			"address": "Kathmandu",
+			"aboutPreface": "An environmentalist and an advocate for climate action from Nepal. She has been part of Nepalese Youth in Climate Action (NYCA)",
+			"about": "An environmentalist and an advocate for climate action from Nepal. She has been part of Nepalese Youth in Climate Action (NYCA)",
+			"tags": ["youth", "community"],
+			"profilePicture": "https://nyca.net.np/uploads/original/fb-img-1691319821394-LE36pnHZKn6MZYl9KYgnRbtr9pfdyXQSJ5RaUCyp.jpg"
+		},
+		{
+      "id": 4,
+			"name": "Diskhya Subedi",
+			"address": "Kathmandu",
+			"aboutPreface": "Dikshya Subedi is a passionate socio-environmental and climate activist currently pursuing a master’s degree in Agroecology. Over the last four years...",
+			"about": "An environmentalist and an advocate for climate action from Nepal. She has been part of Nepalese Youth in Climate Action (NYCA)",
+			"tags": ["youth", "community"],
+			"profilePicture": "https://i0.wp.com/yasennepal.com/wp-content/uploads/2024/03/image_50456833-scaled-e1709823402849.jpg?fit=1130%2C1186&ssl=1"
+		}
+	]
+}
