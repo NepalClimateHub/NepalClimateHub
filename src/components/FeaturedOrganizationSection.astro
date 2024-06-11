@@ -202,3 +202,23 @@ import organizationJSON from "../data/organization.json";
     }
   }
 </style>
+
+<script>
+
+  // reuse the slider function
+  import { slider } from "../utils/slider.ts";
+
+  // function to initialize the slider after DOM is fully loaded
+  const initSlider = () => {
+    const cards = document.querySelectorAll<HTMLElement>(".organization-card");
+    const slideControlButtons = document.querySelectorAll<HTMLElement>(
+      ".bar-organization-section"
+    );
+
+    slider(cards, slideControlButtons);
+  };
+
+  // execute the function once the DOM is loaded
+  window.addEventListener("DOMContentLoaded", initSlider);
+ 
+</script>
