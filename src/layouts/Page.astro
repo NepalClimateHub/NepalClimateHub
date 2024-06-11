@@ -3,6 +3,7 @@ import Header from '@components/Header.astro'
 import HeroContent from '@components/HeroContent.astro'
 import CtaSection from '@components/CtaSection.astro'
 import FactSection from '@components/FactSection.astro'
+import ActivistSection from '@components/ActivistSection.astro'
 import '../styles/global.css'
 
 interface Props {
@@ -29,6 +30,10 @@ const { title } = Astro.props
 
   <section class="fact-section">
     <FactSection />
+  </section>
+
+  <section class="activist-section">
+    <ActivistSection />
   </section>
   
 </BaseLayout>
