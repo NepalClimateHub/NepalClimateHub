@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+
+//sample activist JSON data
+import activistJSON from "../data/activist.json";
+---
+
+<div class="section-container">
+	<h2 class="section-heading">Climate Champions</h2>
+
+	<!-- container to wrap activist cards -->
+
+	<!-- render the activists from activistJSON -->
+	<div class="activist-container">
+		{
+			activistJSON.activists.map((activist, index) => (
+				<div class="activist-card">
+					<div class="profile-wrapper">
+						<img src={activist.profilePicture} alt="" />
+					</div>
+					<div class="details">
+						<h3 class="activist-name">{activist.name}</h3>
+						<p class="location">
+							<span class="icon">
+								<Icon name="mdi:my-location" class="icon" />
+							</span>
+							<span class="address">{activist.address}</span>
+						</p>
+						<p class="about">{activist.aboutPreface}</p>
+
+						<div class="tags">
+							{activist.tags.map((tag) => (
+								<span class="tag">{tag}</span>
+							))}
+						</div>
+					</div>
+				</div>
+			))
+		}
+
+		<!-- slide control bars for mobile display -->
+
+		<div class="card-controls">
+			<span class="bar bar-activist-section"></span>
+			<span class="bar bar-activist-section"></span>
+			<span class="bar bar-activist-section"></span>
+			<span class="bar bar-activist-section"></span>
+		</div>
+	</div>
+
+	<!-- link to redirect landing pages of activists -->
+	<a href="#" class="cta-link">See All</a>
+</div>
+
+
