@@ -1,0 +1,245 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="section-container">
+	<h2 class="section-heading">News & Stories</h2>
+
+	<!-- container to wrap news cards -->
+
+	<div class="news-container">
+
+    <!-- news card one -->
+
+    <div class="news-card">
+			<div class="content">
+				<h3 class="news-headline">
+          Nepal to host first-ever international dialogue on mountains and climate change
+				</h3>
+				<div class="news-image-wrapper">
+					<img
+						src="https://encdn.ratopati.com/media/news/Effects_page_triptych_6Dl7QCaNd5.webp"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="link">
+				<span class="link-icon"><Icon name="mdi:link" /></span>
+				<a href="#">english.ratopati.com</a>
+			</div>
+		</div>
+
+    <!-- news card two -->
+
+		<div class="news-card">
+			<div class="content">
+				<h3 class="news-headline">
+					Nepal's mountains are crying out for help and COP28 must respond, says
+					UN chief Guterres
+				</h3>
+				<div class="news-image-wrapper">
+					<img
+						src="https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2023/third-party/PM-1701567214.jpg&w=900&height=601"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="link">
+				<span class="link-icon"><Icon name="mdi:link" /></span>
+				<a href="#">thekathmandupost.com</a>
+			</div>
+		</div>
+
+    <!-- news card three -->
+
+    <div class="news-card">
+			<div class="content">
+				<h3 class="news-headline">
+					Global warming turns up the heat on Nepal’s climate diplomacy
+				</h3>
+				<div class="news-image-wrapper">
+					<img
+						src="https://media.assettype.com/himalmag%2F2024-06%2F09528eb5-fe43-405b-97d7-41c2c528c866%2F03_Dawa_Lama_Holymoglobal_warming_nepal_climate_crisis_diplomacy_adaptation_international_support_hi.jpg?w=1200&auto=format%2Ccompress&fit=max"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="link">
+				<span class="link-icon"><Icon name="mdi:link" /></span>
+				<a href="#">www.himalmag.com</a>
+			</div>
+		</div>
+
+    <!-- news card four -->
+
+    <div class="news-card">
+			<div class="content">
+				<h3 class="news-headline">
+					Failure is Not an Option for Nepal
+				</h3>
+				<div class="news-image-wrapper">
+					<img
+						src="https://myrepublica.nagariknetwork.com/uploads/media/ClimateFinance_20230901151718.jpg"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="link">
+				<span class="link-icon"><Icon name="mdi:link" /></span>
+				<a href="#">myrepublica.nagariknetwork.com</a>
+			</div>
+		</div>
+
+    <!-- news card five -->
+
+    <div class="news-card">
+			<div class="content">
+				<h3 class="news-headline">
+          NEPAL’S WATER RESOURCES IN THE FACE OF CLIMATE CHANGE
+				</h3>
+				<div class="news-image-wrapper">
+					<img
+						src="https://res.cloudinary.com/actioncontrelafaim/image/upload/f_auto/ar_16:9,w_1900,c_fill/b_rgb:000000,e_gradient_fade:10,y_0.3,o_70/w_1900,c_scale,dpr_1,q_auto,f_auto,fl_lossy,d_acf-ui:acf-default-blue.png/v1515011253/acf-prod/2024/03/DSC03591-min-1024x683.jpg"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="link">
+        <span class="link-icon"><Icon name="mdi:link" /></span>
+				<a href="#">www.actioncontrelafaim.org</a>
+			</div>
+		</div>
+
+    <!-- news card six -->
+
+    <div class="news-card">
+			<div class="content">
+				<h3 class="news-headline">
+          Mountain villages bearing direct brunt of climate change
+				</h3>
+				<div class="news-image-wrapper">
+					<img
+						src="https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/news/DingbocheKhumbu0002-1713748711.jpg"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="link">
+				<span class="link-icon"><Icon name="mdi:link" /></span>
+				<a href="#">www.kathmandupost.com</a>
+			</div>
+		</div>
+
+	</div>
+
+  	<!-- link to redirect to news landing page -->
+	<a href="#" class="cta-link">See All</a>
+
+</div>
+
+
+<style>
+
+.section-container {
+    margin: 53px auto 83px;
+    position: relative;
+  }
+
+  .section-heading {
+    font-size: 24px;
+    font-weight: 700px;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  .news-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 24px 16px;
+    
+  }
+
+  .news-card {
+    padding-bottom: 12px;
+    border-bottom: 2px solid #CEFE00;
+    /* max-width: 403px; */
+    width: 32%;
+    overflow: hidden;
+ 
+  }
+
+  .news-card .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .news-headline {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  .news-image-wrapper {
+    min-width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .news-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .link a {
+    font-size: 14px;
+    color: #364FC7;
+    line-height: 16px;
+    text-decoration: none;
+  }
+
+  .link-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .cta-link {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    color: #364fc7;
+    font-size: 12px;
+  }
+
+  /* media queries for desktop */
+
+  @media screen and (max-width: 768px) {
+
+    .section-container {
+      margin: 24px 32px 64px;
+    }
+
+    .news-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .news-card {
+      width: 100%;
+    }
+
+  }
+
+</style>

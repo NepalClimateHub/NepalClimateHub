@@ -5,6 +5,7 @@ import CtaSection from '@components/CtaSection.astro'
 import FactSection from '@components/FactSection.astro'
 import ActivistSection from '@components/ActivistSection.astro'
 import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro'
+import FeaturedNewsSection from '@components/FeaturedNewsSection.astro'
 import '../styles/global.css'
 
 interface Props {
@@ -39,6 +40,10 @@ const { title } = Astro.props
   
   <section class="organizatin-section">
     <FeaturedOrganizationSection />
+  </section>
+
+  <section class="news-section">
+    <FeaturedNewsSection />
   </section>
 
 </BaseLayout>
