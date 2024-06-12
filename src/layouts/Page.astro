@@ -6,6 +6,7 @@ import FactSection from '@components/FactSection.astro'
 import ActivistSection from '@components/ActivistSection.astro'
 import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro'
 import FeaturedNewsSection from '@components/FeaturedNewsSection.astro'
+import Footer from '@components/Footer.astro'
 import '../styles/global.css'
 
 interface Props {
@@ -46,6 +47,10 @@ const { title } = Astro.props
     <FeaturedNewsSection />
   </section>
 
+  <section class="footer-section">
+    <Footer />
+  </section>
+
 </BaseLayout>
 
 <style>
@@ -59,6 +64,11 @@ const { title } = Astro.props
 
   .fact-section {
     background-color: #CEFE00;
+  }
+
+  .footer-section {
+    background-color: #1A1B1E;
+    color: white;
   }
 
 </style>

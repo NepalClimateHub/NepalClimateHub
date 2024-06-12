@@ -1,0 +1,227 @@
+---
+import "../styles/global.css";
+---
+
+<footer class="section-container">
+	<h2 class="section-heading">Contribute</h2>
+
+	<!-- container to wrap footer content -->
+
+  <!-- three column layout -->
+	<div class="content-wrapper">
+		<div class="column">
+			<p>
+				Passionate about climate knowledge and actions? Keep Nepal Climate Hub
+				up to date.
+			</p>
+			<button><a href="#">Volunteer</a></button>
+		</div>
+
+		<div class="column">
+			<p>
+				Don’t see your organization on Nepal Climate Hub? Register your profile
+				with us!
+			</p>
+			<button><a href="#">Submit profile</a></button>
+		</div>
+
+		<div class="column">
+			<p>Stay connected with Nepal climate news and updates from us!</p>
+			<div class="form">
+				<input type="email" placeholder="Email" autocomplete="off" />
+				<button>Submit</button>
+			</div>
+		</div>
+	</div>
+
+  <!-- horizontal menu bar -->
+
+	<div class="footer-detail">
+		<div class="footer-navbar">
+			<div class="navbar">
+				<h4>CONNECT</h4>
+				<a href="#">ORGANIZATION</a>
+				&vert;
+				<a href="#">ACTIVISTS</a>
+				&vert;
+				<a href="#">EVENTS</a>
+			</div>
+
+			<div class="navbar">
+				<h4>LEARN</h4>
+				<a href="#">PERSONAL COMMITMENTS</a>
+				&vert;
+				<a href="#">NEWS & STORIES</a>
+			</div>
+
+			<div class="navbar">
+				<h4>NCH.ORG</h4>
+				<a href="#">ABOUT</a>
+			</div>
+		</div>
+
+		<p class="footer-note">&copy; Nepal Climate Hub. All Rights Reserved.</p>
+	</div>
+</footer>
+
+<style>
+	.section-container {
+		padding: 86px 0px 36px;
+		position: relative;
+	}
+
+	.section-heading {
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 40px;
+		background-color: #364fc7;
+		padding: 0px 12px;
+		position: absolute;
+		top: -10px;
+		transform: rotate(6deg);
+	}
+
+	.content-wrapper {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		margin-bottom: 88px;
+	}
+
+	.content-wrapper p {
+		font-size: 16px;
+		line-height: 24px;
+		margin-bottom: 18px;
+	}
+
+	.content-wrapper button {
+		border: none;
+		border-radius: 16px;
+		display: block;
+	}
+
+	.content-wrapper button a {
+		text-decoration: none;
+		font-size: 14px;
+		padding: 8px 16px;
+		border-radius: 16px;
+		background-color: #cefe00;
+		color: #25262b;
+	}
+
+	.form {
+		display: flex;
+		gap: 12px;
+		margin-top: -10px;
+	}
+
+	.form input {
+		width: 100%;
+		border-radius: 16px;
+		font-size: 14px;
+		padding: 2px 16px;
+		border: none;
+	}
+
+	.form input:active,
+	.form input:focus {
+		outline: 2px solid #cefe00;
+	}
+
+	.form button {
+		padding: 8px 16px;
+		color: white;
+		background-color: transparent;
+		border: 1px solid white;
+		cursor: pointer;
+	}
+
+	.form button:hover {
+		background-color: #cefe00;
+		color: #25262b;
+	}
+
+	.footer-detail {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.footer-navbar {
+		display: flex;
+		gap: 24px;
+	}
+
+	.navbar {
+		display: flex;
+		gap: 8px;
+	}
+
+	.navbar h4 {
+		font-size: 14px;
+		font-weight: 700;
+	}
+
+	.navbar a {
+		color: #f8f9fa;
+		font-size: 14px;
+		text-decoration: none;
+	}
+
+	.navbar a:hover {
+		color: #cefe00;
+	}
+
+	.footer-note {
+		font-size: 12px;
+		line-height: 14px;
+	}
+
+  /* styles for responsiveness */
+  
+	@media screen and (max-width: 1100px) {
+		.footer-detail {
+			flex-direction: column;
+			gap: 44px;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			padding-bottom: 16px;
+			margin: 24px 32px 0px;
+		}
+
+		.section-heading {
+			right: 24px;
+		}
+
+		.content-wrapper {
+			flex-direction: column;
+			margin-bottom: 32px;
+		}
+
+		.content-wrapper .column {
+			border-bottom: 1px solid #ebf1f7;
+			padding-bottom: 30px;
+		}
+
+		.footer-navbar {
+			flex-direction: column;
+			gap: 8px;
+			margin-bottom: 0px;
+		}
+
+		.navbar {
+			align-items: center;
+		}
+
+		.navbar a,
+		h4 {
+			font-size: 12px;
+		}
+
+		.navbar h4 {
+			width: 74px;
+		}
+	}
+</style>
