@@ -91,7 +91,7 @@ import { Icon } from "astro-icon/components";
 
   .fact-card {
     /* flex: 0 1 100%; */
-    max-width: 384px;
+    width: 384px;
     border: none;
     background-color: white;
     border-radius: 8px;
@@ -154,6 +154,13 @@ import { Icon } from "astro-icon/components";
   .card-controls .bar.active {
     opacity: 1;
   }
+
+  @media screen and (max-width: 1024px) {
+    .fact-card {
+      padding: 18px 40px 18px 16px;
+    }
+  }
+
 
   @media screen and (max-width: 768px) {
     .section-container {
