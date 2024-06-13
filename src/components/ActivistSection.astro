@@ -177,6 +177,22 @@ import activistJSON from "../data/activist.json";
     font-size: 12px;
   }
 
+  @media screen and (max-width: 1024px) {
+
+    .activist-container {
+        flex-wrap: wrap;
+      }
+
+    .activist-card {
+      width: 370px;
+      width: 45%;
+    }
+
+    .profile-wrapper {
+      height: 224px;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .section-container {
       margin: 24px 32px 64px;
@@ -185,6 +201,7 @@ import activistJSON from "../data/activist.json";
     .activist-container {
       overflow: hidden;
       justify-content: flex-start;
+      flex-wrap:nowrap;
       gap: 0px;
       max-width: 342px;
       margin: 0 auto;
@@ -192,6 +209,10 @@ import activistJSON from "../data/activist.json";
 
     .activist-card {
       min-width: 100%;
+    }
+
+    .profile-wrapper {
+      height: 189px;
     }
 
     .card-controls {
