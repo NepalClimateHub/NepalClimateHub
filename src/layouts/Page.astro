@@ -20,7 +20,7 @@ const { title } = Astro.props
 
 <BaseLayout title={title}>
 
-  <div class="main-container">
+  <main class="main-container">
     <section class="hero-section">
       <Header />
       <HeroContent />
@@ -29,31 +29,36 @@ const { title } = Astro.props
     <section class="cta-section">
       <CtaSection />
     </section>
-  </div>
-
-  <section class="fact-section">
-    <FactSection />
-  </section>
-
-  <section class="activist-section">
-    <ActivistSection />
-  </section>
   
-  <section class="organizatin-section">
-    <FeaturedOrganizationSection />
-  </section>
+    <section class="fact-section">
+      <FactSection />
+    </section>
 
-  <section class="news-section">
-    <FeaturedNewsSection />
-  </section>
+    <section class="activist-section">
+      <ActivistSection />
+    </section>
+    
+    <section class="organizatin-section">
+      <FeaturedOrganizationSection />
+    </section>
 
-  <section class="footer-section">
-    <Footer />
-  </section>
+    <section class="news-section">
+      <FeaturedNewsSection />
+    </section>
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+
+  </main>
 
 </BaseLayout>
 
 <style>
+
+  section {
+    padding: 0px 48px;
+  }
 
   .hero-section {
     height: 488px;
@@ -70,5 +75,11 @@ const { title } = Astro.props
     background-color: #1A1B1E;
     color: white;
   }
+
+@media  screen and (max-width: 768px) {
+  section {
+    padding: 0px;
+  }
+}
 
 </style>
