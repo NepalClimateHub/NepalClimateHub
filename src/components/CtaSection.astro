@@ -12,13 +12,10 @@ import "../styles/global.css";
 
 	<div class="video-section">
 		<h3 class="video-title">
-			UN Chief calls for climate action at Mt. Everest
+			UN Chief calls for climate action from Mt. Everest
 		</h3>
 		<div class="video">
-			<img
-				src="https://pbs.twimg.com/amplify_video_thumb/1718900177451245568/img/BPUuz77Q3vfyDjEy.jpg"
-				alt=""
-			/>
+      <iframe src="https://www.youtube.com/embed/bN3gVb__tmA?si=1lgCaagaTFdJ7XY-" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 		</div>
 		<p class="description">
 			“The world cannot wait!” –UN chief, Antonio Guterres from the base of Mt.
@@ -42,18 +39,16 @@ import "../styles/global.css";
 
   .content-section .tagline {
     font-size: 30px;
-      font-weight: 700;
-      line-height: 36px;
-      font-family: "Zilla Slab";
-      margin-bottom: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    font-family: "Zilla Slab";
+    margin-bottom: 24px;
   }
 
   .content-section .cta-button {
     border: none;
     background-color: none;
     border-radius: 16px;
-
-    
   }
 
   .cta-button a {
@@ -80,14 +75,19 @@ import "../styles/global.css";
     grid-template-rows: 80px 80px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "video title" "video description";
-   grid-gap: 0px 16px;
+    grid-gap: 0px 16px;
   }
 
   .video {
     display: block;
     border-radius: 16px;
-    overflow: hidden;
     grid-area: video;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
   }
 
   .video-title {
@@ -95,36 +95,36 @@ import "../styles/global.css";
     line-height: 32px;
     font-weight: 700px;
     grid-area: title;
-   
   }
 
   .video-section .description {
     font-size: 12px;
     font-weight: 400px;
     line-height: 14px;
-   grid-area: description;
-   width: 85%;
+    grid-area: description;
+    width: 85%;
   }
 
   @media screen and (max-width: 1180px) {
-      .video-section {
-        
-        display: flex;
-        flex-direction: column;
-      }
+    .video-section {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .video {
-        height: 200px;
-        margin-bottom: 12px;
-      }
+    .video {
+      width: 100%;
+      margin: 0 auto;
+      height: 220px;
+      margin-bottom: 12px;
+    }
 
-      .video-title {
-        margin-bottom: 12px;
-      }
+    .video-title {
+      margin-bottom: 12px;
+    }
 
-      .video-section .description  {
-        width: 100%;
-      }
+    .video-section .description  {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -135,6 +135,10 @@ import "../styles/global.css";
 
     .content-section, .video-section {
       width: 100%;
+    }
+
+    .video {
+      max-width: 100%;
     }
   }
 </style>
