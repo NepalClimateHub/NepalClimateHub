@@ -3,6 +3,7 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import CardFilterSection from "@layouts/CardFilterSection.astro";
+import CardContentSection from "@layouts/CardContentSection.astro";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -22,5 +23,16 @@ import CardFilterSection from "@layouts/CardFilterSection.astro";
     <CardFilterSection />
   </section>
 
+  <section class="organization-cards-section">
+     <CardContentSection />
+  </section>
+
 	</main>
 </BaseLayout>
+
+
+<style>
+   section {
+    padding: 0px 48px;
+  }
+</style>
