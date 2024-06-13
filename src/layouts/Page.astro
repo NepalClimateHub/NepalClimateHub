@@ -1,74 +1,80 @@
 ---
-import Header from '@components/Header.astro'
-import HeroContent from '@components/HeroContent.astro'
-import CtaSection from '@components/CtaSection.astro'
-import FactSection from '@components/FactSection.astro'
-import ActivistSection from '@components/ActivistSection.astro'
-import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro'
-import FeaturedNewsSection from '@components/FeaturedNewsSection.astro'
-import Footer from '@components/Footer.astro'
-import '../styles/global.css'
+import Header from "@components/Header.astro";
+import HeroContent from "@components/HeroContent.astro";
+import CtaSection from "@components/CtaSection.astro";
+import FactSection from "@components/FactSection.astro";
+import ActivistSection from "@components/ActivistSection.astro";
+import FeaturedOrganizationSection from "@components/FeaturedOrganizationSection.astro";
+import FeaturedNewsSection from "@components/FeaturedNewsSection.astro";
+import Footer from "@components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
-  title: string
+	title: string;
 }
 
-import BaseLayout from './Layout.astro'
+import BaseLayout from "./Layout.astro";
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
+	<main class="main-container">
+		<section class="hero-section">
+			<Header />
+			<HeroContent />
+		</section>
 
-  <div class="main-container">
-    <section class="hero-section">
-      <Header />
-      <HeroContent />
-    </section>
+		<section class="cta-section">
+			<CtaSection />
+		</section>
 
-    <section class="cta-section">
-      <CtaSection />
-    </section>
-  </div>
+		<section class="fact-section">
+			<FactSection />
+		</section>
 
-  <section class="fact-section">
-    <FactSection />
-  </section>
+		<section class="activist-section">
+			<ActivistSection />
+		</section>
 
-  <section class="activist-section">
-    <ActivistSection />
-  </section>
-  
-  <section class="organizatin-section">
-    <FeaturedOrganizationSection />
-  </section>
+		<section class="organizatin-section">
+			<FeaturedOrganizationSection />
+		</section>
 
-  <section class="news-section">
-    <FeaturedNewsSection />
-  </section>
+		<section class="news-section">
+			<FeaturedNewsSection />
+		</section>
 
-  <section class="footer-section">
-    <Footer />
-  </section>
-
+		<section class="footer-section">
+			<Footer />
+		</section>
+	</main>
 </BaseLayout>
 
 <style>
+	section {
+		padding: 0px 48px;
+	}
 
-  .hero-section {
-    height: 488px;
-    background-image: url(../assets/hero-bg-mobile.png);
-    background-position: top;
-    background-size: cover;
-  }
+	.hero-section {
+		height: 488px;
+		background-image: url(../assets/hero-bg-mobile.png);
+		background-position: top;
+		background-size: cover;
+	}
 
-  .fact-section {
-    background-color: #CEFE00;
-  }
+	.fact-section {
+		background-color: #cefe00;
+	}
 
-  .footer-section {
-    background-color: #1A1B1E;
-    color: white;
-  }
+	.footer-section {
+		background-color: #1a1b1e;
+		color: white;
+	}
 
+	@media screen and (max-width: 768px) {
+		section {
+			padding: 0px;
+		}
+	}
 </style>
