@@ -3,7 +3,7 @@ import "../styles/global.css";
 ---
 
 <div class="section-container">
-	<div class="content">
+	<div class="content-section">
 		<p class="tagline">
 			A unifying knowledge hub to inspire collective climate action.
 		</p>
@@ -28,22 +28,32 @@ import "../styles/global.css";
 </div>
 
 <style>
-  .section-container {
-    padding: 24px 24px 28px;
+    .section-container {
+    margin: 53px auto 83px;
+    display: flex;
+    gap: 28px;
   }
 
-  .tagline {
-    font-family: "Zilla Slab";
-    font-size: 20px;
-    line-height: 26px;
-    font-weight: 700;
-    color: #1a1b1e;
-    margin-bottom: 20px;
+  .content-section {
+    width: 45%;
+    border-bottom: 2px solid #cefe00;
+    padding-bottom: 32px;
   }
 
-  .cta-button {
+  .content-section .tagline {
+    font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+      font-family: "Zilla Slab";
+      margin-bottom: 24px;
+  }
+
+  .content-section .cta-button {
     border: none;
-    background: none;
+    background-color: none;
+    border-radius: 16px;
+
+    
   }
 
   .cta-button a {
@@ -56,78 +66,75 @@ import "../styles/global.css";
     font-weight: 400;
     color: white;
     display: inline-block;
-    margin-bottom: 32px;
+    transition: all 0.1s ease-in-out;
   }
 
+  .cta-button a:hover {
+		background-color: #cefe00;
+		color: #25262b;
+	}
+
   .video-section {
-    border-top: 2px solid #cefe00;
-    padding-top: 24px;
+    width: 55%;
+    display: grid;
+    grid-template-rows: 80px 80px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "video title" "video description";
+   grid-gap: 0px 16px;
+  }
+
+  .video {
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    grid-area: video;
   }
 
   .video-title {
     font-size: 24px;
     line-height: 32px;
     font-weight: 700px;
-  }
-
-  .video {
-    height: 193px;
-    display: block;
-    border-radius: 16px;
-    overflow: hidden;
-    margin: 16px 0px;
+    grid-area: title;
+   
   }
 
   .video-section .description {
     font-size: 12px;
     font-weight: 400px;
     line-height: 14px;
+   grid-area: description;
+   width: 85%;
   }
 
-  /* media queries for desktop */
+  @media screen and (max-width: 1180px) {
+      .video-section {
+        
+        display: flex;
+        flex-direction: column;
+      }
 
-  @media screen and (min-width: 768px) {
-    .content {
-      border-bottom: 2px solid #cefe00;
-    }
+      .video {
+        height: 200px;
+        margin-bottom: 12px;
+      }
 
+      .video-title {
+        margin-bottom: 12px;
+      }
+
+      .video-section .description  {
+        width: 100%;
+      }
+  }
+
+  @media screen and (max-width: 768px) {
     .section-container {
-      margin: 40px auto 57px;
-      display: flex;
-      gap: 32px;
-      padding: 0;
+      margin: 24px 32px 64px;
+      flex-direction: column;
     }
 
-    .tagline {
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 36px;
-    }
-
-    .video-section {
-      padding: 0;
-      border-top: none;
-      display: grid;
-      grid-template-columns: 284px 1fr;
-      grid-template-rows: max-content auto;
-      grid-column-gap: 16px;
-      grid-template-areas: "video title" "video description";
-    }
-
-    .video {
-      grid-area: video;
-      margin: 0;
-      height: 162px;
-    }
-
-    .video-title {
-      grid-area: title;
-      margin-bottom: 8px;
-    }
-
-    .video-section .description  {
-      grid-area: description;
-      font-size: 16px;
+    .content-section, .video-section {
+      width: 100%;
     }
   }
 </style>

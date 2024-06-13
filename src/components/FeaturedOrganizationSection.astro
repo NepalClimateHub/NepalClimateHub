@@ -77,7 +77,7 @@ import organizationJSON from "../data/organization.json";
     width: 284px;
     border-radius: 8px;
     overflow: hidden;
-    background-color: #ebf1f7;
+    background-color: white;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
@@ -179,6 +179,23 @@ import organizationJSON from "../data/organization.json";
     font-size: 12px;
   }
 
+  @media screen and (max-width: 1024px) {
+
+  .organization-container {
+      flex-wrap: wrap;
+    }
+
+  .organization-card {
+    width: 370px;
+    width: 45%;
+  }
+
+  .logo-wrapper {
+    height: 224px;
+  }
+}
+
+
   @media screen and (max-width: 768px) {
     .section-container {
       margin: 24px 32px 64px;
@@ -187,6 +204,7 @@ import organizationJSON from "../data/organization.json";
     .organization-container {
       overflow: hidden;
       justify-content: flex-start;
+      flex-wrap:nowrap;
       gap: 0px;
       max-width: 342px;
       margin: 0 auto;
@@ -195,6 +213,11 @@ import organizationJSON from "../data/organization.json";
     .organization-card {
       min-width: 100%;
     }
+    
+    .logo-wrapper {
+      height: 189px;
+    }
+
 
     .card-controls {
       opacity: 1;
