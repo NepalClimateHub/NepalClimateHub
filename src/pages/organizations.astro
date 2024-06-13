@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
+import CardFilterSection from "@layouts/CardFilterSection.astro";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -15,6 +16,10 @@ import Header from "@components/Header.astro";
     <div class="mini-nav">
       <a href="#">Home</a>
     </div>
+  </section>
+
+  <section class="filter-section">
+    <CardFilterSection />
   </section>
 
 	</main>
