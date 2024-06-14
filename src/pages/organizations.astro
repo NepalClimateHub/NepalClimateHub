@@ -4,12 +4,14 @@ import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import CardFilterSection from "@layouts/CardFilterSection.astro";
 import CardContentSection from "@layouts/CardContentSection.astro";
+import Footer from "@components/Footer.astro";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
 	<main class="main-container">
 
   <!-- header section  -->
+  
   <section class="header-section">
     <Header logoColor="#1A1B1E" />
 
@@ -19,14 +21,20 @@ import CardContentSection from "@layouts/CardContentSection.astro";
     </div>
   </section>
 
-  <section class="filter-section">
-    <CardFilterSection />
+  <div class="organization-wrapper">
+    <section class="filter-section">
+      <CardFilterSection />
+    </section>
+  
+    <section class="organization-cards-section">
+       <CardContentSection />
+  </div>
+  
   </section>
 
-  <section class="organization-cards-section">
-     <CardContentSection />
-  </section>
-
+    <section class="footer-section">
+      <Footer />
+    </section>
 	</main>
 </BaseLayout>
 
@@ -34,5 +42,14 @@ import CardContentSection from "@layouts/CardContentSection.astro";
 <style>
    section {
     padding: 0px 48px;
+  }
+
+  .organization-wrapper {
+    background-color: #EBF1F7;
+  }
+
+  .footer-section {
+    background-color: #1A1B1E;
+    color: white;
   }
 </style>
