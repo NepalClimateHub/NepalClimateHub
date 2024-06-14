@@ -1,4 +1,4 @@
-import { co2 } from '@tgwf/co2'
+// import { co2 } from '@tgwf/co2'
 
 type ResourceCategoryId = 'media' | 'js' | 'css' | 'html' | 'other'
 
@@ -11,7 +11,8 @@ const IGNORED_RESOURCES = [
   /\/toolbar\/*/,
 ]
 
-const co2Emission = new co2()
+// TODO: What "@tgwf/co2" library does? Why do we need it?
+// const co2Emission = new co2()
 
 // @ts-ignore
 let speedEstimate = navigator?.connection?.downlink ?? 0
@@ -67,9 +68,9 @@ class Resource {
     return !this.name.startsWith(location.origin)
   }
 
-  get co2(): number {
-    return co2Emission.perByte(this.bytes, true)
-  }
+  // get co2(): number {
+  //   return co2Emission.perByte(this.bytes, true)
+  // }
 }
 
 class ResourceCategory {
@@ -91,28 +92,28 @@ class ResourceCategory {
     }
 
     // Add to the resources array
-    this.resources.push(new Resource(entry))
+    this._resources.push(new Resource(entry))
   }
 
-  get resources(): Resource[] {
-    // Sort resources by co2 emission
-    return this._resources.sort((a, b) => b.co2 - a.co2)
-  }
+  // get resources(): Resource[] {
+  //   // Sort resources by co2 emission
+  //   return this._resources.sort((a, b) => b.co2 - a.co2)
+  // }
 
   get totalBytes(): number {
-    return this.resources.reduce((total, resource) => total + resource.bytes, 0)
+    return this._resources.reduce((total, resource) => total + resource.bytes, 0)
   }
 
   get totalDuration(): number {
-    return this.resources.reduce(
+    return this._resources.reduce(
       (total, resource) => total + resource.duration,
       0
     )
   }
 
-  get totalCo2(): number {
-    return this.resources.reduce((total, resource) => total + resource.co2, 0)
-  }
+  // get totalCo2(): number {
+  //   return this.resources.reduce((total, resource) => total + resource.co2, 0)
+  // }
 }
 
 const baseResources: ResourceCategory[] = [
@@ -149,20 +150,20 @@ function getPerformanceEntryResouceCategory(
     : ''
 
   // Sometimes CSS loadeitem.encodedBodySize.average.valued by JS is detected as a script
-  if (['css', 'scss', 'sass', 'less'].includes(fileExtension)) {
+  if (['css', 'scss', 'sass', 'less'].includes(<string>fileExtension)) {
     category = 'css'
   }
 
   if (
     ['js', 'mjs', 'jsx', 'ts', 'tsx', 'cjs', 'vue', 'svelte'].includes(
-      fileExtension
+      <string>fileExtension
     )
   ) {
     category = 'js'
   }
 
   if (
-    ['svg', 'jpg', 'webp', 'avif', 'mp4', 'png', 'gif'].includes(fileExtension)
+    ['svg', 'jpg', 'webp', 'avif', 'mp4', 'png', 'gif'].includes(<string>fileExtension)
   ) {
     category = 'media'
   }
@@ -202,7 +203,7 @@ function getPerformanceResources(): ResourceCategory[] {
       speedEstimate = entry.transferSize / entry.duration / 1024
     }
 
-    resourceCategory.addEntry(entry)
+    resourceCategory?.addEntry(entry)
   }
 
   return resourceCategories
