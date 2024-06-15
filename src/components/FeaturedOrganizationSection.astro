@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
+import Card from "@layouts/Card.astro";
 
 //sample organization JSON data
-import organizationJSON from "../data/organization.json";
+import organizationJSON from "../data/organizations.json";
 ---
 
 <div class="section-container">
@@ -14,28 +15,8 @@ import organizationJSON from "../data/organization.json";
 	<!-- render the organization from organizationJSON -->
 	<div class="organization-container">
 		{
-			organizationJSON.organizations.map((organization) => (
-				<div class="organization-card">
-					<div class="logo-wrapper">
-						<img src={organization.logo} alt="" />
-					</div>
-					<div class="details">
-						<h3 class="organization-name">{organization.name}</h3>
-						<p class="location">
-							<span class="icon">
-								<Icon name="mdi:my-location" class="icon" />
-							</span>
-							<span class="address">{organization.address}</span>
-						</p>
-						<p class="about">{organization.about}</p>
-
-						<div class="tags">
-							{organization.tags.map((tag) => (
-								<span class="tag">{tag}</span>
-							))}
-						</div>
-					</div>
-				</div>
+			organizationJSON.slice(0,4).map((organization) => (
+				<Card data = {organization} />
 			))
 		}
 
