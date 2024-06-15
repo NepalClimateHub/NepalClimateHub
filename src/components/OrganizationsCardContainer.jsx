@@ -1,5 +1,5 @@
 import "../styles/global.css";
-import Card from "@layouts/Card";  
+import Card from "@layouts/Card.jsx";  
 import styles from "../styles/components/OrganizationsCardContainer.module.css";
 
 // Sample organization JSON data
