@@ -1,11 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
+const {logoColor} = Astro.props;
+
+export interface Props {
+  logoColor: string;
+}
 ---
 
 <!-- header section begins  -->
 <header class="section-container">
 	<div class="logo-wrapper">
-		<span class="logo">NEPAL CLIMATE HUB</span>
+		<a class="logo" style={`color: ${logoColor};`} href="/" >NEPAL CLIMATE HUB</a>
 	</div>
 
 	<!-- main nagivation bar -->
@@ -17,7 +22,7 @@ import { Icon } from "astro-icon/components";
 					></a
 				>
 				<ul class="sub-menu">
-					<li><a href="#">Organizations</a></li>
+					<li><a href="/organizations">Organizations</a></li>
 					<li><a href="#">Activists</a></li>
 					<li><a href="#">Events</a></li>
 				</ul>
@@ -103,7 +108,7 @@ import { Icon } from "astro-icon/components";
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;
-    color: white;
+    text-decoration: none;
   }
 
   /* mobile menu button */

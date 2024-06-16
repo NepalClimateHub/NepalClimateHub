@@ -26,3 +26,23 @@ body {
   max-width: 1280px;
   margin: 0 auto;
 }
+
+.mini-nav {
+  max-width: 1280px;
+  margin: -20px auto 12px;
+  margin-top: -20px;
+}
+
+.mini-nav a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 14px;
+  color: #364FC7;
+}
+
+@media screen and (max-width: 768px) {
+  .mini-nav {
+     margin: -10px 24px 12px;
+  }
+
+}

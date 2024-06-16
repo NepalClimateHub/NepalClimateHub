@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
+---
+
+<div class="section-container">
+  <h2 class="page-title">Organizations</h2>
+  <p class="page-tagline">Find your community</p>
+
+  <div class="filter-wrapper">
+    <button class="filter-btn">Filter by locations and causes <Icon name="dropdown" class="icon"></Icon> </button>  
+  </div> 
+</div>
+
+<style>
+
+  .page-title {
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 700;
+  }
+
+  .page-tagline {
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+
+.filter-btn {
+  width: 339px;
+  font-size: 14px;
+  font-family: Roboto;
+  line-height: 16px;
+  border-radius: 16px;
+  padding: 8px 16px;
+  text-align: left;
+  cursor: pointer;
+  background-color: transparent;
+  margin-bottom: 40px;
+}
+
+.filter-btn .icon {
+  transform: rotate(-90deg);
+  float: right;
+  font-size: 16px;
+}
+
+.filter-btn:hover {
+  background-color: #1A1B1E;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .section-container {
+    margin: 24px 32px 64px;
+  }
+
+  .filter-btn {
+    margin-bottom: 0px;
+  }
+}
+
+</style>
