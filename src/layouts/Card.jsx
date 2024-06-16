@@ -1,6 +1,6 @@
 import styles from '../styles/components/Card.module.css';
 
-const OrganizationCard = ({ data }) => {
+const Card = ({ data }) => {
   return (
     <div className={styles["organization-card"]}>
       <div className={styles["logo-wrapper"]}>
@@ -29,4 +29,4 @@ const OrganizationCard = ({ data }) => {
   );
 };
 
-export default OrganizationCard;
+export default Card;
