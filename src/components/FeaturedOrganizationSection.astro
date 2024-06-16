@@ -1,9 +1,8 @@
 ---
 import "../styles/global.css";
-import { Icon } from "astro-icon/components";
 
-//sample organization JSON data
-import organizationJSON from "../data/organization.json";
+//sample organization JSON organization
+import organizationJSON from "../data/organizations.json";
 ---
 
 <div class="section-container">
@@ -14,23 +13,20 @@ import organizationJSON from "../data/organization.json";
 	<!-- render the organization from organizationJSON -->
 	<div class="organization-container">
 		{
-			organizationJSON.organizations.map((organization, index) => (
+			organizationJSON.slice(0, 4).map((organization) => (
 				<div class="organization-card">
 					<div class="logo-wrapper">
-						<img src={organization.logo} alt="" />
+						<img src={organization.logoUrl} alt={organization.name} />
 					</div>
 					<div class="details">
 						<h3 class="organization-name">{organization.name}</h3>
 						<p class="location">
-							<span class="icon">
-								<Icon name="mdi:my-location" class="icon" />
-							</span>
+							<span class="icon"></span>
 							<span class="address">{organization.address}</span>
 						</p>
-						<p class="about">{organization.about}</p>
-
+						<p class="description">{organization.description}</p>
 						<div class="tags">
-							{organization.tags.map((tag) => (
+							{organization.tags.map((tag: string) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>
@@ -53,195 +49,188 @@ import organizationJSON from "../data/organization.json";
 	<a href="#" class="cta-link">See All</a>
 </div>
 
-
 <style>
-  .section-container {
-    margin: 53px auto 83px;
-    position: relative;
-  }
+	.section-container {
+		margin: 53px auto 83px;
+		position: relative;
+	}
 
-  .section-heading {
-    font-size: 24px;
-    font-weight: 700px;
-    line-height: 32px;
-    margin-bottom: 24px;
-  }
+	.section-heading {
+		font-size: 24px;
+		font-weight: 700px;
+		line-height: 32px;
+		margin-bottom: 24px;
+	}
 
-  .organization-container {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
+	.organization-container {
+		display: flex;
+		justify-content: center;
+		gap: 16px;
+	}
 
-  .organization-card {
-    width: 284px;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: white;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-  }
+	.organization-card {
+		max-width: 283px;
+		border-radius: 8px;
+		overflow: hidden;
+		background-color: white;
+		transition: transform 0.3s ease-in-out;
+		cursor: pointer;
+	}
 
-  .organization-card:hover {
-    outline: 1px solid #1a1b1e77;
-  }
+	.organization-card:hover {
+		outline: 1px solid #1a1b1e77;
+	}
 
-  .logo-wrapper {
-    height: 189px;
-    width: 100%;
-    background-color: #d1e1f1;
-   
-  }
+	.logo-wrapper {
+		height: 189px;
+		width: 100%;
+		background-color: #d1e1f1;
+	}
 
-  .logo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+	.logo-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
 
-  .organization-card .details {
-    margin: 16px 12px;
-  }
+	.organization-card .details {
+		margin: 16px 12px;
+	}
 
-  .organization-name {
-    font-weight: 700;
-    line-height: 20px;
-    margin-bottom: 12px;
-  }
+	.organization-name {
+		font-weight: 700;
+		line-height: 20px;
+		margin-bottom: 12px;
+	}
 
-  .location {
-    color: #364fc7;
-    font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+	.location {
+		color: #364fc7;
+		font-size: 14px;
+		line-height: 16px;
+		margin-bottom: 12px;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
 
-  .location .icon {
-    line-height: 16px;
-    display: block;
-  }
+	.location .icon {
+		line-height: 16px;
+		display: block;
+	}
 
-  .organization-card .about {
-    font-size: 14px;
-    line-height: 18px;
-    margin-bottom: 12px;
-  }
+	.organization-card .description {
+		font-size: 14px;
+		line-height: 18px;
+		margin-bottom: 12px;
+	}
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
 
-  .tag {
-    display: inline-block;
-    font-size: 12px;
-    color: #364fc7;
-    line-height: 14px;
-    padding: 5px 12px;
-    border: 1px solid #cefe00;
-    border-radius: 16px;
-  }
+	.tag {
+		display: inline-block;
+		font-size: 12px;
+		color: #364fc7;
+		line-height: 14px;
+		padding: 5px 12px;
+		border: 1px solid #cefe00;
+		border-radius: 16px;
+	}
 
-  .card-controls {
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    opacity: 0;
-  }
+	.cta-link {
+		display: block;
+		position: absolute;
+		top: 10px;
+		right: 0;
+		color: #364fc7;
+		font-size: 12px;
+	}
 
-  .card-controls .bar {
-    display: block;
-    width: 25px;
-    height: 5px;
-    border-radius: 2px;
-    background-color: #1a1b1e;
-    opacity: 0.5;
-    cursor: pointer;
-  }
+	.card-controls {
+		position: absolute;
+		bottom: -60px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		gap: 8px;
+		opacity: 0;
+	}
 
-  .card-controls .bar.active {
-    opacity: 1;
-  }
+	.card-controls .bar {
+		display: block;
+		width: 25px;
+		height: 5px;
+		border-radius: 2px;
+		background-color: #1a1b1e;
+		opacity: 0.5;
+		cursor: pointer;
+	}
 
-  .cta-link {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 0;
-    color: #364fc7;
-    font-size: 12px;
-  }
+	.card-controls .bar.active {
+		opacity: 1;
+	}
 
-  @media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1024px) {
+		.organization-container {
+			flex-wrap: wrap;
+		}
 
-  .organization-container {
-      flex-wrap: wrap;
-    }
+		.organization-card {
+			width: 370px;
+			min-width: 45%;
+		}
 
-  .organization-card {
-    width: 370px;
-    width: 45%;
-  }
+		.logo-wrapper {
+			height: 224px;
+		}
+	}
 
-  .logo-wrapper {
-    height: 224px;
-  }
-}
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 32px 64px;
+		}
 
+		.organization-container {
+			overflow: hidden;
+			justify-content: flex-start;
+			flex-wrap: nowrap;
+			gap: 0px;
+			max-width: 342px;
+			margin: 0 auto;
+		}
 
-  @media screen and (max-width: 768px) {
-    .section-container {
-      margin: 24px 32px 64px;
-    }
+		.organization-card {
+			min-width: 100%;
+		}
 
-    .organization-container {
-      overflow: hidden;
-      justify-content: flex-start;
-      flex-wrap:nowrap;
-      gap: 0px;
-      max-width: 342px;
-      margin: 0 auto;
-    }
+		.logo-wrapper {
+			height: 189px;
+		}
 
-    .organization-card {
-      min-width: 100%;
-    }
-    
-    .logo-wrapper {
-      height: 189px;
-    }
-
-
-    .card-controls {
-      opacity: 1;
-      bottom: -32px;
-    }
-  }
+		.card-controls {
+			opacity: 1;
+			bottom: -32px;
+		}
+	}
 </style>
 
 <script>
+	// reuse the slider function
+	import { slider } from "../utils/slider.ts";
 
-  // reuse the slider function
-  import { slider } from "../utils/slider.ts";
+	// function to initialize the slider after DOM is fully loaded
+	const initSlider = () => {
+		const cards = document.querySelectorAll<HTMLElement>(".organization-card");
+		const slideControlButtons = document.querySelectorAll<HTMLElement>(
+			".bar-organization-section"
+		);
 
-  // function to initialize the slider after DOM is fully loaded
-  const initSlider = () => {
-    const cards = document.querySelectorAll<HTMLElement>(".organization-card");
-    const slideControlButtons = document.querySelectorAll<HTMLElement>(
-      ".bar-organization-section"
-    );
+		slider(cards, slideControlButtons);
+	};
 
-    slider(cards, slideControlButtons);
-  };
-
-  // execute the function once the DOM is loaded
-  window.addEventListener("DOMContentLoaded", initSlider);
- 
+	// execute the function once the DOM is loaded
+	window.addEventListener("DOMContentLoaded", initSlider);
 </script>
