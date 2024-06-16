@@ -29,4 +29,11 @@
 .load-more-btn:hover {
   background-color: #1a1b1e;
   color: white;
+} 
+
+@media screen and (max-width: 768px) {
+  .section-container {
+    margin: 0px 32px 64px;
+  }
+
 }
