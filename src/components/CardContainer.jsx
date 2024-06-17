@@ -1,6 +1,6 @@
 import "../styles/global.css";
 import Card from "@layouts/Card.jsx";
-import styles from "../styles/components/OrganizationsCardContainer.module.css";
+import styles from "../styles/components/CardContainer.module.css";
 import { useState, useEffect } from "react";
 
 // Sample organization JSON data
