@@ -1,0 +1,179 @@
+<div class="section-container">
+	<!-- container for organization card -->
+	<div class="organization-card">
+		<div class="organization-details-wrapper">
+			<h2 class="organization-name">
+				Nepalese Youth for Climate Action (NYCA) - Dang Chapter
+			</h2>
+			<div class="address">Dang</div>
+			<div class="detail">
+				<p>
+					The Dang Chapter of the Nepalese Youth for Climate Action (NYCA) is a
+					group of passionate young activists dedicated to raising awareness
+					about climate change and promoting environmental sustainability in the
+					Dang district of midwestern Nepal. Fromed in 2020, this grassroots
+					organization beings together students, recent graduates, and other
+					concerned youth from across Dang.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras
+					adipiscing enim eu turpis egestas pretium aenean pharetra magna.
+					Mattis aliquam faucibus purus in massa tempor nec feugiat. Enim
+					blandit volutpat maecenas volutpat blandit aliquam. Tortor at risus
+					viverra adipiscing at in.
+				</p>
+			</div>
+
+			<!-- tags for organizations causes -->
+			<div class="tags">
+				<span class="tag">Environment</span>
+				<span class="tag">Youth</span>
+			</div>
+		</div>
+
+		<!-- image container section -->
+		<div class="img-container">
+			<!-- first image -->
+			<div class="img-wrapper">
+				<img
+					src="https://scontent.fktm21-1.fna.fbcdn.net/v/t39.30808-6/372036060_690071433150047_4578420682474269291_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=iKuZoUALsMIQ7kNvgEG35-4&_nc_ht=scontent.fktm21-1.fna&oh=00_AYA9d0RscGGXaPRSoG42ZA_FcCltfWOp1un4DXu8pMfKGw&oe=6675918A"
+					alt=""
+				/>
+			</div>
+
+			<!-- second image -->
+			<div class="img-wrapper">
+				<img
+					src="https://scontent.fktm21-1.fna.fbcdn.net/v/t39.30808-6/376819216_690072029816654_4939211582927645464_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=H3qY_DTBA4oQ7kNvgGyRt9J&_nc_ht=scontent.fktm21-1.fna&oh=00_AYCA_0JJC7JHIZ9hDgllK52qVuWMrgChOu2tXtcTdp1CAw&oe=66758BA2"
+					alt=""
+				/>
+			</div>
+
+			<!-- third image -->
+			<div class="img-wrapper">
+				<img
+					src="https://scontent.fktm21-1.fna.fbcdn.net/v/t39.30808-6/372048832_690071986483325_7074296423433407612_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oF2rdLtmXzUQ7kNvgEAtis9&_nc_ht=scontent.fktm21-1.fna&oh=00_AYDzWsMSo9dqCIZKmqLMGrN-lXtqcZOUCfPowCs4XPLMNg&oe=667567DE"
+					alt=""
+				/>
+			</div>
+
+			<!-- fourth image -->
+			<div class="img-wrapper">
+				<img
+					src="https://scontent.fktm21-1.fna.fbcdn.net/v/t39.30808-6/372040174_690072083149982_2616898795787100158_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=UJ_q6rB8QIsQ7kNvgFJ7AsR&_nc_ht=scontent.fktm21-1.fna&oh=00_AYAz08gRluxLqT7aqLdjALY3XWvicoRPi-QWfBxSYjy2Bg&oe=667585D9"
+					alt=""
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.organization-card {
+		margin: 36px 0px 32px;
+		display: flex;
+		gap: 16px;
+	}
+
+	.organization-details-wrapper {
+		width: 50%;
+	}
+
+	.organization-name {
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 40px;
+		margin-bottom: 23px;
+	}
+
+	.address {
+		font-size: 14px;
+		line-height: 16px;
+		color: #003894;
+		margin-bottom: 27px;
+	}
+
+	.detail {
+		margin-bottom: 19px;
+	}
+
+	.detail p {
+		line-height: 24px;
+		margin-bottom: 16px;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.tag {
+		display: inline-block;
+		font-size: 12px;
+		color: #364fc7;
+		line-height: 14px;
+		padding: 5px 12px;
+		border: 1px solid #cefe00;
+		border-radius: 16px;
+	}
+
+	.img-container {
+		width: 50%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		align-content: end;
+	}
+
+	.img-wrapper {
+		width: 48%;
+		height: 214px;
+		border-radius: 16px;
+	}
+
+	.img-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 16px;
+	}
+
+	/* style for responsiveness */
+
+	@media screen and (max-width: 924px) {
+		.img-container {
+			gap: 16px;
+		}
+
+		.img-wrapper {
+			width: 46%;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 24px 64px;
+		}
+
+		.organization-card {
+			flex-direction: column;
+			gap: 24px;
+		}
+
+		.organization-details-wrapper,
+		.img-container {
+			width: 100%;
+		}
+
+		.img-container {
+			gap: 8px;
+		}
+
+		.img-wrapper {
+			width: 48%;
+			height: 160px;
+		}
+	}
+</style>
