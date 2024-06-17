@@ -1,11 +1,23 @@
 ---
-import "../styles/global.css";
-import BaseLayout from "../layouts/Layout.astro";
+import type { GetStaticPaths } from "astro";
+import "../../styles/global.css";
+import BaseLayout from "../../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
 import ConnectCard from "@components/ConnectCard.astro";
 import FeaturedOrganizationSection from "@components/FeaturedOrganizationSection.astro";
 import Footer from "@components/Footer.astro";
+
+export function getStaticPaths() {
+  return [
+    {params: {organizationName: 'bignaharta-nepal'}},
+    {params: {organizationName: 'digobikas-institute'}},
+    {params: {organizationName: 'nepalese-youth-in-climate-action'}},
+  ];
+}
+
+const { organizationName } = Astro.params;
+
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -46,7 +58,6 @@ import Footer from "@components/Footer.astro";
 	 padding: 0px 48px;
  }
 
- 
  .connect-card-section {
     background-color: #CEFE00;
   }
