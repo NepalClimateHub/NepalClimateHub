@@ -1,31 +1,31 @@
 [
 	{
 		"id": 1,
-		"name": "Bignaharta Nepal",
-		"description": "Bighnaharta Nepal aims to provide emergency response, disaster risk reduction, and community resilience building in Nepal.",
-		"address": "Pulchowk Road, Lalitpur, Nepal",
+		"name": "Nepalese Youth for Climate Action (NYCA) - Dang Chapter",
+		"description": "The Dang Chapter of the Nepalese Youth for Climate Action (NYCA) is a group of passionate young activists dedicated to raising awareness about climate change and promoting environmental sustainability in the Dang district of midwestern Nepal. Fromed in 2020, this grassroots organization beings together students, recent graduates, and other concerned youth from across Dang. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Mattis aliquam faucibus purus in massa tempor nec feugiat. Enim blandit volutpat maecenas volutpat blandit aliquam. Tortor at risus viverra adipiscing at in.",
+		"address": " Talchikhel, Lalitpur, Nepal, Lalitpur, Nepal",
 		"contact": {
-			"email": "info@bighnaharta.org",
+			"email": "nyca.np@gmail.com",
 			"phone": "+977 9818349762"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/bighnahartanp",
-			"linkedin": "https://www.linkedin.com/company/bighnaharta-nepal/",
-			"instagram": "https://www.instagram.com/bighnaharta_nepal/"
+			"facebook": "https://www.facebook.com/NYCANepal/",
+			"linkedin": "https://np.linkedin.com/company/nyca-nepal",
+			"instagram": "https://www.instagram.com/nyca.nepal/"
 		},
-		"website": "https://bighnaharta.org/",
+		"website": "https://nyca.net.np/",
 		"tags": [
-			"community resilience",
-			"disaster response",
-			"climate adaptation",
-			"indigenous community"
+			"environment",
+			"youth",
+			"climate awareness",
+			"campaign"
 		],
-		"logoUrl": "https://bighnaharta.org/assets/images/settings/default_logo.png",
+		"logoUrl": "https://nyca.net.np/images/logo.png",
 		"pictures": [
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
+			"https://annapurnaexpress.prixacdn.net/media/albums/climate_change.jpg_noPgo9PwR4.PNG",
+			"https://nyca.net.np/uploads/original/woman-empowerment-fav50lRMwfO9ochwEWlUo52IjftHGYx8Lq5fF7vZ.jpg",
+			"https://annapurnaexpress.prixacdn.net/media/albums/climate_change.jpg_noPgo9PwR4.PNG",
+			"https://nyca.net.np/uploads/original/woman-empowerment-fav50lRMwfO9ochwEWlUo52IjftHGYx8Lq5fF7vZ.jpg"
 		]
 	},
 	{
