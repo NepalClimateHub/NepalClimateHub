@@ -1,9 +1,8 @@
 ---
-import type { GetStaticPaths } from "astro";
 import "../../styles/global.css";
 import BaseLayout from "../../layouts/Layout.astro";
 import Header from "@components/Header.astro";
-import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
+import CardDetailSection from "@layouts/CardDetailSection.astro";
 import ConnectCard from "@components/ConnectCard.astro";
 import FeaturedOrganizationSection from "@components/FeaturedOrganizationSection.astro";
 import Footer from "@components/Footer.astro";
@@ -36,11 +35,11 @@ const { organizationName } = Astro.params;
 		</section>
 
     <section class="organization-card-section">
-      <OrganizationDetailCard />
+      <CardDetailSection cardId= 0 organization = "true" />
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard />
+			<ConnectCard cardId= 0 organization = "true" />
 		</section>
 
 		<section class="organization-section">
