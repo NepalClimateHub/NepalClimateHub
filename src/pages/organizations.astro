@@ -3,7 +3,7 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import CardFilterSection from "@layouts/CardFilterSection.astro";
-import OrganizationsCardContainer from "@components/OrganizationsCardContainer.jsx"
+import CardContainer from "@components/CardContainer.jsx";
 import Footer from "@components/Footer.astro";
 ---
 
@@ -27,7 +27,7 @@ import Footer from "@components/Footer.astro";
     </section>
   
     <section class="organization-cards-section">
-       <OrganizationsCardContainer client:load/>
+       <CardContainer client:load/>
   </div>
   
   </section>
