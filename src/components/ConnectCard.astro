@@ -1,0 +1,136 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="section-container">
+	<h2 class="section-heading">Connect</h2>
+
+	<!-- container to wrap all three connecting mediums -->
+
+	<div class="connect-card-container">
+		<!-- connect card one -->
+
+		<div class="connect-card">
+			<h3 class="title">Website</h3>
+			<a href="#">https://nyca.net.np/</a>
+			<div class="icon-wrapper">
+				<Icon name="mdi:web" class="icon" />
+			</div>
+		</div>
+
+		<!-- connect card two -->
+
+		<div class="connect-card">
+			<h3 class="title">Social</h3>
+			<a href="#">Facebook</a>
+			<span class="separator">|</span>
+			<a href="#">Instagram</a>
+			<span class="separator">|</span>
+			<a href="#">LinkedIn</a>
+
+			<div class="icon-wrapper">
+				<Icon name="mdi:user" class="icon" />
+			</div>
+		</div>
+
+		<!-- connect card three -->
+
+		<div class="connect-card">
+			<h3 class="title">Contact</h3>
+			<a href="#">https://nyca.net.np/</a>
+			<div class="icon-wrapper">
+				<Icon name="mdi:email" class="icon" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.section-container {
+		padding: 48px 0px;
+		position: relative;
+	}
+
+	.section-heading {
+		position: absolute;
+		top: -18px;
+		font-weight: 700;
+		font-size: 32px;
+		padding: 0px 16px;
+		color: white;
+		background-color: #1a1b1e;
+		transform: rotate(-3deg);
+		opacity: 1;
+	}
+
+	.connect-card-container {
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		width: 100%;
+		gap: 16px;
+	}
+
+	.connect-card {
+		width: 381px;
+		border: none;
+		background-color: white;
+		border-radius: 8px;
+		padding: 18px 28px 25px 28px;
+		position: relative;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.title {
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 24px;
+		margin-bottom: 16px;
+	}
+
+	.connect-card a {
+		color: #3b5bdb;
+		font-size: 16px;
+		line-height: 18px;
+	}
+
+	.icon-wrapper {
+		border: 1px solid black;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background-color: #1a1b1e;
+		position: absolute;
+		top: 16px;
+		right: 16px;
+	}
+
+	.icon {
+		color: white;
+	}
+
+  /* styles for responsiveness */
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 32px 32px;
+		}
+
+		.section-heading {
+			top: -40px;
+		}
+
+		.connect-card-container {
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.connect-card {
+			width: 100%;
+		}
+	}
+</style>
