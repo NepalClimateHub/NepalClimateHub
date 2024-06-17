@@ -27,7 +27,7 @@ console.log(startIndex,  endIndex);
 							<span class="icon"></span>
 							<span class="address">{organization.address}</span>
 						</p>
-						<p class="description">{organization.description}</p>
+						<p class="description">{organization.description.substring(0, 112)}...</p>
 						<div class="tags">
 							{organization.tags.map((tag: string) => (
 								<span class="tag">{tag}</span>

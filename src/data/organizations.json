@@ -2,8 +2,8 @@
 	{
 		"id": 1,
 		"name": "Nepalese Youth for Climate Action (NYCA) - Dang Chapter",
-		"description": "The Dang Chapter of the Nepalese Youth for Climate Action (NYCA) is a group of passionate young activists dedicated to raising awareness about climate change and promoting environmental sustainability in the Dang district of midwestern Nepal. Fromed in 2020, this grassroots organization beings together students, recent graduates, and other concerned youth from across Dang. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Mattis aliquam faucibus purus in massa tempor nec feugiat. Enim blandit volutpat maecenas volutpat blandit aliquam. Tortor at risus viverra adipiscing at in.",
-		"address": " Talchikhel, Lalitpur, Nepal, Lalitpur, Nepal",
+		"description": "The Dang Chapter of the Nepalese Youth for Climate Action (NYCA) is a group of passionate young activists dedicated to raising awareness about climate change and promoting environmental sustainability in the Dang district of midwestern Nepal. <br> Fromed in 2020, this grassroots organization beings together students, recent graduates, and other concerned youth from across Dang. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Mattis aliquam faucibus purus in massa tempor nec feugiat. Enim blandit volutpat maecenas volutpat blandit aliquam. Tortor at risus viverra adipiscing at in.",
+		"address": " Talchikhel, Lalitpur, Nepal",
 		"contact": {
 			"email": "nyca.np@gmail.com",
 			"phone": "+977 9818349762"
