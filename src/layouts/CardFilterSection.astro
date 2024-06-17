@@ -1,11 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import "../styles/global.css";
+
+const {heading, tagline} = Astro.props;
 ---
 
 <div class="section-container">
-  <h2 class="page-title">Organizations</h2>
-  <p class="page-tagline">Find your community</p>
+  <h2 class="page-title">{heading}</h2>
+  <p class="page-tagline">{tagline}</p>
 
   <div class="filter-wrapper">
     <button class="filter-btn">Filter by locations and causes <Icon name="dropdown" class="icon"></Icon> </button>  
