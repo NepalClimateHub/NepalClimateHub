@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
+import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -13,11 +14,27 @@ import Header from "@components/Header.astro";
 
 			<!-- a mini navbar -->
 			<div class="mini-nav">
-				<a href="/">Home</a> 
+				<a href="/">Home</a>
+				<span style="color: #364FC7">/</span>
+				<a href="/organizations">Organizations</a>
 			</div>
 		</section>
 
-		<div class="organization-detail-wrapper"></div>
-
+    <section class="organization-card">
+      <OrganizationDetailCard />
+    </section>
 	</main>
 </BaseLayout>
+
+<style>
+	section {
+	 padding: 0px 48px;
+ }
+
+ @media  screen and (max-width: 768px) {
+  section {
+    padding: 0px;
+  }
+}
+
+</style>
