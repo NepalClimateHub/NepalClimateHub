@@ -3,30 +3,30 @@ import Card from "@layouts/Card.jsx";
 import styles from "../styles/components/CardContainer.module.css";
 import { useState, useEffect } from "react";
 
-// Sample organization JSON data
-import organizationJSON from "../data/organizations.json";
+// cardsArray consists of JSON data of either organizations or climate activists
+// this is a reuseable template in organization landing page card section and activists landing page card sections
 
-const OrganizationsCardContainer = () => {
-	let [organizationCounter, setOrganizationCounter] = useState(12);
+const CardContainer = ({cardsArray}) => {
+	let [cardCounter, setCardCounter] = useState(12); // initially show 12 cards
 	let [isBtnVisible, setIsBtnVisible] = useState(true);
 
 	function handleLoadMore() {
-		setOrganizationCounter((prevCounter) => prevCounter + 4);
+		setCardCounter((prevCounter) => prevCounter + 4); // while clicked show more button, show four more cards
 	}
 
 	useEffect(() => {
-		if (organizationCounter >= organizationJSON.length) {
-			setIsBtnVisible(false);
+		if (cardCounter >= cardsArray.length) {
+			setIsBtnVisible(false); // hide the show more btn if all cards are shown
 		}
-	}, [organizationCounter]);
+	}, [cardCounter]);
 
 	return (
 		<div className={`${styles["section-container"]} section-container`}>
 			<div className={styles["card-wrapper"]}>
-				{organizationJSON
-					.slice(0, organizationCounter)
-					.map((organization, index) => (
-						<Card key={index} data={organization} />
+				{cardsArray
+					.slice(0, cardCounter)
+					.map((cardData, index) => (
+						<Card key={index} data={cardData} />
 					))}
 			</div>
 
@@ -39,4 +39,4 @@ const OrganizationsCardContainer = () => {
 	);
 };
 
-export default OrganizationsCardContainer;
+export default CardContainer;
