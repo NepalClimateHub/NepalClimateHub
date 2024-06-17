@@ -3,8 +3,11 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import CardFilterSection from "@layouts/CardFilterSection.astro";
-import OrganizationsCardContainer from "@components/OrganizationsCardContainer.jsx"
+import CardContainer from "@components/CardContainer.jsx";
 import Footer from "@components/Footer.astro";
+
+// get organizations JSON data
+import OrganizationsJSON from "../data/organizations.json";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -23,11 +26,11 @@ import Footer from "@components/Footer.astro";
 
   <div class="organization-wrapper">
     <section class="filter-section">
-      <CardFilterSection />
+      <CardFilterSection heading = "Organizations" tagline = "Find your community" />
     </section>
   
     <section class="organization-cards-section">
-       <OrganizationsCardContainer client:load/>
+       <CardContainer client:load cardsArray = {OrganizationsJSON }/>
   </div>
   
   </section>
