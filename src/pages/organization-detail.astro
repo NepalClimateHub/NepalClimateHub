@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
 import ConnectCard from "@components/ConnectCard.astro";
+import FeaturedOrganizationSection from "@components/FeaturedOrganizationSection.astro";
 import Footer from "@components/Footer.astro";
 ---
 
@@ -28,6 +29,10 @@ import Footer from "@components/Footer.astro";
 
 		<section class="connect-card-section">
 			<ConnectCard />
+		</section>
+
+		<section class="organization-section">
+			<FeaturedOrganizationSection startIndex = 0 endIndex = 4 title="Similar Organizations" />
 		</section>
 
 		<section class="footer-section">
