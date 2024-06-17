@@ -3,6 +3,7 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
+import ConnectCard from "@components/ConnectCard.astro";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -20,9 +21,13 @@ import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
 			</div>
 		</section>
 
-    <section class="organization-card">
+    <section class="organization-card-section">
       <OrganizationDetailCard />
     </section>
+
+		<section class="connect-card-section">
+			<ConnectCard />
+		</section>
 	</main>
 </BaseLayout>
 
@@ -30,6 +35,11 @@ import OrganizationDetailCard from "@layouts/Organization-detail-card.astro";
 	section {
 	 padding: 0px 48px;
  }
+
+ 
+ .connect-card-section {
+    background-color: #CEFE00;
+  }
 
  @media  screen and (max-width: 768px) {
   section {
