@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/Layout.astro";
+import Header from "@components/Header.astro";
+---
+
+<BaseLayout title="Nepal Climate Hub">
+	<main class="main-container">
+		<!-- header section  -->
+
+		<section class="header-section">
+			<Header logoColor="#1A1B1E" />
+
+			<!-- a mini navbar -->
+			<div class="mini-nav">
+				<a href="/">Home</a> 
+			</div>
+		</section>
+
+		<div class="organization-detail-wrapper"></div>
+
+	</main>
+</BaseLayout>
