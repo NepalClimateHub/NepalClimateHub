@@ -1,6 +1,22 @@
 ---
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
+
+import organizationsJSON from "../data/organizations.json";
+import type { Organization } from "src/interfaces/organizationInterface";
+
+// ensure the imported JSON data is correctly typed
+const organizationsData: Organization[] = organizationsJSON;
+
+const { cardId, organization } = Astro.props;
+
+// initialize activeDataObject with a proper type
+let activeDataObject: Organization | null = null;
+
+// find the organization by cardId if the organization prop is true
+if (organization === "true") {
+  activeDataObject = organizationsData[cardId];
+}
 ---
 
 <div class="section-container">
@@ -13,7 +29,7 @@ import { Icon } from "astro-icon/components";
 
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
-			<a href="#">https://nyca.net.np/</a>
+			<a href={activeDataObject?.website || "#"}>{activeDataObject?.website}</a>
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
 			</div>
@@ -23,11 +39,11 @@ import { Icon } from "astro-icon/components";
 
 		<div class="connect-card">
 			<h3 class="title">Social</h3>
-			<a href="#">Facebook</a>
+			<a href={activeDataObject?.socials.facebook || "#"}>Facebook</a>
 			<span class="separator">|</span>
-			<a href="#">Instagram</a>
+			<a href={activeDataObject?.socials.instagram || "#"}>Instagram</a>
 			<span class="separator">|</span>
-			<a href="#">LinkedIn</a>
+			<a href={activeDataObject?.socials.linkedin || "#"}>LinkedIn</a>
 
 			<div class="icon-wrapper">
 				<Icon name="mdi:user" class="icon" />
@@ -38,7 +54,7 @@ import { Icon } from "astro-icon/components";
 
 		<div class="connect-card">
 			<h3 class="title">Contact</h3>
-			<a href="#">https://nyca.net.np/</a>
+			<a href={activeDataObject?.contact.email || "#"}>{activeDataObject?.contact.email}</a>
 			<div class="icon-wrapper">
 				<Icon name="mdi:email" class="icon" />
 			</div>
@@ -93,6 +109,7 @@ import { Icon } from "astro-icon/components";
 		color: #3b5bdb;
 		font-size: 16px;
 		line-height: 18px;
+		text-decoration: none;
 	}
 
 	.icon-wrapper {

@@ -17,7 +17,7 @@ const Card = ({ data }) => {
           <span className={styles.address}>{data.address}</span>
         </p>
         <p className={styles.description}>
-          {data.description}
+          {data.description.substring(0,112) + "..."}
         </p>
         <div className={styles.tags}>
           {data.tags.map((tag, index) => (
