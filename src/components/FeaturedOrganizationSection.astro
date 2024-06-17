@@ -3,17 +3,20 @@ import "../styles/global.css";
 
 //sample organization JSON organization
 import organizationJSON from "../data/organizations.json";
+const {startIndex, endIndex, title} = Astro.props;
+
+console.log(startIndex,  endIndex);
 ---
 
 <div class="section-container">
-	<h2 class="section-heading">Featured Organization</h2>
+	<h2 class="section-heading">{title}</h2>
 
 	<!-- container to wrap organization cards -->
 
 	<!-- render the organization from organizationJSON -->
 	<div class="organization-container">
 		{
-			organizationJSON.slice(0, 4).map((organization) => (
+			organizationJSON.slice(startIndex, endIndex).map((organization) => (
 				<div class="organization-card">
 					<div class="logo-wrapper">
 						<img src={organization.logoUrl} alt={organization.name} />
