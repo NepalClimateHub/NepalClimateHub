@@ -2,8 +2,13 @@
 import organizationsJSON from "../data/organizations.json";
 import type { Organization } from "../interfaces/organizationInterface";
 
+import activistsJSON from "../data/activists.json";
+
 // ensure the imported JSON data is correctly typed
 const organizationsData: Organization[] = organizationsJSON;
+
+// the type is same as organization JSON
+const activistsData: Organization[] = activistsJSON;
 
 const { cardId, organization } = Astro.props;
 
@@ -12,7 +17,9 @@ let activeDataObject: Organization | null = null;
 
 // find the organization by cardId if the organization prop is true
 if (organization === "true") {
-  activeDataObject = organizationsData[cardId];
+	activeDataObject = organizationsData[cardId];
+} else {
+	activeDataObject = activistsData[cardId];
 }
 ---
 
@@ -41,17 +48,17 @@ if (organization === "true") {
 		<!-- image container section -->
 		<div class="img-container">
 			{
-				activeDataObject?.pictures.map((pictureURL) =>
-				// if length == 1, then apply single-image-wrapper class
-					activeDataObject?.pictures.length == 1 ? (
-						<div class="img-wrapper single-image-wrapper">
-							<img src={pictureURL} alt="" />
-						</div>
-					) : (
+				activeDataObject?.pictures.length == 1 ? (
+					// if length == 1, then apply single-image-wrapper class
+					<div class="img-wrapper single-image-wrapper">
+						<img src={activeDataObject.pictures[0]} alt="" />
+					</div>
+				) : (
+					activeDataObject?.pictures.map((pictureURL) => (
 						<div class="img-wrapper">
 							<img src={pictureURL} alt="" />
 						</div>
-					)
+					))
 				)
 			}
 		</div>
