@@ -6,6 +6,8 @@
   background-color: white;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
+  color: #1a1b1e;
+  text-decoration: none;
 }
 
 .organization-card:hover {
