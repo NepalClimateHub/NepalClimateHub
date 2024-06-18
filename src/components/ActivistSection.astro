@@ -3,21 +3,23 @@ import "../styles/global.css";
 import { Icon } from "astro-icon/components";
 
 //sample activist JSON data
-import activistJSON from "../data/activist.json";
+import activistJSON from "../data/activists.json";
+
+const {startIndex, endIndex, title} = Astro.props;
 ---
 
 <div class="section-container">
-	<h2 class="section-heading">Climate Champions</h2>
+	<h2 class="section-heading">{title}</h2>
 
 	<!-- container to wrap activist cards -->
 
 	<!-- render the activists from activistJSON -->
 	<div class="activist-container">
 		{
-			activistJSON.activists.map((activist) => (
+			activistJSON.slice(startIndex, endIndex).map((activist) => (
 				<div class="activist-card">
-					<div class="profile-wrapper">
-						<img src={activist.profilePicture} alt="" />
+					<div class="profile-wrapper"> 
+						<img src={activist.logoUrl} alt={activist.name} />
 					</div>
 					<div class="details">
 						<h3 class="activist-name">{activist.name}</h3>
@@ -27,7 +29,7 @@ import activistJSON from "../data/activist.json";
 							</span>
 							<span class="address">{activist.address}</span>
 						</p>
-						<p class="about">{activist.aboutPreface}</p>
+						<p class="about">{activist.description.substring(0, 112)}...</p>
 
 						<div class="tags">
 							{activist.tags.map((tag) => (
