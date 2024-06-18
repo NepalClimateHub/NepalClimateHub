@@ -7,15 +7,16 @@ import ConnectCard from "@components/ConnectCard.astro";
 import FeaturedOrganizationSection from "@components/FeaturedOrganizationSection.astro";
 import Footer from "@components/Footer.astro";
 
-export function getStaticPaths() {
-  return [
-    {params: {organizationName: 'bignaharta-nepal'}},
-    {params: {organizationName: 'digobikas-institute'}},
-    {params: {organizationName: 'nepalese-youth-in-climate-action'}},
-  ];
+import organizationsJSON from "../../data/organizations.json";
+
+export async function getStaticPaths() {
+    return organizationsJSON.map((organization) => ({
+    params: { organizationName: organization.slug }
+  }));
 }
 
 const { organizationName } = Astro.params;
+const organization = organizationsJSON.find((organization) => organization.slug === organizationName);
 
 ---
 
@@ -25,7 +26,7 @@ const { organizationName } = Astro.params;
 
 		<section class="header-section">
 			<Header logoColor="#1A1B1E" />
-
+ 
 			<!-- a mini navbar -->
 			<div class="mini-nav">
 				<a href="/">Home</a>
@@ -35,11 +36,11 @@ const { organizationName } = Astro.params;
 		</section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId= 0 organization = "true" />
+      <CardDetailSection cardId= 0 organization = "true" dataObj = {organization}/>
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard cardId= 0 organization = "true" />
+			<ConnectCard cardId= 0 organization = "true" dataObj = {organization} />
 		</section>
 
 		<section class="organization-section">

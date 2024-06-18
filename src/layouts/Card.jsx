@@ -1,8 +1,11 @@
 import styles from '../styles/components/Card.module.css';
 
-const Card = ({ data }) => {
+const Card = ({ data, dataType }) => {
+
+  let url = dataType == "organization"? `/organizations/${data.slug}` : `/climate-champions/${data.slug}`;
+
   return (
-    <a className={styles["organization-card"]} href={`/climate-champions/${data.slug}`}>
+    <a className={styles["organization-card"]} href={url}>
       <div className={styles["logo-wrapper"]}>
         <img
           src={data.logoUrl}

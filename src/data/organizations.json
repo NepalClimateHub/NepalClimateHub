@@ -1,8 +1,8 @@
 [
 	{
 		"id": 1,
-		"name": "Nepalese Youth for Climate Action (NYCA) - Dang Chapter",
-		"description": "The Dang Chapter of the Nepalese Youth for Climate Action (NYCA) is a group of passionate young activists dedicated to raising awareness about climate change and promoting environmental sustainability in the Dang district of midwestern Nepal. <br> Fromed in 2020, this grassroots organization beings together students, recent graduates, and other concerned youth from across Dang. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Mattis aliquam faucibus purus in massa tempor nec feugiat. Enim blandit volutpat maecenas volutpat blandit aliquam. Tortor at risus viverra adipiscing at in.",
+		"name": "Nepalese Youth for Climate Action (NYCA)",
+		"description": "Nepalese Youth for Climate Action (NYCA) is a youth-led coalition of Nepalese youth and youth groups dedicated to tackling climate change, which is the most significant challenge of our generation. Established on August 10, 2008, NYCA operates under the motto “Caring for Climate, Caring for Ourselves.” The organization strives to raise awareness about climate change on local, national, and international levels, educate and empower youth, and build networks of young people engaged in climate campaigns. <br> NYCA's objectives are multifaceted and ambitious. The organization aims to mobilize youth to achieve its goals and vision by conducting research and studies on various components of climate change. It supports the Nepalese government in international negotiations to advocate for Nepal’s and its member coalition's positions. Additionally, NYCA puts pressure on large greenhouse gas-emitting countries to make significant emission reductions and urges developed countries to provide adequate and predictable financial support for adaptation and technology transfer to developing countries. Moreover, NYCA campaigns for the Nepalese government to transition towards a low-carbon economy. <br> The overarching goal of NYCA is to protect Nepal and its people from the adverse impacts of climate change by spreading awareness, advocating for effective policies, and taking concrete actions. The organization aims to lead Nepal towards climate resilience by spearheading adaptation efforts and mitigating greenhouse gas emissions. NYCA envisions an economically prosperous and sustainable Nepal where youth actively lead society towards a cleaner and more sustainable future.",
 		"address": " Talchikhel, Lalitpur, Nepal",
 		"contact": {
 			"email": "nyca.np@gmail.com",
@@ -14,77 +14,70 @@
 			"instagram": "https://www.instagram.com/nyca.nepal/"
 		},
 		"website": "https://nyca.net.np/",
-		"tags": [
-			"environment",
-			"youth",
-			"climate awareness",
-			"campaign"
-		],
+		"tags": ["environment", "youth", "climate awareness", "campaign"],
 		"logoUrl": "https://nyca.net.np/images/logo.png",
 		"pictures": [
 			"https://annapurnaexpress.prixacdn.net/media/albums/climate_change.jpg_noPgo9PwR4.PNG",
 			"https://nyca.net.np/uploads/original/woman-empowerment-fav50lRMwfO9ochwEWlUo52IjftHGYx8Lq5fF7vZ.jpg",
 			"https://annapurnaexpress.prixacdn.net/media/albums/climate_change.jpg_noPgo9PwR4.PNG",
 			"https://nyca.net.np/uploads/original/woman-empowerment-fav50lRMwfO9ochwEWlUo52IjftHGYx8Lq5fF7vZ.jpg"
-		]
+		],
+		"slug": "nyca-nepal"
 	},
 	{
 		"id": 2,
-		"name": "Bignaharta Nepal",
-		"description": "Bighnaharta Nepal aims to provide emergency response, disaster risk reduction, and community resilience building in Nepal.",
-		"address": "Pulchowk Road, Lalitpur, Nepal",
+		"name": "Digo Bikas Institute (DBI)",
+		"description": "Digo Bikas Institute (DBI) is a research and advocacy organization committed to promoting ecological sustainability and social equity at policy and community levels. Based in Kathmandu, DBI believes that Nepal (and the rest of the world) can develop meaningfully by identifying and applying alternative ways of meeting human needs without harming nature and fellow human beings. <br> Vision: Digo Bikas Institute envisions an ecologically sound, socially just, and prosperous society, and that it will continue to be so for future generations. <br> Mission: Digo Bikas Institute’s mission is to undertake research and action to stimulate informed discussion and strategic thought to advance alternative and local solutions to global problems. <br> Values: Equity, Fairness and Justice, Integrity, Transparency and Accountability, Inclusiveness. <br> Our Approach: Digo Bikas Institute carries out research, training, and advocacy on all aspects of sustainable development. Our research work aims to build evidence for bringing positive policy change. We empower and engage a critical mass of informed citizens through our education and training. We conduct advocacy work based on the evidence generated through our research and analysis by involving informed citizens. <br> We use different approaches to achieve our vision and mission, including research and analysis, seminars and conferences, education and training programs, correspondence and fact-finding missions, public consultations and legal interventions, network building and international solidarity, joint campaigns, and media.",
+		"address": "Battisputali, Kathmandu",
 		"contact": {
-			"email": "info@bighnaharta.org",
-			"phone": "+977 9818349762"
+			"email": "info@digobikas.org",
+			"phone": "01-4610656"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/bighnahartanp",
-			"linkedin": "https://www.linkedin.com/company/bighnaharta-nepal/",
-			"instagram": "https://www.instagram.com/bighnaharta_nepal/"
+			"facebook": "https://www.facebook.com/digobikasinstitute/",
+			"linkedin": "https://np.linkedin.com/company/digo-bikas-institute-dbi",
+			"instagram": "#N/A"
 		},
-		"website": "https://bighnaharta.org/",
+		"website": "https://digobikas.org/ ",
 		"tags": [
-			"community resilience",
-			"disaster response",
-			"climate adaptation",
-			"indigenous community"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
-		"logoUrl": "https://bighnaharta.org/assets/images/settings/default_logo.png",
+		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+			"https://digobikas.org/wp-content/uploads/2018/05/IMG_3605-e1526615873901.jpg",
+			"https://superdesk-pro-c.s3.amazonaws.com/sd-nepalitimes/2022111016110/636d12af9c7e80680e0a98e9jpeg.jpg",
+			"https://digobikas.org/wp-content/uploads/2018/05/IMG_3605-e1526615873901.jpg",
+			"https://superdesk-pro-c.s3.amazonaws.com/sd-nepalitimes/2022111016110/636d12af9c7e80680e0a98e9jpeg.jpg"
+		],
+		"slug": "digobikas-institute"
 	},
 	{
 		"id": 3,
-		"name": "Bignaharta Nepal",
-		"description": "Bighnaharta Nepal aims to provide emergency response, disaster risk reduction, and community resilience building in Nepal.",
-		"address": "Pulchowk Road, Lalitpur, Nepal",
+		"name": "Youth Action for Sustainable and Eco Nepal (YASEN)",
+		"description": "Youth Action for Sustainable and Eco Nepal (YASEN) is a youth-led non-profit organization dedicated to creating a sustainable and positive impact on individuals and communities in Nepal. Established on March 27, 2023, YASEN operates under the motto “Empowering Younger Generation For Sustainable Future.” Our mission is to create a better world by addressing pressing social and environmental challenges in Nepal through the active involvement of young people. <br> YASEN empowers young people to be leaders in creating a sustainable future for Nepal and the world. We focus on fostering environmental stewardship, driving climate action, and promoting inclusive green growth through education, advocacy, and community engagement. Our efforts include community education and awareness, recycling and waste reduction, capacity building and training, and sustainable agriculture. We also emphasize women’s empowerment and entrepreneurship, loss and damage, and disaster risk reduction. <br> YASEN targets several Sustainable Development Goals (SDGs), including No Poverty (SDG 1), Zero Hunger (SDG 2), Good Health and Well-being (SDG 3), Quality Education (SDG 4), Gender Equality (SDG 5), Sustainable Cities and Communities (SDG 11), Responsible Consumption and Production (SDG 12), Climate Action (SDG 13), Life on Land (SDG 15), and Partnerships for the Goals (SDG 17). Through these initiatives, we aim to create lasting positive changes and build a sustainable future for all.",
+		"address": "Bharatpur-9, Chitwan, Nepal",
 		"contact": {
-			"email": "info@bighnaharta.org",
-			"phone": "+977 9818349762"
+			"email": "yasennepa@gmail.com",
+			"phone": "9867183923"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/bighnahartanp",
-			"linkedin": "https://www.linkedin.com/company/bighnaharta-nepal/",
-			"instagram": "https://www.instagram.com/bighnaharta_nepal/"
+			"facebook": "https://www.facebook.com/yasennepal/",
+			"linkedin": "https://www.linkedin.com/in/yasennepal/",
+			"instagram": "https://www.instagram.com/yasennepal/"
 		},
-		"website": "https://bighnaharta.org/",
-		"tags": [
-			"community resilience",
-			"disaster response",
-			"climate adaptation",
-			"indigenous community"
-		],
-		"logoUrl": "https://bighnaharta.org/assets/images/settings/default_logo.png",
+		"website": "https://yasennepal.com/",
+		"tags": ["environment", "youth", "climate awareness", "campaign"],
+		"logoUrl": "https://i0.wp.com/yasennepal.com/wp-content/uploads/2024/02/yasen-2.png",
 		"pictures": [
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
-			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+			"https://i0.wp.com/yasennepal.com/wp-content/uploads/2024/04/IMG_3848.jpg",
+			"https://i0.wp.com/yasennepal.com/wp-content/uploads/2024/03/IMG_8045-scaled-e1711099500887.jpg",
+			"https://i0.wp.com/yasennepal.com/wp-content/uploads/2024/03/IMG_4792-scaled.jpg",
+			"https://i0.wp.com/yasennepal.com/wp-content/uploads/2024/03/IMG_3835-scaled.jpg"
+		],
+		"slug": "yasen"
 	},
 	{
 		"id": 4,
@@ -113,7 +106,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 5,
@@ -142,7 +136,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 6,
@@ -171,7 +166,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 7,
@@ -200,7 +196,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 8,
@@ -229,7 +226,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 9,
@@ -258,7 +256,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 10,
@@ -287,7 +286,8 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
 	{
 		"id": 11,
@@ -316,9 +316,10 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 12,
 		"name": "Bignaharta Nepal",
 		"description": "Bighnaharta Nepal aims to provide emergency response, disaster risk reduction, and community resilience building in Nepal.",
@@ -345,9 +346,10 @@
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg",
 			"https://bighnaharta.org/assets/images/gallery-images/1649452941.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 13,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -363,7 +365,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -371,9 +376,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 14,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -389,7 +395,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -397,9 +406,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 15,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -415,7 +425,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -423,9 +436,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 16,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -441,7 +455,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -449,9 +466,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 17,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -467,7 +485,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -475,9 +496,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 18,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -493,7 +515,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -501,9 +526,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 19,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -519,7 +545,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -527,9 +556,10 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	},
-  {
+	{
 		"id": 20,
 		"name": "Digo Bikas Institute",
 		"description": "Digo Bikas Institute (DBI) is committed to promoting ecological sustainability and social equity. Based in Kathmandu, DBI works on policy and community levels for a …",
@@ -545,7 +575,10 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"research", "policy advocacy", "community engagement", "renewable energy"
+			"research",
+			"policy advocacy",
+			"community engagement",
+			"renewable energy"
 		],
 		"logoUrl": "https://digobikas.org/wp-content/uploads/2018/05/DBI-.png",
 		"pictures": [
@@ -553,6 +586,7 @@
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg",
 			"https://thousandcurrents.org/wp-content/uploads/2022/08/DBI-e1663138237114.jpg"
-		]
+		],
+		"slug": "bignaharta-nepal"
 	}
 ]
