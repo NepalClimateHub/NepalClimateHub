@@ -2,8 +2,13 @@
 import organizationsJSON from "../data/organizations.json";
 import type { Organization } from "../interfaces/organizationInterface";
 
+import activistsJSON from "../data/activists.json";
+
 // ensure the imported JSON data is correctly typed
 const organizationsData: Organization[] = organizationsJSON;
+
+// the type is same as organization JSON
+const activistsData: Organization[] = activistsJSON;
 
 const { cardId, organization } = Astro.props;
 
@@ -12,7 +17,9 @@ let activeDataObject: Organization | null = null;
 
 // find the organization by cardId if the organization prop is true
 if (organization === "true") {
-  activeDataObject = organizationsData[cardId];
+	activeDataObject = organizationsData[cardId];
+} else {
+	activeDataObject = activistsData[cardId];
 }
 ---
 
@@ -41,17 +48,17 @@ if (organization === "true") {
 		<!-- image container section -->
 		<div class="img-container">
 			{
-				activeDataObject?.pictures.map((pictureURL) =>
-				// if length == 1, then apply single-image-wrapper class
-					activeDataObject?.pictures.length == 1 ? (
-						<div class="img-wrapper single-image-wrapper">
-							<img src={pictureURL} alt="" />
-						</div>
-					) : (
+				activeDataObject?.pictures.length == 1 ? (
+					// if length == 1, then apply single-image-wrapper class
+					<div class="img-wrapper single-image-wrapper">
+						<img src={activeDataObject.pictures[0]} alt="" />
+					</div>
+				) : (
+					activeDataObject?.pictures.map((pictureURL) => (
 						<div class="img-wrapper">
 							<img src={pictureURL} alt="" />
 						</div>
-					)
+					))
 				)
 			}
 		</div>
@@ -140,25 +147,14 @@ if (organization === "true") {
 
 	/* style for responsiveness */
 
-	@media screen and (max-width: 924px) {
-		.img-container {
-			gap: 16px;
-		}
-
-		.img-wrapper {
-			width: 46%;
-		}
-
+	@media screen and (max-width: 1200px) {
 		.single-image-wrapper {
 			width: 95%;
 			height: 70%;
 		}
 	}
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 24px 64px;
-		}
+	@media screen and (max-width: 924px) {
 
 		.card-container {
 			flex-direction: column;
@@ -168,6 +164,25 @@ if (organization === "true") {
 		.card-details-wrapper,
 		.img-container {
 			width: 100%;
+		}
+
+		.img-container {
+			gap: 16px;
+		}
+
+		.img-wrapper {
+			width: 46%;
+		}
+
+		.single-image-wrapper {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 24px 64px;
 		}
 
 		.img-container {
@@ -181,7 +196,7 @@ if (organization === "true") {
 
 		.single-image-wrapper {
 			width: 100%;
-			height: 80%;
+			height: auto;
 		}
 	}
 </style>
