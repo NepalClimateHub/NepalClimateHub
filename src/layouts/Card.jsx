@@ -2,7 +2,7 @@ import styles from '../styles/components/Card.module.css';
 
 const Card = ({ data }) => {
   return (
-    <div className={styles["organization-card"]}>
+    <a className={styles["organization-card"]} href={`/climate-champions/${data.slug}`}>
       <div className={styles["logo-wrapper"]}>
         <img
           src={data.logoUrl}
@@ -25,7 +25,7 @@ const Card = ({ data }) => {
           ))}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
