@@ -1,26 +1,11 @@
 ---
-import organizationsJSON from "../data/organizations.json";
 import type { Organization } from "../interfaces/organizationInterface";
 
-import activistsJSON from "../data/activists.json";
-
-// ensure the imported JSON data is correctly typed
-const organizationsData: Organization[] = organizationsJSON;
-
-// the type is same as organization JSON
-const activistsData: Organization[] = activistsJSON;
-
-const { cardId, organization } = Astro.props;
+// dataObj can either be organization data or activist data; sent via props
+const {dataObj} = Astro.props;
 
 // initialize activeDataObject with a proper type
-let activeDataObject: Organization | null = null;
-
-// find the organization by cardId if the organization prop is true
-if (organization === "true") {
-	activeDataObject = organizationsData[cardId];
-} else {
-	activeDataObject = activistsData[cardId];
-}
+let activeDataObject: Organization | null = dataObj;
 ---
 
 <div class="section-container">
