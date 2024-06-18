@@ -17,7 +17,7 @@ const {startIndex, endIndex, title} = Astro.props;
 	<div class="activist-container">
 		{
 			activistJSON.slice(startIndex, endIndex).map((activist) => (
-				<div class="activist-card">
+				<a class="activist-card" href={`/climate-champions/${activist.slug}`}>
 					<div class="profile-wrapper"> 
 						<img src={activist.logoUrl} alt={activist.name} />
 					</div>
@@ -37,7 +37,7 @@ const {startIndex, endIndex, title} = Astro.props;
 							))}
 						</div>
 					</div>
-				</div>
+				</a>
 			))
 		}
 
@@ -82,6 +82,8 @@ const {startIndex, endIndex, title} = Astro.props;
     background-color: #ebf1f7;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    text-decoration: none;
+    color: #1a1b1e;
   }
 
   .activist-card:hover {

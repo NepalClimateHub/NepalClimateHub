@@ -10,17 +10,19 @@ const organizationsData: Organization[] = organizationsJSON;
 // the type is same as organization JSON
 const activistsData: Organization[] = activistsJSON;
 
-const { cardId, organization } = Astro.props;
+// const { cardId, organization } = Astro.props;
+
+const {dataObj} = Astro.props;
 
 // initialize activeDataObject with a proper type
-let activeDataObject: Organization | null = null;
+let activeDataObject: Organization | null = dataObj;
 
 // find the organization by cardId if the organization prop is true
-if (organization === "true") {
-	activeDataObject = organizationsData[cardId];
-} else {
-	activeDataObject = activistsData[cardId];
-}
+// if (organization === "true") {
+// 	activeDataObject = organizationsData[cardId];
+// } else {
+// 	activeDataObject = activistsData[cardId];
+// }
 ---
 
 <div class="section-container">

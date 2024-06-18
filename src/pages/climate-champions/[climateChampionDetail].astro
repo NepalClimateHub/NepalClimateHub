@@ -7,16 +7,16 @@ import ConnectCard from "@components/ConnectCard.astro";
 import ActivistSection from "@components/ActivistSection.astro";
 import Footer from "@components/Footer.astro";
 
-export function getStaticPaths() {
-  return [
-    {params: {climateChampionDetail: 'shreya-kc'}},
-    {params: {climateChampionDetail: 'arnab-chaudary'}},
-    {params: {climateChampionDetail: 'tashi-lhazom'}},
-  ];
+import climateChampionsJSON from "../../data/activists.json";
+
+export async function getStaticPaths() {
+    return climateChampionsJSON.map((champion) => ({
+    params: { climateChampionDetail: champion.slug }
+  }));
 }
 
 const { climateChampionDetail } = Astro.params;
-
+const champion = climateChampionsJSON.find((champion) => champion.slug === climateChampionDetail);
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -30,16 +30,16 @@ const { climateChampionDetail } = Astro.params;
 			<div class="mini-nav">
 				<a href="/">Home</a>
 				<span style="color: #364FC7">/</span>
-				<a href="/organizations">Cimate Champions</a>
+				<a href="/climate-champions">Cimate Champions</a>
 			</div>
 		</section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId= 0 organization = "false" />
+      <CardDetailSection cardId= 0 organization = "false" dataObj = {champion} />
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard cardId= 0 organization = "false" />
+			<ConnectCard cardId= 0 organization = "false" dataObj = {champion} />
 		</section>
 
 		<section class="organization-section">
