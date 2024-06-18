@@ -17,7 +17,7 @@ console.log(startIndex,  endIndex);
 	<div class="organization-container">
 		{
 			organizationJSON.slice(startIndex, endIndex).map((organization) => (
-				<div class="organization-card">
+			<a class="organization-card" href={`/organizations/${organization.slug}`}>
 					<div class="logo-wrapper">
 						<img src={organization.logoUrl} alt={organization.name} />
 					</div>
@@ -34,7 +34,7 @@ console.log(startIndex,  endIndex);
 							))}
 						</div>
 					</div>
-				</div>
+				</a>
 			))
 		}
 
@@ -78,6 +78,8 @@ console.log(startIndex,  endIndex);
 		background-color: white;
 		transition: transform 0.3s ease-in-out;
 		cursor: pointer;
+		text-decoration: none;
+    color: #1a1b1e;
 	}
 
 	.organization-card:hover {
