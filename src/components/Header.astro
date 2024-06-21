@@ -67,7 +67,7 @@ export interface Props {
 	</nav>
 
 	<!-- menu button for mobile device -->
-	<button class="header-cta"><a href="#">Action Menu</a></button>
+	<button class="header-cta"><a href="#"><Icon name="energy" class="energy-icon"/> Action Menu</a></button>
 </header>
 
 
@@ -114,25 +114,26 @@ export interface Props {
   /* mobile menu button */
   .header-cta {
     display: block;
-    width: 131px;
+    text-align: center;
     border: none;
     border-radius: 16px;
     align-self: end;
-    margin-bottom: 8px;
+    margin-bottom: 8px;  
   }
 
   .header-cta a {
     font-family: Roboto, sans-serif;
     display: inline-block;
+    padding: 8px 16px;
     width: 100%;
-    height: 32px;
-    line-height: 32px;
+    line-height: 16px;
     border-radius: 16px;
     text-decoration: none;
     font-size: 14px;
     color: #25262b;
     background-color: #cefe00;
     transition: all 0.3s ease;
+    font-weight: 400;
   }
 
   .header-cta a:hover {
@@ -227,6 +228,11 @@ export interface Props {
 
   nav .menu-heading:last-of-type {
     display: none;
+  }
+
+  .energy-icon {
+    position: relative;
+    top: 2px;
   }
 
   /* media queries for desktop */
