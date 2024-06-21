@@ -290,9 +290,17 @@ export interface Props {
       font-weight: 400;
     }
 
-    ul .menu-heading a:hover {
-      background-color: #c4f001;
-      color: black;
+    nav .menu-heading a:last-child {
+      cursor: pointer;
+    }
+
+    nav .menu-heading > a:hover {
+      background-color: #1a1b1e;
+      color: white;
+    }
+
+    ul .sub-menu a:hover {
+      text-decoration: underline;
     }
 
     nav .menu-heading:last-of-type {
@@ -301,12 +309,11 @@ export interface Props {
 
     .sub-menu {
       display: none;
-      padding-top: 40px;
       position: absolute;
-      width: 160px;
+      width: 120px;
       min-width: fit-content;
       text-align: center;
-      top: 100%;
+      top: 50px;
       left: 50%;
       transform: translateX(-50%);
       background-color: white;
@@ -316,13 +323,25 @@ export interface Props {
     }
 
     /* display the sub-menu on hovering  */
-    .menu-heading:hover .sub-menu {
+    .menu-heading:hover > .sub-menu {
+      transition: all 0.5s ease;
       display: block;
+      border: 1px solid #1a1b1e;
+    }
+
+    .menu-heading:hover > .sub-menu::before {
+      position: absolute;
+      inset: 0;
+      top: -20px;
+      content: "";
+      width: 100%;
+      height: 20px;
     }
 
     .sub-menu li {
       border-radius: none;
-      border: 1px solid rgba(0, 0, 0, 0.116);
+      text-align: left;
+
     }
 
     .sub-menu li:last-of-type {
