@@ -32,7 +32,7 @@ const {startIndex, endIndex, title} = Astro.props;
 						<p class="about">{activist.description.substring(0, 112)}...</p>
 
 						<div class="tags">
-							{activist.tags.map((tag) => (
+							{activist.tags.slice(0,3).map((tag) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>

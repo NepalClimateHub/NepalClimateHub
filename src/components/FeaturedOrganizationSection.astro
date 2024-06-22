@@ -29,7 +29,7 @@ console.log(startIndex,  endIndex);
 						</p>
 						<p class="description">{organization.description.substring(0, 112)}...</p>
 						<div class="tags">
-							{organization.tags.map((tag: string) => (
+							{organization.tags.slice(0, 3).map((tag: string) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>
