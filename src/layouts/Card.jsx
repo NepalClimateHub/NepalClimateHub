@@ -24,7 +24,7 @@ const Card = ({ data, dataType, cardProfilePictureBgSize }) => {
           {data.description.substring(0,112) + "..."}
         </p>
         <div className={styles.tags}>
-          {data.tags.map((tag, index) => (
+          {data.tags.slice(0,3).map((tag, index) => (
             <span key={index} className={styles.tag}>{tag}</span>
           ))}
         </div>
