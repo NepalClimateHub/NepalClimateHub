@@ -37,14 +37,14 @@ export function slider(cards: NodeListOf<HTMLElement>, slideControlButtons: Node
   showSlide(currentIndex);
 
   // function to change slides automatically every four seconds for mobile devices
-  function autoChangeSlide() {
-    currentIndex = (currentIndex + 1) % totalCards;
-    showSlide(currentIndex);
-  }
+  // function autoChangeSlide() {
+  //   currentIndex = (currentIndex + 1) % totalCards;
+  //   showSlide(currentIndex);
+  // }
 
   // if it's a mobile device, trigger the automatic slide change function
   if (currentWidth <= 768) {
-    setInterval(autoChangeSlide, 4000);
+    // setInterval(autoChangeSlide, 4000);
 
     // touch event listeners for swipe gesture
     document.addEventListener("touchstart", (e) => {
