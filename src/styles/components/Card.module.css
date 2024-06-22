@@ -3,7 +3,7 @@
   max-width: 283px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: white;
+  background-color: #F8F9FA;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   color: #1a1b1e;
@@ -17,7 +17,7 @@
 .logo-wrapper {
   height: 189px;
   width: 100%;
-  background-color: #d1e1f1;
+  background-color: white;
 }
 
 .logo-wrapper img {
