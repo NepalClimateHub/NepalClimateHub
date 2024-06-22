@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 // cardsArray consists of JSON data of either organizations or climate activists
 // this is a reuseable template in organization landing page card section and activists landing page card sections
 
-const CardContainer = ({cardsArray, dataType}) => {
+const CardContainer = ({cardsArray, dataType, cardProfilePictureBgSize}) => {
 	let [cardCounter, setCardCounter] = useState(12); // initially show 12 cards
 	let [isBtnVisible, setIsBtnVisible] = useState(true);
 
@@ -26,7 +26,7 @@ const CardContainer = ({cardsArray, dataType}) => {
 				{cardsArray
 					.slice(0, cardCounter)
 					.map((cardData, index) => (
-						<Card key={index} data={cardData} dataType = {dataType} />
+						<Card key={index} data={cardData} dataType = {dataType} cardProfilePictureBgSize={cardProfilePictureBgSize}/>
 					))}
 			</div>
 

@@ -1,6 +1,6 @@
 import styles from '../styles/components/Card.module.css';
 
-const Card = ({ data, dataType }) => {
+const Card = ({ data, dataType, cardProfilePictureBgSize }) => {
 
   let url = dataType == "organization"? `/organizations/${data.slug}` : `/climate-champions/${data.slug}`;
 
@@ -10,6 +10,7 @@ const Card = ({ data, dataType }) => {
         <img
           src={data.logoUrl}
           alt={data.name}
+          style={{ objectFit: cardProfilePictureBgSize }}
         />
       </div>
       <div className={styles.details}>
