@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "headline": "Nepal to host first-ever international dialogue on mountains and climate change",
+    "newsSrc": "#",
+    "imgSrc": "https://encdn.ratopati.com/media/news/Effects_page_triptych_6Dl7QCaNd5.webp",
+    "linkText": "english.ratopati.com"
+  },
+  {
+    "id": 1,
+    "headline": "Nepal's mountains are crying out for help and COP28 must respond, says UN chief Guterres",
+    "newsSrc": "#",
+    "imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2023/third-party/PM-1701567214.jpg&w=900&height=601",
+    "linkText": "thekathmandupost.com"
+  },
+  {
+    "id": 2,
+    "headline": "Global warming turns up the heat on Nepal’s climate diplomacy",
+    "newsSrc": "#",
+    "imgSrc": "https://media.assettype.com/himalmag%2F2024-06%2F09528eb5-fe43-405b-97d7-41c2c528c866%2F03_Dawa_Lama_Holymoglobal_warming_nepal_climate_crisis_diplomacy_adaptation_international_support_hi.jpg?w=1200&auto=format%2Ccompress&fit=max",
+    "linkText": "www.himalmag.com"
+  },
+  {
+    "id": 3,
+    "headline": "Failure is Not an Option for Nepal",
+    "newsSrc": "#",
+    "imgSrc": "https://myrepublica.nagariknetwork.com/uploads/media/ClimateFinance_20230901151718.jpg",
+    "linkText": "myrepublica.nagariknetwork.com" 
+  },
+  {
+    "id": 4,
+    "headline": "NEPAL’S WATER RESOURCES IN THE FACE OF CLIMATE CHANGE",
+    "newsSrc": "#",
+    "imgSrc": "https://res.cloudinary.com/actioncontrelafaim/image/upload/f_auto/ar_16:9,w_1900,c_fill/b_rgb:000000,e_gradient_fade:10,y_0.3,o_70/w_1900,c_scale,dpr_1,q_auto,f_auto,fl_lossy,d_acf-ui:acf-default-blue.png/v1515011253/acf-prod/2024/03/DSC03591-min-1024x683.jpg",
+    "linkText": "www.actioncontrelafaim.org"
+  },
+  {
+    "id": 5,
+    "headline": "Mountain villages bearing direct brunt of climate change",
+    "newsSrc": "#",
+    "imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/news/DingbocheKhumbu0002-1713748711.jpg",
+    "linkText": "www.kathmandupost.com"
+  }
+]
