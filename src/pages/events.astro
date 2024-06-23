@@ -2,8 +2,12 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
-
+import CardFilterSection from "@layouts/CardFilterSection.astro";
+import CardContainer from "@components/CardContainer.jsx";
 import Footer from "@components/Footer.astro";
+
+// get events JSON data
+import eventsJSON from "../data/events.json";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -19,9 +23,14 @@ import Footer from "@components/Footer.astro";
 			</div>
 		</section>
 
-    <section class="event-section">
-  
-    </section>
+		<div class="event-wrapper">
+			<section class="filter-section">
+				<CardFilterSection heading = "Climate Events" tagline = "Stay Informed for Latest Climate Events in Nepal" filter= "false"/>
+			</section>
+		
+			<section class="activist-cards-section">
+				 <CardContainer client:load cardsArray = {eventsJSON } dataType="events" cardProfilePictureBgSize="cover" initialCardCount = 8/>
+		</div>
 
 		<section class="footer-section">
 			<Footer />
@@ -32,6 +41,17 @@ import Footer from "@components/Footer.astro";
 <style>
 	section {
 		padding: 0px 48px;
+	}
+
+	.page-title {
+		font-size: 32px;
+		line-height: 60px;
+		font-weight: 700;
+	}
+
+	.page-tagline {
+		line-height: 24px;
+		margin-bottom: 48px;
 	}
 
 	.footer-section {
