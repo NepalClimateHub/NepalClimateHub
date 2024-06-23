@@ -5,6 +5,7 @@ import CtaSection from '@components/CtaSection.astro'
 import FactSection from '@components/FactSection.astro'
 import ActivistSection from '@components/ActivistSection.astro'
 import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro'
+import FeaturedEventSection from '@components/FeaturedEventSection.astro'
 import FeaturedNewsSection from '@components/FeaturedNewsSection.astro'
 import Footer from '@components/Footer.astro'
 import '../styles/global.css'
@@ -40,6 +41,10 @@ const { title } = Astro.props
     
     <section class="organization-section">
       <FeaturedOrganizationSection startIndex = 0 endIndex = 4 title="Featured Organizations"/>
+    </section>
+
+    <section class="event-section">
+      <FeaturedEventSection startIndex = 0 endIndex = 4 title="Latest Events"/>
     </section>
 
     <section class="news-section">
