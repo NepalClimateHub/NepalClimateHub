@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
-
+import NewsStoriesSection from "@components/NewsStoriesSection.astro";
 import Footer from "@components/Footer.astro";
 ---
 
@@ -19,6 +19,9 @@ import Footer from "@components/Footer.astro";
 			</div>
 		</section>
 
+    <section class="news-section">
+      <NewsStoriesSection />
+    </section>
 
 		<section class="footer-section">
 			<Footer />
