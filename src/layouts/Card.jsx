@@ -1,4 +1,5 @@
 import styles from '../styles/components/Card.module.css';
+import { BiTargetLock } from "react-icons/bi";
 
 const Card = ({ data, dataType, cardProfilePictureBgSize }) => {
 
@@ -17,6 +18,7 @@ const Card = ({ data, dataType, cardProfilePictureBgSize }) => {
         <h3 className={styles["organization-name"]}>{data.name}</h3>
         <p className={styles.location}>
           <span className={styles.icon}>
+         <BiTargetLock />
           </span>
           <span className={styles.address}>{data.address}</span>
         </p>
