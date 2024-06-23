@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 
 //sample organization JSON organization
 import organizationJSON from "../data/organizations.json";
@@ -24,7 +25,9 @@ console.log(startIndex,  endIndex);
 					<div class="details">
 						<h3 class="organization-name">{organization.name}</h3>
 						<p class="location">
-							<span class="icon"></span>
+							<span class="icon">
+								<Icon name="mdi:my-location" class="icon" />
+							</span>
 							<span class="address">{organization.address}</span>
 						</p>
 						<p class="description">{organization.description.substring(0, 112)}...</p>
