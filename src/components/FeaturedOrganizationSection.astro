@@ -29,7 +29,7 @@ console.log(startIndex,  endIndex);
 						</p>
 						<p class="description">{organization.description.substring(0, 112)}...</p>
 						<div class="tags">
-							{organization.tags.map((tag: string) => (
+							{organization.tags.slice(0, 3).map((tag: string) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>
@@ -75,7 +75,7 @@ console.log(startIndex,  endIndex);
 		max-width: 283px;
 		border-radius: 8px;
 		overflow: hidden;
-		background-color: white;
+		background-color: #F8F9FA;
 		transition: transform 0.3s ease-in-out;
 		cursor: pointer;
 		text-decoration: none;
@@ -83,13 +83,13 @@ console.log(startIndex,  endIndex);
 	}
 
 	.organization-card:hover {
-		outline: 1px solid #1a1b1e77;
+		outline: 1px solid #1a1b1e;
 	}
 
 	.logo-wrapper {
 		height: 189px;
 		width: 100%;
-		background-color: #d1e1f1;
+		background-color: white;
 	}
 
 	.logo-wrapper img {
