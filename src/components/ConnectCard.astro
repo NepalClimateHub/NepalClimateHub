@@ -54,6 +54,8 @@ let activeDataObject: Organization | null = dataObj;
 			<a target="_blank" href={`mailto:${activeDataObject?.contact.email || "#"}`}
 				>{activeDataObject?.contact.email}</a
 			>
+			<span class="separator">{activeDataObject?.contact.phone == ""? "" : "|"}</span> 
+			<span class="phone">{activeDataObject?.contact.phone == ""? "" : activeDataObject?.contact.phone}</span>
 			<div class="icon-wrapper">
 				<Icon name="mdi:email" class="icon" />
 			</div>
@@ -104,7 +106,7 @@ let activeDataObject: Organization | null = dataObj;
 		margin-bottom: 16px;
 	}
 
-	.connect-card a {
+	.connect-card a, .connect-card .phone{
 		color: #3b5bdb;
 		font-size: 16px;
 		line-height: 18px;
@@ -127,6 +129,10 @@ let activeDataObject: Organization | null = dataObj;
 
 	.icon {
 		color: white;
+	}
+
+	.separator {
+		color: #1a1b1e;
 	}
 
 	/* styles for responsiveness */
