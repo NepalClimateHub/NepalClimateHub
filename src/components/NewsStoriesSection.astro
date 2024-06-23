@@ -1,0 +1,165 @@
+---
+import NewsJSONData from "../data/news.json";
+import { Icon } from "astro-icon/components";
+import sortNewsArray from "../utils/sortNewsArray.js";
+
+const NewsJSON = sortNewsArray(NewsJSONData);
+---
+
+<div class="section-container">
+	<h2 class="page-title">News & Stories</h2>
+	<p class="page-tagline">Your Source for Nepal's Climate News</p>
+
+	<!-- container to wrap news card -->
+
+	<div class="news-container">
+		{
+			NewsJSON.map((news: any) => (
+				<div class="news-card">
+					<a href={news.newsSrc} target="_blank">
+						<div class="content">
+							<h3 class="news-headline">{news.headline}</h3>
+							<div class="news-image-wrapper">
+								<img src={news.imgSrc} alt="" />
+							</div>
+						</div>
+
+						<div class="link-date-wrapper">
+							<div class="link">
+								<span class="link-icon">
+									<Icon name="mdi:link" />
+								</span>
+								<a href={news.newsSrc} target="_blank">
+									{news.linkText}
+								</a>
+							</div>
+
+							<div class="date">
+								<span class="link-icon">
+									<Icon name="mdi:clock" />
+								</span>
+								<span>{news.date}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<style>
+	.section-container {
+		margin: 24px auto 83px;
+		position: relative;
+	}
+
+	.page-title {
+		font-size: 32px;
+		line-height: 60px;
+		font-weight: 700;
+	}
+
+	.page-tagline {
+		line-height: 24px;
+		margin-bottom: 48px;
+	}
+
+	.news-container {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		gap: 24px;
+	}
+
+	.news-card {
+		width: 48%;
+		display: block;
+		text-decoration: none;
+
+		padding-bottom: 12px;
+		border-bottom: 2px solid #cefe00;
+		overflow: hidden;
+	}
+
+	.news-card > a {
+		cursor: pointer;
+		color: #1a1b1e;
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
+
+	.news-card > a:hover {
+		color: blue;
+	}
+
+	.news-card .content {
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+		margin-bottom: 12px;
+	}
+
+	.news-headline {
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 700;
+		text-transform: capitalize;
+		width: calc(100% - 136px);
+	}
+
+	.news-image-wrapper {
+		width: 112px;
+		height: 112px;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.news-image-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.link a{
+		font-size: 14px;
+		color: #364fc7;
+		line-height: 16px;
+		text-decoration: none;
+    float: left;
+	}
+
+  .date {
+    float: right;
+  }
+
+	.date span {
+		font-size: 14px;
+		color: #1a1b1e;
+		line-height: 16px;
+    font-style: italic;
+	}
+
+	.link-icon {
+		display: inline-block;
+		vertical-align: middle;
+    margin-right: 2px;
+	}
+
+	/* media queries for mobile */
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 32px 64px;
+		}
+
+		.news-container {
+			flex-direction: column;
+			gap: 24px;
+		}
+
+		.news-card {
+			width: 100%;
+		}
+	}
+</style>
