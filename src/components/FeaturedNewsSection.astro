@@ -15,6 +15,7 @@ import NewsJSON from "../data/news.json";
 		{
 			NewsJSON.slice(0, 6).map((news) => (
 				<div class="news-card">
+					<a href={news.newsSrc} target="_blank">
 					<div class="content">
 						<h3 class="news-headline">{news.headline}</h3>
 						<div class="news-image-wrapper">
@@ -28,7 +29,9 @@ import NewsJSON from "../data/news.json";
 						</span>
 						<a href={news.newsSrc}>{news.linkText}</a>
 					</div>
+				</a>
 				</div>
+
 			))
 		}
 	</div>
@@ -58,11 +61,21 @@ import NewsJSON from "../data/news.json";
 	}
 
 	.news-card {
+		display: block;
+		text-decoration: none;
+	
 		padding-bottom: 12px;
 		border-bottom: 2px solid #cefe00;
+	
 		/* max-width: 403px; */
 		width: 32%;
 		overflow: hidden;
+	}
+
+	.news-card > a {
+		cursor: pointer;
+		color: #1A1B1E;
+		text-decoration: none;
 	}
 
 	.news-card .content {
