@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 import type { Organization } from "src/interfaces/organizationInterface";
 
 // dataObj can either be organization data or activist data; sent via props
-const {dataObj} = Astro.props;
+const { dataObj } = Astro.props;
 
 // initialize activeDataObject with a proper type
 let activeDataObject: Organization | null = dataObj;
@@ -21,7 +21,12 @@ let activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
-			<a href={activeDataObject?.website || "#"}>{activeDataObject?.website}</a>
+			<a
+				href={activeDataObject?.website == "" ? "#NA" : activeDataObject?.website}
+				>{
+					activeDataObject?.website == "" ? "N/A" : activeDataObject?.website
+				}</a
+			>
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
 			</div>
@@ -31,11 +36,11 @@ let activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Social</h3>
-			<a href={activeDataObject?.socials.facebook || "#"}>Facebook</a>
+			<a target="_blank" href={activeDataObject?.socials.facebook || "#"}>Facebook</a>
 			<span class="separator">|</span>
-			<a href={activeDataObject?.socials.instagram || "#"}>Instagram</a>
+			<a target="_blank" href={activeDataObject?.socials.instagram || "#"}>Instagram</a>
 			<span class="separator">|</span>
-			<a href={activeDataObject?.socials.linkedin || "#"}>LinkedIn</a>
+			<a target="_blank" href={activeDataObject?.socials.linkedin || "#"}>LinkedIn</a>
 
 			<div class="icon-wrapper">
 				<Icon name="mdi:user" class="icon" />
@@ -46,7 +51,9 @@ let activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Contact</h3>
-			<a href={activeDataObject?.contact.email || "#"}>{activeDataObject?.contact.email}</a>
+			<a target="_blank" href={`mailto:${activeDataObject?.contact.email || "#"}`}
+				>{activeDataObject?.contact.email}</a
+			>
 			<div class="icon-wrapper">
 				<Icon name="mdi:email" class="icon" />
 			</div>
@@ -122,7 +129,7 @@ let activeDataObject: Organization | null = dataObj;
 		color: white;
 	}
 
-  /* styles for responsiveness */
+	/* styles for responsiveness */
 
 	@media screen and (max-width: 768px) {
 		.section-container {
