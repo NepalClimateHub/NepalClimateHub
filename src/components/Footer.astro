@@ -60,7 +60,7 @@ import "../styles/global.css";
 			</div>
 		</div>
 
-		<p class="footer-note">&copy; Nepal Climate Hub. All Rights Reserved.</p>
+		<p class="footer-note">&copy; 2024 Nepal Climate Hub. All Rights Reserved.</p>
 	</div>
 </footer>
 
@@ -109,6 +109,12 @@ import "../styles/global.css";
 		color: #25262b;
 	}
 
+	.content-wrapper button a:hover {
+		background-color: #1a1b1e;
+		color: white;
+		border: 1px solid white;
+	}
+
 	.form {
 		display: flex;
 		gap: 12px;
@@ -138,6 +144,7 @@ import "../styles/global.css";
 
 	.form button:hover {
 		background-color: #cefe00;
+		border-color: #cefe00;
 		color: #25262b;
 	}
 
@@ -181,18 +188,18 @@ import "../styles/global.css";
 	@media screen and (max-width: 1100px) {
 		.footer-detail {
 			flex-direction: column;
-			gap: 44px;
+			gap: 16px;
 		}
 	}
 
 	@media screen and (max-width: 768px) {
 		.section-container {
 			padding-bottom: 16px;
-			margin: 24px 32px 0px;
+			margin: 0px 32px 0px 24px;
 		}
 
 		.section-heading {
-			top: -30px;
+			top: -15px;
 			right: 24px;
 		}
 
@@ -214,15 +221,16 @@ import "../styles/global.css";
 
 		.navbar {
 			align-items: center;
+			gap: 4px;
 		}
 
-		.navbar a,
-		h4 {
+		.navbar a{
 			font-size: 12px;
 		}
 
 		.navbar h4 {
-			width: 74px;
+			font-size: 12px;
+			min-width: 74px;
 		}
 	}
 </style>
