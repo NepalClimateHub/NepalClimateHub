@@ -1,44 +1,179 @@
 [
+	{
+		"id": 0,
+		"headline": "Global warming turns up the heat on Nepal’s climate diplomacy",
+		"newsSrc": "https://www.himalmag.com/politics/global-warming-nepal-climate-crisis-diplomacy-adaptation-international-support-himalaya",
+		"imgSrc": "https://media.assettype.com/himalmag%2F2024-06%2F09528eb5-fe43-405b-97d7-41c2c528c866%2F03_Dawa_Lama_Holymoglobal_warming_nepal_climate_crisis_diplomacy_adaptation_international_support_hi.jpg?w=1200&auto=format%2Ccompress&fit=max",
+		"linkText": "www.himalmag.com",
+    "date": "Jun 07, 2024"
+	},
+	{
+		"id": 1,
+		"headline": "Failure is Not an Option for Nepal",
+		"newsSrc": "https://myrepublica.nagariknetwork.com/news/failure-is-not-an-option-for-nepal/",
+		"imgSrc": "https://myrepublica.nagariknetwork.com/uploads/media/ClimateFinance_20230901151718.jpg",
+		"linkText": "myrepublica.nagariknetwork.com",
+    "date": "Jun 10, 2024"
+	},
+	{
+		"id": 2,
+		"headline": "Nepal's Water Resources In The Face Of Climate Change",
+		"newsSrc": "https://www.actioncontrelafaim.org/en/headline/nepals-water-resources-in-the-face-of-climate-change/",
+		"imgSrc": "https://res.cloudinary.com/actioncontrelafaim/image/upload/f_auto/ar_16:9,w_1900,c_fill/b_rgb:000000,e_gradient_fade:10,y_0.3,o_70/w_1900,c_scale,dpr_1,q_auto,f_auto,fl_lossy,d_acf-ui:acf-default-blue.png/v1515011253/acf-prod/2024/03/DSC03591-min-1024x683.jpg",
+		"linkText": "www.actioncontrelafaim.org",
+    "date": "Mar 21, 2024"
+	},
+	{
+		"id": 3,
+		"headline": "Mountain villages bearing direct brunt of climate change",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2024/04/22/mountain-villages-bearing-direct-brunt-of-climate-change",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/news/DingbocheKhumbu0002-1713748711.jpg",
+		"linkText": "www.kathmandupost.com",
+    "date": "Apr 22, 2024"
+	},
+
+	{
+		"id": 4,
+		"headline": "Nepal's mountains are crying out for help and COP28 must respond, says UN chief Guterres",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2023/12/03/nepal-s-mountains-are-crying-out-for-help-and-cop28-must-respond-says-un-chief-guterres",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2023/third-party/PM-1701567214.jpg&w=900&height=601",
+		"linkText": "thekathmandupost.com",
+    "date": "Dec 03, 2023"
+	},
+	{
+		"id": 5,
+		"headline": "Nepal to host first-ever international dialogue on mountains and climate change",
+		"newsSrc": "https://english.ratopati.com/story/32343",
+		"imgSrc": "https://encdn.ratopati.com/media/news/Effects_page_triptych_6Dl7QCaNd5.webp",
+		"linkText": "english.ratopati.com",
+    "date": "Apr 15, 2024"
+	},
+	{
+		"id": 6,
+		"headline": "Climate Action – NOW!",
+		"newsSrc": "https://www.undp.org/nepal/blog/climate-action-now",
+		"imgSrc": "https://www.undp.org/sites/g/files/zskgke326/files/2024-06/picture1_0.jpg",
+		"linkText": "www.undp.org",
+    "date": "Jun 20, 2024"
+	},
   {
-    "id": 0,
-    "headline": "Nepal to host first-ever international dialogue on mountains and climate change",
-    "newsSrc": "https://english.ratopati.com/story/32343",
-    "imgSrc": "https://encdn.ratopati.com/media/news/Effects_page_triptych_6Dl7QCaNd5.webp",
-    "linkText": "english.ratopati.com"
-  },
+		"id": 7,
+		"headline": "UN chief puts a spotlight on Nepal’s climate crisis",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2023/11/05/un-chief-puts-a-spotlight-on-nepal-s-climate-crisis",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2023/news/antonioguterres1698732069-1699147884.jpg",
+		"linkText": "thekathmandupost.com",
+    "date": "Nov 5, 2023"
+	},
   {
-    "id": 1,
-    "headline": "Nepal's mountains are crying out for help and COP28 must respond, says UN chief Guterres",
-    "newsSrc": "https://kathmandupost.com/climate-environment/2023/12/03/nepal-s-mountains-are-crying-out-for-help-and-cop28-must-respond-says-un-chief-guterres",
-    "imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2023/third-party/PM-1701567214.jpg&w=900&height=601",
-    "linkText": "thekathmandupost.com"
-  },
+		"id": 8,
+		"headline": "As temperatures start rising, so does the risk of snakebite incidents",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2024/02/26/as-temperatures-start-rising-so-does-the-risk-of-snakebite-incidents",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/third-party/thumb6-1708912139.jpg&w=900&height=601",
+		"linkText": "thekathmandupost.com",
+    "date": "Feb 26, 2024"
+	},
   {
-    "id": 2,
-    "headline": "Global warming turns up the heat on Nepal’s climate diplomacy",
-    "newsSrc": "https://www.himalmag.com/politics/global-warming-nepal-climate-crisis-diplomacy-adaptation-international-support-himalaya",
-    "imgSrc": "https://media.assettype.com/himalmag%2F2024-06%2F09528eb5-fe43-405b-97d7-41c2c528c866%2F03_Dawa_Lama_Holymoglobal_warming_nepal_climate_crisis_diplomacy_adaptation_international_support_hi.jpg?w=1200&auto=format%2Ccompress&fit=max",
-    "linkText": "www.himalmag.com"
-  },
+		"id": 9,
+		"headline": "Climate change hits mountain people on multiple fronts",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2024/06/05/climate-change-hits-mountain-people-on-multiple-fronts",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/news/Mustangmanagclimatecrisis16-1717566284.jpg&w=900&height=601",
+		"linkText": "thekathmandupost.com",
+    "date": "Jun 05, 2024"
+	},
   {
-    "id": 3,
-    "headline": "Failure is Not an Option for Nepal",
-    "newsSrc": "https://myrepublica.nagariknetwork.com/news/failure-is-not-an-option-for-nepal/",
-    "imgSrc": "https://myrepublica.nagariknetwork.com/uploads/media/ClimateFinance_20230901151718.jpg",
-    "linkText": "myrepublica.nagariknetwork.com" 
-  },
+		"id": 10,
+		"headline": "Extreme heat disrupts life in West Tarai",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2024/06/01/extreme-heat-disrupts-life-in-west-terai",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/miscellaneous/Untitled1-1717206974.jpg&w=900&height=601",
+		"linkText": "thekathmandupost.com",
+    "date": "Jun 1, 2024"
+	},
   {
-    "id": 4,
-    "headline": "Nepal's Water Resources In The Face Of Climate Change",
-    "newsSrc": "https://www.actioncontrelafaim.org/en/headline/nepals-water-resources-in-the-face-of-climate-change/",
-    "imgSrc": "https://res.cloudinary.com/actioncontrelafaim/image/upload/f_auto/ar_16:9,w_1900,c_fill/b_rgb:000000,e_gradient_fade:10,y_0.3,o_70/w_1900,c_scale,dpr_1,q_auto,f_auto,fl_lossy,d_acf-ui:acf-default-blue.png/v1515011253/acf-prod/2024/03/DSC03591-min-1024x683.jpg",
-    "linkText": "www.actioncontrelafaim.org"
-  },
+		"id": 11,
+		"headline": "Yearender 2023: Changing climate raises alarm in Nepal",
+		"newsSrc": "https://kathmandupost.com/special-supplement/2023/12/31/yearender-2023-changing-climate-raises-alarm-in-nepal",
+		"imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2023/third-party/Untitled11copy-1703989961.jpg&w=900&height=601",
+		"linkText": "thekathmandupost.com",
+    "date": "Dec 31, 2023"
+	},
   {
-    "id": 5,
-    "headline": "Mountain villages bearing direct brunt of climate change",
-    "newsSrc": "https://kathmandupost.com/climate-environment/2024/04/22/mountain-villages-bearing-direct-brunt-of-climate-change",
-    "imgSrc": "https://assets-api.kathmandupost.com/thumb.php?src=https://assets-cdn.kathmandupost.com/uploads/source/news/2024/news/DingbocheKhumbu0002-1713748711.jpg",
-    "linkText": "www.kathmandupost.com"
-  }
+		"id": 12,
+		"headline": "Why Floods Beyond Our Imagination Hit Nepalese Himalayan Town",
+		"newsSrc": "https://www.globalissues.org/news/2023/09/26/34864",
+		"imgSrc": "https://static.globalissues.org/ips/2023/09/01-Kagbeni-flood-mustang.jpeg",
+		"linkText": "www.globalissues.org",
+    "date": "Sep 26, 2023"
+	},
+  {
+		"id": 13,
+		"headline": "Climate change spells cultural extinction for Nepal’s nomadic herders",
+		"newsSrc": "https://www.independent.co.uk/climate-change/nepal-cashmere-nomad-herd-climate-change-b2418692.html",
+		"imgSrc": "https://static.independent.co.uk/2023/09/26/11/4_1.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp",
+		"linkText": "www.independent.co.uk",
+    "date": "Oct 02, 2023"
+	},
+  {
+		"id": 14,
+		"headline": "Nepal's migrant workers eye overseas jobs as climate threats loom",
+		"newsSrc": "https://dialogue.earth/en/climate/nepals-migrant-workers-eye-overseas-jobs-as-climate-threats-loom/",
+		"imgSrc": "https://dialogue.earth/content/uploads/2024/02/Migrant-worker-from-Nepal-in-Qatar_Alamy_2WHB081-1400x933.jpg",
+		"linkText": "dialogue.earth",
+    "date": "Feb 27, 2024"
+	},
+  {
+		"id": 15,
+		"headline": "Is Nepal doing enough to educate children on climate change?",
+		"newsSrc": "https://dialogue.earth/en/climate/is-nepal-doing-enough-to-educate-children-on-climate-change/",
+		"imgSrc": "https://dialogue.earth/content/uploads/2023/06/School-children-writing-in-classroom_Alamy_E8GK1C-1400x935.jpg",
+		"linkText": "dialogue.earth",
+    "date": "Jun 7, 2023"
+	},
+  {
+		"id": 16,
+		"headline": "Indigenous women discuss their contribution to climate action in Nepal",
+		"newsSrc": "https://asiapacific.unwomen.org/en/stories/feature-story/2024/03/indigenous-women-discuss-their-contribution-to-climate-action-in-nepal",
+		"imgSrc": "https://asiapacific.unwomen.org/sites/default/files/2024-03/np-c675-cipred-photo01-1679px-r02.jpg",
+		"linkText": "asiapacific.unwomen.org",
+    "date": "Mar 06, 2024"
+	},
+  {
+		"id": 17,
+		"headline": "Glacial Melt Is Dispossessing Nepal’s Indigenous Communities",
+		"newsSrc": "https://earthjournalism.net/stories/glacial-melt-is-dispossessing-nepals-indigenous-communities",
+		"imgSrc": "https://earthjournalism.net/sites/default/files/styles/node_hero_large/public/2023-08/thediplomat_2023-04-04-071439.jpg.webp?itok=e23JvJ7S",
+		"linkText": "earthjournalism.net",
+    "date": "Aug 12, 2023"
+	},
+  {
+		"id": 18,
+		"headline": "Wildfires are raging in Nepal — climate change isn’t the only culprit",
+		"newsSrc": "https://www.nature.com/articles/d41586-024-01758-2#:~:text=This%20year%20alone%2C%20Nepal%20has,in%20the%20past%2012%20months.",
+		"imgSrc": "https://media.nature.com/w1248/magazine-assets/d41586-024-01758-2/d41586-024-01758-2_27089126.jpg?as=webp",
+		"linkText": "www.nature.com",
+    "date": "Jun 14, 2024"
+	},
+  {
+		"id": 19,
+		"headline": "Nepal and Climate Diplomacy",
+		"newsSrc": "https://myrepublica.nagariknetwork.com/news/nepal-and-climate-diplomacy/",
+		"imgSrc": "https://myrepublica.nagariknetwork.com/uploads/media/climatechange_20220810151835.jpg",
+		"linkText": "myrepublica.nagariknetwork.com",
+    "date": "Mar 1, 2024"
+	},
+  {
+		"id": 20,
+		"headline": "Nepal's pavilion for the first time at the COP 28",
+		"newsSrc": "https://www.undp.org/nepal/news/nepals-pavilion-first-time-cop-28",
+		"imgSrc": "https://www.undp.org/sites/g/files/zskgke326/files/2023-11/undp-np-lumding-cho-2023.jpg",
+		"linkText": "www.undp.org",
+    "date": "Nov 9, 2023"
+	},
+  {
+		"id": 21,
+		"headline": "COP 28: Nepal’s proactive approach to secure compensation on the world stage",
+		"newsSrc": "https://english.onlinekhabar.com/cop-28-nepal-plan.html",
+		"imgSrc": "https://english.onlinekhabar.com/wp-content/uploads/2023/11/themes-of-COP28-UAE-banner.jpg",
+		"linkText": "english.onlinekhabar.com",
+    "date": "Nov 30, 2023"
+	}
 ]
