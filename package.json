@@ -14,6 +14,7 @@
     "@astrojs/react": "^3.5.0",
     "@astrojs/rss": "^4.0.6",
     "@astrojs/sitemap": "^3.1.5",
+    "@iconify-json/hugeicons": "^1.1.0",
     "@iconify-json/mdi": "^1.1.66",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -21,6 +22,7 @@
     "astro-icon": "^1.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
     "typescript": "^5.4.5"
   },

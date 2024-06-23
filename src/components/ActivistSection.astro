@@ -32,7 +32,7 @@ const {startIndex, endIndex, title} = Astro.props;
 						<p class="about">{activist.description.substring(0, 112)}...</p>
 
 						<div class="tags">
-							{activist.tags.map((tag) => (
+							{activist.tags.slice(0,3).map((tag) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>
@@ -79,7 +79,7 @@ const {startIndex, endIndex, title} = Astro.props;
     width: 284px;
     border-radius: 8px;
     overflow: hidden;
-    background-color: #ebf1f7;
+    background-color: #F8F9FA;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
     text-decoration: none;
@@ -87,7 +87,7 @@ const {startIndex, endIndex, title} = Astro.props;
   }
 
   .activist-card:hover {
-    outline: 1px solid #1a1b1e77;
+    outline: 1px solid #1a1b1e;
   }
 
   .profile-wrapper {
