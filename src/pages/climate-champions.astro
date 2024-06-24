@@ -26,11 +26,11 @@ import ActivistsJSON from "../data/activists.json";
 
   <div class="activist-wrapper">
     <section class="filter-section">
-      <CardFilterSection heading = "Climate Champions" tagline = "Find your inspirations and get connected!" />
+      <CardFilterSection heading = "Climate Champions" tagline = "Find your inspirations and get connected!" filter="true" />
     </section>
   
     <section class="activist-cards-section">
-       <CardContainer client:load cardsArray = {ActivistsJSON } dataType="activist" cardProfilePictureBgSize="cover" />
+       <CardContainer client:load cardsArray = {ActivistsJSON } dataType="activist" cardProfilePictureBgSize="cover" initialCardCount = 12 />
   </div>
   
   </section>
