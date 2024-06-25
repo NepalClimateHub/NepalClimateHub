@@ -1,0 +1,286 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Bibek from "../assets/profile/Bibek.jpg";
+import Elaine from "../assets/profile/Elaine.jpg";
+import Manon from "../assets/profile/Manon.jpg";
+import Tara from "../assets/profile/tara.jpg";
+---
+
+<div class="section-container">
+	<h2 class="section-heading">Our Team</h2>
+
+	<div class="team-container">
+		<div class="volunteer-section">
+			<h3 class="sub-heading">CORE VOLUNTEERS</h3>
+			<div class="volunteer-card">
+				<p>
+					We are currently recruiting our first core volunteer team to propel
+					Nepal Climate Hub forward. Passionate about climate knowledge and
+					actions? Join us.
+				</p>
+				<button class="volunteer-btn"
+					><a href="#"
+						><Icon name="hugeicons:energy" class="energy-icon" />Volunteer for
+						us</a
+					></button
+				>
+			</div>
+		</div>
+
+		<div class="founding-team-section">
+			<h3 class="sub-heading">FOUNDING MEMBERS</h3>
+			<div class="card-wrapper">
+				<!-- card one -->
+
+				<div class="card">
+					<div class="card-header">
+						<div class="img-wrapper">
+							<img
+								src={Bibek.src}
+								alt=""
+							/>
+						</div>
+						<div class="card-header-details">
+							<h3 class="name">Bibek Pant</h3>
+							<p class="role">Hub Owner & Engineering</p>
+							<p><a href="#">Connect on LinkedIn</a></p>
+						</div>
+					</div>
+
+					<div class="card-bio">
+						<p>
+							A computer science graduate deeply passionate about climate change
+							solutions and technology. In 2023, Bibek started his climate journey as a
+							fellow at the Authentic Leadership Institute Nepal and
+							participated in the Local Conference of Youth. In 2024, he
+							joined the Climatebase Fellowship and co-founded the Nepal Climate
+							Hub, bringing together professionals to drive climate action.
+						</p>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header">
+						<div class="img-wrapper">
+							<img
+								src={Elaine.src}
+								alt=""
+							/>
+						</div>
+						<div class="card-header-details">
+							<h3 class="name">Elaine Shum</h3>
+							<p class="role">Design</p>
+							<p><a href="https://www.linkedin.com/in/shumelaine">Connect on LinkedIn</a></p>
+						</div>
+					</div>
+
+					<div class="card-bio">
+						<p>
+							A seasoned New York design leader in digital products and brand
+							experiences. Elaine is passionate about influencing human
+							behaviors and sustainable outcomes. Inspired by regenerative
+							travel in the Himalayas to contribute to this Nepal community
+							climate initiative.
+						</p>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header">
+						<div class="img-wrapper">
+							<img
+								src={Manon.src}
+								alt=""
+							/>
+						</div>
+						<div class="card-header-details">
+							<h3 class="name">Manon Jacquin</h3>
+							<p class="role">Product</p>
+							<p><a href="https://nl.linkedin.com/in/manon-jacquin-mj">Connect on LinkedIn</a></p>
+						</div>
+					</div>
+
+					<div class="card-bio">
+						<p>
+							A technical product manager skilled in building community and
+							database products. Manon has a background in international law and
+							French diplomacy at the UN, giving her a global perspective. An
+							avid nature lover and hiker, her passion for the outdoors led her
+							to this climate initiative.
+						</p>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header">
+						<div class="img-wrapper">
+							<img
+								src={Tara.src}
+								alt=""
+							/>
+						</div>
+						<div class="card-header-details">
+							<h3 class="name">Tara Marathe</h3>
+							<p class="role">Content & Communications</p>
+							<p><a href="https://www.linkedin.com/in/tara-marathe">Connect on LinkedIn</a></p>
+						</div>
+					</div>
+
+					<div class="card-bio">
+						<p>
+							An experienced San Francisco Bay Area chief of staff and leader in
+							communications and project management with a background in
+							environmental science. Inspired by the power of science and
+							collective action to build a sustainable future.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.section-heading {
+		font-size: 24px;
+		line-height: 32px;
+		margin: 32px 0px;
+	}
+
+	.team-container {
+		padding-bottom: 92px;
+		display: flex;
+		gap: 24px;
+	}
+
+	.sub-heading {
+		font-size: 13px;
+		line-height: 24px;
+		font-weight: 700;
+	}
+
+	.volunteer-section .sub-heading {
+		margin-bottom: 16px;
+	}
+
+	.volunteer-card {
+		width: 342px;
+		border: 1px solid #cefe00;
+		padding: 24px 16px;
+		border-radius: 8px;
+		background-color: #f8f9fa;
+	}
+
+	.volunteer-card p {
+		line-height: 24px;
+		font-style: italic;
+		margin-bottom: 16px;
+	}
+
+	.volunteer-btn {
+		border: none;
+		background-color: #cefe00;
+		border-radius: 16px;
+	}
+
+	.volunteer-btn a {
+		display: block;
+		font-size: 14px;
+		line-height: 16px;
+		text-decoration: none;
+		color: #25262b;
+		padding: 8px 16px;
+		border-radius: 16px;
+	}
+
+	.volunteer-btn a:hover {
+		background-color: #1a1b1e;
+		color: white;
+	}
+
+	.energy-icon {
+		margin-right: 4px;
+	}
+
+	.founding-team-section .sub-heading {
+		margin-bottom: 32px;
+	}
+
+	.card-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 32px 24px;
+	}
+
+	.card {
+		width: 48%;
+	}
+
+	.card-header {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		margin-bottom: 16px;
+	}
+
+	.card-header .img-wrapper {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+	}
+
+	.card-header .img-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	.card-header .name {
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 700px;
+	}
+
+	.card-header .role {
+		font-size: 14px;
+		line-height: 16px;
+		margin-bottom: 12px;
+	}
+
+	.card a {
+		font-size: 12px;
+		line-height: 14px;
+		color: #364fc7;
+		text-decoration: none;
+	}
+
+	.card-bio {
+		line-height: 24px;
+	}
+
+	@media screen and (max-width: 1124px) {
+		.team-container {
+			flex-direction: column;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 24px 64px;
+		}
+
+		.team-container {
+			padding-bottom: 0px;
+		}
+
+		.founding-team-section .card-wrapper {
+			flex-direction: column;
+		}
+
+		.card-wrapper .card {
+			width: 100%;
+		}
+	}
+</style>
