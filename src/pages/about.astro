@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import AboutHeroSection from "@components/AboutHeroSection.astro";
+import AboutTeamSection from "@components/AboutTeamSection.astro";
+import AboutConnectCard from "@components/AboutConnectCard.astro";
+import AboutAcknowledgement from "@components/AboutAcknowledgement.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout title="Nepal Climate Hub">
+	<main class="main-container">
+
+  <!-- header section  -->
+  
+  <section class="header-section">
+    <Header logoColor="#1A1B1E" />
+
+    <!-- a mini navbar -->
+    <div class="mini-nav">
+      <a href="/">Home</a>
+    </div>
+  </section>
+
+    <section class="about-hero-section">
+      <AboutHeroSection />
+    </section>
+
+    <section class="team-section">
+      <AboutTeamSection />
+    </section>
+
+    <section class="about-connect-section">
+      <AboutConnectCard />
+    </section>
+
+    <section class="about-acknowledgement-section">
+      <AboutAcknowledgement />
+    </section>
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+	</main>
+</BaseLayout>
+
+
+<style>
+   section {
+    padding: 0px 48px;
+  }
+
+  .about-connect-section {
+    background-color: #CEFE00;
+  }
+
+  .footer-section {
+    background-color: #1A1B1E;
+    color: white;
+  }
+
+  @media  screen and (max-width: 768px) {
+  section {
+    padding: 0px;
+  }
+}
+</style>
