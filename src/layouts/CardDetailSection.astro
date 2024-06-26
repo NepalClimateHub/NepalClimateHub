@@ -2,7 +2,7 @@
 import type { Organization } from "../interfaces/organizationInterface";
 
 // dataObj can either be organization data or activist data; sent via props
-const {dataObj} = Astro.props;
+const { dataObj } = Astro.props;
 
 // initialize activeDataObject with a proper type
 let activeDataObject: Organization | null = dataObj;
@@ -140,7 +140,6 @@ let activeDataObject: Organization | null = dataObj;
 	}
 
 	@media screen and (max-width: 924px) {
-
 		.card-container {
 			flex-direction: column;
 			gap: 24px;
@@ -182,6 +181,12 @@ let activeDataObject: Organization | null = dataObj;
 		.single-image-wrapper {
 			width: 100%;
 			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 512px) {
+		.card-container {
+			flex-direction: column-reverse;
 		}
 	}
 </style>
