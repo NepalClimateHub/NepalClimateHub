@@ -8,7 +8,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://net0.grant.codes',
-  output: 'static',
+  output: 'server',
   i18n: {
     defaultLocale: 'en',
     locales: ['es', 'en'],
