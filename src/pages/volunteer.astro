@@ -2,7 +2,8 @@
 import "../styles/global.css";
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
-
+import VolunteerSection from "@components/VolunteerSection.astro";
+import VolunteerForm from "@components/VolunteerForm.astro";
 import Footer from "@components/Footer.astro";
 ---
 
@@ -21,7 +22,11 @@ import Footer from "@components/Footer.astro";
   </section>
 
     <section class="volunteer-section">
-   
+      <VolunteerSection />
+    </section>
+
+    <section class="volunteer-form-section">
+      <VolunteerForm />
     </section>
 
 
@@ -35,6 +40,14 @@ import Footer from "@components/Footer.astro";
 <style>
    section {
     padding: 0px 48px;
+  }
+
+  .volunteer-section {
+    background-color: #EBF1F7;
+  }
+
+  .volunteer-form-section {
+    background-color: #CEFE00;
   }
 
   .footer-section {
