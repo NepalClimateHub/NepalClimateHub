@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import SuccessCard from "@layouts/SuccessCard.astro";
+import Footer from "@components/Footer.astro";
+
+let successType = Astro.cookies.get("successType")?.value;
+
+// based on the successType value : volunteerProfile, activistProfile, and organizationProfile
+// conditionally rendered the message
+
+let heading = "";
+let message = "";
+
+if (successType == "volunteerProfile") {
+	heading = "Application Submitted Successfully!";
+	message =
+		"Thank you for submitting your application. We will review it and contact you soon to schedule an informal interview. We look forward to speaking with you.";
+} else if (successType == "activistProfile") {
+	heading = "Profile Submitted Successfully!";
+	message =
+		"Thank you for submitting your profile. We will review it and upload it to our platform soon. You will be notified once it is published. If any information is missing, we will reach out to you via the email you provided.";
+} else if (successType == "organizationProfile") {
+	heading = "Profile Submitted Successfully!";
+	message =
+		"Thank you for submitting your profile. We will review it and upload it to our platform soon. You will be notified once it is published. If any information is missing, we will reach out to you via the email you provided.";
+}
+---
+
+<BaseLayout title="Nepal Climate Hub">
+	<main class="main-container">
+		<!-- header section  -->
+
+		<section class="header-section">
+			<Header logoColor="#1A1B1E" />
+
+			<!-- a mini navbar -->
+			<div class="mini-nav">
+				<a href="/">Home</a>
+			</div>
+		</section>
+
+		<section class="form-submission-section">
+			<SuccessCard heading={heading} message={message} />
+		</section>
+
+		<section class="footer-section">
+			<Footer />
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	section {
+		padding: 0px 48px;
+	}
+
+	.footer-section {
+		background-color: #1a1b1e;
+		color: white;
+	}
+
+	@media screen and (max-width: 768px) {
+		section {
+			padding: 0px;
+		}
+	}
+</style>
