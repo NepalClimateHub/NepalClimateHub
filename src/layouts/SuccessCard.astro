@@ -7,9 +7,9 @@ const { heading, message, filter } = Astro.props;
 
 <div class="section-container">
 	<div class="card">
-    <div class="icon-wrapper">
-      <Icon name="mdi:success-circle-outline" class="icon"/>
-    </div>
+		<div class="icon-wrapper">
+			<Icon name="mdi:success-circle-outline" class="icon" />
+		</div>
 		<h2 class="card-heading">{heading}</h2>
 		<p class="card-message">{message}</p>
 	</div>
@@ -20,44 +20,49 @@ const { heading, message, filter } = Astro.props;
 		padding: 48px 0px;
 	}
 
-  .card {
-    max-width: 500px;
-    margin: 20px auto 40px;
-    height: auto;
-    padding: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.432);
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.493);
-    text-align: center;
-    border-radius: 8px;
-    background-color: white;
-  }
+	.card {
+		max-width: 500px;
+		margin: 20px auto 99px;
+		height: auto;
+		padding: 24px;
+		border: 1px solid rgba(0, 0, 0, 0.432);
+		box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.493);
+		text-align: center;
+		border-radius: 8px;
+		background-color: white;
+	}
 
-  .icon {
-    width: 100px;
-    height: 100px;
-    color: #cefe00;
-    color:green;
-  }
+	.icon {
+		width: 100px;
+		height: 100px;
+		color: #cefe00;
+		color: green;
+	}
 
-  .card-heading {
-    font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 16px;
-  }
+	.card-heading {
+		font-size: 24px;
+		line-height: 36px;
+		margin-bottom: 16px;
+	}
 
-  .card-message {
-    line-height: 24px;
-  }
+	.card-message {
+		line-height: 24px;
+	}
 
+	@media screen and (max-width: 1100px) {
+		.card {
+			margin: 20px auto 40px;
+		}
+	}
 
 	@media screen and (max-width: 768px) {
 		.section-container {
 			margin: 24px 32px 64px;
 		}
 
-    .card {
-      width: 100%;
-      margin: 0px auto;
-    }
+		.card {
+			width: 100%;
+			margin: 0px auto;
+		}
 	}
 </style>
