@@ -10,8 +10,6 @@ import Footer from "@components/Footer.astro";
 // function to validate our email
 import isValidEmail from "../utils/isValidEmail.js";
 
-let isFormSubmitted = false;
-
 // used to file processing, image processing in our case
 import { promises as fs } from "fs";
 import { join } from "path";
@@ -76,7 +74,7 @@ if (Astro.request.method === "POST") {
 
 		const saveImage = async (image: File) => {
 			// Define the base path for your images
-			const basePath = join(process.cwd(), "src", "assets", "formImages"); // Adjusted path
+			const basePath = join(process.cwd(), "src", "assets", "volunteerProfile"); // Adjusted path
 			const imagePath = join(basePath, image.name);
 
 			// Ensure the directory exists
