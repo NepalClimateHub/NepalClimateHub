@@ -144,14 +144,10 @@ import "../styles/global.css";
 
 <style>
 	.section-container {
-    max-width: 760px;
-		margin: 48px auto 40px;
-    background-color: white;
-    border-radius: 8px;
-	}
-
-	.description-section {
-    padding: 24px 24px;
+		max-width: 760px;
+		margin: 48px auto 0px;
+		text-align: justify;
+		border: 1px solid red;
 	}
 
 	.section-heading {
@@ -168,10 +164,6 @@ import "../styles/global.css";
 	.introduction-section p {
 		line-height: 24px;
 		margin-bottom: 8px;
-	}
-
-	.sub-section {
-		margin-bottom: 40px;
 	}
 
 	.sub-heading {
@@ -198,9 +190,10 @@ import "../styles/global.css";
 
 	/* style for responsiveness */
 
-	 @media screen and (max-width: 768px) {
+	@media screen and (max-width: 768px) {
 		.section-container {
-			margin: 24px 32px 32px;
+			margin: 24px 24px 32px;
+			text-align: left;
 		}
 	}
 </style>
