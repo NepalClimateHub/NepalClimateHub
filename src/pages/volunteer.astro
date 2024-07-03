@@ -149,34 +149,33 @@ if (Astro.request.method === "POST") {
 							<h3 class="sub-heading">Application</h3>
 							<p>Ready to Make a Difference? Apply Now!</p>
 
-							<form
-								method="POST"
-								enctype="multipart/form-data"
-							>
+							<form method="POST" enctype="multipart/form-data">
 								<div class="form-field">
 									<label for="name">Full Name</label>
 									<input type="text" name="name" required />
-									{errors.name && <p>{errors.name}</p>}
+									{errors.name && <p class="errorMessage">{errors.name}</p>}
 								</div>
 
 								<div class="form-field">
 									<label for="email">Email Address</label>
 									<input type="email" name="email" required />
-									{errors.email && <p>{errors.email}</p>}
+									{errors.email && <p class="errorMessage">{errors.email}</p>}
 								</div>
 
 								<div class="form-field">
 									<label for="current-residence">Current Residence</label>
 									<input type="text" name="current-residence" required />
 									{errors["current-residence"] && (
-										<p>{errors["current-residence"]}</p>
+										<p class="errorMessage">{errors["current-residence"]}</p>
 									)}
 								</div>
 
 								<div class="form-field">
 									<label for="linkedin-url">LinkedIn Profile</label>
 									<input type="text" name="linkedin-url" required />
-									{errors["linkedin-url"] && <p>{errors["linkedin-url"]}</p>}
+									{errors["linkedin-url"] && (
+										<p class="errorMessage">{errors["linkedin-url"]}</p>
+									)}
 								</div>
 
 								<div class="form-field">
@@ -254,7 +253,7 @@ if (Astro.request.method === "POST") {
 										words max)
 									</label>
 									<textarea id="bio" name="bio" required />
-									{errors.bio && <p>{errors.bio}</p>}
+									{errors.bio && <p class="errorMessage">{errors.bio}</p>}
 								</div>
 
 								<div class="form-field">
@@ -265,7 +264,9 @@ if (Astro.request.method === "POST") {
 										certificates, etc if you have.
 									</label>
 									<textarea id="experience" name="experience" required />
-									{errors.experience && <p>{errors.experience}</p>}
+									{errors.experience && (
+										<p class="errorMessage">{errors.experience}</p>
+									)}
 								</div>
 
 								<div class="form-field">
@@ -273,18 +274,21 @@ if (Astro.request.method === "POST") {
 										Motivation to contribute to Nepal Climate Hub:
 									</label>
 									<textarea id="motivation" name="motivation" required />
-									{errors.motivation && <p>{errors.motivation}</p>}
+									{errors.motivation && (
+										<p class="errorMessage">{errors.motivation}</p>
+									)}
 								</div>
 
 								<div class="form-field">
 									<label for="file">Upload a Picture</label>
 									<input type="file" id="file" name="file" required />
-									{errors.file && <p>{errors.file}</p>}
+									{errors.file && <p class="errorMessage">{errors.file}</p>}
 								</div>
 
 								<div class="form-field">
 									<label for="cv">Link to your CV</label>
 									<input type="text" id="cv" name="cv" required />
+									{errors.cv && <p class="errorMessage">{errors.cv}</p>}
 								</div>
 
 								<div class="form-field">
@@ -433,6 +437,11 @@ if (Astro.request.method === "POST") {
 	input[type="submit"]:hover {
 		background-color: black;
 		color: white;
+	}
+
+	.errorMessage {
+		color: red;
+		font-style: italic;
 	}
 
 	/* style for responsiveness */
