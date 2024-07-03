@@ -143,8 +143,6 @@ if (Astro.request.method === "POST") {
 		<section class="volunteer-form-section">
 			<div class="section-container">
 				<!-- form application -->
-				{
-					!isFormSubmitted && (
 						<div class="form-application-section">
 							<h3 class="sub-heading">Application</h3>
 							<p>Ready to Make a Difference? Apply Now!</p>
@@ -299,8 +297,6 @@ if (Astro.request.method === "POST") {
 								<input type="submit" />
 							</form>
 						</div>
-					)
-				}
 			</div>
 		</section>
 
@@ -329,7 +325,7 @@ if (Astro.request.method === "POST") {
 	/* styles for the form section */
 	.section-container {
 		max-width: 760px;
-		margin: 48px auto 40px;
+		margin: 16px auto 40px;
 	}
 
 	.sub-heading {
