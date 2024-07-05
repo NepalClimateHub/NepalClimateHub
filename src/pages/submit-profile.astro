@@ -147,431 +147,457 @@ if (Astro.request.method === "POST") {
 			</div>
 		</section>
 
-		<div class="section-container">
-			<h2 class="section-heading">Submit Profile</h2>
-			<div class="introduction-section">
-				<p>
-					Make yourself <strong>visible</strong> and <strong>accessible</strong>
-					to Nepal's growing climate movement.
-				</p>
-				<p>
-					We are on a mission to educate, connect, and empower Nepal’s youth
-					with knowledge of climate science, climate champions, climate-based
-					organizations, timely information, resources, opportunities, and
-					practical guidance to address pressing climate challenges through
-					individual and collective action.
-				</p>
+		<section class="profile-section">
+			<div class="section-container">
+				<h2 class="section-heading">Submit Profile</h2>
+				<div class="introduction-section">
+					<p>
+						Make yourself <strong>visible</strong> and <strong
+							>accessible</strong
+						>
+						to Nepal's growing climate movement.
+					</p>
+					<p>
+						We are on a mission to educate, connect, and empower Nepal’s youth
+						with knowledge of climate science, climate champions, climate-based
+						organizations, timely information, resources, opportunities, and
+						practical guidance to address pressing climate challenges through
+						individual and collective action.
+					</p>
+				</div>
+
+				<div class="toggleBtnWrapper">
+					For
+					<button id="activist-btn"> activists</button>
+					<span>|</span>
+					<button id="organization-btn"> organizations</button>
+				</div>
+
+				<!-- activist section -->
+
+				<div class="activist-section">
+					<p class="section-note">
+						We invite submissions from all climate champions and advocates
+						engaged in activities or initiatives addressing climate change. If
+						you are dedicated to combating climate change in any capacity, you
+						are encouraged to submit your profile.
+					</p>
+
+					<h3 class="sub-heading">Submit your climate journey</h3>
+					<p>
+						By submitting your profile to Nepal Climate Hub, you will gain
+						unparalleled visibility among the entire climate-conscious community
+						in Nepal. Highlight your personal contributions, achievements, and
+						mission to a broad audience, helping you connect with interested
+						individuals, potential collaborators, and organizations looking to
+						join forces in the fight against climate change.
+					</p>
+
+					<h3 class="sub-heading">Benefits</h3>
+
+					<dl>
+						<dt class="description-term">
+							<strong>Increased Visibility</strong>
+						</dt>
+						<dd class="description-definition">
+							Showcase your work and impact to a diverse audience, raising
+							awareness of your contributions to climate action.
+						</dd>
+
+						<dt class="description-term">
+							<strong>Networking Opportunities</strong>
+						</dt>
+						<dd class="description-definition">
+							Connect with like-minded individuals and organizations passionate
+							about climate action, fostering opportunities for collaboration
+							and partnership.
+						</dd>
+
+						<dt class="description-term"><strong>Resource Sharing</strong></dt>
+						<dd class="description-definition">
+							Access and share timely information and resources with a broad
+							network, enhancing your ability to address climate challenges
+							effectively.
+						</dd>
+
+						<dt class="description-term">
+							<strong>Inspiration and Leadership</strong>
+						</dt>
+						<dd class="description-definition">
+							Inspire others by sharing your journey and achievements,
+							encouraging more people to take meaningful climate action.
+						</dd>
+
+						<dt class="description-term"><strong>Community Impact</strong></dt>
+						<dd class="description-definition">
+							Amplify your efforts and contribute to the collective action
+							against climate change in Nepal, making a significant impact on
+							local and national levels.
+						</dd>
+					</dl>
+
+					<h3 class="sub-heading">Submit Your Profile</h3>
+					<p>
+						To make your profile visible across Nepal, please fill out the form
+						below with the following details:
+					</p>
+
+					<form
+						class="activist-form"
+						method="post"
+						enctype="multipart/form-data"
+					>
+						<div class="form-field">
+							<label for="activist-name"
+								>Name <span class="required-asterisk">*</span></label
+							>
+							<input type="text" id="activist-name" required name="name" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-address"
+								>Address <span class="required-asterisk">*</span></label
+							>
+							<input
+								type="text"
+								id="activist-address"
+								required
+								name="address"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="activist-email"
+								>Email <span class="required-asterisk">*</span></label
+							>
+							<input type="text" id="activist-email" required name="email" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-number">Phone Number</label>
+							<input type="tel" id="activist-number" name="number" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-facebook">Facebook</label>
+							<input type="text" id="activist-facebook" name="facebook" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-linkedin">LinkedIn</label>
+							<input type="text" id="activist-linkedin" name="linkedin" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-instagram">Instagram</label>
+							<input type="text" id="activist-instagram" name="instagram" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-website"
+								>Website (<i>blog site or online further details</i>)</label
+							>
+							<input type="text" id="activist-website" name="website" />
+						</div>
+
+						<div class="form-field">
+							<label for="activist-tags"
+								>Working Themes (<i>separate by comma</i>) <span
+									class="required-asterisk">*</span
+								></label
+							>
+							<input
+								type="text"
+								id="activist-tags"
+								required
+								name="tags"
+								placeholder="Climate Justice Activist, Indigenous Youth, Research, Climate Finance, Climate Awareness, ..."
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="activist-logo"
+								>Profile Picture (<i>your profile card picture</i>) <span
+									class="required-asterisk">*</span
+								></label
+							>
+							<input
+								type="file"
+								id="activist-logo"
+								required
+								name="activistCardImage"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="activist-picture"
+								>Upload your picture that will be visible next to your bio.<span
+									class="required-asterisk">*</span
+								></label
+							>
+							<input
+								type="file"
+								id="activist-image"
+								required
+								name="activist-image"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="activist-bio"
+								>Provide a detailed description that includes your introduction
+								and background, outlines your activities, achievements, and
+								impact, and concludes with your message. (<i>250 words max</i>) <span
+									class="required-asterisk">*</span
+								></label
+							>
+							<textarea name="bio" id="activist-bio"></textarea>
+						</div>
+
+						<input type="submit" />
+					</form>
+
+					<p class="note">
+						Once submitted, your profile will be reviewed and published on our
+						climate champion page directory, connecting you with passionate
+						individuals and organizations across Nepal, typically within a week.
+						You will be notified upon publication.
+					</p>
+				</div>
+
+				<!-- organization section -->
+
+				<div class="organization-section">
+					<p class="section-note">
+						We welcome submissions from all types of organizations, clubs, and
+						communities that are engaged in activities or initiatives related to
+						climate change. If your group is dedicated to addressing climate
+						change in any capacity, you are eligible to submit your profile.
+					</p>
+
+					<h3 class="sub-heading">Why Submit Your Organization's Profile?</h3>
+					<p>
+						By submitting your organization’s details to Nepal Climate Hub, you
+						will gain unparalleled visibility among the entire climate-conscious
+						community eager to support climate initiatives in Nepal. Highlight
+						your organization’s works, activities, and mission to a broad
+						audience, helping you connect with interested individuals, potential
+						collaborators, project partners, and even your next team members.
+					</p>
+
+					<h3 class="sub-heading">Benefits</h3>
+
+					<dl>
+						<dt class="description-term">
+							<strong>Increased Visibility</strong>
+						</dt>
+						<dd class="description-definition">
+							Your organization will be showcased to a diverse audience,
+							increasing awareness of your initiatives and impact.
+						</dd>
+
+						<dt class="description-term">
+							<strong>Networking Opportunities</strong>
+						</dt>
+						<dd class="description-definition">
+							Connect with like-minded individuals and organizations passionate
+							about climate action, fostering opportunities for collaboration
+							and partnership.
+						</dd>
+
+						<dt class="description-term"><strong>Resource Sharing</strong></dt>
+						<dd class="description-definition">
+							Access and share timely information and resources with a broad
+							network, enhancing your organization’s ability to address climate
+							challenges effectively.
+						</dd>
+
+						<dt class="description-term"><strong>Attract Talent</strong></dt>
+						<dd class="description-definition">
+							Reach out to motivated individuals looking to join climate-focused
+							organizations, helping you build a strong and dedicated team.
+						</dd>
+
+						<dt class="description-term"><strong>Community Impact</strong></dt>
+						<dd class="description-definition">
+							Amplify your efforts and contribute to the collective action
+							against climate change in Nepal, making a significant impact on
+							local and national levels.
+						</dd>
+					</dl>
+
+					<h3 class="sub-heading">Submit Your Organization's Profile</h3>
+					<p>
+						To make your organization visible across Nepal, please fill out the
+						form below with the following details:
+					</p>
+
+					<form
+						class="organization-form"
+						method="post"
+						enctype="multipart/form-data"
+					>
+						<div class="form-field">
+							<label for="organization-name"
+								>Organization Name <span class="required-asterisk">*</span
+								></label
+							>
+							<input type="text" id="organization-name" required name="name" />
+						</div>
+
+						<div class="form-field">
+							<label for="organization-address"
+								>Address <span class="required-asterisk">*</span></label
+							>
+							<input
+								type="text"
+								id="organization-address"
+								required
+								name="address"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-email"
+								>Email <span class="required-asterisk">*</span></label
+							>
+							<input
+								type="text"
+								id="organization-email"
+								required
+								name="email"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-number"
+								>Phone Number <span class="required-asterisk">*</span></label
+							>
+							<input
+								type="tel"
+								id="organization-number"
+								required
+								name="number"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-facebook">Facebook</label>
+							<input type="text" id="organization-facebook" name="facebook" />
+						</div>
+
+						<div class="form-field">
+							<label for="organization-linkedin">LinkedIn</label>
+							<input type="text" id="organization-linkedin" name="linkedin" />
+						</div>
+
+						<div class="form-field">
+							<label for="organization-instagram">Instagram</label>
+							<input type="text" id="organization-instagram" name="instagram" />
+						</div>
+
+						<div class="form-field">
+							<label for="organization-website"
+								>Website <span class="required-asterisk">*</span></label
+							>
+							<input
+								type="text"
+								id="organization-website"
+								required
+								name="website"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-tags"
+								>Working Themes (<i>separate by comma</i>) <span
+									class="required-asterisk">*</span
+								></label
+							>
+							<input
+								type="text"
+								id="organization-tags"
+								required
+								name="tags"
+								placeholder="Climate Adaption, Community Empowerment, Climate Finance, Climate Awareness, ..."
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-logo"
+								>Logo (<i>must have white background </i>) <span
+									class="required-asterisk">*</span
+								></label
+							>
+							<input
+								type="file"
+								id="organization-logo"
+								required
+								name="organizationLogo"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-image-one"
+								>Upload any four pictures to showcase your team, work,
+								activities, or anything else. <span class="required-asterisk"
+									>*</span
+								></label
+							>
+							<input
+								type="file"
+								id="organization-image-one"
+								required
+								name="organization-image-one"
+							/>
+							<br />
+							<input
+								type="file"
+								id="organization-image-two"
+								required
+								name="organization-image-two"
+							/>
+							<br />
+							<input
+								type="file"
+								id="organization-image-three"
+								required
+								name="organization-image-three"
+							/>
+							<br />
+							<input
+								type="file"
+								id="organization-image-four"
+								required
+								name="organization-image-four"
+							/>
+						</div>
+
+						<div class="form-field">
+							<label for="organization-bio"
+								>Provide a detailed description in three paragraphs, covering an
+								introduction to your organization, its vision, mission, and
+								objectives, as well as your works and activities. (<i
+									>250 words max</i
+								>) <span class="required-asterisk">*</span></label
+							>
+							<textarea name="bio" id="organization-bio"></textarea>
+						</div>
+
+						<input type="submit" />
+					</form>
+
+					<p class="note">
+						Once submitted, your profile will be reviewed and published on our
+						climate organizations page directory, connecting you with passionate
+						individuals and organizations across Nepal, typically within a week.
+						You will be notified upon publication.
+					</p>
+				</div>
+
+				<!-- end of the container -->
 			</div>
-
-			<div class="toggleBtnWrapper">
-				For
-				<button id="activist-btn"> activists</button>
-				<span>|</span>
-				<button id="organization-btn"> organizations</button>
-			</div>
-
-			<!-- activist section -->
-
-			<div class="activist-section">
-				<p class="section-note">
-					We invite submissions from all climate champions and advocates engaged
-					in activities or initiatives addressing climate change. If you are
-					dedicated to combating climate change in any capacity, you are
-					encouraged to submit your profile.
-				</p>
-
-				<h3 class="sub-heading">Submit your climate journey</h3>
-				<p>
-					By submitting your profile to Nepal Climate Hub, you will gain
-					unparalleled visibility among the entire climate-conscious community
-					in Nepal. Highlight your personal contributions, achievements, and
-					mission to a broad audience, helping you connect with interested
-					individuals, potential collaborators, and organizations looking to
-					join forces in the fight against climate change.
-				</p>
-
-				<h3 class="sub-heading">Benefits</h3>
-
-				<dl>
-					<dt class="description-term">
-						<strong>Increased Visibility</strong>
-					</dt>
-					<dd class="description-definition">
-						Showcase your work and impact to a diverse audience, raising
-						awareness of your contributions to climate action.
-					</dd>
-
-					<dt class="description-term">
-						<strong>Networking Opportunities</strong>
-					</dt>
-					<dd class="description-definition">
-						Connect with like-minded individuals and organizations passionate
-						about climate action, fostering opportunities for collaboration and
-						partnership.
-					</dd>
-
-					<dt class="description-term"><strong>Resource Sharing</strong></dt>
-					<dd class="description-definition">
-						Access and share timely information and resources with a broad
-						network, enhancing your ability to address climate challenges
-						effectively.
-					</dd>
-
-					<dt class="description-term">
-						<strong>Inspiration and Leadership</strong>
-					</dt>
-					<dd class="description-definition">
-						Inspire others by sharing your journey and achievements, encouraging
-						more people to take meaningful climate action.
-					</dd>
-
-					<dt class="description-term"><strong>Community Impact</strong></dt>
-					<dd class="description-definition">
-						Amplify your efforts and contribute to the collective action against
-						climate change in Nepal, making a significant impact on local and
-						national levels.
-					</dd>
-				</dl>
-
-				<h3 class="sub-heading">Submit Your Profile</h3>
-				<p>
-					To make your profile visible across Nepal, please fill out the form
-					below with the following details:
-				</p>
-
-				<form class="activist-form" method="post" enctype="multipart/form-data">
-					<div class="form-field">
-						<label for="activist-name"
-							>Name <span class="required-asterisk">*</span></label
-						>
-						<input type="text" id="activist-name" required name="name" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-address"
-							>Address <span class="required-asterisk">*</span></label
-						>
-						<input type="text" id="activist-address" required name="address" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-email"
-							>Email <span class="required-asterisk">*</span></label
-						>
-						<input type="text" id="activist-email" required name="email" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-number">Phone Number</label>
-						<input type="tel" id="activist-number" name="number" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-facebook">Facebook</label>
-						<input type="text" id="activist-facebook" name="facebook" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-linkedin">LinkedIn</label>
-						<input type="text" id="activist-linkedin" name="linkedin" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-instagram">Instagram</label>
-						<input type="text" id="activist-instagram" name="instagram" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-website"
-							>Website (<i>blog site or online further details</i>)</label
-						>
-						<input type="text" id="activist-website" name="website" />
-					</div>
-
-					<div class="form-field">
-						<label for="activist-tags"
-							>Working Themes (<i>separate by comma</i>) <span
-								class="required-asterisk">*</span
-							></label
-						>
-						<input
-							type="text"
-							id="activist-tags"
-							required
-							name="tags"
-							placeholder="Climate Justice Activist, Indigenous Youth, Research, Climate Finance, Climate Awareness, ..."
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="activist-logo"
-							>Profile Picture (<i>your profile card picture</i>) <span
-								class="required-asterisk">*</span
-							></label
-						>
-						<input
-							type="file"
-							id="activist-logo"
-							required
-							name="activistCardImage"
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="activist-picture"
-							>Upload your picture that will be visible next to your bio.<span
-								class="required-asterisk">*</span
-							></label
-						>
-						<input
-							type="file"
-							id="activist-image"
-							required
-							name="activist-image"
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="activist-bio"
-							>Provide a detailed description that includes your introduction
-							and background, outlines your activities, achievements, and
-							impact, and concludes with your message. (<i>250 words max</i>) <span
-								class="required-asterisk">*</span
-							></label
-						>
-						<textarea name="bio" id="activist-bio"></textarea>
-					</div>
-
-					<input type="submit" />
-				</form>
-
-				<p class="note">
-					Once submitted, your profile will be reviewed and published on our
-					climate champion page directory, connecting you with passionate
-					individuals and organizations across Nepal, typically within a week.
-					You will be notified upon publication.
-				</p>
-			</div>
-
-			<!-- organization section -->
-
-			<div class="organization-section">
-				<p class="section-note">
-					We welcome submissions from all types of organizations, clubs, and
-					communities that are engaged in activities or initiatives related to
-					climate change. If your group is dedicated to addressing climate
-					change in any capacity, you are eligible to submit your profile.
-				</p>
-
-				<h3 class="sub-heading">Why Submit Your Organization's Profile?</h3>
-				<p>
-					By submitting your organization’s details to Nepal Climate Hub, you
-					will gain unparalleled visibility among the entire climate-conscious
-					community eager to support climate initiatives in Nepal. Highlight
-					your organization’s works, activities, and mission to a broad
-					audience, helping you connect with interested individuals, potential
-					collaborators, project partners, and even your next team members.
-				</p>
-
-				<h3 class="sub-heading">Benefits</h3>
-
-				<dl>
-					<dt class="description-term">
-						<strong>Increased Visibility</strong>
-					</dt>
-					<dd class="description-definition">
-						Your organization will be showcased to a diverse audience,
-						increasing awareness of your initiatives and impact.
-					</dd>
-
-					<dt class="description-term">
-						<strong>Networking Opportunities</strong>
-					</dt>
-					<dd class="description-definition">
-						Connect with like-minded individuals and organizations passionate
-						about climate action, fostering opportunities for collaboration and
-						partnership.
-					</dd>
-
-					<dt class="description-term"><strong>Resource Sharing</strong></dt>
-					<dd class="description-definition">
-						Access and share timely information and resources with a broad
-						network, enhancing your organization’s ability to address climate
-						challenges effectively.
-					</dd>
-
-					<dt class="description-term"><strong>Attract Talent</strong></dt>
-					<dd class="description-definition">
-						Reach out to motivated individuals looking to join climate-focused
-						organizations, helping you build a strong and dedicated team.
-					</dd>
-
-					<dt class="description-term"><strong>Community Impact</strong></dt>
-					<dd class="description-definition">
-						Amplify your efforts and contribute to the collective action against
-						climate change in Nepal, making a significant impact on local and
-						national levels.
-					</dd>
-				</dl>
-
-				<h3 class="sub-heading">Submit Your Organization's Profile</h3>
-				<p>
-					To make your organization visible across Nepal, please fill out the
-					form below with the following details:
-				</p>
-
-				<form
-					class="organization-form"
-					method="post"
-					enctype="multipart/form-data"
-				>
-					<div class="form-field">
-						<label for="organization-name"
-							>Organization Name <span class="required-asterisk">*</span></label
-						>
-						<input type="text" id="organization-name" required name="name" />
-					</div>
-
-					<div class="form-field">
-						<label for="organization-address"
-							>Address <span class="required-asterisk">*</span></label
-						>
-						<input
-							type="text"
-							id="organization-address"
-							required
-							name="address"
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="organization-email"
-							>Email <span class="required-asterisk">*</span></label
-						>
-						<input type="text" id="organization-email" required name="email" />
-					</div>
-
-					<div class="form-field">
-						<label for="organization-number"
-							>Phone Number <span class="required-asterisk">*</span></label
-						>
-						<input type="tel" id="organization-number" required name="number" />
-					</div>
-
-					<div class="form-field">
-						<label for="organization-facebook">Facebook</label>
-						<input type="text" id="organization-facebook" name="facebook" />
-					</div>
-
-					<div class="form-field">
-						<label for="organization-linkedin">LinkedIn</label>
-						<input type="text" id="organization-linkedin" name="linkedin" />
-					</div>
-
-					<div class="form-field">
-						<label for="organization-instagram">Instagram</label>
-						<input type="text" id="organization-instagram" name="instagram" />
-					</div>
-
-					<div class="form-field">
-						<label for="organization-website"
-							>Website <span class="required-asterisk">*</span></label
-						>
-						<input
-							type="text"
-							id="organization-website"
-							required
-							name="website"
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="organization-tags"
-							>Working Themes (<i>separate by comma</i>) <span
-								class="required-asterisk">*</span
-							></label
-						>
-						<input
-							type="text"
-							id="organization-tags"
-							required
-							name="tags"
-							placeholder="Climate Adaption, Community Empowerment, Climate Finance, Climate Awareness, ..."
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="organization-logo"
-							>Logo (<i>must have white background </i>) <span
-								class="required-asterisk">*</span
-							></label
-						>
-						<input
-							type="file"
-							id="organization-logo"
-							required
-							name="organizationLogo"
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="organization-image-one"
-							>Upload any four pictures to showcase your team, work, activities,
-							or anything else. <span class="required-asterisk">*</span></label
-						>
-						<input
-							type="file"
-							id="organization-image-one"
-							required
-							name="organization-image-one"
-						/>
-						<br />
-						<input
-							type="file"
-							id="organization-image-two"
-							required
-							name="organization-image-two"
-						/>
-						<br />
-						<input
-							type="file"
-							id="organization-image-three"
-							required
-							name="organization-image-three"
-						/>
-						<br />
-						<input
-							type="file"
-							id="organization-image-four"
-							required
-							name="organization-image-four"
-						/>
-					</div>
-
-					<div class="form-field">
-						<label for="organization-bio"
-							>Provide a detailed description in three paragraphs, covering an
-							introduction to your organization, its vision, mission, and
-							objectives, as well as your works and activities. (<i
-								>250 words max</i
-							>) <span class="required-asterisk">*</span></label
-						>
-						<textarea name="bio" id="organization-bio"></textarea>
-					</div>
-
-					<input type="submit" />
-				</form>
-
-				<p class="note">
-					Once submitted, your profile will be reviewed and published on our
-					climate organizations page directory, connecting you with passionate
-					individuals and organizations across Nepal, typically within a week.
-					You will be notified upon publication.
-				</p>
-			</div>
-
-			<!-- end of the container -->
-		</div>
+		</section>
 
 		<section class="footer-section">
 			<Footer />
@@ -627,10 +653,8 @@ if (Astro.request.method === "POST") {
 
 	.section-container {
 		max-width: 760px;
-		margin: 48px auto 0px;
+		margin: 48px auto 100px;
 		text-align: justify;
-		/* border: 2px solid red; */
-		margin-bottom: 100px;
 	}
 
 	.section-heading {
@@ -790,6 +814,15 @@ if (Astro.request.method === "POST") {
 	@media screen and (max-width: 768px) {
 		section {
 			padding: 0px;
+		}
+
+		.section-container {
+			margin: 24px 24px 32px;
+			text-align: left;
+		}
+
+		.section-container p {
+			text-align: justify;
 		}
 	}
 </style>
