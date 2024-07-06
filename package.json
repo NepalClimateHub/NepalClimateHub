@@ -16,17 +16,25 @@
     "@astrojs/sitemap": "^3.1.5",
     "@iconify-json/hugeicons": "^1.1.0",
     "@iconify-json/mdi": "^1.1.66",
+    "@neondatabase/serverless": "^0.9.4",
+    "@prisma/adapter-neon": "^5.16.1",
+    "@prisma/client": "^5.16.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.8.7",
     "astro-icon": "^1.1.0",
+    "dotenv": "^16.4.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@tgwf/co2": "^0.15.0"
+    "@tgwf/co2": "^0.15.0",
+    "@types/node": "^20.14.9",
+    "@types/ws": "^8.5.10",
+    "prisma": "^5.16.1"
   }
 }
