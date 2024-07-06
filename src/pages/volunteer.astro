@@ -1,19 +1,16 @@
 ---
 export const prerender = false;
+
+// import global styles
 import "../styles/global.css";
+
+// import the components
 import BaseLayout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import VolunteerSection from "@components/VolunteerSection.astro";
 import Footer from "@components/Footer.astro";
 
-// script for form processing
-// function to validate our email
-import isValidEmail from "../utils/isValidEmail.js";
-
-// used to file processing, image processing in our case
-import { promises as fs } from "fs";
-import { join } from "path";
-
+// for displaying error message if given object key are empty or fail our requirement
 const errors = {
 	name: "",
 	email: "",
@@ -22,12 +19,14 @@ const errors = {
 	bio: "",
 	experience: "",
 	motivation: "",
-	file: "",
+	image: "",
 	cv: "",
 };
 
+// trigger when the request is POST
 if (Astro.request.method === "POST") {
 	try {
+		// gather the form data
 		const data = await Astro.request.formData();
 		const name = data.get("name");
 		const email = data.get("email");
@@ -37,14 +36,15 @@ if (Astro.request.method === "POST") {
 		const bio = data.get("bio");
 		const experience = data.get("experience");
 		const motivation = data.get("motivation");
-		const image = data.get("file");
+		const image = data.get("image");
 		const cv = data.get("cv");
 
+		// error handling
 		if (typeof name !== "string" || name.length < 1) {
 			errors.name += "Please enter your full name. ";
 		}
 
-		if (typeof email !== "string" || !isValidEmail(email)) {
+		if (typeof email !== "string" || email.length < 1) {
 			errors.email += "Email is not valid. ";
 		}
 
@@ -72,46 +72,44 @@ if (Astro.request.method === "POST") {
 			errors.cv += "Please enter the link to your CV. ";
 		}
 
-		const saveImage = async (image: File) => {
-			// Define the base path for your images
-			const basePath = join(process.cwd(), "src", "assets", "volunteerProfile"); // Adjusted path
-			const imagePath = join(basePath, image.name);
-
-			// Ensure the directory exists
-			await fs.mkdir(basePath, { recursive: true });
-
-			// Write the file
-			await fs.writeFile(imagePath, Buffer.from(await image.arrayBuffer()));
+		// payload for our request
+		const volunteerData = {
+			name: name,
+			email: email,
+			currentResidence: currentResidence,
+			linkedinUrl: linkedinUrl,
+			role: role,
+			bio: bio,
+			experience: experience,
+			motivation: motivation,
+			image: image,
+			cv: cv,
 		};
 
-		if (image instanceof File) {
-			await saveImage(image);
-		}
-
+		// collect errors
 		const hasErrors = Object.values(errors).some((msg) => msg);
+
+		// when we don't have any errors
 		if (!hasErrors) {
-			// Process form data
-
-			// make a api post request to save our data
-
-			// currently log the data in console
-			console.log("name: " + name);
-			console.log("residence: " + currentResidence);
-			console.log("linkedin: " + linkedinUrl);
-			console.log("email: " + email);
-			console.log("role " + role);
-			console.log("bio: " + bio);
-			console.log("experience: " + experience);
-			console.log("motivation: " + motivation);
-			console.log("file: " + image);
-			console.log("cv: " + cv);
-
-			// set up the cookies values
-			Astro.cookies.set("successType", "volunteerProfile", {
-				path: "/success",
+			// make a api post request to save our data (save-volunteer.ts)
+			const response = await fetch("http://localhost:4321/api/save-volunteer", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(volunteerData),
 			});
 
-			return Astro.redirect("/success");
+			if (response.ok) {
+				// set up the cookies values
+				Astro.cookies.set("successType", "volunteerProfile", {
+					path: "/success",
+				});
+
+				return Astro.redirect("/success");
+			} else {
+				console.error("Failed to save volunteer data");
+			}
 		}
 	} catch (error) {
 		if (error instanceof Error) {
@@ -141,160 +139,168 @@ if (Astro.request.method === "POST") {
 		<section class="volunteer-form-section">
 			<div class="section-container">
 				<!-- form application -->
-						<div class="form-application-section">
-							<h3 class="sub-heading">Application</h3>
-							<p>Ready to Make a Difference? Apply Now!</p>
+				<div class="form-application-section">
+					<h3 class="sub-heading">Application</h3>
+					<p>Ready to Make a Difference? Apply Now!</p>
 
-							<form method="POST" enctype="multipart/form-data">
-								<div class="form-field">
-									<label for="name">Full Name</label>
-									<input type="text" name="name" required />
-									{errors.name && <p class="errorMessage">{errors.name}</p>}
-								</div>
-
-								<div class="form-field">
-									<label for="email">Email Address</label>
-									<input type="email" name="email" required />
-									{errors.email && <p class="errorMessage">{errors.email}</p>}
-								</div>
-
-								<div class="form-field">
-									<label for="current-residence">Current Residence</label>
-									<input type="text" name="current-residence" required />
-									{errors["current-residence"] && (
-										<p class="errorMessage">{errors["current-residence"]}</p>
-									)}
-								</div>
-
-								<div class="form-field">
-									<label for="linkedin-url">LinkedIn Profile</label>
-									<input type="text" name="linkedin-url" required />
-									{errors["linkedin-url"] && (
-										<p class="errorMessage">{errors["linkedin-url"]}</p>
-									)}
-								</div>
-
-								<div class="form-field">
-									<p>Which volunteer position are you interested in?</p>
-									<div class="radio-field">
-										<input
-											type="radio"
-											name="role"
-											id="climate-educator"
-											value="Climate Educator"
-										/>
-										<label for="climate-educator">Climate Educator</label>
-									</div>
-
-									<div class="radio-field">
-										<input
-											type="radio"
-											name="role"
-											id="climate-content-editor"
-											value="Climate Content Editor"
-										/>
-										<label for="climate-content-editor">
-											Climate Content Editor
-										</label>
-									</div>
-
-									<div class="radio-field">
-										<input
-											type="radio"
-											name="role"
-											id="social-media-specialist"
-											value="Social Media Specialist"
-										/>
-										<label for="social-media-specialist">
-											Social Media Specialist
-										</label>
-									</div>
-
-									<div class="radio-field">
-										<input
-											type="radio"
-											name="role"
-											id="communication-and-outreach-coordinator"
-											value="Communications and Outreach Coordinator"
-										/>
-										<label for="communication-and-outreach-coordinator">
-											Communications and Outreach Coordinator
-										</label>
-									</div>
-
-									<div class="radio-field">
-										<input
-											type="radio"
-											name="role"
-											id="designer"
-											value="UI/UX Designer"
-										/>
-										<label for="designer">UI/UX Designer</label>
-									</div>
-
-									<div class="radio-field">
-										<input
-											type="radio"
-											name="role"
-											id="software-engineer"
-											value="Software Engineer"
-										/>
-										<label for="software-engineer">Software Engineer</label>
-									</div>
-								</div>
-
-								<div class="form-field">
-									<label for="bio">
-										Tell us about your current occupation and short bio (200
-										words max)
-									</label>
-									<textarea id="bio" name="bio" required />
-									{errors.bio && <p class="errorMessage">{errors.bio}</p>}
-								</div>
-
-								<div class="form-field">
-									<label for="experience">
-										Do you have any prior experience relevant to your
-										volunteering position? Additionally, please share any
-										relevant credentials, qualifications, conferences, training,
-										certificates, etc if you have.
-									</label>
-									<textarea id="experience" name="experience" required />
-									{errors.experience && (
-										<p class="errorMessage">{errors.experience}</p>
-									)}
-								</div>
-
-								<div class="form-field">
-									<label for="motivation">
-										Motivation to contribute to Nepal Climate Hub:
-									</label>
-									<textarea id="motivation" name="motivation" required />
-									{errors.motivation && (
-										<p class="errorMessage">{errors.motivation}</p>
-									)}
-								</div>
-
-								<div class="form-field">
-									<label for="file">Upload a Picture</label>
-									<input type="file" id="file" name="file" required />
-									{errors.file && <p class="errorMessage">{errors.file}</p>}
-								</div>
-
-								<div class="form-field">
-									<label for="cv">Link to your CV</label>
-									<input type="text" id="cv" name="cv" required />
-									{errors.cv && <p class="errorMessage">{errors.cv}</p>}
-								</div>
-
-								<div class="form-field">
-									<label for="comments">Any questions or comments: </label>
-									<textarea id="comments" name="comment" />
-								</div>
-
-								<input type="submit" />
-							</form>
+					<form method="POST" enctype="multipart/form-data">
+						<div class="form-field">
+							<label for="name">Full Name</label>
+							<input type="text" name="name" required />
+							{errors.name && <p class="errorMessage">{errors.name}</p>}
 						</div>
+
+						<div class="form-field">
+							<label for="email">Email Address</label>
+							<input type="email" name="email" required />
+							{errors.email && <p class="errorMessage">{errors.email}</p>}
+						</div>
+
+						<div class="form-field">
+							<label for="current-residence">Current Residence</label>
+							<input type="text" name="current-residence" required />
+							{
+								errors["current-residence"] && (
+									<p class="errorMessage">{errors["current-residence"]}</p>
+								)
+							}
+						</div>
+
+						<div class="form-field">
+							<label for="linkedin-url">LinkedIn Profile</label>
+							<input type="text" name="linkedin-url" required />
+							{
+								errors["linkedin-url"] && (
+									<p class="errorMessage">{errors["linkedin-url"]}</p>
+								)
+							}
+						</div>
+
+						<div class="form-field">
+							<p>Which volunteer position are you interested in?</p>
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="climate-educator"
+									value="Climate Educator"
+								/>
+								<label for="climate-educator">Climate Educator</label>
+							</div>
+
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="climate-content-editor"
+									value="Climate Content Editor"
+								/>
+								<label for="climate-content-editor">
+									Climate Content Editor
+								</label>
+							</div>
+
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="social-media-specialist"
+									value="Social Media Specialist"
+								/>
+								<label for="social-media-specialist">
+									Social Media Specialist
+								</label>
+							</div>
+
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="communication-and-outreach-coordinator"
+									value="Communications and Outreach Coordinator"
+								/>
+								<label for="communication-and-outreach-coordinator">
+									Communications and Outreach Coordinator
+								</label>
+							</div>
+
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="designer"
+									value="UI/UX Designer"
+								/>
+								<label for="designer">UI/UX Designer</label>
+							</div>
+
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="software-engineer"
+									value="Software Engineer"
+								/>
+								<label for="software-engineer">Software Engineer</label>
+							</div>
+						</div>
+
+						<div class="form-field">
+							<label for="bio">
+								Tell us about your current occupation and short bio (200 words
+								max)
+							</label>
+							<textarea id="bio" name="bio" required></textarea>
+							{errors.bio && <p class="errorMessage">{errors.bio}</p>}
+						</div>
+
+						<div class="form-field">
+							<label for="experience">
+								Do you have any prior experience relevant to your volunteering
+								position? Additionally, please share any relevant credentials,
+								qualifications, conferences, training, certificates, etc if you
+								have.
+							</label>
+							<textarea id="experience" name="experience" required></textarea>
+							{
+								errors.experience && (
+									<p class="errorMessage">{errors.experience}</p>
+								)
+							}
+						</div>
+
+						<div class="form-field">
+							<label for="motivation">
+								Motivation to contribute to Nepal Climate Hub:
+							</label>
+							<textarea id="motivation" name="motivation" required></textarea>
+							{
+								errors.motivation && (
+									<p class="errorMessage">{errors.motivation}</p>
+								)
+							}
+						</div>
+
+						<div class="form-field">
+							<label for="image">Profile picture (link/url)</label>
+							<input type="text" id="file" name="image" required />
+							{errors.image && <p class="errorMessage">{errors.image}</p>}
+						</div>
+
+						<div class="form-field">
+							<label for="cv">Link to your CV</label>
+							<input type="text" id="cv" name="cv" required />
+							{errors.cv && <p class="errorMessage">{errors.cv}</p>}
+						</div>
+
+						<div class="form-field">
+							<label for="comments">Any questions or comments: </label>
+							<textarea id="comments" name="comment"></textarea>
+						</div>
+
+						<input type="submit" />
+					</form>
+				</div>
 			</div>
 		</section>
 
