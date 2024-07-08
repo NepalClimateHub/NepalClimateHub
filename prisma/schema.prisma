@@ -22,3 +22,8 @@ model Volunteer {
   image             String
   cv                String
 }
+
+model EmailSubscription {
+  id Int @id @default(autoincrement())
+  email String @unique
+}
