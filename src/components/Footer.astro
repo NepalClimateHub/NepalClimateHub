@@ -7,14 +7,14 @@ import "../styles/global.css";
 
 	<!-- container to wrap footer content -->
 
-  <!-- three column layout -->
+	<!-- three column layout -->
 	<div class="content-wrapper">
 		<div class="column">
 			<p>
 				Passionate about climate knowledge and actions? Keep Nepal Climate Hub
 				up to date.
 			</p>
-			<button><a href="#">Volunteer</a></button>
+			<button><a href="/volunteer">Volunteer</a></button>
 		</div>
 
 		<div class="column">
@@ -22,19 +22,31 @@ import "../styles/global.css";
 				Don’t see your organization on Nepal Climate Hub? Register your profile
 				with us!
 			</p>
-			<button><a href="#">Submit profile</a></button>
+			<button><a href="/submit-profile">Submit profile</a></button>
 		</div>
 
 		<div class="column">
 			<p>Stay connected with Nepal climate news and updates from us!</p>
-			<div class="form">
-				<input type="email" placeholder="Email" autocomplete="off" />
-				<button>Submit</button>
+			<div class="emailWrapper">
+				<p class="emailMessage"></p>
+				<form class="form" method="post" id="emailForm">
+					<input
+						id="userEmail"
+						type="email"
+						placeholder="Email"
+						name="email"
+						autocomplete="off"
+						required
+					/>
+					<button>Submit</button>
+				</form>
 			</div>
+			
+			
 		</div>
 	</div>
 
-  <!-- horizontal menu bar -->
+	<!-- horizontal menu bar -->
 
 	<div class="footer-detail">
 		<div class="footer-navbar">
@@ -60,9 +72,66 @@ import "../styles/global.css";
 			</div>
 		</div>
 
-		<p class="footer-note">&copy; 2024 Nepal Climate Hub. All Rights Reserved.</p>
+		<p class="footer-note">
+			&copy; 2024 Nepal Climate Hub. All Rights Reserved.
+		</p>
 	</div>
 </footer>
+
+<script>
+	const form = document.getElementById("emailForm");
+
+	form?.addEventListener("submit", async function (event) {
+		event.preventDefault(); // prevent page reload
+		const form = event.target as HTMLFormElement | null;
+		let userEmail = document.getElementById(
+			"userEmail"
+		) as HTMLInputElement | null;
+		let emailMessage = document.querySelector(
+			".emailMessage"
+		) as HTMLElement | null;
+
+		if (form && userEmail) {
+			let payload = {
+				email: userEmail.value,
+			};
+
+			try {
+				const response = await fetch(
+					"http://localhost:4321/api/save-subscription-email",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(payload),
+					}
+				);
+
+				form.style.display = "none";
+
+				if (response.ok) {
+					if (emailMessage) {
+						emailMessage.innerText = "Thank you for staying connected!";
+						emailMessage.style.display = "block";
+						emailMessage.style.color = "#cefe00";
+					}
+
+					// Handle success response
+				} else {
+					if (emailMessage) {
+						emailMessage.innerText =
+							"Email submission failed...Sorry! Contact us.";
+						emailMessage.style.display = "block";
+						emailMessage.style.color = "red";
+					}
+				}
+			} catch (error) {
+				console.error("Error submitting form:", error);
+			}
+		}
+	});
+</script>
 
 <style>
 	.section-container {
@@ -183,8 +252,17 @@ import "../styles/global.css";
 		line-height: 14px;
 	}
 
-  /* styles for responsiveness */
-  
+	.emailWrapper {
+		position: relative;
+	}
+	.emailMessage {
+		display: block;
+		position:absolute;
+		top: -5px;
+	}
+
+	/* styles for responsiveness */
+
 	@media screen and (max-width: 1100px) {
 		.footer-detail {
 			flex-direction: column;
@@ -224,7 +302,7 @@ import "../styles/global.css";
 			gap: 4px;
 		}
 
-		.navbar a{
+		.navbar a {
 			font-size: 12px;
 		}
 

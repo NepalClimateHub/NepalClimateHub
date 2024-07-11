@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import CardFilterSection from "@layouts/CardFilterSection.astro";
+import CardContainer from "@components/CardContainer.jsx";
+import Footer from "@components/Footer.astro";
+
+// get organizations JSON data
+import ActivistsJSON from "../data/activists.json";
+---
+
+<BaseLayout title="Nepal Climate Hub">
+	<main class="main-container">
+
+  <!-- header section  -->
+  
+  <section class="header-section">
+    <Header logoColor="#1A1B1E" />
+
+    <!-- a mini navbar -->
+    <div class="mini-nav">
+      <a href="/">Home</a>
+    </div>
+  </section>
+
+  <div class="activist-wrapper">
+    <section class="filter-section">
+      <CardFilterSection heading = "Climate Champions" tagline = "Find your inspirations and get connected!" filter="true" />
+    </section>
+  
+    <section class="activist-cards-section">
+       <CardContainer client:load cardsArray = {ActivistsJSON } dataType="activist" cardProfilePictureBgSize="cover" initialCardCount = 12 />
+  </div>
+  
+  </section>
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+	</main>
+</BaseLayout>
+
+
+<style>
+   section {
+    padding: 0px 48px;
+  }
+
+  .activist-wrapper {
+    background-color: #EBF1F7;
+  }
+
+  .footer-section {
+    background-color: #1A1B1E;
+    color: white;
+  }
+
+  @media  screen and (max-width: 768px) {
+  section {
+    padding: 0px;
+  }
+}
+</style>

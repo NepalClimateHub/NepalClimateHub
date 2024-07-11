@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import styles from "../styles/components/Card.module.css";
 import { BiTargetLock } from "react-icons/bi";
 
