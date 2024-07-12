@@ -22,7 +22,7 @@ console.log(startIndex,  endIndex);
 	<div class="cards-container">
 		{
 			organizationJSON.slice(startIndex, endIndex).map((organization) => (
-			<a class="card" href={`/organizations/${organization.slug}`}>
+			<a class="card organization-card" href={`/organizations/${organization.slug}`}>
 					<div class="img-wrapper" style="padding: 4px 8px">
 						<img src={organization.logoUrl} alt={organization.name} style="object-fit: contain;" />
 					</div>
@@ -47,7 +47,7 @@ console.log(startIndex,  endIndex);
 
 		<!-- slide control bars for mobile display -->
 
-		<div class="card-controls">
+		<div class="card-controls organization-card-controls">
 			<span class="bar bar-organization-section"></span>
 			<span class="bar bar-organization-section"></span>
 			<span class="bar bar-organization-section"></span>
@@ -60,19 +60,17 @@ console.log(startIndex,  endIndex);
 </div>
 
 <script>
-	// reuse the slider function
-	import { slider } from "../utils/slider.ts";
+	import { createMobileSlider } from "src/utils/slider";
+	
+	// Get the necessary elements
+	const cards = document.querySelectorAll<HTMLElement>(".organization-card");
+	const cardControlsElement = document.querySelector<HTMLElement>(".organization-card-controls");
+	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-organization-section");
+	
+	// Check if cardControlsElement and bars are not null
+	if (cardControlsElement && bars) {
+		// Call the function to create the mobile slider
+		createMobileSlider(cards, cardControlsElement, bars);
+	}
+	</script>
 
-	// function to initialize the slider after DOM is fully loaded
-	const initSlider = () => {
-		const cards = document.querySelectorAll<HTMLElement>(".card");
-		const slideControlButtons = document.querySelectorAll<HTMLElement>(
-			".bar-organization-section"
-		);
-
-		slider(cards, slideControlButtons);
-	};
-
-	// execute the function once the DOM is loaded
-	window.addEventListener("DOMContentLoaded", initSlider);
-</script>
