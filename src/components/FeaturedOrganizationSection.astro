@@ -75,7 +75,7 @@ console.log(startIndex,  endIndex);
 	}
 
 	.organization-card {
-		max-width: 283px;
+		width: 100%;
 		border-radius: 8px;
 		overflow: hidden;
 		background-color: #F8F9FA;
@@ -190,8 +190,7 @@ console.log(startIndex,  endIndex);
 		}
 
 		.organization-card {
-			width: 370px;
-			min-width: 45%;
+			width: calc(50% - 8px);
 		}
 
 		.logo-wrapper {
@@ -209,12 +208,16 @@ console.log(startIndex,  endIndex);
 			justify-content: flex-start;
 			flex-wrap: nowrap;
 			gap: 0px;
-			max-width: 342px;
+			max-width: 364px;
 			margin: 0 auto;
 		}
 
 		.organization-card {
 			min-width: 100%;
+		}
+
+		.organization-card:hover {
+			outline: none;
 		}
 
 		.logo-wrapper {

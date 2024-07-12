@@ -76,7 +76,7 @@ const {startIndex, endIndex, title} = Astro.props;
   }
 
   .activist-card {
-    width: 284px;
+    width: 100%;
     border-radius: 8px;
     overflow: hidden;
     background-color: #F8F9FA;
@@ -188,8 +188,7 @@ const {startIndex, endIndex, title} = Astro.props;
       }
 
     .activist-card {
-      width: 370px;
-      width: 45%;
+      width: calc(50% - 8px);
     }
 
     .profile-wrapper {
@@ -205,14 +204,18 @@ const {startIndex, endIndex, title} = Astro.props;
     .activist-container {
       overflow: hidden;
       justify-content: flex-start;
-      flex-wrap:nowrap;
+      flex-wrap: nowrap;
       gap: 0px;
-      max-width: 342px;
+      max-width: 364px;
       margin: 0 auto;
     }
 
     .activist-card {
       min-width: 100%;
+    }
+
+    .activist-card:hover {
+      outline: none;
     }
 
     .profile-wrapper {
