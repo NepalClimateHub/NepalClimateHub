@@ -21,7 +21,7 @@ const {startIndex, endIndex, title} = Astro.props;
 	<div class="cards-container">
 		{
 			activistJSON.slice(startIndex, endIndex).map((activist) => (
-				<a class="card" href={`/climate-champions/${activist.slug}`}>
+				<a class="card activist-card" href={`/climate-champions/${activist.slug}`}>
 					<div class="img-wrapper" style="padding: 0;"> 
 						<img src={activist.logoUrl} alt={activist.name} style="object-fit: cover;"/>
 					</div>
@@ -47,7 +47,7 @@ const {startIndex, endIndex, title} = Astro.props;
 
 		<!-- slide control bars for mobile display -->
 
-		<div class="card-controls">
+		<div class="card-controls activist-card-controls">
 			<span class="bar bar-activist-section"></span>
 			<span class="bar bar-activist-section"></span>
 			<span class="bar bar-activist-section"></span>
@@ -61,21 +61,17 @@ const {startIndex, endIndex, title} = Astro.props;
 
 
 <script>
-
-  // reuse the slider function
-  import { slider } from "../utils/slider.ts";
-
-  // function to initialize the slider after DOM is fully loaded
-  const initSlider = () => {
-    const cards = document.querySelectorAll<HTMLElement>(".card");
-    const slideControlButtons = document.querySelectorAll<HTMLElement>(
-      ".bar-activist-section"
-    );
-
-    slider(cards, slideControlButtons);
-  };
-
-  // execute the function once the DOM is loaded
-  window.addEventListener("DOMContentLoaded", initSlider);
+	import { createMobileSlider } from "src/utils/slider";
 	
-</script>
+	// Get the necessary elements
+	const cards = document.querySelectorAll<HTMLElement>(".activist-card");
+	const cardControlsElement = document.querySelector<HTMLElement>(".activist-card-controls");
+	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-activist-section");
+	
+	// Check if cardControlsElement and bars are not null
+	if (cardControlsElement && bars) {
+		// Call the function to create the mobile slider
+		createMobileSlider(cards, cardControlsElement, bars);
+	}
+	</script>
+

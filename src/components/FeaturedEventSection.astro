@@ -21,7 +21,7 @@ const {startIndex, endIndex, title} = Astro.props;
 	<div class="cards-container">
 		{
 			eventJSON.slice(startIndex, endIndex).map((event) => (
-			<a class="card" href={`/events/${event.slug}`}>
+			<a class="card event-card" href={`/events/${event.slug}`}>
 					<div class="img-wrapper" style="padding: 0px;">
 						<img src={event.logoUrl} alt={event.name} style="object-fit: cover;" />
 					</div>
@@ -46,7 +46,7 @@ const {startIndex, endIndex, title} = Astro.props;
 
 		<!-- slide control bars for mobile display -->
 
-		<div class="card-controls">
+		<div class="card-controls event-card-controls">
 			<span class="bar bar-event-section"></span>
 			<span class="bar bar-event-section"></span>
 			<span class="bar bar-event-section"></span>
@@ -62,23 +62,27 @@ const {startIndex, endIndex, title} = Astro.props;
 	.featured-card-section {
   	margin: 53px auto 40px auto;
 }
+
+@media screen and (max-width: 768px) {
+  .featured-card-section {
+    margin: 24px 32px 64px;
+  }
+
+}
 </style>
 
 
 <script>
-	// reuse the slider function
-	import { slider } from "../utils/slider.ts";
-
-	// function to initialize the slider after DOM is fully loaded
-	const initSlider = () => {
-		const cards = document.querySelectorAll<HTMLElement>(".card");
-		const slideControlButtons = document.querySelectorAll<HTMLElement>(
-			".bar-event-section"
-		);
-
-		slider(cards, slideControlButtons);
-	};
-
-	// execute the function once the DOM is loaded
-	window.addEventListener("DOMContentLoaded", initSlider);
-</script>
+	import { createMobileSlider } from "src/utils/slider";
+	
+	// Get the necessary elements
+	const cards = document.querySelectorAll<HTMLElement>(".event-card");
+	const cardControlsElement = document.querySelector<HTMLElement>(".event-card-controls");
+	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
+	
+	// Check if cardControlsElement and bars are not null
+	if (cardControlsElement && bars) {
+		// Call the function to create the mobile slider
+		createMobileSlider(cards, cardControlsElement, bars);
+	}
+	</script>
