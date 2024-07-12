@@ -1,7 +1,7 @@
 import styles from "../styles/components/Card.module.css";
 import { BiTargetLock } from "react-icons/bi";
 
-const Card = ({ data, dataType, cardProfilePictureBgSize }) => {
+const Card = ({ data, dataType, cardProfilePictureBgSize, cardPadding }) => {
 	let url;
 	if (dataType == "organization") {
 		url = `/organizations/${data.slug}`;
@@ -13,7 +13,7 @@ const Card = ({ data, dataType, cardProfilePictureBgSize }) => {
 
 	return (
 		<a className={styles["organization-card"]} href={url}>
-			<div className={styles["logo-wrapper"]}>
+			<div className={styles["logo-wrapper"]} style={{ padding: cardPadding }}>
 				<img
 					src={data.logoUrl}
 					alt={data.name}
