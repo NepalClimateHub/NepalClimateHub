@@ -1,70 +1,78 @@
-export function slider(cards: NodeListOf<HTMLElement>, slideControlButtons: NodeListOf<HTMLElement>) {
-    let currentIndex = 0;
-    const totalCards = cards.length;
+export function createMobileSlider(
+  cards: NodeListOf<HTMLElement>,
+  cardControlsElement: HTMLElement,
+  bars: NodeListOf<HTMLElement>
+) {
+  // Check if the device is a mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-  // for dragging feature in mobile devices
-  let touchStartX = 0;
-  let touchEndX = 0;
+  // If the device is not a mobile device, return without doing anything
+  if (!isMobile) return;
 
-  // find the current screen width
-  const currentWidth = window.innerWidth;
+  // Set the initial active index
+  let activeIndex = 0;
 
-  // controls the slides
-  function showSlide(index: number) {
-    const offset = index * -100;
+  // Variables for touch handling
+  let startX: number;
+  let endX: number;
+
+  // Function to update the active card and control bar
+  function updateActiveCard() {
+    // Hide all cards
     cards.forEach((card) => {
-      card.style.transform = `translateX(${offset}%)`;
+      card.style.display = 'none';
     });
 
-    // remove active class from all slideControlButtons
-    slideControlButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
+    // Show the active card
+    cards[activeIndex].style.display = 'block';
 
-    // add active class to the button corresponding to the current slide
-    slideControlButtons[index].classList.add("active");
+    // Update the active control bar
+    bars.forEach((bar) => {
+      bar.classList.remove('active');
+    });
+    bars[activeIndex].classList.add('active');
   }
 
-  // event listeners for manual control
-  slideControlButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      currentIndex = index;
-      showSlide(currentIndex);
-    });
+  // Function to handle click events on the control bars
+  function handleBarClick(index: number) {
+    activeIndex = index;
+    updateActiveCard();
+  }
+
+  // Function to handle touch start event
+  function handleTouchStart(event: TouchEvent) {
+    startX = event.touches[0].clientX;
+  }
+
+  // Function to handle touch move event
+  function handleTouchMove(event: TouchEvent) {
+    endX = event.touches[0].clientX;
+  }
+
+  // Function to handle touch end event
+  function handleTouchEnd() {
+    if (startX > endX + 50) {
+      // Swipe left
+      activeIndex = (activeIndex + 1) % cards.length;
+    } else if (startX < endX - 50) {
+      // Swipe right
+      activeIndex = (activeIndex - 1 + cards.length) % cards.length;
+    }
+    updateActiveCard();
+  }
+
+  // Add touch event listeners to each card
+  cards.forEach((card) => {
+    card.addEventListener('touchstart', handleTouchStart);
+    card.addEventListener('touchmove', handleTouchMove);
+    card.addEventListener('touchend', handleTouchEnd);
   });
 
-  // initially show the first slide
-  showSlide(currentIndex);
+  // Add click event listeners to the control bars
+  bars.forEach((bar, index) => {
+    bar.addEventListener('click', () => handleBarClick(index));
+  });
 
-  // function to change slides automatically every four seconds for mobile devices
-  // function autoChangeSlide() {
-  //   currentIndex = (currentIndex + 1) % totalCards;
-  //   showSlide(currentIndex);
-  // }
-
-  // if it's a mobile device, trigger the automatic slide change function
-  if (currentWidth <= 768) {
-    // setInterval(autoChangeSlide, 4000);
-
-    // touch event listeners for swipe gesture
-    document.addEventListener("touchstart", (e) => {
-      touchStartX = e.touches[0].clientX;
-    });
-
-    document.addEventListener("touchmove", (e) => {
-      touchEndX = e.touches[0].clientX;
-    });
-
-    document.addEventListener("touchend", () => {
-      if (touchEndX < touchStartX - 50) {
-        // swipe left, show next slide
-        currentIndex = (currentIndex + 1) % totalCards;
-        showSlide(currentIndex);
-      } else if (touchEndX > touchStartX + 50) {
-        // swipe right, show previous slide
-        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-        showSlide(currentIndex);
-      }
-    });
-  }
+  // Initialize the slider by showing the first card and highlighting the first control bar
+  updateActiveCard();
 }

@@ -21,9 +21,10 @@
   line-height: 16px;
   border-radius: 16px;
   padding: 8px 16px;
+  border: 1px solid #1A1B1E;
   cursor: pointer;
   background-color: transparent;
-  margin-bottom: 71px;
+  margin-bottom: 71px; 
 }
 
 .load-more-btn:hover {

@@ -78,7 +78,7 @@ const NewsJSON = sortNewsArray(NewsJSONData);
 		text-decoration: none;
 
 		padding-bottom: 12px;
-		border-bottom: 2px solid #cefe00;
+		border-bottom: 1px solid #cefe00;
 		overflow: hidden;
 	}
 
@@ -89,15 +89,15 @@ const NewsJSON = sortNewsArray(NewsJSONData);
 		transition: color 0.2s ease-in-out;
 	}
 
-	.news-card > a:hover {
-		color: blue;
-	}
-
 	.news-card .content {
 		display: flex;
 		justify-content: space-between;
 		gap: 16px;
 		margin-bottom: 12px;
+	}
+
+	.news-card:hover .news-headline {
+		text-decoration: underline;
 	}
 
 	.news-headline {
