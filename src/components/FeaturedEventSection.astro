@@ -12,7 +12,7 @@ const {startIndex, endIndex, title} = Astro.props;
 
 ---
 
-<div class="section-container">
+<div class="section-container featured-card-section">
 	<h2 class="section-heading">{title}</h2>
 
 	<!-- container to wrap event cards -->
@@ -57,6 +57,12 @@ const {startIndex, endIndex, title} = Astro.props;
 	<!-- link to redirect landing page of events -->
 	<a href="/events" class="cta-link">See All</a>
 </div>
+
+<style>
+	.featured-card-section {
+  	margin: 53px auto 40px auto;
+}
+</style>
 
 
 <script>
