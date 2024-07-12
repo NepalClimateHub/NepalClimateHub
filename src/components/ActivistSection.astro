@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+
+// import card container styles(reusing)
+import "../styles/components/FeaturedCardStyles.css";
+
 import { Icon } from "astro-icon/components";
 
 //sample activist JSON data
@@ -8,21 +12,21 @@ import activistJSON from "../data/activists.json";
 const {startIndex, endIndex, title} = Astro.props;
 ---
 
-<div class="section-container">
+<div class="section-container featured-card-section">
 	<h2 class="section-heading">{title}</h2>
 
 	<!-- container to wrap activist cards -->
 
 	<!-- render the activists from activistJSON -->
-	<div class="activist-container">
+	<div class="cards-container">
 		{
 			activistJSON.slice(startIndex, endIndex).map((activist) => (
-				<a class="activist-card" href={`/climate-champions/${activist.slug}`}>
-					<div class="profile-wrapper"> 
-						<img src={activist.logoUrl} alt={activist.name} />
+				<a class="card activist-card" href={`/climate-champions/${activist.slug}`}>
+					<div class="img-wrapper" style="padding: 0;"> 
+						<img src={activist.logoUrl} alt={activist.name} style="object-fit: cover;"/>
 					</div>
 					<div class="details">
-						<h3 class="activist-name">{activist.name}</h3>
+						<h3 class="name">{activist.name}</h3>
 						<p class="location">
 							<span class="icon">
 								<Icon name="mdi:my-location" class="icon" />
@@ -43,7 +47,7 @@ const {startIndex, endIndex, title} = Astro.props;
 
 		<!-- slide control bars for mobile display -->
 
-		<div class="card-controls">
+		<div class="card-controls activist-card-controls">
 			<span class="bar bar-activist-section"></span>
 			<span class="bar bar-activist-section"></span>
 			<span class="bar bar-activist-section"></span>
@@ -56,192 +60,18 @@ const {startIndex, endIndex, title} = Astro.props;
 </div>
 
 
-<style>
-  .section-container {
-    margin: 53px auto 83px;
-    position: relative;
-  }
-
-  .section-heading {
-    font-size: 24px;
-    font-weight: 700px;
-    line-height: 32px;
-    margin-bottom: 24px;
-  }
-
-  .activist-container {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .activist-card {
-    width: 284px;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #F8F9FA;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-    text-decoration: none;
-    color: #1a1b1e;
-  }
-
-  .activist-card:hover {
-    outline: 1px solid #1a1b1e;
-  }
-
-  .profile-wrapper {
-    height: 189px;
-    width: 100%;
-  }
-
-  .profile-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .activist-card .details {
-    margin: 16px 12px;
-  }
-
-  .activist-name {
-    font-weight: 700;
-    line-height: 20px;
-    margin-bottom: 12px;
-  }
-
-  .location {
-    color: #364fc7;
-    font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .location .icon {
-    line-height: 16px;
-    display: block;
-  }
-
-  .activist-card .about {
-    font-size: 14px;
-    line-height: 18px;
-    margin-bottom: 12px;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag {
-    display: inline-block;
-    font-size: 12px;
-    color: #364fc7;
-    line-height: 14px;
-    padding: 5px 12px;
-    border: 1px solid #cefe00;
-    border-radius: 16px;
-  }
-
-  .card-controls {
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    opacity: 0;
-  }
-
-  .card-controls .bar {
-    display: block;
-    width: 25px;
-    height: 5px;
-    border-radius: 2px;
-    background-color: #1a1b1e;
-    opacity: 0.5;
-    cursor: pointer;
-  }
-
-  .card-controls .bar.active {
-    opacity: 1;
-  }
-
-  .cta-link {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 0;
-    color: #364fc7;
-    font-size: 12px;
-  }
-
-  @media screen and (max-width: 1024px) {
-
-    .activist-container {
-        flex-wrap: wrap;
-      }
-
-    .activist-card {
-      width: 370px;
-      width: 45%;
-    }
-
-    .profile-wrapper {
-      height: 224px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .section-container {
-      margin: 24px 32px 64px;
-    }
-
-    .activist-container {
-      overflow: hidden;
-      justify-content: flex-start;
-      flex-wrap:nowrap;
-      gap: 0px;
-      max-width: 342px;
-      margin: 0 auto;
-    }
-
-    .activist-card {
-      min-width: 100%;
-    }
-
-    .profile-wrapper {
-      height: 189px;
-    }
-
-    .card-controls {
-      opacity: 1;
-      bottom: -32px;
-    }
-  }
-</style>
-
 <script>
-
-  // reuse the slider function
-  import { slider } from "../utils/slider.ts";
-
-  // function to initialize the slider after DOM is fully loaded
-  const initSlider = () => {
-    const cards = document.querySelectorAll<HTMLElement>(".activist-card");
-    const slideControlButtons = document.querySelectorAll<HTMLElement>(
-      ".bar-activist-section"
-    );
-
-    slider(cards, slideControlButtons);
-  };
-
-  // execute the function once the DOM is loaded
-  window.addEventListener("DOMContentLoaded", initSlider);
+	import { createMobileSlider } from "src/utils/slider";
 	
-</script>
+	// Get the necessary elements
+	const cards = document.querySelectorAll<HTMLElement>(".activist-card");
+	const cardControlsElement = document.querySelector<HTMLElement>(".activist-card-controls");
+	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-activist-section");
+	
+	// Check if cardControlsElement and bars are not null
+	if (cardControlsElement && bars) {
+		// Call the function to create the mobile slider
+		createMobileSlider(cards, cardControlsElement, bars);
+	}
+	</script>
+

@@ -54,7 +54,7 @@ import { Icon } from "astro-icon/components";
 
     <!-- slide control bars for mobile display -->
 
-		<div class="card-controls">
+		<div class="card-controls fact-card-controls">
 			<span class="bar fact-section-bar"></span>
 			<span class="bar fact-section-bar"></span>
 			<span class="bar fact-section-bar"></span>
@@ -91,7 +91,7 @@ import { Icon } from "astro-icon/components";
 
   .fact-card {
     /* flex: 0 1 100%; */
-    width: 384px;
+    flex: 0 1 100%;
     border: none;
     background-color: white;
     border-radius: 8px;
@@ -175,8 +175,6 @@ import { Icon } from "astro-icon/components";
       overflow: hidden;
       justify-content: flex-start;
       gap: 0px;
-      max-width: 342px;
-      margin: 0 auto;
     }
 
     .fact-card {
@@ -190,24 +188,19 @@ import { Icon } from "astro-icon/components";
 
 </style>
 
-<!-- script to make slider which is triggered for devices screen width less than 768px -->
+
 
 <script>
-
-  // reuse the slider function
-  import { slider } from "../utils/slider.ts";
-
-  // function to initialize the slider after DOM is fully loaded
-  const initSlider = () => {
-    const cards = document.querySelectorAll<HTMLElement>(".fact-card");
-    const slideControlButtons = document.querySelectorAll<HTMLElement>(
-      ".fact-section-bar"
-    );
-
-    slider(cards, slideControlButtons);
-  };
-
-   // execute the function once the DOM is loaded
-   window.addEventListener("DOMContentLoaded", initSlider);
-
-  </script>
+	import { createMobileSlider } from "src/utils/slider";
+	
+	// Get the necessary elements
+	const cards = document.querySelectorAll<HTMLElement>(".fact-card");
+	const cardControlsElement = document.querySelector<HTMLElement>(".fact-card-controls");
+	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".fact-section-bar");
+	
+	// Check if cardControlsElement and bars are not null
+	if (cardControlsElement && bars) {
+		// Call the function to create the mobile slider
+		createMobileSlider(cards, cardControlsElement, bars);
+	}
+	</script>

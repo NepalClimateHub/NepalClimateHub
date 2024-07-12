@@ -27,7 +27,7 @@ import NewsJSON from "../data/news.json";
 						<span class="link-icon">
 							<Icon name="mdi:link" />
 						</span>
-						<a href={news.newsSrc}>{news.linkText}</a>
+						<a href={news.newsSrc} target="_blank">{news.linkText}</a>
 					</div>
 				</a>
 				</div>
@@ -65,7 +65,7 @@ import NewsJSON from "../data/news.json";
 		text-decoration: none;
 	
 		padding-bottom: 12px;
-		border-bottom: 2px solid #cefe00;
+		border-bottom: 1px solid #cefe00;
 	
 		/* max-width: 403px; */
 		width: 32%;
@@ -91,6 +91,10 @@ import NewsJSON from "../data/news.json";
 		font-weight: 700;
 		text-transform: capitalize;
 		width: calc(100% - 136px);
+	}
+
+	.news-card:hover .news-headline {
+		text-decoration: underline;
 	}
 
 	.news-image-wrapper {
