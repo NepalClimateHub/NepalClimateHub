@@ -14,13 +14,12 @@ import Footer from "@components/Footer.astro";
 const errors = {
 	name: "",
 	email: "",
-	"current-residence": "",
-	"linkedin-url": "",
+	currentResidence: "",
+	linkedinUrl: "",
+	cv: "",
 	bio: "",
 	experience: "",
 	motivation: "",
-	image: "",
-	cv: "",
 };
 
 // trigger when the request is POST
@@ -36,8 +35,9 @@ if (Astro.request.method === "POST") {
 		const bio = data.get("bio");
 		const experience = data.get("experience");
 		const motivation = data.get("motivation");
-		const image = data.get("image");
+		const profilePicture = data.get("profile-picture");
 		const cv = data.get("cv");
+		const questions = data.get("questions");
 
 		// error handling
 		if (typeof name !== "string" || name.length < 1) {
@@ -49,11 +49,11 @@ if (Astro.request.method === "POST") {
 		}
 
 		if (typeof currentResidence !== "string" || currentResidence.length < 1) {
-			errors["current-residence"] += "Please enter your current residence. ";
+			errors.currentResidence += "Please enter your current residence. ";
 		}
 
 		if (typeof linkedinUrl !== "string" || linkedinUrl.length < 1) {
-			errors["linkedin-url"] += "Please enter your LinkedIn profile URL. ";
+			errors.currentResidence += "Please enter your LinkedIn profile URL. ";
 		}
 
 		if (typeof bio !== "string" || bio.length < 1) {
@@ -82,8 +82,9 @@ if (Astro.request.method === "POST") {
 			bio: bio,
 			experience: experience,
 			motivation: motivation,
-			image: image,
+			profilePicture: profilePicture,
 			cv: cv,
+			questions: questions,
 		};
 
 		// collect errors
@@ -91,6 +92,7 @@ if (Astro.request.method === "POST") {
 
 		// when we don't have any errors
 		if (!hasErrors) {
+	
 			// make a api post request to save our data (save-volunteer.ts)
 			const response = await fetch("http://localhost:4321/api/save-volunteer", {
 				method: "POST",
@@ -171,8 +173,8 @@ if (Astro.request.method === "POST") {
 							>
 							<input type="text" name="current-residence" required />
 							{
-								errors["current-residence"] && (
-									<p class="errorMessage">{errors["current-residence"]}</p>
+								errors.currentResidence && (
+									<p class="errorMessage">{errors.currentResidence}</p>
 								)
 							}
 						</div>
@@ -184,8 +186,8 @@ if (Astro.request.method === "POST") {
 							>
 							<input type="text" name="linkedin-url" required />
 							{
-								errors["linkedin-url"] && (
-									<p class="errorMessage">{errors["linkedin-url"]}</p>
+								errors.linkedinUrl && (
+									<p class="errorMessage">{errors.linkedinUrl}</p>
 								)
 							}
 						</div>
@@ -199,9 +201,8 @@ if (Astro.request.method === "POST") {
 						</div>
 
 						<div class="form-field">
-							<label for="image">Upload photo (link)</label>
-							<input type="text" id="file" name="image" />
-							{errors.image && <p class="errorMessage">{errors.image}</p>}
+							<label for="profile-picture">Upload photo (link)</label>
+							<input type="text" id="profile-picture" name="profile-picture" />
 						</div>
 
 						<div class="form-field">
@@ -298,10 +299,9 @@ if (Astro.request.method === "POST") {
 
 						<div class="form-field">
 							<label for="motivation">
-								Why are you interested in  contributing to Nepal Climate Hub and what do you hope to gain from the experience?
- <span
-									class="required-asterisk">*</span
-								>
+								Why are you interested in contributing to Nepal Climate Hub and
+								what do you hope to gain from the experience?
+								<span class="required-asterisk">*</span>
 							</label>
 							<textarea id="motivation" name="motivation" required></textarea>
 							{
@@ -312,8 +312,8 @@ if (Astro.request.method === "POST") {
 						</div>
 
 						<div class="form-field">
-							<label for="comments">Do you have any questions for us?</label>
-							<textarea id="comments" name="comment"></textarea>
+							<label for="questions">Do you have any questions for us?</label>
+							<textarea id="questions" name="questions"></textarea>
 						</div>
 
 						<input type="submit" />
@@ -378,7 +378,6 @@ if (Astro.request.method === "POST") {
 
 	.form-field input[type="text"],
 	.form-field input[type="email"],
-	.form-field input[type="file"],
 	.form-field textarea {
 		width: 100%;
 		padding: 8px;
@@ -394,7 +393,6 @@ if (Astro.request.method === "POST") {
 
 	.form-field input[type="text"]:hover,
 	.form-field input[type="email"]:hover,
-	.form-field input[type="file"]:hover,
 	.form-field textarea:hover,
 	.form-field input[type="text"]:focus,
 	.form-field input[type="email"]:focus,
