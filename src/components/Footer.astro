@@ -54,7 +54,7 @@ import "../styles/global.css";
 				<h4>CONNECT</h4>
 				<a href="/organizations">ORGANIZATION</a>
 				&vert;
-				<a href="/climate-champions">ACTIVISTS</a>
+				<a href="/climate-champions">CLIMATE CHAMPIONS</a>
 				&vert;
 				<a href="events">EVENTS</a>
 			</div>
@@ -308,7 +308,14 @@ import "../styles/global.css";
 
 		.navbar h4 {
 			font-size: 12px;
-			min-width: 74px;
+			min-width: 60px;
+		}
+	}
+
+	@media screen and (max-width: 396px) {
+		.navbar a {
+			font-size: 10px;
+			min-width: fit-content
 		}
 	}
 </style>
