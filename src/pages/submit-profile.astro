@@ -88,15 +88,15 @@ if (Astro.request.method === "POST") {
 		}
 
 		// make a api post request to save our data (save-volunteer.ts)
-		// const response = await fetch(apiUrl, {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify(payload),
-		// });
+		const response = await fetch(apiUrl, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(payload),
+		});
 
-		if (true) {
+		if (response.ok) {
 			console.log("formIdentifier " + formIdentifier);
 			console.log(payload);
 
@@ -111,11 +111,6 @@ if (Astro.request.method === "POST") {
 					path: "/success",
 				});
 			}
-
-			// set up the cookies values
-			Astro.cookies.set("successType", "activistProfile", {
-				path: "/success",
-			});
 
 			return Astro.redirect("/success");
 		} else {
