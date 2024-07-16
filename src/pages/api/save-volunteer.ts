@@ -13,8 +13,9 @@ export const POST: APIRoute = async ({ request }) => {
 			bio,
 			experience,
 			motivation,
-			image,
+			profilePicture,
 			cv,
+			questions
 		} = data;
 
 		const newUser = await prisma.volunteer.create({
@@ -27,8 +28,9 @@ export const POST: APIRoute = async ({ request }) => {
 				bio,
 				experience,
 				motivation,
-				image,
+				profilePicture,
 				cv,
+				questions
 			},
 		});
 
