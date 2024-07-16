@@ -28,3 +28,35 @@ model EmailSubscription {
   id Int @id @default(autoincrement())
   email String @unique
 }
+
+model Activist {
+  id                Int      @id @default(autoincrement())
+  name              String
+  email             String   @unique
+  address           String
+  phoneNumber       String
+  facebookUrl       String
+  instagramUrl      String
+  linkedinUrl       String
+  website           String
+  workingThemes     String
+  cardPicture       String
+  profilePicture    String
+  bio               String
+}
+
+model Organization {
+  id                Int      @id @default(autoincrement())
+  name              String
+  email             String   @unique
+  address           String
+  phoneNumber       String
+  facebookUrl       String
+  instagramUrl      String
+  linkedinUrl       String
+  website           String
+  workingThemes     String
+  cardPicture       String
+  profilePicture    String
+  bio               String
+}
