@@ -19,8 +19,9 @@ model Volunteer {
   bio               String
   experience        String
   motivation        String
-  image             String
+  profilePicture    String
   cv                String
+  questions         String
 }
 
 model EmailSubscription {
