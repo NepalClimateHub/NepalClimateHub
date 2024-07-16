@@ -140,24 +140,35 @@ if (Astro.request.method === "POST") {
 			<div class="section-container">
 				<!-- form application -->
 				<div class="form-application-section">
-					<h3 class="sub-heading">Application</h3>
-					<p>Ready to Make a Difference? Apply Now!</p>
+					<h3 class="sub-heading">Application Form</h3>
+					<p>
+						Ready to contribute your time and talent to building a new
+						organization and a climate-resilient Nepal? Apply now!
+					</p>
 
 					<form method="POST" enctype="multipart/form-data">
 						<div class="form-field">
-							<label for="name">Full Name</label>
+							<label for="name"
+								>First and last name <span class="required-asterisk">*</span
+								></label
+							>
 							<input type="text" name="name" required />
 							{errors.name && <p class="errorMessage">{errors.name}</p>}
 						</div>
 
 						<div class="form-field">
-							<label for="email">Email Address</label>
+							<label for="email"
+								>Email address <span class="required-asterisk">*</span></label
+							>
 							<input type="email" name="email" required />
 							{errors.email && <p class="errorMessage">{errors.email}</p>}
 						</div>
 
 						<div class="form-field">
-							<label for="current-residence">Current Residence</label>
+							<label for="current-residence"
+								>Current residence <span class="required-asterisk">*</span
+								></label
+							>
 							<input type="text" name="current-residence" required />
 							{
 								errors["current-residence"] && (
@@ -167,7 +178,10 @@ if (Astro.request.method === "POST") {
 						</div>
 
 						<div class="form-field">
-							<label for="linkedin-url">LinkedIn Profile</label>
+							<label for="linkedin-url"
+								>LinkedIn profile <span class="required-asterisk">*</span
+								></label
+							>
 							<input type="text" name="linkedin-url" required />
 							{
 								errors["linkedin-url"] && (
@@ -177,7 +191,34 @@ if (Astro.request.method === "POST") {
 						</div>
 
 						<div class="form-field">
-							<p>Which volunteer position are you interested in?</p>
+							<label for="cv"
+								>Link to CV <span class="required-asterisk">*</span></label
+							>
+							<input type="text" id="cv" name="cv" required />
+							{errors.cv && <p class="errorMessage">{errors.cv}</p>}
+						</div>
+
+						<div class="form-field">
+							<label for="image">Upload photo (link)</label>
+							<input type="text" id="file" name="image" />
+							{errors.image && <p class="errorMessage">{errors.image}</p>}
+						</div>
+
+						<div class="form-field">
+							<p>
+								Which volunteer position are you interested in? <span
+									class="required-asterisk">*</span
+								>
+							</p>
+							<div class="radio-field">
+								<input
+									type="radio"
+									name="role"
+									id="content-writer"
+									value="Content Writer"
+								/>
+								<label for="content-writer">Content Writer</label>
+							</div>
 							<div class="radio-field">
 								<input
 									type="radio"
@@ -192,36 +233,20 @@ if (Astro.request.method === "POST") {
 								<input
 									type="radio"
 									name="role"
-									id="climate-content-editor"
-									value="Climate Content Editor"
+									id="climate-editor"
+									value="Climate Editor"
 								/>
-								<label for="climate-content-editor">
-									Climate Content Editor
-								</label>
+								<label for="climate-editor"> Climate Editor </label>
 							</div>
 
 							<div class="radio-field">
 								<input
 									type="radio"
 									name="role"
-									id="social-media-specialist"
-									value="Social Media Specialist"
+									id="social-media-manager"
+									value="Social Media Manager"
 								/>
-								<label for="social-media-specialist">
-									Social Media Specialist
-								</label>
-							</div>
-
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="communication-and-outreach-coordinator"
-									value="Communications and Outreach Coordinator"
-								/>
-								<label for="communication-and-outreach-coordinator">
-									Communications and Outreach Coordinator
-								</label>
+								<label for="social-media-manager"> Social Media Manager </label>
 							</div>
 
 							<div class="radio-field">
@@ -247,8 +272,10 @@ if (Astro.request.method === "POST") {
 
 						<div class="form-field">
 							<label for="bio">
-								Tell us about your current occupation and short bio (200 words
-								max)
+								Tell us about yourself and your current occupation. <i
+									>(200 words max)</i
+								>
+								<span class="required-asterisk">*</span>
 							</label>
 							<textarea id="bio" name="bio" required></textarea>
 							{errors.bio && <p class="errorMessage">{errors.bio}</p>}
@@ -256,10 +283,10 @@ if (Astro.request.method === "POST") {
 
 						<div class="form-field">
 							<label for="experience">
-								Do you have any prior experience relevant to your volunteering
-								position? Additionally, please share any relevant credentials,
-								qualifications, conferences, training, certificates, etc if you
-								have.
+								Briefly describe any prior experience relevant to the role you
+								are applying for. Please include any relevant credentials,
+								training, or certificates.
+								<span class="required-asterisk">*</span>
 							</label>
 							<textarea id="experience" name="experience" required></textarea>
 							{
@@ -271,7 +298,10 @@ if (Astro.request.method === "POST") {
 
 						<div class="form-field">
 							<label for="motivation">
-								Motivation to contribute to Nepal Climate Hub:
+								Why are you interested in  contributing to Nepal Climate Hub and what do you hope to gain from the experience?
+ <span
+									class="required-asterisk">*</span
+								>
 							</label>
 							<textarea id="motivation" name="motivation" required></textarea>
 							{
@@ -282,19 +312,7 @@ if (Astro.request.method === "POST") {
 						</div>
 
 						<div class="form-field">
-							<label for="image">Profile picture (link/url)</label>
-							<input type="text" id="file" name="image" required />
-							{errors.image && <p class="errorMessage">{errors.image}</p>}
-						</div>
-
-						<div class="form-field">
-							<label for="cv">Link to your CV</label>
-							<input type="text" id="cv" name="cv" required />
-							{errors.cv && <p class="errorMessage">{errors.cv}</p>}
-						</div>
-
-						<div class="form-field">
-							<label for="comments">Any questions or comments: </label>
+							<label for="comments">Do you have any questions for us?</label>
 							<textarea id="comments" name="comment"></textarea>
 						</div>
 
@@ -433,6 +451,10 @@ if (Astro.request.method === "POST") {
 	.errorMessage {
 		color: red;
 		font-style: italic;
+	}
+
+	.required-asterisk {
+		color: red;
 	}
 
 	/* style for responsiveness */
