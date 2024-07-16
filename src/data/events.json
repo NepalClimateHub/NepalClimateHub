@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"name": "Local Conference of Youth 2024",
+		"name": "Local Conference of Youth (LCOY) 2024",
 		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
@@ -16,237 +16,309 @@
 		"website": "",
 		"tags": [
 			"youth",
-      "climate conference"
+			"climate conference",
+			"capacity building",
+			"climate action"
 		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024"
+		"logoUrl": "https://i.ibb.co/TwthnwH/lcoy-Nepal2024logo.jpg",
+		"pictures": ["https://i.ibb.co/5FS4LwC/lcoy-Nepal2024-Profile.jpg"],
+		"slug": "lcoy-nepal-2024"
 	},
-  {
+	{
 		"id": 2,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "9th National Youth Conference on Climate Change (NYCCC)",
+		"description": "The National Youth Conference on Climate Change (NYCCC) is the flagship event organized by Nepalese Youth for Climate Action (NYCA) to amplify the voices of young people across Nepal in the fight against climate change. <br> The 9th NYCCC will be held in Kathmandu from July 26-28, 2024, and is open to passionate young individuals aged 18-29 from all regions of Nepal. <br> This conference will feature interactive sessions with experts, workshops on climate solutions and policies, and opportunities for networking and cultural exchange, culminating in the creation of a youth declaration paper. <br> Don't miss this chance to be a part of an unforgettable Youth festival with the theme “Empowering Youth for Climate Justice: Advocacy, Action, and Transformation.”",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "nyca.np@gmail.com",
+			"phone": "9861293959"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://www.facebook.com/NYCANepal",
+			"linkedin": "https://np.linkedin.com/company/nyca-nepal",
+			"instagram": "https://www.instagram.com/nyca.nepal/"
 		},
-		"website": "",
+		"website": "https://nyca.net.np/ ",
 		"tags": [
 			"youth",
-      "climate conference"
+			"climate conference",
+			"capacity building",
+			"climate action"
 		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024"
+		"logoUrl": "https://i.ibb.co/j3WDYkr/nyca-conference-2024-logo.jpg",
+		"pictures": ["https://i.ibb.co/N71bPJz/nyca-conference-2024-profile.jpg"],
+		"slug": "nyccc-2024"
 	},
-  {
+	{
 		"id": 3,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
-		"address": "Kathmandu, Nepal",
+		"name": "COP In My City 2024",
+		"description": "Have you ever wondered what COP looks like up close?  If you have, get ready to dive into an unforgettable journey right here with CliMates Nepal! <br> Join us for a COP IN MY CITY that will bring the excitement, innovation, and collaboration of the real COP to your doorstep. This event is your gateway to making a difference. So, Don't miss the chance to see what COP looks like, feel the energy and prepare! <br> CliMates Nepal is a youth led think-and-do tank on climate change gathering together volunteers, both students and young professionals.",
+		"address": "TBD",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "climatesnepal20@gmail.com",
+			"phone": "9869625519"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://www.facebook.com/CliMatesNepal",
+			"linkedin": "https://www.linkedin.com/company/climates-nepal",
+			"instagram": "https://www.instagram.com/climates_nepal/"
 		},
 		"website": "",
 		"tags": [
 			"youth",
-      "climate conference"
+			"climate conference",
+			"capacity building",
+			"climate action"
 		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-03"
+		"logoUrl": "https://i.ibb.co/gvCd6f4/cop-in-my-city-2024-logo.jpg",
+		"pictures": ["https://i.ibb.co/GPyyRNB/cop-in-my-city-2024-profile.jpg"],
+		"slug": "cop-in-my-city-2024"
 	},
-  {
+	{
 		"id": 4,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "FIG Regional Conference 2024",
+		"description": "The main objective of the event is to build knowledge and capacity in the Asian region to address climate change and disaster-induced challenges in safeguarding land rights of vulnerable communities, emphasizing the critical role of land governance and disaster resilience. <br> The second objective is to foster collaborative partnerships among national and regional institutions, academics, and professionals from various organisations, including non-state actors, Non-Government Organisation (NGOs) and private sector, to facilitate multistakeholder dialogues, knowledge sharing and technology transfer at the regional level. <br> NICS and FIG aim to promote the important role of surveying professions and surveyors in translating sustainable development goals into action and enhancing community resilience to climate change. <br> The overall theme is Climate Responsive Land Governance  and Disaster Resilience: Safeguarding Land Rights. <br> Date: 14-16 November 2024, Hotel Yak and Yeti, Kathmandu, Nepal",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "gpbhatta@gmail.com",
+			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://www.facebook.com/internationalfederationofsurveyors/",
+			"linkedin": "https://www.linkedin.com/company/fig---international-federation-of-surveyors",
+			"instagram": ""
 		},
-		"website": "",
+		"website": "https://www.fig.net/nepal2024/index.htm",
 		"tags": [
-			"youth",
-      "climate conference"
+			"climate conference",
+			"survey",
+			"land management",
+			"disaster resilience"
 		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-04"
+		"logoUrl": "https://i.ibb.co/ZfPWKhB/fig-2024-logo.jpg",
+		"pictures": ["https://i.ibb.co/drG7Vrt/fig-2024-profile.png"],
+		"slug": "fig-regional-conference-2024"
 	},
 	{
 		"id": 5,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "International Conference on Environment and Life Science (ICELS - 24)",
+		"description": "International Conference on Environment and Life Science (ICELS - 24) at Kathmandu, Nepal, on 18th Dec - 19th Dec'2024 is delighted to welcome professionals, academicians, and practitioners from the field to attend high-level conferences. The IIERD is organising meaningful discussions focusing on solutions, future scope, and ongoing trends. This is your chance to acquire knowledge, learn, and improve. <br> As a participant, this is your golden opportunity to create valuable connections through socialisation which will boost your professional journey. This event will welcome experts from national and international locations connected to the field. So, meet your heroes and engage in revolutionary discussions. <br> Moreover, you can engage with like-minded people and explore new areas of interest with active participation. Moreover, academicians can present their research, vision, and creative ideas to benefit the topic. The atmosphere of active questioning and engagement will benefit the event and all participants. <br> Attendance at these conferences will level up your CV and prove helpful in future endeavours. Moreover, it will give an insight into where all the nations stand concerning advancements and recent trends in Environment and Life Science . An event full of socialisation, opportunities, information, and specialists should not be missed. <br> You can discuss your career, fields, and research and get an evaluation from participants and speakers. They will assist you in choosing the right path. Moreover, conferences organised at amazing locations help you explore several cities. <br> At the IIERD conference, you can meet leading business delegates & sponsors who are looking for creative minds. Moreover, you can grab the opportunity to get funded for your further studies at Environment and Life Science.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "info@iierd.org",
+			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "",
+			"linkedin": "",
+			"instagram": ""
 		},
-		"website": "",
-		"tags": [
-			"youth",
-      "climate conference"
-		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-05"
+		"website": "https://www.iierd.org/events/index.php?id=2531408",
+		"tags": ["environment", "climate conference", "capacity building"],
+		"logoUrl": "https://i.ibb.co/nLHbr9R/ICELS-2024-logo.png",
+		"pictures": ["https://i.ibb.co/SXbzgGV/ICELS-2024-profile.png"],
+		"slug": "icels-2024"
 	},
 	{
 		"id": 6,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "The Annual Kathmandu Conference on Nepal & the Himalaya 2024",
+		"description": "The Annual Kathmandu Conference on Nepal and the Himalaya has been hosted by Social Science Baha since 2012 in collaboration with the Association for Nepal and Himalayan Studies, Britain–Nepal Academic Council, the Centre for Himalayan Studies–CNRS (since 2015) & Nepal Academic Network (Japan) (since 2016). <br> The objective of the conference is to provide a scholarly platform in Kathmandu to scholars working on various aspects of social life in Nepal and the Himalaya from the perspective of social science as well as the arts and the humanities.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "info@soscbaha.org",
+			"phone": "01-4572807"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://www.facebook.com/soscbaha",
+			"linkedin": "https://www.linkedin.com/company/socialsciencebaha/",
+			"instagram": ""
 		},
-		"website": "",
-		"tags": [
-			"youth",
-      "climate conference"
-		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-06"
+		"website": "https://annualconference.soscbaha.org/",
+		"tags": ["climate conference", "capacity building"],
+		"logoUrl": "https://www.simpleimageresizer.com/_uploads/photos/9d0e6955/test_1_optimized.png",
+		"pictures": ["https://i.ibb.co/VDwym9f/social-science-baha-profile.jpg"],
+		"slug": "annual-kathmandu-conference-on-nepal-and-himalayas-2024"
 	},
-  {
+	{
 		"id": 7,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "Center for Climate Studies 2024",
+		"description": "This short course is an initiative of the Planet Pulse and The Good Leadership, is the outcome of over 7 months of study, learning and planning based on the shared expertise of a committed group of young professionals in the field of climate change and development. The course is designed to engage and empower 15 youths (15-24 years) of different diversities with knowledge of Climate Education, SDGs, and Advocacy. The scope of #ACTNOW, it's urgent at global, regional, and local levels will be examined. <br> The course provides knowledge about different terminologies related to climate science and further includes a critical review of indigenous knowledge and practices. Participants will develop their understanding, and knowledge on devastating effects of climate change and its interlinkages with biodiversity loss, air pollution and unsustainable food systems. <br> You will get an opportunity to learn, network and grow in the field of Climate Science for which we will be including following topics: <br> Terminologies on Climate Science, Nepal and its position in climate change ,Sustainable Development Goals (SDGs), Environmental problems, Biodiversity, Climate Action related advocacy spaces like COP, SB60, NDCs, NAPA/LAPA, Climate Finance etc. Guest speakers (some climate activists at the ground and global space). One Health, Climate Activism and Climate Education at community levels (Way-forward) <br> Date: 5, 6, 13 July 2024",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "planetpulse2080@gmail.com",
+			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://www.facebook.com/profile.php?id=61557315060063",
+			"linkedin": "",
+			"instagram": "https://www.instagram.com/planetpulsenepal/"
 		},
 		"website": "",
-		"tags": [
-			"youth",
-      "climate conference"
-		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-07"
+		"tags": ["youth", "capacity building", "climate action", "SDGs"],
+		"logoUrl": "https://i.ibb.co/LQPQBj5/planet-pulse-2024-logo.png",
+		"pictures": ["https://i.ibb.co/QrMLhdb/planet-pulse-2024-profile.jpg"],
+		"slug": "center-for-climate-studies-2024"
 	},
-  {
+	{
 		"id": 8,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "Mechi to Mahakali: Stories & Experiences on Climate Change",
+		"description": "Happy Environment Day 2024! 🌍 Let’s reflect on the vulnerability of our planet and honor the relentless struggle of grassroots activists. Join us on June 6, 2024, for an inspiring experience-sharing session with the activist who walked Mechi Mahakali with the goal of raising nationwide awareness on environmental conservation and the urgent need to address pressing issues like global warming and climate change. <br> #EnvironmentDay #ClimateChange #GrassrootsActivism #MechiMahakali",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "nepal.climate.coalition@gmail.com",
+			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://www.facebook.com/Nepal.NICC",
+			"linkedin": "",
+			"instagram": "https://www.instagram.com/nicc.nepal/p/C70srTLqh0m/?locale=en"
 		},
 		"website": "",
-		"tags": [
-			"youth",
-      "climate conference"
-		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-08"
+		"tags": ["youth", "climate event", "experience sharing"],
+		"logoUrl": "https://i.ibb.co/8bSFjHt/mechi-to-mahakali-2024-logo.png",
+		"pictures": ["https://i.ibb.co/8K019RL/mechi-to-mahakali-2024-profile.jpg"],
+		"slug": "experience-from-mechi-to-mahakali"
 	},
-  {
+	{
 		"id": 9,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "Youth and Climate Symposium 2024",
+		"description": "Youth and Climate 2024 (4 June to 10 June) unites stakeholders from diverse backgrounds to explore creative green economy and youth leadership in climate action. Through a series of activities, the participants engage in conversations to discuss climate change related challenges and opportunities. <br> The programme provides a platform to share how youth – through innovation, advocacy, and action – can respond to the climate emergency. In collaboration with a consortium of UK and Nepal partners, we are organising a one-day symposium on creative green economy and climate action, a week-long exhibition that showcases creative green projects, an interactive talk programme on material culture workshops and masterclasses for students and creative professionals. <br> The activities bring together thought leaders, artists, activists, community members, academicians, educators, and youth innovators to explore creativity, entrepreneurship, and environmental sustainability contributing to a greener future.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "lcoynepal2024@gmail.com",
-			"phone": "9761859957"
+			"email": "",
+			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
-			"linkedin": "https://www.instagram.com/lcoynepal2024/",
-			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
+			"facebook": "https://fb.watch/tjfyYV_8-p/",
+			"linkedin": "",
+			"instagram": "https://www.instagram.com/npbritish/?hl=en"
 		},
-		"website": "",
-		"tags": [
-			"youth",
-      "climate conference"
-		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-09"
+		"website": "https://www.britishcouncil.org.np/youth-and-climate-2024",
+		"tags": ["climate conference", "capacity building"],
+		"logoUrl": "https://i.ibb.co/HFbwj7w/youth-and-climate-2024-logo.png",
+		"pictures": ["https://i.ibb.co/RvwG6SJ/youth-and-climate-2024-profile.jpg"],
+		"slug": "youth-and-climate-symposium-2024"
 	},
 	{
 		"id": 10,
-		"name": "Local Conference of Youth 2024",
-		"description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
+		"name": "Waste Management and Climate Conference (WMCC) 2024",
+		"description": "WMCC 2024 is jointly organized by the Ministry of Forests and Environment (MOFE), the Confederation of Nepalese Industries (CNI), the Coca-Cola Foundation, Khaalisisi, the National Human Rights Commission, the Confederation of Nepalese Industries Young Entrepreneurs Forum (CNIYEF), and Women for Human Rights (WHR). <br> This significant event will address pressing environmental challenges through collective action and policy initiatives. <br> Call For Participation: We are excited to announce that #Khaalisisi together with #CNI, #NationalHumanRightsCommission, #CocaColaFoundation, #CNIYEF and #WHR is jointly organizing #WMCC 2024 - Waste Management & Climate Conference on June 05 in observance of the #WorldEnvironmentDay. As we tackle pressing global challenges like waste management, air pollution, melting ice caps, and more, we need your collaboration, support, and expertise.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "wmccupdates@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/khaalisisi/posts/-call-for-participation-we-are-excited-to-announce-that-khaalisisi-together-with/741864951492961/",
+			"linkedin": "",
+			"instagram": ""
+		},
+		"website": "",
+		"tags": ["climate conference", "waste management", "environment"],
+		"logoUrl": "https://i.ibb.co/HBbwz6r/wmcc-logo.jpg",
+		"pictures": ["https://i.ibb.co/CMZ6j49/wmcc-profile.png"],
+		"slug": "wmcc-2024"
+	},
+	{
+		"id": 11,
+		"name": "International Expert Dialogue on Mountains, People, and Climate 2024",
+		"description": "An international expert dialogue on mountains, people and climate is set to commence today in Kathmandu, with participation from ministers of Bhutan and Bangladesh and the Chairman of the Subsidiary Body for Scientific and Technological Advice (SBSTA) of the United Nations Framework Convention on Climate Change (UNFCCC). <br> Bangladesh's Environment, Forest and Climate Minister Saber Hossain Chowdhury and Bhutan's Agriculture and Livestock Minister Younten Phuntso have arrived in Nepal to join the conference. Harry Vreuls, the president of SBSTA, is also attending. <br> On the eve of the conference, the two ministers and SBSTA President Vreuls met with Nepal's Prime Minister Pushpa Kamal Dahal. A total of 200 delegates from 25 countries, including Nepal, will participate in this dialogue, which will take place on May 22 and May 23 at Chandragiri in Kathmandu. The event is titled 'International Dialogue on Mountain, People, and Climate.' <br> The conference aims to address the impact of climate change on mountain regions, formulate a unified stance among mountain countries on related issues, and enhance the effectiveness of both national and international initiatives. <br> Nepal has consistently highlighted the adverse effects of climate change on the mountainous ecological systems, the lives of people, and biodiversity in international forums. <br> The United Nations Climate Conference (COP-28), held in Dubai last year, marked the first significant initiative to tackle the impact of climate change on mountain areas. The Dubai conference directed the 60th meeting of the SBSTA to discuss mountain and climate change issues at an expert level. <br> In line with this directive, the mountain dialogue is being held in Nepal ahead of the SBSTA meeting scheduled for early June in Bonn, Germany. The conclusions from the Nepal dialogue will be presented to SBSTA President Vreuls. Prime Minister Pushpa Kamal Dahal will inaugurate the dialogue on Wednesday, with discussions focusing on climate science and mountain evidence, mountain solutions and common themes, and mountain resources and opportunities.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "mountaindialoguenepal@gmail.com",
+			"phone": "+977-1-4211737"
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/profile.php?id=61559472054420",
+			"linkedin": "",
+			"instagram": ""
+		},
+		"website": "https://mountain.mofe.gov.np/",
+		"tags": ["international", "climate conference"],
+		"logoUrl": "https://i.ibb.co/dbHrGS5/mountain-people-climate-profile-logo.png",
+		"pictures": [
+			"https://i.ibb.co/yhm9Spv/mountain-people-climate-profile.jpg"
+		],
+		"slug": "international-expert-dialogue-on-mountains-people-and-climate-2024"
+	},
+	{
+		"id": 12,
+		"name": "Earth Hour Nepal 2024",
+		"description": "Thousands gathered at Jawalakhel Ground, Kathmandu to celebrate Earth Hour 2024 at the Eco Fiesta organized by WWF Nepal. The fiesta was a celebration of sustainability where local, home grown sustainable businesses had an opportunity to showcase their products to guests and provide alternative lifestyle options. Paying homage to the indigenous cultures of Kathmandu valley and their innate relationship with nature, the fiesta also had indigenous food stalls and various activities such as pottery, painting, lakhey dance, and more. <br> The event was also graced by incredible music performances by Surakshya Malla and Ujan Shakya, two up and coming young Nepali artists who dazzled the crowds with their acoustic performances. The event even hosted a “Sustainable Fashion Show” which comprised of incredible designs made of recycled waste materials being showcased by the seven-time winners of Kaleidoscope Inter School Festival. The main message of the fashion show was that “we must learn to reduce our consumerism, and learn to live in harmony with nature”. The concluding performance was a Lakhey Dance featuring “Lakhey” and “Pulun Kisi”. The Lakhey is known as a protector and the Pulun Kisi is a symbol of good fortune. The dance symbolized the protection of the planet from climate change and expressed the wish for a cleaner, greener planet. <br> The eco-fiesta also had a “Knowledge Corner” hosted by Sustainability Solutions where guests had the chance to play educational games, participate in a scavenger hunt and in “sukkul guff” where experts from various fields came to discuss sustainability in their particular fields. Guests also had a chance to join the “live painting” station where they could paint their interpretation of the earth.  <br> The event came to an end with a light circle where visitors came together holding candles and stood together forming a “60”, symbolizing the #biggesthourforearth and the impact of individual actions performed together. The spirit of Earth Hour came to a head with Surakshya Malla’s performance of the 2024 theme song “Celestial” by Ed Sheeran. <br> The event brought together people from all walks of life to celebrate the spirit of sustainability and learn about different ways in each individual can make a difference! Visitors got to spend their #biggesthourforearth by learning about nature and sustainable practices, engaging in art and engaging in sustainable shopping! <br> Individuals, businesses and cities in 190 countries and territories worldwide joined Earth Hour to speak up for nature and inspire urgent action for the environment. Through the global appeal of the world’s largest grassroots movement for the environment, #EarthHour, #biggesthourforearth and related hashtags across the globe. Millions of people have spoken, urging world leaders to prioritize the protection of the planet and reversal of loss of nature.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/events/840393051187758/?ref_source=NEWS_FEED&paipv=0&eav=AfZy-YspNm_MeTM2LTTI-YixKMOx9of0QlkPg1yybUIpiURkOwspfDV1_OvE3rKf5bg&_rdr",
+			"linkedin": "",
+			"instagram": ""
+		},
+		"website": "https://www.wwfnepal.org/?384435/WWF-Nepal-celebrates-Earth-Hour-2024-with-an-Eco-Fiesta",
+		"tags": ["environment", "climate event"],
+		"logoUrl": "https://i.ibb.co/9hgVpJc/earth-hour-logo.jpg",
+		"pictures": ["https://i.ibb.co/jh8w6B2/earth-hour-profile.jpg"],
+		"slug": "earth-hour-nepal-2024"
+	},
+	{
+		"id": 13,
+		"name": "People’s Climate March to End Fossil Fuels Kathmandu 2023",
+		"description": "While over 700 mobilisations against fossil fuels are planned around the world from September 15 to 17 to draw the attention of stakeholders, more than 500 people took to the streets today in the nine major cities of Nepal demanding rapid, just and equitable eradication of fossil fuels. The climate march was organised in Gauradha, Jhapa, Biratnagar and Udayapur of Koshi Province and Hetauda, Kathmandu, Lalitpur and Sindhuli of Bagmati Province. It was also followed in Pokhara and Lamjung of Gandaki Province and Bhairahawa of Lumbini Province. <br> Organiser of People's Climate March 2023, Sagar Koirala said, \"As world leaders gather at the United Nations Climate Ambition Summit on September 17, we want to raise millions of voices to pressurise stakeholders to stop the use of fossil fuel and focus on use of renewable energy sources.\" <br> \"Today, we joined hands in Patan of Lalitpur to demand swift, just, and equitable end to fossil fuels,\" he said, adding, \"It's time to make a change for our planet's future. We have to end fossil fuels and quickly make transition towards renewable energy.\" Climate advocates across different cities of Nepal have urged world leaders to undertake a rapid, equitable and just fossil fuel phase-out to protect the people and planet, said Omkar Subedi, an activist from People's Climate Mobilisation Team. He further said, \"With so many deceptive excuses, governments are expanding rather than phasing out gas and oil. Unreliable solutions like carbon capture and removal technologies, and hydrogen and ammonia co-firing are being promoted to extend the life of coal energy. <br> Source - thehimalayantimes",
+		"address": "Lalitpur, Nepal",
+		"contact": {
+			"email": "",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/PCMktmUpdates/",
+			"linkedin": "",
+			"instagram": ""
+		},
+		"website": "https://peoplesclimatemobilisation.blogspot.com/",
+		"tags": ["youth", "climate rally", "climate action", "environment"],
+		"logoUrl": "https://i.ibb.co/7nzgSjk/people-climate-march-logo.png",
+		"pictures": ["https://i.ibb.co/ZBsB8hS/people-climate-march-profile.jpg"],
+		"slug": "peoples-climate-march-kathmandu-2023"
+	},
+	{
+		"id": 14,
+		"name": "LoF National Conference 2023",
+		"description": "Land Our Future is organizing its first National Conference at College of Business Management, Dillibazar Kathmandu on December 23 – 24. The national conference will be participated in by more than 100 youths representing various fields. <br> Miss Nepal 2023 Srichchha Pradhan will be attending both the inaugural session and panel discussion during the two day conference as special guest. <br> The LOF Conference themed “Youth stands with Nature” is a dynamic conference designed to unite individuals from various sectors who are actively engaged in Environment Protection, Climate Action, Forest & Biodiversity Agriculture & Soil Management, and Sustainable Development Goals. <br> The conference will feature round table discussion, poster presentation, special training session on UN Environment agenda on COP 28, Key Note Speaker’s remarks on thematic subjects and cultural activities as well. On the closing ceremony all the participates will be handed over certificates. <br> The conference aims to foster collaboration, knowledge-sharing, and innovative thinking among environment & climate activists, researchers, scholars, government representatives, school and university students, according to the organizers. By incorporating various interactive modules, including presentations, storytelling, video play, and group work, the event is aimed at empowering participants to enhance their understanding of environmental crisis protection and develop effective strategies for addressing them. <br> source: thenepalweekly",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/LandourFuture",
+			"linkedin": "https://www.instagram.com/land_our_future/",
+			"instagram": "https://www.linkedin.com/company/land-our-future/"
+		},
+		"website": "",
+		"tags": ["youth", "climate conference", "environment"],
+		"logoUrl": "https://i.ibb.co/3NJbdZX/land-our-future-logo.png",
+		"pictures": ["https://i.ibb.co/88JG4Cs/land-our-future-profile.jpg"],
+		"slug": "lof-national-conference-2023"
+	},
+	{
+		"id": 15,
+		"name": "Local Conference of Youth (LCOY) 2023",
+		"description": "LCOY NEPAL aims to bring together the vision and ideas of young and enthusiastic Nepali youth from the grassroots level and flourish them into action through a joint effort. And, finally, layout objectives will be taken to COP28 through the active involvement of Nepali youths from diverse fields. <br> The two-day event will serve as a platform for in-depth discussions on climate change, its impacts, underlying causes, and the various initiatives undertaken by humanity in response. LCOY focuses on key themes including Climate Justice and Equity, Youth Empowerment, Community Engagement, Climate Finance, and Governance. The event will feature group presentations and panel discussions on these critical topics, offering attendees a comprehensive understanding of climate-related issues and solutions. All the attendees of the programme will be provided with certificates. <br> LCOY NEPAL 2023 has collaborated with an esteemed lead organiser, POWERSHIFT NEPAL, and co-organisers Sustainability Week Kathmandu, Thought for Food, Harin Nepal, International Forestry Students’ Association (IFSA), Female Foresters Nepal (FFN), Youth Action For Sustainable And Eco Nepal (YASEN), Climates Nepal, Pravaha Collective, and Eco-Network.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
 			"email": "lcoynepal2024@gmail.com",
 			"phone": "9761859957"
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/lcoynepal2024/",
+			"facebook": "https://www.facebook.com/lcoynepal2024",
 			"linkedin": "https://www.instagram.com/lcoynepal2024/",
 			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
 		},
 		"website": "",
-		"tags": [
-			"youth",
-      "climate conference"
-		],
-		"logoUrl": "https://www.b360nepal.com/storage/news/LCOY%20Nepal%202023.jpg",
-		"pictures": [
-			"https://ifsa.net/wp-content/uploads/2023/09/unnamed-11.png"
-		],
-		"slug" : "lcoy-nepal-2024-slug-10"
+		"tags": ["youth", "climate conference", "waste management", "environment"],
+		"logoUrl": "https://i.ibb.co/Vp3RwT0/lcoy-logo-2023.jpg",
+		"pictures": ["https://i.ibb.co/ZXtp6k4/lcoy-profile-2023.png"],
+		"slug": "lcoy-nepal-2023"
 	}
 ]
