@@ -43,10 +43,10 @@ if (Astro.request.method === "POST") {
 				facebookUrl: activistFacebookUrl,
 				instagramUrl: activistInstagramUrl,
 				website: activistWebsite,
-				themes: activistWorkingThemes,
+				workingThemes: activistWorkingThemes,
 				bio: activistBio,
-				cardImage: activistCardImageUrl,
-				profileImage: activistProfileImageUrl,
+				cardPicture: activistCardImageUrl,
+				profilePicture: activistProfileImageUrl,
 			};
 		}
 
@@ -80,14 +80,14 @@ if (Astro.request.method === "POST") {
 				facebookUrl: organizationFacebookUrl,
 				instagramUrl: organizationInstagramUrl,
 				website: organizationWebsite,
-				themes: organizationWorkingThemes,
+				workingThemes: organizationWorkingThemes,
 				bio: organizationBio,
-				cardImage: organizationCardImageUrl,
-				profileImage: organizationProfileImageUrl,
+				cardPicture: organizationCardImageUrl,
+				profilePicture: organizationProfileImageUrl,
 			};
 		}
 
-		// make a api post request to save our data (save-volunteer.ts)
+		// make a api post request to save our data (save-organization-profile.ts or save-activist-profile)
 		const response = await fetch(apiUrl, {
 			method: "POST",
 			headers: {
