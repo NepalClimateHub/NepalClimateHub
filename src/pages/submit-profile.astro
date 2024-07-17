@@ -6,125 +6,119 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 // form handling
-
-// used to file processing, image processing in our case
-import { promises as fs } from "fs";
-import { join } from "path";
+let errorMessage = "";
 
 if (Astro.request.method === "POST") {
 	try {
 		const data = await Astro.request.formData();
-		const name = data.get("name");
-		const address = data.get("address");
-		const email = data.get("email");
-		const phoneNumber = data.get("number");
+		const formIdentifier = data.get("form_identifier");
+		let apiUrl = "";
+		let payload = {};
 
-		const facebookUrl = data.get("facebook");
-		const linkedinUrl = data.get("linkedin");
-		const instagramUrl = data.get("instagram");
+		if (formIdentifier == "activist_profile") {
+			const activistName = data.get("activist-name");
+			const activistAddress = data.get("activist-address");
+			const activistEmail = data.get("activist-email");
+			const activistPhoneNumber = data.get("activist-number");
 
-		const bio = data.get("bio");
-		const activistCardImage = data.get("activistCardImage");
-		const organizationLogo = data.get("organizationLogo");
-		const activistProfileImage = data.get("activist-image");
+			const activistFacebookUrl = data.get("activist-facebook");
+			const activistLinkedinUrl = data.get("activist-linkedin");
+			const activistInstagramUrl = data.get("activist-instagram");
+			const activistWebsite = data.get("activist-website");
+			const activistWorkingThemes = data.get("activist-working-themes");
 
-		const orgImageOne = data.get("organization-image-one");
-		const orgImageTwo = data.get("organization-image-two");
-		const orgImageThree = data.get("organization-image-three");
-		const orgImageFour = data.get("organization-image-four");
+			const activistBio = data.get("activist-bio");
+			const activistCardImageUrl = data.get("activist-card-image");
+			const activistProfileImageUrl = data.get("activist-profile-image");
 
-		// handle activist cardImage and profileImage
-		if (activistProfileImage) {
-			const saveImage = async (image: File) => {
-				// Define the base path for the image
-				const basePath = join(
-					process.cwd(),
-					"src",
-					"assets",
-					"activistProfile"
-				); // Adjusted path
-				const imagePath = join(basePath, image.name);
+			apiUrl = "https://nepalclimatehub.netlify.app/api/save-activist-profile";
 
-				// Ensure the directory exists
-				await fs.mkdir(basePath, { recursive: true });
-
-				// Write the file
-				await fs.writeFile(imagePath, Buffer.from(await image.arrayBuffer()));
+			// payload for our request
+			payload = {
+				name: activistName,
+				email: activistEmail,
+				address: activistAddress,
+				phoneNumber: activistPhoneNumber,
+				linkedinUrl: activistLinkedinUrl,
+				facebookUrl: activistFacebookUrl,
+				instagramUrl: activistInstagramUrl,
+				website: activistWebsite,
+				workingThemes: activistWorkingThemes,
+				bio: activistBio,
+				cardPicture: activistCardImageUrl,
+				profilePicture: activistProfileImageUrl,
 			};
-
-			if (activistCardImage instanceof File) {
-				await saveImage(activistCardImage);
-			}
-
-			if (activistProfileImage instanceof File) {
-				await saveImage(activistProfileImage);
-			}
 		}
 
-		// handle organization logo and other images
-		if (organizationLogo) {
-			const saveImage = async (image: File) => {
-				// Define the base path for the image
-				const basePath = join(
-					process.cwd(),
-					"src",
-					"assets",
-					"organizationProfile"
-				); // Adjusted path
-				const imagePath = join(basePath, image.name);
+		if (formIdentifier == "organization_profile") {
+			const organizationName = data.get("organization-name");
+			const organizationAddress = data.get("organization-address");
+			const organizationEmail = data.get("organization-email");
+			const organizationPhoneNumber = data.get("organization-number");
 
-				// Ensure the directory exists
-				await fs.mkdir(basePath, { recursive: true });
+			const organizationFacebookUrl = data.get("organization-facebook");
+			const organizationLinkedinUrl = data.get("organization-linkedin");
+			const organizationInstagramUrl = data.get("organization-instagram");
+			const organizationWebsite = data.get("organization-website");
+			const organizationWorkingThemes = data.get("organization-working-themes");
 
-				// Write the file
-				await fs.writeFile(imagePath, Buffer.from(await image.arrayBuffer()));
+			const organizationBio = data.get("organization-bio");
+			const organizationCardImageUrl = data.get("organization-card-image");
+			const organizationProfileImageUrl = data.get(
+				"organization-profile-image"
+			);
+
+			apiUrl = "https://nepalclimatehub.netlify.app/api/save-organization-profile";
+
+			// payload for our request
+			payload = {
+				name: organizationName,
+				email: organizationEmail,
+				address: organizationAddress,
+				phoneNumber: organizationPhoneNumber,
+				linkedinUrl: organizationLinkedinUrl,
+				facebookUrl: organizationFacebookUrl,
+				instagramUrl: organizationInstagramUrl,
+				website: organizationWebsite,
+				workingThemes: organizationWorkingThemes,
+				bio: organizationBio,
+				cardPicture: organizationCardImageUrl,
+				profilePicture: organizationProfileImageUrl,
 			};
-
-			if (organizationLogo instanceof File) {
-				await saveImage(organizationLogo);
-			}
-
-			if (orgImageOne instanceof File) {
-				await saveImage(orgImageOne);
-			}
-			if (orgImageTwo instanceof File) {
-				await saveImage(orgImageTwo);
-			}
-			if (orgImageThree instanceof File) {
-				await saveImage(orgImageThree);
-			}
-			if (orgImageFour instanceof File) {
-				await saveImage(orgImageFour);
-			}
 		}
 
-		// log to console
-		if (organizationLogo) {
-			console.log("This is organization details");
-		}
-
-		if (activistCardImage) {
-			console.log("This is activist details");
-		}
-
-		console.log(name);
-		console.log(address);
-		console.log(email);
-		console.log(phoneNumber);
-		console.log(facebookUrl);
-		console.log(linkedinUrl);
-		console.log(instagramUrl);
-		console.log(bio);
-
-		// set up the cookies values
-		Astro.cookies.set("successType", "activistProfile", {
-			path: "/success",
+		// make a api post request to save our data (save-organization-profile.ts or save-activist-profile)
+		const response = await fetch(apiUrl, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(payload),
 		});
 
-		return Astro.redirect("/success");
+		if (response.ok) {
+			console.log("formIdentifier " + formIdentifier);
+			console.log(payload);
+
+			if (formIdentifier == "activist_profile") {
+				// set up the cookies values
+				Astro.cookies.set("successType", "volunteerProfile", {
+					path: "/success",
+				});
+			} else {
+				// set up the cookies values
+				Astro.cookies.set("successType", "organizationProfile", {
+					path: "/success",
+				});
+			}
+
+			return Astro.redirect("/success");
+		} else {
+			errorMessage = "true";
+		}
 	} catch (error) {
 		if (error instanceof Error) {
-			console.error(error.message);
+			errorMessage = error.message;
 		}
 	}
 }
@@ -147,94 +141,79 @@ if (Astro.request.method === "POST") {
 			<div class="section-container">
 				<h2 class="section-heading">Submit Profile</h2>
 				<div class="introduction-section">
-					<p>
-						Make yourself <strong>visible</strong> and <strong
-							>accessible</strong
-						>
-						to Nepal's growing climate movement.
+					<p class="main-message">
+						Share your commitment to Nepal's growing climate movement and
+						connect with like-minded individuals and organizations by submitting
+						your profile to Nepal Climate Hub.
 					</p>
 					<p>
-						We are on a mission to educate, connect, and empower Nepal’s youth
-						with knowledge of climate science, climate champions, climate-based
-						organizations, timely information, resources, opportunities, and
-						practical guidance to address pressing climate challenges through
-						individual and collective action.
+						Nepal Climate Hub is on a mission to educate, connect, and empower
+						youth across Nepal to address pressing climate challenges through
+						individual and collective action. Whether you are a student or young
+						professional working to address climate change through education,
+						research, resilience, policy, advocacy, or technology, please submit
+						a profile so we can highlight and celebrate your efforts!
 					</p>
 				</div>
 
 				<div class="toggleBtnWrapper">
 					For
-					<button id="activist-btn"> activists</button>
+					<button id="activist-btn">Climate Champions</button>
 					<span>|</span>
-					<button id="organization-btn"> organizations</button>
+					<button id="organization-btn"> Organizations</button>
 				</div>
 
 				<!-- activist section -->
 
 				<div class="activist-section">
 					<p class="section-note">
-						We invite submissions from all climate champions and advocates
-						engaged in activities or initiatives addressing climate change. If
-						you are dedicated to combating climate change in any capacity, you
-						are encouraged to submit your profile.
+						Are you working to enable a cleaner, safer, healthier and more
+						resilient Nepal? We want to hear about your climate journey and
+						mission! We invite submissions from all individual climate champions
+						engaged in activities or initiatives to address climate change.
 					</p>
 
-					<h3 class="sub-heading">Submit your climate journey</h3>
-					<p>
-						By submitting your profile to Nepal Climate Hub, you will gain
-						unparalleled visibility among the entire climate-conscious community
-						in Nepal. Highlight your personal contributions, achievements, and
-						mission to a broad audience, helping you connect with interested
-						individuals, potential collaborators, and organizations looking to
-						join forces in the fight against climate change.
-					</p>
+					<p>By submitting your profile to Nepal Climate Hub, you will gain:</p>
 
-					<h3 class="sub-heading">Benefits</h3>
-
-					<dl>
-						<dt class="description-term">
-							<strong>Increased Visibility</strong>
-						</dt>
-						<dd class="description-definition">
-							Showcase your work and impact to a diverse audience, raising
+					<ul>
+						<li>
+							<span class="description-term"
+								><strong>Increased visibility</strong></span
+							>: Showcase your work and impact to a diverse audience, raising
 							awareness of your contributions to climate action.
-						</dd>
-
-						<dt class="description-term">
-							<strong>Networking Opportunities</strong>
-						</dt>
-						<dd class="description-definition">
-							Connect with like-minded individuals and organizations passionate
-							about climate action, fostering opportunities for collaboration
-							and partnership.
-						</dd>
-
-						<dt class="description-term"><strong>Resource Sharing</strong></dt>
-						<dd class="description-definition">
-							Access and share timely information and resources with a broad
+						</li>
+						<li>
+							<span class="description-term"
+								><strong>Networking opportunities</strong></span
+							>: Connect with like-minded individuals and organizations
+							passionate about climate action, fostering opportunities for
+							collaboration and partnership.
+						</li>
+						<li>
+							<span class="description-term"
+								><strong>Resource sharing</strong></span
+							>: Access and share timely information and resources with a broad
 							network, enhancing your ability to address climate challenges
 							effectively.
-						</dd>
-
-						<dt class="description-term">
-							<strong>Inspiration and Leadership</strong>
-						</dt>
-						<dd class="description-definition">
-							Inspire others by sharing your journey and achievements,
-							encouraging more people to take meaningful climate action.
-						</dd>
-
-						<dt class="description-term"><strong>Community Impact</strong></dt>
-						<dd class="description-definition">
-							Amplify your efforts and contribute to the collective action
-							against climate change in Nepal, making a significant impact on
-							local and national levels.
-						</dd>
-					</dl>
+						</li>
+						<li>
+							<span class="description-term"
+								><strong>Inspiration and leadership</strong></span
+							>: Be inspired and Inspire others by sharing your journey and
+							achievements.
+						</li>
+						<li>
+							<span class="description-term"
+								><strong>Community impact</strong></span
+							>: Amplify your efforts by joining a growing coalition of
+							mission-driven individuals and organizations dedicated to ensuring
+							a climate-resilient Nepal.
+						</li>
+					</ul>
 
 					<h3 class="sub-heading">Submit Your Profile</h3>
 					<p>
-						To make your profile visible across Nepal, please fill out the form
+						To create your Climate Champion profile, please complete the form
 						below with the following details:
 					</p>
 
@@ -243,11 +222,22 @@ if (Astro.request.method === "POST") {
 						method="post"
 						enctype="multipart/form-data"
 					>
+						<input
+							type="hidden"
+							name="form_identifier"
+							value="activist_profile"
+						/>
+
 						<div class="form-field">
 							<label for="activist-name"
 								>Name <span class="required-asterisk">*</span></label
 							>
-							<input type="text" id="activist-name" required name="name" />
+							<input
+								type="text"
+								id="activist-name"
+								required
+								name="activist-name"
+							/>
 						</div>
 
 						<div class="form-field">
@@ -258,7 +248,7 @@ if (Astro.request.method === "POST") {
 								type="text"
 								id="activist-address"
 								required
-								name="address"
+								name="activist-address"
 							/>
 						</div>
 
@@ -266,98 +256,130 @@ if (Astro.request.method === "POST") {
 							<label for="activist-email"
 								>Email <span class="required-asterisk">*</span></label
 							>
-							<input type="text" id="activist-email" required name="email" />
+							<input
+								type="text"
+								id="activist-email"
+								required
+								name="activist-email"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-number">Phone Number</label>
-							<input type="tel" id="activist-number" name="number" />
+							<input type="tel" id="activist-number" name="activist-number" />
 						</div>
 
 						<div class="form-field">
 							<label for="activist-facebook">Facebook</label>
-							<input type="text" id="activist-facebook" name="facebook" />
+							<input
+								type="text"
+								id="activist-facebook"
+								name="activist-facebook"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-linkedin">LinkedIn</label>
-							<input type="text" id="activist-linkedin" name="linkedin" />
+							<input
+								type="text"
+								id="activist-linkedin"
+								name="activist-linkedin"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-instagram">Instagram</label>
-							<input type="text" id="activist-instagram" name="instagram" />
+							<input
+								type="text"
+								id="activist-instagram"
+								name="activist-instagram"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-website"
 								>Website (<i>blog site or online further details</i>)</label
 							>
-							<input type="text" id="activist-website" name="website" />
+							<input
+								type="text"
+								id="activist-website"
+								name="activist-website"
+							/>
 						</div>
 
 						<div class="form-field">
-							<label for="activist-tags"
+							<label for="activist-working-themes"
 								>Working Themes (<i>separate by comma</i>) <span
 									class="required-asterisk">*</span
 								></label
 							>
 							<input
 								type="text"
-								id="activist-tags"
+								id="activist-working-themes"
 								required
-								name="tags"
+								name="activist-working-themes"
 								placeholder="Climate Justice Activist, Indigenous Youth, Research, Climate Finance, Climate Awareness, ..."
 							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-logo"
-								>Profile Picture (<i>your profile card picture</i>) <span
+								>Profile Picture Link (<i>your profile card picture</i>) <span
 									class="required-asterisk">*</span
 								></label
 							>
 							<input
-								type="file"
+								type="text"
 								id="activist-logo"
 								required
-								name="activistCardImage"
+								name="activist-card-image"
 							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-picture"
-								>Upload your picture that will be visible next to your bio.<span
+								>Link to your picture that will be visible next to your bio.<span
 									class="required-asterisk">*</span
 								></label
 							>
 							<input
-								type="file"
+								type="text"
 								id="activist-image"
 								required
-								name="activist-image"
+								name="activist-profile-image"
 							/>
 						</div>
 
 						<div class="form-field">
 							<label for="activist-bio"
-								>Provide a detailed description that includes your introduction
-								and background, outlines your activities, achievements, and
-								impact, and concludes with your message. (<i>250 words max</i>) <span
-									class="required-asterisk">*</span
-								></label
+								>Please provide a profile description that introduces you and
+								your background, outlines your activities, achievements, and
+								impact in climate and concludes with your call to action. (<i
+									>250 words max</i
+								>) <span class="required-asterisk">*</span></label
 							>
-							<textarea name="bio" id="activist-bio"></textarea>
+							<textarea name="activist-bio" id="activist-bio" required
+							></textarea>
 						</div>
 
 						<input type="submit" />
 					</form>
 
+					{
+						errorMessage && (
+							<p class="errorMessage">
+								Sorry! Your form couldn't be submitted. Please try again, and if
+								the issue persists, email us.
+							</p>
+						)
+					}
+
 					<p class="note">
 						Once submitted, your profile will be reviewed and published on our
 						climate champion page directory, connecting you with passionate
 						individuals and organizations across Nepal, typically within a week.
-						You will be notified upon publication.
+						If any edits are needed, we will contact you. You will be notified
+						upon publication.
 					</p>
 				</div>
 
@@ -365,67 +387,53 @@ if (Astro.request.method === "POST") {
 
 				<div class="organization-section">
 					<p class="section-note">
-						We welcome submissions from all types of organizations, clubs, and
-						communities that are engaged in activities or initiatives related to
-						climate change. If your group is dedicated to addressing climate
-						change in any capacity, you are eligible to submit your profile.
+						Do you belong to an organization focused on climate education,
+						research, resilience, policy, advocacy, or technology? We want to
+						hear about your mission and work!
 					</p>
 
-					<h3 class="sub-heading">Why Submit Your Organization's Profile?</h3>
+					<h3 class="sub-heading">Why submit your organization's profile?</h3>
 					<p>
-						By submitting your organization’s details to Nepal Climate Hub, you
-						will gain unparalleled visibility among the entire climate-conscious
-						community eager to support climate initiatives in Nepal. Highlight
-						your organization’s works, activities, and mission to a broad
-						audience, helping you connect with interested individuals, potential
-						collaborators, project partners, and even your next team members.
+						By submitting your organization’s profile to Nepal Climate Hub, you
+						will gain:
 					</p>
 
-					<h3 class="sub-heading">Benefits</h3>
+					<ul>
+						<li>
+							<span class="description-term"
+								><strong>Increased visibility</strong></span
+							>: Your organization will be showcased to a diverse audience of
+							climate champions, increasing awareness of your initiatives and
+							impact.
+						</li>
 
-					<dl>
-						<dt class="description-term">
-							<strong>Increased Visibility</strong>
-						</dt>
-						<dd class="description-definition">
-							Your organization will be showcased to a diverse audience,
-							increasing awareness of your initiatives and impact.
-						</dd>
+						<li>
+							<span class="description-term"
+								><strong>Resource sharing</strong></span
+							>: Access and share timely information and resources with
+							like-minded organizations, fostering opportunities for
+							collaboration and partnership.
+						</li>
+						<li>
+							<span class="description-term"
+								><strong>Attract talent</strong></span
+							>: Connect with experienced and motivated individuals looking to
+							join climate-focused organizations, helping you build a strong and
+							dedicated team.
+						</li>
+						<li>
+							<span class="description-term"
+								><strong>Collective impact</strong></span
+							>: Amplify your efforts by joining a growing coalition of
+							mission-driven individuals and organizations dedicated to ensuring
+							a climate-resilient Nepal.
+						</li>
+					</ul>
 
-						<dt class="description-term">
-							<strong>Networking Opportunities</strong>
-						</dt>
-						<dd class="description-definition">
-							Connect with like-minded individuals and organizations passionate
-							about climate action, fostering opportunities for collaboration
-							and partnership.
-						</dd>
-
-						<dt class="description-term"><strong>Resource Sharing</strong></dt>
-						<dd class="description-definition">
-							Access and share timely information and resources with a broad
-							network, enhancing your organization’s ability to address climate
-							challenges effectively.
-						</dd>
-
-						<dt class="description-term"><strong>Attract Talent</strong></dt>
-						<dd class="description-definition">
-							Reach out to motivated individuals looking to join climate-focused
-							organizations, helping you build a strong and dedicated team.
-						</dd>
-
-						<dt class="description-term"><strong>Community Impact</strong></dt>
-						<dd class="description-definition">
-							Amplify your efforts and contribute to the collective action
-							against climate change in Nepal, making a significant impact on
-							local and national levels.
-						</dd>
-					</dl>
-
-					<h3 class="sub-heading">Submit Your Organization's Profile</h3>
+					<h3 class="sub-heading">Submit your organization's profile</h3>
 					<p>
-						To make your organization visible across Nepal, please fill out the
-						form below with the following details:
+						To create your Organization profile, please complete the form below
+						with the following details:
 					</p>
 
 					<form
@@ -433,12 +441,23 @@ if (Astro.request.method === "POST") {
 						method="post"
 						enctype="multipart/form-data"
 					>
+						<input
+							type="hidden"
+							name="form_identifier"
+							value="organization_profile"
+						/>
+
 						<div class="form-field">
 							<label for="organization-name"
 								>Organization Name <span class="required-asterisk">*</span
 								></label
 							>
-							<input type="text" id="organization-name" required name="name" />
+							<input
+								type="text"
+								id="organization-name"
+								required
+								name="organization-name"
+							/>
 						</div>
 
 						<div class="form-field">
@@ -449,7 +468,7 @@ if (Astro.request.method === "POST") {
 								type="text"
 								id="organization-address"
 								required
-								name="address"
+								name="organization-address"
 							/>
 						</div>
 
@@ -461,7 +480,7 @@ if (Astro.request.method === "POST") {
 								type="text"
 								id="organization-email"
 								required
-								name="email"
+								name="organization-email"
 							/>
 						</div>
 
@@ -473,121 +492,123 @@ if (Astro.request.method === "POST") {
 								type="tel"
 								id="organization-number"
 								required
-								name="number"
+								name="organization-number"
 							/>
 						</div>
 
 						<div class="form-field">
 							<label for="organization-facebook">Facebook</label>
-							<input type="text" id="organization-facebook" name="facebook" />
+							<input
+								type="text"
+								id="organization-facebook"
+								name="organization-facebook"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="organization-linkedin">LinkedIn</label>
-							<input type="text" id="organization-linkedin" name="linkedin" />
+							<input
+								type="text"
+								id="organization-linkedin"
+								name="organization-linkedin"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="organization-instagram">Instagram</label>
-							<input type="text" id="organization-instagram" name="instagram" />
+							<input
+								type="text"
+								id="organization-instagram"
+								name="organization-instagram"
+							/>
 						</div>
 
 						<div class="form-field">
 							<label for="organization-website"
-								>Website <span class="required-asterisk">*</span></label
+								>Website (<i>write NA if not available</i>) <span
+									class="required-asterisk">*</span
+								></label
 							>
 							<input
 								type="text"
 								id="organization-website"
 								required
-								name="website"
+								name="organization-website"
 							/>
 						</div>
 
 						<div class="form-field">
-							<label for="organization-tags"
+							<label for="organization-working-themes"
 								>Working Themes (<i>separate by comma</i>) <span
 									class="required-asterisk">*</span
 								></label
 							>
 							<input
 								type="text"
-								id="organization-tags"
+								id="organization-working-themes"
 								required
-								name="tags"
+								name="organization-working-themes"
 								placeholder="Climate Adaption, Community Empowerment, Climate Finance, Climate Awareness, ..."
 							/>
 						</div>
 
 						<div class="form-field">
-							<label for="organization-logo"
-								>Logo (<i>must have white background </i>) <span
+							<label for="organization-card-image"
+								>Logo link (<i>must have white background </i>) <span
 									class="required-asterisk">*</span
 								></label
 							>
 							<input
-								type="file"
-								id="organization-logo"
+								type="text"
+								id="organization-card-image"
 								required
-								name="organizationLogo"
+								name="organization-card-image"
 							/>
 						</div>
 
 						<div class="form-field">
-							<label for="organization-image-one"
-								>Upload any four pictures to showcase your team, work,
-								activities, or anything else. <span class="required-asterisk"
-									>*</span
-								></label
+							<label for="organization-profile-image"
+								>Link to a picture of your team or work.
+								<span class="required-asterisk">*</span></label
 							>
 							<input
-								type="file"
-								id="organization-image-one"
+								type="text"
+								id="organization-profile-image"
 								required
-								name="organization-image-one"
-							/>
-							<br />
-							<input
-								type="file"
-								id="organization-image-two"
-								required
-								name="organization-image-two"
-							/>
-							<br />
-							<input
-								type="file"
-								id="organization-image-three"
-								required
-								name="organization-image-three"
-							/>
-							<br />
-							<input
-								type="file"
-								id="organization-image-four"
-								required
-								name="organization-image-four"
+								name="organization-profile-image"
 							/>
 						</div>
 
 						<div class="form-field">
 							<label for="organization-bio"
-								>Provide a detailed description in three paragraphs, covering an
-								introduction to your organization, its vision, mission, and
-								objectives, as well as your works and activities. (<i
+								>Please provide a profile description in three paragraphs,
+								covering an introduction to your organization, its vision,
+								mission, and objectives, as well as your major activities. (<i
 									>250 words max</i
 								>) <span class="required-asterisk">*</span></label
 							>
-							<textarea name="bio" id="organization-bio"></textarea>
+							<textarea name="organization-bio" id="organization-bio"
+							></textarea>
 						</div>
 
 						<input type="submit" />
 					</form>
 
+					{
+						errorMessage && (
+							<p class="errorMessage">
+								Sorry! Your form couldn't be submitted. Please try again, and if
+								the issue persists, email us.
+							</p>
+						)
+					}
+
 					<p class="note">
 						Once submitted, your profile will be reviewed and published on our
-						climate organizations page directory, connecting you with passionate
+						climate organization page directory, connecting you with passionate
 						individuals and organizations across Nepal, typically within a week.
-						You will be notified upon publication.
+						If any edits are needed, we will contact you. You will be notified
+						upon publication.
 					</p>
 				</div>
 
@@ -664,6 +685,10 @@ if (Astro.request.method === "POST") {
 		margin-bottom: 24px;
 	}
 
+	.main-message {
+		font-weight: 700;
+	}
+
 	.section-container p {
 		line-height: 24px;
 		margin-bottom: 8px;
@@ -702,14 +727,10 @@ if (Astro.request.method === "POST") {
 		color: white;
 	}
 
-	.description-term {
-		font-size: 16px;
+	ul li {
+		list-style-type: none;
 		line-height: 24px;
-	}
-
-	.description-definition {
-		margin-bottom: 16px;
-		line-height: 24px;
+		margin-bottom: 8px;
 	}
 
 	form {
@@ -729,7 +750,6 @@ if (Astro.request.method === "POST") {
 	.form-field input[type="text"],
 	.form-field input[type="email"],
 	.form-field input[type="tel"],
-	.form-field input[type="file"],
 	.form-field textarea {
 		width: 100%;
 		padding: 8px;
@@ -740,13 +760,6 @@ if (Astro.request.method === "POST") {
 		border: none;
 		outline: 1px solid black;
 		background-color: #f9f9f9;
-	}
-
-	.form-field input[type="file"] {
-		outline: none;
-		display: inline-block;
-		width: auto;
-		border: 1px solid;
 	}
 
 	.form-field input[type="text"]:hover,
@@ -787,8 +800,10 @@ if (Astro.request.method === "POST") {
 	}
 
 	.errorMessage {
+		margin-top: 12px;
 		color: red;
 		font-style: italic;
+		text-align: center;
 	}
 
 	.required-asterisk {

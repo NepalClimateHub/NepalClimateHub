@@ -3,27 +3,26 @@
 
 	<div class="hero-container">
 		<div class="description">
-			<p>
-				Nepal Climate Hub was conceived in March 2024 by Bibek Pant, a Nepal
-				native and computer science graduate as part of the Climatebase
-				Fellowship—a professional accelerator program for passionate climate
-				champions.
+			<p class="main-heading">
+				Nepal Climate Hub is a centralized platform built to educate, connect,
+				and empower Nepal’s young people to take positive climate action.
 			</p>
 			<p>
-				Despite a rise in climate activism in Nepal in recent years, information
-				and resources to enable effective action are often siloed and
-				incomplete, resulting in fragmented efforts and a sense of overwhelm
-				among those most motivated to drive meaningful positive change: students
-				and young professionals across Nepal.
+				The hub was conceived in March 2024 by Bibek Pant (a Nepal native and
+				computer science graduate) as part of the <a href="https://climatebase.org/fellowship" target="_blank"
+					>Climatebase Fellowship program</a
+				>, to address a pressing need. Despite a rise in climate activism in
+				Nepal in recent years, information and resources to enable effective
+				action are often siloed and incomplete, resulting in fragmented efforts
+				and a sense of overwhelm among those most motivated to drive meaningful
+				positive change: students and young professionals across Nepal.
 			</p>
 			<p>
 				Supported by an international Founding Team, all participants of the
-				Climatebase Fellowship, Nepal Climate Hub was built to address this
-				challenge. Its mission is to be a centralized platform to educate,
-				connect, and empower Nepal’s young people with climate champions,
-				climate based organizations, timely information & resources,
-				opportunities, and practical guidance to address pressing climate
-				challenges through individual and collective action.
+				Climatebase Fellowship, Nepal Climate Hub aims to provide timely
+				climate-related information, resources, and networking opportunities, as
+				well as practical guidance to inspire individual and collective action
+				to build a climate-resilient Nepal.
 			</p>
 		</div>
 		<div class="img-wrapper">
@@ -35,74 +34,79 @@
 	</div>
 </div>
 
-
 <style>
-  .section-heading {
+	.section-heading {
 		font-size: 32px;
 		font-weight: 700;
 		line-height: 40px;
 		margin: 24px 0px;
-  }
+	}
 
-  .hero-container {
-    display: flex;
-    gap: 24px;
-    padding-bottom: 24px;
-  }
+	.hero-container {
+		display: flex;
+		gap: 24px;
+	}
 
-  .description {
-    width: 50%;
-  }
+	.description {
+		width: 50%;
+	}
 
-  .description p {
-    margin-bottom: 8px;
-    line-height: 24px;
-  }
+	.description p {
+		margin-bottom: 8px;
+		line-height: 24px;
+	}
 
-  .img-wrapper {
-    width: 50%;
-    height: 360px;
-    border-radius: 16px;
-    
-  }
+	.description .main-heading {
+		font-weight: 700;
+		margin-bottom: 16px;
+	}
 
-  .img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-  }
+	.description a {
+		color: #364fc7;
+	}
 
-  @media screen and (max-width: 1024px) {
+	.img-wrapper {
+		width: 50%;
+		height: 360px;
+		border-radius: 16px;
+	}
 
-    .hero-container {
-      flex-direction: column;
-      gap: 16px;
-    }
+	.img-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 16px;
+	}
 
-    .description, .img-wrapper {
-      width: 100%;
-    }
-  }
+	@media screen and (max-width: 1024px) {
+		.hero-container {
+			flex-direction: column;
+			gap: 16px;
+		}
 
-  @media screen and (max-width: 768px) {
+		.description,
+		.img-wrapper {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
 		.section-container {
 			margin: 24px 24px;
 		}
 
-    .hero-container {
-      flex-direction: column-reverse;
-      gap: 16px;
-      padding-bottom: 0px;
-      
-    }
+		.hero-container {
+			flex-direction: column-reverse;
+			gap: 16px;
+			padding-bottom: 0px;
+		}
 
-    .img-wrapper {
-      height: 228px;
-    }
+		.img-wrapper {
+			height: 228px;
+		}
 
-    .description {
-      text-align: justify;
-    }
-  }
+		.description {
+			text-align: justify;
+		}
+	}
 </style>
