@@ -94,7 +94,7 @@ if (Astro.request.method === "POST") {
 		if (!hasErrors) {
 	
 			// make a api post request to save our data (save-volunteer.ts)
-			const response = await fetch("http://localhost:4321/api/save-volunteer", {
+			const response = await fetch("https://nepalclimatehub.netlify.app/api/save-volunteer", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
