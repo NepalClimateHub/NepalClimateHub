@@ -7,34 +7,36 @@ export const POST: APIRoute = async ({ request }) => {
 		const {
 			name,
 			email,
-			currentResidence,
+			address,
+			phoneNumber,
 			linkedinUrl,
-			role,
+			facebookUrl,
+			instagramUrl,
+			website,
+			workingThemes,
 			bio,
-			experience,
-			motivation,
+			cardPicture,
 			profilePicture,
-			cv,
-			questions
 		} = data;
 
-		const newUser = await prisma.volunteer.create({
+		const newOrganization = await prisma.organization.create({
 			data: {
 				name,
 				email,
-				currentResidence,
+				address,
+				phoneNumber,
 				linkedinUrl,
-				role,
+				facebookUrl,
+				instagramUrl,
+				website,
+				workingThemes,
 				bio,
-				experience,
-				motivation,
+				cardPicture,
 				profilePicture,
-				cv,
-				questions
 			},
 		});
 
-		return new Response(JSON.stringify(newUser), {
+		return new Response(JSON.stringify(newOrganization), {
 			headers: { "Content-Type": "application/json" },
 		});
 	} catch (error) {
