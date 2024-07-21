@@ -1,0 +1,310 @@
+[
+  {
+      "id": 1,
+      "title": "A Climate Podcast Show by SDG Studio",
+      "description": "A 20-episode podcast series featuring key figures working in the environmental space in Nepal.",
+      "href": "https://youtube.com/playlist?list=PLAXsGj-Fh8Duh7-ssPBFe5oomF3Wvm2-I&feature=shared",
+      "type": "podcast"
+  },
+  {
+      "id": 2,
+      "title": "Climate Dialogue Series on Public TV",
+      "description": "Bringing local perspectives to the forefront of climate change discussions.",
+      "href": "https://youtu.be/Tconw3n_G4c?feature=shared",
+      "type": "podcast"
+  },
+  {
+      "id": 3,
+      "title": "Manjit Dhakal (Climate Change Expert) on Good Morning Nepal",
+      "description": "A conversational overview of climate change in Nepal.",
+      "href": "https://youtu.be/ObEcg04YhsU?feature=shared&t=376",
+      "type": "podcast"
+  },
+  {
+      "id": 4,
+      "title": "Dr. Arnico Panday | This Morning LIVE In Conversation on Galaxy 4k",
+      "description": "An atmospheric scientist turned politician shares his journey into politics, Nepal’s stance on climate change, and climate diplomacy.",
+      "href": "https://youtu.be/r7NBfqAjF3U?feature=shared",
+      "type": "podcast"
+  },
+  {
+      "id": 5,
+      "title": "Dr. Vishnu Prasad Pandey | Climate Change and Global Warming on Sushant Pradhan Podcast",
+      "description": "Dr. Vishnu Prasad Pandey, an engineering professor at Tribhuvan University, discusses climate change and its impacts.",
+      "href": "https://youtu.be/r7NBfqAjF3U?feature=shared",
+      "type": "podcast"
+  },
+  {
+      "id": 6,
+      "title": "Voices from Everest: Women and Community on Climate Change (2024)",
+      "description": "Voices of women and communities from the Everest region highlighting climate challenges and local solutions.",
+      "href": "https://youtu.be/_CMWAuTLbFU?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 7,
+      "title": "No Monastery, No Village | Voices from the Roof of the World (2024)",
+      "description": "A community's struggle to protect a cultural treasure from the imminent threat of glacial lake floods.",
+      "href": "https://youtu.be/TLPocbEx7bk?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 8,
+      "title": "Wings of the Himalayas | Voices from the Roof of the World (2024)",
+      "description": "Two biologists explore the survival of the threatened Bearded Vulture and the livelihoods of local mountain communities.",
+      "href": "https://youtu.be/M9c8iK5x7u0?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 9,
+      "title": "Unseen: Climate change and fragility in Nepal (2024)",
+      "description": "Fishers and farmers share their struggles to eke out a living amidst environmental destruction and societal injustice.",
+      "href": "https://youtu.be/gzpelZNT_jg?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 10,
+      "title": "Climate change and Nepal's dying village in the mountains (2023)",
+      "description": "A look at the devastating impacts of unpredictable water supplies on the village of Samdzong.",
+      "href": "",
+      "type": "documentary"
+  },
+  {
+      "id": 11,
+      "title": "A Melting Roof: Climatic Change in Nepal's Solukhumbu District (2024)",
+      "description": "Explores the effects of climate change in Nepal's Solukhumbu district, which is home to numerous glaciers and lakes.",
+      "href": "https://youtu.be/toLSR4PzsoE?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 12,
+      "title": "Untold stories of climate change loss and damage in the LDCs: Nepal (2023)",
+      "description": "Climate justice campaigner from Nepal, Shreya K.C., narrates how her family and community are experiencing the reality of loss and damage from climate change.",
+      "href": "https://youtu.be/rL0zZC75EKQ?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 13,
+      "title": "A Documentary on Climate Change and Governance in Nepal | AP1HD (2022)",
+      "description": "An in-depth exploration of the profound impacts of the climate crisis on Nepal.",
+      "href": "https://youtu.be/2rvfYSwQ1vM?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 14,
+      "title": "Climate Change in Himalayas (2022)",
+      "description": "A brief look at climate change impacts in a remote Himalayan community.",
+      "href": "https://youtu.be/xN4JSr_rIpY?feature=shared",
+      "type": "documentary"
+  },
+  {
+      "id": 15,
+      "title": "Nationally Determined Contributions (NDC) Implementation Plan-2023",
+      "description": "Outlines specific actions and timelines for implementing Nepal's commitments focusing on mitigation, adaptation, and resilience-building measures (in Nepali).",
+      "href": "https://www.climatenepal.org.np/sites/default/files/doc_resources/ndcip-2080-mainpdf-3898-697-1691920162.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 16,
+      "title": "National Framework on Climate Change Induced Loss and Damage (L&D) 2021",
+      "description": "Establishes a framework for addressing climate change-induced loss and damage in Nepal, including mechanisms for assessment, compensation, and resilience-building measures in vulnerable communities.",
+      "href": "https://www.climatenepal.org.np/sites/default/files/doc_resources/National%20framework%20on%20L%26D%202021%20GoN.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 17,
+      "title": "National Adaptation Plan 2021",
+      "description": "A long-term adaptation plan to enhance Nepal's adaptive capacity and resilience to climate change from 2021-2050.",
+      "href": "https://faolex.fao.org/docs/pdf/nep215543.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 18,
+      "title": "Nepal's Long-term Strategy for Net-zero Emissions 2021",
+      "description": "Nepal’s plan to reach net-zero greenhouse gas emissions by 2045 through a range of mitigation and adaptation measures across key sectors.",
+      "href": "https://unfccc.int/sites/default/files/resource/NepalLTLEDS.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 19,
+      "title": "Nepal’s Second Nationally Determined Contributions (NDCs) 2020",
+      "description": "Targets for achieving net-zero greenhouse gas emissions by 2050 and promoting renewable energy and climate resilience.",
+      "href": "https://climate.mohp.gov.np/attachments/article/167/Second%20Nationally%20Determined%20Contribution%20(NDC)%20-%202020.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 20,
+      "title": "Third National Communication (TNC) to the UNFCCC 2020",
+      "description": "Detailed report on Nepal’s greenhouse gas inventory, climate change impacts, and mitigation and adaptation actions.",
+      "href": "https://unfccc.int/sites/default/files/resource/TNC%20Nepal_Final_v2.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 21,
+      "title": "Environmental Protection Act (Amendment - 2019)",
+      "description": "Revised to include provisions for addressing climate change impacts.",
+      "href": "https://climate.mohp.gov.np/images/Environment-Protection-Act-2019-English.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 22,
+      "title": "National Climate Change Policy 2019",
+      "description": "Updated version of the 2011 policy, emphasizing enhanced adaptation and mitigation measures, and aligning with the Paris Agreement.",
+      "href": "https://www.icimod.org/wp-content/uploads/2021/07/National-Climate-Change-Policy_english_2019_compressed.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 23,
+      "title": "Forest Policy 2019",
+      "description": "Aimed at sustainable forest management and increasing forest cover.",
+      "href": "https://faolex.fao.org/docs/pdf/nep202856.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 24,
+      "title": "Climate Change Financing Framework 2017",
+      "description": "Strategic framework designed to integrate climate change and climate finance into national planning and budgeting processes.",
+      "href": "https://mof.gov.np/uploads/document/file/CCFF_FINAL_Web_20180222050438.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 25,
+      "title": "Disaster Risk Reduction and Management Act 2017",
+      "description": "Established frameworks for comprehensive disaster risk reduction and management.",
+      "href": "https://bipad.gov.np/uploads/publication_pdf/DRRM_Act_and_Regulation_english.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 26,
+      "title": "Nepal Sustainable Development Goals: Status and Roadmap 2016-2030",
+      "description": "A comprehensive framework guiding Nepal's efforts towards achieving its Sustainable Development Goals (SDGs) by 2030.",
+      "href": "https://www.climatenepal.org.np/sites/default/files/doc_resources/Nepal_Sustainable_Development_Goal_2016-2030_English.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 27,
+      "title": "Nepal’s First Nationally Determined Contributions (NDCs) 2016",
+      "description": "Submitted to the UNFCCC, outlining Nepal's commitments to climate action under the Paris Agreement.",
+      "href": "https://unfccc.int/sites/default/files/NDC/2022-06/Nepal%20First%20NDC.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 28,
+      "title": "Second National Communication (INC) to the UNFCCC 2014",
+      "description": "Nepal's SNC was submitted in 2014, building on the Initial National Communication (2004) and further elaborating on climate change impacts, adaptation and mitigation efforts in the country.",
+      "href": "https://unfccc.int/resource/docs/natc/nplnc2.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 29,
+      "title": "Local Adaptation Plans of Action (LAPA) Framework 2011",
+      "description": "Decentralized the implementation of climate adaptation strategies to local levels.",
+      "href": "https://climate.mohp.gov.np/downloads/National_Framework_Local_Adaptation_Plan.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 30,
+      "title": "Climate Change Policy 2011",
+      "description": "Focused on climate adaptation and mitigation, ensuring low-carbon development, and enhancing climate resilience.",
+      "href": "https://faolex.fao.org/docs/pdf/nep143050.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 31,
+      "title": "National Adaptation Programme of Action (NAPA) 2010",
+      "description": "Identified urgent and immediate adaptation needs of vulnerable communities.",
+      "href": "https://climate.mohp.gov.np/downloads/NAPA_to_Climate_Change_2010.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 32,
+      "title": "Initial National Communication (INC) to the UNFCCC 2004",
+      "description": "Nepal submitted its INC to the UNFCCC in July 2004, which provided an overview of national circumstances, greenhouse gas inventory, mitigation options, vulnerability assessment, and adaptation measures.",
+      "href": "https://unfccc.int/resource/docs/natc/nepnc1.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 33,
+      "title": "Environmental Protection Act 1997",
+      "description": "Established legal frameworks for the protection and improvement of the environment.",
+      "href": "https://faolex.fao.org/docs/pdf/nep52633.pdf",
+      "type": "policies"
+  },
+  {
+      "id": 34,
+      "title": "Snapshot: Nepal Climate Change Action Plan 2021-2025",
+      "description": "Outlines Nepal's climate change strategy and actions for the period 2021-2025, aligning with the World Bank's Green, Resilient, and Inclusive Development (GRID) approach.",
+      "href": "https://thedocs.worldbank.org/en/doc/18b3d6f441bde8ba8eede4a4a71d19e6-0310012022/original/Nepal-CCAP-Flyer-Final.pdf",
+      "type": "world-bank"
+  },
+  {
+      "id": 35,
+      "title": "Nepal Climate Risk Country Profile",
+      "description": "An assessment of Nepal's climate risks, including extreme weather events, water scarcity, and land degradation.",
+      "href": "https://climateknowledgeportal.worldbank.org/sites/default/files/2021-05/15720-WB_Nepal%20Country%20Profile-WEB.pdf",
+      "type": "world-bank"
+  },
+  {
+      "id": 36,
+      "title": "Nepal Country Climate and Development Report",
+      "description": "Examines the country's development progress and climate change challenges.",
+      "href": "https://www.climatenepal.org.np/sites/default/files/doc_resources/Country%20Climate%20and%20Development%20Report%202022%2C%20World%20Bank.pdf",
+      "type": "world-bank"
+  },
+  {
+      "id": 37,
+      "title": "Policy Brief: Climate Change Financing and Planning in Nepal",
+      "description": "Key strategies and areas for integrating climate finance into national planning and budgeting processes.",
+      "href": "https://www.climatenepal.org.np/sites/default/files/doc_resources/ADPC-Policy_Brief_on_CC_Financing_and_Planning_Nepal.pdf",
+      "type": "world-bank"
+  },
+  {
+      "id": 38,
+      "title": "Regional Database System - ICIMOD",
+      "description": "A one-stop data portal for the Hindu Kush Himalaya.",
+      "href": "https://rds.icimod.org/",
+      "type": "data"
+  },
+  {
+      "id": 39,
+      "title": "Nepal Climate Summary 2023",
+      "description": "An overview of the country's climate trends and impacts from the Ministry of Energy, Water Resource and Irrigation.",
+      "href": "https://www.dhm.gov.np/uploads/dhm/climateService/Annual_Summary_20232.pdf",
+      "type": "data"
+  },
+  {
+      "id": 40,
+      "title": "Climate Data Portal-Nepal (Department of Hydrology and Meteorology, Nepal)",
+      "description": "Comprehensive data of river hydrology, water quality, sediment, limnology, snow hydrology, glaciology, weather, climate, agro-meteorology, air quality and solar energy.",
+      "href": "https://www.dhm.gov.np/pages/about-us",
+      "type": "data"
+  },
+  {
+      "id": 41,
+      "title": "Mountain GeoPortal - ICIMOD",
+      "description": "Gateway to geo-information resources of the Hindu Kush Himalayan (HKH) region and aims to facilitate the sharing, integration and use of geographic information across a broad use-base.",
+      "href": "https://www.icimod.org/initiative/mountain-geoportal/",
+      "type": "data"
+  },
+  {
+      "id": 42,
+      "title": "National Spatial Data Center : Geoportal (Survey Department, Nepal)",
+      "description": "National Spatial Data Infrastructure (NSDI) Clearinghouse / Data Center to enhance the public reach and easy access to the authentic Geospatial Dataset provided by the Survey Department, Nepal.",
+      "href": "https://nationalgeoportal.gov.np/#/",
+      "type": "data"
+  },
+  {
+      "id": 43,
+      "title": "Climate Change Knowledge Portal - Nepal",
+      "description": "High-level information on Nepal's climate zones, seasonal cycles, and climate change impacts.",
+      "href": "https://climateknowledgeportal.worldbank.org/country/nepal",
+      "type": "data"
+  },
+  {
+      "id": 44,
+      "title": "Climate Change Related Indicators of Nepal 2022",
+      "description": "Provides a comprehensive set of climate change statistics and indicators for Nepal.",
+      "href": "https://unstats.un.org/unsd/envstats/compendia/Nepal_ClimateChangeRelatedIndicatorsofNepal_2022.pdf",
+      "type": "data"
+  }
+]
