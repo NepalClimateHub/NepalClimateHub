@@ -15,10 +15,10 @@
 		},
 		"website": "",
 		"tags": [
-			"youth",
-			"climate conference",
-			"capacity building",
-			"climate action"
+			"Youth",
+			"Climate Conference",
+			"Capacity Building",
+			"Climate Action"
 		],
 		"logoUrl": "https://i.ibb.co/TwthnwH/lcoy-Nepal2024logo.jpg",
 		"pictures": ["https://i.ibb.co/5FS4LwC/lcoy-Nepal2024-Profile.jpg"],
@@ -40,10 +40,10 @@
 		},
 		"website": "https://nyca.net.np/ ",
 		"tags": [
-			"youth",
-			"climate conference",
-			"capacity building",
-			"climate action"
+			"Youth",
+			"Climate Conference",
+			"Capacity Building",
+			"Climate Action"
 		],
 		"logoUrl": "https://i.ibb.co/j3WDYkr/nyca-conference-2024-logo.jpg",
 		"pictures": ["https://i.ibb.co/N71bPJz/nyca-conference-2024-profile.jpg"],
@@ -65,10 +65,10 @@
 		},
 		"website": "",
 		"tags": [
-			"youth",
-			"climate conference",
-			"capacity building",
-			"climate action"
+			"Youth",
+			"Climate Conference",
+			"Capacity Building",
+			"Climate Action"
 		],
 		"logoUrl": "https://i.ibb.co/gvCd6f4/cop-in-my-city-2024-logo.jpg",
 		"pictures": ["https://i.ibb.co/GPyyRNB/cop-in-my-city-2024-profile.jpg"],
@@ -90,10 +90,10 @@
 		},
 		"website": "https://www.fig.net/nepal2024/index.htm",
 		"tags": [
-			"climate conference",
-			"survey",
-			"land management",
-			"disaster resilience"
+			"Climate Conference",
+			"Survey",
+			"Land Management",
+			"Disaster Resilience"
 		],
 		"logoUrl": "https://i.ibb.co/ZfPWKhB/fig-2024-logo.jpg",
 		"pictures": ["https://i.ibb.co/drG7Vrt/fig-2024-profile.png"],
@@ -114,7 +114,7 @@
 			"instagram": ""
 		},
 		"website": "https://www.iierd.org/events/index.php?id=2531408",
-		"tags": ["environment", "climate conference", "capacity building"],
+		"tags": ["Environment", "Climate Conference", "Capacity Building"],
 		"logoUrl": "https://i.ibb.co/nLHbr9R/ICELS-2024-logo.png",
 		"pictures": ["https://i.ibb.co/SXbzgGV/ICELS-2024-profile.png"],
 		"slug": "icels-2024"
@@ -134,8 +134,8 @@
 			"instagram": ""
 		},
 		"website": "https://annualconference.soscbaha.org/",
-		"tags": ["climate conference", "capacity building"],
-		"logoUrl": "https://www.simpleimageresizer.com/_uploads/photos/9d0e6955/test_1_optimized.png",
+		"tags": ["Climate Conference", "Capacity Building"],
+		"logoUrl": "https://i.ibb.co/JBRLHxf/social-science-baha-logo.png",
 		"pictures": ["https://i.ibb.co/VDwym9f/social-science-baha-profile.jpg"],
 		"slug": "annual-kathmandu-conference-on-nepal-and-himalayas-2024"
 	},
@@ -154,7 +154,7 @@
 			"instagram": "https://www.instagram.com/planetpulsenepal/"
 		},
 		"website": "",
-		"tags": ["youth", "capacity building", "climate action", "SDGs"],
+		"tags": ["Youth", "Capacity Building", "Climate Action", "SDGs"],
 		"logoUrl": "https://i.ibb.co/LQPQBj5/planet-pulse-2024-logo.png",
 		"pictures": ["https://i.ibb.co/QrMLhdb/planet-pulse-2024-profile.jpg"],
 		"slug": "center-for-climate-studies-2024"
@@ -174,7 +174,7 @@
 			"instagram": "https://www.instagram.com/nicc.nepal/p/C70srTLqh0m/?locale=en"
 		},
 		"website": "",
-		"tags": ["youth", "climate event", "experience sharing"],
+		"tags": ["Youth", "Climate Event", "Experience Sharing"],
 		"logoUrl": "https://i.ibb.co/8bSFjHt/mechi-to-mahakali-2024-logo.png",
 		"pictures": ["https://i.ibb.co/8K019RL/mechi-to-mahakali-2024-profile.jpg"],
 		"slug": "experience-from-mechi-to-mahakali"
@@ -194,7 +194,7 @@
 			"instagram": "https://www.instagram.com/npbritish/?hl=en"
 		},
 		"website": "https://www.britishcouncil.org.np/youth-and-climate-2024",
-		"tags": ["climate conference", "capacity building"],
+		"tags": ["Climate Conference", "Capacity Building"],
 		"logoUrl": "https://i.ibb.co/HFbwj7w/youth-and-climate-2024-logo.png",
 		"pictures": ["https://i.ibb.co/RvwG6SJ/youth-and-climate-2024-profile.jpg"],
 		"slug": "youth-and-climate-symposium-2024"
@@ -214,7 +214,7 @@
 			"instagram": ""
 		},
 		"website": "",
-		"tags": ["climate conference", "waste management", "environment"],
+		"tags": ["Climate Conference", "Waste Management", "Environment"],
 		"logoUrl": "https://i.ibb.co/HBbwz6r/wmcc-logo.jpg",
 		"pictures": ["https://i.ibb.co/CMZ6j49/wmcc-profile.png"],
 		"slug": "wmcc-2024"
@@ -234,7 +234,7 @@
 			"instagram": ""
 		},
 		"website": "https://mountain.mofe.gov.np/",
-		"tags": ["international", "climate conference"],
+		"tags": ["International", "Climate Conference"],
 		"logoUrl": "https://i.ibb.co/dbHrGS5/mountain-people-climate-profile-logo.png",
 		"pictures": [
 			"https://i.ibb.co/yhm9Spv/mountain-people-climate-profile.jpg"
@@ -256,7 +256,7 @@
 			"instagram": ""
 		},
 		"website": "https://www.wwfnepal.org/?384435/WWF-Nepal-celebrates-Earth-Hour-2024-with-an-Eco-Fiesta",
-		"tags": ["environment", "climate event"],
+		"tags": ["Environment", "Climate Event"],
 		"logoUrl": "https://i.ibb.co/9hgVpJc/earth-hour-logo.jpg",
 		"pictures": ["https://i.ibb.co/jh8w6B2/earth-hour-profile.jpg"],
 		"slug": "earth-hour-nepal-2024"
@@ -276,7 +276,7 @@
 			"instagram": ""
 		},
 		"website": "https://peoplesclimatemobilisation.blogspot.com/",
-		"tags": ["youth", "climate rally", "climate action", "environment"],
+		"tags": ["Youth", "Climate Rally", "Climate Action", "Environment"],
 		"logoUrl": "https://i.ibb.co/7nzgSjk/people-climate-march-logo.png",
 		"pictures": ["https://i.ibb.co/ZBsB8hS/people-climate-march-profile.jpg"],
 		"slug": "peoples-climate-march-kathmandu-2023"
@@ -296,7 +296,7 @@
 			"instagram": "https://www.linkedin.com/company/land-our-future/"
 		},
 		"website": "",
-		"tags": ["youth", "climate conference", "environment"],
+		"tags": ["Youth", "Climate Conference", "Environment"],
 		"logoUrl": "https://i.ibb.co/3NJbdZX/land-our-future-logo.png",
 		"pictures": ["https://i.ibb.co/88JG4Cs/land-our-future-profile.jpg"],
 		"slug": "lof-national-conference-2023"
@@ -316,7 +316,7 @@
 			"instagram": "https://www.linkedin.com/in/lcoy-nepal-95b481306/"
 		},
 		"website": "",
-		"tags": ["youth", "climate conference", "waste management", "environment"],
+		"tags": ["Youth", "Climate Conference", "Waste Management", "Environment"],
 		"logoUrl": "https://i.ibb.co/Vp3RwT0/lcoy-logo-2023.jpg",
 		"pictures": ["https://i.ibb.co/ZXtp6k4/lcoy-profile-2023.png"],
 		"slug": "lcoy-nepal-2023"
