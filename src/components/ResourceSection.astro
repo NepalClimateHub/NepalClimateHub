@@ -1,0 +1,205 @@
+---
+import resourceJSON from "../data/resources.json";
+---
+
+<div class="section-container">
+	<h2 class="page-title">Resources</h2>
+	<p class="page-tagline">
+		This curated collection of reports, interviews, and other multimedia
+		resources provides a broad overview of the climate challenges facing Nepal
+		and the mitigation efforts underway both locally and nationally.
+	</p>
+
+	<!-- Podcasts & Television Section -->
+	<h3 class="section-heading">Podcasts & Television</h3>
+	<div class="resource-container">
+		{
+			resourceJSON.map((resource: any) => {
+				if (resource.type == "podcast") {
+					return (
+						<div class="resource-card">
+							<a href={resource.href} target="_blank">
+								<div class="content">
+									<h3 class="title">{resource.title}</h3>
+									<p class="description">{resource.description}</p>
+								</div>
+							</a>
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+
+	<!-- Documentaries -->
+	<h3 class="section-heading">Documentaries</h3>
+	<div class="resource-container">
+		{
+			resourceJSON.map((resource: any) => {
+				if (resource.type == "documentary") {
+					return (
+						<div class="resource-card">
+							<a href={resource.href} target="_blank">
+								<div class="content">
+									<h3 class="title">{resource.title}</h3>
+									<p class="description">{resource.description}</p>
+								</div>
+							</a>
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+
+	<!-- National Plans & Policies -->
+	<h3 class="section-heading">National Plans & Policies</h3>
+	<div class="resource-container">
+		{
+			resourceJSON.map((resource: any) => {
+				if (resource.type == "policies") {
+					return (
+						<div class="resource-card">
+							<a href={resource.href} target="_blank">
+								<div class="content">
+									<h3 class="title">{resource.title}</h3>
+									<p class="description">{resource.description}</p>
+								</div>
+							</a>
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+
+	<!-- World Bank Resources Section -->
+	<h3 class="section-heading">World Bank Resources</h3>
+	<div class="resource-container">
+		{
+			resourceJSON.map((resource: any) => {
+				if (resource.type == "world-bank") {
+					return (
+						<div class="resource-card">
+							<a href={resource.href} target="_blank">
+								<div class="content">
+									<h3 class="title">{resource.title}</h3>
+									<p class="description">{resource.description}</p>
+								</div>
+							</a>
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+
+	<!-- Data Resources Section -->
+	<h3 class="section-heading">Data Resources</h3>
+	<div class="resource-container">
+		{
+			resourceJSON.map((resource: any) => {
+				if (resource.type == "data") {
+					return (
+						<div class="resource-card">
+							<a href={resource.href} target="_blank">
+								<div class="content">
+									<h3 class="title">{resource.title}</h3>
+									<p class="description">{resource.description}</p>
+								</div>
+							</a>
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+</div>
+
+<style>
+	.section-container {
+		margin: 24px auto 83px;
+		position: relative;
+	}
+
+	.page-title {
+		font-size: 32px;
+		line-height: 60px;
+		font-weight: 700;
+	}
+
+	.page-tagline {
+		line-height: 24px;
+		margin-bottom: 48px;
+	}
+
+	.section-heading {
+		font-size: 24px;
+		font-weight: 700px;
+		line-height: 32px;
+		margin: 48px 0px 24px;
+	}
+
+	.resource-container {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		gap: 24px;
+	}
+
+	.resource-card {
+		width: 48%;
+		display: block;
+		text-decoration: none;
+
+		padding-bottom: 12px;
+		border-bottom: 1px solid #cefe00;
+		overflow: hidden;
+	}
+
+	.resource-card > a {
+		cursor: pointer;
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
+
+	.resource-card .content {
+		margin-bottom: 12px;
+	}
+
+	.title {
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 700;
+		text-transform: capitalize;
+		margin-bottom: 8px;
+    /* color: #364fc7; */
+    color: #25262b;
+    
+	}
+
+  .resource-card:hover .title {
+		text-decoration: underline;
+	}
+
+  .resource-card .description {
+    color: #25262b;
+  }
+
+	/* media queries for mobile */
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 32px 64px;
+		}
+
+		.resource-container {
+			flex-direction: column;
+			gap: 24px;
+		}
+
+		.resource-card {
+			width: 100%;
+		}
+	}
+</style>

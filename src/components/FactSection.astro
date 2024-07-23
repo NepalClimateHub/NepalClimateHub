@@ -12,17 +12,13 @@ import { Icon } from "astro-icon/components";
 		<!-- fact card one -->
 
 		<div class="fact-card">
-			<h3 class="fact-title">Rising temperature</h3>
+			<h3 class="fact-title">Melting glaciers</h3>
 			<p class="fact-description">
-				Nepal's average temperature has increased by about 0.6°C over the last
-				decade, higher than the global average rise, causing Himalayan glaciers
-				to melt at an accelerated rate of around 90 meters per year.
+				Himalayan glaciers disappeared 65% faster in 2011–2020 compared with the
+				previous decade.
 			</p>
-			<div class="icon-wrapper icon-wrapper-top">
+			<div class="icon-wrapper">
 				<Icon name="mdi:temperature" class="icon" />
-			</div>
-			<div class="icon-wrapper icon-wrapper-bottom">
-				<Icon name="mdi:external-link" class="icon" />
 			</div>
 		</div>
 
@@ -35,11 +31,8 @@ import { Icon } from "astro-icon/components";
 				threatening biodiversity, agriculture, hydropower generation, and
 				freshwater availability.
 			</p>
-			<div class="icon-wrapper icon-wrapper-top">
+			<div class="icon-wrapper">
 				<Icon name="mdi:fire" class="icon" />
-			</div>
-			<div class="icon-wrapper icon-wrapper-bottom">
-				<Icon name="mdi:external-link" class="icon" />
 			</div>
 		</div>
 
@@ -52,11 +45,8 @@ import { Icon } from "astro-icon/components";
 				be 2-3% of GDP per year by 2050.
 			</p>
 
-			<div class="icon-wrapper icon-wrapper-top">
+			<div class="icon-wrapper">
 				<Icon name="mdi:attach-money" class="icon" />
-			</div>
-			<div class="icon-wrapper icon-wrapper-bottom">
-				<Icon name="mdi:external-link" class="icon" />
 			</div>
 		</div>
 
@@ -120,7 +110,7 @@ import { Icon } from "astro-icon/components";
 		font-style: italic;
 	}
 
-	.icon-wrapper-top {
+	.icon-wrapper {
 		border: 1px solid black;
 		width: 24px;
 		height: 24px;
@@ -134,20 +124,8 @@ import { Icon } from "astro-icon/components";
 		right: 16px;
 	}
 
-	.icon-wrapper-top .icon {
+	.icon-wrapper .icon {
 		color: white;
-	}
-
-	.icon-wrapper-bottom {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-	}
-
-	.icon-wrapper-bottom .icon {
-		color: #364fc7;
-		cursor: pointer;
-		font-size: 24px;
 	}
 
 	.card-controls {

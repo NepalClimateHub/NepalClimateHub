@@ -14,7 +14,7 @@
 			"instagram": "https://www.instagram.com/nyca.nepal/"
 		},
 		"website": "https://nyca.net.np/",
-		"tags": ["environment", "youth", "climate awareness", "campaign"],
+		"tags": ["Environment", "Youth", "Climate Awareness", "Campaign"],
 		"logoUrl": "https://i.ibb.co/X2x5QJs/nyca-logo.png",
 		"pictures": [
 			"https://i.ibb.co/Jx3gQ6z/nyca.jpg"
@@ -37,10 +37,10 @@
 		},
 		"website": "https://digobikas.org/ ",
 		"tags": [
-			"research",
-			"policy advocacy",
-			"community engagement",
-			"renewable energy"
+			"Research",
+			"Policy Advocacy",
+			"Community Engagement",
+			"Renewable Energy"
 		],
 		"logoUrl": "https://i.ibb.co/LQJP5Jm/digobikas-logo.png",
 		"pictures": [
@@ -63,7 +63,7 @@
 			"instagram": "https://www.instagram.com/yasennepal/"
 		},
 		"website": "https://yasennepal.com/",
-		"tags": ["environment", "youth", "climate awareness", "campaign"],
+		"tags": ["Environment", "Youth", "Climate Awareness", "Campaign"],
 		"logoUrl": "https://i.ibb.co/znRtNdG/yasen-logo.jpg",
 		"pictures": [
 			"https://i.ibb.co/Pz5HJfS/yasen.jpg"
@@ -86,10 +86,10 @@
 		},
 		"website": "https://bighnaharta.org/",
 		"tags": [
-			"community resilience",
-			"disaster response",
-			"climate adaptation",
-			"indigenous community"
+			"Community Resilience",
+			"Disaster Response",
+			"Climate Adaptation",
+			"Indigenous Community"
 		],
 		"logoUrl": "https://i.ibb.co/QChxxT8/bignaharta-logo.png",
 		"pictures": [
@@ -113,12 +113,12 @@
 		},
 		"website": "https://powershiftnepal.com.np/",
 		"tags": [
-			"women-led",
-			"youth",
-			"climate change",
-			"environment",
-			"climate justice",
-			"gender"
+			"Youth",
+			"Climate Change",
+			"Environment",
+			"Climate Justice",
+			"Gender",
+			"Women"
 		],
 		"logoUrl": "https://i.ibb.co/7JBPxFS/powershift-logo.jpg",
 		"pictures": [
@@ -142,11 +142,11 @@
 		},
 		"website": "https://www.cipred.org.np/",
 		"tags": [
-			"policy advocacy",
-			"community resilience",
-			"research",
-			"indigenous community",
-			"gender & women"
+			"Policy Advocacy",
+			"Community Resilience",
+			"Research",
+			"Indigenous Community",
+			"Gender & Women"
 		],
 		"logoUrl": "https://i.ibb.co/QMPTP3G/cipred-logo.png",
 		"pictures": [
@@ -169,7 +169,7 @@
 			"instagram": "https://www.instagram.com/nicc.nepal/"
 		},
 		"website": "",
-		"tags": ["intersectoral", "alliance", "policy advocacy", "climate action"],
+		"tags": ["Intersectoral", "Alliance", "Policy Advocacy", "Climate Action"],
 		"logoUrl": "https://i.ibb.co/zSh0GRv/nicc-logo.jpg",
 		"pictures": [
 			"https://i.ibb.co/g9yYmVS/nicc.jpg"
@@ -191,7 +191,7 @@
 			"instagram": "https://www.instagram.com/practical_action/"
 		},
 		"website": "https://practicalaction.org/where-we-work/nepal/",
-		"tags": ["renewable energy", "community resilience", "agriculture"],
+		"tags": ["Renewable Energy", "Community Resilience", "Agriculture"],
 		"logoUrl": "https://i.ibb.co/VYD0kzj/practical-action-logo.jpg",
 		"pictures": [
 			"https://i.ibb.co/9HRRSVj/practical-action.jpg"
@@ -214,12 +214,12 @@
 		},
 		"website": " https://crtnepal.org/",
 		"tags": [
-			"renewable energy",
-			"climate change",
-			"adaptation",
-			"mitigation",
-			"agriculture",
-			"policy advocacy"
+			"Renewable Energy",
+			"Climate Change",
+			"Adaptation",
+			"Mitigation",
+			"Agriculture",
+			"Policy Advocacy"
 		],
 		"logoUrl": "https://i.ibb.co/LkXJvQp/crt-logo.jpg",
 		"pictures": [
@@ -243,10 +243,10 @@
 		},
 		"website": "https://www.ccnn.org.np/",
 		"tags": [
-			"capacity building",
-			"policy advocacy",
-			"media campaign",
-			"technology transfer"
+			"Capacity Building",
+			"Policy Advocacy",
+			"Media Campaign",
+			"Technology Transfer"
 		],
 		"logoUrl": "https://i.ibb.co/FJkRK74/ccnn-logo.png",
 		"pictures": [
@@ -270,11 +270,11 @@
 		},
 		"website": "https://waternepal.org.np/",
 		"tags": [
-			"water, conservation",
-			"policy advocacy",
-			"disaster risk",
-			"agriculture",
-			"renewable energy"
+			"Water & Conservation",
+			"Policy Advocacy",
+			"Disaster Risk Reduction",
+			"Agriculture",
+			"Renewable Energy"
 		],
 		"logoUrl": "https://i.ibb.co/7jMW8Sn/nwcf-logo.png",
 		"pictures": [
@@ -298,13 +298,13 @@
 		},
 		"website": "https://prc.org.np/",
 		"tags": [
-			"climate finance",
-			"low carbon development",
-			"resilience",
-			"adaptation",
+			"Climate Finance",
+			"Low Carbon Development",
+			"Resilience",
+			"Adaptation",
 			"GESI",
-			"policy advocacy",
-			"renewable energy"
+			"Policy Advocacy",
+			"Renewable Energy"
 		],
 		"logoUrl": "https://i.ibb.co/V3cQ1cz/prc-logo.png",
 		"pictures": [
@@ -328,12 +328,12 @@
 		},
 		"website": "https://www.icimod.org/",
 		"tags": [
-			"research",
-			"policy advocacy",
-			"renewable energy",
-			"geospatial solutions",
-			"intergovernmental",
-			"ecosystem"
+			"Research",
+			"Policy Advocacy",
+			"Renewable Energy",
+			"Geospatial Solutions",
+			"Intergovernmental",
+			"Ecosystem"
 		],
 		"logoUrl": "https://i.ibb.co/NW4ttqX/icimod-logo.png",
 		"pictures": ["https://i.ibb.co/JsBTfvn/icimod.jpg"],
@@ -355,12 +355,12 @@
 		},
 		"website": "https://www.greenhood.org/",
 		"tags": [
-			"ecosystem",
-			"wildlife protection",
-			"environment",
-			"policy advocacy",
-			"research",
-			"capacity building"
+			"Ecosystem",
+			"Wildlife Protection",
+			"Environment",
+			"Policy Advocacy",
+			"Research",
+			"Capacity Building"
 		],
 		"logoUrl": "https://i.ibb.co/yf9f0BC/greenhood-logo.jpg",
 		"pictures": [
@@ -384,11 +384,11 @@
 		},
 		"website": "https://www.wwfnepal.org/",
 		"tags": [
-			"wildlife protection",
-			"water",
-			"climate change",
-			"forest",
-			"governance"
+			"Wildlife Protection",
+			"Water",
+			"Climate Change",
+			"Forest",
+			"Governance"
 		],
 		"logoUrl": "https://i.ibb.co/r600bPj/wwf-logo.png",
 		"pictures": [
@@ -412,10 +412,10 @@
 		},
 		"website": "https://www.cen.org.np/",
 		"tags": [
-			"research",
-			"policy advocacy",
-			"community engagement",
-			"renewable energy"
+			"Research",
+			"Policy Advocacy",
+			"Community Engagement",
+			"Renewable Energy"
 		],
 		"logoUrl": "https://i.ibb.co/744J8VW/clean-energy-logo.png",
 		"pictures": [
@@ -439,13 +439,13 @@
 		},
 		"website": "https://yae.org.np/",
 		"tags": [
-			"water",
-			"climate change",
-			"adaptation",
-			"mitigation",
-			"disaster risk reduction",
-			"policy advocacy",
-			"research"
+			"Water",
+			"Climate Change",
+			"Adaptation",
+			"Mitigation",
+			"Disaster Risk Reduction",
+			"Policy Advocacy",
+			"Research"
 		],
 		"logoUrl": "https://i.ibb.co/TtGPPvq/yae-logo.png",
 		"pictures": ["https://i.ibb.co/VCsX23j/yae.jpg"],
@@ -467,11 +467,11 @@
 		},
 		"website": "https://ghampower.com/",
 		"tags": [
-			"renewable energy",
-			"climate resilience",
-			"agriculture",
-			"climate technologies",
-			"innovation"
+			"Renewable Energy",
+			"Climate Resilience",
+			"Agriculture",
+			"Climate technology",
+			"Innovation"
 		],
 		"logoUrl": "https://i.ibb.co/HD1tRDs/ghampower-logo.jpg",
 		"pictures": [
@@ -494,7 +494,7 @@
 			"instagram": ""
 		},
 		"website": "https://www.ecohimal.org.np/",
-		"tags": ["climate change", "adaptation", "mitigation", "forest"],
+		"tags": ["Climate Change", "Adaptation", "Mitigation", "Forest"],
 		"logoUrl": "https://i.ibb.co/G066Rxb/eco-Himal-logo.jpg",
 		"pictures": [
 			"https://i.ibb.co/kBbVrJ9/ecohimal.jpg"
@@ -518,13 +518,117 @@
 		"website": "https://naxa.com.np/",
 		"tags": [
 			"GIS",
-			"civic tech",
-			"disaster risk",
-			"open data",
-			"climate technologies"
+			"Civic Tech",
+			"Disaster Risk Reduction",
+			"Open Data",
+			"Climate Technology"
 		],
 		"logoUrl": "https://i.ibb.co/Kx1szx6/naxa-logo.png",
 		"pictures": ["https://i.ibb.co/P4Kjbjb/naxa.png"],
 		"slug": "naxa"
+	},
+	{
+		"id": 20,
+		"name": "Harin Nepal",
+		"description": "Harin Nepal is a youth-led alliance promoting Intersectional Environmental Justice in Nepal since 2018.",
+		"address": "Bodhigram , Lalitpur, Nepal",
+		"contact": {
+			"email": "harinnepal55@gmail.com",
+			"phone": "986-3622020"
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/HarinNepal",
+			"linkedin": "https://www.linkedin.com/company/harinnepal/",
+			"instagram": "https://www.instagram.com/harinnepal/"
+		},
+		"website": "",
+		"tags": [
+			"Climate Justice",
+			"Intersectional Environmentalism",
+			"Policy Advocacy",
+			"Youth"
+		],
+		"logoUrl": "https://i.ibb.co/6tc2jQ5/harin-nepal-logo.jpg",
+		"pictures": ["https://i.ibb.co/HY1vkHM/harin-nepal-profile.jpg"],
+		"slug": "harin-nepal"
+	},
+	{
+		"id": 21,
+		"name": "CliMates Nepal",
+		"description": "CliMates Nepal is a youth-led think-and-do tank focused on climate change, engaging volunteers who are both students and young professionals. The organization aims to raise awareness and promote action on climate issues through research, advocacy, and community engagement.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "climatesnepal20@gmail.com",
+			"phone": "986-9625519"
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/CliMatesNepal/",
+			"linkedin": "https://www.linkedin.com/company/climates-nepal",
+			"instagram": "https://www.instagram.com/climates_nepal/"
+		},
+		"website": "",
+		"tags": [
+			"Climate Justice",
+			"Think Tank",
+			"Capacity Building",
+			"Policy Advocacy",
+			"Youth"
+		],
+		"logoUrl": "https://i.ibb.co/yP8StJL/climates-nepal-logo.jpg",
+		"pictures": ["https://i.ibb.co/bsVxzD1/climates-nepal-profile.jpg"],
+		"slug": "climates-nepal"
+	},
+	{
+		"id": 22,
+		"name": "We for Change",
+		"description": "We for Change is a dynamic, youth-led platform that believes that the youth possess a boundless potential to reshape the future. We believe in the raw power of young minds to aim for and create a sustainable and transformative future. <br> What sets us apart is our unwavering belief in the value of mistakes. We provide young minds a space where failure isn't a setback but a stepping stone, and help them turn failure to success. <br> Join us at We for Change—Be a part of empowering young minds to help create a welcoming, sustainable future together.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "info@weforchange.org",
+			"phone": "+977 9744253229"
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/weforchange/",
+			"linkedin": "https://www.linkedin.com/company/weforchange2012/",
+			"instagram": "https://www.instagram.com/weforchange.org_/"
+		},
+		"website": "",
+		"tags": [
+			"Youth Empowerment",
+			"Community Awareness",
+			"SRHR",
+			"Climate Change",
+			"Youth"
+		],
+		"logoUrl": "https://www.weforchange.org/_next/static/media/logo.1dd1262c.svg",
+		"pictures": ["https://i.ibb.co/VvsKqCy/we-for-change-profile.jpg"],
+		"slug": "we-for-change"
+	},
+	{
+		"id": 22,
+		"name": "Environmental Camps for Conservation Awareness (ECCA)",
+		"description": "Environmental Camps for Conservation Awareness (ECCA) is a leading organization in the sector of social mobilization and community development. Established in July 1987 as a non-profit, non-political, and non-governmental organization, ECCA is registered with the Government of Nepal, District Administration Office, Kathmandu, and is affiliated with the Social Welfare Council, Kathmandu. ECCA creates a platform for youths in various sectors and boasts a large network of local volunteers, known as counsellors. Through the implementation of various programs, ECCA aims to improve the quality of life by promoting the wise use of available local resources and the application of alternative and renewable technologies. <br> ECCA's constitution allows trained members to vote for a policy-making body, ensuring active participation in its governance. The organization pioneered the concept of children's nature clubs in Nepal in 1992 and was the first NGO to establish a paper-recycling unit, named Pap Again, in 1994 with the goal of producing recycled paper. <br> ECCA's mission is to be a professional volunteer organization dedicated to securing a sound ecological future. It aims to create a platform for youths and school children to lead positive change in environmental conservation and community development, and to support the development of conservation-related entrepreneurship.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "info@ecca.org.np",
+			"phone": "01-5453870"
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/ECCA.Nepal/",
+			"linkedin": "",
+			"instagram": ""
+		},
+		"website": "https://www.ecca.org.np/",
+		"tags": [
+			"Youth Empowerment",
+			"Environmental Awareness",
+			"Nature Camps",
+			"Climate Change",
+			"Environment Adcocacy"
+		],
+		"logoUrl": "https://i.ibb.co/pjb8JXY/ecca-logo.jpg",
+		"pictures": ["https://i.ibb.co/rFZ8M07/ecca-profile.jpg"],
+		"slug": "ecca"
 	}
+
 ]
