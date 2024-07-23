@@ -1,33 +1,57 @@
 [
 	{
-		"id": 1,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
+		"id": 0,
+		"name": "Sagar Koirala",
+		"description": "Sagar Koirala is an influential youth leader and environmental advocate, known for his extensive involvement in various global initiatives aimed at fostering sustainable development, empowering young people, and promoting environmental conservation. His journey is marked by a series of significant roles across numerous organizations, each reflecting his commitment to making a positive impact on the world. <br> Currently, Sagar serves as the Regional Focal Point for the Asia Pacific at the Sendai Stakeholders Children and Youth Group. He is also a member of Young Water Professionals Nepal and the Groundwater Youth Network in Paris, contributing to innovative water management solutions. Sagar's mentorship extends to organizations like Wedu and the Asian Environmental Youth Network, empowering young individuals to drive social change. His roles with the International Republican Institute's Generation Democracy program and as a Student Energy Fellow underscore his commitment to democratic governance, civic participation, and sustainable energy solutions. Additionally, he has significantly contributed to food sustainability as a Youth Ambassador for Real Food Systems and as a member of the United Nations Major Group for Children and Youth since 2019. <br> Sagar's academic background in agriculture from Agriculture and Forestry University, Rampur, complements his professional endeavors. Currently, he is pursuing a Master in Agribusiness at Purbanchal University. His accolades, such as the Most Inspirational Ambassador of the 29th Eco-generation Regional Ambassador and the Hidden Eco Hero Award from UNEP, highlight his contributions to climate advocacy and environmental education.  Currently he is pursuing as Executive Board Member of the Nepal US Alumni Network(NUSAN) and previously served as Regional Youth Focal Point- Asia Pacific at the World Food Forum. His diverse roles reflect a deep commitment to fostering sustainable development, empowering the next generation, and addressing global challenges through collaborative and innovative approaches. Mr Koirala works in the intersection of climate, agriculture, DRR, youth engagement, governance, SDG and gender.",
+		"address": "Itahari, Nepal",
 		"contact": {
-			"email": "kcshreyaenv@gmail.com",
+			"email": "koiralasagar400@gmail.com",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
+			"facebook": "https://www.facebook.com/profile.php?id=100010343144550",
+			"linkedin": "https://www.linkedin.com/in/sagar-koirala-he-him-his-7a221a144",
+			"instagram": "https://www.instagram.com/sagar_koirala17/"
 		},
-		"website": "https://kcshreya.wordpress.com/",
+		"website": "https://www.researchgate.net/profile/Sagar-Koirala-2",
 		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
+			"Sustainable Food Systems",
+			"Climate Justice Activism",
+			"Environmental Education",
+			"Climate Resilience",
+			"Disaster Risk Reduction"
 		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc"
+		"logoUrl": "https://i.ibb.co/hVyDzvN/sagar-koirala-logo.jpg",
+		"pictures": ["https://i.ibb.co/LxndtXj/sagar-koirala-profile.jpg"],
+		"slug": "sagar-koirala"
 	},
-  {
+	{
+		"id": 1,
+		"name": "Prakriti Koirala",
+		"description": "Prakriti Koirala holds a master's degree in Environmental Science with a specialization in climate change. She began her journey as an activist in 2016, driven by a passion for environmental and social justice. Actively engaged in research-based advocacy, Prakriti has been involved in international climate change negotiations since 2021, focusing on loss and damage as a negotiator from Nepal. She also serves as the global youth coordinator for the Least Developed Countries Group. Prakriti is a member of Loss and Damage Youth Coalition that is a coalition of youths from the global North and South to demand action on addressing the Loss and Damage caused by climate change. In addition to her advocacy work, Prakriti is the director of 'Clim Adapt,' a non-profit organization dedicated to building climate-resilient communities.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "prakriti054@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/prakriti.koirala.7",
+			"linkedin": "https://www.linkedin.com/in/prakritikoirala",
+			"instagram": "https://www.instagram.com/prakritikoirala__/"
+		},
+		"website": "https://prakritidotlive.wordpress.com/",
+		"tags": [
+			"Loss and Damage",
+			"Global Stocktake",
+			"Nationally Determined Contributions",
+			"Youth Engagement",
+			"Gender and Climate Change"
+		],
+		"logoUrl": "https://i.ibb.co/SQfDYVk/prakriti-koirala-logo.jpg",
+		"pictures": ["https://i.ibb.co/SQfDYVk/prakriti-koirala-logo.jpg"],
+		"slug": "prakriti-koirala"
+	},
+	{
 		"id": 2,
 		"name": "Abhishek Shrestha",
 		"description": "Abhishek Shrestha is a Co-founder of Digo Bikas Institute and leads Climate justice Program at Institute. He is a Chevening Scholar who graduated in Masters in Climate Change and policy from the University of Sussex,  UK in 2013 and BSc. Environmental Science from Kathmandu University in 2008. <br> He received the  “Climate Change Award” in 2017 from the Government of Nepal for his work on Climate Change Policy and Advocacy. He has decade-long experience working as an activist, researcher, campaigner, policy analyst, and strategic communicator at a national and international level on climate change and environmental governance. He has been awarded  “JWH Initiative Environment leadership Award 2017. <br> He follows UN Climate Negotiation closely and has been participating since 2009, COP 15, and attended 8 COP meetings until COP 25 as a Youth representative, CSO representative, and Government delegation. He has been  working with diverse national and international climate justice groups since 2008. He has worked as Contributing Author for Government of Nepal publication on “ Key Issues for Nepal at different UN Climate Conference meetings and member of Government delegation at UN Climate Conference in Bonn 2017 (COP 23). <br> Abhishek has travelled to over 20 countries in Asia, Europe, Africa, South America, and North America and was invited to speak at different national and international conferences on the issue of climate change, climate activism, community solutions, and movement building. He was elected to Serve as YOUNGO Focal Point from Global South for 2012-2013 and interim focal point in COP-17, Durban (YOUNGO- Youth constituency at UNFCCC to ensure positive and constructive participation of the international youth in the UNFCCC) and is a British Council International Climate Champion 2010. He is the Coordinator of Nepal Environment Society- Province 1 and General Secretary of Chevening Alumni Association Nepal. He follows international and Nepal Cricket Closely.",
@@ -43,521 +67,132 @@
 		},
 		"website": "https://digobikas.org/",
 		"tags": [
-			"climate justice",
-			"youth",
-			"climate advocacy",
-			"policy",
-			"loss and damage",
-			"negotiations"
+			"Loss and Damage",
+			"Climate Justice Activism",
+			"Community Resilience",
+			"Policy Advocacy",
+			"Climate Negotiation"
 		],
-		"logoUrl": "https://digobikas.org/wp-content/uploads/2021/06/abhishekk_dbi-300x300.jpg",
+		"logoUrl": "https://i.ibb.co/VDmdhBh/abhishek-shrestha-logo.jpg",
 		"pictures": [
-			"https://lh3.googleusercontent.com/pw/AP1GczNMn6UmVYXewRGCHE5LwLolCAn-AyD8LhI6lw7YEZ4m2ExroDJ-tgbTNseC2guEu-qRc9zDk4UHPHQ43xXBd2dNLUtXPclrnjda_RasUrknqPYbZeffq4RRQ-Nre1tjFeRhf4wUv0QHC7cr7hc9fd3XCag5uN-0Z44haROPmy06trD2sZotS0yRGIh57Xqm9DGNHKgcEWoKtPtgKPIsUfusgN7TeTQpH65FfwEqLLeaAvLUI0izf0VRrtMRGqpe19GZrFMmJlhRhFSgIxzpLi9qbTHYqHZD_9VpemRypTJbD_ZTAtjKN0NoiPvKfvnESlkeCu2IMMGoZyuTXLO8T2axkjG-IRT_fGBIC3-D52fnAZfnZ2j_F970sDTCS88n98t0RSl4a4R0kPDn8mG9LkF_fY44s1cfISM_mVarpLSZl5k87gEch_M8g95__JyYRmhjBn5KO8jOdTcu5sXzqnFWVzDM9F37DkpwSeKJTZUeyBVB80bHX0EJ0b4e52KPz_Qxbq3fOZ19zqORCYokZPUHCcc25qnxYBV3IcEWvzboyk1J0bS7wXU0vxd9q8cftjXxV0AGEuj11MbG6POFvqwYNNnflBfZlRfndRCVGFqo5vYSA_4Hzla7YsflbaFxj9rj8iRfLomsMO4rNeKDbzQvTXBDCvlGb1SBWzc-e-3eEZyxdU0F8YeI3-XxvtjEdQ4CAqhnj4G0SUqkLt1j3PbdOKbAtyIyMxmtgPm1ijAZ8-F9ij8DuVOfY2lfL7fSLJpzgLMnFJSarPImL7Bhvj7xQkNcqji9zlE7S97zl_2gzNbWK81vdCujBHIBjBMLPHBVN5Aq9sivTAG9l3b_0cSu5vR3Gu0xMITAufTE5RCW1uoLRAKcQJD5Vte86O2mPodYprHGrxVLSA2O-4Pdof-A7eay2f3avAl9nCQ5ZD2qlWQ38I1WMg=w607-h932-s-no?authuser=0"
+			"https://i.ibb.co/ZhhdLWW/abhishek-shrestha-profile.jpg"
 		],
-		"slug" : "abhishek-shrestha"
+		"slug": "abhishek-shrestha"
 	},
-  {
-		"id": 3,
-		"name": "Arnab Chaudary",
-		"description": "Arnab Chaudhary, a 25-year-old indigenous Tharu community member, is a dedicated advocate in the Climate and Environment Justice Movement. <br> He passionately champions these causes, particularly from the perspective of indigenous youth. Arnab is not only active in the courtroom, advocating for climate, environmental justice, and the rights of marginalized communities, but also a creative individual with a love for poetry, storytelling, and literature. His inquisitive mind fosters lively discussions on political, social, and environmental issues. Arnab is a staunch supporter of preserving indigenous languages, culture, and rights, as well as the rights of minority groups. He is committed to empowering both youth and communities to drive positive change. Arnab's central focus is on policy-making, public interest litigation, and advocacy, using his legal expertise to advance climate, environmental justice, and the rights of indigenous and underprivileged people. <br> Currently, he holds key positions in organizations such as a member of the U.S. Embassy Youth Council Nepal, Operation Director at Harin Nepal, Board Member at All in Foundation, and Executive Secretary at Dang Society. ",
-		"address": "Dang Deu Khuri, Nepal",
+	{
+		"id": 2,
+		"name": "Manjeet Dhakal",
+		"description": "Manjeet is Head of LDC Support Team at Climate Analytics (CA) and Director for Climate Analytics South Asia office. He provides technical inputs and analysis to the Chair and members of the LDC Group, and coordinates the support provided by Climate Analytics to the group. He also leads the CA team at the regional office in South Asia. <br> Manjeet also serves as an Advisor to the Chair of the Least Developed Countries (LDC) Group at the multilateral process of the UNFCCC. In this role, he has worked with Nepal, Angola, Democratic Republic of Congo, Ethiopia, Bhutan and currently Senegal, and played a key part of the LDC efforts that led to the Paris Agreement in 2015. He has provided high-level climate leadership support for the LDCs’ officials and ministers in climate change UN-related processes over many years and is responsible for institutional capacity on climate issues. He has been following and participating in the UNFCCC negotiations for more than a decade. <br> Manjeet was honored in 2009 as ‘International Climate Champion’ by the British Council. He is also associated with School of Environmental Science and Management, Pokhara University in Nepal as an Adjunct Faculty for climate change. <br> Before joining Climate Analytics, Manjeet was Program Director at Clean Energy Nepal (CEN) where he worked for about five years and also served as the functional head of the organisation from June 2011 to April 2013. He remains active on the Board of CEN. He holds a Masters degree in Environmental Management (MSc) from Pokhara University, Kathmandu. He regularly writes, teaches and presents on climate change related issues.",
+		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "arnabchaudhary75@gmail.com",
+			"email": "manjeet.dhakal@climateanalytics.org",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/iamsanghari",
-			"linkedin": "https://np.linkedin.com/in/arnab-chaudhary-7691b4103",
-			"instagram": "https://www.instagram.com/iamsanghari/"
+			"facebook": "https://www.facebook.com/manjeet.dhakal1",
+			"linkedin": "https://np.linkedin.com/in/manjeetdhakal",
+			"instagram": "https://www.instagram.com/manjeetdhakal/"
 		},
-		"website": "https://wordsofarnab.wordpress.com/",
+		"website": "https://climateanalytics.org/team/manjeet-dhakal",
 		"tags": [
-			"indigenous right ",
-			"climate justice",
-			"climate activism",
-			"law",
-			"policy",
-			"research"
+			
+			"Policy Advocacy",
+			"Climate Education",
+			"Community Resilience",
+			"Climate Diplomacy & Negotiation",
+			"Climate Justice Activism"
 		],
-		"logoUrl": "https://assets-cdn.kathmandupost.com/uploads/source/news/2024/third-party/ArnabChaudharymin-1716343449.jpg",
+		"logoUrl": "https://i.ibb.co/3vQ2n1m/manjeet-dhakal-logo-new.jpg",
 		"pictures": [
-			"https://lh3.googleusercontent.com/pw/AP1GczP88KUhoPQJGEXA3lFchhm3UvPAmDadovU9pC0drQZvgd4-9y_dt18Uz9XnAKioLAczpoySVSkqPHOZyBGr_q9VBN12ajfdqdQLUAF2FjmgkfggesATrvnemgBmBOKfd-Rg1N6lsLfbSR2jatc7B7peydyaDl0uJw4ap-MGQKw-zwjxtdfuwyO4oCX_a54UOWqHP8_TnYlznvmk6lvqU97TC0bzSgcTmRVKftLljC687Igp4CydKquJm65c1WfhKRzMEebS_j-dmhoyPdViKIz2TK2BK4S6vT1WAEIsuUQOqrXoROqzrXUVlu2mC2W3sQ8aT7wAlFt0zYYXiwQKVScya-sfXOzRRyDk4v76eM5_mP0lPH0AOv3cLh46c5XJtCC19rYLOPLp-gh0TH_6i9bixyGwcZZYPRCj-4kUStBGZ2sjtHM_xF4mSc0Cc20I-uhNGFZrSLPPtc8FkbBgvdGxLvnonP49oK0OGvDVRNfY6hDPxo5sk6jBJKgwkiT2OdoRGH-z3wodwrlJMbW4McEDrnZinCA9lm7V9JeKpfPZwY8433oPVTx53-jIXXC4WsVMN94kGPKj1mjbyRwp24IFr1eK5rhsmQZAtWO5nqMHP9eSupvLHbzwKJg-5DTFL7y-k6efBtRw6Sbsher1o0UaGJQ_ofiItm-XF7_41a6TlFRaEf4f-5lWFj8oCJSNXhKxBEny_R2hEK80yJdYtO2vSqmzQ39vKv2ypKRInzsqegfAm4i0TBoOfhG9EDTtDphXHppAiG4ncuMVx-PLsqvo_-LzsgJw98Eme8nlWAJhdYpY7-SZeg7yNgb5aigf3vUMhTWDEDKGC7TuErMvOaJfKcULsCCx-MMYDVMAykJNQacUWN9Ge6-69fOBaY6HKPWCMxn0BF9hGDfHlZwYlmrgz6XzjYst7lKlB4SzzG95mrMcpoUl=w699-h932-s-no?authuser=0"
+			"https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"
 		],
-		"slug" : "arnab-chaurdary"
+		"slug": "manjeet-dhakal"
 	},
-  {
-		"id": 4,
-		"name": "Sagar Koirala",
-		"description": "Sagar Koirala is an influential youth leader and environmental advocate, known for his extensive involvement in various global initiatives aimed at fostering sustainable development, empowering young people, and promoting environmental conservation. His journey is marked by a series of significant roles across numerous organizations, each reflecting his commitment to making a positive impact on the world. <br> Currently, Sagar serves as the Regional Focal Point for the Asia Pacific at the Sendai Stakeholders Children and Youth Group. He is also a member of Young Water Professionals Nepal and the Groundwater Youth Network in Paris, contributing to innovative water management solutions. Sagar's mentorship extends to organizations like Wedu and the Asian Environmental Youth Network, empowering young individuals to drive social change. His roles with the International Republican Institute's Generation Democracy program and as a Student Energy Fellow underscore his commitment to democratic governance, civic participation, and sustainable energy solutions. Additionally, he has significantly contributed to food sustainability as a Youth Ambassador for Real Food Systems and as a member of the United Nations Major Group for Children and Youth since 2019. <br> Sagar's academic background in agriculture from Agriculture and Forestry University, Rampur, complements his professional endeavors. His accolades, such as the Most Inspirational Ambassador of the 29th Eco-generation Regional Ambassador and the Hidden Eco Hero Award from UNEP, highlight his contributions to climate advocacy and environmental education. Throughout his career, Sagar has held influential positions, such as Executive Board Member of the Nepal US Alumni Network and Regional Youth Focal Point at the World Food Forum. His diverse roles reflect a deep commitment to fostering sustainable development, empowering the next generation, and addressing global challenges through collaborative and innovative approaches. ",
-		"address": "Ithari, Nepal",
+	{
+		"id": 2,
+		"name": "Rajan Thapa",
+		"description": "Rajan Thapa is an influential climate change professional who currently works as the National Project Manager for the World Wildlife Fund (WWF) in Nepal. With over ten years of experience in climate change management and project management, he has made a significant impact in both national and international arenas. <br> Rajan has a strong academic background in environmental science, which has helped shape his career. Since September 2016, he has also been a lecturer at the Department of Environmental Science at Patan Multiple Campus, where he teaches students about climate change, ecology, and sustainable development. <br> Before joining WWF in May 2023, Rajan held several important positions. He worked as a Climate Action Advisor at Folkekirkens Nødhjælp (DanChurchAid) from June 2021 to April 2023, focusing on initiatives to build climate resilience. He also served as an M&E Coordinator at CISU - Civilsamfund i Udvikling, where he promoted community empowerment through better management of natural resources. Additionally, he was a Climate Change Expert with Oxford Policy Management, where he developed methods for assessing climate vulnerability. <br> Rajan's skills include policy analysis and negotiations. He provides valuable advice on creating and implementing climate-related policies and helps the Nepalese government in international climate negotiations, especially within the UNFCCC framework. His work in climate change management has been crucial in advising on climate finance and low-carbon development strategies, aiding the government in executing its national climate policies and adaptation plans. <br> Through his efforts, Rajan has greatly influenced Nepal's climate policy, helping the country tackle climate change challenges. He has worked to strengthen the capacity of government and civil society organizations, advancing Nepal's commitments to international climate agreements and sustainable development goals. As he continues his work at WWF, Rajan Thapa remains dedicated to promoting effective climate action and sustainable practices that benefit both the environment and local communities.",
+		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "koiralasagar400@gmail.com",
+			"email": "manjeet.dhakal@climateanalytics.org",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100010343144550",
-			"linkedin": "https://www.linkedin.com/in/sagar-koirala-he-him-his-7a221a144",
-			"instagram": "https://www.instagram.com/sagar_koirala17/"
+			"facebook": "https://www.facebook.com/rajan.thapa.562",
+			"linkedin": "https://np.linkedin.com/in/rajan-thapa-87485a78",
+			"instagram": "https://www.instagram.com/manjeetdhakal/"
 		},
-		"website": "",
+		"website": "https://www.researchgate.net/profile/Rajan-Thapa-6",
 		"tags": [
-			"climate justice",
-			"climate activism", 
-			"disaster risk reduction advocate",
-			"youth"
+			
+			"Policy Advocacy",
+			"Climate Education",
+			"Community Resilience",
+			"Climate Diplomacy & Negotiation",
+			"Climate Justice Activism"
 		],
-		"logoUrl": "https://storycycle.com/wp-content/uploads/2024/04/sagar-Koirala.jpeg",
+		"logoUrl": "https://i.ibb.co/3vQ2n1m/manjeet-dhakal-logo-new.jpg",
 		"pictures": [
-			"https://images.squarespace-cdn.com/content/v1/64e8dd3866f0c35316d23a83/19bc3b04-4b88-40d8-a33f-91acc1168602/Sagar%2BKoirala+%281%29.jpg"
+			"https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"
 		],
-		"slug" : "sagar-koirala"
+		"slug": "rajan-thapa"
 	},
-  {
-		"id": 5,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
+	{
+		"id": 2,
+		"name": "Raju Pandit Chettri",
+		"description": "Raju Pandit Chhetri is a leading figure in Nepal's climate action and sustainable development efforts, with over 15 years of experience in the field. He currently serves as the Executive Director of the Prakriti Resources Centre (PRC), an organization based in Kathmandu that focuses on sustainable development and environmental justice in Nepal. <br> Chhetri has dedicated much of his career to working within international climate change policy frameworks, particularly under the United Nations Framework Convention on Climate Change (UNFCCC) and the Green Climate Fund (GCF). He has been actively involved in climate negotiations, representing the interests of the Least Developed Countries (LDC) Group, and has provided support to LDC Board Members of the GCF. His expertise in climate finance and policy advocacy has made him a respected voice in both national and international arenas. <br> In addition to his role at PRC, Raju is a member of the Climate Change Council for the Government of Nepal and serves on the Climate Finance Technical Committee within the Ministry of Finance. His contributions to climate policy development and implementation have been instrumental in advancing Nepal's commitments to climate action and sustainability.Throughout his career, Raju has worked with various organizations, including the United Mission to Nepal (UMN) and Climate Action Network International (CANI). His work is characterized by a strong commitment to community engagement, ensuring that local voices and needs are prioritized in climate strategies. <br> Raju Pandit Chhetri's efforts in the climate space have garnered recognition both nationally and internationally. He is known for inspiring a new generation of climate leaders in Nepal and fostering a collaborative approach to tackling the pressing challenges posed by climate change. His passion for sustainable development continues to drive his work, making a significant impact on the future of Nepal's environment and communities.",
+		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "kcshreyaenv@gmail.com",
+			"email": "raju@prc.org.np",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
+			"facebook": "https://www.facebook.com/rajupchhetri",
+			"linkedin": "https://np.linkedin.com/in/raju-pandit-chhetri-58133a283",
+			"instagram": ""
 		},
-		"website": "https://kcshreya.wordpress.com/",
+		"website": "https://prc.org.np/",
 		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
+			
+			"Policy Advocacy",
+			"Climate Finance",
+			"Community Resilience",
+			"Climate Diplomacy & Negotiation",
+			"Sustainable Development"
 		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
+		"logoUrl": "https://i.ibb.co/JrWtgXj/raju-pandit-chettri-logo.jpg",
 		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
+			"https://i.ibb.co/mhKwSFV/raju-pandit-chettri-profile.jpg"
 		],
-		"slug" : "shreya-kc-5"
+		"slug": "raju-pandit-chettri"
 	},
-  {
-		"id": 6,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
+	{
+		"id": 2,
+		"name": "Preity Gurung",
+		"description": "Preity Gurung is a researcher and activist dedicated to addressing climate change and its impact on indigenous communities in Nepal. She is currently a Program Officer at the Center for Indigenous Peoples' Research and Development (CIPRED) in Kathmandu. Her work focuses on recognizing Indigenous Peoples' knowledge, cultural values, and customary institutions that contribute to the sustainable management of forests, ecosystems, biodiversity, and climate resilience. <br> Ms. Gurung holds a Master's degree in Sustainable Development from Kathmandu University and has over a decade of experience in the development sector. She is actively engaged in youth networks that advance Indigenous Peoples' rights on both national and global scales. She has participated in various international platforms, including COP27 in Sharm El Sheikh, where she served as a knowledge holder at the LCIPP knowledge holders gathering. Additionally, she is a member of the International Indigenous Forum on Biodiversity (IIFB). <br> As a member of the Human Rights Working Group at YOUNGO, the official youth constituency to the UNFCCC, Ms. Gurung advocates for the inclusion of indigenous voices in global climate discussions. She emphasizes that indigenous communities, with their traditional ecological knowledge and sustainable practices, should be at the forefront of developing climate solutions. <br> As an indigenous woman herself, Ms. Gurung brings a unique intersectional perspective to her work, highlighting how factors like gender, disability, and ethnicity compound the vulnerabilities of certain groups to the impacts of climate change. She continues to be a vocal advocate for climate justice and the rights of indigenous peoples in Nepal and beyond.",
+		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "kcshreyaenv@gmail.com",
+			"email": "pgurung@cipred.org.np",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
+			"facebook": "https://www.facebook.com/preity.gurung.71",
+			"linkedin": "https://np.linkedin.com/in/preity-gurung-7bb12981",
+			"instagram": ""
 		},
-		"website": "https://kcshreya.wordpress.com/",
+		"website": "https://www.cipred.org.np/team.php",
 		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
+			
+			"Climate Justice Activism",
+			"Indigenous Knowledge",
+			"Community Resilience",
+			"Intersectionality",
+			"Sustainable Development"
 		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
+		"logoUrl": "https://i.ibb.co/KLMhm36/preity-gurung-logo.jpg",
 		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
+			"https://i.ibb.co/3mPNWv8/preity-gurung-profile.jpg"
 		],
-		"slug" : "shreya-kc-6"
-	},
-  {
-		"id": 7,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-7"
-	},
-  {
-		"id": 8,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-8"
-	},
-  {
-		"id": 9,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-9"
-	},
-  {
-		"id": 10,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-10"
-	},
-  {
-		"id": 11,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-11"
-	},
-  {
-		"id": 12,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-12"
-	},
-  {
-		"id": 13,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-13"
-	},
-  {
-		"id": 14,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-14"
-	},
-  {
-		"id": 15,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-15"
-	},
-  {
-		"id": 16,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-16"
-	},
-  {
-		"id": 17,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-17"
-	},
-  {
-		"id": 18,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-18"
-	},
-  {
-		"id": 19,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-19"
-	},
-  {
-		"id": 20,
-		"name": "Shreya KC",
-		"description": "Hi! I am Shreya KC, a passionate climate justice activist from Nepal. I have collaborated with young people worldwide to advocate for youth involvement in decision-making and climate education. Currently, I serve as the Advocacy Coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. <br> My previous roles include being a member of the EE 30 Under 30 program by North American Association for Environmental Education (NAAEE), and a Board Member at Clean Energy Nepal. I volunteered for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group. I coordinated campaigns and served as a delegate for Mock COP26 and represented Nepal as a Youth Delegate at COP26 and COP25. I was a Youth Climate Change Champion for UNICEF, participated in various youth conferences, and worked on youth-led climate initiatives. My early career involved roles such as Network Coordinator and School and College Coordinator for NYCA Nepal, and I also taught science and environment at Himchuli English Higher Secondary School. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "kcshreyaenv@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100015903965894",
-			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
-			"instagram": "https://www.instagram.com/kcshreya1/"
-		},
-		"website": "https://kcshreya.wordpress.com/",
-		"tags": [
-			"environment",
-			"climate justice",
-			"youth",
-			"climate education",
-			"policy"
-		],
-		"logoUrl": "https://media.licdn.com/dms/image/C5603AQEksljkS_X8dA/profile-displayphoto-shrink_200_200/0/1645257442600?e=2147483647&v=beta&t=IJT3BKCgClTewjDQzyn30cw9Gt0Is6Syg-6M6_zbbPw",
-		"pictures": [
-			"https://media.licdn.com/dms/image/D4D22AQGAO_PCeKGwjw/feedshare-shrink_800/0/1686454459627?e=2147483647&v=beta&t=9Td4ahltYxG9ZBvpe2OR6IVkh4ddaeXC7PiTFDRjzOM"
-		],
-		"slug" : "shreya-kc-20"
+		"slug": "preity-gurung"
 	}
 ]
