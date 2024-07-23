@@ -1,7 +1,10 @@
 ---
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
-import NewsJSON from "../data/news.json";
+import unsortedNewsJSON from "../data/news.json";
+import sortNewsArray from "../utils/sortNewsArray.js";
+
+const NewsJSON = sortNewsArray(unsortedNewsJSON);
 ---
 
 <div class="section-container">
@@ -13,7 +16,7 @@ import NewsJSON from "../data/news.json";
 		<!-- news card one -->
 
 		{
-			NewsJSON.slice(0, 6).map((news) => (
+			NewsJSON.slice(0, 6).map((news: any) => (
 				<div class="news-card">
 					<a href={news.newsSrc} target="_blank">
 					<div class="content">
