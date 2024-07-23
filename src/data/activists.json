@@ -1,30 +1,5 @@
 [
-	{
-		"id": 0,
-		"name": "Sagar Koirala",
-		"description": "Sagar Koirala is an influential youth leader and environmental advocate, known for his extensive involvement in various global initiatives aimed at fostering sustainable development, empowering young people, and promoting environmental conservation. His journey is marked by a series of significant roles across numerous organizations, each reflecting his commitment to making a positive impact on the world. <br> Currently, Sagar serves as the Regional Focal Point for the Asia Pacific at the Sendai Stakeholders Children and Youth Group. He is also a member of Young Water Professionals Nepal and the Groundwater Youth Network in Paris, contributing to innovative water management solutions. Sagar's mentorship extends to organizations like Wedu and the Asian Environmental Youth Network, empowering young individuals to drive social change. His roles with the International Republican Institute's Generation Democracy program and as a Student Energy Fellow underscore his commitment to democratic governance, civic participation, and sustainable energy solutions. Additionally, he has significantly contributed to food sustainability as a Youth Ambassador for Real Food Systems and as a member of the United Nations Major Group for Children and Youth since 2019. <br> Sagar's academic background in agriculture from Agriculture and Forestry University, Rampur, complements his professional endeavors. Currently, he is pursuing a Master in Agribusiness at Purbanchal University. His accolades, such as the Most Inspirational Ambassador of the 29th Eco-generation Regional Ambassador and the Hidden Eco Hero Award from UNEP, highlight his contributions to climate advocacy and environmental education.  Currently he is pursuing as Executive Board Member of the Nepal US Alumni Network(NUSAN) and previously served as Regional Youth Focal Point- Asia Pacific at the World Food Forum. His diverse roles reflect a deep commitment to fostering sustainable development, empowering the next generation, and addressing global challenges through collaborative and innovative approaches. Mr Koirala works in the intersection of climate, agriculture, DRR, youth engagement, governance, SDG and gender.",
-		"address": "Itahari, Nepal",
-		"contact": {
-			"email": "koiralasagar400@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100010343144550",
-			"linkedin": "https://www.linkedin.com/in/sagar-koirala-he-him-his-7a221a144",
-			"instagram": "https://www.instagram.com/sagar_koirala17/"
-		},
-		"website": "https://www.researchgate.net/profile/Sagar-Koirala-2",
-		"tags": [
-			"Sustainable Food Systems",
-			"Climate Justice Activism",
-			"Environmental Education",
-			"Climate Resilience",
-			"Disaster Risk Reduction"
-		],
-		"logoUrl": "https://i.ibb.co/hVyDzvN/sagar-koirala-logo.jpg",
-		"pictures": ["https://i.ibb.co/LxndtXj/sagar-koirala-profile.jpg"],
-		"slug": "sagar-koirala"
-	},
+	
 	{
 		"id": 1,
 		"name": "Prakriti Koirala",
@@ -111,29 +86,30 @@
 	{
 		"id": 2,
 		"name": "Rajan Thapa",
-		"description": "Rajan Thapa is an influential climate change professional who currently works as the National Project Manager for the World Wildlife Fund (WWF) in Nepal. With over ten years of experience in climate change management and project management, he has made a significant impact in both national and international arenas. <br> Rajan has a strong academic background in environmental science, which has helped shape his career. Since September 2016, he has also been a lecturer at the Department of Environmental Science at Patan Multiple Campus, where he teaches students about climate change, ecology, and sustainable development. <br> Before joining WWF in May 2023, Rajan held several important positions. He worked as a Climate Action Advisor at Folkekirkens Nødhjælp (DanChurchAid) from June 2021 to April 2023, focusing on initiatives to build climate resilience. He also served as an M&E Coordinator at CISU - Civilsamfund i Udvikling, where he promoted community empowerment through better management of natural resources. Additionally, he was a Climate Change Expert with Oxford Policy Management, where he developed methods for assessing climate vulnerability. <br> Rajan's skills include policy analysis and negotiations. He provides valuable advice on creating and implementing climate-related policies and helps the Nepalese government in international climate negotiations, especially within the UNFCCC framework. His work in climate change management has been crucial in advising on climate finance and low-carbon development strategies, aiding the government in executing its national climate policies and adaptation plans. <br> Through his efforts, Rajan has greatly influenced Nepal's climate policy, helping the country tackle climate change challenges. He has worked to strengthen the capacity of government and civil society organizations, advancing Nepal's commitments to international climate agreements and sustainable development goals. As he continues his work at WWF, Rajan Thapa remains dedicated to promoting effective climate action and sustainable practices that benefit both the environment and local communities.",
+		"description": "Rajan Thapa is an influential climate change professional and the national project manager for the GEF- CBIT project at the World Wildlife Fund (WWF) in Nepal. With over 14 years of experience in climate change and the environmental sector, he has significantly contributed to building community resilience and evidence-based policy advocacy. Mr. Thapa has a strong academic background in environmental science, which has helped shape his career. Since September 2016, he has also been a lecturer at the Department of Environmental Science at Patan Multiple Campus, teaching students about climate change, and sustainable development. <br> Before joining WWF, Rajan held several important positions. He worked as a Climate Action Advisor at Folkekirkens Nødhjælp (DanChurchAid) from June 2021 to April 2023, focusing on initiatives to build climate resilience. He also served as an M&E Coordinator at CISU - Civilsamfund I Udvikling, where he promoted community empowerment through better management of natural resources. Additionally, he was a climate change expert at Oxford Policy Management, where he developed methods and assessed climate change vulnerability risk and possible adaptation measures. <br> Mr. Thapa’s skills include project development, project management, policy analysis, and climate change negotiations. Besides actively engaging with the Government of Nepal in national climate discourse, he supports the government in international climate negotiation.  His work in climate change management has been crucial in advising on reporting national climate ambitions and action, climate finance, and aiding the government in executing its national climate policies, adaptation plans, and NDC. <br> Mr. Thapa has worked to strengthen the capacity of government and non-state actors, including  CSOs and youth and research institutions, and has advanced Nepal’s commitments to international climate agreements and sustainable development goals. As he continues his work at WWF, Rajan Thapa remains dedicated to supporting the government in reporting national climate change adaptation and mitigation efforts to UNFCCC and promoting effective climate action and sustainable practices that benefit the environment and local communities.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "manjeet.dhakal@climateanalytics.org",
+			"email": "",
 			"phone": ""
 		},
 		"socials": {
 			"facebook": "https://www.facebook.com/rajan.thapa.562",
 			"linkedin": "https://np.linkedin.com/in/rajan-thapa-87485a78",
-			"instagram": "https://www.instagram.com/manjeetdhakal/"
+			"instagram": ""
 		},
 		"website": "https://www.researchgate.net/profile/Rajan-Thapa-6",
 		"tags": [
 			
-			"Policy Advocacy",
-			"Climate Education",
-			"Community Resilience",
-			"Climate Diplomacy & Negotiation",
-			"Climate Justice Activism"
+			"Research-based Policy Advocacy",
+			"Youth Engagement",
+			"Climate Justice Activism",
+			"Transparency framework under Paris Agreement",
+			"Climate Change Adaptation",
+			"Climate Change Mitigation"
 		],
-		"logoUrl": "https://i.ibb.co/3vQ2n1m/manjeet-dhakal-logo-new.jpg",
+		"logoUrl": "https://i.ibb.co/pZ8gKdk/rajan-thapa-logo-f.jpg",
 		"pictures": [
-			"https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"
+			"https://i.ibb.co/QXTf1k7/rajan-thapa-profile.jpg"
 		],
 		"slug": "rajan-thapa"
 	},
@@ -194,5 +170,58 @@
 			"https://i.ibb.co/3mPNWv8/preity-gurung-profile.jpg"
 		],
 		"slug": "preity-gurung"
+	},
+	{
+		"id": 2,
+		"name": "Ghanshyam Bhattarai",
+		"description": "Ghanshyam Bhattarai is a passionate youth leader dedicated to creating a better world. After earning his Bachelor’s in Food Technology, he initiated a campaign that educated thousands of students in Nepal on food safety. For the past six years, he has focused on empowering youth to engage in sustainable agrifood systems and combat the climate crisis. <br> Currently, Ghanshyam works as the Strategy and Innovation Lead at the World Food Forum Nepal chapter, where he works closely with FAO Nepal to engage and empower youth in the food and agriculture sector through various capacity-building programs and learning opportunities. <br> Ghanshyam has been the Regional Coordinator for South Asia at the Thought For Food Foundation since 2022. He led the Redefining and Empowering Food Technologists (REFT 2020) hackathon, which addressed food security issues, and convened the UN Food Systems Summit 2021 Independent Dialogue, bringing together stakeholders from the entire food supply chain. His full reports can be accessed here (https://bit.ly/3mC8ZaB) and here (https://summitdialogues.org/dialogue/33727/). <br> Ghanshyam’s leadership extends to policy drafting and analysis, mentoring young innovators, and conducting workshops and events. He is an alumnus of FAO’s Food & Climate Shapers Bootcamp and UNICEF's Youth Engagement for Climate Action Program Fellowship. Last year, as a Focal Point, he organized the Local Conference of Youth (LCOY) 2023 in Nepal, further showcasing his commitment to youth empowerment and climate action. His ultimate goal is to contribute to the food sector and its sustainability with a global perspective and a local impact.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "ghanshyam.bhtr@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/ghanshyam.bhtr",
+			"linkedin": "https://www.linkedin.com/in/ghanshyamb/",
+			"instagram": "https://www.instagram.com/ghanshyam.bhtr"
+		},
+		"website": "https://medium.com/@ghanshyam.bhtr",
+		"tags": [
+			
+			"Sustainable Food Systems", "Food Security & Climate Change", "Nutrition & Healthy Diets", "Youth Empowerment"
+
+
+		],
+		"logoUrl": "https://i.ibb.co/QMszgws/ghanshyam-bhattarai-logo-1.jpg",
+		"pictures": [
+			"https://i.ibb.co/LzkwrvV/ghanshyam-bhattarai-profile.jpg"
+		],
+		"slug": "ghanshyam-bhattarai"
+	},
+	{
+		"id": 0,
+		"name": "Sagar Koirala",
+		"description": "Sagar Koirala is an influential youth leader and environmental advocate, known for his extensive involvement in various global initiatives aimed at fostering sustainable development, empowering young people, and promoting environmental conservation. His journey is marked by a series of significant roles across numerous organizations, each reflecting his commitment to making a positive impact on the world. <br> Currently, Sagar serves as the Regional Focal Point for the Asia Pacific at the Sendai Stakeholders Children and Youth Group. He is also a member of Young Water Professionals Nepal and the Groundwater Youth Network in Paris, contributing to innovative water management solutions. Sagar's mentorship extends to organizations like Wedu and the Asian Environmental Youth Network, empowering young individuals to drive social change. His roles with the International Republican Institute's Generation Democracy program and as a Student Energy Fellow underscore his commitment to democratic governance, civic participation, and sustainable energy solutions. Additionally, he has significantly contributed to food sustainability as a Youth Ambassador for Real Food Systems and as a member of the United Nations Major Group for Children and Youth since 2019. <br> Sagar's academic background in agriculture from Agriculture and Forestry University, Rampur, complements his professional endeavors. Currently, he is pursuing a Master in Agribusiness at Purbanchal University. His accolades, such as the Most Inspirational Ambassador of the 29th Eco-generation Regional Ambassador and the Hidden Eco Hero Award from UNEP, highlight his contributions to climate advocacy and environmental education.  Currently he is pursuing as Executive Board Member of the Nepal US Alumni Network(NUSAN) and previously served as Regional Youth Focal Point- Asia Pacific at the World Food Forum. His diverse roles reflect a deep commitment to fostering sustainable development, empowering the next generation, and addressing global challenges through collaborative and innovative approaches. Mr Koirala works in the intersection of climate, agriculture, DRR, youth engagement, governance, SDG and gender.",
+		"address": "Itahari, Nepal",
+		"contact": {
+			"email": "koiralasagar400@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/profile.php?id=100010343144550",
+			"linkedin": "https://www.linkedin.com/in/sagar-koirala-he-him-his-7a221a144",
+			"instagram": "https://www.instagram.com/sagar_koirala17/"
+		},
+		"website": "https://www.researchgate.net/profile/Sagar-Koirala-2",
+		"tags": [
+			"Sustainable Food Systems",
+			"Climate Justice Activism",
+			"Environmental Education",
+			"Climate Resilience",
+			"Disaster Risk Reduction"
+		],
+		"logoUrl": "https://i.ibb.co/hVyDzvN/sagar-koirala-logo.jpg",
+		"pictures": ["https://i.ibb.co/LxndtXj/sagar-koirala-profile.jpg"],
+		"slug": "sagar-koirala"
 	}
 ]
