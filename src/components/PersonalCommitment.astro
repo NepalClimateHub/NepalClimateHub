@@ -21,7 +21,7 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 	<!-- container to wrap commitment cards -->
 	<div class="card-container">
 		<!-- Commitment cards -->
-		<div class="card card-1">
+		<div class="card card-image card-1">
 			<div class="img-wrapper">
 				<img src={publicTransport.src} alt="" />
 			</div>
@@ -31,14 +31,14 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-2">
+		<div class="card card-blue card-2">
 			<p class="text">
 				Use reusable bags, bottles, and containers to minimize single-use
 				plastic consumption
 			</p>
 		</div>
 
-		<div class="card card-3">
+		<div class="card card-image card-3">
 			<div class="img-wrapper">
 				<img src={localProduction.src} alt="" />
 			</div>
@@ -48,14 +48,14 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-4">
+		<div class="card card-blue card-4">
 			<p class="text">
 				Discuss climate change with friends and family, and encourage
 				sustainable practices in your community
 			</p>
 		</div>
 
-		<div class="card card-5">
+		<div class="card card-image card-5">
 			<div class="img-wrapper">
 				<img src={cleanUp.src} alt="" />
 			</div>
@@ -65,14 +65,14 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-5">
+		<div class="card card-blue card-6">
 			<p class="text">
 				Reduce home energy consumption by using energy-efficient appliances, LED
 				lights, and insulation
 			</p>
 		</div>
 
-		<div class="card card-6">
+		<div class="card card-image card-7">
 			<div class="img-wrapper">
 				<img src={plantBasedDiet.src} alt="" />
 			</div>
@@ -82,14 +82,14 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-7">
+		<div class="card card-blue card-8">
 			<p class="text">
 				Repair, reuse, and recycle products to minimize waste and support the
 				circular economy
 			</p>
 		</div>
 
-		<div class="card card-8">
+		<div class="card card-image card-9">
 			<div class="img-wrapper">
 				<img src={greenInvestment.src} alt="" />
 			</div>
@@ -99,31 +99,14 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-9">
+		<div class="card card-blue card-10">
 			<p class="text">
 				Choose to buy products with minimal or eco-friendly packaging to reduce
 				waste
 			</p>
 		</div>
 
-		<div class="card card-10">
-			<div class="img-wrapper">
-				<img src={stunningHimalayas.src} alt="" />
-			</div>
-			<p class="text">
-				Explore the stunning Himalayas and enjoy authentic local cuisine instead
-				of costly international travel
-			</p>
-		</div>
-
-		<div class="card card-11">
-			<p class="text">
-				Reduce food waste by planning meals, using leftovers creatively, and
-				composting kitchen scraps
-			</p>
-		</div>
-
-		<div class="card card-12">
+		<div class="card card-image card-11">
 			<div class="img-wrapper">
 				<img src={ecoFriendlyPot.src} alt="" />
 			</div>
@@ -133,14 +116,24 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-13">
+		<div class="card card-blue card-12">
 			<p class="text">
-				Plant trees at celebrations to offset carbon emissions and create a
-				lasting environmental legacy
+				Reduce food waste by planning meals, using leftovers creatively, and
+				composting kitchen scraps
 			</p>
 		</div>
 
-		<div class="card card-14">
+		<div class="card card-image card-13">
+			<div class="img-wrapper">
+				<img src={stunningHimalayas.src} alt="" />
+			</div>
+			<p class="text">
+				Explore the stunning Himalayas and enjoy authentic local cuisine instead
+				of costly international travel
+			</p>
+		</div>
+
+		<div class="card card-image card-14">
 			<div class="img-wrapper">
 				<img src={avoidLeather.src} alt="" />
 			</div>
@@ -150,7 +143,7 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			</p>
 		</div>
 
-		<div class="card card-15">
+		<div class="card card-blue card-15">
 			<p class="text">
 				Choose traditional homestays over expensive hotels to support local
 				economies
@@ -180,8 +173,8 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 
 	.card-container {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(6, 224px);
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(7, 224px);
 		grid-gap: 16px;
 	}
 
@@ -202,7 +195,7 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 		object-fit: cover;
 	}
 
-	.card:nth-of-type(even)::before {
+	.card-blue::before {
 		content: "";
 		position: absolute;
 		inset: 0;
@@ -211,7 +204,7 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 		background-color: #364fc7;
 	}
 
-	.card:nth-of-type(odd)::before {
+	.card-image::before {
 		content: "";
 		position: absolute;
 		inset: 0;
@@ -237,26 +230,36 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 		grid-row: 1 / span 2;
 	}
 
-	.card-10 {
-		grid-column: 2 / span 2;
-		grid-row: 4 / span 2;
+	.card-13 {
+		grid-column: 1 / span 2;
+		grid-row: 6 / span 2;
 	}
 
 	@media screen and (max-width: 1156px) {
-		.section-container {
-			margin: 24px 32px 64px;
+		.card-container {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(10, 224px);
 		}
 
-		.card-container {
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(7, 224px);
+		.card-4 {
+			grid-column: 2 / 3;
+		}
+
+		.card-5 {
+			grid-column: 1 / 2;
+			grid-row: 4 / 5;
+		}
+
+		.card-10 {
+			grid-column: 1/2;
+			grid-row: 10 / 11;
 		}
 	}
 
-	@media screen and (max-width: 996px) {
+	/* @media screen and (max-width: 996px) {
 		.card-container {
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: repeat(8, 224px);
+			grid-template-rows: repeat(9, 224px);
 		}
 
 		.card-1 {
@@ -264,15 +267,21 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			grid-row: 1 / span 1;
 		}
 
-		.card-10 {
+		.card-13 {
 			grid-column: 2 / span 1;
 			grid-row: 4 / span 1;
+		}
+	} */
+
+	@media screen and (max-width: 768px) {
+		.section-container {
+			margin: 24px 24px 64px;
 		}
 	}
 
 	@media screen and (max-width: 656px) {
 		.card-container {
-			grid-template-columns: repeat(1, 1fr);
+			grid-template-columns: 1fr;
 			grid-template-rows: repeat(15, 224px);
 		}
 
@@ -281,9 +290,24 @@ import stunningHimalayas from "./../assets/personal-commitment/stunning-himalaya
 			grid-row: 1 / 2;
 		}
 
-		.card-10 {
+		.card-13 {
 			grid-column: 1 / 1;
 			grid-row: 11 / 12;
+		}
+
+		.card-4 {
+			grid-column: 1 / 2;
+			grid-row: 4 / 5;
+		}
+
+		.card-5 {
+			grid-column: 1 / 2;
+			grid-row: 5/6;
+		}
+
+		.card-11 {
+			grid-column: 1/2;
+			grid-row: 13/14;
 		}
 	}
 </style>
