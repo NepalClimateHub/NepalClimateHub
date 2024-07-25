@@ -1,5 +1,4 @@
 [
-	
 	{
 		"id": 1,
 		"name": "Prakriti Koirala",
@@ -49,9 +48,7 @@
 			"Climate Negotiation"
 		],
 		"logoUrl": "https://i.ibb.co/VDmdhBh/abhishek-shrestha-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/ZhhdLWW/abhishek-shrestha-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/ZhhdLWW/abhishek-shrestha-profile.jpg"],
 		"slug": "abhishek-shrestha"
 	},
 	{
@@ -70,7 +67,6 @@
 		},
 		"website": "https://climateanalytics.org/team/manjeet-dhakal",
 		"tags": [
-			
 			"Policy Advocacy",
 			"Climate Education",
 			"Community Resilience",
@@ -78,9 +74,7 @@
 			"Climate Justice Activism"
 		],
 		"logoUrl": "https://i.ibb.co/3vQ2n1m/manjeet-dhakal-logo-new.jpg",
-		"pictures": [
-			"https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"],
 		"slug": "manjeet-dhakal"
 	},
 	{
@@ -99,7 +93,6 @@
 		},
 		"website": "https://www.researchgate.net/profile/Rajan-Thapa-6",
 		"tags": [
-			
 			"Research-based Policy Advocacy",
 			"Youth Engagement",
 			"Climate Justice Activism",
@@ -108,9 +101,7 @@
 			"Climate Change Mitigation"
 		],
 		"logoUrl": "https://i.ibb.co/pZ8gKdk/rajan-thapa-logo-f.jpg",
-		"pictures": [
-			"https://i.ibb.co/QXTf1k7/rajan-thapa-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/QXTf1k7/rajan-thapa-profile.jpg"],
 		"slug": "rajan-thapa"
 	},
 	{
@@ -129,7 +120,6 @@
 		},
 		"website": "https://prc.org.np/",
 		"tags": [
-			
 			"Policy Advocacy",
 			"Climate Finance",
 			"Community Resilience",
@@ -137,9 +127,7 @@
 			"Sustainable Development"
 		],
 		"logoUrl": "https://i.ibb.co/JrWtgXj/raju-pandit-chettri-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/mhKwSFV/raju-pandit-chettri-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/mhKwSFV/raju-pandit-chettri-profile.jpg"],
 		"slug": "raju-pandit-chettri"
 	},
 	{
@@ -158,7 +146,6 @@
 		},
 		"website": "https://www.cipred.org.np/team.php",
 		"tags": [
-			
 			"Climate Justice Activism",
 			"Indigenous Knowledge",
 			"Community Resilience",
@@ -166,9 +153,7 @@
 			"Sustainable Development"
 		],
 		"logoUrl": "https://i.ibb.co/KLMhm36/preity-gurung-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/3mPNWv8/preity-gurung-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/3mPNWv8/preity-gurung-profile.jpg"],
 		"slug": "preity-gurung"
 	},
 	{
@@ -187,15 +172,13 @@
 		},
 		"website": "https://medium.com/@ghanshyam.bhtr",
 		"tags": [
-			
-			"Sustainable Food Systems", "Food Security & Climate Change", "Nutrition & Healthy Diets", "Youth Empowerment"
-
-
+			"Sustainable Food Systems",
+			"Food Security & Climate Change",
+			"Nutrition & Healthy Diets",
+			"Youth Empowerment"
 		],
 		"logoUrl": "https://i.ibb.co/QMszgws/ghanshyam-bhattarai-logo-1.jpg",
-		"pictures": [
-			"https://i.ibb.co/LzkwrvV/ghanshyam-bhattarai-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/LzkwrvV/ghanshyam-bhattarai-profile.jpg"],
 		"slug": "ghanshyam-bhattarai"
 	},
 	{
@@ -223,5 +206,58 @@
 		"logoUrl": "https://i.ibb.co/hVyDzvN/sagar-koirala-logo.jpg",
 		"pictures": ["https://i.ibb.co/LxndtXj/sagar-koirala-profile.jpg"],
 		"slug": "sagar-koirala"
+	},
+	{
+		"id": 0,
+		"name": "Prayash Adhikari",
+		"description": "It was 2015 when I started my activism after the National Climate Convergence empowering and connecting me with climate activists and groups. After that, my team and I started a youth regional group in Lamjung (NYCA-Lamjung) where we focused on capacity building of youths, community empowerment, climate education, ground-based research, local government engagement, and stakeholder partnerships reaching thousands of youths and hundred of community and stakeholders making us able to decentralize climate education and activism from Kathmandu. <br> These experiences made me able to join a group of active, enthusiastic youths expanding our reach and actions on a National level working together at the international youth group i.e. CliMates Nepal. After a long experience in youth volunteerism and working on climate issues I worked closely with the community in rural Nepal focusing more on, food sovereignty and climate crisis prioritizing community education, community-led solutions, women empowerment, and value chain. <br> And now, I’ve rejoined the team with whom I started my journey i.e. Digo Bikas Institute where I am prioritizing youth engagement, research, advocacy, community approach, climate education, agroecology, loss and damage, and stakeholder collaboration as Senior Program Officer of Climate Justice Program. This opportunity has provided me with a comparative analysis of climate change narratives, solutions to the climate crisis, the importance of community-led adaptation strategies, their relevance, and the fight demanding climate justice from local, regional to global levels. Here we focus our programs on children and youths in line with the National Climate Change Policy with the GCV and CJSS program, support the community to implement agroecology as a real solution to the climate crisis, conduct research and actions from national to global level debunking the false narrative and false solution to the climate crisis.",
+		"address": "Dhangadhi, Kailali, Nepal",
+		"contact": {
+			"email": "prayash.adhikari@digobikas.org",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/prayash.adhikari.56",
+			"linkedin": "https://www.linkedin.com/in/prayash-adhikari-6b5082119/",
+			"instagram": "https://www.instagram.com/prayash_adhikari63/"
+		},
+		"website": "https://digobikas.org/prayas-adhikari/",
+		"tags": [
+			"Climate Justice Activism",
+			"Youth Engagement",
+			"Loss and Damage",
+			"Food sovereignty and climate justice (Agroecology)",
+			"Community-led solutions to the climate crisis",
+			"Research, advocacy and implementation"
+		],
+		"logoUrl": "https://i.ibb.co/SdQzfnp/prayash-adhikari-logo.jpg",
+		"pictures": ["https://i.ibb.co/mRJQgRM/prayash-adhikari-profile.jpg"],
+		"slug": "prayash-adhikari"
+	},
+	{
+		"id": 0,
+		"name": "Monica Neupane",
+		"description": "Monica Neupane is a dynamic climate activist and environmental advocate from Nepal, renowned for her impactful work in climate education and sustainable development. With a background as a Program Officer at the Center for Environment Education Nepal, she has successfully integrated climate change learning into sustainable practices, training over 30 teachers and reaching over 2,500 students across more than 15 schools. <br> As the President of CliMates Nepal, Monica was a lead organizer for events such as the Climate Action Simulation and Nepal's first Local Conference of Youth (LCOY) in 2020. She has led numerous climate events and discussions, mobilizing thousands of youth for climate action. Honored with the Youth Award at the LOF National Conference in 2023, Monica's global engagements include representing Nepal at COP 27, where she contributed to international climate policy discussions. Her TEDx Kamalpokhari talk on climate anxiety and PTSD underscores her commitment to addressing the mental health impacts of climate change. <br> Currently, Monica is spearheading a sustainable startup focused on education and eco-friendly living, transforming spaces into green hubs. Her work emphasizes grassroots mobilization, youth empowerment, and integrating sustainability into daily life. Monica's mission is to inspire collective action for a sustainable future, advocating for a healthier planet and a brighter tomorrow.",
+		"address": "Satdobato road, Lalitpur",
+		"contact": {
+			"email": "advocacymonica@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/monica.neupane.96/",
+			"linkedin": "https://www.linkedin.com/in/monica-neupane-554658198/",
+			"instagram": "https://www.instagram.com/minimalistic_life06/"
+		},
+		"website": "https://moniconeupane.wixsite.com/monico",
+		"tags": [
+			"Environmental Education",
+			"Urban Sustainability",
+			"Entrepreneurship",
+			"Climate Policy Advocacy",
+			"Biodiversity Conservation"
+		],
+		"logoUrl": "https://i.ibb.co/PNVG617/monica-neupane-logo.jpg",
+		"pictures": ["https://i.ibb.co/TK5DG2t/monica-neupane-profile.jpg"],
+		"slug": "monica-neupane"
 	}
 ]
