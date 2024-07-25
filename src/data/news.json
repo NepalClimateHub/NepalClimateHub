@@ -343,5 +343,21 @@
 		"imgSrc": "https://i.ibb.co/w7pPt2c/43.jpg",
 		"linkText": "www.wionews.com",
 		"date": "May 29, 2023"
+	},
+	{
+		"id": 43,
+		"headline": "Above-average rainfall recorded in first four weeks of monsoon",
+		"newsSrc": "https://kathmandupost.com/climate-environment/2024/07/17/above-average-rainfall-recorded-in-first-four-weeks-of-monsoon",
+		"imgSrc": "https://i.ibb.co/2dGkhJB/44.jpg",
+		"linkText": "kathmandupost.com",
+		"date": "Jul 17, 2024"
+	},
+	{
+		"id": 44,
+		"headline": "Investing in a greener tomorrow: The benefits of climate and green finance for Nepal",
+		"newsSrc": "https://thehimalayantimes.com/opinion/investing-in-a-greener-tomorrow-the-benefits-of-climate-and-green-finance-for-nepal",
+		"imgSrc": "https://i.ibb.co/PZs5R38/45.jpg",
+		"linkText": "thehimalayantimes.com",
+		"date": "Jul 22, 2024"
 	}
 ]
