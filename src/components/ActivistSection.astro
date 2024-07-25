@@ -7,7 +7,7 @@ import "../styles/components/FeaturedCardStyles.css";
 import { Icon } from "astro-icon/components";
 
 //sample activist JSON data
-import activistJSON from "../data/activists.json";
+import activistJSON from "../data/featuredActivists.json";
 
 const {startIndex, endIndex, title} = Astro.props;
 ---
@@ -20,7 +20,7 @@ const {startIndex, endIndex, title} = Astro.props;
 	<!-- render the activists from activistJSON -->
 	<div class="cards-container">
 		{
-			activistJSON.slice(startIndex, endIndex).map((activist) => (
+			activistJSON.map((activist) => (
 				<a class="card activist-card" href={`/climate-champions/${activist.slug}`}>
 					<div class="img-wrapper" style="padding: 0;"> 
 						<img src={activist.logoUrl} alt={activist.name} style="object-fit: cover;"/>

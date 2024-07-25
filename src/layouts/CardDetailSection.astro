@@ -1,6 +1,6 @@
 ---
 import type { Organization } from "../interfaces/organizationInterface";
-
+import { Icon } from "astro-icon/components";
 // dataObj can either be organization data or activist data; sent via props
 const { dataObj } = Astro.props;
 
@@ -15,7 +15,9 @@ let activeDataObject: Organization | null = dataObj;
 			<h2 class="card-name">
 				{activeDataObject?.name}
 			</h2>
-			<div class="address">{activeDataObject?.address}</div>
+			<div class="address"><span class="icon">
+				<Icon name="mdi:my-location" class="icon" />
+			</span> {activeDataObject?.address}</div>
 			<div class="detail">
 				{
 					activeDataObject?.description
@@ -73,7 +75,7 @@ let activeDataObject: Organization | null = dataObj;
 	.address {
 		font-size: 14px;
 		line-height: 16px;
-		color: #003894;
+		color: #364FC7;
 		margin-bottom: 27px;
 	}
 
