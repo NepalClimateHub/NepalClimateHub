@@ -1,7 +1,216 @@
 [
-	
+	{
+		"id": 0,
+		"name": "Abhishek Shrestha",
+		"description": "Abhishek Shrestha is a Co-founder of Digo Bikas Institute and leads Climate justice Program at Institute. He is a Chevening Scholar who graduated in Masters in Climate Change and policy from the University of Sussex,  UK in 2013 and BSc. Environmental Science from Kathmandu University in 2008. <br> He received the  “Climate Change Award” in 2017 from the Government of Nepal for his work on Climate Change Policy and Advocacy. He has decade-long experience working as an activist, researcher, campaigner, policy analyst, and strategic communicator at a national and international level on climate change and environmental governance. He has been awarded  “JWH Initiative Environment leadership Award 2017. <br> He follows UN Climate Negotiation closely and has been participating since 2009, COP 15, and attended 8 COP meetings until COP 25 as a Youth representative, CSO representative, and Government delegation. He has been  working with diverse national and international climate justice groups since 2008. He has worked as Contributing Author for Government of Nepal publication on “ Key Issues for Nepal at different UN Climate Conference meetings and member of Government delegation at UN Climate Conference in Bonn 2017 (COP 23). <br> Abhishek has travelled to over 20 countries in Asia, Europe, Africa, South America, and North America and was invited to speak at different national and international conferences on the issue of climate change, climate activism, community solutions, and movement building. He was elected to Serve as YOUNGO Focal Point from Global South for 2012-2013 and interim focal point in COP-17, Durban (YOUNGO- Youth constituency at UNFCCC to ensure positive and constructive participation of the international youth in the UNFCCC) and is a British Council International Climate Champion 2010. He is the Coordinator of Nepal Environment Society- Province 1 and General Secretary of Chevening Alumni Association Nepal. He follows international and Nepal Cricket Closely.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "abhishek.shrestha@digobikas.org",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/avi77np",
+			"linkedin": "https://np.linkedin.com/in/avi77",
+			"instagram": "#"
+		},
+		"website": "https://digobikas.org/",
+		"tags": [
+			"Loss and Damage",
+			"Climate Justice Activism",
+			"Community Resilience",
+			"Policy Advocacy",
+			"Climate Negotiation"
+		],
+		"logoUrl": "https://i.ibb.co/VDmdhBh/abhishek-shrestha-logo.jpg",
+		"pictures": ["https://i.ibb.co/ZhhdLWW/abhishek-shrestha-profile.jpg"],
+		"slug": "abhishek-shrestha"
+	},
 	{
 		"id": 1,
+		"name": "Adv. Arnab Chaudary",
+		"description": "Adv. Arnab Chaudhary, a young Indigenous Tharu community member, is a Lawyer and dedicated advocate for the Human Rights, indigenous and Marginalized people’s right issues and Social, Climate and Environmental Justice Movement. <br> He passionately champions these causes, particularly from the perspective of indigenous youth. Arnab is not only active in the courtroom, advocating for climate, environmental justice, and the rights of marginalized communities, but also a creative individual with a love for poetry, storytelling, and literature. His inquisitive mind fosters lively discussions on political, social, and environmental issues. Arnab is a staunch supporter of preserving indigenous languages,Knowledge, culture, and rights, as well as the rights of minority groups. He is committed to empowering both youth and communities to drive positive change. Arnab's central focus is on policy-making, public interest litigation, Youth mobilization and advocacy, using his legal expertise to advance climate, environmental justice, and the rights of indigenous and underprivileged people. Arnab who is dedicated to work at community level has been working in the policy formulation of various local municipalities and has been representing in international and national level forums. <br> Currently, he holds key positions in organizations such as a member of the U.S. Embassy Youth Council Nepal, Youth Council member of Global homes for Indigenous People(GH4IP) Board Member at All in Foundation,Operation Director at Harin Nepal, and Executive Member at Dang Society.",
+		"address": "Gadhawa-7,Dang, Deukhuri, Lumbini",
+		"contact": {
+			"email": "sanghariarnab@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/iamsanghari",
+			"linkedin": "https://np.linkedin.com/in/arnab-chaudhary-7691b4103",
+			"instagram": "https://www.instagram.com/prajwolbickram/"
+		},
+		"website": "",
+		"tags": [
+			"Human Rights",
+			"Policy Advocacy",
+			"Social Justice",
+			"Climate and Enviromental Justice",
+			"Litigation",
+			"Indigenous and marginalized People’s Right"
+		],
+		"logoUrl": "https://i.ibb.co/PmJ5P4S/arnab-chaudary-logo.jpg",
+		"pictures": ["https://i.ibb.co/Z154YTG/arnab-chaudary-profile.jpg"],
+		"slug": "adv-arnab-chaudary"
+	},
+	{
+		"id": 2,
+		"name": "Ghanshyam Bhattarai",
+		"description": "Ghanshyam Bhattarai is a passionate youth leader dedicated to creating a better world. After earning his Bachelor’s in Food Technology, he initiated a campaign that educated thousands of students in Nepal on food safety. For the past six years, he has focused on empowering youth to engage in sustainable agrifood systems and combat the climate crisis. <br> Currently, Ghanshyam works as the Strategy and Innovation Lead at the World Food Forum Nepal chapter, where he works closely with FAO Nepal to engage and empower youth in the food and agriculture sector through various capacity-building programs and learning opportunities. <br> Ghanshyam has been the Regional Coordinator for South Asia at the Thought For Food Foundation since 2022. He led the Redefining and Empowering Food Technologists (REFT 2020) hackathon, which addressed food security issues, and convened the UN Food Systems Summit 2021 Independent Dialogue, bringing together stakeholders from the entire food supply chain. His full reports can be accessed here (https://bit.ly/3mC8ZaB) and here (https://summitdialogues.org/dialogue/33727/). <br> Ghanshyam’s leadership extends to policy drafting and analysis, mentoring young innovators, and conducting workshops and events. He is an alumnus of FAO’s Food & Climate Shapers Bootcamp and UNICEF's Youth Engagement for Climate Action Program Fellowship. Last year, as a Focal Point, he organized the Local Conference of Youth (LCOY) 2023 in Nepal, further showcasing his commitment to youth empowerment and climate action. His ultimate goal is to contribute to the food sector and its sustainability with a global perspective and a local impact.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "ghanshyam.bhtr@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/ghanshyam.bhtr",
+			"linkedin": "https://www.linkedin.com/in/ghanshyamb/",
+			"instagram": "https://www.instagram.com/ghanshyam.bhtr"
+		},
+		"website": "https://medium.com/@ghanshyam.bhtr",
+		"tags": [
+			"Sustainable Food Systems",
+			"Food Security & Climate Change",
+			"Nutrition & Healthy Diets",
+			"Youth Empowerment"
+		],
+		"logoUrl": "https://i.ibb.co/QMszgws/ghanshyam-bhattarai-logo-1.jpg",
+		"pictures": ["https://i.ibb.co/LzkwrvV/ghanshyam-bhattarai-profile.jpg"],
+		"slug": "ghanshyam-bhattarai"
+	},
+	{
+		"id": 3,
+		"name": "Gauri Jayaswal",
+		"description": "Gauri Jayaswal, an environmental science researcher, holds a Master’s degree in Environmental Science from Central Department of Environmental Science, Tribhuvan University. With a strong track record of leading projects funded by USAID, MECS, ICIMOD, and other organizations, she has established herself as an expert in climate resilience, youth engagement, and data-driven solutions. Her career reflects a strong commitment to fostering sustainable practices and empowering communities through education and active participation. <br> Her expertise encompasses project management, strategic planning, partnership development, and communication. She has successfully led numerous projects focused on renewable energy, climate-smart agriculture, and disaster risk reduction. Her work with several national and international organizations has enabled her to engage with local government bodies and communities at the grassroots level. <br> A key highlight of her career is her dedication to youth engagement. She has conducted workshops and training programs, equipping young people with the skills and knowledge to act as citizen scientists and advocates for environmental sustainability. She has also represented Nepal’s youth voice, emphasizing sustainability and leadership in the 3rd Youth SAARC Regional Conference, advocating youth engagement. <br> She has published numerous books and articles on environmental conservation. She is also deeply involved in promoting gender equality, disability, and social inclusion, ensuring that all voices are heard and valued in climate discourse. <br> Her message is clear: \"Empowerment through knowledge and action is key to sustainable development. Let’s collaborate to build resilient communities and create a future where everyone thrives. Together, we can make a difference.\"",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "gaurijaiswal2121@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/gauri.jayaswal.7",
+			"linkedin": "www.linkedin.com/in/gaurijaiswal",
+			"instagram": ""
+		},
+		"website": "",
+		"tags": [
+			"Youth Engagement",
+			"Renewable Energy",
+			"Sustainable Agriculture",
+			"Gender Equality, Disability, and Social Inclusion (GEDSI)",
+			"Climate Resilience"
+		],
+		"logoUrl": "https://i.ibb.co/wz2yJtg/gauri-jayaswal-logo.jpg",
+		"pictures": ["https://i.ibb.co/FXgSTQt/gauri-jayaswal-profile.jpg"],
+		"slug": "gauri-jayaswal"
+	},
+	{
+		"id": 4,
+		"name": "Mansingh Aidee",
+		"description": "A result-driven public health professional with over 8+ years of experience in health project management, data, and evidence-based advocacy. Proven record of leveraging public health knowledge and skills to the program research and development, implementation, and evaluation of health promotion programs, policies, and interventions and seeking a dynamic role to contribute to health and advocacy at the grassroots level and enhance the overall health outcomes of target populations in the most underserved areas. <br> Areas of interest <br> Environment Health and Climate Change |  Climate resilient health system | Epidemiology and Research | Sexual and Reproductive Health and Rights <br> Affiliations <br> Co-Founder, Planet Pulse Nepal | Founder/President, Gopka Youth Club since 2019 | US Embassy Youth Council Member 2023 | 25th President, Rotaract Club of Kathmandu Mid-Town",
+		"address": "Gopka, Kharpunath RM-01, Humla",
+		"contact": {
+			"email": "rtrmansingh@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/mansinghaidee",
+			"linkedin": "https://www.linkedin.com/in/mansingh-aidee/",
+			"instagram": "https://www.instagram.com/_mansingh.aidee_/"
+		},
+		"website": "https://mansinghblogs.wordpress.com/",
+		"tags": [
+			"Environmental Health",
+			"SDG Localization",
+			"Youth Engagement",
+			"One Health and Climate Change ",
+			"Indigenous Knowledge and Research",
+			"Food Security and Climate"
+		],
+		"logoUrl": "https://i.ibb.co/C8rLKxz/mansingh-logo.jpg",
+		"pictures": ["https://i.ibb.co/r7jjQZS/mansingh-profile.jpg"],
+		"slug": "mansingh-aidee"
+	},
+	{
+		"id": 5,
+		"name": "Manjeet Dhakal",
+		"description": "Manjeet is Head of LDC Support Team at Climate Analytics (CA) and Director for Climate Analytics South Asia office. He provides technical inputs and analysis to the Chair and members of the LDC Group, and coordinates the support provided by Climate Analytics to the group. He also leads the CA team at the regional office in South Asia. <br> Manjeet also serves as an Advisor to the Chair of the Least Developed Countries (LDC) Group at the multilateral process of the UNFCCC. In this role, he has worked with Nepal, Angola, Democratic Republic of Congo, Ethiopia, Bhutan and currently Senegal, and played a key part of the LDC efforts that led to the Paris Agreement in 2015. He has provided high-level climate leadership support for the LDCs’ officials and ministers in climate change UN-related processes over many years and is responsible for institutional capacity on climate issues. He has been following and participating in the UNFCCC negotiations for more than a decade. <br> Manjeet was honored in 2009 as ‘International Climate Champion’ by the British Council. He is also associated with School of Environmental Science and Management, Pokhara University in Nepal as an Adjunct Faculty for climate change. <br> Before joining Climate Analytics, Manjeet was Program Director at Clean Energy Nepal (CEN) where he worked for about five years and also served as the functional head of the organisation from June 2011 to April 2013. He remains active on the Board of CEN. He holds a Masters degree in Environmental Management (MSc) from Pokhara University, Kathmandu. He regularly writes, teaches and presents on climate change related issues.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "manjeet.dhakal@climateanalytics.org",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/manjeet.dhakal1",
+			"linkedin": "https://np.linkedin.com/in/manjeetdhakal",
+			"instagram": "https://www.instagram.com/manjeetdhakal/"
+		},
+		"website": "https://climateanalytics.org/team/manjeet-dhakal",
+		"tags": [
+			"Policy Advocacy",
+			"Climate Education",
+			"Community Resilience",
+			"Climate Diplomacy & Negotiation",
+			"Climate Justice Activism"
+		],
+		"logoUrl": "https://i.ibb.co/3vQ2n1m/manjeet-dhakal-logo-new.jpg",
+		"pictures": ["https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"],
+		"slug": "manjeet-dhakal"
+	},
+	{
+		"id": 6,
+		"name": "Maya Kandel",
+		"description": "Maya is a passionate Climate justice activist and International Youth Change Maker (IYCM) Ambassador for Nepal (2024-2025). Her advocacy for Climate education and passionate for climate diplomacy and negotiation. <br> Maya's journey includes serving as an Advisory Council member for the U.S. Embassy Youth Council Nepal, 2023 cohort, where she contributed to the Community Engagement Project (CEP) on \"Digitalization of Indigenous Practices on Climate Crisis.\" As a former research intern at the SAARC Secretariat, she honed her skills in research on the UNFCCC negotiation process and international cooperation to foster global climate action, working in the Division of Environment, Natural, and Biotechnology (ENB) under the supervision of the Director of Bhutan for Climate Adaptation and Mitigation Strategies in SAARC Member States. <br> Maya is a graduate student of Environmental Science, a \"Youth for Climate Action\" fellow of the British Council in Nepal, and an Environment Leadership Program fellow of WWF Nepal. These roles have enabled her to mentor youth leaders in implementing community engagement initiatives. <br> In 2018, Maya received the \"Empower Nepali Girls Education Scholarship\" for her bachelor's degree, and in 2023, she received a scholarship to address \"Women in the Frontline Addressing Global Challenges\" from South-East Asia Pacific at Ulaanbaatar, Mongolia. <br> Currently, Maya works as a Climate Educator at the Center for Climate Studies, focusing on academic research and being involved as a Foreign Affairs Department Officer at Prisma Television, leveraging her expertise in international relations to foster global climate action. Her primary focus remains on climate education and youth empowerment, through innovative approaches to combat climate change and advocate for sustainable solutions and an equitable future for the next generation.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "maayakandel24@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/profile.php?id=100009550188283",
+			"linkedin": "https://www.linkedin.com/in/maya-kandel-612ba1261/",
+			"instagram": "https://www.instagram.com/maayakandel2/"
+		},
+		"website": "https://www.researchgate.net/profile/Maya-Kandel-2",
+		"tags": [
+			"Climate Justice Activism",
+			"Policy Advocacy",
+			"Loss and Damage",
+			"Nationally Determined Contributions",
+			"Climate Education",
+			"Climate Diplomacy"
+		],
+		"logoUrl": "https://i.ibb.co/HHPxhQw/maya-kandel-logo.jpg",
+		"pictures": ["https://i.ibb.co/6sVCGcM/maya-kandel-profile.jpg"],
+		"slug": "maya-kandel"
+	},
+	{
+		"id": 7,
+		"name": "Monica Neupane",
+		"description": "Monica Neupane is a dynamic climate activist and environmental advocate from Nepal, renowned for her impactful work in climate education and sustainable development. With a background as a Program Officer at the Center for Environment Education Nepal, she has successfully integrated climate change learning into sustainable practices, training over 30 teachers and reaching over 2,500 students across more than 15 schools. <br> As the President of CliMates Nepal, Monica was a lead organizer for events such as the Climate Action Simulation and Nepal's first Local Conference of Youth (LCOY) in 2020. She has led numerous climate events and discussions, mobilizing thousands of youth for climate action. Honored with the Youth Award at the LOF National Conference in 2023, Monica's global engagements include representing Nepal at COP 27, where she contributed to international climate policy discussions. Her TEDx Kamalpokhari talk on climate anxiety and PTSD underscores her commitment to addressing the mental health impacts of climate change. <br> Currently, Monica is spearheading a sustainable startup focused on education and eco-friendly living, transforming spaces into green hubs. Her work emphasizes grassroots mobilization, youth empowerment, and integrating sustainability into daily life. Monica's mission is to inspire collective action for a sustainable future, advocating for a healthier planet and a brighter tomorrow.",
+		"address": "Satdobato road, Lalitpur",
+		"contact": {
+			"email": "advocacymonica@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/monica.neupane.96/",
+			"linkedin": "https://www.linkedin.com/in/monica-neupane-554658198/",
+			"instagram": "https://www.instagram.com/minimalistic_life06/"
+		},
+		"website": "https://moniconeupane.wixsite.com/monico",
+		"tags": [
+			"Environmental Education",
+			"Urban Sustainability",
+			"Entrepreneurship",
+			"Climate Policy Advocacy",
+			"Biodiversity Conservation"
+		],
+		"logoUrl": "https://i.ibb.co/PNVG617/monica-neupane-logo.jpg",
+		"pictures": ["https://i.ibb.co/TK5DG2t/monica-neupane-profile.jpg"],
+		"slug": "monica-neupane"
+	},
+	{
+		"id": 8,
 		"name": "Prakriti Koirala",
 		"description": "Prakriti Koirala holds a master's degree in Environmental Science with a specialization in climate change. She began her journey as an activist in 2016, driven by a passion for environmental and social justice. Actively engaged in research-based advocacy, Prakriti has been involved in international climate change negotiations since 2021, focusing on loss and damage as a negotiator from Nepal. She also serves as the global youth coordinator for the Least Developed Countries Group. Prakriti is a member of Loss and Damage Youth Coalition that is a coalition of youths from the global North and South to demand action on addressing the Loss and Damage caused by climate change. In addition to her advocacy work, Prakriti is the director of 'Clim Adapt,' a non-profit organization dedicated to building climate-resilient communities.",
 		"address": "Kathmandu, Nepal",
@@ -27,123 +236,60 @@
 		"slug": "prakriti-koirala"
 	},
 	{
-		"id": 2,
-		"name": "Abhishek Shrestha",
-		"description": "Abhishek Shrestha is a Co-founder of Digo Bikas Institute and leads Climate justice Program at Institute. He is a Chevening Scholar who graduated in Masters in Climate Change and policy from the University of Sussex,  UK in 2013 and BSc. Environmental Science from Kathmandu University in 2008. <br> He received the  “Climate Change Award” in 2017 from the Government of Nepal for his work on Climate Change Policy and Advocacy. He has decade-long experience working as an activist, researcher, campaigner, policy analyst, and strategic communicator at a national and international level on climate change and environmental governance. He has been awarded  “JWH Initiative Environment leadership Award 2017. <br> He follows UN Climate Negotiation closely and has been participating since 2009, COP 15, and attended 8 COP meetings until COP 25 as a Youth representative, CSO representative, and Government delegation. He has been  working with diverse national and international climate justice groups since 2008. He has worked as Contributing Author for Government of Nepal publication on “ Key Issues for Nepal at different UN Climate Conference meetings and member of Government delegation at UN Climate Conference in Bonn 2017 (COP 23). <br> Abhishek has travelled to over 20 countries in Asia, Europe, Africa, South America, and North America and was invited to speak at different national and international conferences on the issue of climate change, climate activism, community solutions, and movement building. He was elected to Serve as YOUNGO Focal Point from Global South for 2012-2013 and interim focal point in COP-17, Durban (YOUNGO- Youth constituency at UNFCCC to ensure positive and constructive participation of the international youth in the UNFCCC) and is a British Council International Climate Champion 2010. He is the Coordinator of Nepal Environment Society- Province 1 and General Secretary of Chevening Alumni Association Nepal. He follows international and Nepal Cricket Closely.",
+		"id": 9,
+		"name": "Prajwol Bickram Rana",
+		"description": "Prajwol is a lawyer, climate change researcher, and activist. He is currently the Membership Engagement Coordinator of the World’s Youth for Climate Justice-Asian Front. <br> Prajwol successfully led a campaign for the participation of the Nepal government in the International Court of Justice's advisory opinion proceedings on climate change and human rights. He led, strategized, and participated in frequent meetings with high-ranking officials, culminating in Nepal’s historic participation in the ICJ proceedings. Prajwol and his team co-authored the written submissions for the Nepal government to present to the ICJ. He values applying his knowledge of international law in practice through this campaign. <br> As a Research Consultant at the University of Colombo's Centre for Environmental Law and Policy, Prajwol is working on a UNDP-supported project on Crimes against Future Generations. He led a research initiative with South Asian researchers and published a research book titled \"A Study of Climate Change Laws and Policies in South Asian Countries\" in 2022. He also worked as a legal researcher for Leave it in the Ground Initiative to develop the portal for a database of climate change litigations. <br> Prajwol expanded the reach of the University of Cambridge's Democratising Education for Global Sustainability and Justice Programme in South Asia as a Course Ambassador. With nine years at Amnesty International Nepal as a member, he now coordinates its International Human Rights Issues Committee. He speaks frequently on climate justice at forums including the side-events of Conference of Parties (COP 28) of UNFCCC. <br> Prajwol completed the Climate Law and Governance Specialisation Course at the University of Dubai in 2023 and has received awards for his contributions to climate research and advocacy.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "abhishek.shrestha@digobikas.org",
+			"email": "prajwol@wy4cj.org",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/avi77np",
-			"linkedin": "https://np.linkedin.com/in/avi77",
-			"instagram": "#"
+			"facebook": "https://www.facebook.com/prajwol.rana1/",
+			"linkedin": "https://www.linkedin.com/in/prajwol-bickram-rana-a7951a176/",
+			"instagram": "https://www.instagram.com/prajwolbickram/"
 		},
-		"website": "https://digobikas.org/",
+		"website": "",
 		"tags": [
-			"Loss and Damage",
 			"Climate Justice Activism",
-			"Community Resilience",
 			"Policy Advocacy",
-			"Climate Negotiation"
+			"Research",
+			"Climate Litigation",
+			"Environmental Justice"
 		],
-		"logoUrl": "https://i.ibb.co/VDmdhBh/abhishek-shrestha-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/ZhhdLWW/abhishek-shrestha-profile.jpg"
-		],
-		"slug": "abhishek-shrestha"
+		"logoUrl": "https://i.ibb.co/grhWwky/prajwol-rana-logo.jpg",
+		"pictures": ["https://i.ibb.co/Qb0Wfyb/prajwol-rana-profile.jpg"],
+		"slug": "prajwol-bikram-rana"
 	},
 	{
-		"id": 2,
-		"name": "Manjeet Dhakal",
-		"description": "Manjeet is Head of LDC Support Team at Climate Analytics (CA) and Director for Climate Analytics South Asia office. He provides technical inputs and analysis to the Chair and members of the LDC Group, and coordinates the support provided by Climate Analytics to the group. He also leads the CA team at the regional office in South Asia. <br> Manjeet also serves as an Advisor to the Chair of the Least Developed Countries (LDC) Group at the multilateral process of the UNFCCC. In this role, he has worked with Nepal, Angola, Democratic Republic of Congo, Ethiopia, Bhutan and currently Senegal, and played a key part of the LDC efforts that led to the Paris Agreement in 2015. He has provided high-level climate leadership support for the LDCs’ officials and ministers in climate change UN-related processes over many years and is responsible for institutional capacity on climate issues. He has been following and participating in the UNFCCC negotiations for more than a decade. <br> Manjeet was honored in 2009 as ‘International Climate Champion’ by the British Council. He is also associated with School of Environmental Science and Management, Pokhara University in Nepal as an Adjunct Faculty for climate change. <br> Before joining Climate Analytics, Manjeet was Program Director at Clean Energy Nepal (CEN) where he worked for about five years and also served as the functional head of the organisation from June 2011 to April 2013. He remains active on the Board of CEN. He holds a Masters degree in Environmental Management (MSc) from Pokhara University, Kathmandu. He regularly writes, teaches and presents on climate change related issues.",
-		"address": "Kathmandu, Nepal",
+		"id": 10,
+		"name": "Prayash Adhikari",
+		"description": "It was 2015 when I started my activism after the National Climate Convergence empowering and connecting me with climate activists and groups. After that, my team and I started a youth regional group in Lamjung (NYCA-Lamjung) where we focused on capacity building of youths, community empowerment, climate education, ground-based research, local government engagement, and stakeholder partnerships reaching thousands of youths and hundred of community and stakeholders making us able to decentralize climate education and activism from Kathmandu. <br> These experiences made me able to join a group of active, enthusiastic youths expanding our reach and actions on a National level working together at the international youth group i.e. CliMates Nepal. After a long experience in youth volunteerism and working on climate issues I worked closely with the community in rural Nepal focusing more on, food sovereignty and climate crisis prioritizing community education, community-led solutions, women empowerment, and value chain. <br> And now, I’ve rejoined the team with whom I started my journey i.e. Digo Bikas Institute where I am prioritizing youth engagement, research, advocacy, community approach, climate education, agroecology, loss and damage, and stakeholder collaboration as Senior Program Officer of Climate Justice Program. This opportunity has provided me with a comparative analysis of climate change narratives, solutions to the climate crisis, the importance of community-led adaptation strategies, their relevance, and the fight demanding climate justice from local, regional to global levels. Here we focus our programs on children and youths in line with the National Climate Change Policy with the GCV and CJSS program, support the community to implement agroecology as a real solution to the climate crisis, conduct research and actions from national to global level debunking the false narrative and false solution to the climate crisis.",
+		"address": "Dhangadhi, Kailali, Nepal",
 		"contact": {
-			"email": "manjeet.dhakal@climateanalytics.org",
+			"email": "prayash.adhikari@digobikas.org",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/manjeet.dhakal1",
-			"linkedin": "https://np.linkedin.com/in/manjeetdhakal",
-			"instagram": "https://www.instagram.com/manjeetdhakal/"
+			"facebook": "https://www.facebook.com/prayash.adhikari.56",
+			"linkedin": "https://www.linkedin.com/in/prayash-adhikari-6b5082119/",
+			"instagram": "https://www.instagram.com/prayash_adhikari63/"
 		},
-		"website": "https://climateanalytics.org/team/manjeet-dhakal",
+		"website": "https://digobikas.org/prayas-adhikari/",
 		"tags": [
-			
-			"Policy Advocacy",
-			"Climate Education",
-			"Community Resilience",
-			"Climate Diplomacy & Negotiation",
-			"Climate Justice Activism"
-		],
-		"logoUrl": "https://i.ibb.co/3vQ2n1m/manjeet-dhakal-logo-new.jpg",
-		"pictures": [
-			"https://i.ibb.co/d5qdYDc/manjeet-dhakal-profile.jpg"
-		],
-		"slug": "manjeet-dhakal"
-	},
-	{
-		"id": 2,
-		"name": "Rajan Thapa",
-		"description": "Rajan Thapa is an influential climate change professional and the national project manager for the GEF- CBIT project at the World Wildlife Fund (WWF) in Nepal. With over 14 years of experience in climate change and the environmental sector, he has significantly contributed to building community resilience and evidence-based policy advocacy. Mr. Thapa has a strong academic background in environmental science, which has helped shape his career. Since September 2016, he has also been a lecturer at the Department of Environmental Science at Patan Multiple Campus, teaching students about climate change, and sustainable development. <br> Before joining WWF, Rajan held several important positions. He worked as a Climate Action Advisor at Folkekirkens Nødhjælp (DanChurchAid) from June 2021 to April 2023, focusing on initiatives to build climate resilience. He also served as an M&E Coordinator at CISU - Civilsamfund I Udvikling, where he promoted community empowerment through better management of natural resources. Additionally, he was a climate change expert at Oxford Policy Management, where he developed methods and assessed climate change vulnerability risk and possible adaptation measures. <br> Mr. Thapa’s skills include project development, project management, policy analysis, and climate change negotiations. Besides actively engaging with the Government of Nepal in national climate discourse, he supports the government in international climate negotiation.  His work in climate change management has been crucial in advising on reporting national climate ambitions and action, climate finance, and aiding the government in executing its national climate policies, adaptation plans, and NDC. <br> Mr. Thapa has worked to strengthen the capacity of government and non-state actors, including  CSOs and youth and research institutions, and has advanced Nepal’s commitments to international climate agreements and sustainable development goals. As he continues his work at WWF, Rajan Thapa remains dedicated to supporting the government in reporting national climate change adaptation and mitigation efforts to UNFCCC and promoting effective climate action and sustainable practices that benefit the environment and local communities.",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/rajan.thapa.562",
-			"linkedin": "https://np.linkedin.com/in/rajan-thapa-87485a78",
-			"instagram": ""
-		},
-		"website": "https://www.researchgate.net/profile/Rajan-Thapa-6",
-		"tags": [
-			
-			"Research-based Policy Advocacy",
+			"Climate Justice Activism",
 			"Youth Engagement",
-			"Climate Justice Activism",
-			"Transparency framework under Paris Agreement",
-			"Climate Change Adaptation",
-			"Climate Change Mitigation"
+			"Loss and Damage",
+			"Food sovereignty and climate justice (Agroecology)",
+			"Community-led solutions to the climate crisis",
+			"Research, advocacy and implementation"
 		],
-		"logoUrl": "https://i.ibb.co/pZ8gKdk/rajan-thapa-logo-f.jpg",
-		"pictures": [
-			"https://i.ibb.co/QXTf1k7/rajan-thapa-profile.jpg"
-		],
-		"slug": "rajan-thapa"
+		"logoUrl": "https://i.ibb.co/SdQzfnp/prayash-adhikari-logo.jpg",
+		"pictures": ["https://i.ibb.co/mRJQgRM/prayash-adhikari-profile.jpg"],
+		"slug": "prayash-adhikari"
 	},
 	{
-		"id": 2,
-		"name": "Raju Pandit Chettri",
-		"description": "Raju Pandit Chhetri is a leading figure in Nepal's climate action and sustainable development efforts, with over 15 years of experience in the field. He currently serves as the Executive Director of the Prakriti Resources Centre (PRC), an organization based in Kathmandu that focuses on sustainable development and environmental justice in Nepal. <br> Chhetri has dedicated much of his career to working within international climate change policy frameworks, particularly under the United Nations Framework Convention on Climate Change (UNFCCC) and the Green Climate Fund (GCF). He has been actively involved in climate negotiations, representing the interests of the Least Developed Countries (LDC) Group, and has provided support to LDC Board Members of the GCF. His expertise in climate finance and policy advocacy has made him a respected voice in both national and international arenas. <br> In addition to his role at PRC, Raju is a member of the Climate Change Council for the Government of Nepal and serves on the Climate Finance Technical Committee within the Ministry of Finance. His contributions to climate policy development and implementation have been instrumental in advancing Nepal's commitments to climate action and sustainability.Throughout his career, Raju has worked with various organizations, including the United Mission to Nepal (UMN) and Climate Action Network International (CANI). His work is characterized by a strong commitment to community engagement, ensuring that local voices and needs are prioritized in climate strategies. <br> Raju Pandit Chhetri's efforts in the climate space have garnered recognition both nationally and internationally. He is known for inspiring a new generation of climate leaders in Nepal and fostering a collaborative approach to tackling the pressing challenges posed by climate change. His passion for sustainable development continues to drive his work, making a significant impact on the future of Nepal's environment and communities.",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "raju@prc.org.np",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/rajupchhetri",
-			"linkedin": "https://np.linkedin.com/in/raju-pandit-chhetri-58133a283",
-			"instagram": ""
-		},
-		"website": "https://prc.org.np/",
-		"tags": [
-			
-			"Policy Advocacy",
-			"Climate Finance",
-			"Community Resilience",
-			"Climate Diplomacy & Negotiation",
-			"Sustainable Development"
-		],
-		"logoUrl": "https://i.ibb.co/JrWtgXj/raju-pandit-chettri-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/mhKwSFV/raju-pandit-chettri-profile.jpg"
-		],
-		"slug": "raju-pandit-chettri"
-	},
-	{
-		"id": 2,
+		"id": 11,
 		"name": "Preity Gurung",
 		"description": "Preity Gurung is a researcher and activist dedicated to addressing climate change and its impact on indigenous communities in Nepal. She is currently a Program Officer at the Center for Indigenous Peoples' Research and Development (CIPRED) in Kathmandu. Her work focuses on recognizing Indigenous Peoples' knowledge, cultural values, and customary institutions that contribute to the sustainable management of forests, ecosystems, biodiversity, and climate resilience. <br> Ms. Gurung holds a Master's degree in Sustainable Development from Kathmandu University and has over a decade of experience in the development sector. She is actively engaged in youth networks that advance Indigenous Peoples' rights on both national and global scales. She has participated in various international platforms, including COP27 in Sharm El Sheikh, where she served as a knowledge holder at the LCIPP knowledge holders gathering. Additionally, she is a member of the International Indigenous Forum on Biodiversity (IIFB). <br> As a member of the Human Rights Working Group at YOUNGO, the official youth constituency to the UNFCCC, Ms. Gurung advocates for the inclusion of indigenous voices in global climate discussions. She emphasizes that indigenous communities, with their traditional ecological knowledge and sustainable practices, should be at the forefront of developing climate solutions. <br> As an indigenous woman herself, Ms. Gurung brings a unique intersectional perspective to her work, highlighting how factors like gender, disability, and ethnicity compound the vulnerabilities of certain groups to the impacts of climate change. She continues to be a vocal advocate for climate justice and the rights of indigenous peoples in Nepal and beyond.",
 		"address": "Kathmandu, Nepal",
@@ -158,7 +304,6 @@
 		},
 		"website": "https://www.cipred.org.np/team.php",
 		"tags": [
-			
 			"Climate Justice Activism",
 			"Indigenous Knowledge",
 			"Community Resilience",
@@ -166,40 +311,64 @@
 			"Sustainable Development"
 		],
 		"logoUrl": "https://i.ibb.co/KLMhm36/preity-gurung-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/3mPNWv8/preity-gurung-profile.jpg"
-		],
+		"pictures": ["https://i.ibb.co/3mPNWv8/preity-gurung-profile.jpg"],
 		"slug": "preity-gurung"
 	},
 	{
-		"id": 2,
-		"name": "Ghanshyam Bhattarai",
-		"description": "Ghanshyam Bhattarai is a passionate youth leader dedicated to creating a better world. After earning his Bachelor’s in Food Technology, he initiated a campaign that educated thousands of students in Nepal on food safety. For the past six years, he has focused on empowering youth to engage in sustainable agrifood systems and combat the climate crisis. <br> Currently, Ghanshyam works as the Strategy and Innovation Lead at the World Food Forum Nepal chapter, where he works closely with FAO Nepal to engage and empower youth in the food and agriculture sector through various capacity-building programs and learning opportunities. <br> Ghanshyam has been the Regional Coordinator for South Asia at the Thought For Food Foundation since 2022. He led the Redefining and Empowering Food Technologists (REFT 2020) hackathon, which addressed food security issues, and convened the UN Food Systems Summit 2021 Independent Dialogue, bringing together stakeholders from the entire food supply chain. His full reports can be accessed here (https://bit.ly/3mC8ZaB) and here (https://summitdialogues.org/dialogue/33727/). <br> Ghanshyam’s leadership extends to policy drafting and analysis, mentoring young innovators, and conducting workshops and events. He is an alumnus of FAO’s Food & Climate Shapers Bootcamp and UNICEF's Youth Engagement for Climate Action Program Fellowship. Last year, as a Focal Point, he organized the Local Conference of Youth (LCOY) 2023 in Nepal, further showcasing his commitment to youth empowerment and climate action. His ultimate goal is to contribute to the food sector and its sustainability with a global perspective and a local impact.",
+		"id": 12,
+		"name": "Rajan Thapa",
+		"description": "Rajan Thapa is an influential climate change professional and the national project manager for the GEF- CBIT project at the World Wildlife Fund (WWF) in Nepal. With over 14 years of experience in climate change and the environmental sector, he has significantly contributed to building community resilience and evidence-based policy advocacy. Mr. Thapa has a strong academic background in environmental science, which has helped shape his career. Since September 2016, he has also been a lecturer at the Department of Environmental Science at Patan Multiple Campus, teaching students about climate change, and sustainable development. <br> Before joining WWF, Rajan held several important positions. He worked as a Climate Action Advisor at Folkekirkens Nødhjælp (DanChurchAid) from June 2021 to April 2023, focusing on initiatives to build climate resilience. He also served as an M&E Coordinator at CISU - Civilsamfund I Udvikling, where he promoted community empowerment through better management of natural resources. Additionally, he was a climate change expert at Oxford Policy Management, where he developed methods and assessed climate change vulnerability risk and possible adaptation measures. <br> Mr. Thapa’s skills include project development, project management, policy analysis, and climate change negotiations. Besides actively engaging with the Government of Nepal in national climate discourse, he supports the government in international climate negotiation.  His work in climate change management has been crucial in advising on reporting national climate ambitions and action, climate finance, and aiding the government in executing its national climate policies, adaptation plans, and NDC. <br> Mr. Thapa has worked to strengthen the capacity of government and non-state actors, including  CSOs and youth and research institutions, and has advanced Nepal’s commitments to international climate agreements and sustainable development goals. As he continues his work at WWF, Rajan Thapa remains dedicated to supporting the government in reporting national climate change adaptation and mitigation efforts to UNFCCC and promoting effective climate action and sustainable practices that benefit the environment and local communities.",
 		"address": "Kathmandu, Nepal",
 		"contact": {
-			"email": "ghanshyam.bhtr@gmail.com",
+			"email": "",
 			"phone": ""
 		},
 		"socials": {
-			"facebook": "https://www.facebook.com/ghanshyam.bhtr",
-			"linkedin": "https://www.linkedin.com/in/ghanshyamb/",
-			"instagram": "https://www.instagram.com/ghanshyam.bhtr"
+			"facebook": "https://www.facebook.com/rajan.thapa.562",
+			"linkedin": "https://np.linkedin.com/in/rajan-thapa-87485a78",
+			"instagram": ""
 		},
-		"website": "https://medium.com/@ghanshyam.bhtr",
+		"website": "https://www.researchgate.net/profile/Rajan-Thapa-6",
 		"tags": [
-			
-			"Sustainable Food Systems", "Food Security & Climate Change", "Nutrition & Healthy Diets", "Youth Empowerment"
-
-
+			"Research-based Policy Advocacy",
+			"Youth Engagement",
+			"Climate Justice Activism",
+			"Transparency framework under Paris Agreement",
+			"Climate Change Adaptation",
+			"Climate Change Mitigation"
 		],
-		"logoUrl": "https://i.ibb.co/QMszgws/ghanshyam-bhattarai-logo-1.jpg",
-		"pictures": [
-			"https://i.ibb.co/LzkwrvV/ghanshyam-bhattarai-profile.jpg"
-		],
-		"slug": "ghanshyam-bhattarai"
+		"logoUrl": "https://i.ibb.co/pZ8gKdk/rajan-thapa-logo-f.jpg",
+		"pictures": ["https://i.ibb.co/QXTf1k7/rajan-thapa-profile.jpg"],
+		"slug": "rajan-thapa"
 	},
 	{
-		"id": 0,
+		"id": 13,
+		"name": "Raju Pandit Chettri",
+		"description": "Raju Pandit Chhetri is a leading figure in Nepal's climate action and sustainable development efforts, with over 15 years of experience in the field. He currently serves as the Executive Director of the Prakriti Resources Centre (PRC), an organization based in Kathmandu that focuses on sustainable development and environmental justice in Nepal. <br> Chhetri has dedicated much of his career to working within international climate change policy frameworks, particularly under the United Nations Framework Convention on Climate Change (UNFCCC) and the Green Climate Fund (GCF). He has been actively involved in climate negotiations, representing the interests of the Least Developed Countries (LDC) Group, and has provided support to LDC Board Members of the GCF. His expertise in climate finance and policy advocacy has made him a respected voice in both national and international arenas. <br> In addition to his role at PRC, Raju is a member of the Climate Change Council for the Government of Nepal and serves on the Climate Finance Technical Committee within the Ministry of Finance. His contributions to climate policy development and implementation have been instrumental in advancing Nepal's commitments to climate action and sustainability.Throughout his career, Raju has worked with various organizations, including the United Mission to Nepal (UMN) and Climate Action Network International (CANI). His work is characterized by a strong commitment to community engagement, ensuring that local voices and needs are prioritized in climate strategies. <br> Raju Pandit Chhetri's efforts in the climate space have garnered recognition both nationally and internationally. He is known for inspiring a new generation of climate leaders in Nepal and fostering a collaborative approach to tackling the pressing challenges posed by climate change. His passion for sustainable development continues to drive his work, making a significant impact on the future of Nepal's environment and communities.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "raju@prc.org.np",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/rajupchhetri",
+			"linkedin": "https://np.linkedin.com/in/raju-pandit-chhetri-58133a283",
+			"instagram": ""
+		},
+		"website": "https://prc.org.np/",
+		"tags": [
+			"Policy Advocacy",
+			"Climate Finance",
+			"Community Resilience",
+			"Climate Diplomacy & Negotiation",
+			"Sustainable Development"
+		],
+		"logoUrl": "https://i.ibb.co/JrWtgXj/raju-pandit-chettri-logo.jpg",
+		"pictures": ["https://i.ibb.co/mhKwSFV/raju-pandit-chettri-profile.jpg"],
+		"slug": "raju-pandit-chettri"
+	},
+	{
+		"id": 14,
 		"name": "Sagar Koirala",
 		"description": "Sagar Koirala is an influential youth leader and environmental advocate, known for his extensive involvement in various global initiatives aimed at fostering sustainable development, empowering young people, and promoting environmental conservation. His journey is marked by a series of significant roles across numerous organizations, each reflecting his commitment to making a positive impact on the world. <br> Currently, Sagar serves as the Regional Focal Point for the Asia Pacific at the Sendai Stakeholders Children and Youth Group. He is also a member of Young Water Professionals Nepal and the Groundwater Youth Network in Paris, contributing to innovative water management solutions. Sagar's mentorship extends to organizations like Wedu and the Asian Environmental Youth Network, empowering young individuals to drive social change. His roles with the International Republican Institute's Generation Democracy program and as a Student Energy Fellow underscore his commitment to democratic governance, civic participation, and sustainable energy solutions. Additionally, he has significantly contributed to food sustainability as a Youth Ambassador for Real Food Systems and as a member of the United Nations Major Group for Children and Youth since 2019. <br> Sagar's academic background in agriculture from Agriculture and Forestry University, Rampur, complements his professional endeavors. Currently, he is pursuing a Master in Agribusiness at Purbanchal University. His accolades, such as the Most Inspirational Ambassador of the 29th Eco-generation Regional Ambassador and the Hidden Eco Hero Award from UNEP, highlight his contributions to climate advocacy and environmental education.  Currently he is pursuing as Executive Board Member of the Nepal US Alumni Network(NUSAN) and previously served as Regional Youth Focal Point- Asia Pacific at the World Food Forum. His diverse roles reflect a deep commitment to fostering sustainable development, empowering the next generation, and addressing global challenges through collaborative and innovative approaches. Mr Koirala works in the intersection of climate, agriculture, DRR, youth engagement, governance, SDG and gender.",
 		"address": "Itahari, Nepal",
@@ -223,5 +392,57 @@
 		"logoUrl": "https://i.ibb.co/hVyDzvN/sagar-koirala-logo.jpg",
 		"pictures": ["https://i.ibb.co/LxndtXj/sagar-koirala-profile.jpg"],
 		"slug": "sagar-koirala"
+	},
+	{
+		"id": 15,
+		"name": "Shreya K C",
+		"description": "Hi! I am Shreya K.C., a passionate socio-climate justice activist from Nepal. I have worked with young people worldwide for meaningful youth involvement in decision-making and advocating for comprehensive climate education. Currently, I serve as the Advocacy Co-coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. I also host a climate podcast called, ‘Digo Bahas’ to inspire laymen people to take action by sharing stories of hope and resilience. <br> I was recognized as a EE 30 Under 30, for making an incredible contribution in environmental education  by North American Association for Environmental Education (NAAEE), and I was the former Board Member at Clean Energy Nepal. I volunteered as a mentor for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group for two years. My work also includes coordinating campaigns and mobilizing youths at Mock COP26 and I have represented Nepal as a Youth Delegate at COP25 till COP28. I am also recognized as a Youth Climate Change Champion for UNICEF South Asia, participated in various youth conferences, and worked on youth-led climate initiatives. My activism began with volunteering to serve as a Network Coordinator atNepalese Youth for Climate Action (NYCA), a leading youth led volunteering network in Nepal. I also taught science and environment at Himchuli English Higher Secondary School for two years. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
+		"address": "Lalitpur, Nepal",
+		"contact": {
+			"email": "kcshreyaenv@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://x.com/KCShreya1",
+			"linkedin": "https://np.linkedin.com/in/shreya-kc-climategirl",
+			"instagram": "https://www.instagram.com/kcshreya1/"
+		},
+		"website": "https://kcshreya.wordpress.com/",
+		"tags": [
+			"Climate Justice Activism",
+			"Climate Education",
+			"Entrepreneurship",
+			"Youth Engagement in Policy Making",
+			"Loss and Damage"
+		],
+		"logoUrl": "https://i.ibb.co/D4qT0LV/shreya-kc-logo.jpg",
+		"pictures": ["https://i.ibb.co/n1H80Kk/shreya-kc-profile.jpg"],
+		"slug": "shreya-kc"
+	},
+	{
+		"id": 16,
+		"name": "Tashi Lhazom",
+		"description": "Tashi Lhazom is a prominent youth climate advocate working at the intersection of climate action, gender equality, indigenous rights, and political and climate literacy. She has spoken at grassroots, national, and global platforms, and is a co-founder of two civil society initiatives. With the wide range of hats that Tashi wears, she is also a filmmaker that harnesses the power of storytelling to promote generational change in delivering climate justice. \"No Monastery, No Village\" is her directorial debut based on the nexus of climate change and cultural heritage of indigenous people. As an academician, she covers climate diplomacy and politics. She holds an undergraduate degree from Hindu College, University of Delhi. She specializes in Climate Politics.",
+		"address": "Kathmandu, Nepal",
+		"contact": {
+			"email": "lhazomtashi17@gmail.com",
+			"phone": ""
+		},
+		"socials": {
+			"facebook": "https://www.facebook.com/tashi.lhazom.9",
+			"linkedin": "https://in.linkedin.com/in/tashi-lhazom-5a433b22b",
+			"instagram": "https://www.instagram.com/hashtag_tashi//"
+		},
+		"website": "",
+		"tags": [
+			"Climate Justice Activism",
+			"Climate Policy Reform",
+			"Sustainable Development",
+			"Youth Engagement",
+			"Climate Education"
+		],
+		"logoUrl": "https://i.ibb.co/KWSF0Ph/tashi-lhazom-logo.jpg",
+		"pictures": ["https://i.ibb.co/fYLsjQx/thasi-lhazom-profile.jpg"],
+		"slug": "thasi-lhazom"
 	}
 ]

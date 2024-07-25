@@ -22,7 +22,9 @@ let activeDataObject: Organization | null = dataObj;
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
 			<a
-				href={activeDataObject?.website == "" ? "#NA" : activeDataObject?.website}
+				href={activeDataObject?.website == ""
+					? "#NA"
+					: activeDataObject?.website}
 				>{
 					activeDataObject?.website == "" ? "N/A" : activeDataObject?.website
 				}</a
@@ -36,11 +38,17 @@ let activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Social</h3>
-			<a target="_blank" href={activeDataObject?.socials.facebook || "#"}>Facebook</a>
+			<a target="_blank" href={activeDataObject?.socials.facebook || "#"}
+				>Facebook</a
+			>
 			<span class="separator">|</span>
-			<a target="_blank" href={activeDataObject?.socials.instagram || "#"}>Instagram</a>
+			<a target="_blank" href={activeDataObject?.socials.instagram || "#"}
+				>Instagram</a
+			>
 			<span class="separator">|</span>
-			<a target="_blank" href={activeDataObject?.socials.linkedin || "#"}>LinkedIn</a>
+			<a target="_blank" href={activeDataObject?.socials.linkedin || "#"}
+				>LinkedIn</a
+			>
 
 			<div class="icon-wrapper">
 				<Icon name="mdi:user" class="icon" />
@@ -51,11 +59,24 @@ let activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Contact</h3>
-			<a target="_blank" href={`mailto:${activeDataObject?.contact.email || "#"}`}
-				>{activeDataObject?.contact.email}</a
+			<p class="email">
+				{
+					`${activeDataObject?.contact.email.slice(0, activeDataObject?.contact.email.indexOf("@"))}` ||
+						"N/A"
+				}<span style="display: none;">Go Away for here!!!</span>{
+					`${activeDataObject?.contact.email.substring(activeDataObject?.contact.email.indexOf("@"))}`
+				}
+			</p>
+			<span class="separator"
+				>{activeDataObject?.contact.phone == "" ? "" : "|"}</span
 			>
-			<span class="separator">{activeDataObject?.contact.phone == ""? "" : "|"}</span> 
-			<span class="phone">{activeDataObject?.contact.phone == ""? "" : activeDataObject?.contact.phone}</span>
+			<span class="phone"
+				>{
+					activeDataObject?.contact.phone == ""
+						? ""
+						: activeDataObject?.contact.phone
+				}</span
+			>
 			<div class="icon-wrapper">
 				<Icon name="mdi:email" class="icon" />
 			</div>
@@ -106,7 +127,9 @@ let activeDataObject: Organization | null = dataObj;
 		margin-bottom: 16px;
 	}
 
-	.connect-card a, .connect-card .phone{
+	.connect-card a,
+	.connect-card .email,
+	.connect-card .phone {
 		color: #3b5bdb;
 		font-size: 16px;
 		line-height: 18px;
