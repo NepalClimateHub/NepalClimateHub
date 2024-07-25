@@ -31,7 +31,7 @@ if (Astro.request.method === "POST") {
 			const activistCardImageUrl = data.get("activist-card-image");
 			const activistProfileImageUrl = data.get("activist-profile-image");
 
-			apiUrl = "https://nepalclimatehub.netlify.app/api/save-activist-profile";
+			apiUrl = "https://nepalclimatehub.org/api/save-activist-profile";
 
 			// payload for our request
 			payload = {
@@ -68,7 +68,7 @@ if (Astro.request.method === "POST") {
 				"organization-profile-image"
 			);
 
-			apiUrl = "https://nepalclimatehub.netlify.app/api/save-organization-profile";
+			apiUrl = "https://nepalclimatehub.org/api/save-organization-profile";
 
 			// payload for our request
 			payload = {
