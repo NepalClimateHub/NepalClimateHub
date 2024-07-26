@@ -41,7 +41,7 @@ Got ideas to enhance NepalClimateHub? We welcome your contributions! Whether it'
 
 ## 🌐 Visit the Hub
 
-Ready to dive in? Visit the [NepalClimateHub](https://nepalclimatehub.pages.dev/) and start accessing climate-related resources today!
+Ready to dive in? Visit the [NepalClimateHub](https://nepalclimatehub.org/) and start accessing climate-related resources today!
 
 
 ## 📣 Spread the Word
