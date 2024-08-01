@@ -12,450 +12,461 @@ import Footer from "@components/Footer.astro";
 
 // for displaying error message if given object key are empty or fail our requirement
 const errors = {
-	name: "",
-	email: "",
-	currentResidence: "",
-	linkedinUrl: "",
-	cv: "",
-	bio: "",
-	experience: "",
-	motivation: "",
+  name: "",
+  email: "",
+  currentResidence: "",
+  linkedinUrl: "",
+  cv: "",
+  bio: "",
+  experience: "",
+  motivation: "",
 };
 
 // trigger when the request is POST
 if (Astro.request.method === "POST") {
-	try {
-		// gather the form data
-		const data = await Astro.request.formData();
-		const name = data.get("name");
-		const email = data.get("email");
-		const currentResidence = data.get("current-residence");
-		const linkedinUrl = data.get("linkedin-url");
-		const role = data.get("role");
-		const bio = data.get("bio");
-		const experience = data.get("experience");
-		const motivation = data.get("motivation");
-		const profilePicture = data.get("profile-picture");
-		const cv = data.get("cv");
-		const questions = data.get("questions");
+  try {
+    // gather the form data
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+    const currentResidence = data.get("current-residence");
+    const linkedinUrl = data.get("linkedin-url");
+    const role = data.get("role");
+    const bio = data.get("bio");
+    const experience = data.get("experience");
+    const motivation = data.get("motivation");
+    const profilePicture = data.get("profile-picture");
+    const cv = data.get("cv");
+    const questions = data.get("questions");
 
-		// error handling
-		if (typeof name !== "string" || name.length < 1) {
-			errors.name += "Please enter your full name. ";
-		}
+    // error handling
+    if (typeof name !== "string" || name.length < 1) {
+      errors.name += "Please enter your full name. ";
+    }
 
-		if (typeof email !== "string" || email.length < 1) {
-			errors.email += "Email is not valid. ";
-		}
+    if (typeof email !== "string" || email.length < 1) {
+      errors.email += "Email is not valid. ";
+    }
 
-		if (typeof currentResidence !== "string" || currentResidence.length < 1) {
-			errors.currentResidence += "Please enter your current residence. ";
-		}
+    if (typeof currentResidence !== "string" || currentResidence.length < 1) {
+      errors.currentResidence += "Please enter your current residence. ";
+    }
 
-		if (typeof linkedinUrl !== "string" || linkedinUrl.length < 1) {
-			errors.currentResidence += "Please enter your LinkedIn profile URL. ";
-		}
+    if (typeof linkedinUrl !== "string" || linkedinUrl.length < 1) {
+      errors.currentResidence += "Please enter your LinkedIn profile URL. ";
+    }
 
-		if (typeof bio !== "string" || bio.length < 1) {
-			errors.bio += "Please enter your bio. ";
-		}
+    if (typeof bio !== "string" || bio.length < 1) {
+      errors.bio += "Please enter your bio. ";
+    }
 
-		if (typeof experience !== "string" || experience.length < 1) {
-			errors.experience += "Please enter your experience. ";
-		}
+    if (typeof experience !== "string" || experience.length < 1) {
+      errors.experience += "Please enter your experience. ";
+    }
 
-		if (typeof motivation !== "string" || motivation.length < 1) {
-			errors.motivation += "Please enter your motivation. ";
-		}
+    if (typeof motivation !== "string" || motivation.length < 1) {
+      errors.motivation += "Please enter your motivation. ";
+    }
 
-		if (typeof cv !== "string" || cv.length < 1) {
-			errors.cv += "Please enter the link to your CV. ";
-		}
+    if (typeof cv !== "string" || cv.length < 1) {
+      errors.cv += "Please enter the link to your CV. ";
+    }
 
-		// payload for our request
-		const volunteerData = {
-			name: name,
-			email: email,
-			currentResidence: currentResidence,
-			linkedinUrl: linkedinUrl,
-			role: role,
-			bio: bio,
-			experience: experience,
-			motivation: motivation,
-			profilePicture: profilePicture,
-			cv: cv,
-			questions: questions,
-		};
+    // payload for our request
+    const volunteerData = {
+      name: name,
+      email: email,
+      currentResidence: currentResidence,
+      linkedinUrl: linkedinUrl,
+      role: role,
+      bio: bio,
+      experience: experience,
+      motivation: motivation,
+      profilePicture: profilePicture,
+      cv: cv,
+      questions: questions,
+    };
 
-		// collect errors
-		const hasErrors = Object.values(errors).some((msg) => msg);
+    // collect errors
+    const hasErrors = Object.values(errors).some((msg) => msg);
 
-		// when we don't have any errors
-		if (!hasErrors) {
-	
-			// make a api post request to save our data (save-volunteer.ts)
-			const response = await fetch("https://nepalclimatehub.org/api/save-volunteer", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(volunteerData),
-			});
+    // when we don't have any errors
+    if (!hasErrors) {
+      // make a api post request to save our data (save-volunteer.ts)
+      const response = await fetch(
+        "https://nepalclimatehub.org/api/save-volunteer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(volunteerData),
+        }
+      );
 
-			if (response.ok) {
-				// set up the cookies values
-				Astro.cookies.set("successType", "volunteerProfile", {
-					path: "/success",
-				});
+      if (response.ok) {
+        // set up the cookies values
+        Astro.cookies.set("successType", "volunteerProfile", {
+          path: "/success",
+        });
 
-				return Astro.redirect("/success");
-			} else {
-				console.error("Failed to save volunteer data");
-			}
-		}
-	} catch (error) {
-		if (error instanceof Error) {
-			console.error(error.message);
-		}
-	}
+        return Astro.redirect("/success");
+      } else {
+        console.error("Failed to save volunteer data");
+      }
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
 }
 ---
 
 <BaseLayout title="Nepal Climate Hub">
-	<main class="main-container">
-		<!-- header section  -->
+  <main class="main-container">
+    <!-- header section  -->
 
-		<section class="header-section">
-			<Header logoColor="#1A1B1E" />
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
 
-			<!-- a mini navbar -->
-			<div class="mini-nav">
-				<a href="/">Home</a>
-			</div>
-		</section>
+      <!-- a mini navbar -->
+      <div class="mini-nav">
+        <a href="/">Home</a>
+      </div>
+    </section>
 
-		<section class="volunteer-section">
-			<VolunteerSection />
-		</section>
+    <section class="volunteer-section">
+      <VolunteerSection />
+    </section>
 
-		<section class="volunteer-form-section">
-			<div class="section-container">
-				<!-- form application -->
-				<div class="form-application-section">
-					<h3 class="sub-heading">Application Form</h3>
-					<p>
-						Ready to contribute your time and talent to building a new
-						organization and a climate-resilient Nepal? Apply now!
-					</p>
+    <section class="volunteer-form-section">
+      <div class="section-container">
+        <!-- form application -->
+        <div class="form-application-section">
+          <h3 class="sub-heading">Application Form</h3>
+          <p>
+            Ready to contribute your time and talent to building a new
+            organization and a climate-resilient Nepal? Apply now!
+          </p>
 
-					<form method="POST" enctype="multipart/form-data">
-						<div class="form-field">
-							<label for="name"
-								>First and last name <span class="required-asterisk">*</span
-								></label
-							>
-							<input type="text" name="name" required />
-							{errors.name && <p class="errorMessage">{errors.name}</p>}
-						</div>
+          <form method="POST" enctype="multipart/form-data">
+            <div class="form-field">
+              <label for="name"
+                >First and last name <span class="required-asterisk">*</span
+                ></label
+              >
+              <input type="text" name="name" required />
+              {errors.name && <p class="errorMessage">{errors.name}</p>}
+            </div>
 
-						<div class="form-field">
-							<label for="email"
-								>Email address <span class="required-asterisk">*</span></label
-							>
-							<input type="email" name="email" required />
-							{errors.email && <p class="errorMessage">{errors.email}</p>}
-						</div>
+            <div class="form-field">
+              <label for="email"
+                >Email address <span class="required-asterisk">*</span></label
+              >
+              <input type="email" name="email" required />
+              {errors.email && <p class="errorMessage">{errors.email}</p>}
+            </div>
 
-						<div class="form-field">
-							<label for="current-residence"
-								>Current residence <span class="required-asterisk">*</span
-								></label
-							>
-							<input type="text" name="current-residence" required />
-							{
-								errors.currentResidence && (
-									<p class="errorMessage">{errors.currentResidence}</p>
-								)
-							}
-						</div>
+            <div class="form-field">
+              <label for="current-residence"
+                >Current residence <span class="required-asterisk">*</span
+                ></label
+              >
+              <input type="text" name="current-residence" required />
+              {
+                errors.currentResidence && (
+                  <p class="errorMessage">{errors.currentResidence}</p>
+                )
+              }
+            </div>
 
-						<div class="form-field">
-							<label for="linkedin-url"
-								>LinkedIn profile <span class="required-asterisk">*</span
-								></label
-							>
-							<input type="text" name="linkedin-url" required />
-							{
-								errors.linkedinUrl && (
-									<p class="errorMessage">{errors.linkedinUrl}</p>
-								)
-							}
-						</div>
+            <div class="form-field">
+              <label for="linkedin-url"
+                >LinkedIn profile <span class="required-asterisk">*</span
+                ></label
+              >
+              <input type="text" name="linkedin-url" required />
+              {
+                errors.linkedinUrl && (
+                  <p class="errorMessage">{errors.linkedinUrl}</p>
+                )
+              }
+            </div>
 
-						<div class="form-field">
-							<label for="cv"
-								>Link to CV <span class="required-asterisk">*</span></label
-							>
-							<input type="text" id="cv" name="cv" required />
-							{errors.cv && <p class="errorMessage">{errors.cv}</p>}
-						</div>
+            <div class="form-field">
+              <label for="cv"
+                >Link to CV <span class="required-asterisk">*</span></label
+              >
+              <input type="text" id="cv" name="cv" required />
+              {errors.cv && <p class="errorMessage">{errors.cv}</p>}
+            </div>
 
-						<div class="form-field">
-							<label for="profile-picture">Upload photo (link)</label>
-							<input type="text" id="profile-picture" name="profile-picture" />
-						</div>
+            <div class="form-field">
+              <label for="profile-picture">Upload photo (link)</label>
+              <input type="text" id="profile-picture" name="profile-picture" />
+            </div>
 
-						<div class="form-field">
-							<p>
-								Which volunteer position are you interested in? <span
-									class="required-asterisk">*</span
-								>
-							</p>
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="content-writer"
-									value="Content Writer"
-								/>
-								<label for="content-writer">Content Writer</label>
-							</div>
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="climate-educator"
-									value="Climate Educator"
-								/>
-								<label for="climate-educator">Climate Educator</label>
-							</div>
+            <div class="form-field">
+              <p>
+                Which volunteer position are you interested in? <span
+                  class="required-asterisk">*</span
+                >
+              </p>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="coordinator"
+                  value="Team Coordinator"
+                />
+                <label for="coordinator">Coordinator</label>
+              </div>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="content-writer"
+                  value="Content Writer"
+                />
+                <label for="content-writer">Content Writer</label>
+              </div>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="climate-educator"
+                  value="Climate Educator"
+                />
+                <label for="climate-educator">Climate Educator</label>
+              </div>
 
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="climate-editor"
-									value="Climate Editor"
-								/>
-								<label for="climate-editor"> Climate Editor </label>
-							</div>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="climate-editor"
+                  value="Climate Editor"
+                />
+                <label for="climate-editor"> Climate Editor </label>
+              </div>
 
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="social-media-manager"
-									value="Social Media Manager"
-								/>
-								<label for="social-media-manager"> Social Media Manager </label>
-							</div>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="social-media-manager"
+                  value="Social Media Manager"
+                />
+                <label for="social-media-manager"> Social Media Manager </label>
+              </div>
 
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="designer"
-									value="UI/UX Designer"
-								/>
-								<label for="designer">UI/UX Designer</label>
-							</div>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="designer"
+                  value="UI/UX Designer"
+                />
+                <label for="designer">UI/UX Designer</label>
+              </div>
 
-							<div class="radio-field">
-								<input
-									type="radio"
-									name="role"
-									id="software-engineer"
-									value="Software Engineer"
-								/>
-								<label for="software-engineer">Software Engineer</label>
-							</div>
-						</div>
+              <div class="radio-field">
+                <input
+                  type="radio"
+                  name="role"
+                  id="software-engineer"
+                  value="Software Engineer"
+                />
+                <label for="software-engineer">Software Engineer</label>
+              </div>
+            </div>
 
-						<div class="form-field">
-							<label for="bio">
-								Tell us about yourself and your current occupation. <i
-									>(200 words max)</i
-								>
-								<span class="required-asterisk">*</span>
-							</label>
-							<textarea id="bio" name="bio" required></textarea>
-							{errors.bio && <p class="errorMessage">{errors.bio}</p>}
-						</div>
+            <div class="form-field">
+              <label for="bio">
+                Tell us about yourself and your current occupation. <i
+                  >(200 words max)</i
+                >
+                <span class="required-asterisk">*</span>
+              </label>
+              <textarea id="bio" name="bio" required></textarea>
+              {errors.bio && <p class="errorMessage">{errors.bio}</p>}
+            </div>
 
-						<div class="form-field">
-							<label for="experience">
-								Briefly describe any prior experience relevant to the role you
-								are applying for. Please include any relevant credentials,
-								training, or certificates.
-								<span class="required-asterisk">*</span>
-							</label>
-							<textarea id="experience" name="experience" required></textarea>
-							{
-								errors.experience && (
-									<p class="errorMessage">{errors.experience}</p>
-								)
-							}
-						</div>
+            <div class="form-field">
+              <label for="experience">
+                Briefly describe any prior experience relevant to the role you
+                are applying for. Please include any relevant credentials,
+                training, or certificates.
+                <span class="required-asterisk">*</span>
+              </label>
+              <textarea id="experience" name="experience" required></textarea>
+              {
+                errors.experience && (
+                  <p class="errorMessage">{errors.experience}</p>
+                )
+              }
+            </div>
 
-						<div class="form-field">
-							<label for="motivation">
-								Why are you interested in contributing to Nepal Climate Hub and
-								what do you hope to gain from the experience?
-								<span class="required-asterisk">*</span>
-							</label>
-							<textarea id="motivation" name="motivation" required></textarea>
-							{
-								errors.motivation && (
-									<p class="errorMessage">{errors.motivation}</p>
-								)
-							}
-						</div>
+            <div class="form-field">
+              <label for="motivation">
+                Why are you interested in contributing to Nepal Climate Hub and
+                what do you hope to gain from the experience?
+                <span class="required-asterisk">*</span>
+              </label>
+              <textarea id="motivation" name="motivation" required></textarea>
+              {
+                errors.motivation && (
+                  <p class="errorMessage">{errors.motivation}</p>
+                )
+              }
+            </div>
 
-						<div class="form-field">
-							<label for="questions">Do you have any questions for us?</label>
-							<textarea id="questions" name="questions"></textarea>
-						</div>
+            <div class="form-field">
+              <label for="questions">Do you have any questions for us?</label>
+              <textarea id="questions" name="questions"></textarea>
+            </div>
 
-						<input type="submit" />
-					</form>
-				</div>
-			</div>
-		</section>
+            <input type="submit" />
+          </form>
+        </div>
+      </div>
+    </section>
 
-		<section class="footer-section">
-			<Footer />
-		</section>
-	</main>
+    <section class="footer-section">
+      <Footer />
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-	section {
-		padding: 0px 48px;
-	}
+  section {
+    padding: 0px 48px;
+  }
 
-	.footer-section {
-		background-color: #1a1b1e;
-		color: white;
-	}
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
 
-	@media screen and (max-width: 768px) {
-		section {
-			padding: 0px;
-		}
-	}
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 0px;
+    }
+  }
 
-	/* styles for the form section */
-	.section-container {
-		max-width: 760px;
-		margin: 16px auto 40px;
-	}
+  /* styles for the form section */
+  .section-container {
+    max-width: 760px;
+    margin: 16px auto 40px;
+  }
 
-	.sub-heading {
-		font-size: 24px;
-		line-height: 32px;
-		font-weight: 700;
-		margin-bottom: 8px;
-	}
+  .sub-heading {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
 
-	/* .form-application-section {
+  /* .form-application-section {
 		padding: 24px 24px;
 		border-radius: 8px;
 	} */
 
-	form {
-		width: 100%;
-		margin: 24px auto 0px;
-	}
+  form {
+    width: 100%;
+    margin: 24px auto 0px;
+  }
 
-	.form-field {
-		margin-bottom: 16px;
-	}
+  .form-field {
+    margin-bottom: 16px;
+  }
 
-	.form-field label {
-		display: block;
-		margin-bottom: 8px;
-	}
+  .form-field label {
+    display: block;
+    margin-bottom: 8px;
+  }
 
-	.form-field input[type="text"],
-	.form-field input[type="email"],
-	.form-field textarea {
-		width: 100%;
-		padding: 8px;
-		margin-bottom: 8px;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		box-sizing: border-box;
-		transition: border-color 0.3s;
-		border: none;
-		outline: 1px solid black;
-		background-color: #f9f9f9;
-	}
+  .form-field input[type="text"],
+  .form-field input[type="email"],
+  .form-field textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    border: none;
+    outline: 1px solid black;
+    background-color: #f9f9f9;
+  }
 
-	.form-field input[type="text"]:hover,
-	.form-field input[type="email"]:hover,
-	.form-field textarea:hover,
-	.form-field input[type="text"]:focus,
-	.form-field input[type="email"]:focus,
-	.form-field input[type="file"]:focus,
-	.form-field textarea:focus {
-		outline: 2px solid black;
-	}
+  .form-field input[type="text"]:hover,
+  .form-field input[type="email"]:hover,
+  .form-field textarea:hover,
+  .form-field input[type="text"]:focus,
+  .form-field input[type="email"]:focus,
+  .form-field input[type="file"]:focus,
+  .form-field textarea:focus {
+    outline: 2px solid black;
+  }
 
-	.radio-field {
-		display: flex;
-		align-items: center;
-		margin-bottom: 8px;
-	}
+  .radio-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
 
-	.radio-field input[type="radio"] {
-		margin-right: 8px;
-	}
+  .radio-field input[type="radio"] {
+    margin-right: 8px;
+  }
 
-	.radio-field label {
-		margin: 0;
-	}
+  .radio-field label {
+    margin: 0;
+  }
 
-	.form-field textarea {
-		height: 100px;
-		resize: vertical;
-	}
+  .form-field textarea {
+    height: 100px;
+    resize: vertical;
+  }
 
-	.form-field p {
-		margin-bottom: 8px;
-	}
+  .form-field p {
+    margin-bottom: 8px;
+  }
 
-	input[type="submit"] {
-		display: block;
-		margin: 0 auto;
-		font-size: 14px;
-		padding: 8px 24px;
-		border-radius: 16px;
-		background-color: #cefe00;
-		color: #25262b;
-		cursor: pointer;
-		margin-bottom: 100px;
-		border: none;
-	}
+  input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 8px 24px;
+    border-radius: 16px;
+    background-color: #cefe00;
+    color: #25262b;
+    cursor: pointer;
+    margin-bottom: 100px;
+    border: none;
+  }
 
-	input[type="submit"]:hover {
-		background-color: #1a1b1e;
-		color: white;
-	}
+  input[type="submit"]:hover {
+    background-color: #1a1b1e;
+    color: white;
+  }
 
-	.errorMessage {
-		color: red;
-		font-style: italic;
-	}
+  .errorMessage {
+    color: red;
+    font-style: italic;
+  }
 
-	.required-asterisk {
-		color: red;
-	}
+  .required-asterisk {
+    color: red;
+  }
 
-	/* style for responsiveness */
+  /* style for responsiveness */
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 24px 32px;
-		}
-	}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 24px 32px;
+    }
+  }
 </style>
