@@ -424,6 +424,32 @@
   },
   {
     "id": 16,
+    "name": "Regan Sapkota",
+    "description": "Regan Sapkota is currently engaged with Clim Adapt as a director where he leads risk assessment and resilience building. He holds a Master’s degree in Environmental Science, specializing in climate change from Tribhuvan University in 2017. <br> Mr. Sapkota brings over a decade of expertise in evidence-based advocacy, policy development and actions in climate change, disaster risk reduction and natural resource research and management. His diverse portfolio includes risk assessment, project development and implementation, provision of technical support, and facilitation of policy formulation processes for strengthening sustainable development practices and resilience-building. Throughout his distinguished career, Mr. Sapkota has forged strategic partnerships with numerous governmental, non-governmental organizations, bilateral and multilateral organizations. His regional collaborations include work with The World Bank, Oxford Policy Management, The International Centre for Integrated Mountain Development, International Water Management Institute, and Practical Action, significantly advancing research and practical applications related to climate change. <br> He also works as the visiting faculty at Nepal Open University and is involved in the development of curriculum or training modules. Over the years, Mr. Sapkota has contributed to the scientific community through the publication of peer reviewed journals, reports and policy documents. <br> In his recent work, he has closely worked with the government and partner organization for the development of Multi Hazard Risk Assessment Framework, Key Features of Successful Adaptation Practices in South Asia, Green Finance Taxonomy, strategic action plan for Green Resilient Inclusive Development, sectoral vulnerability and risk assessment, development of loss and damage framework including several other.",
+    "address": "Kathmandu, Nepal",
+    "contact": {
+      "email": "regan.sapkota2@gmail.com",
+      "phone": ""
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ReganSapkota",
+      "linkedin": "https://www.linkedin.com/in/regansapkota/",
+      "instagram": ""
+    },
+    "website": "",
+    "tags": [
+      "Risk Assessment",
+      "Community Resilience",
+      "Policy Advocacy",
+      "Climate Education",
+      "Research"
+    ],
+    "logoUrl": "https://i.ibb.co/jL9NfpV/regan-sapkota-logo.jpg",
+    "pictures": ["https://i.ibb.co/3mLcwHN/regan-sapkota-profile.jpg"],
+    "slug": "regan-sapkota"
+  },
+  {
+    "id": 17,
     "name": "Sagar Koirala",
     "description": "Sagar Koirala is an influential youth leader and environmental advocate, known for his extensive involvement in various global initiatives aimed at fostering sustainable development, empowering young people, and promoting environmental conservation. His journey is marked by a series of significant roles across numerous organizations, each reflecting his commitment to making a positive impact on the world. <br> Currently, Sagar serves as the Regional Focal Point for the Asia Pacific at the Sendai Stakeholders Children and Youth Group. He is also a member of Young Water Professionals Nepal and the Groundwater Youth Network in Paris, contributing to innovative water management solutions. Sagar's mentorship extends to organizations like Wedu and the Asian Environmental Youth Network, empowering young individuals to drive social change. His roles with the International Republican Institute's Generation Democracy program and as a Student Energy Fellow underscore his commitment to democratic governance, civic participation, and sustainable energy solutions. Additionally, he has significantly contributed to food sustainability as a Youth Ambassador for Real Food Systems and as a member of the United Nations Major Group for Children and Youth since 2019. <br> Sagar's academic background in agriculture from Agriculture and Forestry University, Rampur, complements his professional endeavors. Currently, he is pursuing a Master in Agribusiness at Purbanchal University. His accolades, such as the Most Inspirational Ambassador of the 29th Eco-generation Regional Ambassador and the Hidden Eco Hero Award from UNEP, highlight his contributions to climate advocacy and environmental education.  Currently he is pursuing as Executive Board Member of the Nepal US Alumni Network(NUSAN) and previously served as Regional Youth Focal Point- Asia Pacific at the World Food Forum. His diverse roles reflect a deep commitment to fostering sustainable development, empowering the next generation, and addressing global challenges through collaborative and innovative approaches. Mr Koirala works in the intersection of climate, agriculture, DRR, youth engagement, governance, SDG and gender.",
     "address": "Itahari, Nepal",
@@ -449,7 +475,7 @@
     "slug": "sagar-koirala"
   },
   {
-    "id": 17,
+    "id": 18,
     "name": "Shreya K C",
     "description": "Hi! I am Shreya K.C., a passionate socio-climate justice activist from Nepal. I have worked with young people worldwide for meaningful youth involvement in decision-making and advocating for comprehensive climate education. Currently, I serve as the Advocacy Co-coordinator for the Loss and Damage Youth Coalition, leading campaigns and building youth capacity on climate-induced loss and damage. I also manage projects and develop campaigns on clean energy and climate change as a Policy Advisor at Clean Energy Nepal. Additionally, I engage with global and local youth networks as a Youth Advisor for The Iris Project and mentor prize winners. I also host a climate podcast called, ‘Digo Bahas’ to inspire laymen people to take action by sharing stories of hope and resilience. <br> I was recognized as a EE 30 Under 30, for making an incredible contribution in environmental education  by North American Association for Environmental Education (NAAEE), and I was the former Board Member at Clean Energy Nepal. I volunteered as a mentor for the NDC Project at Care About Climate and worked with YOUNGO as the Contact Point for the Nationally Determined Contributions Working Group for two years. My work also includes coordinating campaigns and mobilizing youths at Mock COP26 and I have represented Nepal as a Youth Delegate at COP25 till COP28. I am also recognized as a Youth Climate Change Champion for UNICEF South Asia, participated in various youth conferences, and worked on youth-led climate initiatives. My activism began with volunteering to serve as a Network Coordinator atNepalese Youth for Climate Action (NYCA), a leading youth led volunteering network in Nepal. I also taught science and environment at Himchuli English Higher Secondary School for two years. Throughout my career, I have been committed to driving meaningful climate action and empowering young people to lead the charge in climate justice. <br> My story has been featured in 'Stone Soup for a Sustainable World' and '50 Girls Saving Our Planet.' In 2022, I received the 'Youth of the Year' award for my climate action efforts. In my spare time, I love reading, traveling to natural places, and catching up on sleep.",
     "address": "Lalitpur, Nepal",
@@ -475,7 +501,7 @@
     "slug": "shreya-kc"
   },
   {
-    "id": 18,
+    "id": 19,
     "name": "Tashi Lhazom",
     "description": "Tashi Lhazom is a prominent youth climate advocate working at the intersection of climate action, gender equality, indigenous rights, and political and climate literacy. She has spoken at grassroots, national, and global platforms, and is a co-founder of two civil society initiatives. With the wide range of hats that Tashi wears, she is also a filmmaker that harnesses the power of storytelling to promote generational change in delivering climate justice. \"No Monastery, No Village\" is her directorial debut based on the nexus of climate change and cultural heritage of indigenous people. As an academician, she covers climate diplomacy and politics. She holds an undergraduate degree from Hindu College, University of Delhi. She specializes in Climate Politics.",
     "address": "Kathmandu, Nepal",
