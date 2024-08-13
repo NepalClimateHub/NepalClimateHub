@@ -1,634 +1,650 @@
 [
-	{
-		"id": 0,
-		"name": "Nepalese Youth for Climate Action (NYCA)",
-		"description": "Nepalese Youth for Climate Action (NYCA) is a youth lead coalition of the Nepalese youth and youth groups tackling climate change, the biggest challenge of our generation. NYCA was established in August 10, 2008 with the motto “Caring for Climate, Caring for Ourselves”. <br> Our goal is to protect Nepal and the Nepalese people from the adverse impacts of climate change by spreading awareness, advocating policies and taking action. We aim to play a key role in transitioning Nepal towards climate resilience by leading adaptation efforts and mitigation of GHGs. <br> We envision an economically prosperous and sustainable Nepal where youth play an active role in leading the society towards cleaner future.",
-		"address": " Talchikhel, Lalitpur, Nepal",
-		"contact": {
-			"email": "nyca.np@gmail.com",
-			"phone": "+977 9818349762"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/NYCANepal/",
-			"linkedin": "https://np.linkedin.com/company/nyca-nepal",
-			"instagram": "https://www.instagram.com/nyca.nepal/"
-		},
-		"website": "https://nyca.net.np/",
-		"tags": ["Environment", "Youth", "Climate Awareness", "Campaign"],
-		"logoUrl": "https://i.ibb.co/X2x5QJs/nyca-logo.png",
-		"pictures": [
-			"https://i.ibb.co/Jx3gQ6z/nyca.jpg"
-		],
-		"slug": "nyca-nepal"
-	},
-	{
-		"id": 1,
-		"name": "Digo Bikas Institute (DBI)",
-		"description": "Digo Bikas Institute (DBI) is a research and advocacy organization committed to promoting ecological sustainability and social equity at policy and community levels. Based in Kathmandu, DBI believes that Nepal (and the rest of the world) can develop meaningfully by identifying and applying alternative ways of meeting human needs without harming nature and fellow human beings. <br> Vision: Digo Bikas Institute envisions an ecologically sound, socially just, and prosperous society, and that it will continue to be so for future generations. <br> Mission: Digo Bikas Institute’s mission is to undertake research and action to stimulate informed discussion and strategic thought to advance alternative and local solutions to global problems. <br> Values: Equity, Fairness and Justice, Integrity, Transparency and Accountability, Inclusiveness. <br> We use different approaches to achieve our vision and mission, including research and analysis, seminars and conferences, education and training programs, correspondence and fact-finding missions, public consultations and legal interventions, network building and international solidarity, joint campaigns, and media.",
-		"address": "Battisputali, Kathmandu",
-		"contact": {
-			"email": "info@digobikas.org",
-			"phone": "01-4610656"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/digobikasinstitute/",
-			"linkedin": "https://np.linkedin.com/company/digo-bikas-institute-dbi",
-			"instagram": "#N/A"
-		},
-		"website": "https://digobikas.org/ ",
-		"tags": [
-			"Research",
-			"Policy Advocacy",
-			"Community Engagement",
-			"Renewable Energy"
-		],
-		"logoUrl": "https://i.ibb.co/LQJP5Jm/digobikas-logo.png",
-		"pictures": [
-			"https://i.ibb.co/zRHp3wk/dbi-profile.jpg"
-		],
-		"slug": "digobikas-institute"
-	},
-	{
-		"id": 2,
-		"name": "Youth Action for Sustainable and Eco Nepal (YASEN)",
-		"description": "Youth Action for Sustainable and Eco Nepal (YASEN) is a youth-led non-profit organization dedicated to creating a sustainable and positive impact on individuals and communities in Nepal. Established on March 27, 2023, YASEN operates under the motto “Empowering Younger Generation For Sustainable Future.” Our mission is to create a better world by addressing pressing social and environmental challenges in Nepal through the active involvement of young people. <br> YASEN empowers young people to be leaders in creating a sustainable future for Nepal and the world. We focus on fostering environmental stewardship, driving climate action, and promoting inclusive green growth through education, advocacy, and community engagement. Our efforts include community education and awareness, recycling and waste reduction, capacity building and training, and sustainable agriculture. We also emphasize women’s empowerment and entrepreneurship, loss and damage, and disaster risk reduction. <br> YASEN targets several Sustainable Development Goals (SDGs), including No Poverty (SDG 1), Zero Hunger (SDG 2), Good Health and Well-being (SDG 3), Quality Education (SDG 4), Gender Equality (SDG 5), Sustainable Cities and Communities (SDG 11), Responsible Consumption and Production (SDG 12), Climate Action (SDG 13), Life on Land (SDG 15), and Partnerships for the Goals (SDG 17). Through these initiatives, we aim to create lasting positive changes and build a sustainable future for all.",
-		"address": "Bharatpur-9, Chitwan, Nepal",
-		"contact": {
-			"email": "yasennepa@gmail.com",
-			"phone": "9867183923"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/yasennepal/",
-			"linkedin": "https://www.linkedin.com/in/yasennepal/",
-			"instagram": "https://www.instagram.com/yasennepal/"
-		},
-		"website": "https://yasennepal.com/",
-		"tags": ["Environment", "Youth", "Climate Awareness", "Campaign"],
-		"logoUrl": "https://i.ibb.co/znRtNdG/yasen-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/Pz5HJfS/yasen.jpg"
-		],
-		"slug": "yasen"
-	},
-	{
-		"id": 3,
-		"name": "Bignaharta Nepal",
-		"description": "Bighnaharta Nepal (BN) is a Kathmandu-based not-for-profit organization established in 2019 by Nepali youths. The organization has been working in sectors of poverty alleviation, disaster risk reduction, socio-economic development, women and youth empowerment, social entrepreneurship, and research and advocacy. <br> Working in various social and development sectors, Bighnaharta Nepal has been successful in implementing projects holistically addressing core livelihood, climate change, gender, and food security issues among the marginalized communities across Nepal by using the tools of social entrepreneurship, cooperative farming, and research and advocacy on the policy level. <br> Vision: A nation with self-sustainable communities where diversity of life thrives. <br> Mission: To sustainably empower the vulnerable and marginalized communities of Nepal by enhancing their resilience to climate change, disaster risk, inequality, and poverty using culturally and environmentally appropriate interventions.",
-		"address": "Pulchowk Road, Lalitpur, Nepal",
-		"contact": {
-			"email": "info@bighnaharta.org",
-			"phone": "+977 9818349762"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/bighnahartanp",
-			"linkedin": "https://www.linkedin.com/company/bighnaharta-nepal/",
-			"instagram": "https://www.instagram.com/bighnaharta_nepal/"
-		},
-		"website": "https://bighnaharta.org/",
-		"tags": [
-			"Community Resilience",
-			"Disaster Response",
-			"Climate Adaptation",
-			"Indigenous Community"
-		],
-		"logoUrl": "https://i.ibb.co/QChxxT8/bignaharta-logo.png",
-		"pictures": [
-			"https://i.ibb.co/J7gG8H2/bignaharta.jpg"
-		],
-		"slug": "bignaharta-nepal"
-	},
-	{
-		"id": 4,
-		"name": "Power Shift Nepal",
-		"description": "Power Shift Nepal is a women led organization that focuses on solving local environmental issues with consideration of the global perspective of climate change. Our vision is to empower women through our different programs, projects and campaigns. We focus on environmental action through research, awareness, advocacy and project development. <br> Our main goals are to create networking opportunities for young female climate leaders to mainstream female leadership in climate issues and for potential youth leaders who want to act for Climate Justice.",
-		"address": "Radha Mohan Marg, New baneshwor",
-		"contact": {
-			"email": "powershiftnp@gmail.com",
-			"phone": "977 9762274099"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/gpsnp/",
-			"linkedin": "https://www.linkedin.com/company/powershiftnp/",
-			"instagram": "https://www.instagram.com/powershift_nepal "
-		},
-		"website": "https://powershiftnepal.com.np/",
-		"tags": [
-			"Youth",
-			"Climate Change",
-			"Environment",
-			"Climate Justice",
-			"Gender",
-			"Women"
-		],
-		"logoUrl": "https://i.ibb.co/7JBPxFS/powershift-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/LS2pmFs/powershift.jpg"
-		],
-		"slug": "powershift-nepal"
-	},
-	{
-		"id": 5,
-		"name": "Center for Indigenous Peoples' Research and Development (CIPRED)",
-		"description": "Center for Indigenous Peoples' Research and Development (CIPRED), established in 2011 aims for policy research, documentation, and publications in the field of natural resource governance, climate change, biodiversity, ecosystem, education, traditional health, and livelihoods in relation to Indigenous Peoples. We are devoted to the promotion, protection, and recognition of Indigenous Peoples’ customary institutions, self-governance systems, customary land tenure rights, Indigenous food and economy, skills, and cultural values that contribute to natural resource management, climate change resilience, biodiversity, and ecosystems. CIPRED has been working in coordination and collaboration with Indigenous Peoples, women, youth, local communities, government agencies, universities and research centers at local, national, and global levels based on the principle of Indigenous Peoples' Sustainable Self Determined Development (IPSSDD). <br> Vision: A just, equitable and transformative society with the assurance of self-determination, dignity, rights, and well-being of Indigenous Peoples including customary governance, knowledge system, and cultural values. <br> Mission: Indigenous Peoples and intersectional groups leading research for evidence-based policy advocacy, promoting, and mainstreaming Indigenous education and self-determined development, inter-generational transfer of customary governance, knowledge systems, cultural values, food & economy and traditional livelihoods.",
-		"address": "Budhanilkantha, Nepal",
-		"contact": {
-			"email": "info@cipred.org.np",
-			"phone": "01-4379394"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/ciprednepal/",
-			"linkedin": "https://www.linkedin.com/company/cipred/",
-			"instagram": "https://www.instagram.com/cipred.nepal/"
-		},
-		"website": "https://www.cipred.org.np/",
-		"tags": [
-			"Policy Advocacy",
-			"Community Resilience",
-			"Research",
-			"Indigenous Community",
-			"Gender & Women"
-		],
-		"logoUrl": "https://i.ibb.co/QMPTP3G/cipred-logo.png",
-		"pictures": [
-			"https://i.ibb.co/CHbmr5x/cipred.jpg"
-		],
-		"slug": "cipred-nepal"
-	},
-	{
-		"id": 6,
-		"name": "Nepal Intersectoral Climate Coalition (NICC)",
-		"description": "Nepal Intersectoral Climate Coalition (NICC) has been recently formed with the vision of driving towards a strong, inclusive climate action across various sectors in Nepal and across various sectors, disciplines, and is a product of almost a year of planning. This coalition aims to build solidarity and alliances with stakeholders across various sectors for climate justice. <br> The list of NICC’s member (organizations and individuals) is as follows: <br> Authentic Leadership Institute Nepal (ALIN) / All-in, Bignaharta Nepal, Harin Nepal, International Development Institute Nepal, Power Shift Nepal, YUWA-Nepal, Gaurav Tiwari, Ghanashyam Bhattarai, Ilina Maharjan, Neha Malla, Prakash Kiran Jung Thapa, Prakash Shah, Prashant Giri, Rupa Thapa, Sagar Koirala, Sushma Ghimire, and Sushma Khamcha. <br> The coalition represents members from environmental sciences, health, education, IT, geomatics engineering, food sciences, agriculture, youth empowerment, women empowerment, economics, climate change, disaster risk reduction, nature-based solutions, bio-engineering, business, sexual and reproductive health rights (SRHR).",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "nepal.climate.coalition@gmail.com",
-			"phone": ""
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/Nepal.NICC/",
-			"linkedin": "",
-			"instagram": "https://www.instagram.com/nicc.nepal/"
-		},
-		"website": "",
-		"tags": ["Intersectoral", "Alliance", "Policy Advocacy", "Climate Action"],
-		"logoUrl": "https://i.ibb.co/zSh0GRv/nicc-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/g9yYmVS/nicc.jpg"
-		],
-		"slug": "nicc"
-	},
-	{
-		"id": 7,
-		"name": "Practical Action Nepal",
-		"description": "Practical Action is an international development organisation putting ingenious ideas to work so people in poverty can change their world. <br> Our Vision is a world that works better for everyone. <br> We help people find solutions to some of the world’s toughest problems. Challenges made worse by catastrophic climate change and persistent gender inequality. We work with communities to develop ingenious, lasting, and locally owned solutions for agriculture, water and waste management, climate resilience and clean energy. And we share what works with others, so answers that start small can grow big. <br> We’re a global change-making group. The group consists of a UK registered charity with community projects in Africa, Asia and Latin America, an independent development publishing company and a technical consulting service. We combine these specialisms to multiply our impact and help shape a world that works better for everyone. We believe in the power of small things to change the big picture. And that together we can take practical action to build futures free from poverty. In Nepal, Practical Action is focused on putting ingenious ideas to work to contribute to poverty reduction and sustainable wellbeing for all through our works on three thematic areas: Energy that transforms, Resilience that protects, and Farming that works.",
-		"address": "Lazimpat, Kathmandu, Nepal",
-		"contact": {
-			"email": "info@practicalaction.org.np",
-			"phone": "+977-1-4523639"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/PracticalAction/",
-			"linkedin": "https://www.linkedin.com/company/nepal-pa/",
-			"instagram": "https://www.instagram.com/practical_action/"
-		},
-		"website": "https://practicalaction.org/where-we-work/nepal/",
-		"tags": ["Renewable Energy", "Community Resilience", "Agriculture"],
-		"logoUrl": "https://i.ibb.co/VYD0kzj/practical-action-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/9HRRSVj/practical-action.jpg"
-		],
-		"slug": "practical-action-nepal"
-	},
-	{
-		"id": 8,
-		"name": "Centre for Rural Technology, Nepal (CRT/N)",
-		"description": "Centre for Rural Technology, Nepal (CRT/N) is a professional non-governmental organization engaged in developing and promoting appropriate rural technologies effective in meeting the basic needs and improving the livelihood of rural people. Established in August 1989 under the Company Act, CRT/N was re-registered with the Government of Nepal (GoN) under the Social Organization Registration Act 1977 (2034 B.S.) since October 1998. The organization is actively engaged in upgrading traditional technologies as well as promotion of energy efficient technologies with diversified and versatile applications to meet rural needs. <br> Mission: Develop, promote and disseminate environmentally sound rural/appropriate technologies and strengthen the capability of rural communities in creating better opportunities through mobilization of local resources to improve their livelihood conditions. <br> Vision: CRT/N is a professional/innovative organization and knowledge centre in renewable energy/appropriate technology delivering quality services to local communities for improving their livelihood.",
-		"address": "Lalitpur, Nepal",
-		"contact": {
-			"email": "info@crtnepal.org",
-			"phone": "+977-1-5530071"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/crtnepalorg/",
-			"linkedin": "https://www.linkedin.com/company/center-for-rural-technology-nepal/",
-			"instagram": ""
-		},
-		"website": " https://crtnepal.org/",
-		"tags": [
-			"Renewable Energy",
-			"Climate Change",
-			"Adaptation",
-			"Mitigation",
-			"Agriculture",
-			"Policy Advocacy"
-		],
-		"logoUrl": "https://i.ibb.co/LkXJvQp/crt-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/sHYC31v/crt.jpg"
-		],
-		"slug": "center-for-rural-technology-nepal"
-	},
-	{
-		"id": 9,
-		"name": "Climate Change Network Nepal (CCNN)",
-		"description": "Nepal became a party of UNFCCC in 1992 and adopted Kyoto protocol in 1997 at the 3rd Session of the Conference of the Parties (COP) along with many other nations. After eight years the government formally endorsed this decision. In the year 2003, a small group of civil society organization based in capital started a dialogue with the government about the benefit of being party to climate change convention and its associated protocol. The main attraction at that time was Clean Development Mechanism under the Kyoto protocol. This small group was successful to convince the government and as a result the government endorsed the Kyoto protocol on December 2005. <br> The group with its first success in establishing the climate change issue at the national level, was later formally named itself as “Climate Change Network Nepal (CCNN)”.  This makes CCNN one of the oldest and pioneer networks on Climate change in Nepal. The network in its initial phase was very active in supporting the government as and when required. Gradually, the group expanded and ultimately it succeeded in bringing unique strengths of different agencies together. <br> CCNN regular activities are conducted via its secretariat. Till 2007, WWF was supporting the network as a secretariat and from 2007 and onwards Clean Energy Nepal (CEN) has been handed over the responsibility.",
-		"address": "Pragati Path,Talchikhel, Lalitpur, Nepal",
-		"contact": {
-			"email": "info@cen.org.np",
-			"phone": "977-01-​5538660"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/profile.php?id=100080598307070",
-			"linkedin": "",
-			"instagram": ""
-		},
-		"website": "https://www.ccnn.org.np/",
-		"tags": [
-			"Capacity Building",
-			"Policy Advocacy",
-			"Media Campaign",
-			"Technology Transfer"
-		],
-		"logoUrl": "https://i.ibb.co/FJkRK74/ccnn-logo.png",
-		"pictures": [
-			"https://i.ibb.co/NFK094q/ccnn.jpg"
-		],
-		"slug": "climate-change-network-nepal"
-	},
-	{
-		"id": 10,
-		"name": " Nepal Water Conservation Foundation (NWCF)",
-		"description": "Nepal Water Conservation Foundation (NWCF) is a leading civil society organization of Nepal committed for promotion of interdisciplinary action researches, policy advocacy and building climate and disaster risk resilience capacity of communities and institutions. Building on its core expertise of providing solutions for issues on water management, over the years NWCF has expanded its portfolios to cover diverse aspects of livelihoods, sustainable development and disaster risk management while embedding the cross-cutting themes of gender mainstreaming and climate change responsive planning. <br> NWCF believes in democratic values and principles and an open society where civic led movements have sufficient space in the governance system in which the civil society actors are active and thriving. It pursues cutting-edge action research, dissemination and training. Our commitment to provide high quality services in a socio-culturally relevant environment is unmatched and has earned us the reputation of a leading action-oriented research organization on water resources, climate change and disaster risk management. <br> Our work is focused on finding solutions to emerging problems of resource management combining democratic ethos with traditional values to serve the marginalized communities. Furthermore, our team members have made countless contributions in the writing of exemplary reports, high-grade project proposals and other publications that are of international standard. Our team members have published their works that have positively benefited the society. <br> NWCF continuously engages with civil society organization, Universities and volunteer groups to help build their capacities on the intersection between climate change, disaster risk, agriculture, food system and security, renewable energy.",
-		"address": "Chundevi, Kathmandu, Nepal",
-		"contact": {
-			"email": "nepasafa@gmail.com",
-			"phone": " +977 01-4720667"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/NepaSaFa/",
-			"linkedin": "https://www.linkedin.com/company/nepal-water-conservation-foundation/",
-			"instagram": ""
-		},
-		"website": "https://waternepal.org.np/",
-		"tags": [
-			"Water & Conservation",
-			"Policy Advocacy",
-			"Disaster Risk Reduction",
-			"Agriculture",
-			"Renewable Energy"
-		],
-		"logoUrl": "https://i.ibb.co/7jMW8Sn/nwcf-logo.png",
-		"pictures": [
-			"https://i.ibb.co/ZY2v4tD/nwcf.jpg"
-		],
-		"slug": "nepal-water-conservation-foundation"
-	},
-	{
-		"id": 11,
-		"name": "Prakriti Resources Centre (PRC)",
-		"description": "Established in 2015, Prakriti Resources Centre (PRC) is a non-governmental organization working for sustainable development and environmental justice in Nepal. We are carving a niche for ourselves in the areas of national and international climate policy processes, climate finance, climate-resilient and low carbon development practices, and loss and damage associated with climate change impacts. In these areas, we conduct research and study, carry out policy intervention, build awareness, knowledge and capacity of civil society organizations, government and the private sector, and facilitate dialogue among them. We work in alliance and collaboration with government and other national, regional and global actors in these areas, and together with our allies, we also advocate for environmental-friendly and disaster responsive policy and practices. Gender equality, social inclusion and good governance cross-cut all our projects, activities and practices. <br> We are registered with the Government of Nepal under Associations Registration Act, 1977, and have affiliation with the District Administration Office, Kathmandu and the Social Welfare Council.",
-		"address": "Narayan Gopal Chowk, Kathmandu, Nepal",
-		"contact": {
-			"email": "info@prc.org.np",
-			"phone": "01-4528602"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/prcnepal ",
-			"linkedin": "",
-			"instagram": ""
-		},
-		"website": "https://prc.org.np/",
-		"tags": [
-			"Climate Finance",
-			"Low Carbon Development",
-			"Resilience",
-			"Adaptation",
-			"GESI",
-			"Policy Advocacy",
-			"Renewable Energy"
-		],
-		"logoUrl": "https://i.ibb.co/V3cQ1cz/prc-logo.png",
-		"pictures": [
-			"https://i.ibb.co/jrcXFyx/prc.jpg"
-		],
-		"slug": "prakriti-resource-centre"
-	},
-	{
-		"id": 12,
-		"name": "The International Centre for Integrated Mountain Development (ICIMOD)",
-		"description": "The Hindu Kush Himalaya mountain range spans eight countries and stretches 3,500km across Asia. It is vital for the food, water and power security of up to two billion people and is a habitat for countless irreplaceable species. It is also acutely fragile—and absolutely frontline to the impacts of the triple planetary crisis. <br> The International Centre for Integrated Mountain Development (ICIMOD) is an intergovernmental knowledge and learning centre working on behalf of the people of the Hindu Kush Himalaya (HKH). We are based in Kathmandu, Nepal and work in and for our eight regional member countries – Afghanistan, Bangladesh, Bhutan, China, India, Myanmar, Nepal, and Pakistan. <br> We work to improve the lives and livelihoods of men, women, and children of the HKH and protect mountain environments and cultures. The knowledge we create and share helps the people of the HKH become more resilient, make the most of new opportunities, and prepare for change. Our work strengthens regional cooperation for conservation and sustainable mountain development. <br> Knowledge is the first step towards innovation and impact. We work relentlessly to understand problems by facilitating research and producing data.",
-		"address": "Khumaltar, Lalitpur, Nepal",
-		"contact": {
-			"email": "info@icimod.org",
-			"phone": "+977 1-527-5222"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/icimod/",
-			"linkedin": "https://www.linkedin.com/company/icimod/",
-			"instagram": "https://www.instagram.com/_icimod/"
-		},
-		"website": "https://www.icimod.org/",
-		"tags": [
-			"Research",
-			"Policy Advocacy",
-			"Renewable Energy",
-			"Geospatial Solutions",
-			"Intergovernmental",
-			"Ecosystem"
-		],
-		"logoUrl": "https://i.ibb.co/NW4ttqX/icimod-logo.png",
-		"pictures": ["https://i.ibb.co/JsBTfvn/icimod.jpg"],
-		"slug": "icimod"
-	},
-	{
-		"id": 13,
-		"name": "Greenhood Nepal",
-		"description": "Greenhood Nepal is a science-driven, non-profit conservation organisation focused on the human dimensions of nature conservation. Our mission is to conserve threatened wildlife and habitats in ways that respect local communities, embrace science-led action, and empower others to safeguard nature. <br> Our work includes applied research, public education, policy engagement, capacity-building and civic action. We seek to empower people from across Nepal–with knowledge, opportunities and research–to respond to emerging conservation challenges and better protect and manage our natural resources. <br> We have a particular interest in applied research that generates, pilots and uses novel research to inform better conservation practices.  We are also committed to models of community-based conservation that balance the needs of human and natural communities. Many of our projects focus on Nepal’s most threatened species, including rhino, tiger, red panda, pangolin, turtle, and endangered flora like yews and orchids. Greenhood Nepal was established in 2012 by a group of undergraduate students, building on the success of their advocacy efforts to reduce rhino poaching in Nepal. <br> Greenhood Nepal is officially registered non profit conservation organization in Sindhupalchowk Nepal. Our work place is currently based at Anamnagar, Kathmandu Nepal. However, our projects spread whole Nepal. We work all over the Nepal to improve livelihood and wildlife status.",
-		"address": "New Baneshwor, Kathmandu, Nepal",
-		"contact": {
-			"email": "info@greenhood.org",
-			"phone": "+977-1-5244333"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/GreenhoodNepal",
-			"linkedin": "https://www.linkedin.com/company/greenhoodnepal/",
-			"instagram": "https://www.instagram.com/greenhoodnepal/"
-		},
-		"website": "https://www.greenhood.org/",
-		"tags": [
-			"Ecosystem",
-			"Wildlife Protection",
-			"Environment",
-			"Policy Advocacy",
-			"Research",
-			"Capacity Building"
-		],
-		"logoUrl": "https://i.ibb.co/yf9f0BC/greenhood-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/kGZKfhd/greenhood-nepal.jpg"
-		],
-		"slug": "greenhood-nepal"
-	},
-	{
-		"id": 14,
-		"name": "WWF Nepal",
-		"description": "At WWF, we firmly believe people and nature are inextricably linked. Our mission is to stop the degradation of our planet’s natural environment, and build a future Nepal in which people live in harmony with nature. <br> Our roots in Nepal extend back to 1967, when WWF first launched a rhino conservation program in Chitwan. However the WWF Nepal office was formally established only in 1993. Through the years, WWF Nepal has progressed towards a landscape approach that prioritizes community-based conservation as the foundation for a sustainable future, benefitting approximately 2.1 million people. <br> Over this time, WWF’s focus has evolved from localized efforts in favor of a single species and individual habitats to an ambitious strategy to preserve biodiversity and achieve sustainable development across the globe. <br> WWF-Nepal envisions a prosperous Nepal, with an active and socially responsible citizenry that a greater sense of stewardship towards the environment.",
-		"address": "Baluwatar, Kathmandu, Nepal",
-		"contact": {
-			"email": "info@wwfnepal.org",
-			"phone": "+97714534820"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/WWFNepal/",
-			"linkedin": "https://www.linkedin.com/company/wwf-nepal/",
-			"instagram": "https://www.instagram.com/nepalwwf/"
-		},
-		"website": "https://www.wwfnepal.org/",
-		"tags": [
-			"Wildlife Protection",
-			"Water",
-			"Climate Change",
-			"Forest",
-			"Governance"
-		],
-		"logoUrl": "https://i.ibb.co/r600bPj/wwf-logo.png",
-		"pictures": [
-			"https://i.ibb.co/4smwhSr/wwf.jpg"
-		],
-		"slug": "wwf-nepal"
-	},
-	{
-		"id": 15,
-		"name": "Clean Energy Nepal (CEN)",
-		"description": "CEN is an independent, non profit service oriented, policy, research and implementation organisation focusing on research based education and advocacy campaigns with policy inputs and implementation on issues related to sustainable energy use and environmental conservation. <br> Vision: Sustainable Environment for All <br> CEN's missions are: <br> To mobilize citizens, particularly youth, for evidence-based advocacy and action for building a healthy, carbon neutral and climate resilient society <br> The Strategic Goal of CEN are: <br> Promote technologies and practices to meet or exceed Nepalese standards for ambient and indoor air qualities (Healthy), Decarbonize energy use in Nepal through increased efficiency and switching to electricity (Carbon neutral), Strengthen the capacity of governmental, non-governmental, community, youth and private sector organizations at the federal, provincial and local levels on climate change adaptation (climate-resilient) <br> We enhance value of our clients by focusing on solutions that are innovative, yet practical and that can be implemented. We do this by blending domain expertise with analytical rigor, while maintaining an uncompromising focus on quality - and by hiring and nurturing high quality professionals with a passion for excellence. We are committed to making a difference to our clients and to our people, and we deliver this difference through the integrity of our efforts and by living our core values.",
-		"address": "Pragati Path, Talchikhel, Lalitpur, Nepal",
-		"contact": {
-			"email": "info@cen.org.np",
-			"phone": "+977-1-5438600"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/CENepal/",
-			"linkedin": "",
-			"instagram": ""
-		},
-		"website": "https://www.cen.org.np/",
-		"tags": [
-			"Research",
-			"Policy Advocacy",
-			"Community Engagement",
-			"Renewable Energy"
-		],
-		"logoUrl": "https://i.ibb.co/744J8VW/clean-energy-logo.png",
-		"pictures": [
-			"https://i.ibb.co/g4ypxrd/cleanenergy.jpg"
-		],
-		"slug": "clean-energy-nepal"
-	},
-	{
-		"id": 16,
-		"name": "Youth Alliance for Environment (YAE)",
-		"description": "Nepal is a beautiful mountainous country having diverse ecological and geographic location from plain tropical Terai to Himalaya with fragile ecosystem. In the course of time, Nepal has been facing various global, regional, national and local environmental problems. Population growth, fragile ecosystem, unsustainable developmental activities, exploitation of natural resources and climatic change are major environmental challenges for today’s generation of Nepal. Low level of public sensitization, weak institutional capacity, lack of appropriate monitoring mechanism of environmental problem and policy loopholes are exacerbating the environmental challenge in Nepal. Considering such situations, Youth Alliance for Environment (YAE) was formed to tackle challenges through research, evidence based policy advocacy, capacity building and community mobilization for the environmental conservation and promoting sustainable development. <br> YAE was established in 2009 with the objective to conserve environment by mitigating existing environmental challenges from the efforts of environmental professionals. Informally it had started to work from 2009 from the Central Department of Environmental Science (CDES), Tribhuvan University and formally it was registered as YAE in Feb 2012 under the rule and regulation of Nepal government as a non-political and not for profit Non-Governmental Organization. <br> YAE has more than a decade long experience in environmental sectors. During the decade long professional journey of YAE has sound experiences in Water Resource Management, Forest Carbon Inventory and REDD+, Biodiversity Assessment, Forest Inventory, Forest fire management, Climate Change Adaptation and mitigation, Disaster Risk Reduction including Flood Early Warning System, Capacity Building, Research, and Policy Advocacy. <br> YAE is also a forum where environmentalists can bring their collective thoughts and efforts for enhancing the status of their profession and the conservation of living planet by harmonizing the relation between conservation and development.",
-		"address": "Baluwatar, Kathmandu, Nepal",
-		"contact": {
-			"email": "info.yae@gmail.com",
-			"phone": "01-4432814"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/YouthAllianceForEnvironmentYae/",
-			"linkedin": "",
-			"instagram": ""
-		},
-		"website": "https://yae.org.np/",
-		"tags": [
-			"Water",
-			"Climate Change",
-			"Adaptation",
-			"Mitigation",
-			"Disaster Risk Reduction",
-			"Policy Advocacy",
-			"Research"
-		],
-		"logoUrl": "https://i.ibb.co/TtGPPvq/yae-logo.png",
-		"pictures": ["https://i.ibb.co/VCsX23j/yae.jpg"],
-		"slug": "youth-alliance-nepal"
-	},
-	{
-		"id": 17,
-		"name": "Gham Power Nepal",
-		"description": "Gham Power Nepal Pvt. Ltd. is a solar power company based in Kathmandu, Nepal. Established in 2010, Gham Power emerged as a pioneering force in urban electrification, in the midst of 16-hour power cuts. <br> For the first few years, we installed residential projects in the cities. Later, in 2014, we ventured into rural markets and installed Nepal’s first microgrid in Khotang. In 2017, we installed the largest solar grid-tied system at Commission for the Investigation of Abuse of Authority (CIAA), Nepal. <br> Today, we have done over 4,000+ solar powered projects all over Nepal. Our mission is to relentlessly combat climate change and improve the reliability of electricity in Nepal. With over a decade of service in energy sector, we are dedicated to reducing carbon footprints of businesses, empowering rural communities and smallholder farmers through cleaner solar solutions and transformative digital tools. <br> Join Us to Empower 100k lives & Reduce 200k tonnes of Carbon Emissions in the next 3 years",
-		"address": "Chundevi Marg, Kathmandu, Nepal",
-		"contact": {
-			"email": "contact@ghampower.com",
-			"phone": "+977-1-4721486"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/ghampower/",
-			"linkedin": "https://www.linkedin.com/company/gham-power/",
-			"instagram": "https://www.instagram.com/gham_power/"
-		},
-		"website": "https://ghampower.com/",
-		"tags": [
-			"Renewable Energy",
-			"Climate Resilience",
-			"Agriculture",
-			"Climate technology",
-			"Innovation"
-		],
-		"logoUrl": "https://i.ibb.co/HD1tRDs/ghampower-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/f1r7LCV/ghampower.jpg"
-		],
-		"slug": "ghampower-nepal"
-	},
-	{
-		"id": 18,
-		"name": "EcoHimal Nepal",
-		"description": "EcoHimal Nepal is a national Non-Government Organization founded in 2009, with the aim of achieving Sustainable Development through Community Empowerment in rural mountain areas.  It aims to enchance livelihood of unreached and marginalized communities  through grassroots initiatives and in-depth involvement, without disturbing local ecology and social and cultural structure . “Participation - Ownership - Sustainability” is the main theme of the organization. <br> Mission : To achieve sustainable development through community empowerment without disturbing cultural and social harmony in mountain and hilly areas by improving local livelihood, ensuring management and access to natural resources by local communities and reducing vulnerabilities of mountain communities to environmental disasters. <br> Vision : A prosperous, empowered and self-sustained Nepali society free of poverty, injustice and social discrimination. <br> Goal : To improve the living standard of rural people with special emphasis on women, children and socially marginalized communities through integrated sustainable development initiatives.",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "office@ecohimal.org.np",
-			"phone": "+977-01-4720115"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/ecohimalnepal",
-			"linkedin": "",
-			"instagram": ""
-		},
-		"website": "https://www.ecohimal.org.np/",
-		"tags": ["Climate Change", "Adaptation", "Mitigation", "Forest"],
-		"logoUrl": "https://i.ibb.co/G066Rxb/eco-Himal-logo.jpg",
-		"pictures": [
-			"https://i.ibb.co/kBbVrJ9/ecohimal.jpg"
-		],
-		"slug": "ecohimal-nepal"
-	},
-	{
-		"id": 19,
-		"name": "NAXA",
-		"description": "NAXA is a Geo-ICT technology consulting that strives for innovation in geospatial technologies to provide solutions to contemporary problems of humanity. <br> The company was established in 2014 with a mission to address contemporary problems in developing countries through technological innovations, particularly in digital and spatial technology. <br> Since its establishment, it has successfully worked on more than 300 projects of varying scales with national and local governments, UN agencies, private sectors, and CSOs in and outside of Nepal. It has more than seven years of experience in developing technological solutions and delivering high-quality services that apply to disaster risk reduction, infrastructure development, health, education, and good governance. <br> Naxa's vision is to be a leading geo-intelligence provider that helps the world navigates its future. <br> NAXA Pvt. Ltd. is an outcome of the willpower to introduce location data as the foundational data for any developmental activity. <br> The story: The company was founded in 2014 by Geomatics Engineers specialized in GIS mapping and geo-database management and visualization and envision taking the digital mapping sector in Nepal to a higher level. <br> In the fall of 2014, three youths from Geomatics Engineering Faculty from Kathmandu University, who had a deep interest in digital technologies along with their friends participated in a hackathon event titled “NASA International Space Apps Challenge”. This is NASA’s global hackathon, first held in April 2012, and serves as an innovation incubation and civic engagement program. The team developed an app “CLEAN KTM” which is a crowdsourcing platform to report and manage waste problems in Kathmandu Valley. <br> The idea won the competition. This victory became a huge source of encouragement for the team to establish their own entity in Nepal and work further on the development of technological solutions for local problems mobilizing the local youths in Nepal. NAXA has since been striving to build partnerships with agencies that promote recent technologies for better performance. Since the 2015 Nepal Earthquake, NAXA has been extensively involved in ideation, design and implementation of several technologies in disaster risk reduction initiatives.",
-		"address": "Do Cha Marg, Kathmandu, Nepal",
-		"contact": {
-			"email": "info@naxa.com.np",
-			"phone": "+977-01-4516543"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/naxa.np",
-			"linkedin": "https://www.linkedin.com/company/naxanp/",
-			"instagram": "https://www.instagram.com/naxanp/"
-		},
-		"website": "https://naxa.com.np/",
-		"tags": [
-			"GIS",
-			"Civic Tech",
-			"Disaster Risk Reduction",
-			"Open Data",
-			"Climate Technology"
-		],
-		"logoUrl": "https://i.ibb.co/Kx1szx6/naxa-logo.png",
-		"pictures": ["https://i.ibb.co/P4Kjbjb/naxa.png"],
-		"slug": "naxa"
-	},
-	{
-		"id": 20,
-		"name": "Harin Nepal",
-		"description": "Harin Nepal is a youth-led alliance promoting Intersectional Environmental Justice in Nepal since 2018.",
-		"address": "Bodhigram , Lalitpur, Nepal",
-		"contact": {
-			"email": "harinnepal55@gmail.com",
-			"phone": "986-3622020"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/HarinNepal",
-			"linkedin": "https://www.linkedin.com/company/harinnepal/",
-			"instagram": "https://www.instagram.com/harinnepal/"
-		},
-		"website": "",
-		"tags": [
-			"Climate Justice",
-			"Intersectional Environmentalism",
-			"Policy Advocacy",
-			"Youth"
-		],
-		"logoUrl": "https://i.ibb.co/6tc2jQ5/harin-nepal-logo.jpg",
-		"pictures": ["https://i.ibb.co/HY1vkHM/harin-nepal-profile.jpg"],
-		"slug": "harin-nepal"
-	},
-	{
-		"id": 21,
-		"name": "CliMates Nepal",
-		"description": "CliMates Nepal is a youth-led think-and-do tank focused on climate change, engaging volunteers who are both students and young professionals. The organization aims to raise awareness and promote action on climate issues through research, advocacy, and community engagement.",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "climatesnepal20@gmail.com",
-			"phone": "986-9625519"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/CliMatesNepal/",
-			"linkedin": "https://www.linkedin.com/company/climates-nepal",
-			"instagram": "https://www.instagram.com/climates_nepal/"
-		},
-		"website": "",
-		"tags": [
-			"Climate Justice",
-			"Think Tank",
-			"Capacity Building",
-			"Policy Advocacy",
-			"Youth"
-		],
-		"logoUrl": "https://i.ibb.co/yP8StJL/climates-nepal-logo.jpg",
-		"pictures": ["https://i.ibb.co/bsVxzD1/climates-nepal-profile.jpg"],
-		"slug": "climates-nepal"
-	},
-	{
-		"id": 22,
-		"name": "We for Change",
-		"description": "We for Change is a dynamic, youth-led platform that believes that the youth possess a boundless potential to reshape the future. We believe in the raw power of young minds to aim for and create a sustainable and transformative future. <br> What sets us apart is our unwavering belief in the value of mistakes. We provide young minds a space where failure isn't a setback but a stepping stone, and help them turn failure to success. <br> Join us at We for Change—Be a part of empowering young minds to help create a welcoming, sustainable future together.",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "info@weforchange.org",
-			"phone": "+977 9744253229"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/weforchange/",
-			"linkedin": "https://www.linkedin.com/company/weforchange2012/",
-			"instagram": "https://www.instagram.com/weforchange.org_/"
-		},
-		"website": "https://www.weforchange.org/",
-		"tags": [
-			"Youth Empowerment",
-			"Community Awareness",
-			"Climate Change",
-			"SRHR",
-			"Youth"
-		],
-		"logoUrl": "https://www.weforchange.org/_next/static/media/logo.1dd1262c.svg",
-		"pictures": ["https://i.ibb.co/RPCGSxd/we-for-change-profile.jpg"],
-		"slug": "we-for-change"
-	},
-	{
-		"id": 22,
-		"name": "Environmental Camps for Conservation Awareness (ECCA)",
-		"description": "Environmental Camps for Conservation Awareness (ECCA) is a leading organization in the sector of social mobilization and community development. Established in July 1987 as a non-profit, non-political, and non-governmental organization, ECCA is registered with the Government of Nepal, District Administration Office, Kathmandu, and is affiliated with the Social Welfare Council, Kathmandu. ECCA creates a platform for youths in various sectors and boasts a large network of local volunteers, known as counsellors. Through the implementation of various programs, ECCA aims to improve the quality of life by promoting the wise use of available local resources and the application of alternative and renewable technologies. <br> ECCA's constitution allows trained members to vote for a policy-making body, ensuring active participation in its governance. The organization pioneered the concept of children's nature clubs in Nepal in 1992 and was the first NGO to establish a paper-recycling unit, named Pap Again, in 1994 with the goal of producing recycled paper. <br> ECCA's mission is to be a professional volunteer organization dedicated to securing a sound ecological future. It aims to create a platform for youths and school children to lead positive change in environmental conservation and community development, and to support the development of conservation-related entrepreneurship.",
-		"address": "Kathmandu, Nepal",
-		"contact": {
-			"email": "info@ecca.org.np",
-			"phone": "01-5453870"
-		},
-		"socials": {
-			"facebook": "https://www.facebook.com/ECCA.Nepal/",
-			"linkedin": "",
-			"instagram": ""
-		},
-		"website": "https://www.ecca.org.np/",
-		"tags": [
-			"Youth Empowerment",
-			"Environmental Awareness",
-			"Nature Camps",
-			"Climate Change",
-			"Environment Adcocacy"
-		],
-		"logoUrl": "https://i.ibb.co/pjb8JXY/ecca-logo.jpg",
-		"pictures": ["https://i.ibb.co/rFZ8M07/ecca-profile.jpg"],
-		"slug": "ecca"
-	}
-
+  {
+    "id": 0,
+    "name": "Nepalese Youth for Climate Action (NYCA)",
+    "description": "Nepalese Youth for Climate Action (NYCA) is a youth lead coalition of the Nepalese youth and youth groups tackling climate change, the biggest challenge of our generation. NYCA was established in August 10, 2008 with the motto “Caring for Climate, Caring for Ourselves”. <br> Our goal is to protect Nepal and the Nepalese people from the adverse impacts of climate change by spreading awareness, advocating policies and taking action. We aim to play a key role in transitioning Nepal towards climate resilience by leading adaptation efforts and mitigation of GHGs. <br> We envision an economically prosperous and sustainable Nepal where youth play an active role in leading the society towards cleaner future.",
+    "address": " Talchikhel, Lalitpur, Nepal",
+    "contact": {
+      "email": "nyca.np@gmail.com",
+      "phone": "+977 9818349762"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/NYCANepal/",
+      "linkedin": "https://np.linkedin.com/company/nyca-nepal",
+      "instagram": "https://www.instagram.com/nyca.nepal/"
+    },
+    "website": "https://nyca.net.np/",
+    "tags": ["Environment", "Youth", "Climate Awareness", "Campaign"],
+    "logoUrl": "https://i.ibb.co/X2x5QJs/nyca-logo.png",
+    "pictures": ["https://i.ibb.co/Jx3gQ6z/nyca.jpg"],
+    "slug": "nyca-nepal"
+  },
+  {
+    "id": 1,
+    "name": "Digo Bikas Institute (DBI)",
+    "description": "Digo Bikas Institute (DBI) is a research and advocacy organization committed to promoting ecological sustainability and social equity at policy and community levels. Based in Kathmandu, DBI believes that Nepal (and the rest of the world) can develop meaningfully by identifying and applying alternative ways of meeting human needs without harming nature and fellow human beings. <br> Vision: Digo Bikas Institute envisions an ecologically sound, socially just, and prosperous society, and that it will continue to be so for future generations. <br> Mission: Digo Bikas Institute’s mission is to undertake research and action to stimulate informed discussion and strategic thought to advance alternative and local solutions to global problems. <br> Values: Equity, Fairness and Justice, Integrity, Transparency and Accountability, Inclusiveness. <br> We use different approaches to achieve our vision and mission, including research and analysis, seminars and conferences, education and training programs, correspondence and fact-finding missions, public consultations and legal interventions, network building and international solidarity, joint campaigns, and media.",
+    "address": "Battisputali, Kathmandu",
+    "contact": {
+      "email": "info@digobikas.org",
+      "phone": "01-4610656"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/digobikasinstitute/",
+      "linkedin": "https://np.linkedin.com/company/digo-bikas-institute-dbi",
+      "instagram": "#N/A"
+    },
+    "website": "https://digobikas.org/ ",
+    "tags": [
+      "Research",
+      "Policy Advocacy",
+      "Community Engagement",
+      "Renewable Energy"
+    ],
+    "logoUrl": "https://i.ibb.co/LQJP5Jm/digobikas-logo.png",
+    "pictures": ["https://i.ibb.co/zRHp3wk/dbi-profile.jpg"],
+    "slug": "digobikas-institute"
+  },
+  {
+    "id": 2,
+    "name": "Youth Action for Sustainable and Eco Nepal (YASEN)",
+    "description": "Youth Action for Sustainable and Eco Nepal (YASEN) is a youth-led non-profit organization dedicated to creating a sustainable and positive impact on individuals and communities in Nepal. Established on March 27, 2023, YASEN operates under the motto “Empowering Younger Generation For Sustainable Future.” Our mission is to create a better world by addressing pressing social and environmental challenges in Nepal through the active involvement of young people. <br> YASEN empowers young people to be leaders in creating a sustainable future for Nepal and the world. We focus on fostering environmental stewardship, driving climate action, and promoting inclusive green growth through education, advocacy, and community engagement. Our efforts include community education and awareness, recycling and waste reduction, capacity building and training, and sustainable agriculture. We also emphasize women’s empowerment and entrepreneurship, loss and damage, and disaster risk reduction. <br> YASEN targets several Sustainable Development Goals (SDGs), including No Poverty (SDG 1), Zero Hunger (SDG 2), Good Health and Well-being (SDG 3), Quality Education (SDG 4), Gender Equality (SDG 5), Sustainable Cities and Communities (SDG 11), Responsible Consumption and Production (SDG 12), Climate Action (SDG 13), Life on Land (SDG 15), and Partnerships for the Goals (SDG 17). Through these initiatives, we aim to create lasting positive changes and build a sustainable future for all.",
+    "address": "Bharatpur-9, Chitwan, Nepal",
+    "contact": {
+      "email": "yasennepa@gmail.com",
+      "phone": "9867183923"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/yasennepal/",
+      "linkedin": "https://www.linkedin.com/in/yasennepal/",
+      "instagram": "https://www.instagram.com/yasennepal/"
+    },
+    "website": "https://yasennepal.com/",
+    "tags": ["Environment", "Youth", "Climate Awareness", "Campaign"],
+    "logoUrl": "https://i.ibb.co/znRtNdG/yasen-logo.jpg",
+    "pictures": ["https://i.ibb.co/Pz5HJfS/yasen.jpg"],
+    "slug": "yasen"
+  },
+  {
+    "id": 3,
+    "name": "Bignaharta Nepal",
+    "description": "Bighnaharta Nepal (BN) is a Kathmandu-based not-for-profit organization established in 2019 by Nepali youths. The organization has been working in sectors of poverty alleviation, disaster risk reduction, socio-economic development, women and youth empowerment, social entrepreneurship, and research and advocacy. <br> Working in various social and development sectors, Bighnaharta Nepal has been successful in implementing projects holistically addressing core livelihood, climate change, gender, and food security issues among the marginalized communities across Nepal by using the tools of social entrepreneurship, cooperative farming, and research and advocacy on the policy level. <br> Vision: A nation with self-sustainable communities where diversity of life thrives. <br> Mission: To sustainably empower the vulnerable and marginalized communities of Nepal by enhancing their resilience to climate change, disaster risk, inequality, and poverty using culturally and environmentally appropriate interventions.",
+    "address": "Pulchowk Road, Lalitpur, Nepal",
+    "contact": {
+      "email": "info@bighnaharta.org",
+      "phone": "+977 9818349762"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/bighnahartanp",
+      "linkedin": "https://www.linkedin.com/company/bighnaharta-nepal/",
+      "instagram": "https://www.instagram.com/bighnaharta_nepal/"
+    },
+    "website": "https://bighnaharta.org/",
+    "tags": [
+      "Community Resilience",
+      "Disaster Response",
+      "Climate Adaptation",
+      "Indigenous Community"
+    ],
+    "logoUrl": "https://i.ibb.co/QChxxT8/bignaharta-logo.png",
+    "pictures": ["https://i.ibb.co/J7gG8H2/bignaharta.jpg"],
+    "slug": "bignaharta-nepal"
+  },
+  {
+    "id": 4,
+    "name": "Power Shift Nepal",
+    "description": "Power Shift Nepal is a women led organization that focuses on solving local environmental issues with consideration of the global perspective of climate change. Our vision is to empower women through our different programs, projects and campaigns. We focus on environmental action through research, awareness, advocacy and project development. <br> Our main goals are to create networking opportunities for young female climate leaders to mainstream female leadership in climate issues and for potential youth leaders who want to act for Climate Justice.",
+    "address": "Radha Mohan Marg, New baneshwor",
+    "contact": {
+      "email": "powershiftnp@gmail.com",
+      "phone": "977 9762274099"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/gpsnp/",
+      "linkedin": "https://www.linkedin.com/company/powershiftnp/",
+      "instagram": "https://www.instagram.com/powershift_nepal "
+    },
+    "website": "https://powershiftnepal.com.np/",
+    "tags": [
+      "Youth",
+      "Climate Change",
+      "Environment",
+      "Climate Justice",
+      "Gender",
+      "Women"
+    ],
+    "logoUrl": "https://i.ibb.co/7JBPxFS/powershift-logo.jpg",
+    "pictures": ["https://i.ibb.co/LS2pmFs/powershift.jpg"],
+    "slug": "powershift-nepal"
+  },
+  {
+    "id": 5,
+    "name": "Center for Indigenous Peoples' Research and Development (CIPRED)",
+    "description": "Center for Indigenous Peoples' Research and Development (CIPRED), established in 2011 aims for policy research, documentation, and publications in the field of natural resource governance, climate change, biodiversity, ecosystem, education, traditional health, and livelihoods in relation to Indigenous Peoples. We are devoted to the promotion, protection, and recognition of Indigenous Peoples’ customary institutions, self-governance systems, customary land tenure rights, Indigenous food and economy, skills, and cultural values that contribute to natural resource management, climate change resilience, biodiversity, and ecosystems. CIPRED has been working in coordination and collaboration with Indigenous Peoples, women, youth, local communities, government agencies, universities and research centers at local, national, and global levels based on the principle of Indigenous Peoples' Sustainable Self Determined Development (IPSSDD). <br> Vision: A just, equitable and transformative society with the assurance of self-determination, dignity, rights, and well-being of Indigenous Peoples including customary governance, knowledge system, and cultural values. <br> Mission: Indigenous Peoples and intersectional groups leading research for evidence-based policy advocacy, promoting, and mainstreaming Indigenous education and self-determined development, inter-generational transfer of customary governance, knowledge systems, cultural values, food & economy and traditional livelihoods.",
+    "address": "Budhanilkantha, Nepal",
+    "contact": {
+      "email": "info@cipred.org.np",
+      "phone": "01-4379394"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ciprednepal/",
+      "linkedin": "https://www.linkedin.com/company/cipred/",
+      "instagram": "https://www.instagram.com/cipred.nepal/"
+    },
+    "website": "https://www.cipred.org.np/",
+    "tags": [
+      "Policy Advocacy",
+      "Community Resilience",
+      "Research",
+      "Indigenous Community",
+      "Gender & Women"
+    ],
+    "logoUrl": "https://i.ibb.co/QMPTP3G/cipred-logo.png",
+    "pictures": ["https://i.ibb.co/CHbmr5x/cipred.jpg"],
+    "slug": "cipred-nepal"
+  },
+  {
+    "id": 6,
+    "name": "Nepal Intersectoral Climate Coalition (NICC)",
+    "description": "Nepal Intersectoral Climate Coalition (NICC) has been recently formed with the vision of driving towards a strong, inclusive climate action across various sectors in Nepal and across various sectors, disciplines, and is a product of almost a year of planning. This coalition aims to build solidarity and alliances with stakeholders across various sectors for climate justice. <br> The list of NICC’s member (organizations and individuals) is as follows: <br> Authentic Leadership Institute Nepal (ALIN) / All-in, Bignaharta Nepal, Harin Nepal, International Development Institute Nepal, Power Shift Nepal, YUWA-Nepal, Gaurav Tiwari, Ghanashyam Bhattarai, Ilina Maharjan, Neha Malla, Prakash Kiran Jung Thapa, Prakash Shah, Prashant Giri, Rupa Thapa, Sagar Koirala, Sushma Ghimire, and Sushma Khamcha. <br> The coalition represents members from environmental sciences, health, education, IT, geomatics engineering, food sciences, agriculture, youth empowerment, women empowerment, economics, climate change, disaster risk reduction, nature-based solutions, bio-engineering, business, sexual and reproductive health rights (SRHR).",
+    "address": "Kathmandu, Nepal",
+    "contact": {
+      "email": "nepal.climate.coalition@gmail.com",
+      "phone": ""
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/Nepal.NICC/",
+      "linkedin": "",
+      "instagram": "https://www.instagram.com/nicc.nepal/"
+    },
+    "website": "",
+    "tags": ["Intersectoral", "Alliance", "Policy Advocacy", "Climate Action"],
+    "logoUrl": "https://i.ibb.co/zSh0GRv/nicc-logo.jpg",
+    "pictures": ["https://i.ibb.co/g9yYmVS/nicc.jpg"],
+    "slug": "nicc"
+  },
+  {
+    "id": 7,
+    "name": "Practical Action Nepal",
+    "description": "Practical Action is an international development organisation putting ingenious ideas to work so people in poverty can change their world. <br> Our Vision is a world that works better for everyone. <br> We help people find solutions to some of the world’s toughest problems. Challenges made worse by catastrophic climate change and persistent gender inequality. We work with communities to develop ingenious, lasting, and locally owned solutions for agriculture, water and waste management, climate resilience and clean energy. And we share what works with others, so answers that start small can grow big. <br> We’re a global change-making group. The group consists of a UK registered charity with community projects in Africa, Asia and Latin America, an independent development publishing company and a technical consulting service. We combine these specialisms to multiply our impact and help shape a world that works better for everyone. We believe in the power of small things to change the big picture. And that together we can take practical action to build futures free from poverty. In Nepal, Practical Action is focused on putting ingenious ideas to work to contribute to poverty reduction and sustainable wellbeing for all through our works on three thematic areas: Energy that transforms, Resilience that protects, and Farming that works.",
+    "address": "Lazimpat, Kathmandu, Nepal",
+    "contact": {
+      "email": "info@practicalaction.org.np",
+      "phone": "+977-1-4523639"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/PracticalAction/",
+      "linkedin": "https://www.linkedin.com/company/nepal-pa/",
+      "instagram": "https://www.instagram.com/practical_action/"
+    },
+    "website": "https://practicalaction.org/where-we-work/nepal/",
+    "tags": ["Renewable Energy", "Community Resilience", "Agriculture"],
+    "logoUrl": "https://i.ibb.co/VYD0kzj/practical-action-logo.jpg",
+    "pictures": ["https://i.ibb.co/9HRRSVj/practical-action.jpg"],
+    "slug": "practical-action-nepal"
+  },
+  {
+    "id": 8,
+    "name": "Centre for Rural Technology, Nepal (CRT/N)",
+    "description": "Centre for Rural Technology, Nepal (CRT/N) is a professional non-governmental organization engaged in developing and promoting appropriate rural technologies effective in meeting the basic needs and improving the livelihood of rural people. Established in August 1989 under the Company Act, CRT/N was re-registered with the Government of Nepal (GoN) under the Social Organization Registration Act 1977 (2034 B.S.) since October 1998. The organization is actively engaged in upgrading traditional technologies as well as promotion of energy efficient technologies with diversified and versatile applications to meet rural needs. <br> Mission: Develop, promote and disseminate environmentally sound rural/appropriate technologies and strengthen the capability of rural communities in creating better opportunities through mobilization of local resources to improve their livelihood conditions. <br> Vision: CRT/N is a professional/innovative organization and knowledge centre in renewable energy/appropriate technology delivering quality services to local communities for improving their livelihood.",
+    "address": "Lalitpur, Nepal",
+    "contact": {
+      "email": "info@crtnepal.org",
+      "phone": "+977-1-5530071"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/crtnepalorg/",
+      "linkedin": "https://www.linkedin.com/company/center-for-rural-technology-nepal/",
+      "instagram": ""
+    },
+    "website": " https://crtnepal.org/",
+    "tags": [
+      "Renewable Energy",
+      "Climate Change",
+      "Adaptation",
+      "Mitigation",
+      "Agriculture",
+      "Policy Advocacy"
+    ],
+    "logoUrl": "https://i.ibb.co/LkXJvQp/crt-logo.jpg",
+    "pictures": ["https://i.ibb.co/sHYC31v/crt.jpg"],
+    "slug": "center-for-rural-technology-nepal"
+  },
+  {
+    "id": 9,
+    "name": "Climate Change Network Nepal (CCNN)",
+    "description": "Nepal became a party of UNFCCC in 1992 and adopted Kyoto protocol in 1997 at the 3rd Session of the Conference of the Parties (COP) along with many other nations. After eight years the government formally endorsed this decision. In the year 2003, a small group of civil society organization based in capital started a dialogue with the government about the benefit of being party to climate change convention and its associated protocol. The main attraction at that time was Clean Development Mechanism under the Kyoto protocol. This small group was successful to convince the government and as a result the government endorsed the Kyoto protocol on December 2005. <br> The group with its first success in establishing the climate change issue at the national level, was later formally named itself as “Climate Change Network Nepal (CCNN)”.  This makes CCNN one of the oldest and pioneer networks on Climate change in Nepal. The network in its initial phase was very active in supporting the government as and when required. Gradually, the group expanded and ultimately it succeeded in bringing unique strengths of different agencies together. <br> CCNN regular activities are conducted via its secretariat. Till 2007, WWF was supporting the network as a secretariat and from 2007 and onwards Clean Energy Nepal (CEN) has been handed over the responsibility.",
+    "address": "Pragati Path,Talchikhel, Lalitpur, Nepal",
+    "contact": {
+      "email": "info@cen.org.np",
+      "phone": "977-01-​5538660"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/profile.php?id=100080598307070",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "https://www.ccnn.org.np/",
+    "tags": [
+      "Capacity Building",
+      "Policy Advocacy",
+      "Media Campaign",
+      "Technology Transfer"
+    ],
+    "logoUrl": "https://i.ibb.co/FJkRK74/ccnn-logo.png",
+    "pictures": ["https://i.ibb.co/NFK094q/ccnn.jpg"],
+    "slug": "climate-change-network-nepal"
+  },
+  {
+    "id": 10,
+    "name": " Nepal Water Conservation Foundation (NWCF)",
+    "description": "Nepal Water Conservation Foundation (NWCF) is a leading civil society organization of Nepal committed for promotion of interdisciplinary action researches, policy advocacy and building climate and disaster risk resilience capacity of communities and institutions. Building on its core expertise of providing solutions for issues on water management, over the years NWCF has expanded its portfolios to cover diverse aspects of livelihoods, sustainable development and disaster risk management while embedding the cross-cutting themes of gender mainstreaming and climate change responsive planning. <br> NWCF believes in democratic values and principles and an open society where civic led movements have sufficient space in the governance system in which the civil society actors are active and thriving. It pursues cutting-edge action research, dissemination and training. Our commitment to provide high quality services in a socio-culturally relevant environment is unmatched and has earned us the reputation of a leading action-oriented research organization on water resources, climate change and disaster risk management. <br> Our work is focused on finding solutions to emerging problems of resource management combining democratic ethos with traditional values to serve the marginalized communities. Furthermore, our team members have made countless contributions in the writing of exemplary reports, high-grade project proposals and other publications that are of international standard. Our team members have published their works that have positively benefited the society. <br> NWCF continuously engages with civil society organization, Universities and volunteer groups to help build their capacities on the intersection between climate change, disaster risk, agriculture, food system and security, renewable energy.",
+    "address": "Chundevi, Kathmandu, Nepal",
+    "contact": {
+      "email": "nepasafa@gmail.com",
+      "phone": " +977 01-4720667"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/NepaSaFa/",
+      "linkedin": "https://www.linkedin.com/company/nepal-water-conservation-foundation/",
+      "instagram": ""
+    },
+    "website": "https://waternepal.org.np/",
+    "tags": [
+      "Water & Conservation",
+      "Policy Advocacy",
+      "Disaster Risk Reduction",
+      "Agriculture",
+      "Renewable Energy"
+    ],
+    "logoUrl": "https://i.ibb.co/7jMW8Sn/nwcf-logo.png",
+    "pictures": ["https://i.ibb.co/ZY2v4tD/nwcf.jpg"],
+    "slug": "nepal-water-conservation-foundation"
+  },
+  {
+    "id": 11,
+    "name": "Prakriti Resources Centre (PRC)",
+    "description": "Established in 2015, Prakriti Resources Centre (PRC) is a non-governmental organization working for sustainable development and environmental justice in Nepal. We are carving a niche for ourselves in the areas of national and international climate policy processes, climate finance, climate-resilient and low carbon development practices, and loss and damage associated with climate change impacts. In these areas, we conduct research and study, carry out policy intervention, build awareness, knowledge and capacity of civil society organizations, government and the private sector, and facilitate dialogue among them. We work in alliance and collaboration with government and other national, regional and global actors in these areas, and together with our allies, we also advocate for environmental-friendly and disaster responsive policy and practices. Gender equality, social inclusion and good governance cross-cut all our projects, activities and practices. <br> We are registered with the Government of Nepal under Associations Registration Act, 1977, and have affiliation with the District Administration Office, Kathmandu and the Social Welfare Council.",
+    "address": "Narayan Gopal Chowk, Kathmandu, Nepal",
+    "contact": {
+      "email": "info@prc.org.np",
+      "phone": "01-4528602"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/prcnepal ",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "https://prc.org.np/",
+    "tags": [
+      "Climate Finance",
+      "Low Carbon Development",
+      "Resilience",
+      "Adaptation",
+      "GESI",
+      "Policy Advocacy",
+      "Renewable Energy"
+    ],
+    "logoUrl": "https://i.ibb.co/V3cQ1cz/prc-logo.png",
+    "pictures": ["https://i.ibb.co/jrcXFyx/prc.jpg"],
+    "slug": "prakriti-resource-centre"
+  },
+  {
+    "id": 12,
+    "name": "The International Centre for Integrated Mountain Development (ICIMOD)",
+    "description": "The Hindu Kush Himalaya mountain range spans eight countries and stretches 3,500km across Asia. It is vital for the food, water and power security of up to two billion people and is a habitat for countless irreplaceable species. It is also acutely fragile—and absolutely frontline to the impacts of the triple planetary crisis. <br> The International Centre for Integrated Mountain Development (ICIMOD) is an intergovernmental knowledge and learning centre working on behalf of the people of the Hindu Kush Himalaya (HKH). We are based in Kathmandu, Nepal and work in and for our eight regional member countries – Afghanistan, Bangladesh, Bhutan, China, India, Myanmar, Nepal, and Pakistan. <br> We work to improve the lives and livelihoods of men, women, and children of the HKH and protect mountain environments and cultures. The knowledge we create and share helps the people of the HKH become more resilient, make the most of new opportunities, and prepare for change. Our work strengthens regional cooperation for conservation and sustainable mountain development. <br> Knowledge is the first step towards innovation and impact. We work relentlessly to understand problems by facilitating research and producing data.",
+    "address": "Khumaltar, Lalitpur, Nepal",
+    "contact": {
+      "email": "info@icimod.org",
+      "phone": "+977 1-527-5222"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/icimod/",
+      "linkedin": "https://www.linkedin.com/company/icimod/",
+      "instagram": "https://www.instagram.com/_icimod/"
+    },
+    "website": "https://www.icimod.org/",
+    "tags": [
+      "Research",
+      "Policy Advocacy",
+      "Renewable Energy",
+      "Geospatial Solutions",
+      "Intergovernmental",
+      "Ecosystem"
+    ],
+    "logoUrl": "https://i.ibb.co/NW4ttqX/icimod-logo.png",
+    "pictures": ["https://i.ibb.co/JsBTfvn/icimod.jpg"],
+    "slug": "icimod"
+  },
+  {
+    "id": 13,
+    "name": "Greenhood Nepal",
+    "description": "Greenhood Nepal is a science-driven, non-profit conservation organisation focused on the human dimensions of nature conservation. Our mission is to conserve threatened wildlife and habitats in ways that respect local communities, embrace science-led action, and empower others to safeguard nature. <br> Our work includes applied research, public education, policy engagement, capacity-building and civic action. We seek to empower people from across Nepal–with knowledge, opportunities and research–to respond to emerging conservation challenges and better protect and manage our natural resources. <br> We have a particular interest in applied research that generates, pilots and uses novel research to inform better conservation practices.  We are also committed to models of community-based conservation that balance the needs of human and natural communities. Many of our projects focus on Nepal’s most threatened species, including rhino, tiger, red panda, pangolin, turtle, and endangered flora like yews and orchids. Greenhood Nepal was established in 2012 by a group of undergraduate students, building on the success of their advocacy efforts to reduce rhino poaching in Nepal. <br> Greenhood Nepal is officially registered non profit conservation organization in Sindhupalchowk Nepal. Our work place is currently based at Anamnagar, Kathmandu Nepal. However, our projects spread whole Nepal. We work all over the Nepal to improve livelihood and wildlife status.",
+    "address": "New Baneshwor, Kathmandu, Nepal",
+    "contact": {
+      "email": "info@greenhood.org",
+      "phone": "+977-1-5244333"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/GreenhoodNepal",
+      "linkedin": "https://www.linkedin.com/company/greenhoodnepal/",
+      "instagram": "https://www.instagram.com/greenhoodnepal/"
+    },
+    "website": "https://www.greenhood.org/",
+    "tags": [
+      "Ecosystem",
+      "Wildlife Protection",
+      "Environment",
+      "Policy Advocacy",
+      "Research",
+      "Capacity Building"
+    ],
+    "logoUrl": "https://i.ibb.co/yf9f0BC/greenhood-logo.jpg",
+    "pictures": ["https://i.ibb.co/kGZKfhd/greenhood-nepal.jpg"],
+    "slug": "greenhood-nepal"
+  },
+  {
+    "id": 14,
+    "name": "WWF Nepal",
+    "description": "At WWF, we firmly believe people and nature are inextricably linked. Our mission is to stop the degradation of our planet’s natural environment, and build a future Nepal in which people live in harmony with nature. <br> Our roots in Nepal extend back to 1967, when WWF first launched a rhino conservation program in Chitwan. However the WWF Nepal office was formally established only in 1993. Through the years, WWF Nepal has progressed towards a landscape approach that prioritizes community-based conservation as the foundation for a sustainable future, benefitting approximately 2.1 million people. <br> Over this time, WWF’s focus has evolved from localized efforts in favor of a single species and individual habitats to an ambitious strategy to preserve biodiversity and achieve sustainable development across the globe. <br> WWF-Nepal envisions a prosperous Nepal, with an active and socially responsible citizenry that a greater sense of stewardship towards the environment.",
+    "address": "Baluwatar, Kathmandu, Nepal",
+    "contact": {
+      "email": "info@wwfnepal.org",
+      "phone": "+97714534820"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/WWFNepal/",
+      "linkedin": "https://www.linkedin.com/company/wwf-nepal/",
+      "instagram": "https://www.instagram.com/nepalwwf/"
+    },
+    "website": "https://www.wwfnepal.org/",
+    "tags": [
+      "Wildlife Protection",
+      "Water",
+      "Climate Change",
+      "Forest",
+      "Governance"
+    ],
+    "logoUrl": "https://i.ibb.co/r600bPj/wwf-logo.png",
+    "pictures": ["https://i.ibb.co/4smwhSr/wwf.jpg"],
+    "slug": "wwf-nepal"
+  },
+  {
+    "id": 15,
+    "name": "Clean Energy Nepal (CEN)",
+    "description": "CEN is an independent, non profit service oriented, policy, research and implementation organisation focusing on research based education and advocacy campaigns with policy inputs and implementation on issues related to sustainable energy use and environmental conservation. <br> Vision: Sustainable Environment for All <br> CEN's missions are: <br> To mobilize citizens, particularly youth, for evidence-based advocacy and action for building a healthy, carbon neutral and climate resilient society <br> The Strategic Goal of CEN are: <br> Promote technologies and practices to meet or exceed Nepalese standards for ambient and indoor air qualities (Healthy), Decarbonize energy use in Nepal through increased efficiency and switching to electricity (Carbon neutral), Strengthen the capacity of governmental, non-governmental, community, youth and private sector organizations at the federal, provincial and local levels on climate change adaptation (climate-resilient) <br> We enhance value of our clients by focusing on solutions that are innovative, yet practical and that can be implemented. We do this by blending domain expertise with analytical rigor, while maintaining an uncompromising focus on quality - and by hiring and nurturing high quality professionals with a passion for excellence. We are committed to making a difference to our clients and to our people, and we deliver this difference through the integrity of our efforts and by living our core values.",
+    "address": "Pragati Path, Talchikhel, Lalitpur, Nepal",
+    "contact": {
+      "email": "info@cen.org.np",
+      "phone": "+977-1-5438600"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/CENepal/",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "https://www.cen.org.np/",
+    "tags": [
+      "Research",
+      "Policy Advocacy",
+      "Community Engagement",
+      "Renewable Energy"
+    ],
+    "logoUrl": "https://i.ibb.co/744J8VW/clean-energy-logo.png",
+    "pictures": ["https://i.ibb.co/g4ypxrd/cleanenergy.jpg"],
+    "slug": "clean-energy-nepal"
+  },
+  {
+    "id": 16,
+    "name": "Youth Alliance for Environment (YAE)",
+    "description": "Nepal is a beautiful mountainous country having diverse ecological and geographic location from plain tropical Terai to Himalaya with fragile ecosystem. In the course of time, Nepal has been facing various global, regional, national and local environmental problems. Population growth, fragile ecosystem, unsustainable developmental activities, exploitation of natural resources and climatic change are major environmental challenges for today’s generation of Nepal. Low level of public sensitization, weak institutional capacity, lack of appropriate monitoring mechanism of environmental problem and policy loopholes are exacerbating the environmental challenge in Nepal. Considering such situations, Youth Alliance for Environment (YAE) was formed to tackle challenges through research, evidence based policy advocacy, capacity building and community mobilization for the environmental conservation and promoting sustainable development. <br> YAE was established in 2009 with the objective to conserve environment by mitigating existing environmental challenges from the efforts of environmental professionals. Informally it had started to work from 2009 from the Central Department of Environmental Science (CDES), Tribhuvan University and formally it was registered as YAE in Feb 2012 under the rule and regulation of Nepal government as a non-political and not for profit Non-Governmental Organization. <br> YAE has more than a decade long experience in environmental sectors. During the decade long professional journey of YAE has sound experiences in Water Resource Management, Forest Carbon Inventory and REDD+, Biodiversity Assessment, Forest Inventory, Forest fire management, Climate Change Adaptation and mitigation, Disaster Risk Reduction including Flood Early Warning System, Capacity Building, Research, and Policy Advocacy. <br> YAE is also a forum where environmentalists can bring their collective thoughts and efforts for enhancing the status of their profession and the conservation of living planet by harmonizing the relation between conservation and development.",
+    "address": "Baluwatar, Kathmandu, Nepal",
+    "contact": {
+      "email": "info.yae@gmail.com",
+      "phone": "01-4432814"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/YouthAllianceForEnvironmentYae/",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "https://yae.org.np/",
+    "tags": [
+      "Water",
+      "Climate Change",
+      "Adaptation",
+      "Mitigation",
+      "Disaster Risk Reduction",
+      "Policy Advocacy",
+      "Research"
+    ],
+    "logoUrl": "https://i.ibb.co/TtGPPvq/yae-logo.png",
+    "pictures": ["https://i.ibb.co/VCsX23j/yae.jpg"],
+    "slug": "youth-alliance-nepal"
+  },
+  {
+    "id": 17,
+    "name": "Gham Power Nepal",
+    "description": "Gham Power Nepal Pvt. Ltd. is a solar power company based in Kathmandu, Nepal. Established in 2010, Gham Power emerged as a pioneering force in urban electrification, in the midst of 16-hour power cuts. <br> For the first few years, we installed residential projects in the cities. Later, in 2014, we ventured into rural markets and installed Nepal’s first microgrid in Khotang. In 2017, we installed the largest solar grid-tied system at Commission for the Investigation of Abuse of Authority (CIAA), Nepal. <br> Today, we have done over 4,000+ solar powered projects all over Nepal. Our mission is to relentlessly combat climate change and improve the reliability of electricity in Nepal. With over a decade of service in energy sector, we are dedicated to reducing carbon footprints of businesses, empowering rural communities and smallholder farmers through cleaner solar solutions and transformative digital tools. <br> Join Us to Empower 100k lives & Reduce 200k tonnes of Carbon Emissions in the next 3 years",
+    "address": "Chundevi Marg, Kathmandu, Nepal",
+    "contact": {
+      "email": "contact@ghampower.com",
+      "phone": "+977-1-4721486"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ghampower/",
+      "linkedin": "https://www.linkedin.com/company/gham-power/",
+      "instagram": "https://www.instagram.com/gham_power/"
+    },
+    "website": "https://ghampower.com/",
+    "tags": [
+      "Renewable Energy",
+      "Climate Resilience",
+      "Agriculture",
+      "Climate technology",
+      "Innovation"
+    ],
+    "logoUrl": "https://i.ibb.co/HD1tRDs/ghampower-logo.jpg",
+    "pictures": ["https://i.ibb.co/f1r7LCV/ghampower.jpg"],
+    "slug": "ghampower-nepal"
+  },
+  {
+    "id": 18,
+    "name": "EcoHimal Nepal",
+    "description": "EcoHimal Nepal is a national Non-Government Organization founded in 2009, with the aim of achieving Sustainable Development through Community Empowerment in rural mountain areas.  It aims to enchance livelihood of unreached and marginalized communities  through grassroots initiatives and in-depth involvement, without disturbing local ecology and social and cultural structure . “Participation - Ownership - Sustainability” is the main theme of the organization. <br> Mission : To achieve sustainable development through community empowerment without disturbing cultural and social harmony in mountain and hilly areas by improving local livelihood, ensuring management and access to natural resources by local communities and reducing vulnerabilities of mountain communities to environmental disasters. <br> Vision : A prosperous, empowered and self-sustained Nepali society free of poverty, injustice and social discrimination. <br> Goal : To improve the living standard of rural people with special emphasis on women, children and socially marginalized communities through integrated sustainable development initiatives.",
+    "address": "Kathmandu, Nepal",
+    "contact": {
+      "email": "office@ecohimal.org.np",
+      "phone": "+977-01-4720115"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ecohimalnepal",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "https://www.ecohimal.org.np/",
+    "tags": ["Climate Change", "Adaptation", "Mitigation", "Forest"],
+    "logoUrl": "https://i.ibb.co/G066Rxb/eco-Himal-logo.jpg",
+    "pictures": ["https://i.ibb.co/kBbVrJ9/ecohimal.jpg"],
+    "slug": "ecohimal-nepal"
+  },
+  {
+    "id": 19,
+    "name": "NAXA",
+    "description": "NAXA is a Geo-ICT technology consulting that strives for innovation in geospatial technologies to provide solutions to contemporary problems of humanity. <br> The company was established in 2014 with a mission to address contemporary problems in developing countries through technological innovations, particularly in digital and spatial technology. <br> Since its establishment, it has successfully worked on more than 300 projects of varying scales with national and local governments, UN agencies, private sectors, and CSOs in and outside of Nepal. It has more than seven years of experience in developing technological solutions and delivering high-quality services that apply to disaster risk reduction, infrastructure development, health, education, and good governance. <br> Naxa's vision is to be a leading geo-intelligence provider that helps the world navigates its future. <br> NAXA Pvt. Ltd. is an outcome of the willpower to introduce location data as the foundational data for any developmental activity. <br> The story: The company was founded in 2014 by Geomatics Engineers specialized in GIS mapping and geo-database management and visualization and envision taking the digital mapping sector in Nepal to a higher level. <br> In the fall of 2014, three youths from Geomatics Engineering Faculty from Kathmandu University, who had a deep interest in digital technologies along with their friends participated in a hackathon event titled “NASA International Space Apps Challenge”. This is NASA’s global hackathon, first held in April 2012, and serves as an innovation incubation and civic engagement program. The team developed an app “CLEAN KTM” which is a crowdsourcing platform to report and manage waste problems in Kathmandu Valley. <br> The idea won the competition. This victory became a huge source of encouragement for the team to establish their own entity in Nepal and work further on the development of technological solutions for local problems mobilizing the local youths in Nepal. NAXA has since been striving to build partnerships with agencies that promote recent technologies for better performance. Since the 2015 Nepal Earthquake, NAXA has been extensively involved in ideation, design and implementation of several technologies in disaster risk reduction initiatives.",
+    "address": "Do Cha Marg, Kathmandu, Nepal",
+    "contact": {
+      "email": "info@naxa.com.np",
+      "phone": "+977-01-4516543"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/naxa.np",
+      "linkedin": "https://www.linkedin.com/company/naxanp/",
+      "instagram": "https://www.instagram.com/naxanp/"
+    },
+    "website": "https://naxa.com.np/",
+    "tags": [
+      "GIS",
+      "Civic Tech",
+      "Disaster Risk Reduction",
+      "Open Data",
+      "Climate Technology"
+    ],
+    "logoUrl": "https://i.ibb.co/Kx1szx6/naxa-logo.png",
+    "pictures": ["https://i.ibb.co/P4Kjbjb/naxa.png"],
+    "slug": "naxa"
+  },
+  {
+    "id": 20,
+    "name": "Harin Nepal",
+    "description": "Harin Nepal is a youth-led alliance promoting Intersectional Environmental Justice in Nepal since 2018.",
+    "address": "Bodhigram , Lalitpur, Nepal",
+    "contact": {
+      "email": "harinnepal55@gmail.com",
+      "phone": "986-3622020"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/HarinNepal",
+      "linkedin": "https://www.linkedin.com/company/harinnepal/",
+      "instagram": "https://www.instagram.com/harinnepal/"
+    },
+    "website": "",
+    "tags": [
+      "Climate Justice",
+      "Intersectional Environmentalism",
+      "Policy Advocacy",
+      "Youth"
+    ],
+    "logoUrl": "https://i.ibb.co/6tc2jQ5/harin-nepal-logo.jpg",
+    "pictures": ["https://i.ibb.co/HY1vkHM/harin-nepal-profile.jpg"],
+    "slug": "harin-nepal"
+  },
+  {
+    "id": 21,
+    "name": "CliMates Nepal",
+    "description": "CliMates Nepal is a youth-led think-and-do tank focused on climate change, engaging volunteers who are both students and young professionals. The organization aims to raise awareness and promote action on climate issues through research, advocacy, and community engagement.",
+    "address": "Kathmandu, Nepal",
+    "contact": {
+      "email": "climatesnepal20@gmail.com",
+      "phone": "986-9625519"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/CliMatesNepal/",
+      "linkedin": "https://www.linkedin.com/company/climates-nepal",
+      "instagram": "https://www.instagram.com/climates_nepal/"
+    },
+    "website": "",
+    "tags": [
+      "Climate Justice",
+      "Think Tank",
+      "Capacity Building",
+      "Policy Advocacy",
+      "Youth"
+    ],
+    "logoUrl": "https://i.ibb.co/yP8StJL/climates-nepal-logo.jpg",
+    "pictures": ["https://i.ibb.co/bsVxzD1/climates-nepal-profile.jpg"],
+    "slug": "climates-nepal"
+  },
+  {
+    "id": 22,
+    "name": "We for Change",
+    "description": "We for Change is a dynamic, youth-led platform that believes that the youth possess a boundless potential to reshape the future. We believe in the raw power of young minds to aim for and create a sustainable and transformative future. <br> What sets us apart is our unwavering belief in the value of mistakes. We provide young minds a space where failure isn't a setback but a stepping stone, and help them turn failure to success. <br> Join us at We for Change—Be a part of empowering young minds to help create a welcoming, sustainable future together.",
+    "address": "Kathmandu, Nepal",
+    "contact": {
+      "email": "info@weforchange.org",
+      "phone": "+977 9744253229"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/weforchange/",
+      "linkedin": "https://www.linkedin.com/company/weforchange2012/",
+      "instagram": "https://www.instagram.com/weforchange.org_/"
+    },
+    "website": "https://www.weforchange.org/",
+    "tags": [
+      "Youth Empowerment",
+      "Community Awareness",
+      "Climate Change",
+      "SRHR",
+      "Youth"
+    ],
+    "logoUrl": "https://www.weforchange.org/_next/static/media/logo.1dd1262c.svg",
+    "pictures": ["https://i.ibb.co/RPCGSxd/we-for-change-profile.jpg"],
+    "slug": "we-for-change"
+  },
+  {
+    "id": 23,
+    "name": "Environmental Camps for Conservation Awareness (ECCA)",
+    "description": "Environmental Camps for Conservation Awareness (ECCA) is a leading organization in the sector of social mobilization and community development. Established in July 1987 as a non-profit, non-political, and non-governmental organization, ECCA is registered with the Government of Nepal, District Administration Office, Kathmandu, and is affiliated with the Social Welfare Council, Kathmandu. ECCA creates a platform for youths in various sectors and boasts a large network of local volunteers, known as counsellors. Through the implementation of various programs, ECCA aims to improve the quality of life by promoting the wise use of available local resources and the application of alternative and renewable technologies. <br> ECCA's constitution allows trained members to vote for a policy-making body, ensuring active participation in its governance. The organization pioneered the concept of children's nature clubs in Nepal in 1992 and was the first NGO to establish a paper-recycling unit, named Pap Again, in 1994 with the goal of producing recycled paper. <br> ECCA's mission is to be a professional volunteer organization dedicated to securing a sound ecological future. It aims to create a platform for youths and school children to lead positive change in environmental conservation and community development, and to support the development of conservation-related entrepreneurship.",
+    "address": "Kathmandu, Nepal",
+    "contact": {
+      "email": "info@ecca.org.np",
+      "phone": "01-5453870"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ECCA.Nepal/",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "https://www.ecca.org.np/",
+    "tags": [
+      "Youth Empowerment",
+      "Environmental Awareness",
+      "Nature Camps",
+      "Climate Change",
+      "Environment Adcocacy"
+    ],
+    "logoUrl": "https://i.ibb.co/pjb8JXY/ecca-logo.jpg",
+    "pictures": ["https://i.ibb.co/rFZ8M07/ecca-profile.jpg"],
+    "slug": "ecca"
+  },
+  {
+    "id": 24,
+    "name": "Rural Reconstruction Nepal (RRN)",
+    "description": "Rural Reconstruction Nepal (RRN) is a leading Nepali non-governmental, non-profit social development organization. With over three decades of expertise in rural development, community empowerment, biodiversity conservation, disaster risk reduction (DRR), and climate change, RRN has worked across all 77 districts of Nepal. <br> Beyond its core mandate of implementing grassroots development programs, RRN engages in robust policy research, advocacy, lobbying, and campaigning at the national, regional, and international levels. RRN has held Special Consultative Status with the Economic and Social Council (ECOSOC) of the United Nations (UN) since 1997. It is also accredited by global institutions such as the Global Environment Facility (GEF), the UN Framework Convention on Climate Change (UNFCCC), and the Green Climate Fund (GCF). <br>  Vision: A world with JUSTICE, EQUALITY, PEACE, and PROSPERITY for all citizens. <br> Mission: To improve the lives of the poorest rural people, particularly rural women, peasants, landless people, and other disadvantaged and socially oppressed strata of Nepalese society by providing them opportunities for their socio-economic empowerment.",
+    "address": "288 Gairidhara Marg, Kathmandu, Nepal",
+    "contact": {
+      "email": "surangana.rana@rrn.org.np",
+      "phone": "9864274293"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/rrn.nepal/",
+      "linkedin": "https://www.linkedin.com/company/rural-reconstruction-nepal-rrn/",
+      "instagram": "https://www.instagram.com/ruralreconstructionnepal"
+    },
+    "website": "https://rrn.org.np/",
+    "tags": [
+      "Climate Resilience",
+      "Climate Adaptation",
+      "Mitigation",
+      "Community Mobilization",
+      "Policy Advocacy"
+    ],
+    "logoUrl": "https://i.ibb.co/M5RpJF1/rnn-logo.png",
+    "pictures": ["https://i.ibb.co/fpXF6JY/rnn-profile.png"],
+    "slug": "rural-reconstruction-nepal"
+  },
+  {
+    "id": 25,
+    "name": "Vision Green Organization, Nepal",
+    "description": "Vision Green Organization Nepal (VGO) is a youth-led registered non profit, non political, non-governmental organization (NGO) registered in the Government of Nepal, which mainly focuses on youth empowerment in the environmental protection and public health sector. <br> Our organization is also registered in Bangladesh and Hungary. We are preparing local environmental leaders to decentralize the environment movements in Nepal through our students environmental leadership Program where local youth environmental leaders can learn about climate change, sustainable tourism, sustainable entrepreneurship, importance of indigenous knowledge etc. along with their personal leadership skills. We also provide technical sessions like design thinking workshops, research and content creation, design, GIS etc.",
+    "address": "Sankharapur-06, Sankhu Kathmandu",
+    "contact": {
+      "email": "visiongreennepal@gmail.com",
+      "phone": "+977-9767840950"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/visiongreennepal/",
+      "linkedin": "https://www.linkedin.com/company/vgonepal",
+      "instagram": "https://www.instagram.com/vgonepal/"
+    },
+    "website": "https://visiongreen.org/",
+    "tags": [
+      "Climate Awareness",
+      "Climate Adaptation",
+      "Youth Empowerment",
+      "Localization of Environmental Leaders"
+    ],
+    "logoUrl": "https://i.ibb.co/Bn4L0Zy/vgo-logo.png",
+    "pictures": ["https://i.ibb.co/cxNBctP/vgo-profile.jpg"],
+    "slug": "vision-green-nepal"
+  }
 ]
