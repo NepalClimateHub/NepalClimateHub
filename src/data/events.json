@@ -1,6 +1,31 @@
 [
   {
     "id": 0,
+    "name": "COP In My City 2024",
+    "description": "\"COP in My City Nepal\" is a flagship event of CliMates Nepal. This year CliMates Nepal is organizing \"COP in My City Nepal 2024\" with the support of Open Dialogue on Climate Change (ODCC). This event is designed to empower and engage the youth of Nepal through an immersive and comprehensive understanding of the United Nations Framework Convention on Climate Change (UNFCCC) Conference of the Parties (COP) mechanism. This dynamic three-day event will serve as a platform for young leaders, climate enthusiasts, and experts to come together and delve into the intricacies of international climate negotiations, policy-making processes, and climate action strategies. <br> The primary objective of \"COP in My City Nepal 2024\" is to bridge the gap between global climate policies and local realities. By simulating real-world climate negotiations, the event aims to equip participants with the skills and knowledge needed to actively participate in and influence climate policy discussions. Participants will engage in hands-on climate negotiation simulations that mirror the procedures of the actual UNFCCC COP, enabling them to experience the complexities and challenges of global climate governance. <br> In addition to the negotiation simulations, the event will feature a series of policy consultations that focus on the unique challenges and opportunities presented by Nepal's diverse landscapes and climate vulnerabilities. These consultations will bring together a diverse group of stakeholders, including government representatives, climate experts, local community leaders, and youth activists, to discuss and strategize on actionable solutions for climate change mitigation and adaptation. <br> Register: https://docs.google.com/forms/d/e/1FAIpQLSeMQIMeORm-hWqESUGOlgVjDI-LMF-bv9DA3vzhgXbE-fvRhA/viewform",
+    "address": "Chitwan, Nepal",
+    "contact": {
+      "email": "climatesnepal20@gmail.com",
+      "phone": "9869625519"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/CliMatesNepal",
+      "linkedin": "https://www.linkedin.com/company/climates-nepal",
+      "instagram": "https://www.instagram.com/climates_nepal/"
+    },
+    "website": "",
+    "tags": [
+      "Youth",
+      "Climate Conference",
+      "Capacity Building",
+      "Climate Action"
+    ],
+    "logoUrl": "https://i.ibb.co/gvCd6f4/cop-in-my-city-2024-logo.jpg",
+    "pictures": ["https://i.ibb.co/Y8gmtTd/climates-nepal-cop-in-my-city.jpg"],
+    "slug": "cop-in-my-city-2024"
+  },
+  {
+    "id": 1,
     "name": "National Conference on Climate Change and Health",
     "description": "National Conference on Climate Change and Health organized by Ministry of Health and Population and World Health Organization Country office for Nepal from 1 - 2 August 2024 at Hotel Himalaya, Lalitpur. <br> The conference will be Live in our Facebook page for both the days. <br> Nepal has initiated several measures to address the health impacts of climate change and MOHP mainly with support from the WHO, has carried out several activities to build a climate resilient and low carbon health system in the country. Nepal made heath Commitment at the Conference of the Parties (COP26) and signed the COP28 declaration on Climate and Heath. So this conference is expected to serve as a crucial platform to raise awareness, share ideas, scientific evidences and initiatives, foster collaboration, and enhance work towards a climate resilient and low carbon health system in Nepal. ",
     "address": "Lalitpur, Nepal",
@@ -22,7 +47,7 @@
     "slug": "national-conference-on-climate-change-and-health"
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Local Conference of Youth (LCOY) 2024",
     "description": "LCOY is an event initiated by YOUNGO, with an aim to empower youth through networking and knowledge sharing.🌐 LCOY serves as a significant platform for young people to engage with the UNFCCC process and meaningfully contribute to climate discussions.🌍💭 <br> LCOY Nepal 2024 is an annual gathering of Nepalese youth, who are passionate about climate change and environmental topics.🇳🇵 LCOY Nepal 2024 desires to connect the annual climate negotiations to local climate action and turn words into actions, especially youth actions‼️ <br>   Themes of LCOY 2024   <br>   Building Capacity, Connecting Communities   - Strengthening skills and networks to drive collective action for a healthier, more resilient future. <br>   Children & Youth Engagement in Nationally Determined Contributions   - Amplifying youth voices and actions to drive ambitious climate commitments at the national level. <br>   Addressing Climate Loss & Damage   - Taking action to mitigate and adapt to the impacts of climate change on vulnerable communities. <br>   Indigenous Wisdom, Climate Resilience   - Harnessing traditional knowledge for sustainable solutions to climate challenges.",
     "address": "Kathmandu, Nepal",
@@ -47,7 +72,7 @@
     "slug": "lcoy-nepal-2024"
   },
   {
-    "id": 2,
+    "id": 3,
     "name": "9th National Youth Conference on Climate Change (NYCCC)",
     "description": "The National Youth Conference on Climate Change (NYCCC) is the flagship event organized by Nepalese Youth for Climate Action (NYCA) to amplify the voices of young people across Nepal in the fight against climate change. <br> The 9th NYCCC will be held in Kathmandu from July 26-28, 2024, and is open to passionate young individuals aged 18-29 from all regions of Nepal. <br> This conference will feature interactive sessions with experts, workshops on climate solutions and policies, and opportunities for networking and cultural exchange, culminating in the creation of a youth declaration paper. <br> Don't miss this chance to be a part of an unforgettable Youth festival with the theme “Empowering Youth for Climate Justice: Advocacy, Action, and Transformation.”",
     "address": "Kathmandu, Nepal",
@@ -71,31 +96,7 @@
     "pictures": ["https://i.ibb.co/N71bPJz/nyca-conference-2024-profile.jpg"],
     "slug": "nyccc-2024"
   },
-  {
-    "id": 3,
-    "name": "COP In My City 2024",
-    "description": "Have you ever wondered what COP looks like up close?  If you have, get ready to dive into an unforgettable journey right here with CliMates Nepal! <br> Join us for a COP IN MY CITY that will bring the excitement, innovation, and collaboration of the real COP to your doorstep. This event is your gateway to making a difference. So, Don't miss the chance to see what COP looks like, feel the energy and prepare! <br> CliMates Nepal is a youth led think-and-do tank on climate change gathering together volunteers, both students and young professionals.",
-    "address": "TBD",
-    "contact": {
-      "email": "climatesnepal20@gmail.com",
-      "phone": "9869625519"
-    },
-    "socials": {
-      "facebook": "https://www.facebook.com/CliMatesNepal",
-      "linkedin": "https://www.linkedin.com/company/climates-nepal",
-      "instagram": "https://www.instagram.com/climates_nepal/"
-    },
-    "website": "",
-    "tags": [
-      "Youth",
-      "Climate Conference",
-      "Capacity Building",
-      "Climate Action"
-    ],
-    "logoUrl": "https://i.ibb.co/gvCd6f4/cop-in-my-city-2024-logo.jpg",
-    "pictures": ["https://i.ibb.co/GPyyRNB/cop-in-my-city-2024-profile.jpg"],
-    "slug": "cop-in-my-city-2024"
-  },
+
   {
     "id": 4,
     "name": "FIG Regional Conference 2024",
