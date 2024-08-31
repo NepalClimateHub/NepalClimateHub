@@ -1,363 +1,411 @@
 [
-	{
-		"id": 0,
-		"headline": "Global warming turns up the heat on Nepal’s climate diplomacy",
-		"newsSrc": "https://www.himalmag.com/politics/global-warming-nepal-climate-crisis-diplomacy-adaptation-international-support-himalaya",
-		"imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
-		"linkText": "www.himalmag.com",
-		"date": "Jun 07, 2024"
-	},
-	{
-		"id": 1,
-		"headline": "Failure is Not an Option for Nepal",
-		"newsSrc": "https://myrepublica.nagariknetwork.com/news/failure-is-not-an-option-for-nepal/",
-		"imgSrc": "https://i.ibb.co/crfhjVh/01.jpg",
-		"linkText": "myrepublica.nagariknetwork.com",
-		"date": "Jun 10, 2024"
-	},
-	{
-		"id": 2,
-		"headline": "Nepal's Water Resources In The Face Of Climate Change",
-		"newsSrc": "https://www.actioncontrelafaim.org/en/headline/nepals-water-resources-in-the-face-of-climate-change/",
-		"imgSrc": "https://i.ibb.co/1n5yrF2/02.jpg",
-		"linkText": "www.actioncontrelafaim.org",
-		"date": "Mar 21, 2024"
-	},
-	{
-		"id": 3,
-		"headline": "Mountain villages bearing direct brunt of climate change",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/04/22/mountain-villages-bearing-direct-brunt-of-climate-change",
-		"imgSrc": "https://i.ibb.co/BgDSQW9/03.jpg",
-		"linkText": "www.kathmandupost.com",
-		"date": "Apr 22, 2024"
-	},
+  {
+    "id": 0,
+    "headline": "Global warming turns up the heat on Nepal’s climate diplomacy",
+    "newsSrc": "https://www.himalmag.com/politics/global-warming-nepal-climate-crisis-diplomacy-adaptation-international-support-himalaya",
+    "imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
+    "linkText": "www.himalmag.com",
+    "date": "Jun 07, 2024"
+  },
+  {
+    "id": 1,
+    "headline": "Failure is Not an Option for Nepal",
+    "newsSrc": "https://myrepublica.nagariknetwork.com/news/failure-is-not-an-option-for-nepal/",
+    "imgSrc": "https://i.ibb.co/crfhjVh/01.jpg",
+    "linkText": "myrepublica.nagariknetwork.com",
+    "date": "Jun 10, 2024"
+  },
+  {
+    "id": 2,
+    "headline": "Nepal's Water Resources In The Face Of Climate Change",
+    "newsSrc": "https://www.actioncontrelafaim.org/en/headline/nepals-water-resources-in-the-face-of-climate-change/",
+    "imgSrc": "https://i.ibb.co/1n5yrF2/02.jpg",
+    "linkText": "www.actioncontrelafaim.org",
+    "date": "Mar 21, 2024"
+  },
+  {
+    "id": 3,
+    "headline": "Mountain villages bearing direct brunt of climate change",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/04/22/mountain-villages-bearing-direct-brunt-of-climate-change",
+    "imgSrc": "https://i.ibb.co/BgDSQW9/03.jpg",
+    "linkText": "www.kathmandupost.com",
+    "date": "Apr 22, 2024"
+  },
 
-	{
-		"id": 4,
-		"headline": "Nepal's mountains are crying out for help and COP28 must respond, says UN chief Guterres",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2023/12/03/nepal-s-mountains-are-crying-out-for-help-and-cop28-must-respond-says-un-chief-guterres",
-		"imgSrc": "https://i.ibb.co/0Cw3NhW/04.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Dec 03, 2023"
-	},
-	{
-		"id": 5,
-		"headline": "Nepal to host first-ever international dialogue on mountains and climate change",
-		"newsSrc": "https://english.ratopati.com/story/32343",
-		"imgSrc": "https://i.ibb.co/WPCnMtY/05.jpg",
-		"linkText": "english.ratopati.com",
-		"date": "Apr 15, 2024"
-	},
-	{
-		"id": 6,
-		"headline": "Climate Action – NOW!",
-		"newsSrc": "https://www.undp.org/nepal/blog/climate-action-now",
-		"imgSrc": "https://i.ibb.co/TgH16rN/06.jpg",
-		"linkText": "www.undp.org",
-		"date": "Jun 20, 2024"
-	},
-	{
-		"id": 7,
-		"headline": "UN chief puts a spotlight on Nepal’s climate crisis",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2023/11/05/un-chief-puts-a-spotlight-on-nepal-s-climate-crisis",
-		"imgSrc": "https://i.ibb.co/GQ4cHPN/07.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Nov 5, 2023"
-	},
-	{
-		"id": 8,
-		"headline": "As temperatures start rising, so does the risk of snakebite incidents",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/02/26/as-temperatures-start-rising-so-does-the-risk-of-snakebite-incidents",
-		"imgSrc": "https://i.ibb.co/wCn4HMC/08.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Feb 26, 2024"
-	},
-	{
-		"id": 9,
-		"headline": "Climate change hits mountain people on multiple fronts",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/06/05/climate-change-hits-mountain-people-on-multiple-fronts",
-		"imgSrc": "https://i.ibb.co/4WRR541/09.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Jun 05, 2024"
-	},
-	{
-		"id": 10,
-		"headline": "Extreme heat disrupts life in West Tarai",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/06/01/extreme-heat-disrupts-life-in-west-terai",
-		"imgSrc": "https://i.ibb.co/1Ks3dZL/10.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Jun 1, 2024"
-	},
-	{
-		"id": 11,
-		"headline": "Yearender 2023: Changing climate raises alarm in Nepal",
-		"newsSrc": "https://kathmandupost.com/special-supplement/2023/12/31/yearender-2023-changing-climate-raises-alarm-in-nepal",
-		"imgSrc": "https://i.ibb.co/W0yXqT6/11.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Dec 31, 2023"
-	},
-	{
-		"id": 12,
-		"headline": "Why Floods Beyond Our Imagination Hit Nepalese Himalayan Town",
-		"newsSrc": "https://www.globalissues.org/news/2023/09/26/34864",
-		"imgSrc": "https://i.ibb.co/jZYvcCd/12.jpg",
-		"linkText": "www.globalissues.org",
-		"date": "Sep 26, 2023"
-	},
-	{
-		"id": 13,
-		"headline": "Climate change spells cultural extinction for Nepal’s nomadic herders",
-		"newsSrc": "https://www.independent.co.uk/climate-change/nepal-cashmere-nomad-herd-climate-change-b2418692.html",
-		"imgSrc": "https://i.ibb.co/fC5Fg0k/13.jpg",
-		"linkText": "www.independent.co.uk",
-		"date": "Oct 02, 2023"
-	},
-	{
-		"id": 14,
-		"headline": "Nepal's migrant workers eye overseas jobs as climate threats loom",
-		"newsSrc": "https://dialogue.earth/en/climate/nepals-migrant-workers-eye-overseas-jobs-as-climate-threats-loom/",
-		"imgSrc": "https://i.ibb.co/QCs7gp3/14.jpg",
-		"linkText": "dialogue.earth",
-		"date": "Feb 27, 2024"
-	},
-	{
-		"id": 15,
-		"headline": "Is Nepal doing enough to educate children on climate change?",
-		"newsSrc": "https://dialogue.earth/en/climate/is-nepal-doing-enough-to-educate-children-on-climate-change/",
-		"imgSrc": "https://i.ibb.co/9tnQ7kW/15.jpg",
-		"linkText": "dialogue.earth",
-		"date": "Jun 7, 2023"
-	},
-	{
-		"id": 16,
-		"headline": "Indigenous women discuss their contribution to climate action in Nepal",
-		"newsSrc": "https://asiapacific.unwomen.org/en/stories/feature-story/2024/03/indigenous-women-discuss-their-contribution-to-climate-action-in-nepal",
-		"imgSrc": "https://i.ibb.co/xDTvkNf/16.jpg",
-		"linkText": "asiapacific.unwomen.org",
-		"date": "Mar 06, 2024"
-	},
-	{
-		"id": 17,
-		"headline": "Glacial Melt Is Dispossessing Nepal’s Indigenous Communities",
-		"newsSrc": "https://earthjournalism.net/stories/glacial-melt-is-dispossessing-nepals-indigenous-communities",
-		"imgSrc": "https://i.ibb.co/Dz6XyL6/17.jpg",
-		"linkText": "earthjournalism.net",
-		"date": "Aug 12, 2023"
-	},
-	{
-		"id": 18,
-		"headline": "Wildfires are raging in Nepal — climate change isn’t the only culprit",
-		"newsSrc": "https://www.nature.com/articles/d41586-024-01758-2#:~:text=This%20year%20alone%2C%20Nepal%20has,in%20the%20past%2012%20months.",
-		"imgSrc": "https://i.ibb.co/2txtQzZ/18.jpg",
-		"linkText": "www.nature.com",
-		"date": "Jun 14, 2024"
-	},
-	{
-		"id": 19,
-		"headline": "Nepal and Climate Diplomacy",
-		"newsSrc": "https://myrepublica.nagariknetwork.com/news/nepal-and-climate-diplomacy/",
-		"imgSrc": "https://i.ibb.co/7vCN7vs/19.jpg",
-		"linkText": "myrepublica.nagariknetwork.com",
-		"date": "Mar 1, 2024"
-	},
-	{
-		"id": 20,
-		"headline": "Nepal's pavilion for the first time at the COP 28",
-		"newsSrc": "https://www.undp.org/nepal/news/nepals-pavilion-first-time-cop-28",
-		"imgSrc": "https://i.ibb.co/xjhV3Hd/20.jpg",
-		"linkText": "www.undp.org",
-		"date": "Nov 9, 2023"
-	},
-	{
-		"id": 21,
-		"headline": "COP 28: Nepal’s proactive approach to secure compensation on the world stage",
-		"newsSrc": "https://english.onlinekhabar.com/cop-28-nepal-plan.html",
-		"imgSrc": "https://i.ibb.co/sbTCJM1/21.jpg",
-		"linkText": "english.onlinekhabar.com",
-		"date": "Nov 30, 2023"
-	},
-	{
-		"id": 22,
-		"headline": "Met office forecasts heavy rainfall in some places until Saturday",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/07/11/met-office-forecasts-heavy-rainfall-in-some-places-until-saturday",
-		"imgSrc": "https://i.ibb.co/7k6yY18/22.png",
-		"linkText": "thekathmandupost.com",
-		"date": "Jul 14, 2024"
-	},
-	{
-		"id": 23,
-		"headline": "Floods and landslides kill 15 people in two days. Three missing, 21 injured",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/07/08/floods-and-landslides-kill-15-people-in-two-days-three-missing-21-injured",
-		"imgSrc": "https://i.ibb.co/xCg9yDZ/24.jpg",
-		"linkText": "thekathmandupost.com",
-		"date": "Jul 8, 2024"
-	},
-	{
-		"id": 24,
-		"headline": "Sticky future: Climate change hits Nepal's honey hunters",
-		"newsSrc": "https://timesofindia.indiatimes.com/home/environment/sticky-future-climate-change-hits-nepals-honey-hunters/articleshow/111632409.cms",
-		"imgSrc": "https://i.ibb.co/HTFJQGN/25.jpg",
-		"linkText": "timesofindia.indiatimes.com",
-		"date": "Jul 10, 2024"
-	},
-	{
-		"id": 25,
-		"headline": "Warming climate threatens to worsen air quality in already polluted Kathmandu",
-		"newsSrc": "https://news.mongabay.com/2024/04/warming-climate-threatens-to-worsen-air-quality-in-already-polluted-kathmandu/",
-		"imgSrc": "https://i.ibb.co/Fnj7fST/26.jpg",
-		"linkText": "news.mongabay.com",
-		"date": "Apr 29, 2024"
-	},
-	{
-		"id": 26,
-		"headline": "At least 60 missing in Nepal after landslides sweeps buses into swollen river",
-		"newsSrc": "https://www.independent.co.uk/climate-change/news/nepal-landslide-bus-passengers-missing-trishuli-river-b2578560.html",
-		"imgSrc": "https://i.ibb.co/XtPrzz5/27.jpg",
-		"linkText": "www.independent.co.uk",
-		"date": "Jul 12, 2024"
-	},
-	{
-		"id": 27,
-		"headline": "The drought that forced a Himalayan village in Nepal to relocate",
-		"newsSrc": "https://www.bbc.com/future/article/20240522-the-drought-that-forced-a-himalayan-village-in-nepal-to-relocate",
-		"imgSrc": "https://i.ibb.co/DYYWxpQ/28.jpg",
-		"linkText": "www.bbc.com",
-		"date": "May 24, 2024"
-	},
-	{
-		"id": 28,
-		"headline": "FinMin Pun addresses V-20 meeting: ‘Nepal plays a minimal role in climate change, so it should get compensation’",
-		"newsSrc": "https://myrepublica.nagariknetwork.com/news/finmin-pun-addresses-v-20-meeting-nepal-plays-a-minimal-role-in-climate-change-so-it-should-get-compensation/",
-		"imgSrc": "https://i.ibb.co/VNT18w1/29.jpg",
-		"linkText": "myrepublica.nagariknetwork.com",
-		"date": "Apr 18, 2024"
-	},
-	{
-		"id": 29,
-		"headline": "Nepal suffers another winter drought",
-		"newsSrc": "https://nepalitimes.com/news/nepal-suffers-another-winter-drought",
-		"imgSrc": "https://i.ibb.co/RQsKLKS/30.jpg",
-		"linkText": "nepalitimes.com",
-		"date": "Jan 17, 2024"
-	},
-	{
-		"id": 30,
-		"headline": "Joining Forces to Build a Climate Smart, Green and Resilient Education System in Nepal",
-		"newsSrc": "https://www.unesco.org/en/articles/joining-forces-build-climate-smart-green-and-resilient-education-system-nepal",
-		"imgSrc": "https://i.ibb.co/PCNrwLw/31.jpg",
-		"linkText": "www.unesco.org",
-		"date": "Nov 24, 2023"
-	},
-	{
-		"id": 31,
-		"headline": "Indigenous Gurung farmers revive climate-resilient millet in Nepal",
-		"newsSrc": "https://news.mongabay.com/2024/01/indigenous-gurung-farmers-revive-climate-resilient-millet-in-nepal/",
-		"imgSrc": "https://i.ibb.co/3sVfXPV/32.jpg",
-		"linkText": "news.mongabay.com",
-		"date": "Jan 1, 2024"
-	},
-	{
-		"id": 32,
-		"headline": "Climate change, human rights, and Nepal’s unique challenges",
-		"newsSrc": "https://english.onlinekhabar.com/climate-change-human-rights-nepal.html",
-		"imgSrc": "https://i.ibb.co/CMhD454/33.jpg",
-		"linkText": "english.onlinekhabar.com",
-		"date": "Jan 20, 2024"
-	},
-	{
-		"id": 33,
-		"headline": "Nepal’s climate-gender nexus",
-		"newsSrc": "https://asianews.network/nepals-climate-gender-nexus/",
-		"imgSrc": "https://i.ibb.co/WySLT2z/34.jpg",
-		"linkText": "asianews.network",
-		"date": "Dec 18, 2023"
-	},
-	{
-		"id": 34,
-		"headline": "Role of women in disaster risk reduction (DRR) and climate change in Nepal",
-		"newsSrc": "https://www.preventionweb.net/news/role-women-disaster-risk-reduction-drr-and-climate-change-nepal",
-		"imgSrc": "https://i.ibb.co/Qp8yv7r/35.jpg",
-		"linkText": "www.preventionweb.net",
-		"date": "Mar 8, 2022"
-	},
-	{
-		"id": 35,
-		"headline": "Nepal PM Prachanda calls for 'unified mountain voice' to address effects of climate change",
-		"newsSrc": "https://economictimes.indiatimes.com/news/international/world-news/nepal-pm-prachanda-calls-for-unified-mountain-voice-to-address-effects-of-climate-change/articleshow/110339653.cms?from=mdr",
-		"imgSrc": "https://i.ibb.co/FYjNX6J/36.jpg",
-		"linkText": "economictimes.indiatimes.com",
-		"date": "May 22, 2024"
-	},
-	{
-		"id": 36,
-		"headline": "Nepal pursues a locally led adaptation approach to implement climate plan",
-		"newsSrc": "https://www.undp.org/nepal/news/nepal-pursues-locally-led-adaptation-approach-implement-climate-plan",
-		"imgSrc": "https://i.ibb.co/PrpbCW7/37.png",
-		"linkText": "www.undp.org",
-		"date": "Apr 24, 2023"
-	},
-	{
-		"id": 37,
-		"headline": "Lawmakers for using traditional and indigenous knowledge to find solutions to climate change",
-		"newsSrc": "https://www.undp.org/nepal/news/lawmakers-using-traditional-and-indigenous-knowledge-find-solutions-climate-change",
-		"imgSrc": "https://i.ibb.co/rmNrxD0/38.png",
-		"linkText": "www.undp.org",
-		"date": "Aug 19, 2023"
-	},
-	{
-		"id": 38,
-		"headline": "Lights, camera, climate action!",
-		"newsSrc": "https://www.undp.org/nepal/news/lights-camera-climate-action",
-		"imgSrc": "https://i.ibb.co/RhSVdyS/39.jpg",
-		"linkText": "www.undp.org",
-		"date": "Feb 9, 2023"
-	},
-	{
-		"id": 39,
-		"headline": "Nepal deserves rights not supplication at COP28: PM Dahal",
-		"newsSrc": "https://myrepublica.nagariknetwork.com/news/nepal-deserves-rights-not-supplication-at-cop28-pm-dahal/",
-		"imgSrc": "https://i.ibb.co/2Nsw8ny/40.jpg",
-		"linkText": "myrepublica.nagariknetwork.com",
-		"date": "Nov 18, 2023"
-	},
-	{
-		"id": 40,
-		"headline": "Climate change is making climbing in the Himalayas more challenging, experts say",
-		"newsSrc": "https://abcnews.go.com/International/climate-change-making-climbing-himalayas-challenging-experts/story?id=103463876",
-		"imgSrc": "https://i.ibb.co/m8ktVsx/41.jpg",
-		"linkText": "abcnews.go.com",
-		"date": "Sep 26, 2023"
-	},
-	{
-		"id": 41,
-		"headline": "Nepal Farmers Face Another Year of Agricultural Drought, Threatening Food Security",
-		"newsSrc": "https://www.globalissues.org/news/2024/02/13/35974",
-		"imgSrc": "https://i.ibb.co/HHTLwzf/42.jpg",
-		"linkText": "www.globalissues.org",
-		"date": "Feb 13, 2024"
-	},
-	{
-		"id": 42,
-		"headline": "Nepal shelves plan to relocate Everest base camp even as threats rise due to climate change",
-		"newsSrc": "https://www.wionews.com/south-asia/nepal-shelves-plan-to-relocate-everest-base-camp-even-as-threats-rise-due-to-climate-change-597834",
-		"imgSrc": "https://i.ibb.co/w7pPt2c/43.jpg",
-		"linkText": "www.wionews.com",
-		"date": "May 29, 2023"
-	},
-	{
-		"id": 43,
-		"headline": "Above-average rainfall recorded in first four weeks of monsoon",
-		"newsSrc": "https://kathmandupost.com/climate-environment/2024/07/17/above-average-rainfall-recorded-in-first-four-weeks-of-monsoon",
-		"imgSrc": "https://i.ibb.co/2dGkhJB/44.jpg",
-		"linkText": "kathmandupost.com",
-		"date": "Jul 17, 2024"
-	},
-	{
-		"id": 44,
-		"headline": "Investing in a greener tomorrow: The benefits of climate and green finance for Nepal",
-		"newsSrc": "https://thehimalayantimes.com/opinion/investing-in-a-greener-tomorrow-the-benefits-of-climate-and-green-finance-for-nepal",
-		"imgSrc": "https://i.ibb.co/PZs5R38/45.jpg",
-		"linkText": "thehimalayantimes.com",
-		"date": "Jul 22, 2024"
-	}
+  {
+    "id": 4,
+    "headline": "Nepal's mountains are crying out for help and COP28 must respond, says UN chief Guterres",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2023/12/03/nepal-s-mountains-are-crying-out-for-help-and-cop28-must-respond-says-un-chief-guterres",
+    "imgSrc": "https://i.ibb.co/0Cw3NhW/04.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Dec 03, 2023"
+  },
+  {
+    "id": 5,
+    "headline": "Nepal to host first-ever international dialogue on mountains and climate change",
+    "newsSrc": "https://english.ratopati.com/story/32343",
+    "imgSrc": "https://i.ibb.co/WPCnMtY/05.jpg",
+    "linkText": "english.ratopati.com",
+    "date": "Apr 15, 2024"
+  },
+  {
+    "id": 6,
+    "headline": "Climate Action – NOW!",
+    "newsSrc": "https://www.undp.org/nepal/blog/climate-action-now",
+    "imgSrc": "https://i.ibb.co/TgH16rN/06.jpg",
+    "linkText": "www.undp.org",
+    "date": "Jun 20, 2024"
+  },
+  {
+    "id": 7,
+    "headline": "UN chief puts a spotlight on Nepal’s climate crisis",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2023/11/05/un-chief-puts-a-spotlight-on-nepal-s-climate-crisis",
+    "imgSrc": "https://i.ibb.co/GQ4cHPN/07.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Nov 5, 2023"
+  },
+  {
+    "id": 8,
+    "headline": "As temperatures start rising, so does the risk of snakebite incidents",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/02/26/as-temperatures-start-rising-so-does-the-risk-of-snakebite-incidents",
+    "imgSrc": "https://i.ibb.co/wCn4HMC/08.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Feb 26, 2024"
+  },
+  {
+    "id": 9,
+    "headline": "Climate change hits mountain people on multiple fronts",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/06/05/climate-change-hits-mountain-people-on-multiple-fronts",
+    "imgSrc": "https://i.ibb.co/4WRR541/09.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Jun 05, 2024"
+  },
+  {
+    "id": 10,
+    "headline": "Extreme heat disrupts life in West Tarai",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/06/01/extreme-heat-disrupts-life-in-west-terai",
+    "imgSrc": "https://i.ibb.co/1Ks3dZL/10.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Jun 1, 2024"
+  },
+  {
+    "id": 11,
+    "headline": "Yearender 2023: Changing climate raises alarm in Nepal",
+    "newsSrc": "https://kathmandupost.com/special-supplement/2023/12/31/yearender-2023-changing-climate-raises-alarm-in-nepal",
+    "imgSrc": "https://i.ibb.co/W0yXqT6/11.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Dec 31, 2023"
+  },
+  {
+    "id": 12,
+    "headline": "Why Floods Beyond Our Imagination Hit Nepalese Himalayan Town",
+    "newsSrc": "https://www.globalissues.org/news/2023/09/26/34864",
+    "imgSrc": "https://i.ibb.co/jZYvcCd/12.jpg",
+    "linkText": "www.globalissues.org",
+    "date": "Sep 26, 2023"
+  },
+  {
+    "id": 13,
+    "headline": "Climate change spells cultural extinction for Nepal’s nomadic herders",
+    "newsSrc": "https://www.independent.co.uk/climate-change/nepal-cashmere-nomad-herd-climate-change-b2418692.html",
+    "imgSrc": "https://i.ibb.co/fC5Fg0k/13.jpg",
+    "linkText": "www.independent.co.uk",
+    "date": "Oct 02, 2023"
+  },
+  {
+    "id": 14,
+    "headline": "Nepal's migrant workers eye overseas jobs as climate threats loom",
+    "newsSrc": "https://dialogue.earth/en/climate/nepals-migrant-workers-eye-overseas-jobs-as-climate-threats-loom/",
+    "imgSrc": "https://i.ibb.co/QCs7gp3/14.jpg",
+    "linkText": "dialogue.earth",
+    "date": "Feb 27, 2024"
+  },
+  {
+    "id": 15,
+    "headline": "Is Nepal doing enough to educate children on climate change?",
+    "newsSrc": "https://dialogue.earth/en/climate/is-nepal-doing-enough-to-educate-children-on-climate-change/",
+    "imgSrc": "https://i.ibb.co/9tnQ7kW/15.jpg",
+    "linkText": "dialogue.earth",
+    "date": "Jun 7, 2023"
+  },
+  {
+    "id": 16,
+    "headline": "Indigenous women discuss their contribution to climate action in Nepal",
+    "newsSrc": "https://asiapacific.unwomen.org/en/stories/feature-story/2024/03/indigenous-women-discuss-their-contribution-to-climate-action-in-nepal",
+    "imgSrc": "https://i.ibb.co/xDTvkNf/16.jpg",
+    "linkText": "asiapacific.unwomen.org",
+    "date": "Mar 06, 2024"
+  },
+  {
+    "id": 17,
+    "headline": "Glacial Melt Is Dispossessing Nepal’s Indigenous Communities",
+    "newsSrc": "https://earthjournalism.net/stories/glacial-melt-is-dispossessing-nepals-indigenous-communities",
+    "imgSrc": "https://i.ibb.co/Dz6XyL6/17.jpg",
+    "linkText": "earthjournalism.net",
+    "date": "Aug 12, 2023"
+  },
+  {
+    "id": 18,
+    "headline": "Wildfires are raging in Nepal — climate change isn’t the only culprit",
+    "newsSrc": "https://www.nature.com/articles/d41586-024-01758-2#:~:text=This%20year%20alone%2C%20Nepal%20has,in%20the%20past%2012%20months.",
+    "imgSrc": "https://i.ibb.co/2txtQzZ/18.jpg",
+    "linkText": "www.nature.com",
+    "date": "Jun 14, 2024"
+  },
+  {
+    "id": 19,
+    "headline": "Nepal and Climate Diplomacy",
+    "newsSrc": "https://myrepublica.nagariknetwork.com/news/nepal-and-climate-diplomacy/",
+    "imgSrc": "https://i.ibb.co/7vCN7vs/19.jpg",
+    "linkText": "myrepublica.nagariknetwork.com",
+    "date": "Mar 1, 2024"
+  },
+  {
+    "id": 20,
+    "headline": "Nepal's pavilion for the first time at the COP 28",
+    "newsSrc": "https://www.undp.org/nepal/news/nepals-pavilion-first-time-cop-28",
+    "imgSrc": "https://i.ibb.co/xjhV3Hd/20.jpg",
+    "linkText": "www.undp.org",
+    "date": "Nov 9, 2023"
+  },
+  {
+    "id": 21,
+    "headline": "COP 28: Nepal’s proactive approach to secure compensation on the world stage",
+    "newsSrc": "https://english.onlinekhabar.com/cop-28-nepal-plan.html",
+    "imgSrc": "https://i.ibb.co/sbTCJM1/21.jpg",
+    "linkText": "english.onlinekhabar.com",
+    "date": "Nov 30, 2023"
+  },
+  {
+    "id": 22,
+    "headline": "Met office forecasts heavy rainfall in some places until Saturday",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/07/11/met-office-forecasts-heavy-rainfall-in-some-places-until-saturday",
+    "imgSrc": "https://i.ibb.co/7k6yY18/22.png",
+    "linkText": "thekathmandupost.com",
+    "date": "Jul 14, 2024"
+  },
+  {
+    "id": 23,
+    "headline": "Floods and landslides kill 15 people in two days. Three missing, 21 injured",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/07/08/floods-and-landslides-kill-15-people-in-two-days-three-missing-21-injured",
+    "imgSrc": "https://i.ibb.co/xCg9yDZ/24.jpg",
+    "linkText": "thekathmandupost.com",
+    "date": "Jul 8, 2024"
+  },
+  {
+    "id": 24,
+    "headline": "Sticky future: Climate change hits Nepal's honey hunters",
+    "newsSrc": "https://timesofindia.indiatimes.com/home/environment/sticky-future-climate-change-hits-nepals-honey-hunters/articleshow/111632409.cms",
+    "imgSrc": "https://i.ibb.co/HTFJQGN/25.jpg",
+    "linkText": "timesofindia.indiatimes.com",
+    "date": "Jul 10, 2024"
+  },
+  {
+    "id": 25,
+    "headline": "Warming climate threatens to worsen air quality in already polluted Kathmandu",
+    "newsSrc": "https://news.mongabay.com/2024/04/warming-climate-threatens-to-worsen-air-quality-in-already-polluted-kathmandu/",
+    "imgSrc": "https://i.ibb.co/Fnj7fST/26.jpg",
+    "linkText": "news.mongabay.com",
+    "date": "Apr 29, 2024"
+  },
+  {
+    "id": 26,
+    "headline": "At least 60 missing in Nepal after landslides sweeps buses into swollen river",
+    "newsSrc": "https://www.independent.co.uk/climate-change/news/nepal-landslide-bus-passengers-missing-trishuli-river-b2578560.html",
+    "imgSrc": "https://i.ibb.co/XtPrzz5/27.jpg",
+    "linkText": "www.independent.co.uk",
+    "date": "Jul 12, 2024"
+  },
+  {
+    "id": 27,
+    "headline": "The drought that forced a Himalayan village in Nepal to relocate",
+    "newsSrc": "https://www.bbc.com/future/article/20240522-the-drought-that-forced-a-himalayan-village-in-nepal-to-relocate",
+    "imgSrc": "https://i.ibb.co/DYYWxpQ/28.jpg",
+    "linkText": "www.bbc.com",
+    "date": "May 24, 2024"
+  },
+  {
+    "id": 28,
+    "headline": "FinMin Pun addresses V-20 meeting: ‘Nepal plays a minimal role in climate change, so it should get compensation’",
+    "newsSrc": "https://myrepublica.nagariknetwork.com/news/finmin-pun-addresses-v-20-meeting-nepal-plays-a-minimal-role-in-climate-change-so-it-should-get-compensation/",
+    "imgSrc": "https://i.ibb.co/VNT18w1/29.jpg",
+    "linkText": "myrepublica.nagariknetwork.com",
+    "date": "Apr 18, 2024"
+  },
+  {
+    "id": 29,
+    "headline": "Nepal suffers another winter drought",
+    "newsSrc": "https://nepalitimes.com/news/nepal-suffers-another-winter-drought",
+    "imgSrc": "https://i.ibb.co/RQsKLKS/30.jpg",
+    "linkText": "nepalitimes.com",
+    "date": "Jan 17, 2024"
+  },
+  {
+    "id": 30,
+    "headline": "Joining Forces to Build a Climate Smart, Green and Resilient Education System in Nepal",
+    "newsSrc": "https://www.unesco.org/en/articles/joining-forces-build-climate-smart-green-and-resilient-education-system-nepal",
+    "imgSrc": "https://i.ibb.co/PCNrwLw/31.jpg",
+    "linkText": "www.unesco.org",
+    "date": "Nov 24, 2023"
+  },
+  {
+    "id": 31,
+    "headline": "Indigenous Gurung farmers revive climate-resilient millet in Nepal",
+    "newsSrc": "https://news.mongabay.com/2024/01/indigenous-gurung-farmers-revive-climate-resilient-millet-in-nepal/",
+    "imgSrc": "https://i.ibb.co/3sVfXPV/32.jpg",
+    "linkText": "news.mongabay.com",
+    "date": "Jan 1, 2024"
+  },
+  {
+    "id": 32,
+    "headline": "Climate change, human rights, and Nepal’s unique challenges",
+    "newsSrc": "https://english.onlinekhabar.com/climate-change-human-rights-nepal.html",
+    "imgSrc": "https://i.ibb.co/CMhD454/33.jpg",
+    "linkText": "english.onlinekhabar.com",
+    "date": "Jan 20, 2024"
+  },
+  {
+    "id": 33,
+    "headline": "Nepal’s climate-gender nexus",
+    "newsSrc": "https://asianews.network/nepals-climate-gender-nexus/",
+    "imgSrc": "https://i.ibb.co/WySLT2z/34.jpg",
+    "linkText": "asianews.network",
+    "date": "Dec 18, 2023"
+  },
+  {
+    "id": 34,
+    "headline": "Role of women in disaster risk reduction (DRR) and climate change in Nepal",
+    "newsSrc": "https://www.preventionweb.net/news/role-women-disaster-risk-reduction-drr-and-climate-change-nepal",
+    "imgSrc": "https://i.ibb.co/Qp8yv7r/35.jpg",
+    "linkText": "www.preventionweb.net",
+    "date": "Mar 8, 2022"
+  },
+  {
+    "id": 35,
+    "headline": "Nepal PM Prachanda calls for 'unified mountain voice' to address effects of climate change",
+    "newsSrc": "https://economictimes.indiatimes.com/news/international/world-news/nepal-pm-prachanda-calls-for-unified-mountain-voice-to-address-effects-of-climate-change/articleshow/110339653.cms?from=mdr",
+    "imgSrc": "https://i.ibb.co/FYjNX6J/36.jpg",
+    "linkText": "economictimes.indiatimes.com",
+    "date": "May 22, 2024"
+  },
+  {
+    "id": 36,
+    "headline": "Nepal pursues a locally led adaptation approach to implement climate plan",
+    "newsSrc": "https://www.undp.org/nepal/news/nepal-pursues-locally-led-adaptation-approach-implement-climate-plan",
+    "imgSrc": "https://i.ibb.co/PrpbCW7/37.png",
+    "linkText": "www.undp.org",
+    "date": "Apr 24, 2023"
+  },
+  {
+    "id": 37,
+    "headline": "Lawmakers for using traditional and indigenous knowledge to find solutions to climate change",
+    "newsSrc": "https://www.undp.org/nepal/news/lawmakers-using-traditional-and-indigenous-knowledge-find-solutions-climate-change",
+    "imgSrc": "https://i.ibb.co/rmNrxD0/38.png",
+    "linkText": "www.undp.org",
+    "date": "Aug 19, 2023"
+  },
+  {
+    "id": 38,
+    "headline": "Lights, camera, climate action!",
+    "newsSrc": "https://www.undp.org/nepal/news/lights-camera-climate-action",
+    "imgSrc": "https://i.ibb.co/RhSVdyS/39.jpg",
+    "linkText": "www.undp.org",
+    "date": "Feb 9, 2023"
+  },
+  {
+    "id": 39,
+    "headline": "Nepal deserves rights not supplication at COP28: PM Dahal",
+    "newsSrc": "https://myrepublica.nagariknetwork.com/news/nepal-deserves-rights-not-supplication-at-cop28-pm-dahal/",
+    "imgSrc": "https://i.ibb.co/2Nsw8ny/40.jpg",
+    "linkText": "myrepublica.nagariknetwork.com",
+    "date": "Nov 18, 2023"
+  },
+  {
+    "id": 40,
+    "headline": "Climate change is making climbing in the Himalayas more challenging, experts say",
+    "newsSrc": "https://abcnews.go.com/International/climate-change-making-climbing-himalayas-challenging-experts/story?id=103463876",
+    "imgSrc": "https://i.ibb.co/m8ktVsx/41.jpg",
+    "linkText": "abcnews.go.com",
+    "date": "Sep 26, 2023"
+  },
+  {
+    "id": 41,
+    "headline": "Nepal Farmers Face Another Year of Agricultural Drought, Threatening Food Security",
+    "newsSrc": "https://www.globalissues.org/news/2024/02/13/35974",
+    "imgSrc": "https://i.ibb.co/HHTLwzf/42.jpg",
+    "linkText": "www.globalissues.org",
+    "date": "Feb 13, 2024"
+  },
+  {
+    "id": 42,
+    "headline": "Nepal shelves plan to relocate Everest base camp even as threats rise due to climate change",
+    "newsSrc": "https://www.wionews.com/south-asia/nepal-shelves-plan-to-relocate-everest-base-camp-even-as-threats-rise-due-to-climate-change-597834",
+    "imgSrc": "https://i.ibb.co/w7pPt2c/43.jpg",
+    "linkText": "www.wionews.com",
+    "date": "May 29, 2023"
+  },
+  {
+    "id": 43,
+    "headline": "Above-average rainfall recorded in first four weeks of monsoon",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/07/17/above-average-rainfall-recorded-in-first-four-weeks-of-monsoon",
+    "imgSrc": "https://i.ibb.co/2dGkhJB/44.jpg",
+    "linkText": "kathmandupost.com",
+    "date": "Jul 17, 2024"
+  },
+  {
+    "id": 44,
+    "headline": "Investing in a greener tomorrow: The benefits of climate and green finance for Nepal",
+    "newsSrc": "https://thehimalayantimes.com/opinion/investing-in-a-greener-tomorrow-the-benefits-of-climate-and-green-finance-for-nepal",
+    "imgSrc": "https://i.ibb.co/PZs5R38/45.jpg",
+    "linkText": "thehimalayantimes.com",
+    "date": "Jul 22, 2024"
+  },
+  {
+    "id": 45,
+    "headline": "Nepal says China withholds \"essential \" info on bursting Himalayan glacial lakes",
+    "newsSrc": "https://www.climatechangenews.com/2024/08/22/nepal-says-china-withholds-essential-info-on-bursting-himalayan-glacial-lakes/",
+    "imgSrc": "https://i.ibb.co/Ptcjf1D/china-data-hides.jpg",
+    "linkText": "climatechangenews.com",
+    "date": "Aug 22, 2024"
+  },
+  {
+    "id": 46,
+    "headline": "Aerial inspection ties Thame flood to glacial lake outburst",
+    "newsSrc": "https://kathmandupost.com/climate-environment/2024/08/18/aerial-inspection-ties-thame-flood-to-glacial-lake-outburst",
+    "imgSrc": "https://i.ibb.co/DgjdYbq/areial-inspection-thame.jpg",
+    "linkText": "kathmandupost.com",
+    "date": "Aug 31, 2024"
+  },
+  {
+    "id": 47,
+    "headline": "Climate change behind the floods across country",
+    "newsSrc": "https://thehimalayantimes.com/environment/climate-change-behind-the-floods-across-country",
+    "imgSrc": "https://i.ibb.co/HVyNSKq/climate-change-behind-flood.jpg",
+    "linkText": "thehimalayantimes.com",
+    "date": "Jul 07, 2024"
+  },
+  {
+    "id": 48,
+    "headline": "2024 Seminar for Cooperation on Climate Change marks 50 years of Nepal-Korea diplomatic relations",
+    "newsSrc": "https://thehimalayantimes.com/kathmandu/2024-seminar-for-cooperation-on-climate-change-marks-50-years-of-nepal-korea-diplomatic-relations",
+    "imgSrc": "https://i.ibb.co/GvDn3L6/korea-nepal.jpg",
+    "linkText": "thehimalayantimes.com",
+    "date": "Aug 23, 2024"
+  },
+  {
+    "id": 49,
+    "headline": "Activists blame policy failures over climate change for Nepal Terai’s water crisis",
+    "newsSrc": "https://news.mongabay.com/2024/06/activists-blame-policy-failures-over-climate-change-for-nepal-terais-water-crisis/",
+    "imgSrc": "https://i.ibb.co/ZY7Qm56/terai-agriculture.jpg",
+    "linkText": "thehimalayantimes.com",
+    "date": "Jun 27, 2024"
+  },
+  {
+    "id": 50,
+    "headline": "Avalanche blocks river in Mustang",
+    "newsSrc": "https://kathmandupost.com/national/2024/08/23/avalanche-blocks-river-in-mustang",
+    "imgSrc": "https://i.ibb.co/6P508Yb/avalance-broke.jpg",
+    "linkText": "kathmandupost.com",
+    "date": "Aug 31, 2024"
+  }
 ]
