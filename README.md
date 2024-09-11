@@ -9,7 +9,7 @@ We crafted NepalClimateHub using a modern, efficient tech stack:
 
 - **Astro with ReactJS**: For a dynamic, responsive user interface
 - **CSS**: To ensure the platform is visually appealing and user-friendly
-- **Cloudflare**: For robust deployment and fast, secure access
+- **Netlify**: For robust deployment and fast, secure access
 
 ## 🔮 Features
 
