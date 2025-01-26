@@ -34,6 +34,25 @@ Want to explore NepalClimateHub locally? Follow these steps:
     ```bash
     cd nepalclimatehub
     ```
+3. Setup postgres db or use docker
+
+    ```bash
+    start postgres or
+    docker compose up
+    ```
+4. Setup env file and fill the environment
+   ```bash
+   cp .env.example .env
+   ```
+5. Migrate the db
+   ```bash
+   npx prisma migrate deploy
+   ```
+6. Run the application
+   ```bash
+   npm run dev
+   ```
+
 
 ## 🤝 Contributing
 
