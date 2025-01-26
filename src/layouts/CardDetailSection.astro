@@ -1,11 +1,11 @@
 ---
-import type { Organization } from "../interfaces/organizationInterface";
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import type { Organization } from '../interfaces/organizationInterface';
 // dataObj can either be organization data or activist data; sent via props
 const { dataObj } = Astro.props;
 
 // initialize activeDataObject with a proper type
-let activeDataObject: Organization | null = dataObj;
+const activeDataObject: Organization | null = dataObj;
 ---
 
 <div class="section-container">

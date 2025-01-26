@@ -1,126 +1,126 @@
 ---
 export const prerender = false;
-import "../styles/global.css";
-import BaseLayout from "../layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import '../styles/global.css';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import BaseLayout from '../layouts/Layout.astro';
 
 // form handling
-let errorMessage = "";
+let errorMessage = '';
 
-if (Astro.request.method === "POST") {
-	try {
-		const data = await Astro.request.formData();
-		const formIdentifier = data.get("form_identifier");
-		let apiUrl = "";
-		let payload = {};
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    const formIdentifier = data.get('form_identifier');
+    let apiUrl = '';
+    let payload = {};
 
-		if (formIdentifier == "activist_profile") {
-			const activistName = data.get("activist-name");
-			const activistAddress = data.get("activist-address");
-			const activistEmail = data.get("activist-email");
-			const activistPhoneNumber = data.get("activist-number");
+    if (formIdentifier === 'activist_profile') {
+      const activistName = data.get('activist-name');
+      const activistAddress = data.get('activist-address');
+      const activistEmail = data.get('activist-email');
+      const activistPhoneNumber = data.get('activist-number');
 
-			const activistFacebookUrl = data.get("activist-facebook");
-			const activistLinkedinUrl = data.get("activist-linkedin");
-			const activistInstagramUrl = data.get("activist-instagram");
-			const activistWebsite = data.get("activist-website");
-			const activistWorkingThemes = data.get("activist-working-themes");
+      const activistFacebookUrl = data.get('activist-facebook');
+      const activistLinkedinUrl = data.get('activist-linkedin');
+      const activistInstagramUrl = data.get('activist-instagram');
+      const activistWebsite = data.get('activist-website');
+      const activistWorkingThemes = data.get('activist-working-themes');
 
-			const activistBio = data.get("activist-bio");
-			const activistCardImageUrl = data.get("activist-card-image");
-			const activistProfileImageUrl = data.get("activist-profile-image");
+      const activistBio = data.get('activist-bio');
+      const activistCardImageUrl = data.get('activist-card-image');
+      const activistProfileImageUrl = data.get('activist-profile-image');
 
-			apiUrl = "https://nepalclimatehub.org/api/save-activist-profile";
+      apiUrl = 'https://nepalclimatehub.org/api/save-activist-profile';
 
-			// payload for our request
-			payload = {
-				name: activistName,
-				email: activistEmail,
-				address: activistAddress,
-				phoneNumber: activistPhoneNumber,
-				linkedinUrl: activistLinkedinUrl,
-				facebookUrl: activistFacebookUrl,
-				instagramUrl: activistInstagramUrl,
-				website: activistWebsite,
-				workingThemes: activistWorkingThemes,
-				bio: activistBio,
-				cardPicture: activistCardImageUrl,
-				profilePicture: activistProfileImageUrl,
-			};
-		}
+      // payload for our request
+      payload = {
+        name: activistName,
+        email: activistEmail,
+        address: activistAddress,
+        phoneNumber: activistPhoneNumber,
+        linkedinUrl: activistLinkedinUrl,
+        facebookUrl: activistFacebookUrl,
+        instagramUrl: activistInstagramUrl,
+        website: activistWebsite,
+        workingThemes: activistWorkingThemes,
+        bio: activistBio,
+        cardPicture: activistCardImageUrl,
+        profilePicture: activistProfileImageUrl,
+      };
+    }
 
-		if (formIdentifier == "organization_profile") {
-			const organizationName = data.get("organization-name");
-			const organizationAddress = data.get("organization-address");
-			const organizationEmail = data.get("organization-email");
-			const organizationPhoneNumber = data.get("organization-number");
+    if (formIdentifier === 'organization_profile') {
+      const organizationName = data.get('organization-name');
+      const organizationAddress = data.get('organization-address');
+      const organizationEmail = data.get('organization-email');
+      const organizationPhoneNumber = data.get('organization-number');
 
-			const organizationFacebookUrl = data.get("organization-facebook");
-			const organizationLinkedinUrl = data.get("organization-linkedin");
-			const organizationInstagramUrl = data.get("organization-instagram");
-			const organizationWebsite = data.get("organization-website");
-			const organizationWorkingThemes = data.get("organization-working-themes");
+      const organizationFacebookUrl = data.get('organization-facebook');
+      const organizationLinkedinUrl = data.get('organization-linkedin');
+      const organizationInstagramUrl = data.get('organization-instagram');
+      const organizationWebsite = data.get('organization-website');
+      const organizationWorkingThemes = data.get('organization-working-themes');
 
-			const organizationBio = data.get("organization-bio");
-			const organizationCardImageUrl = data.get("organization-card-image");
-			const organizationProfileImageUrl = data.get(
-				"organization-profile-image",
-			);
+      const organizationBio = data.get('organization-bio');
+      const organizationCardImageUrl = data.get('organization-card-image');
+      const organizationProfileImageUrl = data.get(
+        'organization-profile-image'
+      );
 
-			apiUrl = "https://nepalclimatehub.org/api/save-organization-profile";
+      apiUrl = 'https://nepalclimatehub.org/api/save-organization-profile';
 
-			// payload for our request
-			payload = {
-				name: organizationName,
-				email: organizationEmail,
-				address: organizationAddress,
-				phoneNumber: organizationPhoneNumber,
-				linkedinUrl: organizationLinkedinUrl,
-				facebookUrl: organizationFacebookUrl,
-				instagramUrl: organizationInstagramUrl,
-				website: organizationWebsite,
-				workingThemes: organizationWorkingThemes,
-				bio: organizationBio,
-				cardPicture: organizationCardImageUrl,
-				profilePicture: organizationProfileImageUrl,
-			};
-		}
+      // payload for our request
+      payload = {
+        name: organizationName,
+        email: organizationEmail,
+        address: organizationAddress,
+        phoneNumber: organizationPhoneNumber,
+        linkedinUrl: organizationLinkedinUrl,
+        facebookUrl: organizationFacebookUrl,
+        instagramUrl: organizationInstagramUrl,
+        website: organizationWebsite,
+        workingThemes: organizationWorkingThemes,
+        bio: organizationBio,
+        cardPicture: organizationCardImageUrl,
+        profilePicture: organizationProfileImageUrl,
+      };
+    }
 
-		// make a api post request to save our data (save-organization-profile.ts or save-activist-profile)
-		const response = await fetch(apiUrl, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(payload),
-		});
+    // make a api post request to save our data (save-organization-profile.ts or save-activist-profile)
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
 
-		if (response.ok) {
-			console.log("formIdentifier " + formIdentifier);
-			console.log(payload);
+    if (response.ok) {
+      console.log(`formIdentifier ${formIdentifier}`);
+      console.log(payload);
 
-			if (formIdentifier == "activist_profile") {
-				// set up the cookies values
-				Astro.cookies.set("successType", "volunteerProfile", {
-					path: "/success",
-				});
-			} else {
-				// set up the cookies values
-				Astro.cookies.set("successType", "organizationProfile", {
-					path: "/success",
-				});
-			}
+      if (formIdentifier === 'activist_profile') {
+        // set up the cookies values
+        Astro.cookies.set('successType', 'volunteerProfile', {
+          path: '/success',
+        });
+      } else {
+        // set up the cookies values
+        Astro.cookies.set('successType', 'organizationProfile', {
+          path: '/success',
+        });
+      }
 
-			return Astro.redirect("/success");
-		} else {
-			errorMessage = "true";
-		}
-	} catch (error) {
-		if (error instanceof Error) {
-			errorMessage = error.message;
-		}
-	}
+      return Astro.redirect('/success');
+    } else {
+      errorMessage = 'true';
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+  }
 }
 ---
 

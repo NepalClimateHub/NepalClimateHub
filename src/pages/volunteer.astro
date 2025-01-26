@@ -2,124 +2,124 @@
 export const prerender = false;
 
 // import global styles
-import "../styles/global.css";
+import '../styles/global.css';
 
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import VolunteerSection from '@components/VolunteerSection.astro';
 // import the components
-import BaseLayout from "../layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import VolunteerSection from "@components/VolunteerSection.astro";
-import Footer from "@components/Footer.astro";
+import BaseLayout from '../layouts/Layout.astro';
 
 // for displaying error message if given object key are empty or fail our requirement
 const errors = {
-	name: "",
-	email: "",
-	currentResidence: "",
-	linkedinUrl: "",
-	cv: "",
-	bio: "",
-	experience: "",
-	motivation: "",
+  name: '',
+  email: '',
+  currentResidence: '',
+  linkedinUrl: '',
+  cv: '',
+  bio: '',
+  experience: '',
+  motivation: '',
 };
 
 // trigger when the request is POST
-if (Astro.request.method === "POST") {
-	try {
-		// gather the form data
-		const data = await Astro.request.formData();
-		const name = data.get("name");
-		const email = data.get("email");
-		const currentResidence = data.get("current-residence");
-		const linkedinUrl = data.get("linkedin-url");
-		const role = data.get("role");
-		const bio = data.get("bio");
-		const experience = data.get("experience");
-		const motivation = data.get("motivation");
-		const profilePicture = data.get("profile-picture");
-		const cv = data.get("cv");
-		const questions = data.get("questions");
+if (Astro.request.method === 'POST') {
+  try {
+    // gather the form data
+    const data = await Astro.request.formData();
+    const name = data.get('name');
+    const email = data.get('email');
+    const currentResidence = data.get('current-residence');
+    const linkedinUrl = data.get('linkedin-url');
+    const role = data.get('role');
+    const bio = data.get('bio');
+    const experience = data.get('experience');
+    const motivation = data.get('motivation');
+    const profilePicture = data.get('profile-picture');
+    const cv = data.get('cv');
+    const questions = data.get('questions');
 
-		// error handling
-		if (typeof name !== "string" || name.length < 1) {
-			errors.name += "Please enter your full name. ";
-		}
+    // error handling
+    if (typeof name !== 'string' || name.length < 1) {
+      errors.name += 'Please enter your full name. ';
+    }
 
-		if (typeof email !== "string" || email.length < 1) {
-			errors.email += "Email is not valid. ";
-		}
+    if (typeof email !== 'string' || email.length < 1) {
+      errors.email += 'Email is not valid. ';
+    }
 
-		if (typeof currentResidence !== "string" || currentResidence.length < 1) {
-			errors.currentResidence += "Please enter your current residence. ";
-		}
+    if (typeof currentResidence !== 'string' || currentResidence.length < 1) {
+      errors.currentResidence += 'Please enter your current residence. ';
+    }
 
-		if (typeof linkedinUrl !== "string" || linkedinUrl.length < 1) {
-			errors.currentResidence += "Please enter your LinkedIn profile URL. ";
-		}
+    if (typeof linkedinUrl !== 'string' || linkedinUrl.length < 1) {
+      errors.currentResidence += 'Please enter your LinkedIn profile URL. ';
+    }
 
-		if (typeof bio !== "string" || bio.length < 1) {
-			errors.bio += "Please enter your bio. ";
-		}
+    if (typeof bio !== 'string' || bio.length < 1) {
+      errors.bio += 'Please enter your bio. ';
+    }
 
-		if (typeof experience !== "string" || experience.length < 1) {
-			errors.experience += "Please enter your experience. ";
-		}
+    if (typeof experience !== 'string' || experience.length < 1) {
+      errors.experience += 'Please enter your experience. ';
+    }
 
-		if (typeof motivation !== "string" || motivation.length < 1) {
-			errors.motivation += "Please enter your motivation. ";
-		}
+    if (typeof motivation !== 'string' || motivation.length < 1) {
+      errors.motivation += 'Please enter your motivation. ';
+    }
 
-		if (typeof cv !== "string" || cv.length < 1) {
-			errors.cv += "Please enter the link to your CV. ";
-		}
+    if (typeof cv !== 'string' || cv.length < 1) {
+      errors.cv += 'Please enter the link to your CV. ';
+    }
 
-		// payload for our request
-		const volunteerData = {
-			name: name,
-			email: email,
-			currentResidence: currentResidence,
-			linkedinUrl: linkedinUrl,
-			role: role,
-			bio: bio,
-			experience: experience,
-			motivation: motivation,
-			profilePicture: profilePicture,
-			cv: cv,
-			questions: questions,
-		};
+    // payload for our request
+    const volunteerData = {
+      name: name,
+      email: email,
+      currentResidence: currentResidence,
+      linkedinUrl: linkedinUrl,
+      role: role,
+      bio: bio,
+      experience: experience,
+      motivation: motivation,
+      profilePicture: profilePicture,
+      cv: cv,
+      questions: questions,
+    };
 
-		// collect errors
-		const hasErrors = Object.values(errors).some((msg) => msg);
+    // collect errors
+    const hasErrors = Object.values(errors).some((msg) => msg);
 
-		// when we don't have any errors
-		if (!hasErrors) {
-			// make a api post request to save our data (save-volunteer.ts)
-			const response = await fetch(
-				"https://nepalclimatehub.org/api/save-volunteer",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(volunteerData),
-				},
-			);
+    // when we don't have any errors
+    if (!hasErrors) {
+      // make a api post request to save our data (save-volunteer.ts)
+      const response = await fetch(
+        'https://nepalclimatehub.org/api/save-volunteer',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(volunteerData),
+        }
+      );
 
-			if (response.ok) {
-				// set up the cookies values
-				Astro.cookies.set("successType", "volunteerProfile", {
-					path: "/success",
-				});
+      if (response.ok) {
+        // set up the cookies values
+        Astro.cookies.set('successType', 'volunteerProfile', {
+          path: '/success',
+        });
 
-				return Astro.redirect("/success");
-			} else {
-				console.error("Failed to save volunteer data");
-			}
-		}
-	} catch (error) {
-		if (error instanceof Error) {
-			console.error(error.message);
-		}
-	}
+        return Astro.redirect('/success');
+      } else {
+        console.error('Failed to save volunteer data');
+      }
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
 }
 ---
 
