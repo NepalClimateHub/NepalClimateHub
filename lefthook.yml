@@ -47,7 +47,7 @@ pre-commit:
   commands:
     lint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm biome check {staged_files}
+      run: npx biome check {staged_files}
     format:
       glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm biome format --write {staged_files}
+      run: npx biome format --write {staged_files}
