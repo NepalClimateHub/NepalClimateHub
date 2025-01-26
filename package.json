@@ -11,11 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/netlify": "^5.4.0",
-    "@astrojs/react": "^3.5.0",
-    "@astrojs/rss": "^4.0.6",
-    "@astrojs/sitemap": "^3.1.5",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.1.0",
+    "@astrojs/react": "^4.1.6",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
     "@iconify-json/hugeicons": "^1.1.0",
     "@iconify-json/mdi": "^1.1.66",
     "@neondatabase/serverless": "^0.9.4",
@@ -23,7 +23,7 @@
     "@prisma/client": "^5.16.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.8.7",
+    "astro": "^5.1.9",
     "astro-icon": "^1.1.0",
     "dotenv": "^16.4.5",
     "react": "^18.3.1",
@@ -34,9 +34,11 @@
     "ws": "^8.18.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@tgwf/co2": "^0.15.0",
     "@types/node": "^20.14.9",
     "@types/ws": "^8.5.10",
+    "lefthook": "^1.10.10",
     "prisma": "^5.16.1"
   }
 }

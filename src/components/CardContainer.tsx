@@ -6,8 +6,16 @@ import { useState, useEffect } from "react";
 // cardsArray consists of JSON data of either organizations or climate activists
 // this is a reuseable template in organization landing page card section and activists landing page card sections
 
-const CardContainer = ({cardsArray, dataType, cardProfilePictureBgSize, cardPadding, initialCardCount}) => {
-	let [cardCounter, setCardCounter] = useState(Number.parseInt(initialCardCount)); // initially show 12 cards
+const CardContainer = ({
+	cardsArray,
+	dataType,
+	cardProfilePictureBgSize,
+	cardPadding,
+	initialCardCount,
+}) => {
+	let [cardCounter, setCardCounter] = useState(
+		Number.parseInt(initialCardCount),
+	); // initially show 12 cards
 	let [isBtnVisible, setIsBtnVisible] = useState(true);
 
 	function handleLoadMore() {
@@ -23,11 +31,15 @@ const CardContainer = ({cardsArray, dataType, cardProfilePictureBgSize, cardPadd
 	return (
 		<div className={`${styles["section-container"]} section-container`}>
 			<div className={styles["card-wrapper"]}>
-				{cardsArray
-					.slice(0, cardCounter)
-					.map((cardData, index) => (
-						<Card key={index} data={cardData} dataType = {dataType} cardProfilePictureBgSize={cardProfilePictureBgSize} cardPadding = {cardPadding}/>
-					))}
+				{cardsArray.slice(0, cardCounter).map((cardData, index) => (
+					<Card
+						key={index}
+						data={cardData}
+						dataType={dataType}
+						cardProfilePictureBgSize={cardProfilePictureBgSize}
+						cardPadding={cardPadding}
+					/>
+				))}
 			</div>
 
 			{isBtnVisible && (

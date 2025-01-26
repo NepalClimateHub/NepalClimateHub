@@ -65,7 +65,7 @@ if (Astro.request.method === "POST") {
 			const organizationBio = data.get("organization-bio");
 			const organizationCardImageUrl = data.get("organization-card-image");
 			const organizationProfileImageUrl = data.get(
-				"organization-profile-image"
+				"organization-profile-image",
 			);
 
 			apiUrl = "https://nepalclimatehub.org/api/save-organization-profile";
