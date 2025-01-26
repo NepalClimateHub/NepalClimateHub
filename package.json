@@ -1,5 +1,5 @@
 {
-  "name": "nepal-climate-hu",
+  "name": "nepal-climate-hub",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -20,7 +20,7 @@
     "@iconify-json/mdi": "^1.1.66",
     "@neondatabase/serverless": "^0.9.4",
     "@prisma/adapter-neon": "^5.16.1",
-    "@prisma/client": "^5.16.1",
+    "@prisma/client": "^6.2.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "^5.1.9",
@@ -39,7 +39,7 @@
     "@types/node": "^20.14.9",
     "@types/ws": "^8.5.10",
     "lefthook": "^1.10.10",
-    "prisma": "^5.16.1"
+    "prisma": "^6.2.1"
   },
   "engines": {
     "node": ">=18.20.6"
