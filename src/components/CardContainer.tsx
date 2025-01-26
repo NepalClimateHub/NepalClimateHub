@@ -1,6 +1,6 @@
 import '../styles/global.css';
-import Card from '@layouts/Card.jsx';
-import { useEffect, useState } from 'react';
+import { Card } from '@layouts/Card.jsx';
+import { type CSSProperties, useEffect, useState } from 'react';
 import type { Organization } from 'src/interfaces/organizationInterface';
 import styles from '../styles/components/CardContainer.module.css';
 
@@ -10,7 +10,7 @@ import styles from '../styles/components/CardContainer.module.css';
 interface CardContainerProps {
   cardsArray: Organization[];
   dataType: string;
-  cardProfilePictureBgSize: string;
+  cardProfilePictureBgSize: CSSProperties['objectFit'];
   cardPadding: string;
   initialCardCount: string;
 }
@@ -40,7 +40,7 @@ export const CardContainer = ({
   return (
     <div className={`${styles['section-container']} section-container`}>
       <div className={styles['card-wrapper']}>
-        {cardsArray.slice(0, cardCounter).map((cardData, index) => (
+        {cardsArray.slice(0, cardCounter).map((cardData) => (
           <Card
             key={cardData.id}
             data={cardData}

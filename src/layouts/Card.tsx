@@ -1,8 +1,22 @@
+import type { CSSProperties } from 'react';
 import { BiTargetLock } from 'react-icons/bi';
+import type { Organization } from 'src/interfaces/organizationInterface';
 import styles from '../styles/components/Card.module.css';
 
-const Card = ({ data, dataType, cardProfilePictureBgSize, cardPadding }) => {
-  let url;
+interface CardProps {
+  data: Organization;
+  dataType: string;
+  cardProfilePictureBgSize: CSSProperties['objectFit'];
+  cardPadding: string;
+}
+
+export const Card = ({
+  data,
+  dataType,
+  cardProfilePictureBgSize,
+  cardPadding,
+}: CardProps) => {
+  let url = '';
   if (dataType === 'organization') {
     url = `/organizations/${data.slug}`;
   } else if (dataType === 'activist') {
@@ -33,7 +47,7 @@ const Card = ({ data, dataType, cardProfilePictureBgSize, cardPadding }) => {
         </p>
         <div className={styles.tags}>
           {data.tags.slice(0, 3).map((tag, index) => (
-            <span key={index} className={styles.tag}>
+            <span key={`${tag}-${index}`} className={styles.tag}>
               {tag}
             </span>
           ))}
@@ -42,5 +56,3 @@ const Card = ({ data, dataType, cardProfilePictureBgSize, cardPadding }) => {
     </a>
   );
 };
-
-export default Card;
