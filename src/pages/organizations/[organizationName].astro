@@ -12,14 +12,15 @@ import Footer from "@components/Footer.astro";
 import organizationsJSON from "../../data/organizations.json";
 
 export async function getStaticPaths() {
-    return organizationsJSON.map((organization) => ({
-    params: { organizationName: organization.slug }
-  }));
+	return organizationsJSON.map((organization) => ({
+		params: { organizationName: organization.slug },
+	}));
 }
 
 const { organizationName } = Astro.params;
-const organization = organizationsJSON.find((organization) => organization.slug === organizationName);
-
+const organization = organizationsJSON.find(
+	(organization) => organization.slug === organizationName,
+);
 ---
 
 <BaseLayout title="Nepal Climate Hub">

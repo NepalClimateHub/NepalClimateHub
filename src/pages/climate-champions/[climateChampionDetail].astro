@@ -12,13 +12,15 @@ import Footer from "@components/Footer.astro";
 import climateChampionsJSON from "../../data/activists.json";
 
 export async function getStaticPaths() {
-    return climateChampionsJSON.map((champion) => ({
-    params: { climateChampionDetail: champion.slug }
-  }));
+	return climateChampionsJSON.map((champion) => ({
+		params: { climateChampionDetail: champion.slug },
+	}));
 }
 
 const { climateChampionDetail } = Astro.params;
-const champion = climateChampionsJSON.find((champion) => champion.slug === climateChampionDetail);
+const champion = climateChampionsJSON.find(
+	(champion) => champion.slug === climateChampionDetail,
+);
 ---
 
 <BaseLayout title="Nepal Climate Hub">

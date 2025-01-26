@@ -11,11 +11,10 @@ import Footer from "@components/Footer.astro";
 
 import eventJSON from "../../data/events.json";
 
-
 export async function getStaticPaths() {
-    return eventJSON.map((event) => ({
-    params: { eventDetail: event.slug }
-  }));
+	return eventJSON.map((event) => ({
+		params: { eventDetail: event.slug },
+	}));
 }
 
 const { eventDetail } = Astro.params;

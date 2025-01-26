@@ -22,7 +22,7 @@ export const POST: APIRoute = async ({ request }) => {
 			{
 				status: 500,
 				headers: { "Content-Type": "application/json" },
-			}
+			},
 		);
 	}
 };
