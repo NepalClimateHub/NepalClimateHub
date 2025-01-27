@@ -1,22 +1,22 @@
 ---
-import Header from '@components/Header.astro'
-import HeroContent from '@components/HeroContent.astro'
-import CtaSection from '@components/CtaSection.astro'
-import FactSection from '@components/FactSection.astro'
-import ActivistSection from '@components/ActivistSection.astro'
-import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro'
-import FeaturedEventSection from '@components/FeaturedEventSection.astro'
-import FeaturedNewsSection from '@components/FeaturedNewsSection.astro'
-import Footer from '@components/Footer.astro'
-import '../styles/global.css'
+import ActivistSection from '@components/ActivistSection.astro';
+import CtaSection from '@components/CtaSection.astro';
+import FactSection from '@components/FactSection.astro';
+import FeaturedEventSection from '@components/FeaturedEventSection.astro';
+import FeaturedNewsSection from '@components/FeaturedNewsSection.astro';
+import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import HeroContent from '@components/HeroContent.astro';
+import '../styles/global.css';
 
 interface Props {
-  title: string
+  title: string;
 }
 
-import BaseLayout from './Layout.astro'
+import BaseLayout from './Layout.astro';
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>

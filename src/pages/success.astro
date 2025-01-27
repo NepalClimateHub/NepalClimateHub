@@ -1,30 +1,30 @@
 ---
-import "../styles/global.css";
-import BaseLayout from "../layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import SuccessCard from "@layouts/SuccessCard.astro";
-import Footer from "@components/Footer.astro";
+import '../styles/global.css';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import SuccessCard from '@layouts/SuccessCard.astro';
+import BaseLayout from '../layouts/Layout.astro';
 
-let successType = Astro.cookies.get("successType")?.value;
+const successType = Astro.cookies.get('successType')?.value;
 
 // based on the successType value : volunteerProfile, activistProfile, and organizationProfile
 // conditionally rendered the message
 
-let heading = "";
-let message = "";
+let heading = '';
+let message = '';
 
-if (successType == "volunteerProfile") {
-	heading = "Application Submitted Successfully!";
-	message =
-		"Thank you for submitting your application. We will review it and contact you soon to schedule an informal interview. We look forward to speaking with you.";
-} else if (successType == "activistProfile") {
-	heading = "Profile Submitted Successfully!";
-	message =
-		"Thank you for submitting your profile. We will review it and upload it to our platform soon. You will be notified once it is published. If any information is missing, we will reach out to you via the email you provided.";
-} else if (successType == "organizationProfile") {
-	heading = "Profile Submitted Successfully!";
-	message =
-		"Thank you for submitting your profile. We will review it and upload it to our platform soon. You will be notified once it is published. If any information is missing, we will reach out to you via the email you provided.";
+if (successType === 'volunteerProfile') {
+  heading = 'Application Submitted Successfully!';
+  message =
+    'Thank you for submitting your application. We will review it and contact you soon to schedule an informal interview. We look forward to speaking with you.';
+} else if (successType === 'activistProfile') {
+  heading = 'Profile Submitted Successfully!';
+  message =
+    'Thank you for submitting your profile. We will review it and upload it to our platform soon. You will be notified once it is published. If any information is missing, we will reach out to you via the email you provided.';
+} else if (successType === 'organizationProfile') {
+  heading = 'Profile Submitted Successfully!';
+  message =
+    'Thank you for submitting your profile. We will review it and upload it to our platform soon. You will be notified once it is published. If any information is missing, we will reach out to you via the email you provided.';
 }
 ---
 

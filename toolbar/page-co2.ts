@@ -1,6 +1,6 @@
 // import { co2 } from '@tgwf/co2'
 
-type ResourceCategoryId = 'media' | 'js' | 'css' | 'html' | 'other'
+type ResourceCategoryId = 'media' | 'js' | 'css' | 'html' | 'other';
 
 const IGNORED_RESOURCES = [
   /\/node_modules\/astro/,
@@ -9,28 +9,28 @@ const IGNORED_RESOURCES = [
   /\/@vite\/client/,
   /\/@id\/astro/,
   /\/toolbar\/*/,
-]
+];
 
 // TODO: What "@tgwf/co2" library does? Why do we need it?
 // const co2Emission = new co2()
 
 // @ts-ignore
-let speedEstimate = navigator?.connection?.downlink ?? 0
+let speedEstimate = navigator?.connection?.downlink ?? 0;
 
 class Resource {
-  _entry: PerformanceResourceTiming | PerformanceNavigationTiming
-  isEstimated: boolean = false
+  _entry: PerformanceResourceTiming | PerformanceNavigationTiming;
+  isEstimated = false;
 
   constructor(entry: PerformanceResourceTiming | PerformanceNavigationTiming) {
-    this._entry = entry
+    this._entry = entry;
   }
 
   get name(): string {
-    return this._entry.name
+    return this._entry.name;
   }
 
   get duration(): number {
-    return this._entry.duration
+    return this._entry.duration;
   }
 
   get bytes(): number {
@@ -39,33 +39,33 @@ class Resource {
       this._entry.encodedBodySize,
       this._entry.decodedBodySize,
       this._entry.transferSize
-    )
+    );
     if (maxSize) {
-      return maxSize
+      return maxSize;
     }
 
     if (speedEstimate && this._entry.duration) {
-      this.isEstimated = true
-      return Math.round(speedEstimate * this._entry.duration)
+      this.isEstimated = true;
+      return Math.round(speedEstimate * this._entry.duration);
     }
 
-    return 0
+    return 0;
   }
 
   get sizeString(): string {
     if (this.bytes < 1024) {
-      return `${this.bytes} B`
+      return `${this.bytes} B`;
     }
-    const kb = this.bytes / 1024
+    const kb = this.bytes / 1024;
     if (kb < 1024) {
-      return `${kb.toFixed(2)} KB`
+      return `${kb.toFixed(2)} KB`;
     }
-    const mb = kb / 1024
-    return `${mb.toFixed(2)} MB`
+    const mb = kb / 1024;
+    return `${mb.toFixed(2)} MB`;
   }
 
   get isExternal(): boolean {
-    return !this.name.startsWith(location.origin)
+    return !this.name.startsWith(location.origin);
   }
 
   // get co2(): number {
@@ -74,25 +74,25 @@ class Resource {
 }
 
 class ResourceCategory {
-  id: ResourceCategoryId
-  name: string
-  description: string
-  _resources: Resource[] = []
+  id: ResourceCategoryId;
+  name: string;
+  description: string;
+  _resources: Resource[] = [];
 
   constructor(id: ResourceCategoryId, name: string, description: string) {
-    this.id = id
-    this.name = name
-    this.description = description
+    this.id = id;
+    this.name = name;
+    this.description = description;
   }
 
   addEntry(entry: PerformanceResourceTiming | PerformanceNavigationTiming) {
     // Ignore if already in resources
     if (this._resources.some((resource) => resource.name === entry.name)) {
-      return
+      return;
     }
 
     // Add to the resources array
-    this._resources.push(new Resource(entry))
+    this._resources.push(new Resource(entry));
   }
 
   // get resources(): Resource[] {
@@ -101,14 +101,17 @@ class ResourceCategory {
   // }
 
   get totalBytes(): number {
-    return this._resources.reduce((total, resource) => total + resource.bytes, 0)
+    return this._resources.reduce(
+      (total, resource) => total + resource.bytes,
+      0
+    );
   }
 
   get totalDuration(): number {
     return this._resources.reduce(
       (total, resource) => total + resource.duration,
       0
-    )
+    );
   }
 
   // get totalCo2(): number {
@@ -138,20 +141,20 @@ const baseResources: ResourceCategory[] = [
     'Other',
     'Everything else and things this tool failed to categorize'
   ),
-]
+];
 
 function getPerformanceEntryResouceCategory(
   entry: PerformanceEntry
 ): ResourceCategoryId {
-  let category: ResourceCategoryId = 'other'
+  let category: ResourceCategoryId = 'other';
 
   const fileExtension = entry.name.includes('.')
     ? entry.name.split('.').pop()
-    : ''
+    : '';
 
   // Sometimes CSS loadeitem.encodedBodySize.average.valued by JS is detected as a script
   if (['css', 'scss', 'sass', 'less'].includes(<string>fileExtension)) {
-    category = 'css'
+    category = 'css';
   }
 
   if (
@@ -159,27 +162,29 @@ function getPerformanceEntryResouceCategory(
       <string>fileExtension
     )
   ) {
-    category = 'js'
+    category = 'js';
   }
 
   if (
-    ['svg', 'jpg', 'webp', 'avif', 'mp4', 'png', 'gif'].includes(<string>fileExtension)
+    ['svg', 'jpg', 'webp', 'avif', 'mp4', 'png', 'gif'].includes(
+      <string>fileExtension
+    )
   ) {
-    category = 'media'
+    category = 'media';
   }
 
   if (entry.entryType === 'navigation') {
-    category = 'html'
+    category = 'html';
   }
 
-  return category
+  return category;
 }
 
 function getPerformanceResources(): ResourceCategory[] {
-  const resourceCategories = baseResources
+  const resourceCategories = baseResources;
 
   // Get all performance entries
-  const performanceEntries = performance.getEntries()
+  const performanceEntries = performance.getEntries();
 
   for (const entry of performanceEntries) {
     // We only want a couple of sub types of entries.
@@ -187,26 +192,26 @@ function getPerformanceResources(): ResourceCategory[] {
       !(entry instanceof PerformanceResourceTiming) &&
       !(entry instanceof PerformanceNavigationTiming)
     ) {
-      continue
+      continue;
     }
 
     // Do not include resources from Astro's node_modules
     if (IGNORED_RESOURCES.some((ignored) => entry.name.match(ignored))) {
-      continue
+      continue;
     }
 
     // Get the category for this entry
-    const category = getPerformanceEntryResouceCategory(entry)
-    const resourceCategory = resourceCategories.find((c) => c.id === category)
+    const category = getPerformanceEntryResouceCategory(entry);
+    const resourceCategory = resourceCategories.find((c) => c.id === category);
 
     if (!speedEstimate && entry.transferSize && entry.duration) {
-      speedEstimate = entry.transferSize / entry.duration / 1024
+      speedEstimate = entry.transferSize / entry.duration / 1024;
     }
 
-    resourceCategory?.addEntry(entry)
+    resourceCategory?.addEntry(entry);
   }
 
-  return resourceCategories
+  return resourceCategories;
 }
 
-export { getPerformanceResources as getPageCo2 }
+export { getPerformanceResources as getPageCo2 };
