@@ -1,9 +1,8 @@
-
 .organization-card {
   width: calc(25% - 12px);
   border-radius: 8px;
   overflow: hidden;
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   text-decoration: none;
@@ -75,9 +74,8 @@
 }
 
 @media screen and (max-width: 1024px) {
-
   .organization-card {
-      width: calc(50% - 8px);
+    width: calc(50% - 8px);
   }
 
   .logo-wrapper {
@@ -85,14 +83,12 @@
   }
 }
 
-
-  @media screen and (max-width: 768px) {
-
-    .organization-card {
-      min-width: 100%;
-    }
-    
-    .logo-wrapper {
-      height: 189px;
-    }
+@media screen and (max-width: 768px) {
+  .organization-card {
+    min-width: 100%;
   }
+
+  .logo-wrapper {
+    height: 189px;
+  }
+}

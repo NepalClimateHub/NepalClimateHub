@@ -1,7 +1,6 @@
 .section-container {
   margin: 0px auto 83px;
   position: relative;
-
 }
 
 .card-wrapper {
@@ -17,24 +16,23 @@
   width: 104px;
   margin: 0 auto;
   font-size: 14px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   line-height: 16px;
   border-radius: 16px;
   padding: 8px 16px;
-  border: 1px solid #1A1B1E;
+  border: 1px solid #1a1b1e;
   cursor: pointer;
   background-color: transparent;
-  margin-bottom: 71px; 
+  margin-bottom: 71px;
 }
 
 .load-more-btn:hover {
   background-color: #1a1b1e;
   color: white;
-} 
+}
 
 @media screen and (max-width: 768px) {
   .section-container {
     margin: 0px 32px 64px;
   }
-
 }

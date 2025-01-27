@@ -1,7 +1,7 @@
 export const languages = {
   en: 'English',
   es: 'Español',
-}
+};
 
 export const ui = {
   en: {
@@ -19,7 +19,7 @@ export const ui = {
     'header.docs': 'Documentación',
     'header.blog': 'Blog',
   },
-} as const
+} as const;
 
-export const defaultLang = 'en'
-export const showDefaultLang = false
+export const defaultLang = 'en';
+export const showDefaultLang = false;

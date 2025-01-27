@@ -1,5 +1,5 @@
-import { fileURLToPath } from 'node:url'
-import type { AstroIntegration } from 'astro'
+import { fileURLToPath } from 'node:url';
+import type { AstroIntegration } from 'astro';
 
 export default {
   name: 'sustainable-web-starater',
@@ -10,7 +10,7 @@ export default {
         name: 'Net0',
         icon: '🌱',
         entrypoint: fileURLToPath(new URL('./app.ts', import.meta.url)),
-      })
+      });
     },
   },
-} satisfies AstroIntegration
+} satisfies AstroIntegration;

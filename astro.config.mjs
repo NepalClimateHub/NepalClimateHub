@@ -1,10 +1,10 @@
-import { defineConfig } from 'astro/config';
-import icon from "astro-icon";
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
+import { defineConfig } from 'astro/config';
 import net0Integration from './toolbar/integration.ts';
-import react from "@astrojs/react";
 
-import netlify from "@astrojs/netlify";
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,9 +14,9 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['es', 'en'],
     routing: {
-      prefixDefaultLocale: false
-    }
+      prefixDefaultLocale: false,
+    },
   },
   integrations: [net0Integration, sitemap(), [icon()], react()],
-  adapter: netlify()
+  adapter: netlify(),
 });
