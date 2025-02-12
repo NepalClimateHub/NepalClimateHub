@@ -31,7 +31,7 @@ const opportunityDetail = opportunitiesJSON.find((item) => item.slug === detail)
 			<div class="mini-nav">
 				<a href="/">Home</a>
 				<span style="color: #364FC7">/</span>
-				<a href="/events">Events</a>
+				<a href="/opportunities">Opportunities</a>
 			</div>
 		</section>
 
@@ -48,12 +48,12 @@ const opportunityDetail = opportunitiesJSON.find((item) => item.slug === detail)
 			<p class="application-text">
 				To apply for this opportunity, please visit the official website by clicking the button below.
 			</p>
-			<a href={opportunityDetail.applicationLink} target="_blank" rel="noopener noreferrer">
+			<a href={opportunityDetail?.applicationLink ?? "#"} target="_blank" rel="noopener noreferrer">
 			<button class="application-button">Apply Now</button>
 		</section>
 
 		<section class="organization-section">
-			<FeaturedOpportunitySection startIndex = 0 endIndex = 4 title="Join other events" />
+			<FeaturedOpportunitySection startIndex = 0 endIndex = 4 title="Other Opportunities" />
 		</section>
 
 		<section class="footer-section">
