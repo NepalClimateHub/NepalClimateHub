@@ -21,8 +21,10 @@ export const Card = ({
     url = `/organizations/${data.slug}`;
   } else if (dataType === 'activist') {
     url = `/climate-champions/${data.slug}`;
-  } else {
+  } else if (dataType === 'events') {
     url = `/events/${data.slug}`;
+  } else if (dataType === 'opportunities') {
+    url = `/opportunities/${data.slug}`;
   }
 
   return (

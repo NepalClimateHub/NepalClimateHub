@@ -7,7 +7,7 @@ import CardFilterSection from '@layouts/CardFilterSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
 
 // get events JSON data
-import eventsJSON from '../data/events.json';
+import eventsJSON from '../data/opportunities.json';
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -29,7 +29,7 @@ import eventsJSON from '../data/events.json';
 			</section>
 		
 			<section class="activist-cards-section">
-				 <CardContainer client:load cardsArray = {eventsJSON } dataType="events" cardProfilePictureBgSize="cover" cardPadding="0px" initialCardCount = 8/>
+				 <CardContainer client:load cardsArray = {eventsJSON } dataType="opportunities" cardProfilePictureBgSize="cover" cardPadding="0px" initialCardCount = 8/>
 		</div>
 
 		<section class="footer-section">
