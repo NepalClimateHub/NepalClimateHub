@@ -1,5 +1,9 @@
-export default function sortByBirthDateDescending(data) {
-  const monthShortNames = {
+type SortData = {
+  date: string;
+};
+
+export default function sortByDateDescending(data: SortData[]) {
+  const monthShortNames: Record<string, string> = {
     Jan: '01',
     Feb: '02',
     Mar: '03',
@@ -18,15 +22,17 @@ export default function sortByBirthDateDescending(data) {
     const dateA = new Date(
       a.date.replace(
         /(\w{3}) (\d{2}), (\d{4})/,
-        (match, p1, p2, p3) => `${p3}-${monthShortNames[p1]}-${p2}`
+        (_, p1, p2, p3) =>
+          `${p3}-${monthShortNames[p1 as keyof typeof monthShortNames]}-${p2}`
       )
     );
     const dateB = new Date(
       b.date.replace(
         /(\w{3}) (\d{2}), (\d{4})/,
-        (match, p1, p2, p3) => `${p3}-${monthShortNames[p1]}-${p2}`
+        (_, p1, p2, p3) =>
+          `${p3}-${monthShortNames[p1 as keyof typeof monthShortNames]}-${p2}`
       )
     );
-    return dateB - dateA;
+    return dateB.getTime() - dateA.getTime();
   });
 }
