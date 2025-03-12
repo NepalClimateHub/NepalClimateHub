@@ -1,0 +1,107 @@
+---
+export const prerender = true;
+
+import '../../styles/global.css';
+import ConnectCard from '@components/ConnectCard.astro';
+import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardDetailSection from '@layouts/CardDetailSection.astro';
+import BaseLayout from '../../layouts/Layout.astro';
+
+import opportunitiesJSON from '../../data/opportunities.json';
+
+export async function getStaticPaths() {
+  return opportunitiesJSON.map((item) => ({
+    params: { detail: item.slug },
+  }));
+}
+const { detail } = Astro.params;
+const opportunityDetail = opportunitiesJSON.find((item) => item.slug === detail);
+---
+
+<BaseLayout title="Nepal Climate Hub">
+	<main class="main-container">
+		<!-- header section  -->
+
+		<section class="header-section">
+			<Header logoColor="#1A1B1E" />
+
+			<!-- a mini navbar -->
+			<div class="mini-nav">
+				<a href="/">Home</a>
+				<span style="color: #364FC7">/</span>
+				<a href="/opportunities">Opportunities</a>
+			</div>
+		</section>
+
+    <section class="organization-card-section">
+      <CardDetailSection cardId= 0 organization = "false" dataObj = {opportunityDetail} />
+    </section>
+
+		<section class="connect-card-section">
+			<ConnectCard cardId= 0 organization = "false" dataObj = {opportunityDetail} />
+		</section>
+		
+		<section class="application">
+			<h2>Application</h2>
+			<p class="application-text">
+				To apply for this opportunity, please visit the official website by clicking the button below.
+			</p>
+			<a href={opportunityDetail?.applicationLink ?? "#"} target="_blank" rel="noopener noreferrer">
+			<button class="application-button">Apply Now</button>
+		</section>
+
+		<section class="organization-section">
+			<FeaturedOpportunitySection startIndex = 0 endIndex = 4 title="Other Opportunities" />
+		</section>
+
+		<section class="footer-section">
+			<Footer />
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+  	section {
+		padding: 0px 48px;
+ 	}
+
+	.connect-card-section {
+ 		background-color: #CEFE00;
+  	}
+
+	.footer-section {
+    	background-color: #1A1B1E;
+    	color: white;
+  	}
+
+	.application {
+		margin: 18px 12%;
+	}
+
+	.application-text{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.application-button {
+		background-color: #4258c8;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+ 	@media  screen and (max-width: 768px) {
+ 	 	section {
+    		padding: 0px;
+  		}
+		.application {
+			margin: 18px 20px;
+			padding: 10px 12px;	
+		}
+	}
+
+</style>
