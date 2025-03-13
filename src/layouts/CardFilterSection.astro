@@ -1,112 +1,139 @@
 ---
-import { Icon } from 'astro-icon/components';
-import '../styles/global.css';
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
 
 const { heading, filter, type } = Astro.props;
 ---
 
 <div class="section-container">
-	<h2 class="page-title">{heading}</h2>
-	{
-		type == "organization" && (
-			<p class="page-tagline">
-				These organizations are dedicated to advancing climate education,
-				advocacy, policy, and resilience across Nepal. If you are working for a
-				climate organization not already listed here, please{" "}
-				<a href="/submit-profile" class="register-link">register your profile</a> to be added to our hub!
-			</p>
-		)
-	}
-	{
-		type == "activist" && (
-			<p class="page-tagline">
-				These exceptional individuals are leaders, activists, and innovators
-				working tirelessly to advance climate advocacy and solutions for a
-				healthy, climate-resilient Nepal. Read about their inspirational work
-				and connect with them below. If you are a climate champion interested in
-				being featured on Nepal Climate Hub and connecting with others, please
-				<a href="/submit-profile" class="register-link">submit your profile</a>.
-			</p>
-		)
-	}
-	{
-		type == "event" && (
-			<p class="page-tagline">
-				Learn about recent and upcoming meetings, conferences, and other
-				advocacy events – and how you can participate – using the links below. If you are hosting an upcoming climate event not featured here, please email us at <a href="mailto:info@nepalclimatehub.org" class="event-link">info@nepalclimatehub.org</a> with the event details so we can update our list.
-			</p>
-		)
-	}
+  <h2 class="page-title">{heading}</h2>
+  {
+    type == "organization" && (
+      <p class="page-tagline">
+        These organizations are dedicated to advancing climate education,
+        advocacy, policy, and resilience across Nepal. If you are working for a
+        climate organization not already listed here, please{" "}
+        <a href="/submit-profile" class="register-link">
+          register your profile
+        </a>{" "}
+        to be added to our hub!
+      </p>
+    )
+  }
+  {
+    type == "activist" && (
+      <p class="page-tagline">
+        These exceptional individuals are leaders, activists, and innovators
+        working tirelessly to advance climate advocacy and solutions for a
+        healthy, climate-resilient Nepal. Read about their inspirational work
+        and connect with them below. If you are a climate champion interested in
+        being featured on Nepal Climate Hub and connecting with others, please
+        <a href="/submit-profile" class="register-link">
+          submit your profile
+        </a>
+        .
+      </p>
+    )
+  }
+  {
+    type == "event" && (
+      <p class="page-tagline">
+        Learn about recent and upcoming meetings, conferences, and other
+        advocacy events – and how you can participate – using the links below.
+        If you are hosting an upcoming climate event not featured here, please
+        email us at{" "}
+        <a href="mailto:info@nepalclimatehub.org" class="event-link">
+          info@nepalclimatehub.org
+        </a>{" "}
+        with the event details so we can update our list.
+      </p>
+    )
+  }
 
-	{
-		filter == "true" && (
-			<div class="filter-wrapper">
-				<button class="filter-btn">
-					Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
-				</button>
-			</div>
-		)
-	}
+  {
+    type == "opportunity" && (
+      <p class="page-tagline">
+        Discover recent and upcoming opportunities, including grants,
+        fellowships, training programs, and advocacy initiatives. If you know of
+        any opportunities, email us at{" "}
+        <a href="mailto:info@nepalclimatehub.org" class="event-link">
+          info@nepalclimatehub.org
+        </a>
+        , and we'll add it to our list.
+      </p>
+    )
+  }
+
+  {
+    filter == "true" && (
+      <div class="filter-wrapper">
+        <button class="filter-btn">
+          Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
+        </button>
+      </div>
+    )
+  }
 </div>
 
 <style>
-	.section-container {
-		margin-top: 24px;
-	}
+  .section-container {
+    margin-top: 24px;
+  }
 
-	.page-title {
-		font-size: 32px;
-		line-height: 60px;
-		font-weight: 700;
-	}
+  .page-title {
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 700;
+  }
 
-	.page-tagline {
-		line-height: 24px;
-		margin-bottom: 48px;
-	}
+  .page-tagline {
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
 
-	.filter-btn {
-		width: 339px;
-		font-size: 14px;
-		font-family: Roboto;
-		line-height: 16px;
-		border-radius: 16px;
-		border: 1px solid #1a1b1e;
-		padding: 8px 16px;
-		text-align: left;
-		cursor: pointer;
-		background-color: transparent;
-		margin-bottom: 40px;
-	}
+  .filter-btn {
+    width: 339px;
+    font-size: 14px;
+    font-family: Roboto;
+    line-height: 16px;
+    border-radius: 16px;
+    border: 1px solid #1a1b1e;
+    padding: 8px 16px;
+    text-align: left;
+    cursor: pointer;
+    background-color: transparent;
+    margin-bottom: 40px;
+  }
 
-	.filter-btn .icon {
-		transform: rotate(-90deg);
-		float: right;
-		font-size: 16px;
-	}
+  .filter-btn .icon {
+    transform: rotate(-90deg);
+    float: right;
+    font-size: 16px;
+  }
 
-	.filter-btn:hover {
-		background-color: #1a1b1e;
-		color: white;
-	}
+  .filter-btn:hover {
+    background-color: #1a1b1e;
+    color: white;
+  }
 
-	.register-link, .event-link {
-		color: #364fc7;
-	}
+  .register-link,
+  .event-link {
+    color: #364fc7;
+  }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 32px 64px;
-		}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 32px 64px;
+    }
 
-		.filter-btn {
-			margin-bottom: 0px;
-		}
-	}
+    .filter-btn {
+      margin-bottom: 0px;
+    }
+  }
 
-	@media screen and (max-width: 412px) {
-		.filter-btn {
-			width: 100%;
-		}
-	}
+  @media screen and (max-width: 412px) {
+    .filter-btn {
+      width: 100%;
+    }
+  }
 </style>
