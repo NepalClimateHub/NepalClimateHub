@@ -1,15 +1,15 @@
 ---
 export const prerender = true;
 
-import "../../styles/global.css";
-import ConnectCard from "@components/ConnectCard.astro";
-import FeaturedOpportunitySection from "@components/FeaturedOpportunitySection.astro";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import CardDetailSection from "@layouts/CardDetailSection.astro";
-import BaseLayout from "../../layouts/Layout.astro";
+import '../../styles/global.css';
+import ConnectCard from '@components/ConnectCard.astro';
+import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardDetailSection from '@layouts/CardDetailSection.astro';
+import BaseLayout from '../../layouts/Layout.astro';
 
-import opportunitiesJSON from "../../data/opportunities.json";
+import opportunitiesJSON from '../../data/opportunities.json';
 
 export async function getStaticPaths() {
   return opportunitiesJSON.map((item) => ({

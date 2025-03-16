@@ -21,4 +21,5 @@ export interface Organization {
   tags: string[];
   logoUrl: string;
   pictures: string[];
+  slug: string;
 }
