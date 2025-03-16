@@ -1,7 +1,7 @@
-import { defaultLang, languages, showDefaultLang, ui } from './ui';
+import { defaultLang, languages, showDefaultLang, ui } from "./ui";
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
+  const [, lang] = url.pathname.split("/");
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }
@@ -15,7 +15,7 @@ export function useTranslations(lang: keyof typeof ui) {
       return ui[defaultLang][key];
     } else {
       // Handle the case where the key doesn't exist in either object
-      return '';
+      return "";
     }
   };
 }
@@ -30,9 +30,9 @@ export function getEntryStaticPaths(entries: any[]): any[] {
   return entries.map((entry) => {
     let lang = defaultLang;
     let slug = [entry.slug];
-    if (entry.slug.includes('/')) {
+    if (entry.slug.includes("/")) {
       // Is in a language subdirectory
-      const [entryLang, ...entrySlug] = entry.slug.split('/');
+      const [entryLang, ...entrySlug] = entry.slug.split("/");
       if (
         Object.keys(languages).includes(entryLang) &&
         entryLang !== defaultLang
@@ -42,7 +42,7 @@ export function getEntryStaticPaths(entries: any[]): any[] {
       }
     }
     return {
-      params: { lang, slug: slug.join('/') || undefined },
+      params: { lang, slug: slug.join("/") || undefined },
       props: { entry },
     };
   });
@@ -56,7 +56,7 @@ export function entryMatchesLang(entry: any, lang: string) {
 
   // If it is the default language, then it will not be in a language subdirectory.
   return !Object.keys(languages).some((lang) =>
-    entry.slug.startsWith(`${lang}/`)
+    entry.slug.startsWith(`${lang}/`),
   );
 }
 

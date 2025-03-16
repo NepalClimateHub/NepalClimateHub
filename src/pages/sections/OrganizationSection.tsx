@@ -1,9 +1,9 @@
-import { CardContainer } from '@components/CardContainer';
-import { Paginator } from '@components/Paginator';
-import { NuqsAdapter } from 'nuqs/adapters/react';
-import { usePagination } from 'src/hooks/use-pagination';
-import { withNuqsAdapter } from 'src/provider/nuqsProvider';
-import OrganizationsJSON from '../../data/organizations.json';
+import { CardContainer } from "@components/CardContainer";
+import { Paginator } from "@components/Paginator";
+import { NuqsAdapter } from "nuqs/adapters/react";
+import { usePagination } from "src/hooks/use-pagination";
+import { withNuqsAdapter } from "src/provider/nuqsProvider";
+import OrganizationsJSON from "../../data/organizations.json";
 
 const Organization = () => {
   const paginationOptions = usePagination();

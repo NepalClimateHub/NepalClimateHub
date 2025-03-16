@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Nepal Commits to Achieving Net-Zero Emissions by 2045",
+    "source": "The Kathmandu Post",
+    "mode": "National",
+    "category": ["Climate Policy", "Climate Resilience"],
+    "publishedDate": "2025-02-15",
+    "publishedYear": "2025",
+    "newsLink": "https://kathmandupost.com/climate/2025/02/15/nepal-net-zero-2045",
+    "imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
+    "contributedBy": "Hikmat Budha Chhetri"
+  },
+  {
+    "id": 2,
+    "title": "Himalayan Glaciers Melting Faster Than Expected",
+    "source": "BBC News",
+    "mode": "International",
+    "category": ["Climate Science", "Biodiversity and Ecosystems"],
+    "imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
+    "publishedDate": "2024-11-10",
+    "publishedYear": "2024",
+    "newsLink": "https://www.bbc.com/news/science-environment-2024-11-10",
+    "contributedBy": "Anil Gurung"
+  },
+  {
+    "id": 3,
+    "title": "Kathmandu Introduces Electric Buses to Reduce Air Pollution",
+    "source": "Nepal Times",
+    "mode": "Regional",
+    "category": ["Sustainability and Solutions", "Renewable Energy"],
+    "imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
+    "publishedDate": "2023-07-25",
+    "publishedYear": "2023",
+    "newsLink": "https://nepaltimes.com/news/kathmandu-electric-buses-2023",
+    "contributedBy": "Pooja Shrestha"
+  },
+  {
+    "id": 4,
+    "title": "New Climate Education Program Launched in Rural Nepal",
+    "source": "Himalayan Daily",
+    "mode": "National",
+    "category": ["Climate Education", "Community"],
+    "publishedDate": "2025-01-05",
+    "imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
+    "publishedYear": "2025",
+    "newsLink": "https://himalayandaily.com/climate-education-2025",
+    "contributedBy": "Rajendra Bista"
+  },
+  {
+    "id": 5,
+    "title": "Global Investors Fund Nepal’s Renewable Energy Projects",
+    "source": "Reuters",
+    "mode": "Global",
+    "category": ["Climate Finance and Economics", "Renewable Energy"],
+    "publishedDate": "2024-06-18",
+    "imgSrc": "https://i.ibb.co/99D6mgc/00.jpg",
+    "publishedYear": "2024",
+    "newsLink": "https://www.reuters.com/news/nepal-renewable-energy-investments-2024",
+    "contributedBy": "Sarina Lama"
+  }
+]

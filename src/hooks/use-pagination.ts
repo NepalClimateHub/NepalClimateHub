@@ -1,5 +1,5 @@
-import { parseAsInteger, useQueryStates } from 'nuqs';
-import { useCallback, useMemo } from 'react';
+import { parseAsInteger, useQueryStates } from "nuqs";
+import { useCallback, useMemo } from "react";
 
 type DefaultPagination = {
   limit: number;
@@ -14,8 +14,8 @@ export const usePagination = (params?: DefaultPagination) => {
       offset: parseAsInteger.withDefault(offset),
     },
     {
-      history: 'replace',
-    }
+      history: "replace",
+    },
   );
 
   const setPrevPage = () => {
@@ -31,7 +31,7 @@ export const usePagination = (params?: DefaultPagination) => {
         ...prev,
         offset: prev.offset + prev.limit,
       })),
-    []
+    [],
   );
 
   const setLimit = useCallback(
@@ -42,7 +42,7 @@ export const usePagination = (params?: DefaultPagination) => {
         // reset offset when changing limit
         offset: 0,
       })),
-    []
+    [],
   );
 
   const setPage = useCallback((page: number | string) => {
@@ -57,7 +57,7 @@ export const usePagination = (params?: DefaultPagination) => {
 
   const resetPagination = useCallback(
     () => setPagination({ limit: limit, offset: offset }),
-    []
+    [],
   );
 
   const currentPage = useMemo(() => {
