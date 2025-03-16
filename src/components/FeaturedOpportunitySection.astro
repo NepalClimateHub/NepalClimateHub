@@ -7,7 +7,7 @@ import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
 
 //sample event JSON event
-import eventJSON from '../data/events.json';
+import opportunityJSON from '../data/opportunities.json';
 const { startIndex, endIndex, title } = Astro.props;
 ---
 
@@ -19,22 +19,22 @@ const { startIndex, endIndex, title } = Astro.props;
 	<!-- render the event from eventJSON -->
 	<div class="cards-container">
 		{
-			eventJSON.slice(startIndex, endIndex).map((event) => (
-			<a class="card event-card" href={`/events/${event.slug}`}>
+			opportunityJSON.slice(startIndex, endIndex).map((item) => (
+			<a class="card event-card" href={`/opportunities/${item.slug}`}>
 					<div class="img-wrapper" style="padding: 0px;">
-						<img src={event.logoUrl} alt={event.name} style="object-fit: cover;" />
+						<img src={item.logoUrl} alt={item.name} style="object-fit: cover;" />
 					</div>
 					<div class="details">
-						<h3 class="name">{event.name}</h3>
+						<h3 class="name">{item.name}</h3>
 						<p class="location">
 							<span class="icon">
 								<Icon name="mdi:my-location" class="icon" />
 							</span>
-							<span class="address">{event.address}</span>
+							<span class="address">{item.address}</span>
 						</p>
-						<p class="about">{event.description.substring(0, 108)}...</p>
+						<p class="about">{item.description.substring(0, 108)}...</p>
 						<div class="tags">
-							{event.tags.slice(0, 3).map((tag: string) => (
+							{item.tags.slice(0, 3).map((tag: string) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>
@@ -54,7 +54,7 @@ const { startIndex, endIndex, title } = Astro.props;
 	</div>
 
 	<!-- link to redirect landing page of events -->
-	<a href="/events" class="cta-link">See All</a>
+	<a href="/opportunities" class="cta-link">See All</a>
 </div>
 
 <style>
