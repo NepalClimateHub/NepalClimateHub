@@ -1,6 +1,6 @@
-import { type FC, useMemo } from 'react';
-import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
-import type { usePagination } from 'src/hooks/use-pagination';
+import { type FC, useMemo } from "react";
+import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
+import type { usePagination } from "src/hooks/use-pagination";
 
 type PaginatorProps = {
   totalCount: number;
@@ -33,23 +33,23 @@ export const Paginator: FC<PaginatorProps> = ({
   }, [pagination]);
 
   const pageNumbers = useMemo(() => {
-    const pages: (number | '...')[] = [];
+    const pages: (number | "...")[] = [];
     const startPages = [...Array(edgePageCount)].map((_, i) => i + 1);
     const endPages = [...Array(edgePageCount)].map(
-      (_, i) => totalPages - edgePageCount + 1 + i
+      (_, i) => totalPages - edgePageCount + 1 + i,
     );
     const middleStart = Math.max(
       edgePageCount + 1,
-      currentPage - middlePagesSiblingCount
+      currentPage - middlePagesSiblingCount,
     );
     const middleEnd = Math.min(
       totalPages - edgePageCount,
-      currentPage + middlePagesSiblingCount
+      currentPage + middlePagesSiblingCount,
     );
 
-    if (middleStart > edgePageCount + 1) pages.push('...');
+    if (middleStart > edgePageCount + 1) pages.push("...");
     for (let i = middleStart; i <= middleEnd; i++) pages.push(i);
-    if (middleEnd < totalPages - edgePageCount) pages.push('...');
+    if (middleEnd < totalPages - edgePageCount) pages.push("...");
 
     return [
       ...startPages,
@@ -65,7 +65,7 @@ export const Paginator: FC<PaginatorProps> = ({
       <button
         type="button"
         className={`h-8 w-8 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300 ease-in-out transform 
-                    ${isFirstPage ? 'bg-gray-200 text-gray-400' : 'bg-white text-gray-700 hover:bg-blue-100'} 
+                    ${isFirstPage ? "bg-gray-200 text-gray-400" : "bg-white text-gray-700 hover:bg-blue-100"} 
                     font-sans text-base disabled:opacity-50 hover:scale-105`}
         disabled={isFirstPage}
         onClick={() => setPrevPage()}
@@ -83,10 +83,10 @@ export const Paginator: FC<PaginatorProps> = ({
             key={index}
             type="button"
             className={`h-8 w-8 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300 ease-in-out transform 
-                    ${page === currentPage ? 'bg-blue-900 text-white font-semibold text-base shadow-sm shadow-gray-700/45 scale-125 !mx-2' : 'bg-gray-50 text-gray-600 hover:bg-blue-100 hover:scale-115'} 
+                    ${page === currentPage ? "bg-blue-900 text-white font-semibold text-base shadow-sm shadow-gray-700/45 scale-125 !mx-2" : "bg-gray-50 text-gray-600 hover:bg-blue-100 hover:scale-115"} 
                     font-sans text-sm font-medium disabled:bg-transparent`}
-            onClick={() => typeof page === 'number' && setPage(page)}
-            disabled={page === '...'}
+            onClick={() => typeof page === "number" && setPage(page)}
+            disabled={page === "..."}
           >
             {page}
           </button>
@@ -97,7 +97,7 @@ export const Paginator: FC<PaginatorProps> = ({
       <button
         type="button"
         className={`h-8 w-8 rounded-md flex items-center justify-center cursor-pointer transition-all duration-300 ease-in-out transform 
-                    ${isLastPage ? 'bg-gray-200 text-gray-400' : 'bg-gray-50 text-gray-700 hover:bg-blue-100'} 
+                    ${isLastPage ? "bg-gray-200 text-gray-400" : "bg-gray-50 text-gray-700 hover:bg-blue-100"} 
                     font-sans text-base disabled:opacity-50`}
         disabled={isLastPage}
         onClick={() => setNextPage()}

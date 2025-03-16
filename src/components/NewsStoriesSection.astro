@@ -1,54 +1,15 @@
 ---
-import { Icon } from 'astro-icon/components';
-import NewsJSONData from '../data/news.json';
-import sortNewsArray from '../utils/sortNewsArray.js';
+import NewsJSONData from "../data/dummy-news.json";
+import sortNewsArray from "../utils/sortNewsArray.js";
+import NewsFilter from "../components/NewsFilter.jsx";
 
 const NewsJSON = sortNewsArray(NewsJSONData);
 ---
 
 <div class="section-container">
-	<h2 class="page-title">News</h2>
-	<p class="page-tagline">Read up on the latest climate-related Nepal news.</p>
-
-	<!-- container to wrap news card -->
-
-	<div class="news-container">
-		{
-			NewsJSON.map((news: any) => (
-				<div class="news-card">
-					<a href={news.newsSrc} target="_blank">
-						<div class="content">
-							<h3 class="news-headline">{news.headline}</h3>
-							<div class="news-image-wrapper">
-								<img src={news.imgSrc} alt={news.headline} />
-							</div>
-						</div>
-
-						<div class="link-date-wrapper">
-							<div class="link">
-								<span class="link-icon">
-									<Icon name="mdi:link" />
-								</span>
-								<a href={news.newsSrc} target="_blank">
-									{news.linkText}
-								</a>
-							</div>
-
-							<div class="date">
-								<span class="link-icon">
-									<Icon name="mdi:clock" />
-								</span>
-								<span>{news.date}</span>
-							</div>
-						</div>
-					</a>
-				</div>
-			))
-		}
-	</div>
+  <NewsFilter client:load newsData={NewsJSON} />
 </div>
-
-<style>
+<!-- <style>
 	.section-container {
 		margin: 24px auto 83px;
 		position: relative;
@@ -70,6 +31,7 @@ const NewsJSON = sortNewsArray(NewsJSONData);
 		flex-wrap: wrap;
 		overflow: hidden;
 		gap: 24px;
+		margin-top: 16px;
 	}
 
 	.news-card {
@@ -162,4 +124,4 @@ const NewsJSON = sortNewsArray(NewsJSONData);
 			width: 100%;
 		}
 	}
-</style>
+</style> -->

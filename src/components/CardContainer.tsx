@@ -1,8 +1,8 @@
-import '../styles/global.css';
-import { Card } from '@layouts/Card.jsx';
-import { type CSSProperties, useEffect, useState } from 'react';
-import type { Organization } from 'src/interfaces/organizationInterface';
-import styles from '../styles/components/CardContainer.module.css';
+import "../styles/global.css";
+import { Card } from "@layouts/Card.jsx";
+import { type CSSProperties, useEffect, useState } from "react";
+import type { Organization } from "src/interfaces/organizationInterface";
+import styles from "../styles/components/CardContainer.module.css";
 
 // cardsArray consists of JSON data of either organizations or climate activists
 // this is a reuseable template in organization landing page card section and activists landing page card sections
@@ -10,7 +10,7 @@ import styles from '../styles/components/CardContainer.module.css';
 interface CardContainerProps {
   cardsArray: Organization[];
   dataType: string;
-  cardProfilePictureBgSize: CSSProperties['objectFit'];
+  cardProfilePictureBgSize: CSSProperties["objectFit"];
   cardPadding: string;
   initialCardCount: string;
 }
@@ -23,7 +23,7 @@ export const CardContainer = ({
   initialCardCount,
 }: CardContainerProps) => {
   const [cardCounter, setCardCounter] = useState(
-    Number.parseInt(initialCardCount)
+    Number.parseInt(initialCardCount),
   );
   const [isBtnVisible, setIsBtnVisible] = useState(true);
 
@@ -38,8 +38,8 @@ export const CardContainer = ({
   }, [cardCounter]);
 
   return (
-    <div className={`${styles['section-container']} section-container`}>
-      <div className={styles['card-wrapper']}>
+    <div className={`${styles["section-container"]} section-container`}>
+      <div className={styles["card-wrapper"]}>
         {cardsArray.slice(0, cardCounter).map((cardData) => (
           <Card
             key={cardData.id}
@@ -54,7 +54,7 @@ export const CardContainer = ({
       {isBtnVisible && (
         <button
           type="button"
-          className={styles['load-more-btn']}
+          className={styles["load-more-btn"]}
           onClick={handleLoadMore}
         >
           Load More

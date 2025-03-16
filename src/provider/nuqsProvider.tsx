@@ -1,9 +1,9 @@
-import { NuqsAdapter } from 'nuqs/adapters/react';
+import { NuqsAdapter } from "nuqs/adapters/react";
 
 type WrappedComponentProps = React.ComponentProps<any>;
 
 export const withNuqsAdapter = <P extends WrappedComponentProps>(
-  WrappedComponent: React.ComponentType<P>
+  WrappedComponent: React.ComponentType<P>,
 ) => {
   return function WithWrapper(props: P) {
     return (

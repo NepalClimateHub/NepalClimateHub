@@ -1,6 +1,6 @@
 // import { co2 } from '@tgwf/co2'
 
-type ResourceCategoryId = 'media' | 'js' | 'css' | 'html' | 'other';
+type ResourceCategoryId = "media" | "js" | "css" | "html" | "other";
 
 const IGNORED_RESOURCES = [
   /\/node_modules\/astro/,
@@ -38,7 +38,7 @@ class Resource {
     const maxSize = Math.max(
       this._entry.encodedBodySize,
       this._entry.decodedBodySize,
-      this._entry.transferSize
+      this._entry.transferSize,
     );
     if (maxSize) {
       return maxSize;
@@ -103,14 +103,14 @@ class ResourceCategory {
   get totalBytes(): number {
     return this._resources.reduce(
       (total, resource) => total + resource.bytes,
-      0
+      0,
     );
   }
 
   get totalDuration(): number {
     return this._resources.reduce(
       (total, resource) => total + resource.duration,
-      0
+      0,
     );
   }
 
@@ -120,61 +120,61 @@ class ResourceCategory {
 }
 
 const baseResources: ResourceCategory[] = [
-  new ResourceCategory('html', 'HTML', 'The base html document'),
+  new ResourceCategory("html", "HTML", "The base html document"),
   new ResourceCategory(
-    'js',
-    'JavaScript',
-    'First and third party JavaScript loaded on this page'
+    "js",
+    "JavaScript",
+    "First and third party JavaScript loaded on this page",
   ),
   new ResourceCategory(
-    'css',
-    'CSS',
-    'First and third party CSS styles loaded on this page'
+    "css",
+    "CSS",
+    "First and third party CSS styles loaded on this page",
   ),
   new ResourceCategory(
-    'media',
-    'Media',
-    'All images, video and audio loaded on this page'
+    "media",
+    "Media",
+    "All images, video and audio loaded on this page",
   ),
   new ResourceCategory(
-    'other',
-    'Other',
-    'Everything else and things this tool failed to categorize'
+    "other",
+    "Other",
+    "Everything else and things this tool failed to categorize",
   ),
 ];
 
 function getPerformanceEntryResouceCategory(
-  entry: PerformanceEntry
+  entry: PerformanceEntry,
 ): ResourceCategoryId {
-  let category: ResourceCategoryId = 'other';
+  let category: ResourceCategoryId = "other";
 
-  const fileExtension = entry.name.includes('.')
-    ? entry.name.split('.').pop()
-    : '';
+  const fileExtension = entry.name.includes(".")
+    ? entry.name.split(".").pop()
+    : "";
 
   // Sometimes CSS loadeitem.encodedBodySize.average.valued by JS is detected as a script
-  if (['css', 'scss', 'sass', 'less'].includes(<string>fileExtension)) {
-    category = 'css';
+  if (["css", "scss", "sass", "less"].includes(<string>fileExtension)) {
+    category = "css";
   }
 
   if (
-    ['js', 'mjs', 'jsx', 'ts', 'tsx', 'cjs', 'vue', 'svelte'].includes(
-      <string>fileExtension
+    ["js", "mjs", "jsx", "ts", "tsx", "cjs", "vue", "svelte"].includes(
+      <string>fileExtension,
     )
   ) {
-    category = 'js';
+    category = "js";
   }
 
   if (
-    ['svg', 'jpg', 'webp', 'avif', 'mp4', 'png', 'gif'].includes(
-      <string>fileExtension
+    ["svg", "jpg", "webp", "avif", "mp4", "png", "gif"].includes(
+      <string>fileExtension,
     )
   ) {
-    category = 'media';
+    category = "media";
   }
 
-  if (entry.entryType === 'navigation') {
-    category = 'html';
+  if (entry.entryType === "navigation") {
+    category = "html";
   }
 
   return category;
