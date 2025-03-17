@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components';
 //sample activist JSON data
 import activistJSON from '../data/featuredActivists.json';
 
-const { startIndex, endIndex, title } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <div class="section-container featured-card-section">
@@ -71,7 +71,7 @@ const { startIndex, endIndex, title } = Astro.props;
 	// Check if cardControlsElement and bars are not null
 	if (cardControlsElement && bars) {
 		// Call the function to create the mobile slider
-		createMobileSlider(cards, cardControlsElement, bars);
+		createMobileSlider(cards, bars);
 	}
 	</script>
 

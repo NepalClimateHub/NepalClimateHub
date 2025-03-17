@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import { CardContainer } from '@components/CardContainer';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardFilterSection from '@layouts/CardFilterSection.astro';
+import BaseLayout from '../layouts/Layout.astro';
+
+// get events JSON data
+import eventsJSON from '../data/opportunities.json';
+---
+
+<BaseLayout title="Nepal Climate Hub">
+  <main class="main-container">
+    <!-- header section  -->
+
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
+
+      <!-- a mini navbar -->
+      <div class="mini-nav">
+        <a href="/">Home</a>
+      </div>
+    </section>
+
+    <div class="event-wrapper">
+      <section class="filter-section">
+        <CardFilterSection
+          heading="Opportunities"
+          type="opportunity"
+          filter="false"
+        />
+      </section>
+
+      <section class="activist-cards-section">
+        <CardContainer
+          client:load
+          cardsArray={eventsJSON}
+          dataType="opportunities"
+          cardProfilePictureBgSize="cover"
+          cardPadding="0px"
+          initialCardCount="8/"
+        />
+      </section>
+
+      <section class="footer-section">
+        <Footer />
+      </section>
+    </div>
+  </main>
+
+  <style>
+    section {
+      padding: 0px 48px;
+    }
+
+    .page-title {
+      font-size: 32px;
+      line-height: 60px;
+      font-weight: 700;
+    }
+
+    .page-tagline {
+      line-height: 24px;
+      margin-bottom: 48px;
+    }
+
+    .event-wrapper {
+      background-color: #ebf1f7;
+    }
+
+    .footer-section {
+      background-color: #1a1b1e;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      section {
+        padding: 0px;
+      }
+    }
+  </style>
+</BaseLayout>

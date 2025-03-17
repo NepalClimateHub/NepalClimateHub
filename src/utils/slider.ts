@@ -1,6 +1,5 @@
 export function createMobileSlider(
   cards: NodeListOf<HTMLElement>,
-  cardControlsElement: HTMLElement,
   bars: NodeListOf<HTMLElement>
 ) {
   // Check if the device is a mobile device
