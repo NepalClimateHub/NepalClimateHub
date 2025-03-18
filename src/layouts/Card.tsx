@@ -1,12 +1,12 @@
-import type { CSSProperties } from "react";
-import { BiTargetLock } from "react-icons/bi";
-import type { Organization } from "src/interfaces/organizationInterface";
-import styles from "../styles/components/Card.module.css";
+import type { CSSProperties } from 'react';
+import { BiTargetLock } from 'react-icons/bi';
+import type { Organization } from 'src/interfaces/organizationInterface';
+import styles from '../styles/components/Card.module.css';
 
 interface CardProps {
   data: Organization;
   dataType: string;
-  cardProfilePictureBgSize: CSSProperties["objectFit"];
+  cardProfilePictureBgSize: CSSProperties['objectFit'];
   cardPadding: string;
 }
 
@@ -16,20 +16,20 @@ export const Card = ({
   cardProfilePictureBgSize,
   cardPadding,
 }: CardProps) => {
-  let url = "";
-  if (dataType === "organization") {
+  let url = '';
+  if (dataType === 'organization') {
     url = `/organizations/${data.slug}`;
-  } else if (dataType === "activist") {
+  } else if (dataType === 'activist') {
     url = `/climate-champions/${data.slug}`;
-  } else if (dataType === "events") {
+  } else if (dataType === 'events') {
     url = `/events/${data.slug}`;
-  } else if (dataType === "opportunities") {
+  } else if (dataType === 'opportunities') {
     url = `/opportunities/${data.slug}`;
   }
 
   return (
-    <a className={styles["organization-card"]} href={url}>
-      <div className={styles["logo-wrapper"]} style={{ padding: cardPadding }}>
+    <a className={styles['organization-card']} href={url}>
+      <div className={styles['logo-wrapper']} style={{ padding: cardPadding }}>
         <img
           src={data.logoUrl}
           alt={data.name}
@@ -37,7 +37,7 @@ export const Card = ({
         />
       </div>
       <div className={styles.details}>
-        <h3 className={styles["organization-name"]}>{data.name}</h3>
+        <h3 className={styles['organization-name']}>{data.name}</h3>
         <p className={styles.location}>
           <span className={styles.icon}>
             <BiTargetLock />

@@ -1,10 +1,12 @@
 ---
 import '../styles/global.css';
 import { Icon } from 'astro-icon/components';
-import unsortedNewsJSON from '../data/news.json';
+import unsortedNewsJSON from '../data/news.json' assert { type: 'json' };
 import sortNewsArray from '../utils/sortNewsArray.js';
+import type { SortData } from '../utils/sortNewsArray.js';
 
-const NewsJSON = sortNewsArray(unsortedNewsJSON);
+const data = unsortedNewsJSON as unknown as SortData[];
+const NewsJSON = sortNewsArray(data);
 ---
 
 <div class="section-container">
