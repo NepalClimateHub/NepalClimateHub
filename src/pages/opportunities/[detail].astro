@@ -17,7 +17,9 @@ export async function getStaticPaths() {
   }));
 }
 const { detail } = Astro.params;
-const opportunityDetail = opportunitiesJSON.find((item) => item.slug === detail);
+const opportunityDetail = opportunitiesJSON.find(
+  (item) => item.slug === detail
+);
 ---
 
 <BaseLayout title="Nepal Climate Hub">

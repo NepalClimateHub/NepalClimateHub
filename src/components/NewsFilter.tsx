@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styles from "../styles/components/News.module.css";
+import { useState } from 'react';
+import styles from '../styles/components/News.module.css';
 
 interface NewsItem {
   id: number;
@@ -19,22 +19,22 @@ interface Props {
 }
 
 const NewsFilter: React.FC<Props> = ({ newsData }) => {
-  const [selectedYear, setSelectedYear] = useState<string>("All Years");
-  const [selectedType, setSelectedType] = useState<string>("All");
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedYear, setSelectedYear] = useState<string>('All Years');
+  const [selectedType, setSelectedType] = useState<string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [filteredNews, setFilteredNews] = useState<NewsItem[]>(newsData);
 
   const handleSearch = () => {
     const filteredResults = newsData.filter((news) => {
       const matchesYear =
-        selectedYear === "All Years" || news.publishedYear === selectedYear;
+        selectedYear === 'All Years' || news.publishedYear === selectedYear;
       const matchesType =
-        selectedType === "All" ||
+        selectedType === 'All' ||
         news.mode?.toLowerCase() === selectedType.toLowerCase();
       const matchesCategory =
-        selectedCategory === "All" ||
+        selectedCategory === 'All' ||
         news.category?.some(
-          (cat) => cat.toLowerCase() === selectedCategory.toLowerCase(),
+          (cat) => cat.toLowerCase() === selectedCategory.toLowerCase()
         );
 
       return matchesYear && matchesType && matchesCategory;
@@ -95,7 +95,11 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         </div>
 
         <div className={styles.searchButtonContainer}>
-          <button className={styles.searchButton} onClick={handleSearch}>
+          <button
+            type="button"
+            className={styles.searchButton}
+            onClick={handleSearch}
+          >
             Search
           </button>
         </div>
@@ -105,12 +109,12 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         {filteredNews.length > 0 ? (
           filteredNews.map((news) => (
             <div key={news.id} className={styles.newsCard}>
-              <a href={news.newsLink} target="_blank">
+              <a href={news.newsLink} target="_blank" rel="noreferrer">
                 <div className={styles.content}>
                   <h3 className={styles.newsHeadline}>{news.title}</h3>
                   <div className={styles.newsImageWrapper}>
                     <img
-                      src={news.imgSrc || "default-image.jpg"}
+                      src={news.imgSrc || 'default-image.jpg'}
                       alt={news.title}
                     />
                   </div>
@@ -118,7 +122,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
                 <div className={styles.linkDateWrapper}>
                   <div className={styles.link}>
                     <span className={styles.linkIcon}>🔗</span>
-                    <a href={news.newsLink} target="_blank">
+                    <a href={news.newsLink} target="_blank" rel="noreferrer">
                       {news.source}
                     </a>
                   </div>
