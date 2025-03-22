@@ -2,7 +2,6 @@
 
 NepalClimateHub is dedicated to being a centralized platform that educates, connects, and empowers Nepal’s young people with climate champions, climate-based organizations, timely information and resources, opportunities, and practical guidance to address pressing climate challenges through individual and collective action.
 
-
 ## 🛠️ Tech Stack
 
 We crafted NepalClimateHub using a modern, efficient tech stack:
@@ -25,21 +24,23 @@ Want to explore NepalClimateHub locally? Follow these steps:
 
 1. Clone this repository:
 
-    ```bash
-    git clone https://github.com/yourusername/nepalclimatehub.git
-    ```
+   ```bash
+   git clone https://github.com/yourusername/nepalclimatehub.git
+   ```
 
 2. Navigate to the project repository:
 
-    ```bash
-    cd nepalclimatehub
-    ```
+   ```bash
+   cd nepalclimatehub
+   ```
+
 3. Setup postgres db or use docker
 
-    ```bash
-    start postgres or
-    docker compose up
-    ```
+   ```bash
+   start postgres or
+   docker compose up
+   ```
+
 4. Setup env file and fill the environment
    ```bash
    cp .env.example .env
@@ -53,15 +54,13 @@ Want to explore NepalClimateHub locally? Follow these steps:
    npm run dev
    ```
 
-
 ## 🤝 Contributing
 
-Got ideas to enhance NepalClimateHub? We welcome your contributions! Whether it's fixing a bug or adding new features, check the CONTRIBUTING.md file for more instructions on how to contribute! 
+Got ideas to enhance NepalClimateHub? We welcome your contributions! Whether it's fixing a bug or adding new features, check the CONTRIBUTING.md file for more instructions on how to contribute!
 
 ## 🌐 Visit the Hub
 
 Ready to dive in? Visit the [NepalClimateHub](https://nepalclimatehub.org/) and start accessing climate-related resources today!
-
 
 ## 📣 Spread the Word
 
@@ -73,7 +72,4 @@ If you find NepalClimateHub valuable, share it with your friends and fellow clim
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-
 The goal for this project is to create a free to use starter kit for creating low emission, sustainable websites.
-
-

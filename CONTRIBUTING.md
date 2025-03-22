@@ -44,9 +44,10 @@ npm run build
 
 Server-side rendering (SSR) can be complicated. The Astro package (`packages/astro`) is structured in a way to help think about the different systems.
 
-[//]: # (TODO  )complete section when SSR will be added
+[//]: # (TODO )complete section when SSR will be added
 
 ## Branches
+
 ### `master`
 
 Active NepalClimateHub development happens on the master branch. `master` always reflects the latest code.

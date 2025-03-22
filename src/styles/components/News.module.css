@@ -1,0 +1,191 @@
+.sectionContainer {
+  margin: 24px auto 83px;
+  position: relative;
+}
+
+.pageTitle {
+  font-size: 32px;
+  line-height: 60px;
+  font-weight: 700;
+}
+
+.pageTagline {
+  line-height: 24px;
+  margin-bottom: 48px;
+}
+
+.newsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.newsCard {
+  width: 48%;
+  display: block;
+  text-decoration: none;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cefe00;
+  overflow: hidden;
+}
+
+.newsCard a {
+  cursor: pointer;
+  color: #1a1b1e;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.newsCard:hover .newsHeadline {
+  text-decoration: underline;
+}
+
+.newsHeadline {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: capitalize;
+  width: calc(100% - 136px);
+}
+
+.newsImageWrapper {
+  width: 112px;
+  height: 112px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.newsImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.link a {
+  font-size: 14px;
+  color: #364fc7;
+  line-height: 16px;
+  text-decoration: none;
+  float: left;
+}
+
+.date {
+  float: right;
+}
+
+.date span {
+  font-size: 14px;
+  color: #1a1b1e;
+  line-height: 16px;
+  font-style: italic;
+}
+
+.linkIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+.noResults {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+  margin-bottom: 34px; /* ✅ Increase bottom margin to move news down */
+  margin-top: -24px; /* ✅ Moves the filter section higher */
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.filterContainer select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterContainer select:hover,
+.filterContainer select:focus {
+  border-color: #007bff;
+  box-shadow: 0px 2px 6px rgba(0, 123, 255, 0.2);
+}
+
+.searchButtonContainer {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  margin-top: 0;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterGroup {
+    width: 100%;
+  }
+
+  .filterContainer select {
+    width: 100%;
+  }
+
+  .searchButtonContainer {
+    width: 100%;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+}
