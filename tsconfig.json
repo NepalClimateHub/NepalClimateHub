@@ -11,6 +11,9 @@
       "@pages/*": ["src/pages/*"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+    "jsxImportSource": "react",
+  },
+  "exclude": [
+    "archived"
+  ]
 }
