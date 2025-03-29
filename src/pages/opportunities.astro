@@ -21,18 +21,25 @@ import opportunitiesJSON from '../data/dummy-opportunity.json';
     <!-- Opportunity Section -->
     <div class="opportunity-wrapper">
       <section class="filter-section">
-        <CardFilterSection heading="Opportunities" type="opportunity" filter="true" />
+        <CardFilterSection 
+          heading="Opportunities" 
+          type="opportunity" 
+          filter="true" 
+        />
       </section>
 
       <section class="opportunity-cards-section">
-        <OpportunityFilter client:load opportunities={opportunitiesJSON} />
+        <OpportunityFilter 
+          client:load 
+          opportunities={opportunitiesJSON} 
+        />
+      </section>
+
+      <!-- Footer Section -->
+      <section class="footer-section">
+        <Footer />
       </section>
     </div>
-
-    <!-- Footer Section -->
-    <section class="footer-section">
-      <Footer />
-    </section>
   </main>
 </BaseLayout>
 
