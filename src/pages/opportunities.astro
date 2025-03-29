@@ -1,42 +1,39 @@
 ---
 import '../styles/global.css';
-import { CardContainer } from '@components/CardContainer';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardFilterSection from '@layouts/CardFilterSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
 
-// get events JSON data
-import eventsJSON from '../data/opportunities.json';
+import opportunitiesJSON from '../data/dummy-opportunity.json';
+import OpportunityFilter from '@components/OpportunityFilter.tsx'; 
 ---
 
-<BaseLayout title="Nepal Climate Hub">
-	<main class="main-container">
-		<!-- header section  -->
+<BaseLayout title="Nepal Climate Hub - Opportunities">
+  <main class="main-container">
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
+      <div class="mini-nav">
+        <a href="/">Home</a>
+      </div>
+    </section>
 
-		<section class="header-section">
-			<Header logoColor="#1A1B1E" />
+    <div class="opportunity-wrapper">
+      <section class="filter-section">
+        <CardFilterSection heading="Opportunities" type="opportunity" filter="true" />
+      </section>
 
-			<!-- a mini navbar -->
-			<div class="mini-nav">
-				<a href="/">Home</a>
-			</div>
-		</section>
+      <section class="opportunity-cards-section">
+        <OpportunityFilter client:load opportunities={opportunitiesJSON} />
+      </section>
+    </div>
 
-		<div class="event-wrapper">
-			<section class="filter-section">
-				<CardFilterSection heading = "Events" type="event" filter= "false"/>
-			</section>
-		
-			<section class="activist-cards-section">
-				 <CardContainer client:load cardsArray = {eventsJSON } dataType="opportunities" cardProfilePictureBgSize="cover" cardPadding="0px" initialCardCount = 8/>
-		</div>
+    <section class="footer-section">
+      <Footer />
+    </section>
+  </main>
+</BaseLayout>
 
-		<section class="footer-section">
-			<Footer />
-		</section>
-	</main>
-</BaseLayout> 
 
 <style>
 	section {
@@ -54,7 +51,7 @@ import eventsJSON from '../data/opportunities.json';
 		margin-bottom: 48px;
 	}
 
-	.event-wrapper {
+	.opportunity-wrapper {
 		background-color: #EBF1F7;
 	}
 
@@ -65,7 +62,12 @@ import eventsJSON from '../data/opportunities.json';
 
 	@media screen and (max-width: 768px) {
 		section {
-			padding: 0px;
+			padding: 0px 16px;
 		}
+    
+    .opportunity-cards-section {
+      padding: 0;
+    }
 	}
 </style>
+

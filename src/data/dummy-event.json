@@ -1,0 +1,144 @@
+[
+  {
+    "id": 1,
+    "title": "Global Youth Climate Summit 2025",
+    "organizer": "Global Youth Leadership Center (GYLC)",
+    "location": "Universidade Federal de Minas Gerais, Belo Horizonte, Brazil",
+    "locationType": "International",
+    "province": "Bagmati",
+    "format": "In-person",
+    "type": "Summit",
+    "category": [
+      "Climate Action",
+      "Youth Leadership",
+      "Sustainability",
+      "Climate Policy",
+      "Environmental Advocacy"
+    ],
+    "description": "The Global Youth Climate Summit 2025 brings together young climate leaders from over 120 countries to collaborate on innovative solutions to the climate crisis. This premier event features interactive workshops, keynote speeches from global experts, and pitch sessions where participants can present their climate action projects to potential funders and partners.<br><br>Participants will engage in skill-building sessions focused on climate advocacy, policy development, and community organizing. The summit also includes field trips to local sustainability projects, networking events with industry leaders, and opportunities to contribute to a global youth climate declaration that will be presented at COP31. This is a unique opportunity for young climate advocates to amplify their voices on the international stage and build lasting connections with like-minded changemakers.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "startDate": "2025-04-02",
+    "registrationDeadline": "2025-03-01",
+    "registrationLink": "https://www.globalyouthclimate.org/apply",
+    "contactEmail": "info@globalyouthclimate.org",
+    "website": "https://www.globalyouthclimate.org",
+    "status": "Open",
+    "cost": "Free",
+    "socials": {
+      "facebook": "https://facebook.com/GlobalYouthClimate",
+      "linkedin": "https://linkedin.com/company/globalyouthclimate",
+      "instagram": "https://instagram.com/GlobalYouthClimate"
+    },
+    "contributedBy": "Hikmat Budha Chhetri"
+  },
+  {
+    "id": 2,
+    "title": "Nepal Climate Policy Workshop",
+    "organizer": "Nepal Climate Action Alliance",
+    "location": "Kathmandu, Nepal",
+    "locationType": "National",
+    "province": "Bagmati",
+    "format": "Hybrid",
+    "type": "Workshop",
+    "category": [
+      "Climate Policy",
+      "Public Engagement",
+      "Sustainability"
+    ],
+    "description": "The Nepal Climate Policy Workshop is a collaborative initiative designed to empower local communities to participate in climate policy development. This interactive workshop will bring together community leaders, local government representatives, climate experts, and youth activists to draft practical, community-level climate policy proposals that address Nepal's unique environmental challenges.<br><br>The workshop will feature facilitated discussions on climate adaptation strategies, renewable energy transitions, and sustainable agriculture practices specific to Nepal's diverse ecological regions. Participants will work in small groups to develop policy recommendations that will be compiled into a comprehensive report and submitted to relevant government ministries. The hybrid format allows for both in-person and virtual participation, ensuring broad representation from all seven provinces of Nepal.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "startDate": "2025-05-10",
+    "registrationDeadline": "2025-04-15",
+    "registrationLink": "https://nepalclimateworkshop.org/register",
+    "contactEmail": "contact@nepalclimateworkshop.org",
+    "website": "https://nepalclimateworkshop.org",
+    "status": "Upcoming",
+    "cost": "Partially Funded",
+    "socials": {
+      "facebook": "https://facebook.com/NepalClimateWorkshop"
+    },
+    "contributedBy": "Anjali Sharma"
+  },
+  {
+    "id": 3,
+    "title": "Asia-Pacific Green Energy Conference",
+    "organizer": "Asia Green Power Forum",
+    "location": "Singapore Expo Center, Singapore",
+    "locationType": "International",
+    "province": "Lumbini",
+    "format": "In-person",
+    "type": "Conference",
+    "category": [
+      "Renewable Energy",
+      "Sustainability",
+      "Technology"
+    ],
+    "description": "The Asia-Pacific Green Energy Conference is the region's premier gathering for renewable energy professionals, policymakers, investors, and technology innovators. This three-day conference will showcase cutting-edge developments in solar, wind, hydro, and geothermal energy technologies, with a special focus on solutions tailored to the unique challenges and opportunities of the Asia-Pacific region.<br><br>The conference program includes expert panel discussions, technical presentations, and case studies highlighting successful renewable energy projects across the region. Attendees will have access to an exhibition hall featuring the latest green energy technologies and solutions from leading companies. Specialized tracks will address policy frameworks, financing mechanisms, grid integration challenges, and community-based energy initiatives. This is an essential event for anyone involved in shaping the future of energy in the Asia-Pacific region.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "startDate": "2025-07-01",
+    "registrationDeadline": "2025-06-01",
+    "registrationLink": "https://apgreenenergy.org/apply",
+    "contactEmail": "info@apgreenenergy.org",
+    "website": "https://apgreenenergy.org",
+    "status": "Upcoming",
+    "cost": "Paid",
+    "socials": {},
+    "contributedBy": "Sushil Adhikari"
+  },
+  {
+    "id": 4,
+    "title": "Virtual Training on Climate Finance",
+    "organizer": "Youth for Climate Finance",
+    "location": "Online",
+    "locationType": "National",
+    "province": "Karnali",
+    "format": "Online",
+    "type": "Training",
+    "category": [
+      "Climate Finance",
+      "Youth Leadership",
+      "Innovation"
+    ],
+    "description": "This comprehensive virtual training program is designed to equip young climate activists and community organizers with the knowledge and skills needed to access and manage climate finance for local initiatives. The six-week online course covers the fundamentals of climate finance mechanisms, including international funds, national budgets, private sector investments, and innovative financing models.<br><br>Participants will learn how to develop bankable project proposals, conduct cost-benefit analyses, navigate application processes for major climate funds, and implement effective monitoring and evaluation frameworks. The training includes live webinars with climate finance experts, self-paced learning modules, peer-to-peer exchange sessions, and one-on-one mentoring. By the end of the program, participants will have developed a complete funding proposal for a climate project in their community, with ongoing support available for six months after the training concludes.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "startDate": "2025-08-15",
+    "registrationDeadline": "2025-08-01",
+    "registrationLink": "https://climatefinance.training/apply",
+    "contactEmail": "support@climatefinance.training",
+    "website": "https://climatefinance.training",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "socials": {
+      "instagram": "https://instagram.com/YouthForClimateFinance"
+    },
+    "contributedBy": "Rina KC"
+  },
+  {
+    "id": 5,
+    "title": "Southeast Asia Climate Webinar Series",
+    "organizer": "SEA Climate Voices",
+    "location": "Online",
+    "locationType": "International",
+    "province": "Sudurpaschim",
+    "format": "Online",
+    "type": "Webinar",
+    "category": [
+      "Climate Education",
+      "Community Engagement"
+    ],
+    "description": "The Southeast Asia Climate Webinar Series offers a monthly platform for climate activists, researchers, and community leaders from across Southeast Asia to share their experiences, challenges, and successes in addressing climate change. Each 90-minute webinar focuses on a specific theme, such as coastal resilience, urban sustainability, indigenous knowledge systems, or climate justice, with presentations from speakers representing different countries in the region.<br><br>The webinar series aims to foster regional collaboration, amplify local climate solutions, and build a community of practice among climate advocates in Southeast Asia. Participants can join live sessions with interactive Q&A opportunities or access recordings afterward. The series will culminate in a virtual regional climate forum where participants can further develop collaborative projects and advocacy initiatives. All webinars include simultaneous translation in multiple Southeast Asian languages to ensure accessibility across the region.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "startDate": "2025-09-05",
+    "registrationDeadline": "2025-08-20",
+    "registrationLink": "https://seaclimatenetwork.org/webinars",
+    "contactEmail": "hello@seaclimatenetwork.org",
+    "website": "https://seaclimatenetwork.org",
+    "status": "Open",
+    "cost": "Free",
+    "socials": {
+      "facebook": "https://facebook.com/SEAclimate",
+      "linkedin": "https://linkedin.com/company/seaclimatevoices"
+    },
+    "contributedBy": "Laxmi Bista"
+  }
+]

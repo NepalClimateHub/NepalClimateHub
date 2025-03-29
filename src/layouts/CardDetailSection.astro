@@ -1,11 +1,30 @@
 ---
 import { Icon } from 'astro-icon/components';
 import type { Organization } from '../interfaces/organizationInterface';
-// dataObj can either be organization data or activist data; sent via props
-const { dataObj } = Astro.props;
+
+// dataObj can either be organization data or activist data or event data; sent via props
+const { dataObj, organization = "true" } = Astro.props;
+
+// Check if this is an event (has different structure than organizations/activists)
+const isEvent = organization === "false" && dataObj && 'title' in dataObj;
 
 // initialize activeDataObject with a proper type
-const activeDataObject: Organization | null = dataObj;
+const activeDataObject = dataObj;
+
+// Get the appropriate properties based on data type
+const name = isEvent ? activeDataObject?.title : activeDataObject?.name;
+const location = isEvent ? activeDataObject?.location : activeDataObject?.address;
+const description = activeDataObject?.description || '';
+
+// Handle tags/categories differently based on data type
+const tags = isEvent 
+  ? activeDataObject?.category || [] 
+  : activeDataObject?.tags || [];
+
+// Handle pictures differently based on data type
+const pictures = isEvent 
+  ? [activeDataObject?.bannerImage].filter(Boolean)
+  : activeDataObject?.pictures || [];
 ---
 
 <div class="section-container">
@@ -13,37 +32,55 @@ const activeDataObject: Organization | null = dataObj;
 	<div class="card-container">
 		<div class="card-details-wrapper">
 			<h2 class="card-name">
-				{activeDataObject?.name}
+				{name}
 			</h2>
 			<div class="address"><span class="icon">
 				<Icon name="mdi:my-location" class="icon" />
-			</span> {activeDataObject?.address}</div>
+			</span> {location}</div>
+
 			<div class="detail">
 				{
-					activeDataObject?.description
+					description
 						.split("<br>")
-						.map((paragraph) => <p>{paragraph}</p>)
+						.map((paragraph: string) => <p>{paragraph}</p>)
 				}
 			</div>
 
 			<!-- tags for organizations / activists causes -->
 			<div class="tags">
-				{activeDataObject?.tags.map((tag) => <span class="tag">{tag}</span>)}
+				{tags.map((tag: string) => <span class="tag">{tag}</span>)}
 			</div>
+
+            {isEvent && activeDataObject?.registrationLink && (
+                <div class="registration">
+                    <a href={activeDataObject.registrationLink} target="_blank" rel="noopener noreferrer" class="register-button">
+                        Register Now
+                    </a>
+                    {activeDataObject?.registrationDeadline && (
+                        <p class="deadline">
+                            Registration Deadline: {new Date(activeDataObject.registrationDeadline).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}
+                        </p>
+                    )}
+                </div>
+            )}
 		</div>
 
 		<!-- image container section -->
 		<div class="img-container">
 			{
-				activeDataObject?.pictures.length == 1 ? (
+				pictures.length == 1 ? (
 					// if length == 1, then apply single-image-wrapper class
 					<div class="img-wrapper single-image-wrapper">
-						<img src={activeDataObject.pictures[0]} alt="" />
+						<img src={pictures[0] || "/placeholder.svg"} alt="" />
 					</div>
 				) : (
-					activeDataObject?.pictures.map((pictureURL) => (
+					pictures.map((pictureURL: string) => (
 						<div class="img-wrapper">
-							<img src={pictureURL} alt="" />
+							<img src={pictureURL || "/placeholder.svg"} alt="" />
 						</div>
 					))
 				)
@@ -72,11 +109,14 @@ const activeDataObject: Organization | null = dataObj;
 		margin-bottom: 23px;
 	}
 
-	.address {
+	.address, .event-meta {
 		font-size: 14px;
 		line-height: 16px;
 		color: #364FC7;
-		margin-bottom: 27px;
+		margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
 	}
 
 	.detail {
@@ -92,6 +132,7 @@ const activeDataObject: Organization | null = dataObj;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
+        margin-bottom: 20px;
 	}
 
 	.tag {
@@ -103,6 +144,31 @@ const activeDataObject: Organization | null = dataObj;
 		border: 1px solid #cefe00;
 		border-radius: 16px;
 	}
+
+    .registration {
+        margin-top: 20px;
+    }
+
+    .register-button {
+        display: inline-block;
+        background-color: #CEFE00;
+        color: #1A1B1E;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .register-button:hover {
+        background-color: #b8e500;
+    }
+
+    .deadline {
+        font-size: 14px;
+        color: #666;
+        margin-top: 8px;
+    }
 
 	.img-container {
 		width: 50%;
@@ -192,3 +258,4 @@ const activeDataObject: Organization | null = dataObj;
 		}
 	}
 </style>
+
