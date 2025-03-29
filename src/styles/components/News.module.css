@@ -111,8 +111,9 @@
   flex-wrap: wrap;
   gap: 15px;
   align-items: flex-end;
-  margin-bottom: 34px; /* ✅ Increase bottom margin to move news down */
-  margin-top: -24px; /* ✅ Moves the filter section higher */
+  margin-bottom: 34px;
+  margin-top: -24px; 
+  padding: 0 16px; /* Add padding by default */
 }
 
 .filterGroup {
@@ -167,10 +168,22 @@
   background-color: #0056b3;
 }
 
+/* Add a wrapper for the news container */
+.newsContainerWrapper {
+  padding: 0 16px;
+}
+
 @media screen and (max-width: 768px) {
+  .sectionContainer {
+    padding: 0 16px;
+  }
+  
   .filterContainer {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 16px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .filterGroup {
@@ -187,5 +200,13 @@
 
   .searchButton {
     width: 100%;
+  }
+  
+  .newsContainer {
+    padding: 0;
+  }
+  
+  .newsCard {
+    width: 100%; /* Make news cards full width on mobile */
   }
 }

@@ -6,35 +6,38 @@ import '../styles/components/FeaturedCardStyles.css';
 
 import { Icon } from 'astro-icon/components';
 
-//sample event JSON event
-import opportunityJSON from '../data/opportunities.json';
+// Import the dummy opportunity JSON
+import opportunityJSON from '../data/dummy-opportunity.json';
 const { startIndex, endIndex, title } = Astro.props;
+
+// Create slugs for the opportunities
+import { createSlug } from '../utils/slug';
 ---
 
 <div class="section-container featured-card-section">
 	<h2 class="section-heading">{title}</h2>
 
-	<!-- container to wrap event cards -->
+	<!-- container to wrap opportunity cards -->
 
-	<!-- render the event from eventJSON -->
+	<!-- render the opportunities from opportunityJSON -->
 	<div class="cards-container">
 		{
 			opportunityJSON.slice(startIndex, endIndex).map((item) => (
-			<a class="card event-card" href={`/opportunities/${item.slug}`}>
+			<a class="card event-card" href={`/opportunities/${createSlug(item.title)}`}>
 					<div class="img-wrapper" style="padding: 0px;">
-						<img src={item.logoUrl} alt={item.name} style="object-fit: cover;" />
+						<img src={item.bannerImage || "/images/opportunity-placeholder.jpg"} alt={item.title} style="object-fit: cover;" />
 					</div>
 					<div class="details">
-						<h3 class="name">{item.name}</h3>
+						<h3 class="name">{item.title}</h3>
 						<p class="location">
 							<span class="icon">
 								<Icon name="mdi:my-location" class="icon" />
 							</span>
-							<span class="address">{item.address}</span>
+							<span class="address">{item.locationType} {item.province ? `- ${item.province}` : ''}</span>
 						</p>
 						<p class="about">{item.description.substring(0, 108)}...</p>
 						<div class="tags">
-							{item.tags.slice(0, 3).map((tag: string) => (
+							{item.category.slice(0, 3).map((tag: string) => (
 								<span class="tag">{tag}</span>
 							))}
 						</div>
@@ -53,7 +56,7 @@ const { startIndex, endIndex, title } = Astro.props;
 		</div>
 	</div>
 
-	<!-- link to redirect landing page of events -->
+	<!-- link to redirect landing page of opportunities -->
 	<a href="/opportunities" class="cta-link">See All</a>
 </div>
 
@@ -84,4 +87,5 @@ const { startIndex, endIndex, title } = Astro.props;
 		// Call the function to create the mobile slider
 		createMobileSlider(cards, bars);
 	}
-	</script>
+</script>
+
