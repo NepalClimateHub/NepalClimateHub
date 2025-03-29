@@ -11,6 +11,7 @@ import OpportunityFilter from '@components/OpportunityFilter.tsx';
 
 <BaseLayout title="Nepal Climate Hub - Opportunities">
   <main class="main-container">
+    <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
       <div class="mini-nav">
@@ -18,6 +19,7 @@ import OpportunityFilter from '@components/OpportunityFilter.tsx';
       </div>
     </section>
 
+    <!-- Opportunity Section -->
     <div class="opportunity-wrapper">
       <section class="filter-section">
         <CardFilterSection heading="Opportunities" type="opportunity" filter="true" />
@@ -28,46 +30,45 @@ import OpportunityFilter from '@components/OpportunityFilter.tsx';
       </section>
     </div>
 
+    <!-- Footer Section -->
     <section class="footer-section">
       <Footer />
     </section>
   </main>
 </BaseLayout>
 
-
 <style>
-	section {
-		padding: 0px 48px;
-	}
+  section {
+    padding: 0px 48px;
+  }
 
-	.page-title {
-		font-size: 32px;
-		line-height: 60px;
-		font-weight: 700;
-	}
+  .page-title {
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 700;
+  }
 
-	.page-tagline {
-		line-height: 24px;
-		margin-bottom: 48px;
-	}
+  .page-tagline {
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
 
-	.opportunity-wrapper {
-		background-color: #EBF1F7;
-	}
+  .opportunity-wrapper {
+    background-color: #EBF1F7;
+  }
 
-	.footer-section {
-		background-color: #1a1b1e;
-		color: white;
-	}
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
 
-	@media screen and (max-width: 768px) {
-		section {
-			padding: 0px 16px;
-		}
-    
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 0px 16px;
+    }
+
     .opportunity-cards-section {
       padding: 0;
     }
-	}
+  }
 </style>
-
