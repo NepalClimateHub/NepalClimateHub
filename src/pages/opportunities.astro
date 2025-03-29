@@ -4,8 +4,9 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardFilterSection from '@layouts/CardFilterSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
-import OpportunityFilter from '@components/OpportunityFilter.tsx'; 
+
 import opportunitiesJSON from '../data/dummy-opportunity.json';
+import OpportunityFilter from '@components/OpportunityFilter.tsx'; 
 ---
 
 <BaseLayout title="Nepal Climate Hub - Opportunities">
@@ -21,25 +22,18 @@ import opportunitiesJSON from '../data/dummy-opportunity.json';
     <!-- Opportunity Section -->
     <div class="opportunity-wrapper">
       <section class="filter-section">
-        <CardFilterSection 
-          heading="Opportunities" 
-          type="opportunity" 
-          filter="true" 
-        />
+        <CardFilterSection heading="Opportunities" type="opportunity" filter="true" />
       </section>
 
       <section class="opportunity-cards-section">
-        <OpportunityFilter 
-          client:load 
-          opportunities={opportunitiesJSON} 
-        />
-      </section>
-
-      <!-- Footer Section -->
-      <section class="footer-section">
-        <Footer />
+        <OpportunityFilter client:load opportunities={opportunitiesJSON} />
       </section>
     </div>
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+      <Footer />
+    </section>
   </main>
 </BaseLayout>
 
