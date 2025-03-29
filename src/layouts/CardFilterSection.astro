@@ -38,15 +38,29 @@ const { heading, filter, type } = Astro.props;
 		)
 	}
 
-	<!-- {
-		filter == "true" && (
-			<div class="filter-wrapper">
-				<button class="filter-btn">
-					Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
-				</button>
-			</div>
+	{
+		type == "opportunity" && (
+		  <p class="page-tagline">
+			Discover recent and upcoming opportunities, including grants,
+			fellowships, training programs, and advocacy initiatives. If you know of
+			any opportunities, email us at{" "}
+			<a href="mailto:info@nepalclimatehub.org" class="event-link">
+			  info@nepalclimatehub.org
+			</a>
+			, and we'll add it to our list.
+		  </p>
 		)
-	} -->
+	}
+	
+	{
+		filter == "true" && (
+		  <div class="filter-wrapper">
+			<button class="filter-btn">
+			  Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
+			</button>
+		  </div>
+		)
+	}
 </div>
 
 <style>
