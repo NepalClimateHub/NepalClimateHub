@@ -4,11 +4,39 @@ import { Icon } from 'astro-icon/components';
 
 import type { Organization } from 'src/interfaces/organizationInterface';
 
-// dataObj can either be organization data or activist data; sent via props
-const { dataObj } = Astro.props;
+// dataObj can either be organization data or activist data or event data; sent via props
+const { dataObj, organization = "true" } = Astro.props;
 
-// initialize activeDataObject with a proper type
-const activeDataObject: Organization | null = dataObj;
+// Check if this is an event (has different structure than organizations/activists)
+const isEvent = organization === "false" && dataObj && 'title' in dataObj;
+
+// Initialize activeDataObject with a proper type
+const activeDataObject = dataObj;
+
+// Get website based on data type
+const website = isEvent ? activeDataObject?.website : activeDataObject?.website;
+
+// Get social media links based on data type
+const facebook = isEvent ? activeDataObject?.socials?.facebook : activeDataObject?.socials?.facebook;
+const instagram = isEvent ? activeDataObject?.socials?.instagram : activeDataObject?.socials?.instagram;
+const linkedin = isEvent ? activeDataObject?.socials?.linkedin : activeDataObject?.socials?.linkedin;
+
+// Get contact information based on data type
+const email = isEvent ? activeDataObject?.contactEmail : activeDataObject?.contact?.email;
+const phone = isEvent ? '' : activeDataObject?.contact?.phone;
+
+// Helper function to split email for anti-spam
+function splitEmail(email: string | undefined) {
+  if (!email) return { username: 'N/A', domain: '' };
+  const atIndex = email.indexOf('@');
+  if (atIndex === -1) return { username: email, domain: '' };
+  return {
+    username: email.slice(0, atIndex),
+    domain: email.substring(atIndex)
+  };
+}
+
+const emailParts = splitEmail(email);
 ---
 
 <div class="section-container">
@@ -22,12 +50,8 @@ const activeDataObject: Organization | null = dataObj;
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
 			<a
-				href={activeDataObject?.website == ""
-					? "#NA"
-					: activeDataObject?.website}
-				>{
-					activeDataObject?.website == "" ? "N/A" : activeDataObject?.website
-				}</a
+				href={website == "" || !website ? "#NA" : website}
+				>{website == "" || !website ? "N/A" : website}</a
 			>
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
@@ -38,17 +62,24 @@ const activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Social</h3>
-			<a target="_blank" href={activeDataObject?.socials.facebook || "#"}
-				>Facebook</a
-			>
-			<span class="separator">|</span>
-			<a target="_blank" href={activeDataObject?.socials.instagram || "#"}
-				>Instagram</a
-			>
-			<span class="separator">|</span>
-			<a target="_blank" href={activeDataObject?.socials.linkedin || "#"}
-				>LinkedIn</a
-			>
+			{facebook && (
+				<>
+					<a target="_blank" href={facebook}>Facebook</a>
+					{(instagram || linkedin) && <span class="separator">|</span>}
+				</>
+			)}
+			{instagram && (
+				<>
+					<a target="_blank" href={instagram}>Instagram</a>
+					{linkedin && <span class="separator">|</span>}
+				</>
+			)}
+			{linkedin && (
+				<a target="_blank" href={linkedin}>LinkedIn</a>
+			)}
+			{!facebook && !instagram && !linkedin && (
+				<span>No social media links available</span>
+			)}
 
 			<div class="icon-wrapper">
 				<Icon name="mdi:user" class="icon" />
@@ -59,24 +90,19 @@ const activeDataObject: Organization | null = dataObj;
 
 		<div class="connect-card">
 			<h3 class="title">Contact</h3>
-			<p class="email">
-				{
-					`${activeDataObject?.contact.email.slice(0, activeDataObject?.contact.email.indexOf("@"))}` ||
-						"N/A"
-				}<span style="display: none;">Go Away for here!!!</span>{
-					`${activeDataObject?.contact.email.substring(activeDataObject?.contact.email.indexOf("@"))}`
-				}
-			</p>
-			<span class="separator"
-				>{activeDataObject?.contact.phone == "" ? "" : "|"}</span
-			>
-			<span class="phone"
-				>{
-					activeDataObject?.contact.phone == ""
-						? ""
-						: activeDataObject?.contact.phone
-				}</span
-			>
+			{email ? (
+				<p class="email">
+					{emailParts.username}<span style="display: none;">Go Away for here!!!</span>{emailParts.domain}
+				</p>
+			) : (
+				<p class="email">N/A</p>
+			)}
+			{phone && (
+				<>
+					<span class="separator">|</span>
+					<span class="phone">{phone}</span>
+				</>
+			)}
 			<div class="icon-wrapper">
 				<Icon name="mdi:email" class="icon" />
 			</div>
@@ -179,3 +205,4 @@ const activeDataObject: Organization | null = dataObj;
 		}
 	}
 </style>
+

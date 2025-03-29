@@ -8,23 +8,34 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardDetailSection from '@layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import { createSlug } from '../../utils/slug';
 
-import eventJSON from '../../data/events.json';
+// Import the same JSON file that's used in the events page
+import eventJSON from '../../data/dummy-event.json';
 
 export async function getStaticPaths() {
-  return eventJSON.map((event) => ({
-    params: { eventDetail: event.slug },
-  }));
+  // Generate paths for each event, creating slugs from titles
+  return eventJSON.map((event) => {
+    // Create a slug from the title
+    const slug = createSlug(event.title);
+    
+    return {
+      params: { eventDetail: slug },
+      props: { event: { ...event } }
+    };
+  });
 }
 
 const { eventDetail } = Astro.params;
-const event = eventJSON.find((event) => event.slug === eventDetail);
+const { event } = Astro.props;
+
+// Fallback to finding the event by matching the slug with a generated slug from the title
+const eventData = event || eventJSON.find((e) => createSlug(e.title) === eventDetail);
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title={`${eventData.title} | Nepal Climate Hub`}>
 	<main class="main-container">
 		<!-- header section  -->
-
 		<section class="header-section">
 			<Header logoColor="#1A1B1E" />
 
@@ -37,15 +48,15 @@ const event = eventJSON.find((event) => event.slug === eventDetail);
 		</section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId= 0 organization = "false" dataObj = {event} />
+      <CardDetailSection cardId={0} organization="false" dataObj={eventData} />
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard cardId= 0 organization = "false" dataObj = {event} />
+			<ConnectCard cardId={0} organization="false" dataObj={eventData} />
 		</section>
 
 		<section class="organization-section">
-			<FeaturedEventSection startIndex = 0 endIndex = 4 title="Join other events" />
+			<FeaturedEventSection startIndex={0} endIndex={4} title="Join other events" />
 		</section>
 
 		<section class="footer-section">
@@ -68,10 +79,10 @@ const event = eventJSON.find((event) => event.slug === eventDetail);
     color: white;
   }
 
- @media  screen and (max-width: 768px) {
+ @media screen and (max-width: 768px) {
   section {
     padding: 0px;
   }
 }
-
 </style>
+

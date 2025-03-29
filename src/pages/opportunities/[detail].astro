@@ -8,24 +8,34 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardDetailSection from '@layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import { createSlug } from '../../utils/slug';
 
-import opportunitiesJSON from '../../data/opportunities.json';
+// Import the same JSON file that's used in the opportunities page
+import opportunitiesJSON from '../../data/dummy-opportunity.json';
 
 export async function getStaticPaths() {
-  return opportunitiesJSON.map((item) => ({
-    params: { detail: item.slug },
-  }));
+  // Generate paths for each opportunity, creating slugs from titles
+  return opportunitiesJSON.map((opportunity) => {
+    // Create a slug from the title
+    const slug = createSlug(opportunity.title);
+    
+    return {
+      params: { detail: slug },
+      props: { opportunity: { ...opportunity } }
+    };
+  });
 }
+
 const { detail } = Astro.params;
-const opportunityDetail = opportunitiesJSON.find(
-  (item) => item.slug === detail
-);
+const { opportunity } = Astro.props;
+
+// Fallback to finding the opportunity by matching the slug with a generated slug from the title
+const opportunityDetail = opportunity || opportunitiesJSON.find((o) => createSlug(o.title) === detail);
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title={`${opportunityDetail.title} | Nepal Climate Hub`}>
 	<main class="main-container">
 		<!-- header section  -->
-
 		<section class="header-section">
 			<Header logoColor="#1A1B1E" />
 
@@ -38,11 +48,11 @@ const opportunityDetail = opportunitiesJSON.find(
 		</section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId= 0 organization = "false" dataObj = {opportunityDetail} />
+      <CardDetailSection cardId={0} organization="false" dataObj={opportunityDetail} />
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard cardId= 0 organization = "false" dataObj = {opportunityDetail} />
+			<ConnectCard cardId={0} organization="false" dataObj={opportunityDetail} />
 		</section>
 		
 		<section class="application">
@@ -50,12 +60,13 @@ const opportunityDetail = opportunitiesJSON.find(
 			<p class="application-text">
 				To apply for this opportunity, please visit the official website by clicking the button below.
 			</p>
-			<a href={opportunityDetail?.applicationLink ?? "#"} target="_blank" rel="noopener noreferrer">
+			<a href={opportunityDetail?.applicationDetail ?? "#"} target="_blank" rel="noopener noreferrer">
 			<button class="application-button">Apply Now</button>
+			</a>
 		</section>
 
 		<section class="organization-section">
-			<FeaturedOpportunitySection startIndex = 0 endIndex = 4 title="Other Opportunities" />
+			<FeaturedOpportunitySection startIndex={0} endIndex={4} title="Other Opportunities" />
 		</section>
 
 		<section class="footer-section">
@@ -94,9 +105,14 @@ const opportunityDetail = opportunitiesJSON.find(
 		padding: 10px 20px;
 		border-radius: 5px;
 		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+	
+	.application-button:hover {
+		background-color: #364FC7;
 	}
 
- 	@media  screen and (max-width: 768px) {
+ 	@media screen and (max-width: 768px) {
  	 	section {
     		padding: 0px;
   		}
@@ -105,5 +121,5 @@ const opportunityDetail = opportunitiesJSON.find(
 			padding: 10px 12px;	
 		}
 	}
-
 </style>
+

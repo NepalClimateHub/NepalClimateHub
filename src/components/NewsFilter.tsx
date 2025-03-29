@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/components/News.module.css';
 
 interface NewsItem {
@@ -24,7 +24,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [filteredNews, setFilteredNews] = useState<NewsItem[]>(newsData);
 
-  const handleSearch = () => {
+  useEffect(() => {
     const filteredResults = newsData.filter((news) => {
       const matchesYear =
         selectedYear === 'All Years' || news.publishedYear === selectedYear;
@@ -41,7 +41,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
     });
 
     setFilteredNews(filteredResults);
-  };
+  }, [selectedYear, selectedType, selectedCategory, newsData]);
 
   return (
     <div className={styles.sectionContainer}>
@@ -92,16 +92,6 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
             <option value="Climate Action">Climate Action</option>
             <option value="Climate Education">Climate Education</option>
           </select>
-        </div>
-
-        <div className={styles.searchButtonContainer}>
-          <button
-            type="button"
-            className={styles.searchButton}
-            onClick={handleSearch}
-          >
-            Search
-          </button>
         </div>
       </div>
 
