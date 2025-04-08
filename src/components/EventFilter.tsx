@@ -12,6 +12,7 @@ interface Event {
   status: string;
   format: string;
   cost: string;
+  category: string[];
 }
 
 interface Props {
@@ -71,6 +72,23 @@ const filterOptions = [
     defaultOption: 'All Cost Types',
     options: ['Fully Funded', 'Partially Funded', 'Paid', 'Free'],
   },
+  {
+    name: 'category',
+    label: 'Category',
+    defaultOption: 'All Categories',
+    options: [
+      'Climate Action',
+      'Youth Leadership',
+      'Sustainability',
+      'Climate Policy',
+      'Environmental Advocacy',
+      'Public Engagement',
+      'Renewable Energy',
+      'Technology',
+      'Innovation',
+      'Community Engagement',
+    ],
+  },
 ];
 
 const EventFilter: React.FC<Props> = ({ events }) => {
@@ -82,6 +100,7 @@ const EventFilter: React.FC<Props> = ({ events }) => {
     status: '',
     format: '',
     cost: '',
+    category: '',
   });
 
   useEffect(() => {
@@ -89,7 +108,15 @@ const EventFilter: React.FC<Props> = ({ events }) => {
 
     Object.entries(filters).forEach(([key, value]) => {
       if (value) {
-        result = result.filter((event) => event[key as keyof Event] === value);
+        if (key === 'category') {
+          result = result.filter((event) =>
+            event.category.some((cat) => cat === value)
+          );
+        } else {
+          result = result.filter(
+            (event) => event[key as keyof Event] === value
+          );
+        }
       }
     });
 
