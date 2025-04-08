@@ -91,6 +91,29 @@ const filterOptions = [
     defaultOption: 'All Cost Types',
     options: ['Fully Funded', 'Partially Funded', 'Paid', 'Free'],
   },
+  {
+    name: 'category',
+    label: 'Category',
+    defaultOption: 'All Categories',
+    options: [
+      'Climate Action',
+      'Research',
+      'Sustainability',
+      'Climate Finance',
+      'Climate Education',
+      'Conservation',
+      'Biodiversity',
+      'Sustainable Development',
+      'Environmental Policy',
+      'Agriculture',
+      'Food Security',
+      'Climate-Smart Farming',
+      'Rural Development',
+      'Environmental Governance',
+      'Mountain Ecosystems',
+      'Climate Policy',
+    ],
+  },
 ];
 
 const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
@@ -103,6 +126,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
     status: '',
     format: '',
     cost: '',
+    category: '',
   });
 
   useEffect(() => {
@@ -110,9 +134,15 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
 
     Object.entries(filters).forEach(([key, value]) => {
       if (value) {
-        result = result.filter(
-          (opportunity) => opportunity[key as keyof Opportunity] === value
-        );
+        if (key === 'category') {
+          result = result.filter((opportunity) =>
+            opportunity.category.some((cat) => cat === value)
+          );
+        } else {
+          result = result.filter(
+            (opportunity) => opportunity[key as keyof Opportunity] === value
+          );
+        }
       }
     });
 
