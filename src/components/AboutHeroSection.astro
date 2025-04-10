@@ -1,116 +1,102 @@
----
-import MountainLake from '../assets/mountain-lake.jpg';
----
-
-<div class="section-container">
-	<h2 class="section-heading">About</h2>
-
-	<div class="hero-container">
-		<div class="description">
-			<p class="main-heading">
-				Nepal Climate Hub is a centralized platform built to educate, connect,
-				and empower Nepal’s young people to take positive climate action.
-			</p>
-			<p>
-				The hub was conceived in March 2024 by Bibek Pant (a Nepal native and
-				computer science graduate) as part of the <a href="https://climatebase.org/fellowship" target="_blank"
-					>Climatebase Fellowship program</a
-				>, to address a pressing need. Despite a rise in climate activism in
-				Nepal in recent years, information and resources to enable effective
-				action are often siloed and incomplete, resulting in fragmented efforts
-				and a sense of overwhelm among those most motivated to drive meaningful
-				positive change: students and young professionals across Nepal.
-			</p>
-			<p>
-				Supported by an international Founding Team, all participants of the
-				Climatebase Fellowship, Nepal Climate Hub aims to provide timely
-				climate-related information, resources, and networking opportunities, as
-				well as practical guidance to inspire individual and collective action
-				to build a climate-resilient Nepal.
-			</p>
-		</div>
-		<div class="img-wrapper">
-			<img
-				src={MountainLake.src}
-				alt=""
-			/>
-		</div>
+<div class="hero-section">
+	<div class="img-wrapper">
+		<img
+			src="https://placehold.co/1280x416"
+			alt="Placeholder Image"
+		/>
+	</div>
+	<div class="our-story-container">
+		<p class="our-story-text">OUR STORY</p>
 	</div>
 </div>
 
+<div class="story-content">
+	<h1 class="story-heading">
+		Nepal Climate Hub was envisioned by Bibek, our founder, who recognized the need for a centralized climate platform after participating in the Local Conference of Youth Nepal 2023, part of YOUNGO, the official youth constituency of the United Nations Framework Convention on Climate Change (UNFCCC).
+	</h1>
+	
+	<p class="story-paragraph">
+		Coming from a tech background, with little to no knowledge of climate change, he struggled to find clear, accessible information on local climate initiatives. The scattered and incomplete resources on the internet made it difficult to understand Nepal's climate landscape and take meaningful action. Realizing that others faced the same challenge, he envisioned a digital hub to simplify the climate journey for people like him.
+	</p>
+	
+	<p class="story-paragraph">
+		In March 2024, he joined the Climatebase Fellowship – an accelerator program for ambitious, mission-driven professionals in climate – where he teamed up with Elaine, Manon, and Tara to bring this idea to life. What began as a capstone project has now evolved into Nepal Climate Hub - a growing non-profit led by a passionate multidisciplinary team, driving action for a climate-resilient Nepal.
+	</p>
+</div>
+
 <style>
-	.section-heading {
-		font-size: 32px;
-		font-weight: 700;
-		line-height: 40px;
-		margin: 24px 0px;
-	}
-
-	.hero-container {
-		display: flex;
-		gap: 24px;
-	}
-
-	.description {
-		width: 50%;
-	}
-
-	.description p {
-		margin-bottom: 8px;
-		line-height: 24px;
-	}
-
-	.description .main-heading {
-		font-weight: 700;
-		margin-bottom: 16px;
-	}
-
-	.description a {
-		color: #364fc7;
+	.hero-section {
+		position: relative;
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
 	}
 
 	.img-wrapper {
-		width: 50%;
-		height: 360px;
-		border-radius: 16px;
+		width: 100%;
+		height: 416px;
+		overflow: hidden;
 	}
 
 	.img-wrapper img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border-radius: 16px;
 	}
 
-	@media screen and (max-width: 1024px) {
-		.hero-container {
-			flex-direction: column;
-			gap: 16px;
-		}
-
-		.description,
-		.img-wrapper {
-			width: 100%;
-		}
+	.our-story-container {
+		position: absolute;
+		width: 134px;
+		height: 45px;
+		background-color: #CEFE00;
+		transform: rotate(-3deg);
+		bottom: -22px; /* Position it so half is below the image */
+		left: 42px; /* Align with the logo instead of the edge */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 10; /* Ensure it appears above other elements */
 	}
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 24px;
+	.our-story-text {
+		font-size: 18px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #000;
+		margin: 0;
+	}
+	
+	/* Story content styles */
+	.story-content {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 3rem 42px 4rem; /* Top, Left/Right (aligned with logo), Bottom */
+	}
+	
+	.story-heading {
+		font-size: 1.75rem;
+		font-weight: 700;
+		line-height: 1.3;
+		margin-top: 1.5rem;
+		margin-bottom: 2rem;
+		color: #000;
+	}
+	
+	.story-paragraph {
+		font-size: 1rem;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		color: #333;
+	}
+	
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.story-content {
+			padding: 2rem 24px;
 		}
-
-		.hero-container {
-			flex-direction: column-reverse;
-			gap: 16px;
-			padding-bottom: 0px;
-		}
-
-		.img-wrapper {
-			height: 228px;
-		}
-
-		.description {
-			text-align: justify;
+		
+		.story-heading {
+			font-size: 1.5rem;
 		}
 	}
 </style>
