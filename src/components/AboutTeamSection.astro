@@ -817,7 +817,7 @@
     flex-shrink: 0;
     position: relative;
     width: 210px;
-    height: 320px; /* Increased height to match content + LinkedIn icon */
+    height: 320px;
     border-radius: 0.75rem;
     overflow: hidden;
     background-color: #f5f5f5;
@@ -884,7 +884,7 @@
   }
 
   .social-link:hover {
-    color: #0077b5; /* LinkedIn blue */
+    color: #0077b5;
   }
   .advisor-category {
     margin-top: 4rem;
@@ -922,4 +922,10 @@
       margin-bottom: 1.5rem;
     }
   }
+
+  @media (max-width: 992px) {
+    .tech-team-grid {
+        grid-template-columns: 1fr; 
+        gap: 2.5rem;
+    }
 </style>
