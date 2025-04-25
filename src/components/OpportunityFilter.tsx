@@ -178,15 +178,19 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
         ))}
       </div>
 
-      {/* Card display */}
-      <div className={styles.cardContainerWrapper}>
-        <CardContainer
-          cardsArray={filteredOpportunities}
-          dataType="opportunities"
-          cardProfilePictureBgSize="cover"
-          cardPadding="0px"
-          initialCardCount={8}
-        />
+      {/* Check if no opportunities are found */}
+      <div className={styles.cardNotFoundMessage}>
+        {filteredOpportunities.length === 0 ? (
+          <p>No matching opportunities found</p> // Display when no opportunities match the filters
+        ) : (
+          <CardContainer
+            cardsArray={filteredOpportunities}
+            dataType="opportunities"
+            cardProfilePictureBgSize="cover"
+            cardPadding="0px"
+            initialCardCount={8}
+          />
+        )}
       </div>
     </div>
   );

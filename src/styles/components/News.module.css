@@ -139,10 +139,17 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.filterContainer select:hover,
+/* Hover Effect */
+.filterContainer select:hover {
+  background-color: #f4f9fd; 
+  border-color: #0056b3; 
+}
+
+/* Focus Effect */
 .filterContainer select:focus {
-  border-color: #007bff;
-  box-shadow: 0px 2px 6px rgba(0, 123, 255, 0.2);
+  background-color: #e6f0ff; 
+  border-color: #0056b3;
+  box-shadow: 0px 0px 8px rgba(0, 86, 179, 0.4); 
 }
 
 .searchButtonContainer {

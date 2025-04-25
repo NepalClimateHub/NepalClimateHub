@@ -1,102 +1,129 @@
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap" rel="stylesheet" />
+
 <div class="hero-section">
-	<div class="img-wrapper">
-		<img
-			src="https://placehold.co/1280x416"
-			alt="Placeholder Image"
-		/>
-	</div>
-	<div class="our-story-container">
-		<p class="our-story-text">OUR STORY</p>
-	</div>
+  <div class="img-wrapper">
+    <img src="https://placehold.co/1280x416" alt="Placeholder Image" />
+  </div>
 </div>
 
 <div class="story-content">
-	<h1 class="story-heading">
-		Nepal Climate Hub was envisioned by Bibek, our founder, who recognized the need for a centralized climate platform after participating in the Local Conference of Youth Nepal 2023, part of YOUNGO, the official youth constituency of the United Nations Framework Convention on Climate Change (UNFCCC).
-	</h1>
-	
-	<p class="story-paragraph">
-		Coming from a tech background, with little to no knowledge of climate change, he struggled to find clear, accessible information on local climate initiatives. The scattered and incomplete resources on the internet made it difficult to understand Nepal's climate landscape and take meaningful action. Realizing that others faced the same challenge, he envisioned a digital hub to simplify the climate journey for people like him.
-	</p>
-	
-	<p class="story-paragraph">
-		In March 2024, he joined the Climatebase Fellowship – an accelerator program for ambitious, mission-driven professionals in climate – where he teamed up with Elaine, Manon, and Tara to bring this idea to life. What began as a capstone project has now evolved into Nepal Climate Hub - a growing non-profit led by a passionate multidisciplinary team, driving action for a climate-resilient Nepal.
-	</p>
+  <div class="our-story-container">
+    <p class="our-story-text">OUR STORY</p>
+  </div>
+
+  <h1 class="story-heading">
+    Nepal Climate Hub was envisioned by Bibek, our founder, who recognized the
+    need for a centralized climate platform after participating in the Local
+    Conference of Youth Nepal 2023, part of 
+    <a 
+      href="https://unfccc.int/topics/action-for-climate-empowerment-children-and-youth/youth/youngo" 
+      target="_blank" 
+      class="youngo-link"
+    >YOUNGO</a>, 
+    the official youth constituency of the United Nations Framework Convention on Climate Change
+    (UNFCCC).
+  </h1>
+
+  <p class="story-paragraph">
+    Coming from a tech background, with little to no knowledge of climate
+    change, he struggled to find clear, accessible information on local climate
+    initiatives. The scattered and incomplete resources on the internet made it
+    difficult to understand Nepal's climate landscape and take meaningful
+    action. Realizing that others faced the same challenge, he envisioned a
+    digital hub to simplify the climate journey for people like him.
+  </p>
+
+  <p class="story-paragraph">
+    In March 2024, he joined the Climatebase Fellowship – an accelerator program
+    for ambitious, mission-driven professionals in climate – where he teamed up
+    with Elaine, Manon, and Tara to bring this idea to life. What began as a
+    capstone project has now evolved into Nepal Climate Hub - a growing
+    non-profit led by a passionate multidisciplinary team, driving action for a
+    climate-resilient Nepal.
+  </p>
 </div>
 
 <style>
-	.hero-section {
-		position: relative;
-		width: 100%;
-		max-width: 1280px;
-		margin: 0 auto;
-	}
+    body {
+    font-family: 'Zilla Slab', serif;
+  }
 
-	.img-wrapper {
-		width: 100%;
-		height: 416px;
-		overflow: hidden;
-	}
+  .hero-section {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-	.img-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+  .img-wrapper {
+    width: 100%;
+    height: 416px;
+    overflow: hidden;
+  }
 
-	.our-story-container {
-		position: absolute;
-		width: 134px;
-		height: 45px;
-		background-color: #CEFE00;
-		transform: rotate(-3deg);
-		bottom: -22px; /* Position it so half is below the image */
-		left: 42px; /* Align with the logo instead of the edge */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: 10; /* Ensure it appears above other elements */
-	}
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-	.our-story-text {
-		font-size: 18px;
-		font-weight: 700;
-		text-transform: uppercase;
-		color: #000;
-		margin: 0;
-	}
-	
-	/* Story content styles */
-	.story-content {
-		max-width: 1280px;
-		margin: 0 auto;
-		padding: 3rem 42px 4rem; /* Top, Left/Right (aligned with logo), Bottom */
-	}
-	
-	.story-heading {
-		font-size: 1.75rem;
-		font-weight: 700;
-		line-height: 1.3;
-		margin-top: 1.5rem;
-		margin-bottom: 2rem;
-		color: #000;
-	}
-	
-	.story-paragraph {
-		font-size: 1rem;
-		line-height: 1.6;
-		margin-bottom: 1.5rem;
-		color: #333;
-	}
-	
-	/* Responsive adjustments */
-	@media (max-width: 768px) {
-		.story-content {
-			padding: 2rem 24px;
-		}
-		
-		.story-heading {
-			font-size: 1.5rem;
-		}
-	}
+  .our-story-container {
+    position: absolute;
+    width: 134px;
+    height: 45px;
+    background-color: #cefe00;
+    transform: rotate(-3deg);
+    top: -20px; /* Adjusted to move it closer to the very top */
+    left: 42px; /* Aligns with the story-content padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+  .our-story-text {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+  }
+
+  .story-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 42px 4rem; /* Top, Left/Right (aligned with logo), Bottom */
+    position: relative; /* Make the "OUR STORY" container position relative to this */
+  }
+
+  .story-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    color: #000;
+  }
+
+  .story-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  .youngo-link {
+    color: #007BFF;
+    text-decoration: none;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .story-content {
+      padding: 2rem 24px;
+    }
+
+    .story-heading {
+      font-size: 1.5rem;
+    }
+  }
 </style>
