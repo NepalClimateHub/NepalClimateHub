@@ -1,8 +1,13 @@
+---
+
+import AboutHeroImg from "../assets/abouthero.jpg"
+---
+
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap" rel="stylesheet" />
 
 <div class="hero-section">
   <div class="img-wrapper">
-    <img src="https://placehold.co/1280x416" alt="Placeholder Image" />
+    <img src={AboutHeroImg.src} alt="Placeholder Image" />
   </div>
 </div>
 
@@ -11,23 +16,25 @@
     <p class="our-story-text">OUR STORY</p>
   </div>
 
+ 
   <h1 class="story-heading">
-    Nepal Climate Hub was envisioned by Bibek, our founder, who recognized the
-    need for a centralized climate platform after participating in the Local
+    Nepal Climate Hub was envisioned by Bibek, our founder, who recognized <br/> the
+    need for a centralized climate platform after participating in the Local <br/>
     Conference of Youth Nepal 2023, part of 
     <a 
       href="https://unfccc.int/topics/action-for-climate-empowerment-children-and-youth/youth/youngo" 
       target="_blank" 
       class="youngo-link"
-    >YOUNGO</a>, 
-    the official youth constituency of the United Nations Framework Convention on Climate Change
+    >YOUNGO</a>,
+    the official youth <br/> constituency of the United Nations Framework Convention on Climate <br/>Change
     (UNFCCC).
   </h1>
 
   <p class="story-paragraph">
     Coming from a tech background, with little to no knowledge of climate
     change, he struggled to find clear, accessible information on local climate
-    initiatives. The scattered and incomplete resources on the internet made it
+    initiatives. <br />
+    The scattered and incomplete resources on the internet made it
     difficult to understand Nepal's climate landscape and take meaningful
     action. Realizing that others faced the same challenge, he envisioned a
     digital hub to simplify the climate journey for people like him.
@@ -36,17 +43,14 @@
   <p class="story-paragraph">
     In March 2024, he joined the Climatebase Fellowship – an accelerator program
     for ambitious, mission-driven professionals in climate – where he teamed up
-    with Elaine, Manon, and Tara to bring this idea to life. What began as a
-    capstone project has now evolved into Nepal Climate Hub - a growing
+    with Elaine, Manon, and Tara to bring this idea to life. <br />
+    What began as a capstone project has now evolved into Nepal Climate Hub - a growing
     non-profit led by a passionate multidisciplinary team, driving action for a
     climate-resilient Nepal.
   </p>
 </div>
 
 <style>
-    body {
-    font-family: 'Zilla Slab', serif;
-  }
 
   .hero-section {
     position: relative;
@@ -72,8 +76,8 @@
     height: 45px;
     background-color: #cefe00;
     transform: rotate(-3deg);
-    top: -20px; /* Adjusted to move it closer to the very top */
-    left: 42px; /* Aligns with the story-content padding */
+    top: -20px; 
+    left: 42px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,8 +95,8 @@
   .story-content {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 3rem 42px 4rem; /* Top, Left/Right (aligned with logo), Bottom */
-    position: relative; /* Make the "OUR STORY" container position relative to this */
+    padding: 3rem 42px 4rem; 
+    position: relative;
   }
 
   .story-heading {
@@ -102,6 +106,7 @@
     margin-top: 1.5rem;
     margin-bottom: 2rem;
     color: #000;
+    
   }
 
   .story-paragraph {

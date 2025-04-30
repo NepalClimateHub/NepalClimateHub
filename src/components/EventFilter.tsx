@@ -155,7 +155,7 @@ const EventFilter: React.FC<Props> = ({ events }) => {
       {/* Check if no events are found */}
       <div className={styles.cardNotFoundMessage}>
         {filteredEvents.length === 0 ? (
-          <p>No matching events found</p> 
+          <p>No matching events found</p>
         ) : (
           <CardContainer
             cardsArray={filteredEvents}
