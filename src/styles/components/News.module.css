@@ -112,12 +112,12 @@
   gap: 15px;
   align-items: flex-end;
   margin-bottom: 34px;
-  margin-top: -24px; 
+  margin-top: -24px;
   padding: 0 16px; /* Add padding by default */
 }
 
 .filterGroup {
-  flex: 0 0 200px;  
+  flex: 0 0 200px;
   display: flex;
   flex-direction: column;
 }
@@ -130,7 +130,7 @@
 }
 
 .filterContainer select {
-  width: 100%; 
+  width: 100%;
   padding: 6px 12px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -138,22 +138,21 @@
   outline: none;
   background-color: #fff;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color
+    0.3s ease;
 }
-
 
 /* Hover Effect */
 .filterContainer select:hover {
   background-color: #fff;
-  border-color: #5b73e8; 
+  border-color: #5b73e8;
 }
-
 
 /* Focus Effect */
 .filterContainer select:focus {
   background-color: #f9f9fb; /* Soft dim */
   border-color: #5b73e8;
-  box-shadow: 0 0 2px rgba(91, 115, 232, 0.15); 
+  box-shadow: 0 0 2px rgba(91, 115, 232, 0.15);
 }
 
 .searchButtonContainer {
@@ -188,7 +187,7 @@
   .sectionContainer {
     padding: 0 16px;
   }
-  
+
   .filterContainer {
     flex-direction: column;
     align-items: flex-start;
@@ -212,11 +211,11 @@
   .searchButton {
     width: 100%;
   }
-  
+
   .newsContainer {
     padding: 0;
   }
-  
+
   .newsCard {
     width: 100%; /* Make news cards full width on mobile */
   }

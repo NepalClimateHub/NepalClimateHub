@@ -12,9 +12,8 @@
   margin-top: -24px;
 }
 
-
 .filterGroup {
-  flex: 0 0 200px; 
+  flex: 0 0 200px;
   display: flex;
   flex-direction: column;
 }
@@ -26,41 +25,37 @@
   margin-bottom: 5px;
 }
 
-
 .filterContainer select {
   padding: 6px 12px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 6px;
   outline: none;
-  background-color: #fff; 
+  background-color: #fff;
   cursor: pointer;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .filterContainer select:hover {
-  border-color: #5b73e8; 
+  border-color: #5b73e8;
 }
-
 
 .filterContainer select:focus {
-  background-color: #f9f9fb; 
-  border-color: #5b73e8;     
-  box-shadow: 0 0 2px rgba(91, 115, 232, 0.15); 
+  background-color: #f9f9fb;
+  border-color: #5b73e8;
+  box-shadow: 0 0 2px rgba(91, 115, 232, 0.15);
 }
-
 
 .cardContainerWrapper {
   padding: 0 16px;
 }
 
 .cardNotFoundMessage {
-  text-align: center;  
-  font-size: 18px;     
-  color: red;          
-  padding: 20px;       
-  font-weight: bold;    
+  text-align: center;
+  font-size: 18px;
+  color: red;
+  padding: 20px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
