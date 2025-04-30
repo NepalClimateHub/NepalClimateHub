@@ -1,0 +1,1 @@
+import{c as e}from"./slider.BCU5S9Wx.js";const t=document.querySelectorAll(".organization-card"),r=document.querySelector(".organization-card-controls"),o=r?.querySelectorAll(".bar-organization-section");r&&o&&e(t,o);
