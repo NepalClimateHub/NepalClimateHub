@@ -1,7 +1,7 @@
 import type React from 'react';
-import { useState, useEffect } from 'react';
-import { CardContainer } from './CardContainer';
+import { useEffect, useState } from 'react';
 import styles from '../styles/components/EventFilter.module.css';
+import { CardContainer } from './CardContainer';
 
 interface Event {
   id: string | number;

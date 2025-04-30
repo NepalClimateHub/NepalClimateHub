@@ -18,10 +18,10 @@ export async function getStaticPaths() {
   return eventJSON.map((event) => {
     // Create a slug from the title
     const slug = createSlug(event.title);
-    
+
     return {
       params: { eventDetail: slug },
-      props: { event: { ...event } }
+      props: { event: { ...event } },
     };
   });
 }
@@ -30,7 +30,8 @@ const { eventDetail } = Astro.params;
 const { event } = Astro.props;
 
 // Fallback to finding the event by matching the slug with a generated slug from the title
-const eventData = event || eventJSON.find((e) => createSlug(e.title) === eventDetail);
+const eventData =
+  event || eventJSON.find((e) => createSlug(e.title) === eventDetail);
 ---
 
 <BaseLayout title={`${eventData.title} | Nepal Climate Hub`}>
