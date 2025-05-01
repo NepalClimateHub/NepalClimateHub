@@ -40,11 +40,7 @@
     "province": "Bagmati",
     "format": "Hybrid",
     "type": "Workshop",
-    "category": [
-      "Climate Policy",
-      "Public Engagement",
-      "Sustainability"
-    ],
+    "category": ["Climate Policy", "Public Engagement", "Sustainability"],
     "description": "The Nepal Climate Policy Workshop is a collaborative initiative designed to empower local communities to participate in climate policy development. This interactive workshop will bring together community leaders, local government representatives, climate experts, and youth activists to draft practical, community-level climate policy proposals that address Nepal's unique environmental challenges.<br><br>The workshop will feature facilitated discussions on climate adaptation strategies, renewable energy transitions, and sustainable agriculture practices specific to Nepal's diverse ecological regions. Participants will work in small groups to develop policy recommendations that will be compiled into a comprehensive report and submitted to relevant government ministries. The hybrid format allows for both in-person and virtual participation, ensuring broad representation from all seven provinces of Nepal.",
     "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
     "startDate": "2025-05-10",
@@ -68,11 +64,7 @@
     "province": "Lumbini",
     "format": "In-person",
     "type": "Conference",
-    "category": [
-      "Renewable Energy",
-      "Sustainability",
-      "Technology"
-    ],
+    "category": ["Renewable Energy", "Sustainability", "Technology"],
     "description": "The Asia-Pacific Green Energy Conference is the region's premier gathering for renewable energy professionals, policymakers, investors, and technology innovators. This three-day conference will showcase cutting-edge developments in solar, wind, hydro, and geothermal energy technologies, with a special focus on solutions tailored to the unique challenges and opportunities of the Asia-Pacific region.<br><br>The conference program includes expert panel discussions, technical presentations, and case studies highlighting successful renewable energy projects across the region. Attendees will have access to an exhibition hall featuring the latest green energy technologies and solutions from leading companies. Specialized tracks will address policy frameworks, financing mechanisms, grid integration challenges, and community-based energy initiatives. This is an essential event for anyone involved in shaping the future of energy in the Asia-Pacific region.",
     "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
     "startDate": "2025-07-01",
@@ -94,11 +86,7 @@
     "province": "Karnali",
     "format": "Online",
     "type": "Training",
-    "category": [
-      "Climate Finance",
-      "Youth Leadership",
-      "Innovation"
-    ],
+    "category": ["Climate Finance", "Youth Leadership", "Innovation"],
     "description": "This comprehensive virtual training program is designed to equip young climate activists and community organizers with the knowledge and skills needed to access and manage climate finance for local initiatives. The six-week online course covers the fundamentals of climate finance mechanisms, including international funds, national budgets, private sector investments, and innovative financing models.<br><br>Participants will learn how to develop bankable project proposals, conduct cost-benefit analyses, navigate application processes for major climate funds, and implement effective monitoring and evaluation frameworks. The training includes live webinars with climate finance experts, self-paced learning modules, peer-to-peer exchange sessions, and one-on-one mentoring. By the end of the program, participants will have developed a complete funding proposal for a climate project in their community, with ongoing support available for six months after the training concludes.",
     "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
     "startDate": "2025-08-15",
@@ -122,10 +110,7 @@
     "province": "Sudurpaschim",
     "format": "Online",
     "type": "Webinar",
-    "category": [
-      "Climate Education",
-      "Community Engagement"
-    ],
+    "category": ["Climate Education", "Community Engagement"],
     "description": "The Southeast Asia Climate Webinar Series offers a monthly platform for climate activists, researchers, and community leaders from across Southeast Asia to share their experiences, challenges, and successes in addressing climate change. Each 90-minute webinar focuses on a specific theme, such as coastal resilience, urban sustainability, indigenous knowledge systems, or climate justice, with presentations from speakers representing different countries in the region.<br><br>The webinar series aims to foster regional collaboration, amplify local climate solutions, and build a community of practice among climate advocates in Southeast Asia. Participants can join live sessions with interactive Q&A opportunities or access recordings afterward. The series will culminate in a virtual regional climate forum where participants can further develop collaborative projects and advocacy initiatives. All webinars include simultaneous translation in multiple Southeast Asian languages to ensure accessibility across the region.",
     "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
     "startDate": "2025-09-05",

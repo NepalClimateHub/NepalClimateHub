@@ -1,7 +1,7 @@
 import type React from 'react';
-import { useState, useEffect } from 'react';
-import { CardContainer } from './CardContainer';
+import { useEffect, useState } from 'react';
 import styles from '../styles/components/EventFilter.module.css';
+import { CardContainer } from './CardContainer';
 
 interface Event {
   id: string | number;
@@ -152,15 +152,19 @@ const EventFilter: React.FC<Props> = ({ events }) => {
         ))}
       </div>
 
-      {/* Card display */}
-      <div className={styles.cardContainerWrapper}>
-        <CardContainer
-          cardsArray={filteredEvents}
-          dataType="events"
-          cardProfilePictureBgSize="cover"
-          cardPadding="0px"
-          initialCardCount={8}
-        />
+      {/* Check if no events are found */}
+      <div className={styles.cardNotFoundMessage}>
+        {filteredEvents.length === 0 ? (
+          <p>No matching events found</p>
+        ) : (
+          <CardContainer
+            cardsArray={filteredEvents}
+            dataType="events"
+            cardProfilePictureBgSize="cover"
+            cardPadding="0px"
+            initialCardCount={8}
+          />
+        )}
       </div>
     </div>
   );
