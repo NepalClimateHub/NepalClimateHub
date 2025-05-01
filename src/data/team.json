@@ -1,0 +1,137 @@
+{
+  "description": "We are a passionate, multidisciplinary team from seven provinces of Nepal, and outside.",
+  "categories": [
+    {
+      "name": "Board",
+      "members": [
+        {
+          "name": "Bibek Pant",
+          "title": "Founder",
+          "bio": "Bibek is an Erasmus Mundus Scholar pursuing a Master's in Geospatial Technologies. With two years of experience building and mentoring technical communities, he was honored with the South Asia Gold Ambassador award by Microsoft in 2023. He was also a fellow at Authentic Leadership Institute Nepal (2023), a Climatebase fellow (2024), and is passionate about climate action!",
+          "image": "https://placehold.co/400x400/E6E6FA/333333?text=Bibek",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Gayatri Bhattarai",
+          "title": "Digital Community Manager",
+          "bio": "Gayatri is a final-year forestry student and president of SAFE-Nepal, a youth coalition for environmental health and biodiversity conservation. For the past three years, she has been working on conservation projects promoting climate justice and sustainable practices. Gayatri is inspired by nature and committed to collective action for a greener future.",
+          "image": "https://placehold.co/400x400/FFE4E1/333333?text=Gayatri",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Er. Saroj Dahal",
+          "title": "Chief Technology Officer",
+          "bio": "Saroj is a seasoned software engineer since 2017 and has led government tech projects and startups like Investiaa and EasyUnsub as a Project Lead. Currently, he is pursuing a Master's degree in Artificial Intelligence at Kathmandu University, furthering his expertise in AI technologies and their applications to drive innovation and technological advancements.",
+          "image": "https://placehold.co/400x400/F5F5DC/333333?text=Saroj",
+          "linkedIn": "#"
+        }
+      ]
+    },
+    {
+      "name": "Leadership",
+      "members": [
+        {
+          "name": "Monica Neupane",
+          "title": "Executive Director",
+          "bio": "Monica is a climate activist and founder of Mulin Ventures - a sustainability startup. She has trained 30+ teachers, reached 2,500+ students in climate education, and led major events including Nepal's first Local Conference of Youth and the Climate Action Simulation. She won the 2023 LOF Youth Award and spoke at TEDxKamalPokhari on climate and mental health.",
+          "image": "https://placehold.co/400x400/90EE90/333333?text=Monica",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Samridhi Tuladhar",
+          "title": "President / Programme Director",
+          "bio": "Samridhi is a communications professional with 5+ years of experience in research, writing, and advocacy. As Sr. Editorial Associate at ICIMOD, she shaped narratives on climate resilience, sustainable livelihoods, and regional cooperation. An economics and political science graduate, she's passionate about climate communications and environmental governance.",
+          "image": "https://placehold.co/400x400/ADD8E6/333333?text=Samridhi",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Hikmat Budha Chettri",
+          "title": "Vice President / Grant Writer",
+          "bio": "Hikmat is a USYC 2025 member and computer science graduate passionate about technology, climate solutions, and data-driven innovation. He began his climate journey in Surkhet, later representing Nepal at the COP29 Simulation in Egypt. In 2024, he was a Climate Change AI Fellow and now serves as VP of Nepal Climate Hub, driving youth engagement and action.",
+          "image": "https://placehold.co/400x400/D3D3D3/333333?text=Hikmat",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Alisha Mulmi",
+          "title": "Secretary / Communication and Outreach Manager",
+          "bio": "Alisha is a recent forestry graduate, WWF scholar, and 2025 EU Youth Sounding Board member. For the past three years, she has advocated for climate justice through groups like Digo Bikas Institute and NYCA Hetauda. Beyond climate advocacy, she is passionate about wildlife and conservation, and is committed to raising awareness and driving positive change.",
+          "image": "https://placehold.co/400x400/FFC0CB/333333?text=Alisha",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Iesha Bhandari",
+          "title": "Treasurer / Finance Manager",
+          "bio": "Iesha is an alumni of Women LEAD Nepal, graduating in 2021, and a fellow of Authentic Leadership Institute Nepal. She is currently studying law at Nepal Law Campus and has been working on women empowerment initiatives. Iesha is also passionate about climate justice and advocates for a sustainable and equitable future.",
+          "image": "https://placehold.co/400x400/F5DEB3/333333?text=Iesha",
+          "linkedIn": "#"
+        }
+      ]
+    },
+    {
+      "name": "Tech Team",
+      "members": [
+        {
+          "name": "Mukesh Kumar Chaudhary",
+          "title": "Software Engineer",
+          "bio": "Mukesh is a software engineer passionate about building software that solves real-world problems and improves lives. He enjoys learning new technologies and sharing his knowledge on software development, productivity, and life. Mukesh is also very keen on open source and is a member of the Nepal Open Source Klub.",
+          "image": "https://placehold.co/400x400?text=Mukesh",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Avash Ghimire",
+          "title": "Software Engineer",
+          "bio": "Avash Ghimire is a software engineer passionate about all things tech. He turns caffeine into code and ideas into reality, always chasing the next big challenge. His ability to collaborate with multidisciplinary teams makes him a valuable asset to any team. He also writes blogs occasionally… when he's not busy procrastinating.",
+          "image": "https://placehold.co/400x400?text=Avash",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Nischal Tamang",
+          "title": "Software Engineer",
+          "bio": "Nischal is an undergraduate Software Engineering student and web developer with expertise in React and Node.js. Passionate about problem-solving, he has led teams to win 10 hackathons. Actively involved in CSR initiatives like Teach to Learn sessions, he mentors aspiring developers and is dedicated to building innovative solutions and exploring new technologies.",
+          "image": "https://placehold.co/400x400?text=Nischal",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Nikita Budhathoki",
+          "title": "Creative Director",
+          "bio": "Nikita Budhathoki is a product designer with a background in Computer Science and Information Technology. She has been actively involved in community-based initiatives that connect her to social and environmental issues. Alongside her design work, she explores traditional art forms like mandala and thanka to express cultural and personal narratives. Nikita is passionate about using design and creativity to raise awareness and inspire action on climate and sustainability.",
+          "image": "https://placehold.co/400x400?text=Nikita",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Milan Shrestha",
+          "title": "UI/UX Designer",
+          "bio": "Milan is a UX/UI Designer with over three years of experience, focused on marketing materials and improving web experiences for people and businesses. He has worked across EdTech, FinTech, PropTech, HealthTech, and Productivity, aiming to help people through design. Milan holds an undergraduate degree in BICT and is passionate about anything that keeps him inspired and excited.",
+          "image": "https://placehold.co/400x400?text=Milan",
+          "linkedIn": "#"
+        }
+      ]
+    },
+    {
+      "name": "Advisors",
+      "members": [
+        {
+          "name": "Elaine Shum",
+          "title": "Design",
+          "bio": "A seasoned New York design leader in digital products and brand experiences. Elaine is passionate about influencing human behaviors and sustainable outcomes. Inspired by regenerative travel in the Himalayas to contribute to this Nepal community climate initiative.",
+          "image": "https://placehold.co/400x400?text=Elaine",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Manon Jacquin",
+          "title": "Product",
+          "bio": "A technical product manager skilled in building community and database products. Manon has a background in international law and French diplomacy at the UN, giving her a global perspective. An avid nature lover and hiker, her passion for the outdoors led her to this climate initiative.",
+          "image": "https://placehold.co/400x400?text=Manon",
+          "linkedIn": "#"
+        },
+        {
+          "name": "Tara Marathe",
+          "title": "Communication",
+          "bio": "An experienced San Francisco Bay Area chief of staff and leader in communications and project management with a background in environmental science. Inspired by the power of science and collective action to build a sustainable future.",
+          "image": "https://placehold.co/400x400?text=Tara",
+          "linkedIn": "#"
+        }
+      ]
+    }
+  ]
+}
