@@ -1,1 +1,0 @@
-import{c as e}from"./slider.BCU5S9Wx.js";const r=document.querySelectorAll(".activist-card"),c=document.querySelector(".activist-card-controls"),t=c?.querySelectorAll(".bar-activist-section");c&&t&&e(r,t);
