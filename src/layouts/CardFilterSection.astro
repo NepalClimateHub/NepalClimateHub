@@ -1,6 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
-import "../styles/global.css";
+import { Icon } from 'astro-icon/components';
+import '../styles/global.css';
 
 const { heading, filter, type } = Astro.props;
 ---
@@ -67,9 +67,9 @@ const { heading, filter, type } = Astro.props;
   {
     filter == "true" && (
       <div class="filter-wrapper">
-        <button class="filter-btn">
+        {/* <button class="filter-btn">
           Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
-        </button>
+        </button> */}
       </div>
     )
   }

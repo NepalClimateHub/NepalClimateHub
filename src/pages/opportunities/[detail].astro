@@ -17,14 +17,15 @@ export async function getStaticPaths() {
     const slug = createSlug(opportunity.title);
     return {
       params: { detail: slug },
-      props: { opportunity: { ...opportunity } }
+      props: { opportunity: { ...opportunity } },
     };
   });
 }
 
 const { detail } = Astro.params;
 const { opportunity } = Astro.props;
-const opportunityDetail = opportunity || opportunitiesJSON.find((o) => createSlug(o.title) === detail);
+const opportunityDetail =
+  opportunity || opportunitiesJSON.find((o) => createSlug(o.title) === detail);
 ---
 
 <BaseLayout title={`${opportunityDetail.title} | Nepal Climate Hub`}>

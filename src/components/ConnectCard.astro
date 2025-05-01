@@ -5,10 +5,10 @@ import { Icon } from 'astro-icon/components';
 import type { Organization } from 'src/interfaces/organizationInterface';
 
 // dataObj can either be organization data or activist data or event data; sent via props
-const { dataObj, organization = "true" } = Astro.props;
+const { dataObj, organization = 'true' } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === "false" && dataObj && 'title' in dataObj;
+const isEvent = organization === 'false' && dataObj && 'title' in dataObj;
 
 // Initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
@@ -17,12 +17,20 @@ const activeDataObject = dataObj;
 const website = isEvent ? activeDataObject?.website : activeDataObject?.website;
 
 // Get social media links based on data type
-const facebook = isEvent ? activeDataObject?.socials?.facebook : activeDataObject?.socials?.facebook;
-const instagram = isEvent ? activeDataObject?.socials?.instagram : activeDataObject?.socials?.instagram;
-const linkedin = isEvent ? activeDataObject?.socials?.linkedin : activeDataObject?.socials?.linkedin;
+const facebook = isEvent
+  ? activeDataObject?.socials?.facebook
+  : activeDataObject?.socials?.facebook;
+const instagram = isEvent
+  ? activeDataObject?.socials?.instagram
+  : activeDataObject?.socials?.instagram;
+const linkedin = isEvent
+  ? activeDataObject?.socials?.linkedin
+  : activeDataObject?.socials?.linkedin;
 
 // Get contact information based on data type
-const email = isEvent ? activeDataObject?.contactEmail : activeDataObject?.contact?.email;
+const email = isEvent
+  ? activeDataObject?.contactEmail
+  : activeDataObject?.contact?.email;
 const phone = isEvent ? '' : activeDataObject?.contact?.phone;
 
 // Helper function to split email for anti-spam
@@ -32,7 +40,7 @@ function splitEmail(email: string | undefined) {
   if (atIndex === -1) return { username: email, domain: '' };
   return {
     username: email.slice(0, atIndex),
-    domain: email.substring(atIndex)
+    domain: email.substring(atIndex),
   };
 }
 

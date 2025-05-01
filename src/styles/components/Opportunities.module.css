@@ -1,67 +1,77 @@
 .eventFilterWrapper {
+  width: 100%;
+}
+
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 34px;
+  margin-top: -24px;
+}
+
+.filterGroup {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.filterContainer select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterContainer select:hover {
+  border-color: #5b73e8;
+}
+
+.filterContainer select:focus {
+  background-color: #f9f9fb;
+  border-color: #5b73e8;
+  box-shadow: 0 0 2px rgba(91, 115, 232, 0.15);
+}
+
+.cardContainerWrapper {
+  padding: 0 16px;
+}
+
+.cardNotFoundMessage {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+  padding: 20px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .filterGroup {
     width: 100%;
   }
-  
-  .filterContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: flex-end;
-    justify-content: center;
-    margin-bottom: 34px;
-    margin-top: 20px; /* Changed from -24px to 20px to bring the filter down */
-    padding-top: 10px; /* Added padding to create more space */
-  }
-  
-  .filterGroup {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .filterGroup label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
+
   .filterContainer select {
-    padding: 6px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    outline: none;
-    background-color: #fff;
-    cursor: pointer;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
   }
-  
-  .filterContainer select:hover,
-  .filterContainer select:focus {
-    border-color: #007bff;
-    box-shadow: 0px 2px 6px rgba(0, 123, 255, 0.2);
-  }
-  
-  .cardContainerWrapper {
-    padding: 0 16px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .filterContainer {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0 16px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  
-    .filterGroup {
-      width: 100%;
-    }
-  
-    .filterContainer select {
-      width: 100%;
-    }
-  }
-  
-  
+}

@@ -13,8 +13,10 @@ import eventJSON from '../data/dummy-event.json';
 const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
 // Filter out the current event if currentEventId is provided
-const filteredEvents = currentEventId 
-  ? eventJSON.filter(event => event.id.toString() !== currentEventId.toString())
+const filteredEvents = currentEventId
+  ? eventJSON.filter(
+      (event) => event.id.toString() !== currentEventId.toString()
+    )
   : eventJSON;
 
 // Get a slice of events based on startIndex and endIndex
