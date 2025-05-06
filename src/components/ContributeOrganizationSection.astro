@@ -1,0 +1,149 @@
+---
+import contributeImg from '../assets/contribute.png';
+---
+<section class="contribute-organization-section">
+  <div class="organization-container">
+    <div class="organization-image">
+      <img src={contributeImg.src} alt="Organization" />
+    </div>
+    <div class="organization-text">
+      <h2>Organization</h2>
+      <p>Are you part of an organisations working in climate education, research, resilience, policy, advocacy, or technology? Get featured in our directory.</p>
+      <div class="organization-why">
+        <div class="organization-why-title">Why submit your organisations's profile?</div>
+        <ul class="organization-list">
+          <li><span class="arrow">&rarr;</span> Increase visibility – Introduce your organisations to a network  of climate enthusiasts, professionals, champions, and change makers</li>
+          <li><span class="arrow">&rarr;</span> Resource sharing – Promote knowledge exchange and collaboration</li>
+          <li><span class="arrow">&rarr;</span> Attract talent – Connect with individuals passionate about climate action</li>
+          <li><span class="arrow">&rarr;</span> Collective impact – Joining a network of climate change makers to strengthen Nepal's climate movement</li>
+        </ul>
+      </div>
+      <p class="organization-note">Every opportunity shared can change someone's future in climate action!</p>
+      <button class="organization-btn">Submit Opportunity</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.contribute-organization-section {
+  width: 100%;
+  background: #fff;
+  margin-top: 3.5rem;
+  padding: 3.5rem 0;
+}
+.organization-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 0 42px 0 42px;
+}
+.organization-image {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.organization-image img {
+  width: 572px;
+  height: 411px;
+  max-width: 623px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+}
+.organization-text {
+  flex: 1 1 0;
+  min-width: 320px;
+}
+.organization-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1b1e;
+}
+.organization-text p {
+  font-size: 1.18rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+.organization-why-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+.organization-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+.organization-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+  margin-bottom: 0.7rem;
+  color: #222;
+}
+.arrow {
+  display: inline-block;
+  margin-right: 0.7em;
+  font-size: 1.2em;
+}
+.organization-note {
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+}
+.organization-btn {
+  background: #1a1b1e;
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.organization-btn:hover {
+  background: #333;
+}
+@media (max-width: 1200px) {
+  .organization-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+  .organization-image {
+    width: 100%;
+    justify-content: center;
+  }
+  .organization-image img {
+    width: 100%;
+    max-width: 572px;
+    height: 260px;
+  }
+}
+@media (max-width: 700px) {
+  .organization-container {
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 1.5rem;
+  }
+  .organization-text h2 {
+    font-size: 1.3rem;
+  }
+  .organization-text p, .organization-list li, .organization-note {
+    font-size: 0.98rem;
+  }
+  .organization-image img {
+    height: 180px;
+    max-width: 100%;
+  }
+}
+</style> 

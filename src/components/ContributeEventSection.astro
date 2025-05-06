@@ -1,0 +1,144 @@
+---
+import contributeImg from '../assets/contribute.png';
+---
+<section class="contribute-event-section">
+  <div class="event-container">
+    <div class="event-text">
+      <h2>Events</h2>
+      <p>Are you organising or aware of an upcoming climate event? Share<br />
+      it with Nepal's climate community by filling out our form.</p>
+      <p>Your event could be the start of someone's climate journey?</p>
+      <div class="event-why">
+        <div class="event-why-title">Why submit an event?</div>
+        <ul class="event-list">
+          <li><span class="arrow">&rarr;</span> Expand your reach and attract a wider audience</li>
+          <li><span class="arrow">&rarr;</span> Gain visibility among climate activists, students, and professionals</li>
+          <li><span class="arrow">&rarr;</span> Get recognised for your contribution to the movement</li>
+        </ul>
+      </div>
+      <button class="event-btn">Submit Event</button>
+    </div>
+    <div class="event-image">
+      <img src={contributeImg.src} alt="Climate event" />
+    </div>
+  </div>
+</section>
+
+<style>
+.contribute-event-section {
+  width: 100%;
+  background: #fafbfc;
+  margin-top: 3.5rem;
+  padding: 3.5rem 0;
+}
+.event-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 3rem;
+}
+.event-text {
+  flex: 1 1 0;
+  min-width: 320px;
+}
+.event-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1b1e;
+}
+.event-text p {
+  font-size: 1.18rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+.event-why-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.7rem 0;
+}
+.event-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+  margin-bottom: 0.7rem;
+  color: #222;
+}
+.arrow {
+  display: inline-block;
+  margin-right: 0.7em;
+  font-size: 1.2em;
+}
+.event-btn {
+  background: #1a1b1e;
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  transition: background 0.2s;
+}
+.event-btn:hover {
+  background: #333;
+}
+.event-image {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.event-image img {
+  width: 572px;
+  height: 411px;
+  max-width: 623px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+}
+@media (max-width: 1200px) {
+  .event-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+  .event-image {
+    width: 100%;
+    justify-content: center;
+  }
+  .event-image img {
+    width: 100%;
+    max-width: 572px;
+    height: 260px;
+  }
+}
+@media (max-width: 700px) {
+  .event-container {
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 1.5rem;
+  }
+  .event-text h2 {
+    font-size: 1.3rem;
+  }
+  .event-text p, .event-list li {
+    font-size: 0.98rem;
+  }
+  .event-image img {
+    height: 180px;
+    max-width: 100%;
+  }
+}
+</style> 
