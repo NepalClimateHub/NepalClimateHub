@@ -1,61 +1,64 @@
 ---
-
-import AboutHeroImg from '../assets/abouthero.jpg';
+import AboutHeroImg from "../assets/abouthero.jpg";
 ---
 
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
 
 <div class="hero-section">
   <div class="img-wrapper">
     <img src={AboutHeroImg.src} alt="Placeholder Image" />
   </div>
 </div>
+<div class="section-container">
+  <div class="story-content">
+    <div class="our-story-container">
+      <p class="our-story-text">OUR STORY</p>
+    </div>
 
-<div class="story-content">
-  <div class="our-story-container">
-    <p class="our-story-text">OUR STORY</p>
+    <h1 class="story-heading">
+      Nepal Climate Hub was envisioned by Bibek, our founder, who recognized the
+      need for a centralized climate platform after participating in the Local
+      Conference of Youth Nepal 2023, part of
+      <a
+        href="https://unfccc.int/topics/action-for-climate-empowerment-children-and-youth/youth/youngo"
+        target="_blank"
+        class="youngo-link">YOUNGO</a
+      >, the official youth constituency of the United Nations Framework
+      Convention on Climate Change (UNFCCC).
+    </h1>
+
+    <p class="story-paragraph">
+      Coming from a tech background, with little to no knowledge of climate
+      change, he struggled to find clear, accessible information on local
+      climate initiatives. The scattered and incomplete resources on the
+      internet made it difficult to understand Nepal's climate landscape and
+      take meaningful action. Realizing that others faced the same challenge, he
+      envisioned a digital hub to simplify the climate journey for people like
+      him.
+    </p>
+
+    <p class="story-paragraph">
+      In March 2024, he joined the Climatebase Fellowship – an accelerator
+      program for ambitious, mission-driven professionals in climate – where he
+      teamed up with Elaine, Manon, and Tara to bring this idea to life. What
+      began as a capstone project has now evolved into Nepal Climate Hub - a
+      growing non-profit led by a passionate multidisciplinary team, driving
+      action for a climate-resilient Nepal.
+    </p>
   </div>
-
- 
-  <h1 class="story-heading">
-    Nepal Climate Hub was envisioned by Bibek, our founder, who recognized <br/> the
-    need for a centralized climate platform after participating in the Local <br/>
-    Conference of Youth Nepal 2023, part of 
-    <a 
-      href="https://unfccc.int/topics/action-for-climate-empowerment-children-and-youth/youth/youngo" 
-      target="_blank" 
-      class="youngo-link"
-    >YOUNGO</a>,
-    the official youth <br/> constituency of the United Nations Framework Convention on Climate <br/>Change
-    (UNFCCC).
-  </h1>
-
-  <p class="story-paragraph">
-    Coming from a tech background, with little to no knowledge of climate
-    change, he struggled to find clear, accessible information on local climate
-    initiatives. <br />
-    The scattered and incomplete resources on the internet made it
-    difficult to understand Nepal's climate landscape and take meaningful
-    action. Realizing that others faced the same challenge, he envisioned a
-    digital hub to simplify the climate journey for people like him.
-  </p>
-
-  <p class="story-paragraph">
-    In March 2024, he joined the Climatebase Fellowship – an accelerator program
-    for ambitious, mission-driven professionals in climate – where he teamed up
-    with Elaine, Manon, and Tara to bring this idea to life. <br />
-    What began as a capstone project has now evolved into Nepal Climate Hub - a growing
-    non-profit led by a passionate multidisciplinary team, driving action for a
-    climate-resilient Nepal.
-  </p>
 </div>
 
 <style>
+  .section-container {
+    font-family: Roboto;
+  }
 
   .hero-section {
     position: relative;
     width: 100%;
-    margin: 0 auto;
   }
 
   .img-wrapper {
@@ -71,21 +74,17 @@ import AboutHeroImg from '../assets/abouthero.jpg';
   }
 
   .our-story-container {
+    padding: 2px 14px;
     position: absolute;
-    width: 134px;
-    height: 45px;
     background-color: #cefe00;
     transform: rotate(-3deg);
-    top: -20px; 
-    left: 42px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: -20px;
+    left: 0px;
     z-index: 10;
-}
+  }
 
   .our-story-text {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
@@ -93,38 +92,45 @@ import AboutHeroImg from '../assets/abouthero.jpg';
   }
 
   .story-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 3rem 42px 4rem; 
+    max-width: 984px;
+    padding: 3rem 0px 4rem;
     position: relative;
   }
 
   .story-heading {
     font-size: 1.75rem;
-    font-weight: 700;
-    line-height: 1.3;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
     color: #000;
-    
+    font-family: "Zilla Slab", serif;
+    font-weight: bold;
+    line-height: 36px;
+    font-size: 30px;
   }
 
   .story-paragraph {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 16px;
     color: #333;
   }
 
   .youngo-link {
-    color: #007BFF;
+    color: #007bff;
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .story-content {
+      margin: 0px 48px;
+    }
   }
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .story-content {
-      padding: 2rem 24px;
+      padding: 2rem 0px;
+      margin: 0px 24px;
     }
 
     .story-heading {

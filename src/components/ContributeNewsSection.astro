@@ -1,0 +1,145 @@
+---
+import contributeImg from '../assets/contribute.png';
+---
+<section class="contribute-news-section">
+  <div class="news-container">
+    <div class="news-text">
+      <h2>News</h2>
+      <p>Stay informed and help others stay updated by sharing climate news! Whether it's a breakthrough in climate research, a new policy, or an inspiring climate action, your contribution matters.</p>
+      <p>Your event could be the start of someone's climate journey?</p>
+      <div class="news-why">
+        <div class="news-why-title">Why submit climate news?</div>
+        <ul class="news-list">
+          <li><span class="arrow">&rarr;</span> Keep the community informed about the latest climate developments</li>
+          <li><span class="arrow">&rarr;</span> Highlight local and global climate actions that inspire change</li>
+          <li><span class="arrow">&rarr;</span> Encourage knowledge sharing and discussion</li>
+        </ul>
+      </div>
+      <button class="news-btn">Submit News</button>
+    </div>
+    <div class="news-image">
+      <img src={contributeImg.src} alt="Climate news" />
+    </div>
+  </div>
+</section>
+
+<style>
+.contribute-news-section {
+  width: 100%;
+  background: #fafbfc;
+  margin-top: 3.5rem;
+  padding: 3.5rem 0;
+}
+.news-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.news-text {
+  flex: 1 1 0;
+  min-width: 320px;
+}
+.news-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1b1e;
+}
+.news-text p {
+  font-size: 1.18rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+.news-why-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.7rem 0;
+}
+.news-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+  margin-bottom: 0.7rem;
+  color: #222;
+}
+.arrow {
+  display: inline-block;
+  margin-right: 0.7em;
+  font-size: 1.2em;
+}
+.news-btn {
+  background: #1a1b1e;
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  transition: background 0.2s;
+}
+.news-btn:hover {
+  background: #333;
+}
+.news-image {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.news-image img {
+  width: 572px;
+  height: 411px;
+  max-width: 623px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+}
+@media (max-width: 1200px) {
+  .news-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  .news-image {
+    width: 100%;
+    justify-content: center;
+  }
+  .news-image img {
+    width: 100%;
+    max-width: 572px;
+    height: 260px;
+  }
+}
+@media (max-width: 1024px) {
+  .news-container {
+    padding: 0 42px;
+  }
+}
+@media (max-width: 700px) {
+  .news-container {
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 1.5rem;
+  }
+  .news-text h2 {
+    font-size: 1.3rem;
+  }
+  .news-text p, .news-list li {
+    font-size: 0.98rem;
+  }
+  .news-image img {
+    height: 180px;
+    max-width: 100%;
+  }
+}
+</style> 

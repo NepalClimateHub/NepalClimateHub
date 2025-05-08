@@ -1,0 +1,151 @@
+---
+import contributeImg from '../assets/contribute.png';
+---
+<section class="contribute-opportunity-section">
+  <div class="opportunity-container">
+    <div class="opportunity-image">
+      <img src={contributeImg.src} alt="Opportunities" />
+    </div>
+    <div class="opportunity-text">
+      <h2>Opportunities</h2>
+      <p>Know about climate-related jobs, internships, volunteering, or funding opportunities?<br />
+      Share them with the community and help others access valuable opportunities.</p>
+      <div class="opportunity-why">
+        <div class="opportunity-why-title">Why submit an opportunity?</div>
+        <ul class="opportunity-list">
+          <li><span class="arrow">&rarr;</span> Support students and professionals in advancing their climate knowledge</li>
+          <li><span class="arrow">&rarr;</span> Increase participation in impactful climate programs</li>
+          <li><span class="arrow">&rarr;</span> Contribute to the growth of Nepal's climate enthusiasts</li>
+        </ul>
+      </div>
+      <p class="opportunity-note">Every opportunity shared can change someone's future in climate action!</p>
+      <button class="opportunity-btn">Submit Opportunity</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.contribute-opportunity-section {
+  width: 100%;
+  background: #fff;
+  margin-top: 3.5rem;
+  padding: 3.5rem 0;
+}
+.opportunity-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.opportunity-image {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.opportunity-image img {
+  width: 572px;
+  height: 411px;
+  max-width: 623px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+}
+.opportunity-text {
+  flex: 1 1 0;
+  min-width: 320px;
+}
+.opportunity-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1b1e;
+}
+.opportunity-text p {
+  font-size: 1.18rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+.opportunity-why-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+.opportunity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+.opportunity-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+  margin-bottom: 0.7rem;
+  color: #222;
+}
+.arrow {
+  display: inline-block;
+  margin-right: 0.7em;
+  font-size: 1.2em;
+}
+.opportunity-note {
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+}
+.opportunity-btn {
+  background: #1a1b1e;
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.opportunity-btn:hover {
+  background: #333;
+}
+@media (max-width: 1200px) {
+  .opportunity-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  .opportunity-image {
+    width: 100%;
+    justify-content: center;
+  }
+  .opportunity-image img {
+    width: 100%;
+    max-width: 572px;
+    height: 260px;
+  }
+}
+@media (max-width: 1024px) {
+  .opportunity-container {
+    padding: 0 42px;
+  }
+}
+@media (max-width: 700px) {
+  .opportunity-container {
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 1.5rem;
+  }
+  .opportunity-text h2 {
+    font-size: 1.3rem;
+  }
+  .opportunity-text p, .opportunity-list li, .opportunity-note {
+    font-size: 0.98rem;
+  }
+  .opportunity-image img {
+    height: 180px;
+    max-width: 100%;
+  }
+}
+</style> 
