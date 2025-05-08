@@ -4,7 +4,6 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import BaseLayout from '../layouts/Layout.astro';
 import ContributeHeroSection from '@components/ContributeHeroSection.astro';
-
 import ContributeEventsSection from '@components/ContributeEventSection.astro';
 import ContributeTypesSection from '@components/ContributeTypesSection.astro';
 import ContributeNewsSection from '@components/ContributeNewsSection.astro';
@@ -26,14 +25,37 @@ import AboutAcknowledgement from '@components/AboutAcknowledgement.astro';
 			</div>
 		</section>
 
-		<ContributeHeroSection />
-		<ContributeTypesSection />
-		<ContributeEventsSection />
-		<ContributeOpportunitySection/>
-		<ContributeNewsSection/>
-		<ContributeOrganizeSection/>
-		<ContributeSectionFooter/>
-		<AboutAcknowledgement/>
+		<section class="contribute-hero-section">
+			<ContributeHeroSection />
+		</section>
+
+		<section class="contribute-types-section">
+			<ContributeTypesSection />
+		</section>
+
+		<section class="contribute-events-section">
+			<ContributeEventsSection />
+		</section>
+
+		<section class="contribute-opportunity-section">
+			<ContributeOpportunitySection />
+		</section>
+
+		<section class="contribute-news-section">
+			<ContributeNewsSection />
+		</section>
+
+		<section class="contribute-organize-section">
+			<ContributeOrganizeSection />
+		</section>
+
+		<section class="contribute-footer-section">
+			<ContributeSectionFooter />
+		</section>
+
+		<section class="acknowledgement-section">
+			<AboutAcknowledgement />
+		</section>
 
 		<section class="footer-section">
 			<Footer />
@@ -44,6 +66,17 @@ import AboutAcknowledgement from '@components/AboutAcknowledgement.astro';
 <style>
 	.header-section {
 		padding: 0px 48px;
+	}
+
+	.contribute-hero-section,
+	.contribute-types-section,
+	.contribute-events-section,
+	.contribute-opportunity-section,
+	.contribute-news-section,
+	.contribute-organize-section,
+	.contribute-footer-section,
+	.acknowledgement-section {
+		width: 100%;
 	}
 
 	.footer-section {
