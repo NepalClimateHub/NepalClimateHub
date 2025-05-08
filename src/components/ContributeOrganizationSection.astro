@@ -38,7 +38,6 @@ import contributeImg from '../assets/contribute.png';
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
-  padding: 0 42px 0 42px;
 }
 .organization-image {
   flex: 1 1 0;
@@ -116,8 +115,6 @@ import contributeImg from '../assets/contribute.png';
     flex-direction: column;
     align-items: flex-start;
     gap: 2.5rem;
-    padding-left: 42px;
-    padding-right: 42px;
   }
   .organization-image {
     width: 100%;
@@ -127,6 +124,11 @@ import contributeImg from '../assets/contribute.png';
     width: 100%;
     max-width: 572px;
     height: 260px;
+  }
+}
+@media (max-width: 1024px) {
+  .organization-container {
+    padding: 0 42px;
   }
 }
 @media (max-width: 700px) {

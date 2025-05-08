@@ -1,3 +1,5 @@
+
+
 <section class="contribute-types-section">
   <div class="types-content">
     <h2>How You Can Contribute</h2>
@@ -62,14 +64,17 @@
 
 <style>
 .contribute-types-section {
+  width: 100%;
   background: #fff;
   margin-top: 3.5rem;
 }
+
 .types-content {
   max-width: 1280px;
   margin: 0 auto;
-  
+
 }
+
 .types-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -77,12 +82,14 @@
   color: #1a1b1e;
   text-align: left;
 }
+
 .subtitle {
   font-size: 1.08rem;
   color: #222;
   margin-bottom: 2.2rem;
   text-align: left;
 }
+
 .types-grid {
   display: flex;
   gap: 5.5rem;
@@ -91,6 +98,7 @@
   margin-bottom: 2.2rem;
   flex-wrap: wrap;
 }
+
 .type-item {
   display: flex;
   align-items: flex-start;
@@ -99,6 +107,7 @@
   max-width: 260px;
   flex: 1 1 210px;
 }
+
 .type-icon {
   background: #1a1b1e;
   border-radius: 50%;
@@ -110,32 +119,36 @@
   margin-top: 2px;
   flex-shrink: 0;
 }
+
 .type-label {
   font-weight: 700;
   color: #1a1b1e;
   font-size: 1.08rem;
   margin-bottom: 0.1rem;
 }
+
 .type-desc {
   color: #222;
   font-size: 1rem;
   line-height: 1.4;
 }
+
 .types-footer {
   margin-top: 1.5rem;
   font-size: 1.08rem;
   color: #222;
   text-align: left;
 }
+
 @media (max-width: 900px) {
   .types-content {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0 24px;
   }
   .types-grid {
     gap: 1.5rem;
   }
 }
+
 @media (max-width: 700px) {
   .types-grid {
     flex-direction: column;
@@ -145,6 +158,7 @@
     max-width: 100%;
   }
 }
+
 @media (max-width: 1200px) {
   .types-grid {
     display: grid;
@@ -152,10 +166,16 @@
     gap: 2rem;
   }
 }
-@media (max-width: 1024px) {
+
+@media (max-width: 768px) {
   .types-content {
-    padding-left: 42px;
-    padding-right: 42px;
+    padding: 0;
   }
 }
+
+@media (max-width: 1024px) {
+		.types-content  {
+			padding: 2rem 42px;
+		}
+	}
 </style> 

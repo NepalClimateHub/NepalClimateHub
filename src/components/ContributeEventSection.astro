@@ -37,7 +37,6 @@ import contributeImg from '../assets/contribute.png';
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 3rem;
 }
 .event-text {
@@ -111,8 +110,6 @@ import contributeImg from '../assets/contribute.png';
     flex-direction: column;
     align-items: flex-start;
     gap: 2.5rem;
-    padding-left: 42px;
-    padding-right: 42px;
   }
   .event-image {
     width: 100%;
@@ -122,6 +119,11 @@ import contributeImg from '../assets/contribute.png';
     width: 100%;
     max-width: 572px;
     height: 260px;
+  }
+}
+@media (max-width: 1024px) {
+  .event-container {
+    padding: 0 42px;
   }
 }
 @media (max-width: 700px) {
