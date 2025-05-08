@@ -1,7 +1,7 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 const { logoColor } = Astro.props;
-import mainLogo from '../assets/logo/main logo.png';
+import mainLogo from "../assets/logo/main logo.png";
 
 export interface Props {
   logoColor: string;
@@ -10,71 +10,71 @@ export interface Props {
 
 <!-- header section begins  -->
 <header class="section-container">
-	<div class="logo-wrapper">
-		<a class="logo" style={`color: ${logoColor};`} href="/" >
+  <div class="logo-wrapper">
+    <a class="logo" style={`color: ${logoColor};`} href="/">
       <img src={mainLogo.src} alt="Nepal Climate Hub Logo" class="logo-image" />
-
     </a>
-	</div>
+  </div>
 
-	<!-- main nagivation bar -->
-	<nav>
-		<ul class="main-menu">
-			<li class="menu-heading">
-				<a href="#"
-					>Connect <span class="dropdown-icon"><Icon name="dropdown" /></span
-					></a
-				>
-				<ul class="sub-menu">
-					<li><a href="/organizations">Organizations</a></li>
-					<li><a href="/climate-champions">Climate Champions</a></li>
-					<li><a href="/events">Events</a></li>
-					<li><a href="/opportunities">Opportunities</a></li>
-				</ul>
-			</li>
+  <!-- main nagivation bar -->
+  <nav>
+    <ul class="main-menu">
+      <li class="menu-heading">
+        <a href="#"
+          >Connect <span class="dropdown-icon"><Icon name="dropdown" /></span
+          ></a
+        >
+        <ul class="sub-menu">
+          <li><a href="/organizations">Organizations</a></li>
+          <li><a href="/climate-champions">Climate Champions</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/opportunities">Opportunities</a></li>
+        </ul>
+      </li>
 
-			<li class="menu-heading">
-				<a href="#"
-					>Learn <span class="dropdown-icon"><Icon name="dropdown" /></span></a
-				>
-				<ul class="sub-menu">
+      <li class="menu-heading">
+        <a href="#"
+          >Learn <span class="dropdown-icon"><Icon name="dropdown" /></span></a
+        >
+        <ul class="sub-menu">
           <li><a href="/resources">Resources</a></li>
-					<li><a href="/action-steps">Action Steps</a></li>
-					<li><a href="/news">News</a></li>
-				</ul>
-			</li>
+          <li><a href="/action-steps">Action Steps</a></li>
+          <li><a href="/news">News</a></li>
+        </ul>
+      </li>
 
-			<li class="menu-heading">
-				<a href="#"
-					>Join <span class="dropdown-icon"><Icon name="dropdown" /></span
-					></a
-				>
-				<ul class="sub-menu">
-					<li><a href="/volunteer">Volunteer</a></li>
-					<li><a href="/contribute">Contribute</a></li>
-				</ul>
-			</li>
+      <li class="menu-heading">
+        <a href="#"
+          >Join <span class="dropdown-icon"><Icon name="dropdown" /></span></a
+        >
+        <ul class="sub-menu">
+          <li><a href="/volunteer">Volunteer</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+        </ul>
+      </li>
 
-			<li class="menu-heading"><a href="/about">About</a></li>
-		</ul>
+      <li class="menu-heading"><a href="/about">About</a></li>
+    </ul>
 
-		<!-- bottom horizontal navigation for mobile device -->
-		<div class="bottom-nav">
-			<span>NEPALCLIMATEHUB.ORG</span>
-			<ul>
-				<li><a href="/about">About</a></li>
-			</ul>
-		</div>
+    <!-- bottom horizontal navigation for mobile device -->
+    <div class="bottom-nav">
+      <span>NEPALCLIMATEHUB.ORG</span>
+      <ul>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
 
-		<!-- cross icon for mobile layout -->
-		<div class="cross-icon"><Icon name="cross" /></div>
-	</nav>
+    <!-- cross icon for mobile layout -->
+    <div class="cross-icon"><Icon name="cross" /></div>
+  </nav>
 
-	<!-- menu button for mobile device -->
-	<button class="header-cta"><a href="#"><Icon name="hugeicons:energy" class="energy-icon"/> Action Menu</a></button>
+  <!-- menu button for mobile device -->
+  <button class="header-cta"
+    ><a href="#"
+      ><Icon name="hugeicons:energy" class="energy-icon" /> Action Menu</a
+    ></button
+  >
 </header>
-
-
 
 <!-- script to toggle menu in mobile device -->
 <script>
@@ -91,7 +91,6 @@ export interface Props {
   });
 </script>
 
-
 <!-- CSS styles for header component -->
 <style>
   header {
@@ -105,22 +104,6 @@ export interface Props {
     color: #25262b;
   }
 
-  .logo {
-    font-family: "Zilla Slab", serif;
-    display: inline-block;
-    width: 100px;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .logo-image {
-    width: 100px;  
-    height: auto;
-  }
-
   /* mobile menu button */
   .header-cta {
     display: block;
@@ -128,15 +111,14 @@ export interface Props {
     border: none;
     border-radius: 16px;
     align-self: end;
-    margin-bottom: 8px;  
+    margin-bottom: 8px;
   }
 
   .header-cta a {
     font-family: Roboto, sans-serif;
     display: inline-block;
-    padding: 8px 16px;
+    padding: 8px 16px 8px 24px;
     width: 100%;
-    line-height: 16px;
     border-radius: 16px;
     text-decoration: none;
     font-size: 14px;
@@ -144,6 +126,7 @@ export interface Props {
     background-color: #cefe00;
     transition: all 0.3s ease;
     font-weight: 400;
+    position: relative;
   }
 
   .header-cta a:hover {
@@ -233,14 +216,16 @@ export interface Props {
   }
 
   .energy-icon {
-    position: relative;
-    top: 2px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8px;
   }
 
   /* media queries for desktop */
 
   @media screen and (min-width: 768px) {
-
     header {
       margin: 24px auto 32px;
     }
@@ -275,7 +260,7 @@ export interface Props {
       gap: 8px;
     }
 
-     /* refers to connect, learn, contribute, about menu items */
+    /* refers to connect, learn, contribute, about menu items */
     .main-menu li.menu-heading {
       background-color: #cefe00;
       border-radius: 16px;
@@ -286,7 +271,7 @@ export interface Props {
       margin: 0;
       font-size: 14px;
       line-height: 20px;
-      padding:  8px 16px;
+      padding: 8px 16px;
       border-radius: 16px;
       font-weight: 400;
     }
@@ -308,47 +293,45 @@ export interface Props {
       display: block;
     }
 
-/* Inside your <style> tag */
-  .sub-menu {
-  display: none;
-  position: absolute;
-  width: 120px;
-  min-width: fit-content;
-  text-align: center;
-  top: 100%; /* Changed from 50px to align directly below */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  border-radius: 8px;
-}
+    /* Inside your <style> tag */
+    .sub-menu {
+      display: none;
+      position: absolute;
+      width: 120px;
+      min-width: fit-content;
+      text-align: center;
+      top: 100%; /* Changed from 50px to align directly below */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      border-radius: 8px;
+    }
 
-.menu-heading:hover > .sub-menu {
-  transition: all 0.5s ease;
-  display: block;
-  border: 1px solid #1a1b1e;
-}
+    .menu-heading:hover > .sub-menu {
+      transition: all 0.5s ease;
+      display: block;
+      border: 1px solid #1a1b1e;
+    }
 
-.menu-heading:hover > .sub-menu::before {
-  position: absolute;
-  inset: 0;
-  top: -10px; 
-  content: "";
-  width: 100%;
-  height: 10px; 
-}
+    .menu-heading:hover > .sub-menu::before {
+      position: absolute;
+      inset: 0;
+      top: -10px;
+      content: "";
+      width: 100%;
+      height: 10px;
+    }
 
-
-header {
-  position: relative;
-  z-index: 200;
-}
+    header {
+      position: relative;
+      z-index: 200;
+    }
 
     .sub-menu li {
       border-radius: none;
       text-align: left;
-
     }
 
     .sub-menu li:last-of-type {
@@ -370,6 +353,24 @@ header {
       font-size: 20px;
       display: inline-block;
       float: right;
+    }
+
+    .logo-wrapper {
+      width: 200px;
+      height: auto;
+    }
+
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .logo-wrapper {
+      width: 140px;
+      height: auto;
     }
   }
 </style>
