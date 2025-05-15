@@ -4,20 +4,18 @@ import contributeImg from '../assets/contribute.png';
 <section class="contribute-organization-section">
   <div class="organization-container">
     <div class="organization-image">
-      <img src={contributeImg.src} alt="Organization" />
+      <img src={contributeImg.src || "/placeholder.svg"} alt="Organization" />
     </div>
     <div class="organization-text">
       <h2>Organization</h2>
       <p>Are you part of an organisations working in climate education, research, resilience, policy, advocacy, or technology? Get featured in our directory.</p>
-      <div class="organization-why">
-        <div class="organization-why-title">Why submit your organisations's profile?</div>
-        <ul class="organization-list">
-          <li><span class="arrow">&rarr;</span> Increase visibility – Introduce your organisations to a network  of climate enthusiasts, professionals, champions, and change makers</li>
-          <li><span class="arrow">&rarr;</span> Resource sharing – Promote knowledge exchange and collaboration</li>
-          <li><span class="arrow">&rarr;</span> Attract talent – Connect with individuals passionate about climate action</li>
-          <li><span class="arrow">&rarr;</span> Collective impact – Joining a network of climate change makers to strengthen Nepal's climate movement</li>
-        </ul>
-      </div>
+      <div class="organization-why-title">Why submit your organisation's profile?</div>
+      <ul class="organization-list">
+        <li><span class="arrow">&rarr;</span> Increase visibility – Introduce your organisations to a network of climate enthusiasts, professionals, champions, and change makers</li>
+        <li><span class="arrow">&rarr;</span> Resource sharing – Promote knowledge exchange and collaboration</li>
+        <li><span class="arrow">&rarr;</span> Attract talent – Connect with individuals passionate about climate action</li>
+        <li><span class="arrow">&rarr;</span> Collective impact – Joining a network of climate change makers to strengthen Nepal's climate movement</li>
+      </ul>
       <p class="organization-note">Every opportunity shared can change someone's future in climate action!</p>
       <button class="organization-btn">Submit Opportunity</button>
     </div>
@@ -30,71 +28,89 @@ import contributeImg from '../assets/contribute.png';
   background: #fff;
   margin-top: 3.5rem;
   padding: 3.5rem 0;
+  font-family: 'Roboto', sans-serif;
 }
+
 .organization-container {
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 26px; 
 }
+
 .organization-image {
-  flex: 1 1 0;
+  flex: 1;
   display: flex;
   justify-content: flex-start;
 }
+
 .organization-image img {
   width: 572px;
   height: 411px;
   max-width: 623px;
+  max-height: 411px;
   object-fit: cover;
   border-radius: 12px;
   background: #eee;
 }
+
 .organization-text {
-  flex: 1 1 0;
+  flex: 0 0 532px; 
   min-width: 320px;
+  padding-bottom: 24px; 
 }
+
 .organization-text h2 {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 16px; 
   color: #1a1b1e;
 }
+
 .organization-text p {
   font-size: 1.18rem;
   color: #222;
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
+  margin-bottom: 12px; 
+  line-height: 1.3; 
 }
+
 .organization-why-title {
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 6px; 
   font-size: 1.08rem;
+  margin-top: 16px;
 }
+
 .organization-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 16px 0; 
 }
+
 .organization-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1.08rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 6px; 
   color: #222;
+  line-height: 1.3; 
 }
+
 .arrow {
   display: inline-block;
-  margin-right: 0.7em;
+  margin-right: 8px;
   font-size: 1.2em;
 }
+
 .organization-note {
   font-size: 1.08rem;
   color: #222;
-  margin-bottom: 1.2rem;
+  margin-bottom: 12px; 
+  line-height: 1.3; 
 }
+
 .organization-btn {
   background: #1a1b1e;
   color: #fff;
@@ -104,48 +120,132 @@ import contributeImg from '../assets/contribute.png';
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 0.5rem;
   transition: background 0.2s;
+  margin-top: 4px; 
 }
+
 .organization-btn:hover {
   background: #333;
 }
-@media (max-width: 1200px) {
+
+/* Specific styles for 1024px screens to match Figma */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .organization-container {
+    padding: 0 42px;
+    gap: 26px;
+  }
+  
+  .organization-text {
+    flex: 0 0 48%;
+  }
+  
+  .organization-image {
+    flex: 0 0 48%;
+  }
+  
+  .organization-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 572/411;
+  }
+}
+
+/* Specific styles for exactly 1024px to match Figma */
+@media (width: 1024px) {
+  .organization-container {
+    padding: 0 42px;
+    flex-direction: row;
+    gap: 26px;
+  }
+  
+  .organization-text {
+    flex: 0 0 532px; 
+  }
+  
+  .organization-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 572/411;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .organization-container {
+    padding: 0 42px;
+    flex-direction: row;
+    gap: 26px;
+  }
+  
+  .organization-text {
+    flex: 1;
+    min-width: 320px;
+  }
+  
+  .organization-image {
+    flex: 1;
+  }
+  
+  .organization-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 572/411;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .contribute-organization-section {
+    padding: 2.5rem 0;
+  }
+  
   .organization-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.5rem;
+    gap: 2rem;
+    padding: 0 24px;
   }
+  
+  .organization-text {
+    flex: 0 0 100%;
+    width: 100%;
+    padding-bottom: 0;
+  }
+  
+  .organization-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .organization-text p, .organization-list li, .organization-note {
+    font-size: 1rem;
+  }
+  
   .organization-image {
     width: 100%;
     justify-content: center;
+    order: -1; 
   }
+  
   .organization-image img {
     width: 100%;
-    max-width: 572px;
-    height: 260px;
+    height: auto;
+    aspect-ratio: 572/411;
   }
 }
-@media (max-width: 1024px) {
+
+/* Very small mobile screens */
+@media (max-width: 480px) {
   .organization-container {
-    padding: 0 42px;
+    padding: 0 18px;
   }
-}
-@media (max-width: 700px) {
-  .organization-container {
-    padding-left: 18px;
-    padding-right: 18px;
-    gap: 1.5rem;
-  }
+  
   .organization-text h2 {
     font-size: 1.3rem;
   }
+  
   .organization-text p, .organization-list li, .organization-note {
     font-size: 0.98rem;
   }
-  .organization-image img {
-    height: 180px;
-    max-width: 100%;
-  }
 }
-</style> 
+</style>
