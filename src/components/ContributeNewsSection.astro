@@ -1,19 +1,46 @@
 ---
-import contributeImg from '../assets/contribute.png';
+import contributeImg from "../assets/contribute.png";
+import { Icon } from "astro-icon/components";
 ---
-<section class="contribute-news-section">
+
+<section class="contribute-news-section section-container">
   <div class="news-container">
     <div class="news-text">
       <h2>News</h2>
-      <p>Stay informed about national and international climate developments. Share important climate news and updates to help our community stay current with the latest information.</p>
+      <p>
+        Stay informed about national and international climate developments.
+        Share important climate news and updates to help our community stay
+        current with the latest information.
+      </p>
       <div class="news-why-title">Why submit news?</div>
       <ul class="news-list">
-        <li><span class="arrow">&rarr;</span> Keep the community informed about important climate developments</li>
-        <li><span class="arrow">&rarr;</span> Highlight local climate stories that may not get mainstream attention</li>
-        <li><span class="arrow">&rarr;</span> Connect Nepal's climate movement with global climate action</li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Keep the community informed about important climate developments
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Highlight local climate stories that may not get mainstream attention
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Connect Nepal's climate movement with global climate action
+        </li>
       </ul>
-      <p class="news-note">Sharing knowledge empowers our community to take informed climate action!</p>
-      <button class="news-btn">Submit News</button>
+      <p class="news-note">
+        Sharing knowledge empowers our community to take informed climate
+        action!
+      </p>
+      <button class="news-btn"><a href="#">Submit News</a></button>
     </div>
     <div class="news-image">
       <img src={contributeImg.src || "/placeholder.svg"} alt="Climate news" />
@@ -22,229 +49,149 @@ import contributeImg from '../assets/contribute.png';
 </section>
 
 <style>
-.contribute-news-section {
-  width: 100%;
-  background: #fafbfc;
-  margin-top: 3.5rem;
-  padding: 3.5rem 0;
-}
-
-.news-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 26px; /* Exact gap from Figma */
-}
-
-.news-text {
-  flex: 0 0 532px; /* Exact width from Figma */
-  min-width: 320px;
-  padding-bottom: 24px; /* Add padding to ensure content stays within image height */
-}
-
-.news-text h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 16px; /* Reduced spacing */
-  color: #1a1b1e;
-}
-
-.news-text p {
-  font-size: 1.18rem;
-  color: #222;
-  margin-bottom: 12px; /* Reduced spacing */
-  line-height: 1.3; /* Reduced line height for tighter text */
-}
-
-.news-why-title {
-  font-weight: 700;
-  margin-bottom: 6px; /* Reduced spacing */
-  font-size: 1.08rem;
-  margin-top: 16px; /* Reduced spacing */
-}
-
-.news-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 16px 0; /* Reduced spacing */
-}
-
-.news-list li {
-  display: flex;
-  align-items: flex-start;
-  font-size: 1.08rem;
-  margin-bottom: 6px; /* Reduced spacing */
-  color: #222;
-  line-height: 1.3; /* Reduced line height */
-}
-
-.arrow {
-  display: inline-block;
-  margin-right: 8px;
-  font-size: 1.2em;
-}
-
-.news-note {
-  font-size: 1.08rem;
-  color: #222;
-  margin-bottom: 12px; /* Reduced spacing */
-  line-height: 1.3; /* Reduced line height */
-}
-
-.news-btn {
-  background: #1a1b1e;
-  color: #fff;
-  border: none;
-  border-radius: 2em;
-  padding: 0.6em 1.5em;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 4px; /* Minimal top margin */
-}
-
-.news-btn:hover {
-  background: #333;
-}
-
-.news-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.news-image img {
-  width: 572px;
-  height: 411px;
-  max-width: 623px;
-  max-height: 411px;
-  object-fit: cover;
-  border-radius: 12px;
-  background: #eee;
-}
-
-/* Specific styles for 1024px screens to match Figma */
-@media (max-width: 1200px) and (min-width: 1025px) {
-  .news-container {
-    padding: 0 42px;
-    gap: 26px;
-  }
-  
-  .news-text {
-    flex: 0 0 48%;
-  }
-  
-  .news-image {
-    flex: 0 0 48%;
-  }
-  
-  .news-image img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 572/411;
-  }
-}
-
-/* Specific styles for exactly 1024px to match Figma */
-@media (width: 1024px) {
-  .news-container {
-    padding: 0 42px;
-    flex-direction: row;
-    gap: 26px;
-  }
-  
-  .news-text {
-    flex: 0 0 532px; 
-  }
-  
-  .news-image img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 572/411;
-  }
-}
-
-/* Tablet styles */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .news-container {
-    padding: 0 42px;
-    flex-direction: row;
-    gap: 26px;
-  }
-  
-  .news-text {
-    flex: 1;
-    min-width: 320px;
-  }
-  
-  .news-image {
-    flex: 1;
-  }
-  
-  .news-image img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 572/411;
-  }
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
   .contribute-news-section {
-    padding: 2.5rem 0;
+    margin: 54px auto;
   }
-  
+
   .news-container {
-    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
     align-items: flex-start;
-    gap: 2rem;
-    padding: 0 24px;
+    justify-content: space-between;
+    gap: 26px;
   }
-  
+
   .news-text {
-    flex: 0 0 100%;
-    width: 100%;
-    padding-bottom: 0;
+    flex: 0 0 1;
+    width: 652px;
+    padding-bottom: 24px;
   }
-  
+
   .news-text h2 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    color: #1a1b1e;
   }
-  
-  .news-text p, .news-list li, .news-note {
-    font-size: 1rem;
+
+  .news-text p {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 18px;
+    line-height: 24px;
   }
-  
+
+  .news-why-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 12px;
+  }
+
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+  }
+
+  .news-list li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #1a1b1e;
+    line-height: 1.5;
+  }
+
+  .arrow-icon {
+    width: 22px;
+    height: 22px;
+    color: black;
+    margin-right: 8px;
+  }
+
+  .news-note {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .news-btn {
+    border: none;
+    background-color: none;
+    border-radius: 16px;
+  }
+
+  .news-btn a {
+    background-color: #1a1b1e;
+    padding: 8px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: white;
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .news-btn a:hover {
+    background-color: #cefe00;
+    color: #25262b;
+  }
+
   .news-image {
-    width: 100%;
-    justify-content: center;
-    order: -1; /* Ensure image stays at the top on mobile */
+    width: 572px;
+    height: 411px;
+    flex: 0 0 1;
   }
-  
+
   .news-image img {
     width: 100%;
-    height: auto;
-    max-width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eee;
   }
-}
 
-/* Very small mobile screens */
-@media (max-width: 480px) {
-  .news-container {
-    padding: 0 18px;
+  @media screen and (max-width: 1280px) {
+    .news-container {
+      margin: 0px 48px;
+    }
   }
-  
-  .news-text h2 {
-    font-size: 1.3rem;
+
+  @media screen and (max-width: 768px) {
+    .news-container {
+      margin: 0px 24px;
+      flex-direction: column-reverse;
+    }
+
+    .news-text,
+    .news-image {
+      width: 100%;
+    }
+
+    .news-image {
+      height: 225px;
+    }
   }
-  
-  .news-text p, .news-list li, .news-note {
-    font-size: 0.98rem;
+
+  @media (max-width: 480px) {
+    .news-container {
+      margin: 0px 24px;
+    }
+
+    .news-text h2 {
+      font-size: 1.3rem;
+    }
+
+    .news-text p,
+    .news-list li,
+    .news-note {
+      font-size: 0.98rem;
+    }
   }
-}
 </style>
