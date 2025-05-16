@@ -5,21 +5,18 @@ import contributeImg from '../assets/contribute.png';
   <div class="event-container">
     <div class="event-text">
       <h2>Events</h2>
-      <p>Are you organising or aware of an upcoming climate event? Share<br />
-      it with Nepal's climate community by filling out our form.</p>
+      <p>Are you organising or aware of an upcoming climate event? Share it with Nepal's climate community by filling out our form.</p>
       <p>Your event could be the start of someone's climate journey?</p>
-      <div class="event-why">
-        <div class="event-why-title">Why submit an event?</div>
-        <ul class="event-list">
-          <li><span class="arrow">&rarr;</span> Expand your reach and attract a wider audience</li>
-          <li><span class="arrow">&rarr;</span> Gain visibility among climate activists, students, and professionals</li>
-          <li><span class="arrow">&rarr;</span> Get recognised for your contribution to the movement</li>
-        </ul>
-      </div>
+      <div class="event-why-title">Why submit an event?</div>
+      <ul class="event-list">
+        <li><span class="arrow">&rarr;</span> Expand your reach and attract a wider audience</li>
+        <li><span class="arrow">&rarr;</span> Gain visibility among climate activists, students, and professionals</li>
+        <li><span class="arrow">&rarr;</span> Get recognised for your contribution to the movement</li>
+      </ul>
       <button class="event-btn">Submit Event</button>
     </div>
     <div class="event-image">
-      <img src={contributeImg.src} alt="Climate event" />
+      <img src={contributeImg.src || "/placeholder.svg"} alt="Climate event" />
     </div>
   </div>
 </section>
@@ -31,52 +28,64 @@ import contributeImg from '../assets/contribute.png';
   margin-top: 3.5rem;
   padding: 3.5rem 0;
 }
+
 .event-container {
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 26px;
 }
+
 .event-text {
-  flex: 1 1 0;
+  flex: 0 0 532px; 
   min-width: 320px;
+  padding-bottom: 24px; 
 }
+
 .event-text h2 {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 16px; 
   color: #1a1b1e;
 }
+
 .event-text p {
   font-size: 1.18rem;
   color: #222;
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
+  margin-bottom: 12px; 
+  line-height: 1.3; 
 }
+
 .event-why-title {
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 6px; 
   font-size: 1.08rem;
+  margin-top: 16px; 
 }
+
 .event-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 0.7rem 0;
+  margin: 0 0 16px 0; 
 }
+
 .event-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1.08rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 6px; 
   color: #222;
+  line-height: 1.3; 
 }
+
 .arrow {
   display: inline-block;
-  margin-right: 0.7em;
+  margin-right: 8px;
   font-size: 1.2em;
 }
+
 .event-btn {
   background: #1a1b1e;
   color: #fff;
@@ -86,61 +95,145 @@ import contributeImg from '../assets/contribute.png';
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 0.2rem;
   transition: background 0.2s;
+  margin-top: 4px;
 }
+
 .event-btn:hover {
   background: #333;
 }
+
 .event-image {
-  flex: 1 1 0;
+  flex: 1;
   display: flex;
   justify-content: flex-end;
 }
+
 .event-image img {
   width: 572px;
   height: 411px;
   max-width: 623px;
+  max-height: 411px;
   object-fit: cover;
   border-radius: 12px;
   background: #eee;
 }
-@media (max-width: 1200px) {
-  .event-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5rem;
-  }
-  .event-image {
-    width: 100%;
-    justify-content: center;
-  }
-  .event-image img {
-    width: 100%;
-    max-width: 572px;
-    height: 260px;
-  }
-}
-@media (max-width: 1024px) {
+
+/* Specific styles for 1024px screens to match Figma */
+@media (max-width: 1200px) and (min-width: 1025px) {
   .event-container {
     padding: 0 42px;
   }
-}
-@media (max-width: 700px) {
-  .event-container {
-    padding-left: 18px;
-    padding-right: 18px;
-    gap: 1.5rem;
+  
+  .event-text {
+    flex: 0 0 48%;
   }
+  
+  .event-image {
+    flex: 0 0 48%;
+  }
+  
+  .event-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 572/411;
+}
+}
+
+/* Specific styles for exactly 1024px to match Figma */
+@media (width: 1024px) {
+  .event-container {
+    padding: 0 42px;
+    flex-direction: row;
+  }
+  
+  .event-text {
+    flex: 0 0 532px; 
+  }
+  
+  .event-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 572/411;
+}
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .event-container {
+    padding: 0 42px;
+    flex-direction: row;
+  }
+  
+  .event-text {
+    flex: 1;
+    min-width: 320px;
+  }
+  
+  .event-image {
+    flex: 1;
+  }
+  
+  .event-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 572/411;
+}
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .contribute-event-section {
+    padding: 2.5rem 0;
+  }
+  
+  .event-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 24px;
+  }
+  
+  .event-text {
+    flex: 0 0 100%;
+    width: 100%;
+    padding-bottom: 0;
+  }
+  
+  .event-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .event-text p, .event-list li {
+    font-size: 1rem;
+  }
+  
+  .event-image {
+    width: 100%;
+    justify-content: center;
+    order: -1; 
+  }
+  
+  .event-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 572/411;
+}
+}
+
+/* Very small mobile screens */
+@media (max-width: 480px) {
+  .event-container {
+    padding: 0 18px;
+  }
+  
   .event-text h2 {
     font-size: 1.3rem;
   }
+  
   .event-text p, .event-list li {
     font-size: 0.98rem;
   }
-  .event-image img {
-    height: 180px;
-    max-width: 100%;
-  }
 }
-</style> 
+</style>
