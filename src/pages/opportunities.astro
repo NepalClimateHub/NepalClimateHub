@@ -1,12 +1,12 @@
 ---
-import '../styles/global.css';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardFilterSection from '@layouts/CardFilterSection.astro';
-import BaseLayout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import CardFilterSection from "@layouts/CardFilterSection.astro";
+import BaseLayout from "../layouts/Layout.astro";
 
-import OpportunityFilter from '@components/OpportunityFilter.tsx';
-import opportunitiesJSON from '../data/dummy-opportunity.json';
+import OpportunityFilter from "@components/OpportunityFilter.tsx";
+import opportunitiesJSON from "../data/dummy-opportunity.json";
 ---
 
 <BaseLayout title="Nepal Climate Hub - Opportunities">
@@ -22,7 +22,11 @@ import opportunitiesJSON from '../data/dummy-opportunity.json';
     <!-- Opportunity Section -->
     <div class="opportunity-wrapper">
       <section class="filter-section">
-        <CardFilterSection heading="Opportunities" type="opportunity" filter={true} />
+        <CardFilterSection
+          heading="Opportunities"
+          type="opportunity"
+          filter={false}
+        />
       </section>
 
       <section class="opportunity-cards-section">
@@ -54,7 +58,7 @@ import opportunitiesJSON from '../data/dummy-opportunity.json';
   }
 
   .opportunity-wrapper {
-    background-color: #EBF1F7;
+    background-color: #ebf1f7;
   }
 
   .footer-section {
