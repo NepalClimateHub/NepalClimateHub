@@ -17,18 +17,16 @@
 .newsContainer {
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
-  gap: 24px;
+  justify-content: space-between;
+  gap: 12px;
   margin-top: 24px;
 }
 
 .newsCard {
-  width: 48%;
+  width: 49%;
   display: block;
-  text-decoration: none;
-  padding-bottom: 12px;
   border-bottom: 1px solid #cefe00;
-  overflow: hidden;
+  margin-bottom: 12px;
 }
 
 .newsCard a {
@@ -75,11 +73,12 @@
   color: #364fc7;
   line-height: 16px;
   text-decoration: none;
-  float: left;
 }
 
-.date {
-  float: right;
+.linkDateWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .date span {
@@ -96,8 +95,9 @@
 }
 
 .noResults {
-  color: red;
-  font-size: 18px;
+  border: 2px solid rgba(255, 0, 0, 0.233);
+  width: 100%;
+  margin-bottom: 100px;
   font-weight: bold;
   text-align: center;
   margin-top: 30px;
@@ -111,13 +111,13 @@
   flex-wrap: wrap;
   gap: 15px;
   align-items: flex-end;
-  margin-bottom: 34px;
+  margin-bottom: 48px;
   margin-top: -24px;
-  padding: 0 16px; /* Add padding by default */
 }
 
 .filterGroup {
-  flex: 0 0 200px;
+  width: 200px;
+  flex: 0 0 1;
   display: flex;
   flex-direction: column;
 }
@@ -130,28 +130,32 @@
 }
 
 .filterContainer select {
+  color: #878b97;
   width: 100%;
-  padding: 6px 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid rgba(26, 27, 30, 0.12);
   border-radius: 6px;
   outline: none;
-  background-color: #fff;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color
-    0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
 /* Hover Effect */
 .filterContainer select:hover {
-  background-color: #fff;
-  border-color: #5b73e8;
+  background-color: rgba(54, 79, 199, 0.04);
+  border-color: rgba(54, 79, 199, 0.2);
+}
+
+.filterContainer option {
+  background-color: white;
 }
 
 /* Focus Effect */
 .filterContainer select:focus {
   background-color: #f9f9fb; /* Soft dim */
-  border-color: #5b73e8;
+  border-color: #5b72e89e;
   box-shadow: 0 0 2px rgba(91, 115, 232, 0.15);
 }
 
@@ -184,20 +188,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  .sectionContainer {
-    padding: 0 16px;
-  }
-
   .filterContainer {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 16px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .filterGroup {
     width: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    justify-content: center;
   }
 
   .filterContainer select {
