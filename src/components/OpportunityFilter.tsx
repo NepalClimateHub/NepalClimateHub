@@ -1,7 +1,7 @@
-import type React from "react";
-import { useEffect, useState } from "react";
-import styles from "../styles/components/Opportunities.module.css";
-import { CardContainer } from "./CardContainer";
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import styles from '../styles/components/Opportunities.module.css';
+import { CardContainer } from './CardContainer';
 
 interface Opportunity {
   id: string | number;
@@ -35,83 +35,83 @@ interface Props {
 
 const filterOptions = [
   {
-    name: "type",
-    label: "Opportunity Type",
-    defaultOption: "All Types",
+    name: 'type',
+    label: 'Opportunity Type',
+    defaultOption: 'All Types',
     options: [
-      "Internship",
-      "Fellowship",
-      "Volunteer",
-      "Job",
-      "Grants",
-      "Scholarships",
-      "Research Assistantship",
-      "Postdoctoral Fellowships",
-      "Exchange programs",
-      "Training",
-      "Online courses",
-      "Awards/Competitions",
+      'Internship',
+      'Fellowship',
+      'Volunteer',
+      'Job',
+      'Grants',
+      'Scholarships',
+      'Research Assistantship',
+      'Postdoctoral Fellowships',
+      'Exchange programs',
+      'Training',
+      'Online courses',
+      'Awards/Competitions',
     ],
   },
   {
-    name: "locationType",
-    label: "Location",
-    defaultOption: "All Locations",
-    options: ["National", "International"],
+    name: 'locationType',
+    label: 'Location',
+    defaultOption: 'All Locations',
+    options: ['National', 'International'],
   },
   {
-    name: "province",
-    label: "Province",
-    defaultOption: "All Provinces",
+    name: 'province',
+    label: 'Province',
+    defaultOption: 'All Provinces',
     options: [
-      "Koshi",
-      "Madhesh",
-      "Bagmati",
-      "Gandaki",
-      "Lumbini",
-      "Karnali",
-      "Sudurpaschim",
+      'Koshi',
+      'Madhesh',
+      'Bagmati',
+      'Gandaki',
+      'Lumbini',
+      'Karnali',
+      'Sudurpaschim',
     ],
   },
   {
-    name: "status",
-    label: "Status",
-    defaultOption: "All Status",
-    options: ["Open", "Upcoming", "Closed"],
+    name: 'status',
+    label: 'Status',
+    defaultOption: 'All Status',
+    options: ['Open', 'Upcoming', 'Closed'],
   },
   {
-    name: "format",
-    label: "Format",
-    defaultOption: "All Formats",
-    options: ["Physical", "Online", "Hybrid"],
+    name: 'format',
+    label: 'Format',
+    defaultOption: 'All Formats',
+    options: ['Physical', 'Online', 'Hybrid'],
   },
   {
-    name: "cost",
-    label: "Cost",
-    defaultOption: "All Cost Types",
-    options: ["Fully Funded", "Partially Funded", "Paid", "Free"],
+    name: 'cost',
+    label: 'Cost',
+    defaultOption: 'All Cost Types',
+    options: ['Fully Funded', 'Partially Funded', 'Paid', 'Free'],
   },
   {
-    name: "category",
-    label: "Category",
-    defaultOption: "All Categories",
+    name: 'category',
+    label: 'Category',
+    defaultOption: 'All Categories',
     options: [
-      "Climate Action",
-      "Research",
-      "Sustainability",
-      "Climate Finance",
-      "Climate Education",
-      "Conservation",
-      "Biodiversity",
-      "Sustainable Development",
-      "Environmental Policy",
-      "Agriculture",
-      "Food Security",
-      "Climate-Smart Farming",
-      "Rural Development",
-      "Environmental Governance",
-      "Mountain Ecosystems",
-      "Climate Policy",
+      'Climate Action',
+      'Research',
+      'Sustainability',
+      'Climate Finance',
+      'Climate Education',
+      'Conservation',
+      'Biodiversity',
+      'Sustainable Development',
+      'Environmental Policy',
+      'Agriculture',
+      'Food Security',
+      'Climate-Smart Farming',
+      'Rural Development',
+      'Environmental Governance',
+      'Mountain Ecosystems',
+      'Climate Policy',
     ],
   },
 ];
@@ -120,13 +120,13 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
   const [filteredOpportunities, setFilteredOpportunities] =
     useState(opportunities);
   const [filters, setFilters] = useState({
-    type: "",
-    locationType: "",
-    province: "",
-    status: "",
-    format: "",
-    cost: "",
-    category: "",
+    type: '',
+    locationType: '',
+    province: '',
+    status: '',
+    format: '',
+    cost: '',
+    category: '',
   });
 
   useEffect(() => {
@@ -134,7 +134,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
 
     Object.entries(filters).forEach(([key, value]) => {
       if (value) {
-        if (key === "category") {
+        if (key === 'category') {
           result = result.filter((opportunity) =>
             opportunity.category.some((cat) => cat === value)
           );
@@ -182,7 +182,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
       <div className={styles.cardNotFoundMessage}>
         {filteredOpportunities.length === 0 ? (
           <p className={styles.noResults}>
-            {" "}
+            {' '}
             Hmm, no opportunities matched your filters! Try changing the filters
             to explore more news.
           </p>
