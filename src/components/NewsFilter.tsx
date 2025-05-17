@@ -47,7 +47,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
     <div className={styles.sectionContainer}>
       <h2 className={styles.pageTitle}>News</h2>
       <p className={styles.pageTagline}>
-        Read up on the latest climate-related Nepal news.
+        Stay updated with the latest climate-related news
       </p>
 
       {/* ✅ Filter UI */}
@@ -126,8 +126,8 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
           ))
         ) : (
           <p className={styles.noResults}>
-            No news articles found for the selected filters. Try adjusting your
-            search criteria.
+            Hmm, no news matched your filters! Try changing the filters to
+            explore more news.
           </p>
         )}
       </div>

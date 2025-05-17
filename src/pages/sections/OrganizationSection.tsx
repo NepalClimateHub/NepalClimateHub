@@ -27,12 +27,12 @@ const Organization = () => {
             initialCardCount="12/"
           />
         </section>
-        <div className="!py-4">
+        {/* <div className="!py-4">
           <Paginator
             paginationOptions={paginationOptions}
             totalCount={totalCount}
           />
-        </div>
+        </div> */}
       </NuqsAdapter>
     </>
   );

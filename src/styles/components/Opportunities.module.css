@@ -1,5 +1,6 @@
 .eventFilterWrapper {
-  width: 100%;
+  max-width: 1280px;
+  margin: 0px auto 83px;
 }
 
 .filterContainer {
@@ -7,13 +8,13 @@
   flex-wrap: wrap;
   gap: 15px;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 34px;
-  margin-top: -24px;
 }
 
 .filterGroup {
-  flex: 0 0 200px;
+  flex: 0 0 1;
+  width: 169px;
   display: flex;
   flex-direction: column;
 }
@@ -26,9 +27,10 @@
 }
 
 .filterContainer select {
-  padding: 6px 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  color: #878b97;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid rgba(26, 27, 30, 0.12);
   border-radius: 6px;
   outline: none;
   background-color: #fff;
@@ -37,7 +39,8 @@
 }
 
 .filterContainer select:hover {
-  border-color: #5b73e8;
+  background-color: rgba(54, 79, 199, 0.04);
+  border-color: rgba(54, 79, 199, 0.2);
 }
 
 .filterContainer select:focus {
@@ -46,23 +49,27 @@
   box-shadow: 0 0 2px rgba(91, 115, 232, 0.15);
 }
 
-.cardContainerWrapper {
-  padding: 0 16px;
+.filterContainer option {
+  background-color: white;
 }
 
-.cardNotFoundMessage {
-  text-align: center;
-  font-size: 18px;
-  color: red;
-  padding: 20px;
+.noResults {
+  border: 2px solid rgba(255, 0, 0, 0.233);
+  width: 100%;
+  margin-bottom: 150px;
   font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
 }
 
 @media screen and (max-width: 768px) {
   .filterContainer {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 16px;
+    padding: 0 36px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -73,5 +80,10 @@
 
   .filterContainer select {
     width: 100%;
+  }
+
+  .noResults {
+    width: auto;
+    margin: 0 32px;
   }
 }

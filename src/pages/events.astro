@@ -1,12 +1,12 @@
 ---
-import '../styles/global.css';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardFilterSection from '@layouts/CardFilterSection.astro';
-import BaseLayout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import CardFilterSection from "@layouts/CardFilterSection.astro";
+import BaseLayout from "../layouts/Layout.astro";
 
-import EventFilter from '@components/EventFilter.tsx';
-import eventsJSON from '../data/dummy-event.json';
+import EventFilter from "@components/EventFilter.tsx";
+import eventsJSON from "../data/dummy-event.json";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -20,10 +20,10 @@ import eventsJSON from '../data/dummy-event.json';
 
     <div class="event-wrapper">
       <section class="filter-section">
-        <CardFilterSection heading="Events" type="event" filter="true" />
+        <CardFilterSection heading="Events" type="event" filter="false" />
       </section>
 
-      <section class="activist-cards-section">
+      <section class="event-cards-section">
         <EventFilter client:load events={eventsJSON} />
       </section>
     </div>
@@ -34,40 +34,38 @@ import eventsJSON from '../data/dummy-event.json';
   </main>
 </BaseLayout>
 
-
 <style>
-	section {
-		padding: 0px 48px;
-	}
+  section {
+    padding: 0px 48px;
+  }
 
-	.page-title {
-		font-size: 32px;
-		line-height: 60px;
-		font-weight: 700;
-	}
+  .page-title {
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 700;
+  }
 
-	.page-tagline {
-		line-height: 24px;
-		margin-bottom: 48px;
-	}
+  .page-tagline {
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
 
-	.event-wrapper {
-		background-color: #EBF1F7;
-	}
+  .event-wrapper {
+    background-color: #ebf1f7;
+  }
 
-	.footer-section {
-		background-color: #1a1b1e;
-		color: white;
-	}
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
 
-	@media screen and (max-width: 768px) {
-		section {
-			padding: 0px 16px;
-		}
-    
-    .activist-cards-section {
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 0px 16px;
+    }
+
+    .event-cards-section {
       padding: 0;
     }
-	}
+  }
 </style>
-

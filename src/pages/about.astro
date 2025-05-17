@@ -1,29 +1,29 @@
 ---
-import '../styles/global.css';
-import AboutAcknowledgement from '@components/AboutAcknowledgement.astro';
-import AboutChallengeSection from '@components/AboutChallengeSection.astro';
-import AboutConnectCard from '@components/AboutConnectCard.astro';
-import AboutHeroSection from '@components/AboutHeroSection.astro';
-import AboutSolutionSection from '@components/AboutSolutionSection.astro';
-import AboutTeamSection from '@components/AboutTeamSection.astro';
-import AboutWhatWeOffer from '@components/AboutWhatWeOfferSection.astro';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import BaseLayout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import AboutAcknowledgement from "@components/AboutAcknowledgement.astro";
+import AboutChallengeSection from "@components/AboutChallengeSection.astro";
+import AboutConnectCard from "@components/AboutConnectCard.astro";
+import AboutHeroSection from "@components/AboutHeroSection.astro";
+import AboutSolutionSection from "@components/AboutSolutionSection.astro";
+import AboutTeamSection from "@components/AboutTeamSection.astro";
+import AboutWhatWeOffer from "@components/AboutWhatWeOfferSection.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import BaseLayout from "../layouts/Layout.astro";
 ---
 
 <BaseLayout title="Nepal Climate Hub">
-	<main class="main-container">
-		<!-- header section  -->
+  <main class="main-container">
+    <!-- header section  -->
 
-		<section class="header-section">
-			<Header logoColor="#1A1B1E" />
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
 
-			<!-- a mini navbar -->
-			<div class="mini-nav">
-				<a href="/">Home</a>
-			</div>
-		</section>
+      <!-- a mini navbar -->
+      <div class="mini-nav">
+        <a href="/">Home</a>
+      </div>
+    </section>
 
     <section class="about-hero-section">
       <AboutHeroSection />
@@ -33,15 +33,18 @@ import BaseLayout from '../layouts/Layout.astro';
       <AboutConnectCard />
     </section>
 
-    <section>
+    <section class="about-challenge-section">
       <AboutChallengeSection />
     </section>
-    <section>
+
+    <section class="about-solution-section">
       <AboutSolutionSection />
     </section>
+
     <section class="about-whatweoffer-section">
       <AboutWhatWeOffer />
     </section>
+
     <section class="team-section">
       <AboutTeamSection />
     </section>
@@ -57,12 +60,26 @@ import BaseLayout from '../layouts/Layout.astro';
 </BaseLayout>
 
 <style>
-	.header-section {
-		padding: 0px 48px;
-	}
+  .header-section {
+    padding: 0px 48px;
+  }
 
   .about-connect-section {
     background-color: #cefe00;
+  }
+
+  .about-challenge-section {
+    background-color: white;
+  }
+
+  .about-solution-section,
+  .about-whatweoffer-section,
+  .about-acknowledgement-section {
+    background-color: #f8f9fa;
+  }
+
+  .team-section {
+    background-color: white;
   }
 
   .footer-section {

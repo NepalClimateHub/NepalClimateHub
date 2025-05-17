@@ -1,171 +1,171 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
-import unsortedNewsJSON from '../data/news.json';
-import sortNewsArray from '../utils/sortNewsArray.js';
-import type { SortData } from '../utils/sortNewsArray.js';
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+import unsortedNewsJSON from "../data/news.json";
+import sortNewsArray from "../utils/sortNewsArray.js";
+import type { SortData } from "../utils/sortNewsArray.js";
 
 const data = unsortedNewsJSON as unknown as SortData[];
 const NewsJSON = sortNewsArray(data);
 ---
 
 <div class="section-container">
-	<h2 class="section-heading">News</h2>
+  <h2 class="section-heading">News</h2>
 
-	<!-- container to wrap news cards -->
+  <!-- container to wrap news cards -->
 
-	<div class="news-container">
-		<!-- news card one -->
+  <div class="news-container">
+    <!-- news card one -->
 
-		{
-			NewsJSON.slice(0, 6).map((news: any) => (
-				<div class="news-card">
-					<a href={news.newsSrc} target="_blank">
-					<div class="content">
-						<h3 class="news-headline">{news.headline}</h3>
-						<div class="news-image-wrapper">
-							<img src={news.imgSrc} alt="" />
-						</div>
-					</div>
+    {
+      NewsJSON.slice(0, 6).map((news: any) => (
+        <div class="news-card">
+          <a href={news.newsSrc} target="_blank">
+            <div class="content">
+              <h3 class="news-headline">{news.headline}</h3>
+              <div class="news-image-wrapper">
+                <img src={news.imgSrc} alt="" />
+              </div>
+            </div>
 
-					<div class="link">
-						<span class="link-icon">
-							<Icon name="mdi:link" />
-						</span>
-						<a href={news.newsSrc} target="_blank">{news.linkText}</a>
-					</div>
-				</a>
-				</div>
+            <div class="link">
+              <span class="link-icon">
+                <Icon name="mdi:link" />
+              </span>
+              <a href={news.newsSrc} target="_blank">
+                {news.linkText}
+              </a>
+            </div>
+          </a>
+        </div>
+      ))
+    }
+  </div>
 
-			))
-		}
-	</div>
-
-	<!-- link to redirect to news landing page -->
-	<a href="/news" class="cta-link">See All</a>
+  <!-- link to redirect to news landing page -->
+  <a href="/news" class="cta-link">See All</a>
 </div>
 
 <style>
-	.section-container {
-		margin: 53px auto 83px;
-		position: relative;
-	}
+  .section-container {
+    margin: 53px auto 83px;
+    position: relative;
+  }
 
-	.section-heading {
-		font-size: 24px;
-		font-weight: 700px;
-		line-height: 32px;
-		margin-bottom: 24px;
-	}
+  .section-heading {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
 
-	.news-container {
-		display: flex;
-		flex-wrap: wrap;
-		overflow: hidden;
-		gap: 24px 16px;
-	}
+  .news-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 24px 16px;
+  }
 
-	.news-card {
-		display: block;
-		text-decoration: none;
-	
-		padding-bottom: 12px;
-		border-bottom: 1px solid #cefe00;
-	
-		/* max-width: 403px; */
-		width: 32%;
-		overflow: hidden;
-	}
+  .news-card {
+    display: block;
+    text-decoration: none;
 
-	.news-card > a {
-		cursor: pointer;
-		color: #1A1B1E;
-		text-decoration: none;
-	}
+    padding-bottom: 12px;
+    border-bottom: 1px solid #cefe00;
 
-	.news-card .content {
-		display: flex;
-		justify-content: space-between;
-		gap: 16px;
-		margin-bottom: 12px;
-	}
+    /* max-width: 403px; */
+    width: 32%;
+    overflow: hidden;
+  }
 
-	.news-headline {
-		font-size: 20px;
-		line-height: 24px;
-		font-weight: 700;
-		text-transform: capitalize;
-		width: calc(100% - 136px);
-	}
+  .news-card > a {
+    cursor: pointer;
+    color: #1a1b1e;
+    text-decoration: none;
+  }
 
-	.news-card:hover .news-headline {
-		text-decoration: underline;
-	}
+  .news-card .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
 
-	.news-image-wrapper {
-		width: 112px;
-		height: 112px;
-		border-radius: 8px;
-		overflow: hidden;
-	}
+  .news-headline {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+    width: calc(100% - 136px);
+  }
 
-	.news-image-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
+  .news-card:hover .news-headline {
+    text-decoration: underline;
+  }
 
-	.link a {
-		font-size: 14px;
-		color: #364fc7;
-		line-height: 16px;
-		text-decoration: none;
-	}
+  .news-image-wrapper {
+    width: 112px;
+    height: 112px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-	.link-icon {
-		display: inline-block;
-		vertical-align: middle;
-	}
+  .news-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-	.cta-link {
-		display: block;
-		position: absolute;
-		top: 10px;
-		right: 0;
-		color: #364fc7;
-		font-size: 12px;
-	}
+  .link a {
+    font-size: 14px;
+    color: #364fc7;
+    line-height: 16px;
+    text-decoration: none;
+  }
 
-	@media screen and (max-width: 1024px) {
-		.news-container {
-			flex-wrap: wrap;
-		}
+  .link-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-		.news-card {
-			width: 48%;
-		}
+  .cta-link {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    color: #364fc7;
+    font-size: 12px;
+  }
 
-	}
+  @media screen and (max-width: 1024px) {
+    .news-container {
+      flex-wrap: wrap;
+    }
 
-	/* media queries for desktop */
+    .news-card {
+      width: 48%;
+    }
+  }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 32px 64px;
-		}
+  /* media queries for desktop */
 
-		.news-container {
-			flex-direction: column;
-			gap: 24px;
-		}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 32px 64px;
+    }
 
-		.news-card {
-			width: 100%;
-		}
+    .news-container {
+      flex-direction: column;
+      gap: 24px;
+    }
 
-		.news-headline {
-			font-size: 16px;
-			line-height: 20px;
-		}
-	}
+    .news-card {
+      width: 100%;
+    }
+
+    .news-headline {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
 </style>
