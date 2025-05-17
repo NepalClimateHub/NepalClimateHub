@@ -1,17 +1,19 @@
 ---
-import teamData from '../data/team.json';
+import teamData from "../data/team.json";
 ---
 
-<div class="team-section">
-  <div class="container">
-    <h2 class="section-title">Our Team</h2>
-    <p class="section-description">
-      {teamData.description}
-    </p>
+<div class="container">
+  <h2 class="section-title">Our Team</h2>
+  <p class="section-description">
+    {teamData.description}
+  </p>
 
-    {teamData.categories.map((category) => (
+  {
+    teamData.categories.map((category) => (
       <>
-        <h3 class={`team-category ${category.name.toLowerCase()}-category`}>{category.name}</h3>
+        <h3 class={`team-category ${category.name.toLowerCase()}-category`}>
+          {category.name}
+        </h3>
         <div class={`${category.name.toLowerCase()}-grid team-grid`}>
           {category.members.map((member) => (
             <div class="team-member">
@@ -23,13 +25,16 @@ import teamData from '../data/team.json';
                 />
               </div>
               <div class="member-content">
-                <p class="member-bio">
-                  {member.bio}
-                </p>
+                <p class="member-bio">{member.bio}</p>
                 <div class="member-info">
                   <h4 class="member-name">{member.name}</h4>
                   <p class="member-title">{member.title}</p>
-                  <a href={member.linkedIn} class="social-link" aria-label="LinkedIn profile">
+                  <a
+                    href={member.linkedIn}
+                    class="social-link"
+                    aria-label="LinkedIn profile"
+                    target="_blank"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -58,39 +63,36 @@ import teamData from '../data/team.json';
           ))}
         </div>
       </>
-    ))}
-  </div>
+    ))
+  }
 </div>
 
 <style>
-  .team-section {
-    padding: 4rem 0;
-    background-color: #fff;
-  }
-
   .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 4rem 0;
   }
 
   .section-title {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
     margin-bottom: 0.5rem;
     color: #000;
   }
 
   .section-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 24px;
     margin-bottom: 3rem;
     color: #333;
   }
 
   .team-category {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
     margin-top: 4rem;
     margin-bottom: 2rem;
     color: #000;
@@ -112,14 +114,10 @@ import teamData from '../data/team.json';
   .member-image-container {
     flex-shrink: 0;
     position: relative;
-    width: 210px;
-    height: 320px;
-    border-radius: 0.75rem;
-    overflow: hidden;
+    width: 205px;
+    height: 305px;
+    border-radius: 12px;
     background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   .member-image {
@@ -130,6 +128,7 @@ import teamData from '../data/team.json';
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    border-radius: 12px;
   }
 
   .member-content {
@@ -140,9 +139,9 @@ import teamData from '../data/team.json';
   }
 
   .member-bio {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 34px;
     color: #333;
   }
 
@@ -193,14 +192,18 @@ import teamData from '../data/team.json';
     gap: 3rem 2rem;
   }
 
-  @media (max-width: 992px) {
-    .advisor-team-grid {
-      grid-template-columns: 1fr;
+  @media screen and (max-width: 1280px) {
+    .container {
+      padding: 64px 48px;
     }
   }
 
   /* Responsive adjustments */
   @media (max-width: 992px) {
+    .advisor-team-grid {
+      grid-template-columns: 1fr;
+    }
+
     .team-grid,
     .leadership-grid {
       grid-template-columns: 1fr;
@@ -208,7 +211,11 @@ import teamData from '../data/team.json';
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 568px) {
+    .container {
+      padding: 64px 24px;
+    }
+
     .team-member {
       flex-direction: column;
     }
@@ -216,7 +223,6 @@ import teamData from '../data/team.json';
     .member-image-container {
       width: 100%;
       height: 300px;
-      margin-bottom: 1.5rem;
     }
   }
 

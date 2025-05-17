@@ -1,0 +1,197 @@
+---
+import contributeImg from "../assets/contribute.png";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="contribute-news-section section-container">
+  <div class="news-container">
+    <div class="news-text">
+      <h2>News</h2>
+      <p>
+        Stay informed about national and international climate developments.
+        Share important climate news and updates to help our community stay
+        current with the latest information.
+      </p>
+      <div class="news-why-title">Why submit news?</div>
+      <ul class="news-list">
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Keep the community informed about important climate developments
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Highlight local climate stories that may not get mainstream attention
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Connect Nepal's climate movement with global climate action
+        </li>
+      </ul>
+      <p class="news-note">
+        Sharing knowledge empowers our community to take informed climate
+        action!
+      </p>
+      <button class="news-btn"><a href="#">Submit News</a></button>
+    </div>
+    <div class="news-image">
+      <img src={contributeImg.src || "/placeholder.svg"} alt="Climate news" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .contribute-news-section {
+    margin: 54px auto;
+  }
+
+  .news-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 26px;
+  }
+
+  .news-text {
+    flex: 0 0 1;
+    width: 652px;
+    padding-bottom: 24px;
+  }
+
+  .news-text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    color: #1a1b1e;
+  }
+
+  .news-text p {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 18px;
+    line-height: 24px;
+  }
+
+  .news-why-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 12px;
+  }
+
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+  }
+
+  .news-list li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #1a1b1e;
+    line-height: 1.5;
+  }
+
+  .arrow-icon {
+    width: 22px;
+    height: 22px;
+    color: black;
+    margin-right: 8px;
+  }
+
+  .news-note {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .news-btn {
+    border: none;
+    background-color: none;
+    border-radius: 16px;
+  }
+
+  .news-btn a {
+    background-color: #1a1b1e;
+    padding: 8px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: white;
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .news-btn a:hover {
+    background-color: #cefe00;
+    color: #25262b;
+  }
+
+  .news-image {
+    width: 572px;
+    height: 411px;
+    flex: 0 0 1;
+  }
+
+  .news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eee;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .news-container {
+      margin: 0px 48px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .news-container {
+      margin: 0px 24px;
+      flex-direction: column-reverse;
+    }
+
+    .news-text,
+    .news-image {
+      width: 100%;
+    }
+
+    .news-image {
+      height: 225px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .news-container {
+      margin: 0px 24px;
+    }
+
+    .news-text h2 {
+      font-size: 1.3rem;
+    }
+
+    .news-text p,
+    .news-list li,
+    .news-note {
+      font-size: 0.98rem;
+    }
+  }
+</style>

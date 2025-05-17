@@ -1,7 +1,7 @@
 ---
-import NewsFilter from '../components/NewsFilter.jsx';
-import NewsJSONData from '../data/dummy-news.json';
-import sortNewsArray from '../utils/sortNewsArray.js';
+import NewsFilter from "../components/NewsFilter.jsx";
+import NewsJSONData from "../data/dummy-news.json";
+import sortNewsArray from "../utils/sortNewsArray.js";
 
 const NewsJSON = sortNewsArray(NewsJSONData);
 ---
@@ -9,119 +9,26 @@ const NewsJSON = sortNewsArray(NewsJSONData);
 <div class="section-container">
   <NewsFilter client:load newsData={NewsJSON} />
 </div>
-<!-- <style>
-	.section-container {
-		margin: 24px auto 83px;
-		position: relative;
-	}
-
-	.page-title {
-		font-size: 32px;
-		line-height: 60px;
-		font-weight: 700;
-	}
-
-	.page-tagline {
-		line-height: 24px;
-		margin-bottom: 48px;
-	}
-
-	.news-container {
-		display: flex;
-		flex-wrap: wrap;
-		overflow: hidden;
-		gap: 24px;
-		margin-top: 16px;
-	}
-
-	.news-card {
-		width: 48%;
-		display: block;
-		text-decoration: none;
-
-		padding-bottom: 12px;
-		border-bottom: 1px solid #cefe00;
-		overflow: hidden;
-	}
-
-	.news-card > a {
-		cursor: pointer;
-		color: #1a1b1e;
-		text-decoration: none;
-		transition: color 0.2s ease-in-out;
-	}
-
-	.news-card .content {
-		display: flex;
-		justify-content: space-between;
-		gap: 16px;
-		margin-bottom: 12px;
-	}
-
-	.news-card:hover .news-headline {
-		text-decoration: underline;
-	}
-
-	.news-headline {
-		font-size: 20px;
-		line-height: 24px;
-		font-weight: 700;
-		text-transform: capitalize;
-		width: calc(100% - 136px);
-	}
-
-	.news-image-wrapper {
-		width: 112px;
-		height: 112px;
-		border-radius: 8px;
-		overflow: hidden;
-	}
-
-	.news-image-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.link a{
-		font-size: 14px;
-		color: #364fc7;
-		line-height: 16px;
-		text-decoration: none;
-    float: left;
-	}
-
-  .date {
-    float: right;
+<style>
+  .section-container {
+    margin: 24px auto 83px;
+    position: relative;
   }
 
-	.date span {
-		font-size: 14px;
-		color: #1a1b1e;
-		line-height: 16px;
-    font-style: italic;
-	}
+  /* media queries for mobile */
 
-	.link-icon {
-		display: inline-block;
-		vertical-align: middle;
-    margin-right: 2px;
-	}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 32px 64px;
+    }
 
-	/* media queries for mobile */
+    .news-container {
+      flex-direction: column;
+      gap: 24px;
+    }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 32px 64px;
-		}
-
-		.news-container {
-			flex-direction: column;
-			gap: 24px;
-		}
-
-		.news-card {
-			width: 100%;
-		}
-	}
-</style> -->
+    .news-card {
+      width: 100%;
+    }
+  }
+</style>
