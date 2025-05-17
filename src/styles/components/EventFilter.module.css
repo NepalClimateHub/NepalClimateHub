@@ -59,7 +59,7 @@
 .noResults {
   border: 2px solid rgba(255, 0, 0, 0.233);
   width: 100%;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
   font-weight: bold;
   text-align: center;
   margin-top: 30px;
@@ -72,7 +72,7 @@
   .filterContainer {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 24px;
+    padding: 0 36px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -83,5 +83,10 @@
 
   .filterContainer select {
     width: 100%;
+  }
+
+  .noResults {
+    width: auto;
+    margin: 0 32px;
   }
 }
