@@ -40,7 +40,10 @@ import { Icon } from "astro-icon/components";
       </button>
     </div>
     <div class="event-image">
-      <img src={contributeImg.src || "/placeholder.svg"} alt="Climate event" />
+      <img
+        src="https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/contribute-event.jpg"
+        alt="Climate event"
+      />
     </div>
   </div>
 </section>
@@ -144,6 +147,7 @@ import { Icon } from "astro-icon/components";
     width: 572px;
     height: 411px;
     flex: 0 0 1;
+    position: relative;
   }
 
   .event-image img {
@@ -152,6 +156,15 @@ import { Icon } from "astro-icon/components";
     object-fit: cover;
     border-radius: 12px;
     background: #eee;
+  }
+
+  .event-image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000001d;
+    border-radius: 12px;
   }
 
   @media screen and (max-width: 1280px) {
