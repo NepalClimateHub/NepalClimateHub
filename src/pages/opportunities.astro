@@ -1,12 +1,50 @@
 ---
-import "../styles/global.css";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import CardFilterSection from "@layouts/CardFilterSection.astro";
-import BaseLayout from "../layouts/Layout.astro";
+import '../styles/global.css';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardFilterSection from '@layouts/CardFilterSection.astro';
+import BaseLayout from '../layouts/Layout.astro';
 
-import OpportunityFilter from "@components/OpportunityFilter.tsx";
-import opportunitiesJSON from "../data/dummy-opportunity.json";
+import OpportunityFilter from '@components/OpportunityFilter.tsx';
+import type {
+  Opportunity as ApiOpportunity,
+  OpportunityTag,
+} from '../types/opportunity';
+import { fetchOpportunities } from '../utils/api';
+
+const { data: apiOpportunities } = await fetchOpportunities();
+
+function stripHtml(html: string) {
+  return html.replace(/<[^>]*>/g, '');
+}
+
+const opportunities = apiOpportunities.map((opportunity: ApiOpportunity) => ({
+  id: opportunity.id,
+  title: opportunity.title,
+  type: opportunity.type || '',
+  locationType:
+    opportunity.locationType.charAt(0).toUpperCase() +
+    opportunity.locationType.slice(1).toLowerCase(),
+  province: opportunity.address?.state || '',
+  status: opportunity.status || '',
+  format: opportunity.format || '',
+  cost: opportunity.cost || '',
+  organization: (opportunity as any).organization || '',
+  description: stripHtml(opportunity.description || '') || '',
+  category: opportunity.tags?.map((tag: OpportunityTag) => tag.tag) || [],
+  bannerImage: opportunity.bannerImageUrl || '/placeholder.svg',
+  applicationDeadline: opportunity.applicationDeadline || '',
+  duration: (opportunity as any).duration || '',
+  applicationDetail: opportunity.applicationLink || '#',
+  contactEmail: (opportunity as any).contactEmail || '',
+  website: (opportunity as any).website || '',
+  socials: (opportunity as any).socials || {
+    facebook: '',
+    linkedin: '',
+    instagram: '',
+  },
+  contributedBy: (opportunity as any).contributedBy || '',
+}));
 ---
 
 <BaseLayout title="Nepal Climate Hub - Opportunities">
@@ -30,7 +68,7 @@ import opportunitiesJSON from "../data/dummy-opportunity.json";
       </section>
 
       <section class="opportunity-cards-section">
-        <OpportunityFilter client:load opportunities={opportunitiesJSON} />
+        <OpportunityFilter client:load opportunities={opportunities} />
       </section>
     </div>
 

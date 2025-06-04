@@ -155,11 +155,7 @@ const EventFilter: React.FC<Props> = ({ events }) => {
       {/* Check if no events are found */}
       <div className={styles.cardNotFoundMessage}>
         {filteredEvents.length === 0 ? (
-          <p className={styles.noResults}>
-            {' '}
-            Hmm, no events matched your filters! Try changing the filters to
-            explore more news.
-          </p>
+          <p className={styles.noResults}> No events found.</p>
         ) : (
           <CardContainer
             cardsArray={filteredEvents}

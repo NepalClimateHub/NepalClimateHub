@@ -1,12 +1,60 @@
 ---
-import "../styles/global.css";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import CardFilterSection from "@layouts/CardFilterSection.astro";
-import BaseLayout from "../layouts/Layout.astro";
+import '../styles/global.css';
+import EventFilter from '@components/EventFilter.tsx';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardFilterSection from '@layouts/CardFilterSection.astro';
+import BaseLayout from '../layouts/Layout.astro';
+import type { Event as ApiEvent } from '../types/event';
+import { fetchEvents } from '../utils/api';
 
-import EventFilter from "@components/EventFilter.tsx";
-import eventsJSON from "../data/dummy-event.json";
+const { data: apiEvents } = await fetchEvents();
+
+function stripHtml(html: string) {
+  return html.replace(/<[^>]*>/g, '');
+}
+
+const events = apiEvents.map((event: ApiEvent) => {
+  const formatMap: Record<string, string> = {
+    IN_PERSON: 'In-person',
+    VIRTUAL: 'Virtual',
+    HYBRID: 'Hybrid',
+  };
+
+  const statusMap: Record<string, string> = {
+    OPEN: 'Open',
+    UPCOMING: 'Upcoming',
+    CLOSED: 'Closed',
+  };
+
+  const costMap: Record<string, string> = {
+    FREE: 'Free',
+    PAID: 'Paid',
+    PARTIALLY_FUNDED: 'Partially Funded',
+    FULLY_FUNDED: 'Fully Funded',
+  };
+
+  return {
+    id: event.id,
+    title: event.title,
+    type:
+      event.type.charAt(0).toUpperCase() + event.type.slice(1).toLowerCase(),
+    location:
+      event.locationType.charAt(0).toUpperCase() +
+      event.locationType.slice(1).toLowerCase(),
+    province: event.address.state,
+    status: statusMap[event.status] || 'Closed',
+    format: formatMap[event.format] || 'In-person',
+    cost: event.cost ? costMap[event.cost] || 'Free' : 'Free',
+    category: event.tags.map((tag) => tag.tag),
+    bannerImage: event.bannerImageUrl,
+    description: stripHtml(event.description || '') || '',
+    organizer: event.organizer,
+    startDate: event.startDate,
+    registrationLink: event.registrationLink,
+    contactEmail: event.contactEmail,
+  };
+});
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -24,7 +72,7 @@ import eventsJSON from "../data/dummy-event.json";
       </section>
 
       <section class="event-cards-section">
-        <EventFilter client:load events={eventsJSON} />
+        <EventFilter client:load events={events} />
       </section>
     </div>
 
