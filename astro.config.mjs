@@ -22,5 +22,6 @@ export default defineConfig({
   adapter: netlify(),
   vite: {
     plugins: [tailwindcss()],
+    envPrefix: 'PUBLIC_',
   },
 });
