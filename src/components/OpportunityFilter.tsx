@@ -181,11 +181,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
       {/* Check if no opportunities are found */}
       <div className={styles.cardNotFoundMessage}>
         {filteredOpportunities.length === 0 ? (
-          <p className={styles.noResults}>
-            {' '}
-            Hmm, no opportunities matched your filters! Try changing the filters
-            to explore more news.
-          </p>
+          <p className={styles.noResults}> No opportunities found.</p>
         ) : (
           <CardContainer
             cardsArray={filteredOpportunities}

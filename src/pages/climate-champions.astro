@@ -4,10 +4,13 @@ import { CardContainer } from '@components/CardContainer';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardFilterSection from '@layouts/CardFilterSection.astro';
+import ActivistsJSON from '../data/activists.json';
 import BaseLayout from '../layouts/Layout.astro';
 
-// get organizations JSON data
-import ActivistsJSON from '../data/activists.json';
+const transformedActivists = ActivistsJSON.map((activist) => ({
+  ...activist,
+  profilePicture: activist.logoUrl,
+}));
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -35,7 +38,7 @@ import ActivistsJSON from '../data/activists.json';
       <section class="activist-cards-section">
         <CardContainer
           client:load
-          cardsArray={ActivistsJSON}
+          cardsArray={transformedActivists}
           dataType="activist"
           cardProfilePictureBgSize="cover"
           cardPadding="0px"
