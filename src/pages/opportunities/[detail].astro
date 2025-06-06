@@ -8,24 +8,50 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardDetailSection from '@layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import type {
+  Opportunity as ApiOpportunity,
+  OpportunityTag,
+} from '../../types/opportunity';
+import { fetchOpportunities } from '../../utils/api';
 import { createSlug } from '../../utils/slug';
 
-import opportunitiesJSON from '../../data/dummy-opportunity.json';
-
 export async function getStaticPaths() {
-  return opportunitiesJSON.map((opportunity) => {
+  const { data: opportunities } = await fetchOpportunities();
+
+  return opportunities.map((opportunity) => {
     const slug = createSlug(opportunity.title);
     return {
       params: { detail: slug },
-      props: { opportunity: { ...opportunity } },
     };
   });
 }
 
+function stripHtml(html: string) {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 const { detail } = Astro.params;
-const { opportunity } = Astro.props;
-const opportunityDetail =
-  opportunity || opportunitiesJSON.find((o) => createSlug(o.title) === detail);
+
+const { data: allOpportunities } = await fetchOpportunities();
+const apiOpportunity = allOpportunities.find(
+  (opportunity) => createSlug(opportunity.title) === detail
+);
+
+if (!apiOpportunity) {
+  throw new Error(`Opportunity with slug ${detail} not found`);
+}
+
+const opportunityDetail = {
+  ...apiOpportunity,
+  bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
+  description: stripHtml(apiOpportunity.description || '') || '',
+  location:
+    apiOpportunity.locationType.charAt(0).toUpperCase() +
+    apiOpportunity.locationType.slice(1).toLowerCase(),
+  province: apiOpportunity.address?.state || '',
+  category: apiOpportunity.tags?.map((tag: OpportunityTag) => tag.tag) || [],
+  applicationDetail: apiOpportunity.applicationLink || '#',
+};
 ---
 
 <BaseLayout title={`${opportunityDetail.title} | Nepal Climate Hub`}>
@@ -59,7 +85,7 @@ const opportunityDetail =
     </section>
 
     <section class="organization-section">
-      <FeaturedOpportunitySection startIndex={0} endIndex={4} title="Other Opportunities" />
+      <FeaturedOpportunitySection startIndex={0} endIndex={4} title="Other Opportunities" currentOpportunityId={apiOpportunity.id} />
     </section>
 
     <section class="footer-section">

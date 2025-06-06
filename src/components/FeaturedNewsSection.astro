@@ -1,12 +1,35 @@
 ---
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
-import unsortedNewsJSON from "../data/news.json";
+import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
+import { fetchNews } from "../utils/api"; // Import fetchNews function
+// Removed static JSON import
+// import unsortedNewsJSON from "../data/news.json";
 import sortNewsArray from "../utils/sortNewsArray.js";
 import type { SortData } from "../utils/sortNewsArray.js";
 
-const data = unsortedNewsJSON as unknown as SortData[];
-const NewsJSON = sortNewsArray(data);
+// Fetch news data from API
+const { data: apiNews } = await fetchNews();
+
+// Transform API data to match the expected format for the HTML template and SortData
+const transformedNews: SortData[] = apiNews.map((news: NewsItem) => ({
+  id: Number(news.id), // Convert id to number for SortData
+  title: news.title, // Map title from NewsItem to SortData
+  headline: news.title, // Also include headline for HTML template compatibility
+  source: news.source, // Map source from NewsItem to SortData
+  mode: news.mode, // Map mode from NewsItem to SortData
+  category: news.tags.map((tag: NewsTag) => tag.tag), // Map tags to category
+  publishedDate: news.publishedDate, // Map publishedDate from NewsItem to SortData
+  publishedYear: news.publishedYear, // Map publishedYear from NewsItem to SortData
+  newsLink: news.newsLink, // Map newsLink from NewsItem to SortData
+  newsSrc: news.newsLink, // Also include newsSrc for HTML template compatibility
+  contributedBy: news.contributedBy, // Map contributedBy from NewsItem to SortData
+  imgSrc: news.bannerImageUrl || "/placeholder.svg", // Map bannerImageUrl to imgSrc with fallback
+  linkText: "Read More", // Include static linkText for HTML template compatibility
+}));
+
+// Sort the transformed news data
+const NewsJSON = sortNewsArray(transformedNews);
 ---
 
 <div class="section-container">
@@ -20,21 +43,27 @@ const NewsJSON = sortNewsArray(data);
     {
       NewsJSON.slice(0, 6).map((news: any) => (
         <div class="news-card">
-          <a href={news.newsSrc} target="_blank">
+          <a href={news.newsLink} target="_blank">
             <div class="content">
-              <h3 class="news-headline">{news.headline}</h3>
+              <h3 class="news-headline">{news.title}</h3>
               <div class="news-image-wrapper">
                 <img src={news.imgSrc} alt="" />
               </div>
             </div>
 
-            <div class="link">
-              <span class="link-icon">
-                <Icon name="mdi:link" />
-              </span>
-              <a href={news.newsSrc} target="_blank">
-                {news.linkText}
-              </a>
+            <div class="news-details">
+              <div class="news-link">
+                <span class="icon">
+                  <Icon name="mdi:link" />
+                </span>
+                {news.source}
+              </div>
+
+              <div class="news-date">
+                <span class="date-text">
+                  📅 {new Date(news.publishedDate).toISOString().split("T")[0]}
+                </span>
+              </div>
             </div>
           </a>
         </div>
@@ -63,7 +92,7 @@ const NewsJSON = sortNewsArray(data);
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    gap: 24px 16px;
+    gap: 24px;
   }
 
   .news-card {
@@ -74,7 +103,7 @@ const NewsJSON = sortNewsArray(data);
     border-bottom: 1px solid #cefe00;
 
     /* max-width: 403px; */
-    width: 32%;
+    width: 31%;
     overflow: hidden;
   }
 
@@ -92,9 +121,9 @@ const NewsJSON = sortNewsArray(data);
   }
 
   .news-headline {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: capitalize;
     width: calc(100% - 136px);
   }
@@ -116,14 +145,23 @@ const NewsJSON = sortNewsArray(data);
     object-fit: cover;
   }
 
-  .link a {
+  .news-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .news-link {
     font-size: 14px;
     color: #364fc7;
     line-height: 16px;
     text-decoration: none;
   }
 
-  .link-icon {
+  .news-date {
+    font-size: 14px;
+  }
+
+  .icon {
     display: inline-block;
     vertical-align: middle;
   }
