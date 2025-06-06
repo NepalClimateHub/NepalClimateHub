@@ -1,12 +1,12 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
-import type { NewsItem, NewsTag } from '../types/news'; // Import NewsItem and NewsTag types
-import { fetchNews } from '../utils/api'; // Import fetchNews function
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
+import { fetchNews } from "../utils/api"; // Import fetchNews function
 // Removed static JSON import
 // import unsortedNewsJSON from "../data/news.json";
-import sortNewsArray from '../utils/sortNewsArray.js';
-import type { SortData } from '../utils/sortNewsArray.js';
+import sortNewsArray from "../utils/sortNewsArray.js";
+import type { SortData } from "../utils/sortNewsArray.js";
 
 // Fetch news data from API
 const { data: apiNews } = await fetchNews();
@@ -24,8 +24,8 @@ const transformedNews: SortData[] = apiNews.map((news: NewsItem) => ({
   newsLink: news.newsLink, // Map newsLink from NewsItem to SortData
   newsSrc: news.newsLink, // Also include newsSrc for HTML template compatibility
   contributedBy: news.contributedBy, // Map contributedBy from NewsItem to SortData
-  imgSrc: news.bannerImageUrl || '/placeholder.svg', // Map bannerImageUrl to imgSrc with fallback
-  linkText: 'Read More', // Include static linkText for HTML template compatibility
+  imgSrc: news.bannerImageUrl || "/placeholder.svg", // Map bannerImageUrl to imgSrc with fallback
+  linkText: "Read More", // Include static linkText for HTML template compatibility
 }));
 
 // Sort the transformed news data
@@ -51,13 +51,19 @@ const NewsJSON = sortNewsArray(transformedNews);
               </div>
             </div>
 
-            <div class="link">
-              <span class="link-icon">
-                <Icon name="mdi:link" />
-              </span>
-              <a href={news.newsLink} target="_blank">
-                {news.linkText}
-              </a>
+            <div class="news-details">
+              <div class="news-link">
+                <span class="icon">
+                  <Icon name="mdi:link" />
+                </span>
+                {news.source}
+              </div>
+
+              <div class="news-date">
+                <span class="date-text">
+                  📅 {new Date(news.publishedDate).toISOString().split("T")[0]}
+                </span>
+              </div>
             </div>
           </a>
         </div>
@@ -86,7 +92,7 @@ const NewsJSON = sortNewsArray(transformedNews);
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    gap: 24px 16px;
+    gap: 24px;
   }
 
   .news-card {
@@ -97,7 +103,7 @@ const NewsJSON = sortNewsArray(transformedNews);
     border-bottom: 1px solid #cefe00;
 
     /* max-width: 403px; */
-    width: 32%;
+    width: 31%;
     overflow: hidden;
   }
 
@@ -115,9 +121,9 @@ const NewsJSON = sortNewsArray(transformedNews);
   }
 
   .news-headline {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: capitalize;
     width: calc(100% - 136px);
   }
@@ -139,14 +145,23 @@ const NewsJSON = sortNewsArray(transformedNews);
     object-fit: cover;
   }
 
-  .link a {
+  .news-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .news-link {
     font-size: 14px;
     color: #364fc7;
     line-height: 16px;
     text-decoration: none;
   }
 
-  .link-icon {
+  .news-date {
+    font-size: 14px;
+  }
+
+  .icon {
     display: inline-block;
     vertical-align: middle;
   }

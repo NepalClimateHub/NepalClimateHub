@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/News.module.css';
 
 interface NewsItem {
@@ -27,7 +28,8 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
   useEffect(() => {
     const filteredResults = newsData.filter((news) => {
       const matchesYear =
-        selectedYear === 'All Years' || news.publishedYear === selectedYear;
+        selectedYear === 'All Years' ||
+        String(new Date(news.publishedYear).getFullYear()) === selectedYear;
       const matchesType =
         selectedType === 'All' ||
         news.mode?.toLowerCase() === selectedType.toLowerCase();
@@ -54,6 +56,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
       <div className={styles.filterContainer}>
         <div className={styles.filterGroup}>
           <label htmlFor="year-filter">Published Year:</label>
+
           <select
             id="year-filter"
             onChange={(e) => setSelectedYear(e.target.value)}
@@ -64,6 +67,9 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
             <option value="2024">2024</option>
             <option value="2023">2023</option>
           </select>
+          <span className={styles.menuDropdown}>
+            <FaChevronDown />
+          </span>
         </div>
 
         <div className={styles.filterGroup}>
@@ -75,10 +81,13 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
           >
             <option value="All">All</option>
             <option value="National">National</option>
-            <option value="Regional">Regional</option>
+            {/* <option value="Regional">Regional</option> */}
             <option value="International">International</option>
-            <option value="Global">Global</option>
+            {/* <option value="Global">Global</option> */}
           </select>
+          <span className={styles.menuDropdown}>
+            <FaChevronDown />
+          </span>
         </div>
 
         <div className={styles.filterGroup}>
@@ -89,9 +98,62 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
             value={selectedCategory}
           >
             <option value="All">All</option>
-            <option value="Climate Action">Climate Action</option>
-            <option value="Climate Education">Climate Education</option>
+            <option value="Climate Justice">Climate Justice</option>
+            <option value="Social Equity">Social Equity</option>
+            <option value="Gender and Climate">Gender and Climate</option>
+            <option value="Youth Empowerment">Youth Empowerment</option>
+            <option value="Climate Litigation & Legal Action">
+              Climate Litigation & Legal Action
+            </option>
+            <option value="Climate Activism & Advocacy">
+              Climate Activism & Advocacy
+            </option>
+            <option value="Research & Education">Research & Education</option>
+            <option value="Science Communication">Science Communication</option>
+            <option value="Media Communication">Media Communication</option>
+            <option value="Indigenous Knowledge">Indigenous Knowledge</option>
+            <option value="Climate and Mental Health">
+              Climate and Mental Health
+            </option>
+            <option value="Ecosystem Conservation">
+              Ecosystem Conservation
+            </option>
+            <option value="Wildlife & Biodiversity">
+              Wildlife & Biodiversity
+            </option>
+            <option value="Renewable Energy">Renewable Energy</option>
+            <option value="Environment">Environment</option>
+            <option value="Sustainability">Sustainability</option>
+            <option value="Pollution & Waste Management">
+              Pollution & Waste Management
+            </option>
+            <option value="Circular Economy">Circular Economy</option>
+            <option value="Transportation & Mobility">
+              Transportation & Mobility
+            </option>
+            <option value="Nature-Based Solutions">
+              Nature-Based Solutions
+            </option>
+            <option value="Carbon Sequestration">Carbon Sequestration</option>
+            <option value="Food, Water & Agriculture">
+              Food, Water & Agriculture
+            </option>
+            <option value="Climate Adaptation & Mitigation">
+              Climate Adaptation & Mitigation
+            </option>
+            <option value="Disaster Risk Management">
+              Disaster Risk Management
+            </option>
+            <option value="Community Resilience">Community Resilience</option>
+            <option value="Climate Finance">Climate Finance</option>
+            <option value="Carbon Markets">Carbon Markets</option>
+            <option value="Loss & Damage">Loss & Damage</option>
+            <option value="Climate Technology">Climate Technology</option>
+            <option value="Digital Solutions">Digital Solutions</option>
           </select>
+          <span className={styles.menuDropdown}>
+            <FaChevronDown />
+          </span>
         </div>
       </div>
 
@@ -118,17 +180,16 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
                   </div>
                   <div className={styles.date}>
                     <span className={styles.linkIcon}>📅</span>
-                    <span>{news.publishedDate}</span>
+                    <span>
+                      {new Date(news.publishedDate).toISOString().split('T')[0]}
+                    </span>
                   </div>
                 </div>
               </a>
             </div>
           ))
         ) : (
-          <p className={styles.noResults}>
-            Hmm, no news matched your filters! Try changing the filters to
-            explore more news.
-          </p>
+          <p className={styles.noResults}>No news found!</p>
         )}
       </div>
     </div>
