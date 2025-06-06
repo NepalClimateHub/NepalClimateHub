@@ -48,9 +48,9 @@
 }
 
 .newsHeadline {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
   width: calc(100% - 136px);
 }
@@ -98,12 +98,12 @@
   border: 2px solid rgba(255, 0, 0, 0.233);
   width: 100%;
   margin-bottom: 100px;
-  font-weight: bold;
   text-align: center;
   margin-top: 30px;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 6px;
+  color: red;
 }
 
 .filterContainer {
@@ -120,6 +120,7 @@
   flex: 0 0 1;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .filterGroup label {
@@ -138,8 +139,20 @@
   border-radius: 6px;
   outline: none;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color
-    0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  padding-right: 30px;
+  appearance: none;
+}
+
+.menuDropdown {
+  position: absolute;
+  right: 12px;
+  font-size: 13px;
+
+  top: 40px;
+
+  color: rgba(0, 0, 0, 0.315);
 }
 
 /* Hover Effect */
