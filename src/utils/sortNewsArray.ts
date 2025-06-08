@@ -51,8 +51,8 @@ export type SortData = {
 
 export default function sortNewsArray(data: SortData[]): SortData[] {
   return data.sort((a, b) => {
-    const dateA = new Date(a.publishedDate || "1970-01-01").getTime();
-    const dateB = new Date(b.publishedDate || "1970-01-01").getTime();
+    const dateA = new Date(a.publishedDate || '1970-01-01').getTime();
+    const dateB = new Date(b.publishedDate || '1970-01-01').getTime();
     return dateB - dateA;
   });
 }

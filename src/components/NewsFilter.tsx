@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
-import styles from "../styles/components/News.module.css";
+import { useEffect, useState } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
+import styles from '../styles/components/News.module.css';
 
 interface NewsItem {
   id: string;
@@ -20,21 +20,21 @@ interface Props {
 }
 
 const NewsFilter: React.FC<Props> = ({ newsData }) => {
-  const [selectedYear, setSelectedYear] = useState<string>("All Years");
-  const [selectedType, setSelectedType] = useState<string>("All");
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedYear, setSelectedYear] = useState<string>('All Years');
+  const [selectedType, setSelectedType] = useState<string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [filteredNews, setFilteredNews] = useState<NewsItem[]>(newsData);
 
   useEffect(() => {
     const filteredResults = newsData.filter((news) => {
       const matchesYear =
-        selectedYear === "All Years" ||
+        selectedYear === 'All Years' ||
         String(new Date(news.publishedYear).getFullYear()) === selectedYear;
       const matchesType =
-        selectedType === "All" ||
+        selectedType === 'All' ||
         news.mode?.toLowerCase() === selectedType.toLowerCase();
       const matchesCategory =
-        selectedCategory === "All" ||
+        selectedCategory === 'All' ||
         news.category?.some(
           (cat) => cat.toLowerCase() === selectedCategory.toLowerCase()
         );
@@ -166,7 +166,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
                   <h3 className={styles.newsHeadline}>{news.title}</h3>
                   <div className={styles.newsImageWrapper}>
                     <img
-                      src={news.imgSrc || "default-image.jpg"}
+                      src={news.imgSrc || 'default-image.jpg'}
                       alt={news.title}
                     />
                   </div>
@@ -181,7 +181,7 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
                   <div className={styles.date}>
                     <span className={styles.linkIcon}>📅</span>
                     <span>
-                      {new Date(news.publishedDate).toISOString().split("T")[0]}
+                      {new Date(news.publishedDate).toISOString().split('T')[0]}
                     </span>
                   </div>
                 </div>

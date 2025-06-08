@@ -20,7 +20,7 @@ import { createSlug } from "../utils/slug";
   <!-- container to wrap opportunity cards -->
 
   <!-- render the opportunities from opportunityJSON -->
-  <div class="cards-container">
+  <div class="cards-container" style="margin-bottom:72px;">
     {
       opportunityJSON.slice(startIndex, endIndex).map((item) => (
         <a
@@ -44,7 +44,7 @@ import { createSlug } from "../utils/slug";
             </p>
             <p class="about">{item.description.substring(0, 108)}...</p>
             <div class="tags">
-              {item.tagIds.slice(0, 3).map((tag: string) => (
+              {item.category.slice(0, 3).map((tag: string, index: number) => (
                 <span class="tag">{tag}</span>
               ))}
             </div>
