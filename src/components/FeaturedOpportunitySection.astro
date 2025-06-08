@@ -24,7 +24,7 @@ import { createSlug } from "../utils/slug";
     {
       opportunityJSON.slice(startIndex, endIndex).map((item) => (
         <a
-          class="card event-card"
+          class="card opportunity-card"
           href={`/opportunities/${createSlug(item.title)}`}
         >
           <div class="img-wrapper" style="padding: 0px;">
@@ -55,11 +55,11 @@ import { createSlug } from "../utils/slug";
 
     <!-- slide control bars for mobile display -->
 
-    <div class="card-controls event-card-controls">
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
+    <div class="card-controls opportunity-card-controls">
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
     </div>
   </div>
 
@@ -83,12 +83,13 @@ import { createSlug } from "../utils/slug";
   import { createMobileSlider } from "src/utils/slider";
 
   // Get the necessary elements
-  const cards = document.querySelectorAll<HTMLElement>(".event-card");
+  const cards = document.querySelectorAll<HTMLElement>(".opportunity-card");
   const cardControlsElement = document.querySelector<HTMLElement>(
-    ".event-card-controls"
+    ".opportunity-card-controls"
   );
-  const bars =
-    cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
+  const bars = cardControlsElement?.querySelectorAll<HTMLElement>(
+    ".bar-opportunity-section"
+  );
 
   // Check if cardControlsElement and bars are not null
   if (cardControlsElement && bars) {
