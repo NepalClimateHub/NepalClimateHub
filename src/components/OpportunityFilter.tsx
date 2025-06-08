@@ -149,7 +149,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
       if (value) {
         if (key === 'category') {
           result = result.filter((opportunity) =>
-            opportunity.category.some((cat) => cat === value)
+            opportunity.category.some((cat) => cat.trim() === value.trim())
           );
         } else {
           result = result.filter(
