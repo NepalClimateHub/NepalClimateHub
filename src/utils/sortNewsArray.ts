@@ -37,7 +37,7 @@
 //   });
 // }
 export type SortData = {
-  id: number;
+  id: string;
   title: string;
   source: string;
   mode: string;

@@ -27,7 +27,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/491444999_17943373196992084_4570684319497221064_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394770430",
     "bannerImageId": null,
-    "tagIds": [
+    "category": [
       "Climate Action",
       "Climate Justice",
       "Climate Education",
@@ -37,7 +37,7 @@
   },
   {
     "title": "Constellations Fellowship Summer 2025",
-    "description": "The Constellations Fellowships are virtual, part-time positions running from June 9, 2025, for 12\u00e2\u20ac\u201c14 weeks. Fellows will work remotely on various climate-related roles and receive a $1,000 stipend upon successful completion. Each position has specific descriptions and qualifications, which can be found on the fellowship page. Applicants must submit separate applications for each position of interest, including tailored resumes and cover letters.\\n\\nEligibility:\\n- Open to global applicants passionate about climate action\\n- Specific qualifications vary by position\\n\\nBenefits:\\n- $1,000 stipend\\n- Flexible, part-time virtual engagement\\n- Professional experience in climate-related fields\\n- Opportunity to contribute to meaningful global sustainability work.",
+    "description": "The Constellations Fellowships are virtual, part-time positions running from June 9, 2025, for 12 to 14 weeks. Fellows will work remotely on various climate-related roles and receive a $1,000 stipend upon successful completion. Each position has specific descriptions and qualifications, which can be found on the fellowship page. Applicants must submit separate applications for each position of interest, including tailored resumes and cover letters.\\n\\nEligibility:\\n- Open to global applicants passionate about climate action\\n- Specific qualifications vary by position\\n\\nBenefits:\\n- $1,000 stipend\\n- Flexible, part-time virtual engagement\\n- Professional experience in climate-related fields\\n- Opportunity to contribute to meaningful global sustainability work.",
     "location": "International",
     "locationType": "International",
     "type": "Fellowship",
@@ -63,7 +63,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/494693212_1115198323975852_3845038907438223913_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394770624",
     "bannerImageId": null,
-    "tagIds": [
+    "category": [
       "Climate Action",
       "Youth Empowerment",
       "Climate Research",
@@ -99,7 +99,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/492131572_1101389828699288_1548781421468928405_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394770434",
     "bannerImageId": null,
-    "tagIds": ["Youth Empowerment"],
+    "category": ["Youth Empowerment"],
     "id": "ba5e8f8d-3384-4d95-b1ec-2585be46f9e3"
   },
   {
@@ -130,7 +130,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/1746628196412%20-%20Hikmat%20Budha%20Chhetri.jpeg?updatedAt=1749394770281",
     "bannerImageId": null,
-    "tagIds": [
+    "category": [
       "Climate Action",
       "Climate Advocacy",
       "Climate Justice",
@@ -167,7 +167,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/1746704757291%20-%20Hikmat%20Budha%20Chhetri.jpeg?updatedAt=1749394770891",
     "bannerImageId": null,
-    "tagIds": ["Climate Advocacy", "Policy Advocacy", "Sustainability"],
+    "category": ["Climate Advocacy", "Policy Advocacy", "Sustainability"],
     "id": "7a2a93c3-cd86-4591-b281-e368402fc96e"
   },
   {
@@ -198,7 +198,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-14%20at%2010.04.19%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394777367",
     "bannerImageId": null,
-    "tagIds": ["Climate Leadership", "Renewable Energy", "Sustainability"],
+    "category": ["Climate Leadership", "Renewable Energy", "Sustainability"],
     "id": "91c846ba-326c-4d92-b724-a269ef1d1a47"
   },
   {
@@ -229,7 +229,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/496255004_122210934260140641_3509184471497282553_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394770732",
     "bannerImageId": null,
-    "tagIds": ["Youth Empowerment", "Sustainability"],
+    "category": ["Youth Empowerment", "Sustainability"],
     "id": "999f9105-df25-4562-8e66-03708d968691"
   },
   {
@@ -260,7 +260,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/1747196643592%20-%20Hikmat%20Budha%20Chhetri.jpeg?updatedAt=1749394774942",
     "bannerImageId": null,
-    "tagIds": ["Climate Action", "Youth Empowerment", "Sustainability"],
+    "category": ["Climate Action", "Youth Empowerment", "Sustainability"],
     "id": "f044cb87-7658-4345-86f6-080d048ebc88"
   },
   {
@@ -291,7 +291,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-15%20at%208.47.34%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394776738",
     "bannerImageId": null,
-    "tagIds": ["Sustainability"],
+    "category": ["Sustainability"],
     "id": "bc519b49-993a-475d-b8b3-895f54fa70ea"
   },
   {
@@ -322,7 +322,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-15%20at%208.56.32%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394776801",
     "bannerImageId": null,
-    "tagIds": ["Climate Action", "Climate Health", "Sustainability"],
+    "category": ["Climate Action", "Climate Health", "Sustainability"],
     "id": "dc410b43-9a22-4a17-ac4e-3ad3debebe51"
   },
   {
@@ -353,7 +353,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/1747169816017%20-%20Hikmat%20Budha%20Chhetri.jpeg?updatedAt=1749394774480",
     "bannerImageId": null,
-    "tagIds": ["Climate Action", "Policy Advocacy", "Sustainability"],
+    "category": ["Climate Action", "Policy Advocacy", "Sustainability"],
     "id": "10674324-9da4-46b0-9eca-4bb430c098c2"
   },
   {
@@ -384,7 +384,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/488949000_1113277524168743_2851299159640803138_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394770173",
     "bannerImageId": null,
-    "tagIds": ["Sustainability", "Climate Tech", "Digital Solutions"],
+    "category": ["Sustainability", "Climate Tech", "Digital Solutions"],
     "id": "b666b4af-0e69-4f00-ad08-b208bf4af6f4"
   },
   {
@@ -415,7 +415,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/1747909416677%20-%20Hikmat%20Budha%20Chhetri.jpeg?updatedAt=1749394776028",
     "bannerImageId": null,
-    "tagIds": [
+    "category": [
       "Climate Action",
       "Climate Advocacy",
       "Climate Activism",
@@ -455,7 +455,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/3_1%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394771424",
     "bannerImageId": null,
-    "tagIds": ["Women & Gender"],
+    "category": ["Women & Gender"],
     "id": "c7317e37-2892-4434-9520-e3f9342df093"
   },
   {
@@ -486,7 +486,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/480234641_122145493568464988_1782595346822545713_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394769847",
     "bannerImageId": null,
-    "tagIds": ["Policy Advocacy", "Sustainability"],
+    "category": ["Policy Advocacy", "Sustainability"],
     "id": "5780cb9e-df18-48c1-8148-4fb8a317d7b8"
   },
   {
@@ -517,7 +517,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/486315797_1066708378834390_6251467325742726410_n%20-%20Hikmat%20Budha%20Chhetri.jpg?updatedAt=1749394770496",
     "bannerImageId": null,
-    "tagIds": ["Youth Empowerment", "Climate Research", "Climate Education"],
+    "category": ["Youth Empowerment", "Climate Research", "Climate Education"],
     "id": "dee3c87c-6476-4efd-ae06-f46bfdbe85e7"
   },
   {
@@ -548,7 +548,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-29%20at%207.45.20%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394777191",
     "bannerImageId": null,
-    "tagIds": ["Climate Action", "Youth Empowerment", "Sustainability"],
+    "category": ["Climate Action", "Youth Empowerment", "Sustainability"],
     "id": "f04509f8-49b6-4259-8543-6d97a52e4c03"
   },
   {
@@ -579,7 +579,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-29%20at%207.54.44%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394776362",
     "bannerImageId": null,
-    "tagIds": ["Climate Action", "Youth Empowerment", "Sustainability"],
+    "category": ["Climate Action", "Youth Empowerment", "Sustainability"],
     "id": "4e747cd8-4862-4a4b-9f5b-bed499aaf94b"
   },
   {
@@ -610,7 +610,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/1748353462593%20-%20Hikmat%20Budha%20Chhetri.jpeg?updatedAt=1749394775757",
     "bannerImageId": null,
-    "tagIds": ["Climate Justice", "Sustainability", "Digital Solutions"],
+    "category": ["Climate Justice", "Sustainability", "Digital Solutions"],
     "id": "64c10f43-f458-4bdd-bd00-0e345759c54e"
   },
   {
@@ -641,7 +641,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-29%20at%208.12.02%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394777420",
     "bannerImageId": null,
-    "tagIds": [
+    "category": [
       "Climate Leadership",
       "Biodiversity Preservation",
       "Sustainability"
@@ -676,7 +676,7 @@
     },
     "bannerImageUrl": "https://ik.imagekit.io/nch/Screenshot%202025-05-29%20at%208.21.14%E2%80%AFPM%20-%20Hikmat%20Budha%20Chhetri.png?updatedAt=1749394778723",
     "bannerImageId": null,
-    "tagIds": [
+    "category": [
       "Youth Empowerment",
       "Climate Leadership",
       "Biodiversity Preservation"

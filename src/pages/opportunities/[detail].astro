@@ -50,7 +50,7 @@ const opportunityDetail = {
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
   province: apiOpportunity.address?.state || "",
-  category: apiOpportunity.tagIds?.map((tag: any) => tag.tag) || [],
+  category: apiOpportunity.category,
 };
 ---
 

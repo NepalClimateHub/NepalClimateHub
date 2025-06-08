@@ -100,36 +100,6 @@ const featuredEvents = filteredEvents.slice(
   <a href="/events" class="cta-link">See All</a>
 </div>
 
-<style>
-  .featured-card-section {
-    margin: 53px auto 40px auto;
-    max-width: 1200px;
-  }
-
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 0 15px;
-    justify-content: flex-start;
-  }
-
-  .event-card {
-    max-width: 300px;
-    width: 100%;
-  }
-
-  @media screen and (max-width: 768px) {
-    .featured-card-section {
-      margin: 24px 32px 64px;
-    }
-
-    .cards-container {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
 <script>
   import { createMobileSlider } from "src/utils/slider";
 

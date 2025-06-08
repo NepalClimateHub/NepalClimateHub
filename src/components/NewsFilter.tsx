@@ -3,7 +3,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/News.module.css';
 
 interface NewsItem {
-  id: number;
+  id: string;
   title: string;
   source: string;
   mode: string;
