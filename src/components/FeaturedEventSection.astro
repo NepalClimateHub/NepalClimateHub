@@ -1,42 +1,45 @@
 ---
-import '../styles/global.css';
-import '../styles/components/FeaturedCardStyles.css';
-import { Icon } from 'astro-icon/components';
-import type { Event as ApiEvent } from '../types/event';
-import { fetchEvents } from '../utils/api';
-import { createSlug } from '../utils/slug';
-
+import "../styles/global.css";
+import "../styles/components/FeaturedCardStyles.css";
+import { Icon } from "astro-icon/components";
+import type { Event as ApiEvent } from "../types/event";
+import { fetchEvents } from "../utils/api";
+import { createSlug } from "../utils/slug";
+import eventsTemp from "../data/eventsTemp.json";
 const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
-const { data: apiEvents } = await fetchEvents();
+// const { data: apiEvents } = await fetchEvents();
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '');
+  return html.replace(/<[^>]*>/g, "");
 }
 
-const transformedEvents = apiEvents
+const transformedEvents = eventsTemp
   .filter(
     (event) =>
-      event?.bannerImageUrl && event.title && event.tags && event.locationType
+      event?.bannerImageUrl &&
+      event.title &&
+      event.category &&
+      event.locationType
   )
-  .map((event: ApiEvent) => ({
+  .map((event: any) => ({
     id: event.id,
     title: event.title,
     type: event.type,
     location:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    province: event.address?.state || '',
+    province: event.address?.state || "",
     status: event.status,
     format: event.format,
     cost: event.cost,
-    category: event.tags.map((tag) => tag.tag),
-    bannerImage: event.bannerImageUrl || '/placeholder.svg',
-    description: stripHtml(event.description || '') || '',
-    organizer: event.organizer || '',
-    startDate: event.startDate || '',
-    registrationLink: event.registrationLink || '',
-    contactEmail: event.contactEmail || '',
+    category: event.category,
+    bannerImage: event.bannerImageUrl || "/placeholder.svg",
+    description: stripHtml(event.description || "") || "",
+    organizer: event.organizer || "",
+    startDate: event.startDate || "",
+    registrationLink: event.registrationLink || "",
+    contactEmail: event.contactEmail || "",
   }));
 
 const filteredEvents = currentEventId
@@ -59,7 +62,11 @@ const featuredEvents = filteredEvents.slice(
       featuredEvents.map((event) => (
         <a class="card event-card" href={`/events/${createSlug(event.title)}`}>
           <div class="img-wrapper" style="padding: 0px;">
-            <img src={event.bannerImage || "/placeholder.svg"} alt={event.title} style="object-fit: cover;" />
+            <img
+              src={event.bannerImage || "/placeholder.svg"}
+              alt={event.title}
+              style="object-fit: cover;"
+            />
           </div>
           <div class="details">
             <h3 class="name">{event.title}</h3>
@@ -69,7 +76,9 @@ const featuredEvents = filteredEvents.slice(
               </span>
               <span class="address">{event.location}</span>
             </p>
-            <p class="about">{event.description.split("<br>")[0].substring(0, 108)}...</p>
+            <p class="about">
+              {event.description.split("<br>")[0].substring(0, 108)}...
+            </p>
             <div class="tags">
               {event.category.slice(0, 3).map((tag: string) => (
                 <span class="tag">{tag}</span>
@@ -92,42 +101,45 @@ const featuredEvents = filteredEvents.slice(
 </div>
 
 <style>
-	.featured-card-section {
-	  margin: 53px auto 40px auto;
-	  max-width: 1200px;
-	}
-  
-	.cards-container {
-	  display: grid;
-	  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-	  gap: 20px;
-	  padding: 0 15px;
-	  justify-content: flex-start;
-	}
-  
-	.event-card {
-	  max-width: 300px;
-	  width: 100%;
-	}
-  
-	@media screen and (max-width: 768px) {
-	  .featured-card-section {
-		margin: 24px 32px 64px;
-	  }
-  
-	  .cards-container {
-		grid-template-columns: 1fr; 
-	  }
-	}
-  </style>
+  .featured-card-section {
+    margin: 53px auto 40px auto;
+    max-width: 1200px;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+    justify-content: flex-start;
+  }
+
+  .event-card {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .featured-card-section {
+      margin: 24px 32px 64px;
+    }
+
+    .cards-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
 <script>
   import { createMobileSlider } from "src/utils/slider";
-  
+
   const cards = document.querySelectorAll<HTMLElement>(".event-card");
-  const cardControlsElement = document.querySelector<HTMLElement>(".event-card-controls");
-  const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
-  
+  const cardControlsElement = document.querySelector<HTMLElement>(
+    ".event-card-controls"
+  );
+  const bars =
+    cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
+
   if (cardControlsElement && bars) {
     createMobileSlider(cards, bars);
   }
