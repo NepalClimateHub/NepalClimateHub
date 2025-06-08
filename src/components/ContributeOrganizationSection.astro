@@ -1,0 +1,222 @@
+---
+import { Icon } from 'astro-icon/components';
+import contributeImg from '../assets/contribute.png';
+---
+
+<section
+  class="contribute-organization-section section-container"
+  id="submit-org-profile"
+>
+  <div class="organization-container">
+    <div class="organization-text">
+      <h2>Organization</h2>
+      <p>
+        Are you part of an organisations working in climate education, research,
+        resilience, policy, advocacy, or technology? Get featured in our
+        directory.
+      </p>
+      <div class="organization-why-title">
+        Why submit your organisation's profile?
+      </div>
+      <ul class="organization-list">
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Increase visibility – Introduce your organisations to a network of climate
+          enthusiasts, professionals, champions, and change makers
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Resource sharing – Promote knowledge exchange and collaboration
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Attract talent – Connect with individuals passionate about climate action
+        </li>
+        <li>
+          <Icon
+            name="hugeicons:arrow-right-02"
+            class="arrow-icon right-arrow-icon"
+          />
+          Collective impact – Joining a network of climate change makers to strengthen
+          Nepal's climate movement
+        </li>
+      </ul>
+      <p class="organization-note">
+        Every opportunity shared can change someone's future in climate action!
+      </p>
+      <button class="organization-btn"
+        ><a href="https://forms.gle/ygtkox9TaQtWP9FK6" target="_blank"
+          >Submit Organization</a
+        ></button
+      >
+    </div>
+    <div class="organization-image">
+      <img
+        src="https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/contribute-organizations.jpg"
+        alt="Organization"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .contribute-organization-section {
+    background-color: white;
+    margin: 54px auto;
+  }
+
+  .organization-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 26px;
+  }
+
+  .organization-text {
+    flex: 0 0 1;
+    width: 652px;
+    padding-bottom: 24px;
+  }
+
+  .organization-text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    color: #1a1b1e;
+  }
+
+  .organization-text p {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 18px;
+    line-height: 24px;
+  }
+
+  .organization-why-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 12px;
+  }
+
+  .organization-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+  }
+
+  .organization-list li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #1a1b1e;
+    line-height: 1.5;
+  }
+
+  .arrow-icon {
+    width: 22px;
+    height: 22px;
+    font-weight: bold;
+    color: black;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .organization-note {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 18px;
+    line-height: 24px;
+  }
+
+  .organization-btn {
+    border: none;
+    background-color: none;
+    border-radius: 16px;
+  }
+
+  .organization-btn a {
+    background-color: #1a1b1e;
+    padding: 8px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: white;
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .organization-btn a:hover {
+    background-color: #cefe00;
+    color: #25262b;
+  }
+
+  .organization-image {
+    width: 572px;
+    height: 411px;
+    flex: 0 0 1;
+  }
+
+  .organization-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eee;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .organization-container {
+      margin: 0px 48px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .organization-container {
+      margin: 0px 24px;
+      flex-direction: column-reverse;
+    }
+
+    .organization-text,
+    .organization-image {
+      width: 100%;
+    }
+
+    .organization-image {
+      height: 225px;
+    }
+  }
+
+  /* Very small mobile screens */
+  @media (max-width: 480px) {
+    .organization-container {
+      margin: 0px 24px;
+    }
+
+    .organization-text h2 {
+      font-size: 1.3rem;
+    }
+
+    .organization-text p,
+    .organization-list li,
+    .organization-note {
+      font-size: 0.98rem;
+    }
+  }
+</style>

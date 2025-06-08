@@ -1,267 +1,236 @@
 ---
-import { Icon } from 'astro-icon/components';
-
-import Bibek from '../assets/profile/Bibek.jpg';
-import Elaine from '../assets/profile/Elaine.jpg';
-import Manon from '../assets/profile/Manon.jpg';
-import TaraM from '../assets/profile/TaraM.jpg';
+import Alisha from '../assets/profile/alisha.png';
+import teamData from '../data/team.json';
 ---
 
-<div class="section-container">
-	<h2 class="section-heading">Operating Team</h2>
-	<div class="volunteer-section">
-		<div class="volunteer-card">
-			<p>
-				We are currently recruiting for our first volunteer Operating Team to
-				keep Nepal Climate Hub running. Passionate about climate knowledge and
-				action? Join us.
-			</p>
-			<button class="volunteer-btn"
-				><a href="/volunteer"
-					><Icon name="hugeicons:energy" class="energy-icon" />Volunteer</a
-				></button
-			>
-		</div>
-	</div>
+<div class="container">
+  <h2 class="section-title">Our Team</h2>
+  <p class="section-description">
+    {teamData.description}
+  </p>
 
-	<h2 class="section-heading">Founding Team</h2>
-	<div class="founding-team-section">
-		<div class="card-wrapper">
-			<!-- card one -->
-
-			<div class="card">
-				<div class="card-header">
-					<div class="img-wrapper">
-						<img src={Bibek.src} alt="" />
-					</div>
-					<div class="card-header-details">
-						<h3 class="name">Bibek Pant</h3>
-						<p class="role">Hub Owner & Engineering</p>
-						<p>
-							<a
-								href="https://www.linkedin.com/in/pantbibek21/?locale=en_US"
-								target="_blank">Connect on LinkedIn</a
-							>
-						</p>
-					</div>
-				</div>
-
-				<div class="card-bio">
-					<p>
-						A computer science graduate deeply passionate about climate change
-						solutions and technology. In 2023, Bibek started his climate journey
-						as a fellow at the Authentic Leadership Institute Nepal and
-						participated in the Local Conference of Youth. In 2024, he joined
-						the Climatebase Fellowship and co-founded the Nepal Climate Hub,
-						bringing together professionals to drive climate action.
-					</p>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<div class="img-wrapper">
-						<img src={Elaine.src} alt="" />
-					</div>
-					<div class="card-header-details">
-						<h3 class="name">Elaine Shum</h3>
-						<p class="role">Design</p>
-						<p>
-							<a
-								href="https://www.linkedin.com/in/shumelaine/?locale=en_US"
-								target="_blank">Connect on LinkedIn</a
-							>
-						</p>
-					</div>
-				</div>
-
-				<div class="card-bio">
-					<p>
-						A seasoned New York design leader in digital products and brand
-						experiences. Elaine is passionate about influencing human behaviors
-						and sustainable outcomes. Inspired by regenerative travel in the
-						Himalayas to contribute to this Nepal community climate initiative.
-					</p>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<div class="img-wrapper">
-						<img src={Manon.src} alt="" />
-					</div>
-					<div class="card-header-details">
-						<h3 class="name">Manon Jacquin</h3>
-						<p class="role">Product</p>
-						<p>
-							<a
-								href="https://nl.linkedin.com/in/manon-jacquin-mj/?locale=en_US"
-								target="_blank">Connect on LinkedIn</a
-							>
-						</p>
-					</div>
-				</div>
-
-				<div class="card-bio">
-					<p>
-						A technical product manager skilled in building community and
-						database products. Manon has a background in international law and
-						French diplomacy at the UN, giving her a global perspective. An avid
-						nature lover and hiker, her passion for the outdoors led her to this
-						climate initiative.
-					</p>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<div class="img-wrapper">
-						<img src={TaraM.src} alt="">
-					</div>
-					<div class="card-header-details">
-						<h3 class="name">Tara Marathe</h3>
-						<p class="role">Communications</p>
-						<p>
-							<a
-								href="https://www.linkedin.com/in/tara-marathe/?locale=en_US"
-								target="_blank">Connect on LinkedIn</a
-							>
-						</p>
-					</div>
-				</div>
-
-				<div class="card-bio">
-					<p>
-						An experienced San Francisco Bay Area chief of staff and leader in
-						communications and project management with a background in
-						environmental science. Inspired by the power of science and
-						collective action to build a sustainable future.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  {
+    teamData.categories.map((category) => (
+      <>
+        <h3 class={`team-category ${category.name.toLowerCase()}-category`}>
+          {category.name}
+        </h3>
+        <div class={`${category.name.toLowerCase()}-grid team-grid`}>
+          {category.members.map((member) => (
+            <div class="team-member">
+              <div class="member-image-container">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="member-image"
+                />
+              </div>
+              <div class="member-content">
+                <p class="member-bio">{member.bio}</p>
+                <div class="member-info">
+                  <h4 class="member-name">{member.name}</h4>
+                  <p class="member-title">{member.title}</p>
+                  <a
+                    href={member.linkedIn}
+                    class="social-link"
+                    aria-label="LinkedIn profile"
+                    target="_blank"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM8 7C8.55228 7 9 7.44772 9 8V8.01C9 8.56228 8.55228 9.01 8 9.01C7.44772 9.01 7 8.56228 7 8.01V8C7 7.44772 7.44772 7 8 7ZM8 10C8.55228 10 9 10.4477 9 11V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V11C7 10.4477 7.44772 10 8 10ZM11 16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13C13 12.7348 13.1054 12.4804 13.2929 12.2929C13.4804 12.1054 13.7348 12 14 12C14.2652 12 14.5196 12.1054 14.7071 12.2929C14.8946 12.4804 15 12.7348 15 13V16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16V13C17 12.2043 16.6839 11.4413 16.1213 10.8787C15.5587 10.3161 14.7957 10 14 10C13.5483 10 13.1071 10.1019 12.7071 10.2929C12.5261 10.1119 12.2761 10 12 10C11.4477 10 11 10.4477 11 11V16Z"
+                        fill="#212529"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM8 7C8.55228 7 9 7.44772 9 8V8.01C9 8.56228 8.55228 9.01 8 9.01C7.44772 9.01 7 8.56228 7 8.01V8C7 7.44772 7.44772 7 8 7ZM8 10C8.55228 10 9 10.4477 9 11V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V11C7 10.4477 7.44772 10 8 10ZM11 16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13C13 12.7348 13.1054 12.4804 13.2929 12.2929C13.4804 12.1054 13.7348 12 14 12C14.2652 12 14.5196 12.1054 14.7071 12.2929C14.8946 12.4804 15 12.7348 15 13V16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16V13C17 12.2043 16.6839 11.4413 16.1213 10.8787C15.5587 10.3161 14.7957 10 14 10C13.5483 10 13.1071 10.1019 12.7071 10.2929C12.5261 10.1119 12.2761 10 12 10C11.4477 10 11 10.4477 11 11V16Z"
+                        fill="black"
+                        fill-opacity="0.2"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    ))
+  }
 </div>
 
 <style>
-	.section-heading {
-		font-size: 24px;
-		line-height: 32px;
-		margin: 32px 0px;
-	}
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
 
-	.volunteer-card {
-		/* max-width: 314px; */
-		border: 1px solid #cefe00;
-		padding: 24px 16px;
-		border-radius: 8px;
-		background-color: #f8f9fa;
-	}
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-bottom: 0.5rem;
+    color: #000;
+  }
 
-	.volunteer-card p {
-		line-height: 24px;
-		font-style: italic;
-		margin-bottom: 16px;
-	}
+  .section-description {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 3rem;
+    color: #333;
+  }
 
-	.volunteer-btn {
-		border: none;
-		background-color: #cefe00;
-		border-radius: 16px;
-	}
+  .team-category {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    color: #000;
+  }
 
-	.volunteer-btn a {
-		display: block;
-		font-size: 14px;
-		line-height: 16px;
-		text-decoration: none;
-		color: #25262b;
-		padding: 8px 16px;
-		border-radius: 16px;
-	}
+  .team-grid,
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
 
-	.volunteer-btn a:hover {
-		background-color: #1a1b1e;
-		color: white;
-	}
+  .team-member {
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
 
-	.energy-icon {
-		margin-right: 4px;
-		transform: translateY(2px);
-	}
+  .member-image-container {
+    flex-shrink: 0;
+    position: relative;
+    width: 205px;
+    height: 305px;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+  }
 
-	.founding-team-section {
-		margin-bottom: 64px;
-	}
+  .member-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 12px;
+  }
 
-	.card-wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 32px 24px;
-	}
+  .member-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-	.card {
-		width: 48%;
-	}
+  .member-bio {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 34px;
+    color: #333;
+  }
 
-	.card-header {
-		display: flex;
-		align-items: center;
-		gap: 24px;
-		margin-bottom: 16px;
-	}
+  .member-info {
+    margin-top: auto;
+  }
 
-	.card-header .img-wrapper {
-		width: 120px;
-		height: 120px;
-		border-radius: 50%;
-	}
+  .member-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #000;
+  }
 
-	.card-header .img-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		border-radius: 50%;
-	}
+  .member-title {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
 
-	.card-header .name {
-		font-size: 20px;
-		line-height: 24px;
-		font-weight: 700px;
-	}
+  .tech-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
 
-	.card-header .role {
-		font-size: 14px;
-		line-height: 16px;
-		margin-bottom: 12px;
-	}
+  .tech-category {
+    margin-top: 4rem;
+  }
 
-	.card a {
-		font-size: 12px;
-		line-height: 14px;
-		color: #364fc7;
-		text-decoration: none;
-	}
+  .social-link {
+    display: inline-flex;
+    color: #333;
+    transition: color 0.2s ease;
+  }
 
-	.card-bio {
-		line-height: 24px;
-	}
+  .social-link:hover {
+    color: #0077b5;
+  }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 24px 64px;
-		}
+  .advisor-category {
+    margin-top: 4rem;
+  }
 
-		.volunteer-card {
-			width: 100%;
-		}
+  .advisor-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
 
-		.founding-team-section .card-wrapper {
-			flex-direction: column;
-		}
+  @media screen and (max-width: 1280px) {
+    .container {
+      padding: 64px 48px;
+    }
+  }
 
-		.card-wrapper .card {
-			width: 100%;
-		}
-	}
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .advisor-team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-grid,
+    .leadership-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 568px) {
+    .container {
+      padding: 64px 24px;
+    }
+
+    .team-member {
+      flex-direction: column;
+    }
+
+    .member-image-container {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .tech-team-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
 </style>

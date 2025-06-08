@@ -1,13 +1,11 @@
 ---
 import '../styles/global.css';
-import { CardContainer } from '@components/CardContainer';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardFilterSection from '@layouts/CardFilterSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
 
-// get organizations JSON data
-import OrganizationsJSON from '../data/organizations.json';
+import { OrganizationSection } from './sections/OrganizationSection';
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -31,16 +29,8 @@ import OrganizationsJSON from '../data/organizations.json';
           filter="false"
         />
       </section>
-
-      <section class="organization-cards-section">
-        <CardContainer
-          client:load
-          cardsArray={OrganizationsJSON}
-          dataType="organization"
-          cardProfilePictureBgSize="contain"
-          cardPadding="4px 8px"
-          initialCardCount="12/"
-        />
+      <section>
+        <OrganizationSection client:load />
       </section>
     </div>
 
