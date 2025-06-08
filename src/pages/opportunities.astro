@@ -1,49 +1,50 @@
 ---
-import '../styles/global.css';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardFilterSection from '@layouts/CardFilterSection.astro';
-import BaseLayout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import CardFilterSection from "@layouts/CardFilterSection.astro";
+import BaseLayout from "../layouts/Layout.astro";
+import opportunitiesTemp from "../data/opportunitiesTemp.json";
 
-import OpportunityFilter from '@components/OpportunityFilter.tsx';
+import OpportunityFilter from "@components/OpportunityFilter.tsx";
 import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
-} from '../types/opportunity';
-import { fetchOpportunities } from '../utils/api';
+} from "../types/opportunity";
+import { fetchOpportunities } from "../utils/api";
 
-const { data: apiOpportunities } = await fetchOpportunities();
+// const { data: apiOpportunities } = await fetchOpportunities();
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '');
+  return html.replace(/<[^>]*>/g, "");
 }
 
-const opportunities = apiOpportunities.map((opportunity: ApiOpportunity) => ({
+const opportunities = opportunitiesTemp.map((opportunity: any) => ({
   id: opportunity.id,
   title: opportunity.title,
-  type: opportunity.type || '',
+  type: opportunity.type || "",
   locationType:
     opportunity.locationType.charAt(0).toUpperCase() +
     opportunity.locationType.slice(1).toLowerCase(),
-  province: opportunity.address?.state || '',
-  status: opportunity.status || '',
-  format: opportunity.format || '',
-  cost: opportunity.cost || '',
-  organization: (opportunity as any).organization || '',
-  description: stripHtml(opportunity.description || '') || '',
-  category: opportunity.tags?.map((tag: OpportunityTag) => tag.tag) || [],
-  bannerImage: opportunity.bannerImageUrl || '/placeholder.svg',
-  applicationDeadline: opportunity.applicationDeadline || '',
-  duration: (opportunity as any).duration || '',
-  applicationDetail: opportunity.applicationLink || '#',
-  contactEmail: (opportunity as any).contactEmail || '',
-  website: (opportunity as any).website || '',
+  province: opportunity.address?.state || "",
+  status: opportunity.status || "",
+  format: opportunity.format || "",
+  cost: opportunity.cost || "",
+  organization: (opportunity as any).organization || "",
+  description: stripHtml(opportunity.description || "") || "",
+  category: opportunity.tagsId || [],
+  bannerImage: opportunity.bannerImageUrl || "/placeholder.svg",
+  applicationDeadline: opportunity.applicationDeadline || "",
+  duration: (opportunity as any).duration || "",
+  applicationDetail: opportunity.applicationLink || "#",
+  contactEmail: (opportunity as any).contactEmail || "",
+  website: (opportunity as any).website || "",
   socials: (opportunity as any).socials || {
-    facebook: '',
-    linkedin: '',
-    instagram: '',
+    facebook: "",
+    linkedin: "",
+    instagram: "",
   },
-  contributedBy: (opportunity as any).contributedBy || '',
+  contributedBy: (opportunity as any).contributedBy || "",
 }));
 ---
 
