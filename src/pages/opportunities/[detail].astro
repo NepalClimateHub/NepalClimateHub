@@ -1,24 +1,25 @@
 ---
 export const prerender = true;
 
-import '../../styles/global.css';
-import ConnectCard from '@components/ConnectCard.astro';
-import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardDetailSection from '@layouts/CardDetailSection.astro';
-import BaseLayout from '../../layouts/Layout.astro';
+import "../../styles/global.css";
+import ConnectCard from "@components/ConnectCard.astro";
+import FeaturedOpportunitySection from "@components/FeaturedOpportunitySection.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import CardDetailSection from "@layouts/CardDetailSection.astro";
+import BaseLayout from "../../layouts/Layout.astro";
 import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
-} from '../../types/opportunity';
-import { fetchOpportunities } from '../../utils/api';
-import { createSlug } from '../../utils/slug';
+} from "../../types/opportunity";
+import { fetchOpportunities } from "../../utils/api";
+import { createSlug } from "../../utils/slug";
+import opportunitiesTemp from "../../data/opportunitiesTemp.json";
 
 export async function getStaticPaths() {
-  const { data: opportunities } = await fetchOpportunities();
+  // const { data: opportunities } = await fetchOpportunities();
 
-  return opportunities.map((opportunity) => {
+  return opportunitiesTemp.map((opportunity) => {
     const slug = createSlug(opportunity.title);
     return {
       params: { detail: slug },
@@ -27,13 +28,13 @@ export async function getStaticPaths() {
 }
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '');
+  return html.replace(/<[^>]*>/g, "");
 }
 
 const { detail } = Astro.params;
 
-const { data: allOpportunities } = await fetchOpportunities();
-const apiOpportunity = allOpportunities.find(
+// const { data: allOpportunities } = await fetchOpportunities();
+const apiOpportunity = opportunitiesTemp.find(
   (opportunity) => createSlug(opportunity.title) === detail
 );
 
@@ -43,14 +44,13 @@ if (!apiOpportunity) {
 
 const opportunityDetail = {
   ...apiOpportunity,
-  bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
-  description: stripHtml(apiOpportunity.description || '') || '',
+  bannerImage: apiOpportunity.bannerImageUrl || "/placeholder.svg",
+  description: stripHtml(apiOpportunity.description || "") || "",
   location:
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
-  province: apiOpportunity.address?.state || '',
-  category: apiOpportunity.tags?.map((tag: OpportunityTag) => tag.tag) || [],
-  applicationDetail: apiOpportunity.applicationLink || '#',
+  province: apiOpportunity.address?.state || "",
+  category: apiOpportunity.tagIds?.map((tag: any) => tag.tag) || [],
 };
 ---
 
@@ -67,25 +67,28 @@ const opportunityDetail = {
     </section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId={0} organization="false" dataObj={opportunityDetail} />
+      <CardDetailSection
+        cardId={0}
+        organization="false"
+        dataObj={opportunityDetail}
+      />
     </section>
 
     <section class="connect-card-section">
-      <ConnectCard cardId={0} organization="false" dataObj={opportunityDetail} />
-    </section>
-
-    <section class="application">
-      <h2>Application</h2>
-      <p class="application-text">
-        To apply for this opportunity, please visit the official website by clicking the button below.
-      </p>
-      <a href={opportunityDetail?.applicationDetail ?? "#"} target="_blank" rel="noopener noreferrer">
-        <button class="application-button">Apply Now</button>
-      </a>
+      <ConnectCard
+        cardId={0}
+        organization="false"
+        dataObj={opportunityDetail}
+      />
     </section>
 
     <section class="organization-section">
-      <FeaturedOpportunitySection startIndex={0} endIndex={4} title="Other Opportunities" currentOpportunityId={apiOpportunity.id} />
+      <FeaturedOpportunitySection
+        startIndex={0}
+        endIndex={4}
+        title="Other Opportunities"
+        currentOpportunityId={apiOpportunity.id}
+      />
     </section>
 
     <section class="footer-section">
@@ -128,7 +131,7 @@ const opportunityDetail = {
   }
 
   .application-button:hover {
-    background-color: #364FC7;
+    background-color: #364fc7;
   }
 
   @media screen and (max-width: 768px) {

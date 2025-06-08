@@ -35,7 +35,7 @@ export const Card = <T,>({
   if (isEvent || isOpportunity) {
     image =
       (data as any).bannerImage ||
-      'https://placehold.co/600x400/cefe00/black.png?text=NCH%20Events';
+      'https://placehold.co/600x400/cefe00/black.png?text=Nepal%20Climate%20Hub';
   } else if (isOrganization) {
     image =
       (data as any).logoUrl ||
