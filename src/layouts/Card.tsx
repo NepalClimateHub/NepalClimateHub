@@ -33,7 +33,9 @@ export const Card = <T,>({
   // Handle different image property names based on data type
   let image = '';
   if (isEvent || isOpportunity) {
-    image = (data as any).bannerImage || '/images/event-placeholder.jpg';
+    image =
+      (data as any).bannerImage ||
+      'https://placehold.co/600x400/cefe00/black.png?text=Nepal%20Climate%20Hub';
   } else if (isOrganization) {
     image =
       (data as any).logoUrl ||
