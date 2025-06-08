@@ -17,6 +17,17 @@
   width: 169px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.menuDropdown {
+  position: absolute;
+  right: 12px;
+  font-size: 13px;
+
+  top: 40px;
+
+  color: rgba(0, 0, 0, 0.315);
 }
 
 .filterGroup label {
@@ -35,8 +46,9 @@
   outline: none;
   background-color: #fff;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color
-    0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  appearance: none;
 }
 
 /* Hover Effect — subtle border only */

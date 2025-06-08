@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/EventFilter.module.css';
 import { CardContainer } from './CardContainer';
 
@@ -70,23 +71,52 @@ const filterOptions = [
     name: 'cost',
     label: 'Cost',
     defaultOption: 'All Cost Types',
-    options: ['Fully Funded', 'Partially Funded', 'Paid', 'Free'],
+    options: [
+      'Fully Funded',
+      'Partially Funded',
+      'Paid',
+      'Free',
+      'Invite only',
+    ],
   },
   {
     name: 'category',
     label: 'Category',
     defaultOption: 'All Categories',
     options: [
-      'Climate Action',
-      'Youth Leadership',
-      'Sustainability',
-      'Climate Policy',
-      'Environmental Advocacy',
-      'Public Engagement',
+      'Climate Mitigation',
+      'Climate Adaptation',
+      'Climate Activism & Advocacy',
+      'Climate Justice',
+      'Social Equity',
+      'Gender and Climate',
+      'Youth Empowerment',
+      'Climate Litigation',
+      'Research & Education',
+      'Science Communication',
+      'Media Communication',
+      'Indigenous Knowledge',
+      'Climate and Mental Health',
+      'Ecosystem Conservation',
+      'Wildlife & Biodiversity',
       'Renewable Energy',
-      'Technology',
-      'Innovation',
-      'Community Engagement',
+      'Environment',
+      'Sustainability',
+      'Pollution & Waste Management',
+      'Circular Economy',
+      'Transportation & Mobility',
+      'Nature-Based Solutions',
+      'Carbon Sequestration',
+      'Food, Water & Agriculture',
+      'Disaster Risk Management',
+      'Community Resilience',
+      'Climate Finance',
+      'Carbon Markets',
+      'Loss & Damage',
+      'Climate Technology',
+      'Digital Solutions',
+      'Climate Policy',
+      'Climate Diplomacy',
     ],
   },
 ];
@@ -148,6 +178,9 @@ const EventFilter: React.FC<Props> = ({ events }) => {
                 </option>
               ))}
             </select>
+            <span className={styles.menuDropdown}>
+              <FaChevronDown />
+            </span>
           </div>
         ))}
       </div>
