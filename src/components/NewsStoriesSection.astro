@@ -1,21 +1,22 @@
 ---
-import NewsFilter from '../components/NewsFilter.jsx';
-import { fetchNews } from '../utils/api';
-import sortNewsArray from '../utils/sortNewsArray.js';
-import type { SortData } from '../utils/sortNewsArray.js';
+import NewsFilter from "../components/NewsFilter.jsx";
+import { fetchNews } from "../utils/api";
+import sortNewsArray from "../utils/sortNewsArray.js";
+import type { SortData } from "../utils/sortNewsArray.js";
+import newsTemp from "../data/newsTemp.json";
 
-const { data: newsData } = await fetchNews();
-const transformedData: SortData[] = newsData.map((item, index) => ({
-  id: index,
+// const { data: newsData } = await fetchNews();
+const transformedData: SortData[] = newsTemp.map((item, index) => ({
+  id: index.toString(),
   title: item.title,
   source: item.source,
   mode: item.mode,
-  category: item.tags.map((tag) => tag.tag),
+  category: item.category.map((tag) => String(tag)),
   publishedDate: item.publishedDate,
   publishedYear: item.publishedYear,
   newsLink: item.newsLink,
   contributedBy: item.contributedBy,
-  imgSrc: item.bannerImageUrl,
+  imgSrc: item.imgSrc,
 }));
 
 const NewsJSON = sortNewsArray(transformedData);
