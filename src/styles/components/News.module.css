@@ -1,0 +1,235 @@
+.sectionContainer {
+  margin: 24px auto 83px;
+  position: relative;
+}
+
+.pageTitle {
+  font-size: 32px;
+  line-height: 60px;
+  font-weight: 700;
+}
+
+.pageTagline {
+  line-height: 24px;
+  margin-bottom: 48px;
+}
+
+.newsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.newsCard {
+  width: 49%;
+  display: block;
+  border-bottom: 1px solid #cefe00;
+  margin-bottom: 12px;
+}
+
+.newsCard a {
+  cursor: pointer;
+  color: #1a1b1e;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.newsCard:hover .newsHeadline {
+  text-decoration: underline;
+}
+
+.newsHeadline {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  text-transform: capitalize;
+  width: calc(100% - 136px);
+}
+
+.newsImageWrapper {
+  width: 112px;
+  height: 112px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.newsImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.link a {
+  font-size: 14px;
+  color: #364fc7;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+.linkDateWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.date span {
+  font-size: 14px;
+  color: #1a1b1e;
+  line-height: 16px;
+  font-style: italic;
+}
+
+.linkIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+.noResults {
+  border: 2px solid rgba(255, 0, 0, 0.233);
+  width: 100%;
+  margin-bottom: 100px;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  color: red;
+}
+
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  margin-top: -24px;
+}
+
+.filterGroup {
+  width: 200px;
+  flex: 0 0 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.filterGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.filterContainer select {
+  color: #878b97;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid rgba(26, 27, 30, 0.12);
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  padding-right: 30px;
+  appearance: none;
+}
+
+.menuDropdown {
+  position: absolute;
+  right: 12px;
+  font-size: 13px;
+
+  top: 40px;
+
+  color: rgba(0, 0, 0, 0.315);
+}
+
+/* Hover Effect */
+.filterContainer select:hover {
+  background-color: rgba(54, 79, 199, 0.04);
+  border-color: rgba(54, 79, 199, 0.2);
+}
+
+.filterContainer option {
+  background-color: white;
+}
+
+/* Focus Effect */
+.filterContainer select:focus {
+  background-color: #f9f9fb; /* Soft dim */
+  border-color: #5b72e89e;
+  box-shadow: 0 0 2px rgba(91, 115, 232, 0.15);
+}
+
+.searchButtonContainer {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  margin-top: 0;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
+}
+
+/* Add a wrapper for the news container */
+.newsContainerWrapper {
+  padding: 0 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterGroup {
+    width: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    justify-content: center;
+  }
+
+  .filterContainer select {
+    width: 100%;
+  }
+
+  .searchButtonContainer {
+    width: 100%;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+
+  .newsContainer {
+    padding: 0;
+  }
+
+  .newsCard {
+    width: 100%; /* Make news cards full width on mobile */
+  }
+}

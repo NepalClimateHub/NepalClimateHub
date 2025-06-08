@@ -1,87 +1,99 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 // import card container styles(reusing)
-import '../styles/components/FeaturedCardStyles.css';
+import "../styles/components/FeaturedCardStyles.css";
 
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
-//sample event JSON event
-import opportunityJSON from '../data/opportunities.json';
+// Import the dummy opportunity JSON
+import opportunityJSON from "../data/opportunitiesTemp.json";
 const { startIndex, endIndex, title } = Astro.props;
+
+// Create slugs for the opportunities
+import { createSlug } from "../utils/slug";
 ---
 
 <div class="section-container featured-card-section">
-	<h2 class="section-heading">{title}</h2>
+  <h2 class="section-heading">{title}</h2>
 
-	<!-- container to wrap event cards -->
+  <!-- container to wrap opportunity cards -->
 
-	<!-- render the event from eventJSON -->
-	<div class="cards-container">
-		{
-			opportunityJSON.slice(startIndex, endIndex).map((item) => (
-			<a class="card event-card" href={`/opportunities/${item.slug}`}>
-					<div class="img-wrapper" style="padding: 0px;">
-						<img src={item.logoUrl} alt={item.name} style="object-fit: cover;" />
-					</div>
-					<div class="details">
-						<h3 class="name">{item.name}</h3>
-						<p class="location">
-							<span class="icon">
-								<Icon name="mdi:my-location" class="icon" />
-							</span>
-							<span class="address">{item.address}</span>
-						</p>
-						<p class="about">{item.description.substring(0, 108)}...</p>
-						<div class="tags">
-							{item.tags.slice(0, 3).map((tag: string) => (
-								<span class="tag">{tag}</span>
-							))}
-						</div>
-					</div>
-				</a>
-			))
-		}
+  <!-- render the opportunities from opportunityJSON -->
+  <div class="cards-container" style="margin-bottom:72px;">
+    {
+      opportunityJSON.slice(startIndex, endIndex).map((item) => (
+        <a
+          class="card opportunity-card"
+          href={`/opportunities/${createSlug(item.title)}`}
+        >
+          <div class="img-wrapper" style="padding: 0px;">
+            <img
+              src={item.bannerImageUrl || "/images/opportunity-placeholder.jpg"}
+              alt={item.title}
+              style="object-fit: cover;"
+            />
+          </div>
+          <div class="details">
+            <h3 class="name">{item.title}</h3>
+            <p class="location">
+              <span class="icon">
+                <Icon name="mdi:my-location" class="icon" />
+              </span>
+              <span class="address">{item.locationType}</span>
+            </p>
+            <p class="about">{item.description.substring(0, 108)}...</p>
+            <div class="tags">
+              {item.category.slice(0, 3).map((tag: string, index: number) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))
+    }
 
-		<!-- slide control bars for mobile display -->
+    <!-- slide control bars for mobile display -->
 
-		<div class="card-controls event-card-controls">
-			<span class="bar bar-event-section"></span>
-			<span class="bar bar-event-section"></span>
-			<span class="bar bar-event-section"></span>
-			<span class="bar bar-event-section"></span>
-		</div>
-	</div>
+    <div class="card-controls opportunity-card-controls">
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+    </div>
+  </div>
 
-	<!-- link to redirect landing page of events -->
-	<a href="/opportunities" class="cta-link">See All</a>
+  <!-- link to redirect landing page of opportunities -->
+  <a href="/opportunities" class="cta-link">See All</a>
 </div>
 
 <style>
-	.featured-card-section {
-  	margin: 53px auto 40px auto;
-}
-
-@media screen and (max-width: 768px) {
   .featured-card-section {
-    margin: 24px 32px 64px;
+    margin: 53px auto 40px auto;
   }
 
-}
+  @media screen and (max-width: 768px) {
+    .featured-card-section {
+      margin: 24px 32px 64px;
+    }
+  }
 </style>
 
-
 <script>
-	import { createMobileSlider } from "src/utils/slider";
-	
-	// Get the necessary elements
-	const cards = document.querySelectorAll<HTMLElement>(".event-card");
-	const cardControlsElement = document.querySelector<HTMLElement>(".event-card-controls");
-	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
-	
-	// Check if cardControlsElement and bars are not null
-	if (cardControlsElement && bars) {
-		// Call the function to create the mobile slider
-		createMobileSlider(cards, bars);
-	}
-	</script>
+  import { createMobileSlider } from "src/utils/slider";
+
+  // Get the necessary elements
+  const cards = document.querySelectorAll<HTMLElement>(".opportunity-card");
+  const cardControlsElement = document.querySelector<HTMLElement>(
+    ".opportunity-card-controls"
+  );
+  const bars = cardControlsElement?.querySelectorAll<HTMLElement>(
+    ".bar-opportunity-section"
+  );
+
+  // Check if cardControlsElement and bars are not null
+  if (cardControlsElement && bars) {
+    // Call the function to create the mobile slider
+    createMobileSlider(cards, bars);
+  }
+</script>

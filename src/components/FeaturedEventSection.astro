@@ -1,87 +1,116 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import "../styles/components/FeaturedCardStyles.css";
+import { Icon } from "astro-icon/components";
+import type { Event as ApiEvent } from "../types/event";
+import { fetchEvents } from "../utils/api";
+import { createSlug } from "../utils/slug";
+import eventsTemp from "../data/eventsTemp.json";
+const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
-// import card container styles(reusing)
-import '../styles/components/FeaturedCardStyles.css';
+// const { data: apiEvents } = await fetchEvents();
 
-import { Icon } from 'astro-icon/components';
+function stripHtml(html: string) {
+  return html.replace(/<[^>]*>/g, "");
+}
 
-//sample event JSON event
-import eventJSON from '../data/events.json';
-const { startIndex, endIndex, title } = Astro.props;
+const transformedEvents = eventsTemp
+  .filter(
+    (event) =>
+      event?.bannerImageUrl &&
+      event.title &&
+      event.category &&
+      event.locationType
+  )
+  .map((event: any) => ({
+    id: event.id,
+    title: event.title,
+    type: event.type,
+    location:
+      event.locationType.charAt(0).toUpperCase() +
+      event.locationType.slice(1).toLowerCase(),
+    province: event.address?.state || "",
+    status: event.status,
+    format: event.format,
+    cost: event.cost,
+    category: event.category,
+    bannerImage: event.bannerImageUrl || "/placeholder.svg",
+    description: stripHtml(event.description || "") || "",
+    organizer: event.organizer || "",
+    startDate: event.startDate || "",
+    registrationLink: event.registrationLink || "",
+    contactEmail: event.contactEmail || "",
+  }));
+
+const filteredEvents = currentEventId
+  ? transformedEvents.filter(
+      (event) => event.id.toString() !== currentEventId.toString()
+    )
+  : transformedEvents;
+
+const featuredEvents = filteredEvents.slice(
+  startIndex,
+  Math.min(endIndex, startIndex + 4)
+);
 ---
 
 <div class="section-container featured-card-section">
-	<h2 class="section-heading">{title}</h2>
+  <h2 class="section-heading">{title}</h2>
 
-	<!-- container to wrap event cards -->
+  <div class="cards-container">
+    {
+      featuredEvents.map((event) => (
+        <a class="card event-card" href={`/events/${createSlug(event.title)}`}>
+          <div class="img-wrapper" style="padding: 0px;">
+            <img
+              src={event.bannerImage || "/placeholder.svg"}
+              alt={event.title}
+              style="object-fit: cover;"
+            />
+          </div>
+          <div class="details">
+            <h3 class="name">{event.title}</h3>
+            <p class="location">
+              <span class="icon">
+                <Icon name="mdi:my-location" class="icon" />
+              </span>
+              <span class="address">{event.location}</span>
+            </p>
+            <p class="about">
+              {event.description.split("<br>")[0].substring(0, 108)}...
+            </p>
+            <div class="tags">
+              {event.category.slice(0, 3).map((tag: string) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))
+    }
 
-	<!-- render the event from eventJSON -->
-	<div class="cards-container">
-		{
-			eventJSON.slice(startIndex, endIndex).map((event) => (
-			<a class="card event-card" href={`/events/${event.slug}`}>
-					<div class="img-wrapper" style="padding: 0px;">
-						<img src={event.logoUrl} alt={event.name} style="object-fit: cover;" />
-					</div>
-					<div class="details">
-						<h3 class="name">{event.name}</h3>
-						<p class="location">
-							<span class="icon">
-								<Icon name="mdi:my-location" class="icon" />
-							</span>
-							<span class="address">{event.address}</span>
-						</p>
-						<p class="about">{event.description.substring(0, 108)}...</p>
-						<div class="tags">
-							{event.tags.slice(0, 3).map((tag: string) => (
-								<span class="tag">{tag}</span>
-							))}
-						</div>
-					</div>
-				</a>
-			))
-		}
+    <div class="card-controls event-card-controls">
+      <span class="bar bar-event-section"></span>
+      <span class="bar bar-event-section"></span>
+      <span class="bar bar-event-section"></span>
+      <span class="bar bar-event-section"></span>
+    </div>
+  </div>
 
-		<!-- slide control bars for mobile display -->
-
-		<div class="card-controls event-card-controls">
-			<span class="bar bar-event-section"></span>
-			<span class="bar bar-event-section"></span>
-			<span class="bar bar-event-section"></span>
-			<span class="bar bar-event-section"></span>
-		</div>
-	</div>
-
-	<!-- link to redirect landing page of events -->
-	<a href="/events" class="cta-link">See All</a>
+  <a href="/events" class="cta-link">See All</a>
 </div>
 
-<style>
-	.featured-card-section {
-  	margin: 53px auto 40px auto;
-}
-
-@media screen and (max-width: 768px) {
-  .featured-card-section {
-    margin: 24px 32px 64px;
-  }
-
-}
-</style>
-
-
 <script>
-	import { createMobileSlider } from "src/utils/slider";
-	
-	// Get the necessary elements
-	const cards = document.querySelectorAll<HTMLElement>(".event-card");
-	const cardControlsElement = document.querySelector<HTMLElement>(".event-card-controls");
-	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
-	
-	// Check if cardControlsElement and bars are not null
-	if (cardControlsElement && bars) {
-		// Call the function to create the mobile slider
-		createMobileSlider(cards, bars);
-	}
-	</script>
+  import { createMobileSlider } from "src/utils/slider";
+
+  const cards = document.querySelectorAll<HTMLElement>(".event-card");
+  const cardControlsElement = document.querySelector<HTMLElement>(
+    ".event-card-controls"
+  );
+  const bars =
+    cardControlsElement?.querySelectorAll<HTMLElement>(".bar-event-section");
+
+  if (cardControlsElement && bars) {
+    createMobileSlider(cards, bars);
+  }
+</script>

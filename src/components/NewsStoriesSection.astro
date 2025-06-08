@@ -1,165 +1,50 @@
 ---
-import { Icon } from 'astro-icon/components';
-import NewsJSONData from '../data/news.json';
-import sortNewsArray from '../utils/sortNewsArray.js';
+import NewsFilter from "../components/NewsFilter.jsx";
+import { fetchNews } from "../utils/api";
+import sortNewsArray from "../utils/sortNewsArray.js";
+import type { SortData } from "../utils/sortNewsArray.js";
+import newsTemp from "../data/newsTemp.json";
 
-const NewsJSON = sortNewsArray(NewsJSONData);
+// const { data: newsData } = await fetchNews();
+const transformedData: SortData[] = newsTemp.map((item, index) => ({
+  id: index.toString(),
+  title: item.title,
+  source: item.source,
+  mode: item.mode,
+  category: item.category.map((tag) => String(tag)),
+  publishedDate: item.publishedDate,
+  publishedYear: item.publishedYear,
+  newsLink: item.newsLink,
+  contributedBy: item.contributedBy,
+  imgSrc: item.imgSrc,
+}));
+
+const NewsJSON = sortNewsArray(transformedData);
 ---
 
 <div class="section-container">
-	<h2 class="page-title">News</h2>
-	<p class="page-tagline">Read up on the latest climate-related Nepal news.</p>
-
-	<!-- container to wrap news card -->
-
-	<div class="news-container">
-		{
-			NewsJSON.map((news: any) => (
-				<div class="news-card">
-					<a href={news.newsSrc} target="_blank">
-						<div class="content">
-							<h3 class="news-headline">{news.headline}</h3>
-							<div class="news-image-wrapper">
-								<img src={news.imgSrc} alt={news.headline} />
-							</div>
-						</div>
-
-						<div class="link-date-wrapper">
-							<div class="link">
-								<span class="link-icon">
-									<Icon name="mdi:link" />
-								</span>
-								<a href={news.newsSrc} target="_blank">
-									{news.linkText}
-								</a>
-							</div>
-
-							<div class="date">
-								<span class="link-icon">
-									<Icon name="mdi:clock" />
-								</span>
-								<span>{news.date}</span>
-							</div>
-						</div>
-					</a>
-				</div>
-			))
-		}
-	</div>
+  <NewsFilter client:load newsData={NewsJSON} />
 </div>
-
 <style>
-	.section-container {
-		margin: 24px auto 83px;
-		position: relative;
-	}
-
-	.page-title {
-		font-size: 32px;
-		line-height: 60px;
-		font-weight: 700;
-	}
-
-	.page-tagline {
-		line-height: 24px;
-		margin-bottom: 48px;
-	}
-
-	.news-container {
-		display: flex;
-		flex-wrap: wrap;
-		overflow: hidden;
-		gap: 24px;
-	}
-
-	.news-card {
-		width: 48%;
-		display: block;
-		text-decoration: none;
-
-		padding-bottom: 12px;
-		border-bottom: 1px solid #cefe00;
-		overflow: hidden;
-	}
-
-	.news-card > a {
-		cursor: pointer;
-		color: #1a1b1e;
-		text-decoration: none;
-		transition: color 0.2s ease-in-out;
-	}
-
-	.news-card .content {
-		display: flex;
-		justify-content: space-between;
-		gap: 16px;
-		margin-bottom: 12px;
-	}
-
-	.news-card:hover .news-headline {
-		text-decoration: underline;
-	}
-
-	.news-headline {
-		font-size: 20px;
-		line-height: 24px;
-		font-weight: 700;
-		text-transform: capitalize;
-		width: calc(100% - 136px);
-	}
-
-	.news-image-wrapper {
-		width: 112px;
-		height: 112px;
-		border-radius: 8px;
-		overflow: hidden;
-	}
-
-	.news-image-wrapper img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.link a{
-		font-size: 14px;
-		color: #364fc7;
-		line-height: 16px;
-		text-decoration: none;
-    float: left;
-	}
-
-  .date {
-    float: right;
+  .section-container {
+    margin: 24px auto 83px;
+    position: relative;
   }
 
-	.date span {
-		font-size: 14px;
-		color: #1a1b1e;
-		line-height: 16px;
-    font-style: italic;
-	}
+  /* media queries for mobile */
 
-	.link-icon {
-		display: inline-block;
-		vertical-align: middle;
-    margin-right: 2px;
-	}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 32px 64px;
+    }
 
-	/* media queries for mobile */
+    .news-container {
+      flex-direction: column;
+      gap: 24px;
+    }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 32px 64px;
-		}
-
-		.news-container {
-			flex-direction: column;
-			gap: 24px;
-		}
-
-		.news-card {
-			width: 100%;
-		}
-	}
+    .news-card {
+      width: 100%;
+    }
+  }
 </style>
