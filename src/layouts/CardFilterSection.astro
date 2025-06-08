@@ -38,14 +38,12 @@ const { heading, filter, type } = Astro.props;
   {
     type == "event" && (
       <p class="page-tagline">
-        Learn about recent and upcoming meetings, conferences, and other
-        advocacy events – and how you can participate – using the links below.
-        If you are hosting an upcoming climate event not featured here, please
-        email us at{" "}
-        <a href="mailto:info@nepalclimatehub.org" class="event-link">
-          info@nepalclimatehub.org
+        Explore upcoming climate meetings and events. Hosting or know an event?
+        Head to our{" "}
+        <a href="/contribute" class="event-link">
+          Contribute
         </a>{" "}
-        with the event details so we can update our list.
+        page to share the details.
       </p>
     )
   }
@@ -53,13 +51,11 @@ const { heading, filter, type } = Astro.props;
   {
     type == "opportunity" && (
       <p class="page-tagline">
-        Discover recent and upcoming opportunities, including grants,
-        fellowships, training programs, and advocacy initiatives. If you know of
-        any opportunities, email us at{" "}
-        <a href="mailto:info@nepalclimatehub.org" class="event-link">
-          info@nepalclimatehub.org
-        </a>
-        , and we'll add it to our list.
+        Discover climate opportunities. Know of one we missed? Visit our{" "}
+        <a href="/contribute" class="event-link">
+          Contribute
+        </a>{" "}
+        page to share it.
       </p>
     )
   }
@@ -67,9 +63,9 @@ const { heading, filter, type } = Astro.props;
   {
     filter == "true" && (
       <div class="filter-wrapper">
-        <button class="filter-btn">
+        {/* <button class="filter-btn">
           Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
-        </button>
+        </button> */}
       </div>
     )
   }

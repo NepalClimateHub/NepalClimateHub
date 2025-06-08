@@ -1,194 +1,276 @@
 ---
-import { Icon } from 'astro-icon/components';
-import type { Organization } from '../interfaces/organizationInterface';
-// dataObj can either be organization data or activist data; sent via props
-const { dataObj } = Astro.props;
+import { Icon } from "astro-icon/components";
+import type { Organization } from "../interfaces/organizationInterface";
+
+// dataObj can either be organization data or activist data or event data; sent via props
+const { dataObj, organization = "true" } = Astro.props;
+
+// Check if this is an event (has different structure than organizations/activists)
+const isEvent = organization === "false" && dataObj && "title" in dataObj;
 
 // initialize activeDataObject with a proper type
-const activeDataObject: Organization | null = dataObj;
+const activeDataObject = dataObj;
+
+// Get the appropriate properties based on data type
+const name = isEvent ? activeDataObject?.title : activeDataObject?.name;
+const location = isEvent
+  ? activeDataObject?.location
+  : activeDataObject?.address;
+const description = activeDataObject?.description || "";
+
+// Handle tags/categories differently based on data type
+const tags = isEvent
+  ? activeDataObject?.category || []
+  : activeDataObject?.tags || [];
+
+// Handle pictures differently based on data type
+const pictures = isEvent
+  ? [activeDataObject?.bannerImage].filter(Boolean)
+  : activeDataObject?.pictures || [];
 ---
 
 <div class="section-container">
-	<!-- container for organization card -->
-	<div class="card-container">
-		<div class="card-details-wrapper">
-			<h2 class="card-name">
-				{activeDataObject?.name}
-			</h2>
-			<div class="address"><span class="icon">
-				<Icon name="mdi:my-location" class="icon" />
-			</span> {activeDataObject?.address}</div>
-			<div class="detail">
-				{
-					activeDataObject?.description
-						.split("<br>")
-						.map((paragraph) => <p>{paragraph}</p>)
-				}
-			</div>
+  <!-- container for organization card -->
+  <div class="card-container">
+    <div class="card-details-wrapper">
+      <h2 class="card-name">
+        {name}
+      </h2>
+      <div class="address">
+        <span class="icon">
+          <Icon name="mdi:my-location" class="icon" />
+        </span>
+        {location}
+      </div>
 
-			<!-- tags for organizations / activists causes -->
-			<div class="tags">
-				{activeDataObject?.tags.map((tag) => <span class="tag">{tag}</span>)}
-			</div>
-		</div>
+      <div class="detail">
+        {
+          description
+            .split(/\\n|<br>/)
+            .map((paragraph: string) => <p>{paragraph}</p>)
+        }
+      </div>
 
-		<!-- image container section -->
-		<div class="img-container">
-			{
-				activeDataObject?.pictures.length == 1 ? (
-					// if length == 1, then apply single-image-wrapper class
-					<div class="img-wrapper single-image-wrapper">
-						<img src={activeDataObject.pictures[0]} alt="" />
-					</div>
-				) : (
-					activeDataObject?.pictures.map((pictureURL) => (
-						<div class="img-wrapper">
-							<img src={pictureURL} alt="" />
-						</div>
-					))
-				)
-			}
-		</div>
-	</div>
+      <!-- tags for organizations / activists causes -->
+      <div class="tags">
+        {tags.map((tag: string) => <span class="tag">{tag}</span>)}
+      </div>
+
+      {
+        isEvent && activeDataObject?.registrationLink && (
+          <div class="registration">
+            <a
+              href={activeDataObject.registrationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="register-button"
+            >
+              Register Now
+            </a>
+            {activeDataObject?.registrationDeadline && (
+              <p class="deadline">
+                Registration Deadline:{" "}
+                {new Date(
+                  activeDataObject.registrationDeadline
+                ).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+            )}
+          </div>
+        )
+      }
+    </div>
+
+    <!-- image container section -->
+    <div class="img-container">
+      {
+        pictures.length == 1 ? (
+          // if length == 1, then apply single-image-wrapper class
+          <div class="img-wrapper single-image-wrapper">
+            <img src={pictures[0] || "/placeholder.svg"} alt="" />
+          </div>
+        ) : (
+          pictures.map((pictureURL: string) => (
+            <div class="img-wrapper">
+              <img src={pictureURL || "/placeholder.svg"} alt="" />
+            </div>
+          ))
+        )
+      }
+    </div>
+  </div>
 </div>
 
 <style>
-	.card-container {
-		margin: 36px 0px 88px;
-		display: flex;
-		gap: 16px 32px;
-	}
+  .card-container {
+    margin: 36px 0px 88px;
+    display: flex;
+    gap: 16px 32px;
+  }
 
-	.card-details-wrapper {
-		width: 50%;
-		border-bottom: 1px solid #cefe00;
-		padding-bottom: 16px;
-	}
+  .card-details-wrapper {
+    width: 50%;
+    border-bottom: 1px solid #cefe00;
+    padding-bottom: 16px;
+  }
 
-	.card-name {
-		font-size: 32px;
-		font-weight: 700;
-		line-height: 40px;
-		margin-bottom: 23px;
-	}
+  .card-name {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 23px;
+  }
 
-	.address {
-		font-size: 14px;
-		line-height: 16px;
-		color: #364FC7;
-		margin-bottom: 27px;
-	}
+  .address,
+  .event-meta {
+    font-size: 14px;
+    line-height: 16px;
+    color: #364fc7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 
-	.detail {
-		margin-bottom: 36px;
-	}
+  .detail {
+    margin-bottom: 36px;
+  }
 
-	.detail p {
-		line-height: 24px;
-		margin-bottom: 16px;
-	}
+  .detail p {
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
 
-	.tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
-	}
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
 
-	.tag {
-		display: inline-block;
-		font-size: 12px;
-		color: #364fc7;
-		line-height: 14px;
-		padding: 5px 12px;
-		border: 1px solid #cefe00;
-		border-radius: 16px;
-	}
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    color: #364fc7;
+    line-height: 14px;
+    padding: 5px 12px;
+    border: 1px solid #cefe00;
+    border-radius: 16px;
+  }
 
-	.img-container {
-		width: 50%;
-		display: flex;
-		align-items: center;		
-	}
+  .registration {
+    margin-top: 20px;
+  }
 
-	.img-wrapper {
-		width: 100%;
-		height: auto;
-		border-radius: 16px;
-	}
+  .register-button {
+    display: inline-block;
+    background-color: #cefe00;
+    color: #1a1b1e;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
 
-	/* for the activist profile picture only */
-	.single-image-wrapper {
-		width: 100%;
-		height: auto;
-		margin-left: auto;
-		float: right;
-		border-radius: 16px;
-	}
+  .register-button:hover {
+    background-color: #b8e500;
+  }
 
-	.img-wrapper img {
-		width: 100%;
-		height: auto;
-		object-fit: contain;
-		border-radius: 16px;
-	}
+  .deadline {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+  }
 
-	/* style for responsiveness */
+  .img-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
 
-	@media screen and (max-width: 1200px) {
-		.single-image-wrapper {
-			width: 95%;
-			height: 70%;
-		}
-	}
+  .img-wrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
 
-	@media screen and (max-width: 924px) {
-		.card-container {
-			flex-direction: column;
-			gap: 24px;
-		}
+  /* for the activist profile picture only */
+  .single-image-wrapper {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    float: right;
+    border-radius: 16px;
+  }
 
-		.card-details-wrapper,
-		.img-container {
-			width: 100%;
-		}
+  .img-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+  }
 
-		.img-container {
-			gap: 16px;
-		}
+  /* style for responsiveness */
 
-		.img-wrapper {
-			width: 46%;
-		}
+  @media screen and (max-width: 1200px) {
+    .single-image-wrapper {
+      width: 95%;
+      height: 70%;
+    }
+  }
 
-		.single-image-wrapper {
-			width: 100%;
-			height: auto;
-		}
-	}
+  @media screen and (max-width: 924px) {
+    .card-container {
+      flex-direction: column;
+      gap: 24px;
+    }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 24px 64px;
-		}
+    .card-details-wrapper,
+    .img-container {
+      width: 100%;
+    }
 
-		.img-container {
-			gap: 8px;
-		}
+    .img-container {
+      gap: 16px;
+    }
 
-		.img-wrapper {
-			width: 48%;
-			height: 160px;
-		}
+    .img-wrapper {
+      width: 46%;
+    }
 
-		.single-image-wrapper {
-			width: 100%;
-			height: auto;
-		}
-	}
+    .single-image-wrapper {
+      width: 100%;
+      height: auto;
+    }
+  }
 
-	@media screen and (max-width: 512px) {
-		.card-container {
-			flex-direction: column-reverse;
-		}
-	}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 24px 64px;
+    }
+
+    .img-container {
+      gap: 8px;
+    }
+
+    .img-wrapper {
+      width: 48%;
+      height: 160px;
+    }
+
+    .single-image-wrapper {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 512px) {
+    .card-container {
+      flex-direction: column-reverse;
+    }
+  }
 </style>

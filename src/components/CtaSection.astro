@@ -2,30 +2,41 @@
 import '../styles/global.css';
 ---
 
-<div class="section-container">
-	<div class="content-section">
-		<p class="tagline">
-			A centralized knowledge hub to inspire collective climate action.
-		</p>
-		<button class="cta-button"><a href="/organizations">Find Organizations</a></button>
-	</div>
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
 
-	<div class="video-section">
-		<h3 class="video-title">
-			UN Chief calls for climate action from Mt. Everest
-		</h3>
-		<div class="video">
-      <iframe src="https://www.youtube.com/embed/bN3gVb__tmA?si=1lgCaagaTFdJ7XY-" title="YouTube video player" allow="autoplay; clipboard-write; encrypted-media;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-		</div>
-		<p class="description">
-			“The world cannot wait!” –UN chief, Antonio Guterres from the base of Mt.
-			Everest, on the terrible impact of the climate crisis on the Himalayas.
-		</p>
-	</div>
+<div class="section-container">
+  <div class="content-section">
+    <p class="tagline">
+      A centralized knowledge hub to inspire collective climate action.
+    </p>
+    <button class="cta-button"
+      ><a href="/organizations">Find Organizations</a></button
+    >
+  </div>
+
+  <div class="video-section">
+    <h3 class="video-title">
+      UN Chief calls for climate action from Mt. Everest
+    </h3>
+    <div class="video">
+      <iframe
+        src="https://www.youtube.com/embed/bN3gVb__tmA?si=1lgCaagaTFdJ7XY-"
+        title="YouTube video player"
+        allow="autoplay; clipboard-write; encrypted-media;"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <p class="description">
+      “The world cannot wait!” –UN chief, Antonio Guterres from the base of Mt.
+      Everest, on the terrible impact of the climate crisis on the Himalayas.
+    </p>
+  </div>
 </div>
 
 <style>
-    .section-container {
+  .section-container {
     margin: 53px auto 83px;
     display: flex;
     gap: 28px;
@@ -41,7 +52,7 @@ import '../styles/global.css';
     font-size: 30px;
     font-weight: 700;
     line-height: 36px;
-    font-family: "Zilla Slab";
+    font-family: "Zilla Slab", serif;
     margin-bottom: 24px;
   }
 
@@ -65,9 +76,9 @@ import '../styles/global.css';
   }
 
   .cta-button a:hover {
-		background-color: #cefe00;
-		color: #25262b;
-	}
+    background-color: #cefe00;
+    color: #25262b;
+  }
 
   .video-section {
     width: 55%;
@@ -94,7 +105,7 @@ import '../styles/global.css';
   .video-title {
     font-size: 24px;
     line-height: 32px;
-    font-weight: 700px;
+    font-weight: bold;
     grid-area: title;
   }
 
@@ -123,7 +134,7 @@ import '../styles/global.css';
       margin-bottom: 12px;
     }
 
-    .video-section .description  {
+    .video-section .description {
       width: 100%;
     }
   }
@@ -134,7 +145,8 @@ import '../styles/global.css';
       flex-direction: column;
     }
 
-    .content-section, .video-section {
+    .content-section,
+    .video-section {
       width: 100%;
     }
 
@@ -143,5 +155,3 @@ import '../styles/global.css';
     }
   }
 </style>
-
-

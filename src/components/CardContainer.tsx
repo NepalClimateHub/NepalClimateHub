@@ -1,30 +1,31 @@
 import '../styles/global.css';
-import { Card } from '@layouts/Card.jsx';
+import { Card } from '@layouts/Card';
 import { type CSSProperties, useEffect, useState } from 'react';
-import type { Organization } from 'src/interfaces/organizationInterface';
 import styles from '../styles/components/CardContainer.module.css';
 
-// cardsArray consists of JSON data of either organizations or climate activists
-// this is a reuseable template in organization landing page card section and activists landing page card sections
-
-interface CardContainerProps {
-  cardsArray: Organization[];
+// Generic props for card container
+interface CardContainerProps<T> {
+  cardsArray: T[];
   dataType: string;
   cardProfilePictureBgSize: CSSProperties['objectFit'];
   cardPadding: string;
-  initialCardCount: string;
+  initialCardCount: number | string;
 }
 
-export const CardContainer = ({
+export const CardContainer = <T extends { id: string | number }>({
   cardsArray,
   dataType,
   cardProfilePictureBgSize,
   cardPadding,
   initialCardCount,
-}: CardContainerProps) => {
-  const [cardCounter, setCardCounter] = useState(
-    Number.parseInt(initialCardCount)
-  );
+}: CardContainerProps<T>) => {
+  // Handle the case where initialCardCount might be a string like "12/"
+  const parsedInitialCount =
+    typeof initialCardCount === 'string'
+      ? Number.parseInt(initialCardCount.replace('/', ''), 10)
+      : Number.parseInt(initialCardCount.toString());
+
+  const [cardCounter, setCardCounter] = useState(parsedInitialCount || 8);
   const [isBtnVisible, setIsBtnVisible] = useState(true);
 
   function handleLoadMore() {
@@ -34,8 +35,10 @@ export const CardContainer = ({
   useEffect(() => {
     if (cardCounter >= cardsArray.length) {
       setIsBtnVisible(false);
+    } else {
+      setIsBtnVisible(true);
     }
-  }, [cardCounter]);
+  }, [cardCounter, cardsArray.length]);
 
   return (
     <div className={`${styles['section-container']} section-container`}>
