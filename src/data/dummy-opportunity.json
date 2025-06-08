@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1,
+    "title": "Climate Change Research Fellowship",
+    "organization": "UNDP",
+    "locationType": "International",
+    "province": "Bagmati",
+    "format": "Physical",
+    "type": "Fellowship",
+    "category": [
+      "Climate Action",
+      "Research",
+      "Sustainability",
+      "Climate Finance",
+      "Climate Education"
+    ],
+    "description": "The Climate Change Research Fellowship is a 6-month immersive program designed to equip young researchers with the skills and knowledge needed to address climate adaptation challenges. Fellows will have the opportunity to work on real-world climate research projects, collaborate with international experts, and contribute to policy recommendations.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "applicationDeadline": "2025-03-15",
+    "duration": "6 months",
+    "applicationDetail": "https://www.undp.org/apply",
+    "contactEmail": "contact@undp.org",
+    "website": "https://www.undp.org",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "socials": {
+      "facebook": "https://www.facebook.com/undp",
+      "linkedin": "https://www.linkedin.com/company/undp",
+      "instagram": "https://www.instagram.com/undp"
+    },
+    "contributedBy": "admin"
+  },
+  {
+    "id": 2,
+    "title": "Climate Resilience Internship Program",
+    "organization": "WWF Nepal",
+    "locationType": "National",
+    "province": "Koshi",
+    "format": "Hybrid",
+    "type": "Internship",
+    "category": [
+      "Conservation",
+      "Climate Resilience",
+      "Biodiversity",
+      "Sustainable Development",
+      "Environmental Policy"
+    ],
+    "description": "Join WWF Nepal's Climate Resilience Internship Program to gain hands-on experience in conservation and climate adaptation projects. Interns will work alongside experienced professionals on projects related to biodiversity conservation, climate change mitigation, and community-based adaptation strategies.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "applicationDeadline": "2025-04-10",
+    "duration": "3 months",
+    "applicationDetail": "https://www.wwfnepal.org/careers/internships",
+    "contactEmail": "careers@wwfnepal.org",
+    "website": "https://www.wwfnepal.org",
+    "status": "Open",
+    "cost": "Paid",
+    "socials": {
+      "facebook": "https://www.facebook.com/wwfnepal",
+      "linkedin": "https://www.linkedin.com/company/wwf-nepal",
+      "instagram": "https://www.instagram.com/wwfnepal"
+    },
+    "contributedBy": "admin"
+  },
+  {
+    "id": 3,
+    "title": "Sustainable Agriculture Grant Program",
+    "organization": "FAO",
+    "locationType": "National",
+    "province": "Lumbini",
+    "format": "Physical",
+    "type": "Grants",
+    "category": [
+      "Agriculture",
+      "Food Security",
+      "Climate-Smart Farming",
+      "Rural Development",
+      "Sustainability"
+    ],
+    "description": "The Sustainable Agriculture Grant Program provides financial support to farmers and agricultural organizations implementing climate-smart farming practices. Grants are available for projects that promote sustainable agriculture, improve food security, and enhance climate resilience in rural communities.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "applicationDeadline": "2025-05-20",
+    "duration": "12 months",
+    "applicationDetail": "https://www.fao.org/nepal/grants",
+    "contactEmail": "grants@fao.org",
+    "website": "https://www.fao.org/nepal",
+    "status": "Upcoming",
+    "cost": "Free",
+    "socials": {
+      "facebook": "https://www.facebook.com/faonepal",
+      "linkedin": "https://www.linkedin.com/company/fao",
+      "instagram": "https://www.instagram.com/fao"
+    },
+    "contributedBy": "admin"
+  },
+  {
+    "id": 4,
+    "title": "Climate Policy Research Scholarship",
+    "organization": "ICIMOD",
+    "locationType": "International",
+    "province": "Bagmati",
+    "format": "Online",
+    "type": "Scholarships",
+    "category": [
+      "Climate Policy",
+      "Mountain Ecosystems",
+      "Research",
+      "Sustainable Development",
+      "Environmental Governance"
+    ],
+    "description": "The Climate Policy Research Scholarship supports graduate students conducting research on climate policy and governance in mountain ecosystems. Recipients will receive funding for their research and have the opportunity to collaborate with ICIMOD's network of researchers and policymakers.",
+    "bannerImage": "https://m.media-amazon.com/images/I/81Vr0-VQhOL._AC_UF1000,1000_QL80_.jpg",
+    "applicationDeadline": "2025-06-15",
+    "duration": "24 months",
+    "applicationDetail": "https://www.icimod.org/scholarships",
+    "contactEmail": "scholarships@icimod.org",
+    "website": "https://www.icimod.org",
+    "status": "Closed",
+    "cost": "Partially Funded",
+    "socials": {
+      "facebook": "https://www.facebook.com/icimod",
+      "linkedin": "https://www.linkedin.com/company/icimod",
+      "instagram": "https://www.instagram.com/icimod"
+    },
+    "contributedBy": "admin"
+  }
+]

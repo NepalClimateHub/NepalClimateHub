@@ -1,49 +1,94 @@
-<div class="section-container">
-	<h2 class="section-heading">Acknowledgements</h2>
+<div class="container">
+  <h2 class="section-title">Acknowledgement</h2>
 
-	<div class="card-wrapper">
-		<div class="card">
-			<p>
-				<a href="https://climatebase.org/fellowship">Climatebase Fellowship</a> for uniting the founding team to create
-				this knowledge hub.
-			</p>
-			<p>
-				<a href="https://unsplash.com/">Unsplash</a> for the beautiful images of Nepal by photographer Julius Zetzsche, Pawan Thapa, Rojan K.C, Kerensa Pickett, Diego Gennaro, Manuel Meurisse, Bernd Dittrich, Shankar Aryans, and Simon Berger. 
-			</p>
-			<p>
-				<a href="https://net0.grant.codes/">Net0.1</a> for sharing a starter kit for building a more sustainable
-				website.
-			</p>
-		</div>
-	</div>
+  <p class="acknowledgement-text">
+    <a href="https://climatebase.org/fellowship" class="link" target="_blank"
+      >Climatebase Fellowship</a
+    > for uniting the founding team to create this knowledge hub.
+  </p>
+
+  <p class="acknowledgement-text">
+    Individuals and climate champions who supported us during our early stages:
+    <span class="names-list">
+      Shreya K.C., Prakriti Koirala, Abhishek Shrestha, Sagar Koirala, Dikshya
+      Subedi, Anjali Sai Chalise, Monica Neupane, Ghanshyam Bhattarai, Preity
+      Gurung, Gauri Jaiswal, Pratima Khadgi, Pratisha Joshi, and Anita Panthi,
+      Rubina Bhattarai, and Jastina Kirati Rai.
+    </span>
+  </p>
+
+  <p class="acknowledgement-text">
+    <a href="https://unsplash.com" class="link" target="_blank">Unsplash</a> for
+    the beautiful images of Nepal by photographer Julius Zetzsche, Pawan Thapa, Rojan
+    K.C, Kerensa Pickett, Diego Gennaro, Manuel Meurisse, Bernd Dittrich, Shankar
+    Aryans, Ghana Shyam Khadka and Simon Berger.
+  </p>
+
+  <p class="acknowledgement-text">
+    Climate visuals courtesy of World Food Forum Nepal, Nepalese Youth for
+    Climate Action, Local Conference of Youth Nepal, SAFE-Nepal, The Great
+    Nepali Diaspora, and People's Climate Mobilisation – Nepal.
+  </p>
 </div>
 
 <style>
-	.section-container {
-		margin: 40px auto 65px;
-		position: relative;
-	}
+  .container {
+    max-width: 1280px;
+    margin: 64px auto;
+  }
 
-	.section-heading {
-		font-size: 24px;
-		line-height: 32px;
-		font-weight: 700;
-		margin-bottom: 16px;
-	}
+  .section-title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
 
-	.card p {
-		line-height: 24px;
-		margin-bottom: 8px;
-	}
+  .acknowledgement-text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
 
-	.card a {
-		text-decoration: none;
-		color: #364fc7;
-	}
+  .highlight-text {
+    color: #3b82f6;
+  }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 32px 64px;
-		}
-	}
+  .names-list {
+    display: block;
+  }
+
+  .link {
+    font-weight: 600;
+    color: #3b82f6;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .unsplash-link:hover {
+    color: #2563eb;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .container {
+      padding: 0px 48px;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0px 24px;
+    }
+
+    .acknowledgement-section {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
 </style>

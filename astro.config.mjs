@@ -1,5 +1,6 @@
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import net0Integration from './toolbar/integration.ts';
@@ -19,4 +20,8 @@ export default defineConfig({
   },
   integrations: [net0Integration, sitemap(), [icon()], react()],
   adapter: netlify(),
+  vite: {
+    plugins: [tailwindcss()],
+    envPrefix: 'PUBLIC_',
+  },
 });

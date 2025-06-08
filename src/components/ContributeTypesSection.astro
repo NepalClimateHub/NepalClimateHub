@@ -1,0 +1,245 @@
+---
+// ContributeTypesSection.astro
+---
+
+<div class="contribute-types-container section-container">
+  <div class="types-content">
+    <h2>How You Can Contribute</h2>
+    <p class="subtitle">Help us gather and share climate updates:</p>
+
+    <div class="contribute-types-row">
+      <div class="contribute-type-item">
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="type-content">
+          <h3>Events:</h3>
+          <p>Workshops, capacity-building programs, training, conferences</p>
+        </div>
+      </div>
+
+      <div class="contribute-type-item">
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12" y2="18"></line>
+          </svg>
+        </div>
+        <div class="type-content">
+          <h3>Opportunities:</h3>
+          <p>Volunteering, jobs, internships, fellowships</p>
+        </div>
+      </div>
+
+      <div class="contribute-type-item">
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            ></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <div class="type-content">
+          <h3>News:</h3>
+          <p>National and international climate news</p>
+        </div>
+      </div>
+
+      <div class="contribute-type-item">
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+            ></path>
+            <path
+              d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+            ></path>
+          </svg>
+        </div>
+        <div class="type-content">
+          <h3>Organisation Profiles</h3>
+          <p>Introduce climate-focused organisations and their work.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="closing-text">
+      Together, we can create a thriving climate network in Nepal!
+    </p>
+  </div>
+</div>
+
+<style>
+  .contribute-types-container {
+    background: #fff;
+    width: 100%;
+    margin-top: 72px;
+    margin-bottom: 46px;
+  }
+
+  .types-content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+
+  .contribute-types-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .contribute-type-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1 1 200px;
+    max-width: 280px;
+  }
+
+  .icon-container {
+    background-color: #1a1b1e;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .icon-container svg {
+    width: 12px;
+    height: 12px;
+    color: white;
+  }
+
+  .type-content h3 {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+
+  .type-content p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .closing-text {
+    font-size: 18px;
+    color: #1a1b1e;
+    line-height: 24px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .types-content {
+      margin: 0px 48px;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .types-content {
+      margin: 0px 48px;
+    }
+
+    .contribute-types-row {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .contribute-type-item {
+      flex: 0 0 calc(50% - 1rem);
+      max-width: calc(50% - 1rem);
+    }
+
+    .contribute-types-container {
+      margin-top: 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .types-content {
+      margin: 0px 24px;
+    }
+
+    .contribute-type-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .subtitle,
+    .closing-text {
+      font-size: 1rem;
+    }
+
+    .contribute-types-container {
+      margin-top: 48px;
+    }
+  }
+</style>
