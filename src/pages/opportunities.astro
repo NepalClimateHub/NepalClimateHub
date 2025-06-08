@@ -32,7 +32,7 @@ const opportunities = opportunitiesTemp.map((opportunity: any) => ({
   cost: opportunity.cost || "",
   organization: (opportunity as any).organization || "",
   description: stripHtml(opportunity.description || "") || "",
-  category: opportunity.tagsId || [],
+  category: opportunity.category,
   bannerImage: opportunity.bannerImageUrl || "/placeholder.svg",
   applicationDeadline: opportunity.applicationDeadline || "",
   duration: (opportunity as any).duration || "",
