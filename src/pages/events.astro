@@ -40,11 +40,10 @@ const events = eventsTemp.map((event: any) => {
     title: event.title,
     type:
       event.type.charAt(0).toUpperCase() + event.type.slice(1).toLowerCase(),
-    location:
+    locationType:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    province: event.address.state,
-    status: statusMap[event.status] || "Closed",
+    status: statusMap[event.status.toUpperCase()] || "Closed",
     format: formatMap[event.format] || "In-person",
     cost: event.cost ? costMap[event.cost] || "Free" : "Free",
     category: event.category,
@@ -54,6 +53,7 @@ const events = eventsTemp.map((event: any) => {
     startDate: event.startDate,
     registrationLink: event.registrationLink,
     contactEmail: event.contactEmail,
+    address: event.address,
   };
 });
 ---
