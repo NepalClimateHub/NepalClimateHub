@@ -248,9 +248,9 @@ const EventFilter: React.FC<Props> = ({ events }) => {
             </span>
           </div>
         ))}
-        <button onClick={resetFilters} className={styles.resetButton}>
+        {/* <button onClick={resetFilters} className={styles.resetButton}>
           Reset Filters
-        </button>
+        </button> */}
       </div>
 
       <div className={styles.cardNotFoundMessage}>
