@@ -1,17 +1,17 @@
 ---
 export const prerender = true;
 
-import "../../styles/global.css";
-import ConnectCard from "@components/ConnectCard.astro";
-import FeaturedEventSection from "@components/FeaturedEventSection.astro";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import CardDetailSection from "@layouts/CardDetailSection.astro";
-import BaseLayout from "../../layouts/Layout.astro";
-import type { Event as ApiEvent } from "../../types/event";
-import { fetchEvents } from "../../utils/api";
-import { createSlug } from "../../utils/slug";
-import eventsTemp from "../../data/eventsTemp.json";
+import '../../styles/global.css';
+import ConnectCard from '@components/ConnectCard.astro';
+import FeaturedEventSection from '@components/FeaturedEventSection.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardDetailSection from '@layouts/CardDetailSection.astro';
+import eventsTemp from '../../data/eventsTemp.json';
+import BaseLayout from '../../layouts/Layout.astro';
+import type { Event as ApiEvent } from '../../types/event';
+import { fetchEvents } from '../../utils/api';
+import { createSlug } from '../../utils/slug';
 // import eventJSON from '../../data/dummy-event.json';
 
 export async function getStaticPaths() {
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, "");
+  return html.replace(/<[^>]*>/g, '');
 }
 
 const { eventDetail } = Astro.params;
@@ -43,11 +43,11 @@ if (!apiEvent) {
 const eventData = {
   ...apiEvent,
   bannerImage: apiEvent.bannerImageUrl,
-  description: stripHtml(apiEvent.description || "") || "",
+  description: stripHtml(apiEvent.description || '') || '',
   location:
     apiEvent.locationType.charAt(0).toUpperCase() +
     apiEvent.locationType.slice(1).toLowerCase(),
-  province: apiEvent.address?.state || "",
+  province: apiEvent.address?.state || '',
   category: apiEvent.category,
 };
 ---

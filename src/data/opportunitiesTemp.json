@@ -1,4 +1,406 @@
 [
+  
+
+ {
+  "title": "2026 EDGE Fellowship – Become a Conservation Leader",
+  "organizer": "Zoological Society of London (ZSL)",
+  "description": "The 2026 EDGE Fellowship empowers emerging leaders working on Evolutionarily Distinct and Globally Endangered (EDGE) species by providing funding, training, and mentorship.\n\nWhat’s in it for you?\n\t•\t £10,000+ grant to implement your own conservation project\n\t•\t6 weeks of in-person training in the UK, including the Conservation Tools & Impact Courses\n\t•\tGlobal mentorship, coaching, and networking opportunities with experts\n\t•\tHands-on experience in project and budget management\n\t•\tEligibility: Open to nationals from lower- and middle-income countries working on species from the official EDGE species list",
+  "location": "United Kingdom",
+  "locationType": "Hybrid",
+  "type": "Fellowship",
+  "format": "Physical",
+  "startDate": null,
+  "registrationDeadline": "2025-06-21",
+  "registrationLink": "",
+  "contactEmail": "edgefellowship@zsl.org",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://www.edgeofexistence.org/edge-fellowship-2026/",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/edge%20fellowship.jpeg",
+  "category": [
+    "Youth Empowerment",
+    "Research & Education",
+    "Ecosystem Conservation",
+    "Wildlife & Biodiversity",
+    "Environment"
+  ],
+  "address": {
+    "street": null,
+    "city": null,
+    "state": null,
+    "zip": null,
+    "country": "United Kingdom"
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/zsledgeofexistence",
+    "linkedin": null,
+    "instagram": null
+  },
+  "id": 32
+},
+{
+  "title": "Climate Justice Camp 2025",
+  "organizer": "ROOTS",
+  "description": "ROOTS invites young climate changemakers from the Global South to apply for  5-day intensive gathering will bring together youth activists working on environmental and social justice issues, providing them with the tools, strategies, and global networks to amplify their climate action back home.",
+  "location": "Bogotá, Colombia",
+  "locationType": "Physical",
+  "type": "Fellowship",
+  "format": "Physical",
+  "startDate": "2025-08-20",
+  "registrationDeadline": "2025-06-22",
+  "registrationLink": "",
+  "contactEmail": "hello@poweredbyroots.org",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://poweredbyroots.org",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/climate%20justice%20camp.jpeg",
+  "category": [
+    "Climate Justice",
+    "Youth Empowerment",
+    "Community Resilience"
+  ],
+  "address": {
+    "street": null,
+    "city": "Bogotá",
+    "state": null,
+    "zip": null,
+    "country": "Colombia"
+  },
+  "socials": {
+    "facebook": null,
+    "linkedin": "https://www.linkedin.com/company/poweredbyroots/",
+    "instagram": null
+  },
+  "id": 33
+},
+{
+  "title": "Green Fellows Program 2025",
+  "organizer": "Green Institute",
+  "description": "The Green Fellows Program 2025 is a prestigious fully funded virtual fellowship led by the Green Institute, open to young sustainability leaders aged 18–35 from around the world. The program supports students, young professionals, and recent graduates working in areas such as sustainability, climate action, food security, and environmental law.",
+  "location": "Virtual",
+  "locationType": "Online",
+  "type": "Fellowship",
+  "format": "Online",
+  "startDate": null,
+  "registrationDeadline": "2025-06-30",
+  "registrationLink": "",
+  "contactEmail": "hello@greeninstitute.ng",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://greeninstitute.ng",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/green%20institute.jpeg",
+  "category": [
+    "Youth Empowerment",
+    "Research & Education",
+    "Climate Adaptation & Mitigation"
+  ],
+  "address": {
+    "street": null,
+    "city": "Lagos",
+    "state": null,
+    "zip": null,
+    "country": "Nigeria"
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/theGreenHQ/",
+    "linkedin": "https://www.linkedin.com/company/greeninstitute/posts/?feedView=all",
+    "instagram": null
+  },
+  "id": 34
+},
+{
+  "title": "Lloyd’s of London Foundation Grant Programme 2025/2026",
+  "organizer": "Lloyd’s of London Foundation",
+  "description": "The Lloyd’s of London Foundation Grant Programme 2025/2026 supports high-impact research projects focused on risk management, climate change adaptation, and global resilience. Open to researchers, institutions, charities, and public sector bodies globally, this grant promotes collaboration, innovation, and applied research aligned with the UN Sustainable Development Goals (SDGs).",
+  "location": "London, United Kingdom",
+  "locationType": "Hybrid",
+  "type": "Grant",
+  "format": "Hybrid",
+  "startDate": null,
+  "registrationDeadline": "2025-07-25",
+  "registrationLink": "",
+  "contactEmail": "globalcommunituengagement@lloyds.org",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://www.lloyds.com/foundation",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/lloyds.jpg",
+  "category": [
+    "Climate Adaptation & Mitigation",
+    "Disaster Risk Management"
+  ],
+  "address": {
+    "street": null,
+    "city": "London",
+    "state": null,
+    "zip": null,
+    "country": "United Kingdom"
+  },
+  "socials": {
+    "facebook": null,
+    "linkedin": "https://www.linkedin.com/company/lloyd%27s-of-london/",
+    "instagram": null
+  },
+  "id": 35
+},
+{
+  "title": "Youth for Climate Hackathon 2025",
+  "organizer": "ICLEI – Local Governments for Sustainability, South Asia",
+  "description": "The Youth for Climate Hackathon 2025, launched by ICLEI South Asia, empowers young changemakers to design evidence-based, city-specific climate adaptation solutions tailored for the unique challenges of South Asian cities. Guided by the COP30 Agenda and ICLEI Pathways, this hybrid competition promotes innovation, community relevance, and alignment with the UN SDGs.",
+  "location": "Virtual",
+  "locationType": "Hybrid",
+  "type": "Competition",
+  "format": "Hybrid",
+  "startDate": "2025-04-01",
+  "registrationDeadline": "2025-06-15",
+  "registrationLink": "",
+  "contactEmail": null,
+  "status": "Open",
+  "cost": "Free",
+  "website": "https://southasia.iclei.org",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/youth%20hackathon.jpg",
+  "category": [
+    "Youth Empowerment",
+    "Climate Technology"
+  ],
+  "address": {
+    "street": null,
+    "city": null,
+    "state": null,
+    "zip": null,
+    "country": null
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/ICLEISouthAsia",
+    "linkedin": null,
+    "instagram": null
+  },
+  "id": 36
+},
+
+{
+  "title": "Art on Climate 2025",
+  "organizer": "Fingertips Company Limited",
+  "description": "The Art on Climate 2025 International Competition invites illustrators and animators aged 18 and above to submit original artworks around the theme of climate change. This year’s competition focuses on innovative and community-centered approaches to climate action, planetary boundaries, inclusive capitalism, and collective action.",
+  "location": "Virtual",
+  "locationType": "Online",
+  "type": "Competition",
+  "format": "Online",
+  "startDate": "2025-05-19",
+  "registrationDeadline": "2025-07-31",
+  "registrationLink": "",
+  "contactEmail": null,
+  "status": "Open",
+  "cost": "Free",
+  "website": "https://www.artonclimate.com/",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/art%20on%20climate.jpg",
+  "category": [
+    "Youth Empowerment"
+  ],
+  "address": {
+    "street": null,
+    "city": "Hong Kong",
+    "state": null,
+    "zip": null,
+    "country": "China"
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/ArtOnClimate",
+    "linkedin": "https://www.linkedin.com/company/allianz-global-investors",
+    "instagram": "https://www.instagram.com/artonclimate"
+  },
+  "id": 38
+},
+{
+  "title": "ANHS-KC Grant for Students",
+  "organizer": "Association for Nepal and Himalayan Studies – Kathmandu Center (ANHS-KC)",
+  "description": "The ANHS-KC Student Grant supports university students from Nepal and the broader Himalayan region to attend the Annual Kathmandu Conference on Nepal and the Himalaya 2025, hosted by Social Science Baha in collaboration with several academic organizations.",
+  "location": "Kathmandu, Nepal",
+  "locationType": "Physical",
+  "type": "Scholarship",
+  "format": "Physical",
+  "startDate": "2025-07-23",
+  "registrationDeadline": "2025-06-25",
+  "registrationLink": "",
+  "contactEmail": "conference@soscbaha.org",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://annualconference.soscbaha.org",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/annual%20kathmandu%20conference.jpg",
+  "category": [
+    "Youth Empowerment",
+    "Research & Education"
+  ],
+  "address": {
+    "street": null,
+    "city": "Kathmandu",
+    "state": "Bagmati",
+    "zip": null,
+    "country": "Nepal"
+  },
+  "socials": {
+    "facebook": null,
+    "linkedin": null,
+    "instagram": null
+  },
+  "id": 39
+},
+{
+  "title": "Fellowship on Countering Climate Disinformation (2025)",
+  "organizer": "Fellowship on Countering Climate Disinformation (2025)",
+  "description": "Fully funded opportunity for grassroots climate organizers from the Global South to join the Fellowship on Countering Climate Disinformation, hosted by CAAD and Roots. Running from July to December 2025, the fellowship empowers changemakers to research climate disinformation in their local context, develop storytelling and public speaking skills, and receive one-on-one mentorship from global experts. Selected fellows will also get the chance to present their work at COP30 in Brazil. No academic background is needed—just real-world experience, curiosity, and commitment. This is a unique opportunity to turn lived experiences into global advocacy and shape how climate truth is defended across digital platforms.",
+  "location": "Virtual",
+  "locationType": "Online",
+  "type": "Fellowship",
+  "format": "Online",
+  "startDate": "2025-07-01",
+  "registrationDeadline": "2025-06-19",
+  "registrationLink": "",
+  "contactEmail": "info@caad.org",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://caad.info",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/countering%20disinformation.jpg",
+  "category": [
+    "Climate Justice",
+    "Climate Activism & Advocacy",
+    "Research & Education",
+    "Media Communication"
+  ],
+  "address": {
+    "street": null,
+    "city": null,
+    "state": null,
+    "zip": null,
+    "country": null
+  },
+  "socials": {
+    "facebook": null,
+    "linkedin": "https://linkedin.com/company/caad",
+    "instagram": "https://instagram.com/rootsclimate"
+  },
+  "id": 40
+},
+{
+  "title": "Girl Tank: Pitch. Power. Planet",
+  "organizer": "Girl Up India",
+  "description": "Girl Tank: Pitch. Power. Planet is a fully funded, two-day virtual innovation competition empowering girls aged 13–18 from India, Nepal, Bangladesh, Sri Lanka, and the Maldives to develop and pitch STEAM-based solutions to climate issues. Hosted by Girl Up India, this event offers mentorship, leadership training, and up to USD 1,000 in funding for 4 winning teams or individuals. The themes align with SDGs like Climate Action, Gender Equality, and Reduced Inequalities. Participants will gain public speaking skills, expert support, and a global platform to showcase their creativity and commitment to climate justice.",
+  "location": "Virtual",
+  "locationType": "Online",
+  "type": "Grant",
+  "format": "Online",
+  "startDate": "2025-06-28",
+  "registrationDeadline": "2025-06-20",
+  "registrationLink": "",
+  "contactEmail": "girlupindia@girlup.org",
+  "status": "Open",
+  "cost": "Fully Funded",
+  "website": "https://girlup.org/india",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/girls%20up%20india.jpg",
+  "category": [
+    "Gender and Climate",
+    "Youth Empowerment",
+    "Climate Activism & Advocacy",
+    "Research & Education"
+  ],
+  "address": {
+    "street": null,
+    "city": null,
+    "state": null,
+    "zip": null,
+    "country": null
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/GirlUp/",
+    "linkedin": "https://www.linkedin.com/company/girlup/",
+    "instagram": "https://www.instagram.com/girlupindia/"
+  },
+  "id": 41
+},
+
+{
+  "title": "DIY Challenge – #BeatPlasticPollution (World Environment Day 2025)",
+  "organizer": "UNESCO, UNICEF, Ministry of Education, Science and Technology, Government of Nepal (Supported by the Government of Norway)",
+  "description": "In celebration of World Environment Day 2025 and the global theme #BeatPlasticPollution, the DIY Challenge invites children aged 8–14 across Nepal to creatively transform plastic and other waste materials into beautiful, useful, or meaningful projects. The challenge encourages recycling, creativity, and climate awareness. Top winners will receive exciting prizes. This initiative is part of a joint project by UNESCO and UNICEF to support climate-smart, green, and resilient education in Nepal.",
+  "location": "Virtual (Nepal-wide)",
+  "locationType": "Online",
+  "type": "Competition",
+  "format": "Online",
+  "startDate": null,
+  "registrationDeadline": "2025-07-05",
+  "registrationLink": "",
+  "contactEmail": "r.rai@unesco.org",
+  "status": "Open",
+  "cost": "Free",
+  "website": "https://www.unesco.org/en/articles/dyi-challenge-beatplasticpollution-challenge",
+  "bannerImageId": null,
+  "bannerImageUrl": "https://ik.imagekit.io/nch/diy%20challenge.jpg",
+  "category": [
+    "Youth Empowerment",
+    "Research & Education",
+    "Sustainability",
+    "Pollution & Waste Management"
+  ],
+  "address": {
+    "street": null,
+    "city": "Kathmandu",
+    "state": "Bagmati",
+    "zip": null,
+    "country": "Nepal"
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/unescoktm",
+    "linkedin": "https://www.linkedin.com/company/unesco",
+    "instagram": "https://www.instagram.com/unescoktm"
+  },
+  "id": 42
+},
+
+
+  {
+    "title": "National Geographic Society Externship",
+    "description": "Together, the National Geographic Society and The Nature Conservancy developed a program centered around a rigorous externship—a highly relevant leadership and mentoring experience for young people ages 18-25.  \\n The goal: intentionally create more opportunities for young people to build the knowledge, tools, and relationships needed to seek solutions and take action in their communities.  \\n The externship includes: \\n Virtual classes: Groups convene online across eight weeks and focus on a priority topic such as marine or freshwater conservation.  \\n Mentorships: Participants connect with each other, work with learning coaches and interact with mentors and experts.  \\n Workshops: The program offers collaborative workshops on research best practices, presentation techniques and other career readiness skills.  \\n Digital presentations: Each participant selects a locally relevant conservation issue to investigate. They apply the methods and skills that are covered to give an interactive digital presentation.  \\n Seed funding: As the externship concludes, participants can apply for seed funding to begin to enact the solutions they identified in their communities. \\n Students who successfully complete their externships will receive their educational stipends ($500) at the end of the program. This stipend is provided to offset internet and technology costs required for program completion to those who successfully complete the externship. \\n Apply at: https://www.extern.com/national-geographic-society-and-the-nature-conservancy-externships ",
+    "location": "Virtual",
+    "locationType": "International",
+    "type": "Internship",
+    "format": "Online",
+    "applicationDeadline": "2025-06-15T00:00:00",
+    "duration": "8 weeks",
+    "contactEmail": "",
+    "website": "https://www.nature.org/en-us/about-us/who-we-are/how-we-work/youth-engagement/externships/",
+    "status": "Open",
+    "cost": "Free",
+    "organizer": "National Geographic Society",
+    "address": {
+      "state": null,
+      "country": null,
+      "city": null,
+      "street": null,
+      "postcode": null
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/thenatureconservancy",
+      "instagram": "https://www.instagram.com/nature_org/",
+      "linkedin": "https://www.linkedin.com/company/the-nature-conservancy/"
+    },
+    "bannerImageUrl": "https://ik.imagekit.io/4ic2qxite/externship.png",
+    "bannerImageId": null,
+    "category": [
+      "Wildlife & Biodiversity",
+      "Ecosystem Conservation ",
+      "Environment"
+    ],
+    "id": "01350576-16ae-43ed-afdb-419be790af70"
+  },
+ 
   {
     "title": "South Asian Climate Justice Fellowship 2025",
     "description": "The South Asian Climate Justice Fellowship 2025 is a 3-month hybrid program aimed at empowering young climate advocates across South Asia. The fellowship offers expert-led virtual training on climate justice, environmental governance, and climate finance, as well as group and individual mentorship. Outstanding participants will be selected for a fully funded, in-person Climate Justice Camp in Pokhara, Nepal. This program emphasizes grassroots leadership, community-based solutions, and regional collaboration for climate resilience.\\n\\nEligibility:\\n- Youth aged 18-29 from South Asia\\n- Passionate about climate justice and community-level climate action\\n- Grassroots activists, indigenous voices, and youth from marginalized communities are especially encouraged to apply\\n\\nBenefits:\\n- Expert mentorship and virtual training on key climate topics\\n- Peer learning and regional networking\\n- Opportunity to attend a fully funded in-person Climate Justice Camp in Pokhara, Nepal\\n- Enhanced skills in climate advocacy and policy engagement",
