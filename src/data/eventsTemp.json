@@ -1,5 +1,83 @@
 [
   {
+    "title": "Youth For Climate Hackathon",
+    "organizer": "ICLEI- South Asia",
+    "description": "The Youth for Climate Hackathon is a regional innovation challenge for young change-makers (ages 18–25) across South Asia. Organized by ICLEI South Asia, this hackathon calls on youth to design evidence-based, city-specific solutions for adapting to climate change. Aligned with the COP30 Agenda and ICLEI Pathways, the initiative seeks creative, practical ideas that can make a real impact in urban South Asia.\\n\\n\ud83d\udc65 Eligibility/Requirements\\nAge: 18–25 years\\nRegion: Open to individuals from South Asian countries\\nBackground: Students, young professionals, entrepreneurs, and startups\\nFields: Climate science, urban planning, energy, mobility, biodiversity, social sciences, and more\\n\\nTeams: 1–4 members per team\\n\\n\ud83c\udfaf Theme: Adaptation to Climate Change | Evidence-based Solutions for South Asian Cities\\n\\n\ud83d\udca1 What You’ll Submit\\n\ud83d\uddbc\ufe0f A1 Poster Presentation\\n\ud83d\udcc4 A4 Summary (500 words) — Including problem, solution, feasibility, scalability, and impact\\n\\n\ud83c\udfc6 Why Join?\\n\ud83d\udca1 Tackle real-world urban climate challenges\\n\ud83c\udfc6 Win prizes + internship opportunities with ICLEI South Asia\\n\ud83c\udf31 Develop solutions aligned with SDGs\\n\ud83c\udf10 Connect with experts, peers, and sustainability networks\\n Register here: https://docs.google.com/forms/d/1cFgdrTxLV_9YDdGeWXF35l2fq4Zujr9XqusqnbPe3xk/viewform?ts=68073168&edit_requested=true",
+    "location": "Kathmandu, Nepal",
+    "locationType": "National",
+    "type": "Hackathon",
+    "format": "Hybrid",
+    "startDate": "2025-09-10",
+    "registrationDeadline": "2025-06-15",
+    "registrationLink": "",
+    "contactEmail": "youth@icleisouthasia.org",
+    "status": "Upcoming",
+    "cost": "Fully Funded",
+    "website": "https://southasia.iclei.org/hackathon/",
+    "bannerImageId": null,
+    "bannerImageUrl": "",
+    "category": [
+      "Youth Empowerment",
+      "Science Communication",
+      "Renewable Energy",
+      "Sustainability",
+      "Digital Solutions",
+      "Climate Technology"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": "Bagmati",
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/ICLEISouthAsia/",
+      "linkedin": null,
+      "instagram": null
+    },
+    "id": 34
+  },
+  {
+    "title": "7th International Conference on Mountains in the Changing World (MoChWo 2025)",
+    "organizer": "Kathmandu Institute of Applied Sciences (KIAS)",
+    "description": "MoChWo is an international scientific conference that brings together researchers, students, practitioners, and policymakers to address key challenges facing mountain regions. Hosted annually by KIAS, the event promotes interdisciplinary dialogue on climate change, biodiversity, sustainable development, and resilience in mountain environments. \\n \\n 👥 Who Can Join?\\n Open to:\\n - Researchers, academics, and students\\n - Practitioners from NGOs, government, and international agencies \\n - Policy experts and community leaders \\n - Anyone working on or interested in mountain-related issues is welcome. \\n 🌟 Why Participate? \\n - Present your research to a global audience \\n - Learn from leading experts across disciplines \\n - Network with peers, mentors, and policymakers \\n - Engage in cross-sector discussions \\n -  Contribute to sustainable and resilient mountain development \\n  📍 Join MoChWo and be part of a global effort to protect mountain ecosystems and uplift mountain communities.",
+    "location": "Kathmandu, Nepal",
+    "locationType": "National",
+    "type": "Conference",
+    "format": "In-person",
+    "startDate": "2025-09-10",
+    "registrationDeadline": "2025-09-15",
+    "registrationLink": "",
+    "contactEmail": "conference@kias.org.np",
+    "status": "Upcoming",
+    "cost": "Partially Funded",
+    "website": "https://conference.kias.org.np/services/",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/nch/kias-conference.jpg",
+    "category": [
+      "Research & Education",
+      "Wildlife & Biodiversity",
+      "Renewable Energy",
+      "Sustainability",
+      "Disaster Risk Management"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": "Bagmati",
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/mochwo/",
+      "linkedin": null,
+      "instagram": null
+    },
+    "id": 33
+  },
+
+  {
     "title": "Discussions on Pathways to Fossil Fuel Free Nepal By 2045",
     "organizer": "Digo Bikas Institute",
     "description": "The event, organized by Digo Bikas Institute, was held on 4th February. Abhishek Shrestha shared insights on fossil fuel usage, oil drilling, and pipelines in Nepal. A panel discussion followed, focusing on achieving a fossil fuel-free Nepal and transitioning to 100% renewable energy, with speakers Dr. Prof. Sangeeta Singh (Institute of Engineering), Mr. Kushal Gurung (RECON), Ms. Subha Laxmi Shrestha (AEPC), and Mr. Dilli Ghimire (Nepal Energy Foundation). The event concluded with a group discussion on reducing fossil fuel dependency and promoting an equitable energy transition.",

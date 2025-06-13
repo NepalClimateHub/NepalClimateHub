@@ -1,12 +1,12 @@
 ---
-import { Icon } from "astro-icon/components";
-import type { Organization } from "../interfaces/organizationInterface";
+import { Icon } from 'astro-icon/components';
+import type { Organization } from '../interfaces/organizationInterface';
 
 // dataObj can either be organization data or activist data or event data; sent via props
-const { dataObj, organization = "true" } = Astro.props;
+const { dataObj, organization = 'true' } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === "false" && dataObj && "title" in dataObj;
+const isEvent = organization === 'false' && dataObj && 'title' in dataObj;
 
 // initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
@@ -16,7 +16,7 @@ const name = isEvent ? activeDataObject?.title : activeDataObject?.name;
 const location = isEvent
   ? activeDataObject?.location
   : activeDataObject?.address;
-const description = activeDataObject?.description || "";
+const description = activeDataObject?.description || '';
 
 // Handle tags/categories differently based on data type
 const tags = isEvent
@@ -46,7 +46,7 @@ const pictures = isEvent
       <div class="detail">
         {
           description
-            .split("\\n")
+            .split(/\\n|<br>/)
             .map((paragraph: string) => <p>{paragraph}</p>)
         }
       </div>
