@@ -144,10 +144,13 @@ const EventFilter: React.FC<Props> = ({ events }) => {
   });
 
   useEffect(() => {
-    console.log('Event statuses:', events.map(event => ({
-      id: event.id,
-      status: event.status
-    })));
+    console.log(
+      'Event statuses:',
+      events.map((event) => ({
+        id: event.id,
+        status: event.status,
+      }))
+    );
     console.log('Current filters:', filters);
 
     let result = events;
@@ -170,7 +173,10 @@ const EventFilter: React.FC<Props> = ({ events }) => {
         } else if (key === 'cost') {
           result = result.filter((event) => {
             const eventCost = event.cost ? event.cost.trim() : '';
-            return eventCost === value.trim() || (eventCost === '' && value === 'Free');
+            return (
+              eventCost === value.trim() ||
+              (eventCost === '' && value === 'Free')
+            );
           });
         } else if (key === 'type') {
           result = result.filter((event) => {
@@ -180,8 +186,12 @@ const EventFilter: React.FC<Props> = ({ events }) => {
         } else {
           result = result.filter((event) => {
             const eventValue = event[key as keyof Event] as string;
-            const isMatch = eventValue ? eventValue.trim() === value.trim() : false;
-            console.log(`Event ${event.id} ${key}: "${eventValue}" vs "${value}" -> Match: ${isMatch}`);
+            const isMatch = eventValue
+              ? eventValue.trim() === value.trim()
+              : false;
+            console.log(
+              `Event ${event.id} ${key}: "${eventValue}" vs "${value}" -> Match: ${isMatch}`
+            );
             return isMatch;
           });
         }

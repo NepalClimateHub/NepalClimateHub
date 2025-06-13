@@ -1,20 +1,20 @@
 ---
 export const prerender = true;
 
-import "../../styles/global.css";
-import ConnectCard from "@components/ConnectCard.astro";
-import FeaturedOpportunitySection from "@components/FeaturedOpportunitySection.astro";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import CardDetailSection from "@layouts/CardDetailSection.astro";
-import BaseLayout from "../../layouts/Layout.astro";
+import '../../styles/global.css';
+import ConnectCard from '@components/ConnectCard.astro';
+import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardDetailSection from '@layouts/CardDetailSection.astro';
+import opportunitiesTemp from '../../data/opportunitiesTemp.json';
+import BaseLayout from '../../layouts/Layout.astro';
 import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
-} from "../../types/opportunity";
-import { fetchOpportunities } from "../../utils/api";
-import { createSlug } from "../../utils/slug";
-import opportunitiesTemp from "../../data/opportunitiesTemp.json";
+} from '../../types/opportunity';
+import { fetchOpportunities } from '../../utils/api';
+import { createSlug } from '../../utils/slug';
 
 export async function getStaticPaths() {
   // const { data: opportunities } = await fetchOpportunities();
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, "");
+  return html.replace(/<[^>]*>/g, '');
 }
 
 const { detail } = Astro.params;
@@ -44,12 +44,12 @@ if (!apiOpportunity) {
 
 const opportunityDetail = {
   ...apiOpportunity,
-  bannerImage: apiOpportunity.bannerImageUrl || "/placeholder.svg",
-  description: stripHtml(apiOpportunity.description || "") || "",
+  bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
+  description: stripHtml(apiOpportunity.description || '') || '',
   location:
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
-  province: apiOpportunity.address?.state || "",
+  province: apiOpportunity.address?.state || '',
   category: apiOpportunity.category,
 };
 ---
