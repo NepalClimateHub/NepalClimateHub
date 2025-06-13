@@ -8,12 +8,18 @@ interface Event {
   id: string | number;
   title: string;
   type: string;
-  location: string;
-  province: string;
+  locationType: string;
   status: string;
   format: string;
   cost: string;
   category: string[];
+  address: {
+    street: string | null;
+    city: string | null;
+    state: string | null;
+    zip: string | null;
+    country: string | null;
+  };
 }
 
 interface Props {
@@ -33,10 +39,12 @@ const filterOptions = [
       'Symposium',
       'Webinar',
       'Workshop',
+      'March',
+      'Event',
     ],
   },
   {
-    name: 'location',
+    name: 'locationType',
     label: 'Location',
     defaultOption: 'All Locations',
     options: ['National', 'International'],
@@ -53,6 +61,7 @@ const filterOptions = [
       'Lumbini',
       'Karnali',
       'Sudurpaschim',
+      'All 7 provinces',
     ],
   },
   {
@@ -122,10 +131,11 @@ const filterOptions = [
 ];
 
 const EventFilter: React.FC<Props> = ({ events }) => {
+  console.log('Raw events data:', events);
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [filters, setFilters] = useState({
     type: '',
-    location: '',
+    locationType: '',
     province: '',
     status: '',
     format: '',
@@ -134,30 +144,75 @@ const EventFilter: React.FC<Props> = ({ events }) => {
   });
 
   useEffect(() => {
+    console.log('Event statuses:', events.map(event => ({
+      id: event.id,
+      status: event.status
+    })));
+    console.log('Current filters:', filters);
+
     let result = events;
 
     Object.entries(filters).forEach(([key, value]) => {
       if (value) {
+        console.log(`Applying filter: ${key} = "${value}"`);
         if (key === 'category') {
           result = result.filter((event) =>
-            event.category.some((cat) => cat === value)
+            event.category.some((cat) => cat.trim() === value.trim())
           );
-        } else {
+        } else if (key === 'province') {
           result = result.filter(
-            (event) => event[key as keyof Event] === value
+            (event) => event.address?.state?.trim() === value.trim()
           );
+        } else if (key === 'locationType') {
+          result = result.filter(
+            (event) => event.locationType?.trim() === value.trim()
+          );
+        } else if (key === 'cost') {
+          result = result.filter((event) => {
+            const eventCost = event.cost ? event.cost.trim() : '';
+            return eventCost === value.trim() || (eventCost === '' && value === 'Free');
+          });
+        } else if (key === 'type') {
+          result = result.filter((event) => {
+            const eventType = event.type ? event.type.trim() : '';
+            return eventType === value.trim();
+          });
+        } else {
+          result = result.filter((event) => {
+            const eventValue = event[key as keyof Event] as string;
+            const isMatch = eventValue ? eventValue.trim() === value.trim() : false;
+            console.log(`Event ${event.id} ${key}: "${eventValue}" vs "${value}" -> Match: ${isMatch}`);
+            return isMatch;
+          });
         }
+        console.log(`After ${key} filter:`, result);
       }
     });
 
     setFilteredEvents(result);
+    console.log('Filtered events:', result);
   }, [filters, events]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    console.log(`Filter changed: ${name} = "${value}"`);
     setFilters((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+  };
+
+  const resetFilters = () => {
+    console.log('Resetting filters');
+    setFilters({
+      type: '',
+      locationType: '',
+      province: '',
+      status: '',
+      format: '',
+      cost: '',
+      category: '',
+    });
   };
 
   return (
@@ -183,12 +238,14 @@ const EventFilter: React.FC<Props> = ({ events }) => {
             </span>
           </div>
         ))}
+        <button onClick={resetFilters} className={styles.resetButton}>
+          Reset Filters
+        </button>
       </div>
 
-      {/* Check if no events are found */}
       <div className={styles.cardNotFoundMessage}>
         {filteredEvents.length === 0 ? (
-          <p className={styles.noResults}> No events found.</p>
+          <p className={styles.noResults}>No events found.</p>
         ) : (
           <CardContainer
             cardsArray={filteredEvents}
