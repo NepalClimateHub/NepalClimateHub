@@ -1,17 +1,17 @@
 ---
-import "../styles/global.css";
-import "../styles/components/FeaturedCardStyles.css";
-import { Icon } from "astro-icon/components";
-import type { Event as ApiEvent } from "../types/event";
-import { fetchEvents } from "../utils/api";
-import { createSlug } from "../utils/slug";
-import eventsTemp from "../data/eventsTemp.json";
+import '../styles/global.css';
+import '../styles/components/FeaturedCardStyles.css';
+import { Icon } from 'astro-icon/components';
+import eventsTemp from '../data/eventsTemp.json';
+import type { Event as ApiEvent } from '../types/event';
+import { fetchEvents } from '../utils/api';
+import { createSlug } from '../utils/slug';
 const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
 // const { data: apiEvents } = await fetchEvents();
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, "");
+  return html.replace(/<[^>]*>/g, '');
 }
 
 const transformedEvents = eventsTemp
@@ -29,17 +29,17 @@ const transformedEvents = eventsTemp
     location:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    province: event.address?.state || "",
+    province: event.address?.state || '',
     status: event.status,
     format: event.format,
     cost: event.cost,
     category: event.category,
-    bannerImage: event.bannerImageUrl || "/placeholder.svg",
-    description: stripHtml(event.description || "") || "",
-    organizer: event.organizer || "",
-    startDate: event.startDate || "",
-    registrationLink: event.registrationLink || "",
-    contactEmail: event.contactEmail || "",
+    bannerImage: event.bannerImageUrl || '/placeholder.svg',
+    description: stripHtml(event.description || '') || '',
+    organizer: event.organizer || '',
+    startDate: event.startDate || '',
+    registrationLink: event.registrationLink || '',
+    contactEmail: event.contactEmail || '',
   }));
 
 const filteredEvents = currentEventId

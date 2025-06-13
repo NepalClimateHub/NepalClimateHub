@@ -1,17 +1,17 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
 // import card container styles(reusing)
-import "../styles/components/FeaturedCardStyles.css";
+import '../styles/components/FeaturedCardStyles.css';
 
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 // Import the dummy opportunity JSON
-import opportunityJSON from "../data/opportunitiesTemp.json";
+import opportunityJSON from '../data/opportunitiesTemp.json';
 const { startIndex, endIndex, title } = Astro.props;
 
 // Create slugs for the opportunities
-import { createSlug } from "../utils/slug";
+import { createSlug } from '../utils/slug';
 ---
 
 <div class="section-container featured-card-section">

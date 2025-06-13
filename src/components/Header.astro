@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 const { logoColor } = Astro.props;
-import mainLogo from "../assets/logo/main logo.png";
-
+import mainLogo from '../assets/logo/main logo(1).svg';
+import HomeLogo from '../assets/logo/main logo(2).svg';
 export interface Props {
   logoColor: string;
 }
@@ -12,7 +12,19 @@ export interface Props {
 <header class="section-container">
   <div class="logo-wrapper">
     <a class="logo" style={`color: ${logoColor};`} href="/">
-      <img src={mainLogo.src} alt="Nepal Climate Hub Logo" class="logo-image" />
+      <img
+        src={mainLogo.src}
+        alt="Nepal Climate Hub Logo"
+        class="logo-image"
+        id="logoOther"
+        style="display: none;"
+      />
+      <img
+        src={HomeLogo.src}
+        alt="Nepal Climate Hub Logo"
+        class="logo-image"
+        id="logoHome"
+      />
     </a>
   </div>
 
@@ -89,6 +101,14 @@ export interface Props {
   crossIcon?.addEventListener("click", () => {
     nav?.classList.remove("active");
   });
+
+  // Script to toggle logos based on page
+  const logoHome = document.getElementById("logoHome") as HTMLImageElement;
+  const logoOther = document.getElementById("logoOther") as HTMLImageElement;
+  if (window.location.pathname !== "/" && logoHome && logoOther) {
+    logoHome.style.display = "none";
+    logoOther.style.display = "block";
+  }
 </script>
 
 <!-- CSS styles for header component -->
