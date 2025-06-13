@@ -1,38 +1,38 @@
 ---
-import "../styles/global.css";
-import EventFilter from "@components/EventFilter.tsx";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import CardFilterSection from "@layouts/CardFilterSection.astro";
-import BaseLayout from "../layouts/Layout.astro";
-import type { Event as ApiEvent } from "../types/event";
-import { fetchEvents } from "../utils/api";
-import eventsTemp from "../data/eventsTemp.json";
+import '../styles/global.css';
+import EventFilter from '@components/EventFilter.tsx';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import CardFilterSection from '@layouts/CardFilterSection.astro';
+import eventsTemp from '../data/eventsTemp.json';
+import BaseLayout from '../layouts/Layout.astro';
+import type { Event as ApiEvent } from '../types/event';
+import { fetchEvents } from '../utils/api';
 
 // const { data: apiEvents } = await fetchEvents();
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, "");
+  return html.replace(/<[^>]*>/g, '');
 }
 
 const events = eventsTemp.map((event: any) => {
   const formatMap: Record<string, string> = {
-    IN_PERSON: "In-person",
-    VIRTUAL: "Virtual",
-    HYBRID: "Hybrid",
+    IN_PERSON: 'In-person',
+    VIRTUAL: 'Virtual',
+    HYBRID: 'Hybrid',
   };
 
   const statusMap: Record<string, string> = {
-    OPEN: "Open",
-    UPCOMING: "Upcoming",
-    CLOSED: "Closed",
+    OPEN: 'Open',
+    UPCOMING: 'Upcoming',
+    CLOSED: 'Closed',
   };
 
   const costMap: Record<string, string> = {
-    FREE: "Free",
-    PAID: "Paid",
-    PARTIALLY_FUNDED: "Partially Funded",
-    FULLY_FUNDED: "Fully Funded",
+    FREE: 'Free',
+    PAID: 'Paid',
+    PARTIALLY_FUNDED: 'Partially Funded',
+    FULLY_FUNDED: 'Fully Funded',
   };
 
   return {
@@ -43,12 +43,12 @@ const events = eventsTemp.map((event: any) => {
     locationType:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    status: statusMap[event.status.toUpperCase()] || "Closed",
-    format: formatMap[event.format] || "In-person",
-    cost: event.cost ? costMap[event.cost] || "Free" : "Free",
+    status: statusMap[event.status.toUpperCase()] || 'Closed',
+    format: formatMap[event.format] || 'In-person',
+    cost: event.cost ? costMap[event.cost] || 'Free' : 'Free',
     category: event.category,
     bannerImage: event.bannerImageUrl,
-    description: stripHtml(event.description || "") || "",
+    description: stripHtml(event.description || '') || '',
     organizer: event.organizer,
     startDate: event.startDate,
     registrationLink: event.registrationLink,
