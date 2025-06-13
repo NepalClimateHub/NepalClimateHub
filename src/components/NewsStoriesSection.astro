@@ -1,9 +1,9 @@
 ---
-import NewsFilter from "../components/NewsFilter.jsx";
-import { fetchNews } from "../utils/api";
-import sortNewsArray from "../utils/sortNewsArray.js";
-import type { SortData } from "../utils/sortNewsArray.js";
-import newsTemp from "../data/newsTemp.json";
+import NewsFilter from '../components/NewsFilter.jsx';
+import newsTemp from '../data/newsTemp.json';
+import { fetchNews } from '../utils/api';
+import sortNewsArray from '../utils/sortNewsArray.js';
+import type { SortData } from '../utils/sortNewsArray.js';
 
 // const { data: newsData } = await fetchNews();
 const transformedData: SortData[] = newsTemp.map((item, index) => ({

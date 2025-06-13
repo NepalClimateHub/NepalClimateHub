@@ -1,5 +1,32 @@
 [
   {
+    "id": 40,
+    "name": "Students’ Association For Forest and Environment-Nepal (SAFE Nepal)",
+    "description": "Students’ Association For Forest and Environment Nepal (SAFE Nepal) is a student-led, non-profit organization committed to environmental conservation, sustainable development, and climate action. SAFE Nepal is registered with the District Administration Office, Kaski, and affiliated with the Social Welfare Council, Kaski. It primarily consists of dedicated forestry students from the Institute of Forestry, Pokhara Campus. <br> SAFE Nepal carries out awareness campaigns, research initiatives, and educational programs focusing on biodiversity conservation, sustainable forest management, and community-based environmental solutions. The organization actively engages students in various impactful activities such as invasive species control, wetland conservation, wildlife protection campaigns, and technical trainings on tools like GIS and forest inventory. <br> SAFE Nepal believes in learning by doing and encourages students to take practical steps toward protecting nature and building a greener future.    ",
+    "address": "Pokhara-15, Nepal",
+    "contact": {
+      "email": "  safenepal.iof@gmail.com ",
+      "phone": "9762567594"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/safenepal.iof",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "website": "",
+    "tags": [
+      "Wildlife & Biodiversity",
+      "Ecosystem Conservation ",
+      "Environment",
+      "Youth Empowerment "
+    ],
+    "logoUrl": "https://ik.imagekit.io/nch/safe%20nepal.jpg",
+    "pictures": [
+      "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/contribute-organizations.jpg"
+    ],
+    "slug": "safe-nepal"
+  },
+  {
     "id": 0,
     "name": "Nepalese Youth for Climate Action (NYCA)",
     "description": "Nepalese Youth for Climate Action (NYCA) is a youth lead coalition of the Nepalese youth and youth groups tackling climate change, the biggest challenge of our generation. NYCA was established in August 10, 2008 with the motto “Caring for Climate, Caring for Ourselves”. <br> Our goal is to protect Nepal and the Nepalese people from the adverse impacts of climate change by spreading awareness, advocating policies and taking action. We aim to play a key role in transitioning Nepal towards climate resilience by leading adaptation efforts and mitigation of GHGs. <br> We envision an economically prosperous and sustainable Nepal where youth play an active role in leading the society towards cleaner future.",
