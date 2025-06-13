@@ -1,8 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 const { logoColor } = Astro.props;
-import mainLogo from '../assets/logo/main logo(1).svg';
-import HomeLogo from '../assets/logo/main logo(2).svg';
+import mainLogo from "../assets/logo/secondaryLogo.svg";
+import HomeLogo from "../assets/logo/mainLogo.svg";
 export interface Props {
   logoColor: string;
 }
@@ -378,6 +378,7 @@ export interface Props {
     .logo-wrapper {
       width: 200px;
       height: auto;
+      margin-bottom: 8px;
     }
 
     .logo-image {
