@@ -289,8 +289,21 @@ export interface Props {
     }
 
     .main-menu li.menu-heading:hover {
+      background-color: #1a1b1e;
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Keep consistent background when submenu is active */
+    .main-menu li.menu-heading:hover,
+    .main-menu li.menu-heading:focus-within {
+      background-color: #1a1b1e;
+    }
+
+    /* Keep text white when hovering over menu heading OR when submenu is active */
+    .main-menu li.menu-heading:hover > a,
+    .main-menu li.menu-heading:focus-within > a {
+      color: white;
     }
 
     nav .menu-heading a {
@@ -324,28 +337,16 @@ export interface Props {
       cursor: pointer;
     }
 
-    nav .menu-heading > a:hover {
-      background-color: #1a1b1e;
-      color: white;
-      transform: scale(1.02);
-    }
-
-    ul .sub-menu a:hover {
-      text-decoration: underline;
-      color: #1a1b1e;
-      transform: translateX(5px);
-    }
 
     nav .menu-heading:last-of-type {
       display: block;
     }
 
-    /* Dropdown icon animation */
     .dropdown-icon {
       font-size: 20px;
       display: inline-block;
       float: right;
-      transition: transform 0.3s ease;
+      transition: transform 1s ease;
     }
 
     .menu-heading:hover .dropdown-icon {
@@ -369,7 +370,7 @@ export interface Props {
       border: 1px solid #1a1b1e;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       pointer-events: none;
       backface-visibility: hidden;
       perspective: 1000px;
@@ -384,8 +385,8 @@ export interface Props {
 
     /* Add delay when closing (wrap up effect) */
     .menu-heading:not(:hover) > .sub-menu {
-      transition: all 0.3s ease-in;
-      transform: translateX(-50%) translateY(-10px) rotateX(-90deg) scale(0.8);
+      transition: all 1s ease-in;
+      transform: translateX(-50%) translateY(-10px) rotateX(-90deg);
     }
 
     .menu-heading:hover > .sub-menu::before {
@@ -406,13 +407,13 @@ export interface Props {
       border-radius: none;
       text-align: left;
       opacity: 0;
-      transform: translateY(-15px) scale(0.9);
-      transition: all 0.25s ease;
+      transform: translateY(-15px);
+      transition: all 1s ease;
     }
 
     .menu-heading:hover .sub-menu li {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
     /* Staggered fall down animation */
@@ -432,7 +433,7 @@ export interface Props {
     /* Wrap up animation (reverse stagger when closing) */
     .menu-heading:not(:hover) .sub-menu li {
       transition-delay: 0s;
-      transform: translateY(-10px) scale(0.8);
+      transform: translateY(-10px);
       opacity: 0;
     }
 
@@ -464,9 +465,8 @@ export interface Props {
     }
 
     .sub-menu li a:hover {
-      background-color: #f5f5f5;
-      padding-left: 20px;
-      transform: translateX(2px);
+      text-decoration: underline;
+      color: #1a1b1e;
     }
 
     .sub-menu li a:hover::before {
