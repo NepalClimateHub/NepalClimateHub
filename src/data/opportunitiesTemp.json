@@ -1,5 +1,413 @@
 [
-  
+   {
+    "title": "Seed Funding Program (SFP) 2025–2026 – Ecological Micro-Grants",
+    "organizer": "New Humanity NGO in collaboration with United World Community and EcoOne",
+    "description": "2025–2026 Seed Funding Program (SFP) offers up to €1,500 in micro-grants to support youth-led or intergenerational ecological initiatives rooted in the principles of integral ecology—combining care for the environment, social justice, and spiritual values. Launched to mark the 10th anniversary of Laudato Si’, the program invites global, community-based projects that actively engage local populations and are grounded in ethical or spiritual motivations. Projects must demonstrate youth leadership, community participation, and a holistic approach to sustainability. Applications are, and successful projects will be announced by 20 July 2025.",
+    "location": "Virtual",
+    "locationType": "Online",
+    "type": "Grant",
+    "format": "Online",
+    "startDate": null,
+    "registrationDeadline": "2025-06-30",
+    "registrationLink": "",
+    "contactEmail": "seedfundingprogram@gmail.com",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "website": "https://www.new-humanity.org/en/",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Seed%20Funding%20Program%20(SFP)%202025_2026%20_%20Ecological%20Micro-Grants%200A.jpg?updatedAt=1750562529653",
+    "category": [
+      "Youth Empowerment",
+      "Climate Activism & Advocacy",
+      "Ecosystem Conservation",
+      "Environment",
+      "Sustainability",
+      "Loss & Damage"
+    ],
+    "address": {
+      "street": null,
+      "city": "Rome",
+      "state": "Lazio",
+      "zip": null,
+      "country": "Italy"
+    },
+    "socials": {
+      "facebook": null,
+      "linkedin": "https://www.linkedin.com/company/new-humanity-ngo/",
+      "instagram": "https://www.instagram.com/newhumanityngo"
+    },
+    "id": 43
+  },
+  {
+    "title": "ICON Fellowship 2025–2027",
+    "organizer": "Mountains to Mangroves",
+    "description": "The ICON Fellowship 2025–2027, supported by Mountains to Mangroves, is a transformative 16-month program designed to empower the next generation of climate and environmental leaders from the Eastern Himalayas. This fully funded fellowship invites passionate youth to engage in real-world conservation, community-based sustainability initiatives, and efforts to build ecological resilience across this vital landscape. Fellows will collaborate directly with local communities to implement grassroots climate solutions and ecosystem restoration. Applications are currently open for youth ready to lead bold, place-based climate action grounded in purpose and local wisdom.",
+    "location": "Eastern Himalayas (Field-based work across regions)",
+    "locationType": "Physical",
+    "type": "Fellowship",
+    "format": "Physical",
+    "startDate": null,
+    "registrationDeadline": "2025-06-30",
+    "registrationLink": "",
+    "contactEmail": null,
+    "status": "Open",
+    "cost": "Fully Funded",
+    "website": "https://www.conservation.org/home",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/ICON%20Fellowship%202025_2027%200A.jpg?updatedAt=1750562597163",
+    "category": [
+      "Youth Empowerment",
+      "Climate Activism & Advocacy",
+      "Ecosystem Conservation",
+      "Climate Adaptation & Mitigation",
+      "Community Resilience"
+    ],
+    "address": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip": null,
+      "country": "India/Nepal/Bhutan"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/conservation.intl",
+      "linkedin": "https://www.linkedin.com/company/conservation-international/",
+      "instagram": null
+    },
+    "id": 44
+  },
+  {
+    "title": "Consultancy at Practical Action – DRR & Climate Finance (Nepal)",
+    "organizer": "Practical Action Consulting",
+    "description": "Practical Action Consulting (PAC) is hiring two dynamic professionals to join their team in Nepal as Consultancy Delivery Responsible – Disaster Risk Reduction & Climate Change and Consultancy Delivery Responsible – Climate Finance. These roles offer an exciting opportunity to contribute to regional resilience and sustainability, with responsibilities including strategic program delivery, climate finance development, stakeholder engagement, and influence on policy. Applicants should be fluent in English and Nepali, have a strong grasp of Nepal’s climate and development context, and possess experience working with governments, civil society, and donors. Positions are open to Nepali citizens with the right to live and work in Nepal. Apply by submitting a cover letter and the standard application form to hr@practicalaction.org.np",
+    "location": "Nepal (Kathmandu or field offices)",
+    "locationType": "Hybrid",
+    "type": "Job",
+    "format": "Physical",
+    "startDate": null,
+    "registrationDeadline": "2025-06-29",
+    "registrationLink": "",
+    "contactEmail": "hr@practicalaction.org.np",
+    "status": "Open",
+    "cost": "Free",
+    "website": "https://practicalaction.org",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/_%20Consultancy%20at%20Practical%20Action%20_%20DRR%20&%20Climate%20Finance%20(Nepal)%200A.jpg?updatedAt=1750562596695",
+    "category": [
+      "Climate Policy",
+      "Disaster Risk Management",
+      "Community Resilience",
+      "Climate Finance"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": null,
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": null,
+      "linkedin": "https://www.linkedin.com/company/nepal-pa/posts/?feedView=all",
+      "instagram": null
+    },
+    "id": 45
+  },
+  {
+    "title": "Sustainability Mentorship Program 2025",
+    "organizer": "Sustainability Solutions",
+    "description": "The Sustainability Mentorship Program 2025 is an exciting opportunity for young professionals and students eager to make a meaningful impact in the field of sustainability. Designed to build knowledge, leadership, and practical skills, the program offers expert mentorship, immersive learning, and hands-on projects that address real-world environmental, social, and governance (ESG) challenges. Participants will collaborate with experienced sustainability professionals, engage in leadership development, and contribute to actionable solutions that benefit both businesses and communities. With strong networking and collaboration opportunities, this program empowers emerging changemakers to become responsible leaders driving sustainable transformation.",
+    "location": "Nepal",
+    "locationType": "Hybrid",
+    "type": "Fellowship",
+    "format": "Hybrid",
+    "startDate": null,
+    "registrationDeadline": "2025-07-06",
+    "registrationLink": "",
+    "contactEmail": "namaste@sustainability.com.np",
+    "status": "Open",
+    "cost": "Free",
+    "website": "https://www.sustainability.com.np",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Sustainability%20Mentorship%20Program%202025%200A.jpg?updatedAt=1750562472298",
+    "category": [
+      "Youth Empowerment",
+      "Sustainability"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": "Bagmati Province",
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": "https://facebook.com/sustainabilitysolutions",
+      "linkedin": "https://linkedin.com/company/sustainabilitysolutions",
+      "instagram": "https://instagram.com/sustainabilitysolutions"
+    },
+    "id": 46
+  },
+  {
+    "title": "COP30 Climate Change Media Partnership Reporting Fellowship",
+    "organizer": "Earth Journalism Network (EJN), Internews, and Stanley Center for Peace and Security",
+    "description": "The COP30 CCMP Reporting Fellowship is a prestigious, fully funded opportunity for passionate journalists from low- or middle-income countries to report from the UN Climate Summit (COP30) in Belém, Brazil. Designed to elevate underrepresented voices in global climate coverage, the fellowship offers two tracks: an in-person fellowship with full travel and editorial support, and a virtual option for journalists from the Pacific Islands. Selected fellows will receive mentorship from seasoned climate journalists, financial and editorial support, exclusive access to COP30 proceedings and interviews, and the chance to network with global peers and experts. With comprehensive pre-COP training and daily briefings, this fellowship empowers emerging reporters to shape global climate narratives. Eligible applicants must be first-time COP attendees, actively reporting for a media outlet, and submit a short video, CV, letter of support, and two recent climate stories.",
+    "location": "Belém, Brazil (In-person); Pacific Islands (Virtual)",
+    "locationType": "Hybrid",
+    "type": "Fellowship",
+    "format": "Hybrid",
+    "startDate": "2025-11-06",
+    "registrationDeadline": "2025-07-15",
+    "registrationLink": "",
+    "contactEmail": "info.ejn@internews.org",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "website": "https://earthjournalism.net/opportunities/cop30-ccmp-reporting-fellowship",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/COP30%20Climate%20Change%20Media%20Partnership%20Reporting%20Fellowship%200A.jpg?updatedAt=1750562596738",
+    "category": [
+      "Climate Justice",
+      "Climate Diplomacy",
+      "Climate Policy",
+      "Youth Empowerment",
+      "Media Communication"
+    ],
+    "address": {
+      "street": null,
+      "city": "Belém",
+      "state": null,
+      "zip": null,
+      "country": "Brazil"
+    },
+    "socials": {
+      "facebook": "https://facebook.com/earthjournalism",
+      "linkedin": "https://linkedin.com/company/internews",
+      "instagram": null
+    },
+    "id": 47
+  },
+  {
+    "title": "Internship on Sustainable Cities & Circular Economy",
+    "organizer": "Power Shift Nepal",
+    "description": "Power Shift Nepal is offering a dynamic internship opportunity for motivated individuals passionate about sustainability, climate action, and urban resilience. Interns will engage directly with pressing issues related to Sustainable Cities—focusing on mobility—and the Circular Economy, particularly in managing e-waste and hazardous waste. Ideal candidates will have a background in Environmental Science, Chemical Engineering, Social Development, Urban Studies, or related fields, with women especially encouraged to apply. This internship provides valuable hands-on experience within a grassroots organization committed to driving sustainable development in Nepal. To apply, submit your CV and cover letter to info@powershiftnepal.org",
+    "location": "Kathmandu, Nepal",
+    "locationType": "Physical",
+    "type": "Internship",
+    "format": "Physical",
+    "startDate": null,
+    "registrationDeadline": "2025-06-27",
+    "registrationLink": "",
+    "contactEmail": "info@powershiftnepal.org",
+    "status": "Open",
+    "cost": "Free",
+    "website": "https://powershiftnepal.org",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Internship%20on%20Sustainable%20Cities%20&%20Circular%20Economy.jpg?updatedAt=1750562176821",
+    "category": [
+      "Youth Empowerment",
+      "Environment",
+      "Sustainability",
+      "Circular Economy",
+      "Transportation & Mobility"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": null,
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/PowerShiftNepal",
+      "linkedin": "https://www.linkedin.com/company/power-shift-nepal",
+      "instagram": "https://www.instagram.com/powershiftnepal"
+    },
+    "id": 48
+  },
+  {
+    "title": "Climate Innovation Challenge (CIC) 6.0 – Innovation for Resilience",
+    "organizer": "Mycelium Network",
+    "description": "The Climate Innovation Challenge (CIC) 6.0 is an exciting virtual program for aspiring climate innovators and global citizens eager to make a real impact. Running from August 2 to October 4, 2025, CIC brings together university students from across the world to collaborate on real-world climate challenges through cross-cultural teamwork and project-based learning. Participants will receive mentorship from professionals in the UN, academia, and NGOs, and work directly with climate-focused startups and organizations. Open to students aged 18+ enrolled in undergraduate, master’s, or PhD programs, the program requires proficiency in English, internet access, and a weekly time commitment of around 5 hours. Outstanding teams will receive recognition, and all participants will gain access to a vibrant global network of changemakers in over 51 countries.",
+    "location": "Virtual",
+    "locationType": "Online",
+    "type": "Training",
+    "format": "Online",
+    "startDate": "2025-08-02",
+    "registrationDeadline": "2025-07-10",
+    "registrationLink": "",
+    "contactEmail": "contact@mycellium.org",
+    "status": "Open",
+    "cost": "Free",
+    "website": "https://www.mycellium.org",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Climate%20Innovation%20Challenge%20(CIC)%206.0%20_%20Innovation%20for%20Resilience.jpeg?updatedAt=1750562177028",
+    "category": [
+      "Youth Empowerment",
+      "Climate Activism & Advocacy",
+      "Research & Education",
+      "Climate Adaptation & Mitigation",
+      "Digital Solutions"
+    ],
+    "address": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip": null,
+      "country": null
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/mycelliumnetwork",
+      "linkedin": "https://www.linkedin.com/company/mycelliumnetwork",
+      "instagram": "https://www.instagram.com/mycelliumnetwork"
+    },
+    "id": 49
+  },
+  {
+    "title": "Policy Analysis and Forest Governance 101",
+    "organizer": "RECOFTC – The Center for People and Forests",
+    "description": "Policy Analysis and Forest Governance 101 a free, self-paced e-learning course tailored for professionals and advocates engaged in forestry, natural resources, or environmental policy. Designed with a focus on the Asia-Pacific region—yet applicable globally—the course offers a foundational understanding of policy analysis tools, participatory forest governance, and the vital role of civil society in shaping legal and policy frameworks. Through practical examples and reflective learning, participants will gain actionable insights into inclusive forest governance. Ideal for forestry professionals, CSO members, and early-career environmentalists, the course offers a certificate upon scoring 75% or higher in the final assessment",
+    "location": "Virtual",
+    "locationType": "Online",
+    "type": "Online Course",
+    "format": "Online",
+    "startDate": null,
+    "registrationDeadline": "2025-07-25",
+    "registrationLink": "",
+    "contactEmail": "info@recoftc.org",
+    "status": "Open",
+    "cost": "Free",
+    "website": "https://www.recoftc.org",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Policy%20Analysis%20and%20Forest%20Governance%20101%20.jpg?updatedAt=1750562177181",
+    "category": [
+      "Climate Policy",
+      "Research & Education",
+      "Indigenous Knowledge",
+      "Ecosystem Conservation",
+      "Environment"
+    ],
+    "address": {
+      "street": "Kasetsart Post Office, Phahonyothin Rd.",
+      "city": "Bangkok",
+      "state": null,
+      "zip": "10903",
+      "country": "Thailand"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/RECOFTC",
+      "linkedin": "https://www.linkedin.com/company/recoftc",
+      "instagram": "https://www.instagram.com/recoftc"
+    },
+    "id": 50
+  },
+  {
+    "title": "HUC Academy 2025 on Climate Change and Migration",
+    "organizer": "International Centre for Integrated Mountain Development (ICIMOD) + Himalayan University Consortium (HUC)",
+    "description": "The HUC Academy 2025 is a prestigious, fully funded program designed for researchers and mid-career faculty from the Hindu Kush Himalaya (HKH) region, organized by ICIMOD in partnership with the Himalayan University Consortium. Focused on building research capacity around the complex nexus of climate change and migration, the Academy aims to strengthen scientific and practical understanding, promote interdisciplinary skills, and foster a collaborative cross-border scholarly community. Eligible applicants must hold at least a master’s degree in social sciences or a related field, have a peer-reviewed publication, and demonstrate a strong interest in climate adaptation and migration issues in the HKH.",
+    "location": "Kathmandu, Nepal",
+    "locationType": "Physical",
+    "type": "Fellowship",
+    "format": "Physical",
+    "startDate": "2025-08-04",
+    "registrationDeadline": "2025-07-04",
+    "registrationLink": "",
+    "contactEmail": "info@icimod.org",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "website": "https://www.icimod.org",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/HUC%20Academy%202025%20on%20Climate%20Change%20and%20Migration.jpg?updatedAt=1750562177453",
+    "category": [
+      "Research & Education",
+      "Climate Adaptation & Mitigation",
+      "Community Resilience"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": "Lalitpur Metropolitan City",
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/icimod",
+      "linkedin": "https://www.linkedin.com/company/icimod",
+      "instagram": "https://www.instagram.com/icimod"
+    },
+    "id": 51
+  },
+  {
+    "title": "Yale Emerging Climate Leaders Fellowship 2026",
+    "organizer": "Yale International Leadership Center, Yale Jackson School of Global Affairs",
+    "description": "The Yale Emerging Climate Leaders Fellowship 2026 is a prestigious five-month hybrid program designed to empower 16 outstanding young professionals from the Global South who are driving change in clean energy and climate action. Hosted by the Yale International Leadership Center, the fellowship offers world-class training in climate leadership through a unique blend of in-person residencies at Yale University (USA) and in Paris (France), alongside bi-monthly virtual sessions led by Yale faculty and global experts. Open to professionals working in fields such as climate policy, clean energy, finance, civil society, legal advocacy, science, journalism, education, and public service, the program provides advanced technical knowledge, leadership development, and cross-sector networking. Fellows will also gain lifelong access to the Yale climate leaders network.",
+    "location": "New Haven, USA & Paris, France",
+    "locationType": "Hybrid",
+    "type": "Fellowship",
+    "format": "Hybrid",
+    "startDate": null,
+    "registrationDeadline": "2025-08-01",
+    "registrationLink": "",
+    "contactEmail": "climatefellows.jackson@yale.edu",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "website": "https://jackson.yale.edu/fellowships/emerging-climate-leaders/",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Yale%20Emerging%20Climate%20Leaders%20Fellowship%202026.jpeg?updatedAt=1750562252216",
+    "category": [
+      "Youth Empowerment",
+      "Research & Education",
+      "Sustainability"
+    ],
+    "address": {
+      "street": "55 Hillhouse Avenue",
+      "city": "New Haven",
+      "state": "CT",
+      "zip": "06511",
+      "country": "USA"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/YaleUniversity",
+      "linkedin": "https://www.linkedin.com/school/yale-university",
+      "instagram": "https://www.instagram.com/yale"
+    },
+    "id": 52
+  },
+  {
+    "title": "Training of Trainers (ToT) on Climate Justice – Power Shift Nepal",
+    "organizer": "Power Shift Nepal",
+    "description": "Power Shift Nepal is offering a Training of Trainers (ToT) on Climate Justice aimed at empowering youth—especially women and LGBTQI+ individuals—to become leaders in climate justice advocacy within their communities. The program focuses on deepening participants’ understanding of climate justice, enhancing their advocacy and training skills, and fostering inclusive youth leadership for environmental sustainability. Participants will also receive mentorship from experienced climate activists, and travel support is available for those coming from outside the Kathmandu Valley. This initiative provides a valuable opportunity for passionate young people to gain the knowledge and skills needed to drive meaningful climate action locally.",
+    "location": "Kathmandu, Nepal",
+    "locationType": "Physical",
+    "type": "Training",
+    "format": "Physical",
+    "startDate": null,
+    "registrationDeadline": "2025-07-10",
+    "registrationLink": "",
+    "contactEmail": "powershiftnepal@gmail.com",
+    "status": "Open",
+    "cost": "Fully Funded",
+    "website": "https://www.facebook.com/PowerShiftNepal",
+    "bannerImageId": null,
+    "bannerImageUrl": "https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/Training%20of%20Trainers%20(ToT)%20on%20Climate%20Justice%20_%20Power%20Shift%20Nepal.jpeg?updatedAt=1750562176591",
+    "category": [
+      "Climate Justice",
+      "Gender and Climate",
+      "Youth Empowerment"
+    ],
+    "address": {
+      "street": null,
+      "city": "Kathmandu",
+      "state": null,
+      "zip": null,
+      "country": "Nepal"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/PowerShiftNepal",
+      "linkedin": null,
+      "instagram": "https://www.instagram.com/powershiftnepal"
+    },
+    "id": 53
+  },
 
  {
   "title": "2026 EDGE Fellowship – Become a Conservation Leader",
