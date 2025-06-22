@@ -346,7 +346,7 @@ export interface Props {
       font-size: 20px;
       display: inline-block;
       float: right;
-      transition: transform 1s ease;
+      transition: transform 0.2s ease;
     }
 
     .menu-heading:hover .dropdown-icon {
@@ -370,7 +370,7 @@ export interface Props {
       border: 1px solid #1a1b1e;
       opacity: 0;
       visibility: hidden;
-      transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       pointer-events: none;
       backface-visibility: hidden;
       perspective: 1000px;
@@ -385,7 +385,7 @@ export interface Props {
 
     /* Add delay when closing (wrap up effect) */
     .menu-heading:not(:hover) > .sub-menu {
-      transition: all 1s ease-in;
+      transition: all 0.2s ease-in;
       transform: translateX(-50%) translateY(-10px) rotateX(-90deg);
     }
 
@@ -408,7 +408,7 @@ export interface Props {
       text-align: left;
       opacity: 0;
       transform: translateY(-15px);
-      transition: all 1s ease;
+      transition: all 0.2s ease;
     }
 
     .menu-heading:hover .sub-menu li {
@@ -437,42 +437,29 @@ export interface Props {
       opacity: 0;
     }
 
-    .sub-menu li:last-of-type {
-      border-bottom-right-radius: 8px;
-      border-bottom-left-radius: 8px;
-    }
-
     .sub-menu li a {
       display: block;
       width: 100%;
       border-radius: 0;
-      padding: 12px 16px;
+      padding: 8px 16px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
-
-    .sub-menu li a::before {
-      content: '';
+    .sub-menu li a::after{
+      content:'';
       position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
+      bottom: 5px;
+      left: 12px;
       width: 0;
-      background-color: #cefe00;
+      height: 1px;
+      background-color: #1a1b1e;
       transition: width 0.3s ease;
-      z-index: -1;
     }
 
-    .sub-menu li a:hover {
-      text-decoration: underline;
-      color: #1a1b1e;
+    .sub-menu li a:hover::after {
+      width: 80%;
     }
-
-    .sub-menu li a:hover::before {
-      width: 4px;
-    }
-
     .bottom-nav {
       display: none;
     }
