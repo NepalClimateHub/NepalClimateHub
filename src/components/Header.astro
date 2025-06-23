@@ -304,6 +304,25 @@ export interface Props {
     .main-menu li.menu-heading:hover > a,
     .main-menu li.menu-heading:focus-within > a {
       color: white;
+      transition: all 0.3s ease;
+    }
+
+    .main-menu li.menu-heading:hover {
+      background-color: #1a1b1e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Keep consistent background when submenu is active */
+    .main-menu li.menu-heading:hover,
+    .main-menu li.menu-heading:focus-within {
+      background-color: #1a1b1e;
+    }
+
+    /* Keep text white when hovering over menu heading OR when submenu is active */
+    .main-menu li.menu-heading:hover > a,
+    .main-menu li.menu-heading:focus-within > a {
+      color: white;
     }
 
     nav .menu-heading a {
@@ -358,13 +377,29 @@ export interface Props {
     }
 
     /* Enhanced submenu animations with fall down and wrap up effect */
+    .dropdown-icon {
+      font-size: 20px;
+      display: inline-block;
+      float: right;
+      transition: transform 0.2s ease;
+    }
+
+    .menu-heading:hover .dropdown-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Enhanced submenu animations with fall down and wrap up effect */
     .sub-menu {
       position: absolute;
+      width: 150px;
       width: 150px;
       min-width: fit-content;
       text-align: center;
       top: 50px;
+      top: 50px;
       left: 50%;
+      transform: translateX(-50%) translateY(-20px) rotateX(-90deg);
+      transform-origin: top center;
       transform: translateX(-50%) translateY(-20px) rotateX(-90deg);
       transform-origin: top center;
       background-color: white;
@@ -378,9 +413,26 @@ export interface Props {
       pointer-events: none;
       backface-visibility: hidden;
       perspective: 1000px;
+      border: 1px solid #1a1b1e;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      pointer-events: none;
+      backface-visibility: hidden;
+      perspective: 1000px;
     }
 
     .menu-heading:hover > .sub-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0) rotateX(0deg);
+      pointer-events: auto;
+    }
+
+    /* Add delay when closing (wrap up effect) */
+    .menu-heading:not(:hover) > .sub-menu {
+      transition: all 0.2s ease-in;
+      transform: translateX(-50%) translateY(-10px) rotateX(-90deg);
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0) rotateX(0deg);
@@ -453,6 +505,14 @@ export interface Props {
 
     .sub-menu li a:hover {
       text-decoration: underline;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sub-menu li a:hover {
+      text-decoration: underline;
     }
 
     .bottom-nav {
@@ -462,6 +522,7 @@ export interface Props {
     .logo-wrapper {
       width: 200px;
       height: auto;
+      margin-bottom: 8px;
       margin-bottom: 8px;
     }
 
