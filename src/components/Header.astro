@@ -437,7 +437,7 @@ export interface Props {
       opacity: 0;
     }
 
-    .sub-menu li a {
+   .sub-menu li a {
       display: block;
       width: 100%;
       border-radius: 0;
@@ -446,20 +446,12 @@ export interface Props {
       position: relative;
       overflow: hidden;
     }
-    .sub-menu li a::after{
-      content:'';
-      position: absolute;
-      bottom: 5px;
-      left: 12px;
-      width: 0;
-      height: 1px;
-      background-color: #1a1b1e;
-      transition: width 0.3s ease;
+
+    .sub-menu li a:hover {
+      text-decoration: underline;
     }
 
-    .sub-menu li a:hover::after {
-      width: 80%;
-    }
+
     .bottom-nav {
       display: none;
     }
