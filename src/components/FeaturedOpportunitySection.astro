@@ -6,8 +6,10 @@ import '../styles/components/FeaturedCardStyles.css';
 
 import { Icon } from 'astro-icon/components';
 
-// Import the dummy opportunity JSON
-import opportunityJSON from '../data/opportunitiesTemp.json';
+// import opportunityJSON from '../data/opportunitiesTemp.json';
+import { fetchOpportunities } from '../utils/api';
+
+const { data: opportunityJSON } = await fetchOpportunities();
 const { startIndex, endIndex, title } = Astro.props;
 
 // Create slugs for the opportunities
@@ -44,7 +46,7 @@ import { createSlug } from '../utils/slug';
             </p>
             <p class="about">{item.description.substring(0, 108)}...</p>
             <div class="tags">
-              {item.category.slice(0, 3).map((tag: string, index: number) => (
+              {(item.tags?.map((tag: any) => tag.tag) || item.category || []).slice(0, 3).map((tag: string, index: number) => (
                 <span class="tag">{tag}</span>
               ))}
             </div>

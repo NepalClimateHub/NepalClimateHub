@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardFilterSection from '@layouts/CardFilterSection.astro';
-import opportunitiesTemp from '../data/opportunitiesTemp.json';
+// import opportunitiesTemp from '../data/opportunitiesTemp.json';
 import BaseLayout from '../layouts/Layout.astro';
 
 import OpportunityFilter from '@components/OpportunityFilter.tsx';
@@ -13,13 +13,13 @@ import type {
 } from '../types/opportunity';
 import { fetchOpportunities } from '../utils/api';
 
-// const { data: apiOpportunities } = await fetchOpportunities();
+const { data: apiOpportunities } = await fetchOpportunities();
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
 }
 
-const opportunities = opportunitiesTemp.map((opportunity: any) => ({
+const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
   id: opportunity.id,
   title: opportunity.title,
   type: opportunity.type || '',
@@ -32,7 +32,7 @@ const opportunities = opportunitiesTemp.map((opportunity: any) => ({
   cost: opportunity.cost || '',
   organization: (opportunity as any).organization || '',
   description: stripHtml(opportunity.description || '') || '',
-  category: opportunity.category,
+  category: opportunity.tags?.map((tag: any) => tag.tag) || opportunity.category || [],
   bannerImage: opportunity.bannerImageUrl || '/placeholder.svg',
   applicationDeadline: opportunity.applicationDeadline || '',
   duration: (opportunity as any).duration || '',

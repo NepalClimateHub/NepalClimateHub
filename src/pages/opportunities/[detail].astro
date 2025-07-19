@@ -7,7 +7,7 @@ import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.a
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import CardDetailSection from '@layouts/CardDetailSection.astro';
-import opportunitiesTemp from '../../data/opportunitiesTemp.json';
+// import opportunitiesTemp from '../../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type {
   Opportunity as ApiOpportunity,
@@ -17,9 +17,9 @@ import { fetchOpportunities } from '../../utils/api';
 import { createSlug } from '../../utils/slug';
 
 export async function getStaticPaths() {
-  // const { data: opportunities } = await fetchOpportunities();
+  const { data: opportunities } = await fetchOpportunities();
 
-  return opportunitiesTemp.map((opportunity) => {
+  return (opportunities || []).map((opportunity) => {
     const slug = createSlug(opportunity.title);
     return {
       params: { detail: slug },
@@ -33,8 +33,8 @@ function stripHtml(html: string) {
 
 const { detail } = Astro.params;
 
-// const { data: allOpportunities } = await fetchOpportunities();
-const apiOpportunity = opportunitiesTemp.find(
+const { data: allOpportunities } = await fetchOpportunities();
+const apiOpportunity = (allOpportunities || []).find(
   (opportunity) => createSlug(opportunity.title) === detail
 );
 
@@ -50,7 +50,7 @@ const opportunityDetail = {
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
   province: apiOpportunity.address?.state || '',
-  category: apiOpportunity.category,
+  category: apiOpportunity.tags?.map((tag: any) => tag.tag) || apiOpportunity.category || [],
 };
 ---
 
