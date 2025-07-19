@@ -16,7 +16,7 @@ const transformedData: SortData[] = (newsData || []).map((item, index) => ({
   publishedYear: item.publishedYear,
   newsLink: item.newsLink,
   contributedBy: item.contributedBy,
-  imgSrc: item.bannerImageUrl,
+  imgSrc: item.bannerImageUrl || '/src/assets/logo/secondaryLogo.svg',
 }));
 
 const NewsJSON = sortNewsArray(transformedData);
@@ -45,6 +45,8 @@ const NewsJSON = sortNewsArray(transformedData);
 
     .news-card {
       width: 100%;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
     }
   }
 </style>
