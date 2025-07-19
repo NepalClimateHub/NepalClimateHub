@@ -4,6 +4,7 @@ import NewsFilter from '../components/NewsFilter.jsx';
 import { fetchNews } from '../utils/api';
 import sortNewsArray from '../utils/sortNewsArray.js';
 import type { SortData } from '../utils/sortNewsArray.js';
+import logo from '../assets/logo/secondaryLogo.svg';
 
 const { data: newsData } = await fetchNews();
 const transformedData: SortData[] = (newsData || []).map((item, index) => ({
@@ -16,7 +17,7 @@ const transformedData: SortData[] = (newsData || []).map((item, index) => ({
   publishedYear: item.publishedYear,
   newsLink: item.newsLink,
   contributedBy: item.contributedBy,
-  imgSrc: item.bannerImageUrl || '/src/assets/logo/secondaryLogo.svg',
+  imgSrc: item.bannerImageUrl || logo.src,
 }));
 
 const NewsJSON = sortNewsArray(transformedData);

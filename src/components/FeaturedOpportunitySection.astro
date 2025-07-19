@@ -8,6 +8,7 @@ import { Icon } from 'astro-icon/components';
 
 // import opportunityJSON from '../data/opportunitiesTemp.json';
 import { fetchOpportunities } from '../utils/api';
+import logo from '../assets/logo/secondaryLogo.svg';
 
 const { data: opportunityJSON } = await fetchOpportunities();
 const { startIndex, endIndex, title } = Astro.props;
@@ -31,7 +32,7 @@ import { createSlug } from '../utils/slug';
         >
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={item.bannerImageUrl || "/src/assets/logo/secondaryLogo.svg"}
+              src={item.bannerImageUrl ||logo.src}
               alt={item.title}
               style="object-fit: cover;"
             />
