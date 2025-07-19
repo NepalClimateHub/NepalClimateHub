@@ -33,7 +33,7 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
   organization: (opportunity as any).organization || '',
   description: stripHtml(opportunity.description || '') || '',
   category: opportunity.tags?.map((tag: any) => tag.tag) || opportunity.category || [],
-  bannerImage: opportunity.bannerImageUrl || '/placeholder.svg',
+  bannerImage: opportunity.bannerImageUrl || '/src/assets/logo/secondaryLogo.svg',
   applicationDeadline: opportunity.applicationDeadline || '',
   duration: (opportunity as any).duration || '',
   applicationDetail: opportunity.applicationLink || '#',

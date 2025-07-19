@@ -44,7 +44,11 @@ const NewsJSON = sortNewsArray(transformedData);
             <div class="content">
               <h3 class="news-headline">{news.title}</h3>
               <div class="news-image-wrapper">
-                <img src={news.imgSrc} alt="" />
+                <img 
+                style="height: auto;object-fit: cover;"
+                src={news.imgSrc || 
+                  "/src/assets/logo/secondaryLogo.svg"
+                } alt="" />
               </div>
             </div>
 

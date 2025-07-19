@@ -31,7 +31,7 @@ import { createSlug } from '../utils/slug';
         >
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={item.bannerImageUrl || "/images/opportunity-placeholder.jpg"}
+              src={item.bannerImageUrl || "/src/assets/logo/secondaryLogo.svg"}
               alt={item.title}
               style="object-fit: cover;"
             />
@@ -44,7 +44,7 @@ import { createSlug } from '../utils/slug';
               </span>
               <span class="address">{item.locationType}</span>
             </p>
-            <p class="about">{item.description.substring(0, 108)}...</p>
+            <p class="about" set:html={item.description.substring(0, 108) + '...'}></p>
             <div class="tags">
               {(item.tags?.map((tag: any) => tag.tag) || item.category || []).slice(0, 3).map((tag: string, index: number) => (
                 <span class="tag">{tag}</span>
