@@ -2,7 +2,7 @@ import type { Event, EventResponse } from '../types/event';
 import type { NewsResponse } from '../types/news';
 import type { Opportunity, OpportunityResponse } from '../types/opportunity';
 
-const API_BASE_URL = 'http://api.cms.nepalclimatehub.org';
+const API_BASE_URL = import.meta.env.API_BASE_URL;
 
 if (!API_BASE_URL) {
   console.error('API_BASE_URL is not defined in environment variables');
@@ -52,7 +52,9 @@ export const fetchNews = async (): Promise<NewsResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch news data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch news data: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };
@@ -75,7 +77,9 @@ export const fetchEvents = async (): Promise<EventResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch events data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch events data: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };
@@ -117,7 +121,9 @@ export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch opportunities data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch opportunities data: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };
