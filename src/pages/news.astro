@@ -1,9 +1,10 @@
 ---
 import '../styles/global.css';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import NewsStoriesSection from '@components/NewsStoriesSection.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import NewsStoriesSection from '../components/NewsStoriesSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
+import Loader from '../components/Loader.astro';
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -20,7 +21,9 @@ import BaseLayout from '../layouts/Layout.astro';
 		</section>
 
     <section class="news-section">
+     
       <NewsStoriesSection />
+	 
     </section>
 
 		<section class="footer-section">
@@ -45,3 +48,4 @@ import BaseLayout from '../layouts/Layout.astro';
 		}
 	}
 </style>
+
