@@ -8,6 +8,7 @@ import { fetchNews } from '../utils/api'; // Import fetchNews function
 // import unsortedNewsJSON from "../data/news.json";
 import sortNewsArray from '../utils/sortNewsArray.js';
 import type { SortData } from '../utils/sortNewsArray.js';
+import logo from "../assets/logo/secondaryLogo.svg";
 
 // Fetch news data from API
 const { data: apiNews } = await fetchNews();
@@ -47,12 +48,12 @@ const NewsJSON = sortNewsArray(transformedData);
                 <img 
                 style="height: auto;object-fit: cover;"
                 src={news.imgSrc || 
-                  "/src/assets/logo/secondaryLogo.svg"
-                } alt="" />
+logo.src}
+               alt="" />
               </div>
             </div>
 
-            <div class="news-details">
+          <div class="news-details">
               <div class="news-link">
                 <span class="icon">
                   <Icon name="mdi:link" />
