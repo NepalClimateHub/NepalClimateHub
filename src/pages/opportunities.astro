@@ -1,12 +1,13 @@
 ---
 import '../styles/global.css';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardFilterSection from '@layouts/CardFilterSection.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import CardFilterSection from '../layouts/CardFilterSection.astro';
 // import opportunitiesTemp from '../data/opportunitiesTemp.json';
 import BaseLayout from '../layouts/Layout.astro';
 
-import OpportunityFilter from '@components/OpportunityFilter.tsx';
+import OpportunityFilter from '../components/OpportunityFilter';
+import Loader from '../components/Loader.astro';
 import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
@@ -70,7 +71,8 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
 
       <section class="opportunity-cards-section">
         <OpportunityFilter client:load opportunities={opportunities} />
-      </section>
+        
+    </section>
     </div>
 
     <!-- Footer Section -->
@@ -115,3 +117,5 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
     }
   }
 </style>
+
+
