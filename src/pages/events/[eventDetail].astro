@@ -43,7 +43,7 @@ if (!apiEvent) {
 const eventData = {
   ...apiEvent,
   bannerImage: apiEvent.bannerImageUrl,
-  description: stripHtml(apiEvent.description || '') || '',
+  description: apiEvent.description || '',
   location:
     apiEvent.locationType.charAt(0).toUpperCase() +
     apiEvent.locationType.slice(1).toLowerCase(),

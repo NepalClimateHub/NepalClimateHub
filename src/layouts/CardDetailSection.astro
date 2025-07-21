@@ -43,17 +43,11 @@ const pictures = isEvent
         {location}
       </div>
 
-      <div class="detail">
-        {
-          description
-            .split(/\\n|<br>/)
-            .map((paragraph: string) => <p>{paragraph}</p>)
-        }
-      </div>
+      <div class="detail" set:html={description}></div>
 
       <!-- tags for organizations / activists causes -->
       <div class="tags">
-        {tags.map((tag: string) => <span class="tag">{tag}</span>)}
+        {tags.map((tagObj: any) => <span class="tag">{typeof tagObj === 'string' ? tagObj : tagObj.tag}</span>)}
       </div>
 
       {
