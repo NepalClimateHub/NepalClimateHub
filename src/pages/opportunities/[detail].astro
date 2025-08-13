@@ -1,12 +1,10 @@
 ---
-export const prerender = true;
-
 import '../../styles/global.css';
-import ConnectCard from '@components/ConnectCard.astro';
-import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardDetailSection from '@layouts/CardDetailSection.astro';
+import ConnectCard from '../../components/ConnectCard.astro';
+import FeaturedOpportunitySection from '../../components/FeaturedOpportunitySection.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import CardDetailSection from '../../layouts/CardDetailSection.astro';
 // import opportunitiesTemp from '../../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type {
@@ -16,27 +14,27 @@ import type {
 import { fetchOpportunities } from '../../utils/api';
 import { createSlug } from '../../utils/slug';
 
-export async function getStaticPaths() {
-  const { data: opportunities } = await fetchOpportunities();
-
-  return (opportunities || []).map((opportunity) => {
-    const slug = createSlug(opportunity.title);
-    return {
-      params: { detail: slug },
-    };
-  });
-}
-
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
 }
 
 const { detail } = Astro.params;
 
-const { data: allOpportunities } = await fetchOpportunities();
-const apiOpportunity = (allOpportunities || []).find(
-  (opportunity) => createSlug(opportunity.title) === detail
-);
+let apiOpportunity: ApiOpportunity | null = null;
+let allOpportunities: ApiOpportunity[] = [];
+
+try {
+  const response = await fetchOpportunities();
+  allOpportunities = response.data || [];
+  apiOpportunity = allOpportunities.find(
+    (opportunity) => createSlug(opportunity.title) === detail
+  ) || null;
+} catch (error) {
+  console.error('Error fetching opportunities:', error);
+  // Fallback to empty data if API fails
+  allOpportunities = [];
+  apiOpportunity = null;
+}
 
 if (!apiOpportunity) {
   throw new Error(`Opportunity with slug ${detail} not found`);
