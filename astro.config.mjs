@@ -23,5 +23,15 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     envPrefix: 'PUBLIC_',
+    resolve: {
+      alias: {
+        '@layouts': '/src/layouts',
+        '@components': '/src/components',
+        '@assets': '/src/assets',
+        '@i18n': '/src/i18n',
+        '@styles': '/src/styles',
+        '@pages': '/src/pages'
+      }
+    }
   },
 });
