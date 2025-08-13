@@ -46,7 +46,7 @@ const eventData = {
     apiEvent.locationType.charAt(0).toUpperCase() +
     apiEvent.locationType.slice(1).toLowerCase(),
   province: apiEvent.address?.state || '',
-  category: apiEvent.tags,
+  category: apiEvent.tags?.map((tag: any) => tag.tag) || [],
 };
 ---
 
