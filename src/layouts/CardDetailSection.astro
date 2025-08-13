@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { Organization } from '../interfaces/organizationInterface';
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = 'true' } = Astro.props;
@@ -42,14 +41,8 @@ const pictures = isEvent
         </span>
         {location}
       </div>
-
-      <div class="detail">
-        {
-          description
-            .split(/\\n|<br>/)
-            .map((paragraph: string) => <p>{paragraph}</p>)
-        }
-      </div>
+      
+      <div class="detail" set:html={description} />
 
       <!-- tags for organizations / activists causes -->
       <div class="tags">
