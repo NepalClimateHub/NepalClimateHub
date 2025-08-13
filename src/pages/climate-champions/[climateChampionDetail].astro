@@ -1,26 +1,22 @@
 ---
-export const prerender = true;
-
 import '../../styles/global.css';
-import ActivistSection from '@components/ActivistSection.astro';
-import ConnectCard from '@components/ConnectCard.astro';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import CardDetailSection from '@layouts/CardDetailSection.astro';
+import ActivistSection from '../../components/ActivistSection.astro';
+import ConnectCard from '../../components/ConnectCard.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 
 import climateChampionsJSON from '../../data/activists.json';
-
-export async function getStaticPaths() {
-  return climateChampionsJSON.map((champion) => ({
-    params: { climateChampionDetail: champion.slug },
-  }));
-}
 
 const { climateChampionDetail } = Astro.params;
 const champion = climateChampionsJSON.find(
   (champion) => champion.slug === climateChampionDetail
 );
+
+if (!champion) {
+  throw new Error(`Climate champion with slug ${climateChampionDetail} not found`);
+}
 ---
 
 <BaseLayout title="Nepal Climate Hub">
