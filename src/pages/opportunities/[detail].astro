@@ -14,9 +14,7 @@ import type {
 import { fetchOpportunities } from '../../utils/api';
 import { createSlug } from '../../utils/slug';
 
-function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '');
-}
+
 
 const { detail } = Astro.params;
 
@@ -43,7 +41,7 @@ if (!apiOpportunity) {
 const opportunityDetail = {
   ...apiOpportunity,
   bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
-  description: stripHtml(apiOpportunity.description || '') || '',
+  description: apiOpportunity.description || '',
   location:
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),

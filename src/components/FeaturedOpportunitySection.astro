@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon/components';
 
 // import opportunityJSON from '../data/opportunitiesTemp.json';
 import { fetchOpportunities } from '../utils/api';
-import logo from '../assets/logo/secondaryLogo.svg';
+import logo from '../assets/logo/mainLogo.svg';
 
 const { data: opportunityJSON } = await fetchOpportunities();
 const { startIndex, endIndex, title } = Astro.props;
@@ -45,7 +45,7 @@ import { createSlug } from '../utils/slug';
               </span>
               <span class="address">{item.locationType}</span>
             </p>
-            <p class="about" set:html={item.description.substring(0, 108) + '...'}></p>
+            <p class="about" set:html={item.description.substring(0, 108) + '...'} style="font-style: normal;" ></p>
             <div class="tags">
               {(item.tags?.map((tag: any) => tag.tag) || item.category || []).slice(0, 3).map((tag: string, index: number) => (
                 <span class="tag">{tag}</span>
@@ -83,7 +83,7 @@ import { createSlug } from '../utils/slug';
 </style>
 
 <script>
-  import { createMobileSlider } from "src/utils/slider";
+  import { createMobileSlider } from "../utils/slider";
 
   // Get the necessary elements
   const cards = document.querySelectorAll<HTMLElement>(".opportunity-card");
