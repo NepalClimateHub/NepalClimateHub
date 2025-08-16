@@ -2,10 +2,10 @@ import type { Event, EventResponse } from '../types/event';
 import type { NewsResponse } from '../types/news';
 import type { Opportunity, OpportunityResponse } from '../types/opportunity';
 
-const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+const API_BASE_URL = import.meta.env.API_BASE_URL;
 
 if (!API_BASE_URL) {
-  console.error('PUBLIC_API_BASE_URL is not defined in environment variables');
+  console.error('API_BASE_URL is not defined in environment variables');
 }
 
 class ApiError extends Error {
