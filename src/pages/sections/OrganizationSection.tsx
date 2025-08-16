@@ -10,11 +10,6 @@ const Organization = () => {
   const { pagination, currentPage } = paginationOptions;
   const totalCount = 300;
 
-  console.log({
-    pagination,
-    currentPage,
-  });
-
   return (
     <>
       <NuqsAdapter>
