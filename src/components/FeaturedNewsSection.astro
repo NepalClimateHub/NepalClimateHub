@@ -1,13 +1,13 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 // import newsTemp from '../data/newsTemp.json';
-import type { NewsItem, NewsTag } from '../types/news'; // Import NewsItem and NewsTag types
-import { fetchNews } from '../utils/api'; // Import fetchNews function
+import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
+import { fetchNews } from "../utils/api"; // Import fetchNews function
 // Removed static JSON import
 // import unsortedNewsJSON from "../data/news.json";
-import sortNewsArray from '../utils/sortNewsArray.js';
-import type { SortData } from '../utils/sortNewsArray.js';
+import sortNewsArray from "../utils/sortNewsArray.js";
+import type { SortData } from "../utils/sortNewsArray.js";
 import logo from "../assets/logo/secondaryLogo.svg";
 
 // Fetch news data from API
@@ -45,15 +45,15 @@ const NewsJSON = sortNewsArray(transformedData);
             <div class="content">
               <h3 class="news-headline">{news.title}</h3>
               <div class="news-image-wrapper">
-                <img 
-                style="height: auto;object-fit: cover;"
-                src={news.imgSrc || 
-logo.src}
-               alt="" />
+                <img
+                  style="height: auto;object-fit: cover;"
+                  src={news.imgSrc || logo.src}
+                  alt=""
+                />
               </div>
             </div>
 
-          <div class="news-details">
+            <div class="news-details">
               <div class="news-link">
                 <span class="icon">
                   <Icon name="mdi:link" />
@@ -143,7 +143,7 @@ logo.src}
 
   .news-image-wrapper img {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     object-fit: cover;
   }
 
