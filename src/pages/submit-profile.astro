@@ -97,9 +97,6 @@ if (Astro.request.method === 'POST') {
     });
 
     if (response.ok) {
-      console.log(`formIdentifier ${formIdentifier}`);
-      console.log(payload);
-
       if (formIdentifier === 'activist_profile') {
         // set up the cookies values
         Astro.cookies.set('successType', 'volunteerProfile', {
