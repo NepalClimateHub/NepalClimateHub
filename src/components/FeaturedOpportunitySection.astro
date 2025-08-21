@@ -17,86 +17,79 @@ const { startIndex, endIndex, title } = Astro.props;
 import { createSlug } from '../utils/slug';
 ---
 
-<div class="section-container featured-card-section">
-  <h2 class="section-heading">{title}</h2>
-
-  <!-- container to wrap opportunity cards -->
-
-  <!-- render the opportunities from opportunityJSON -->
-  <div class="cards-container" style="margin-bottom:72px;">
-    {
-      opportunityJSON.slice(startIndex, endIndex).map((item) => (
-        <a
-          class="card opportunity-card"
-          href={`/opportunities/${createSlug(item.title)}`}
-        >
-          <div class="img-wrapper" style="padding: 0px;">
-            <img
-              src={item.bannerImageUrl ||logo.src}
-              alt={item.title}
-              style="object-fit: cover;"
-            />
-          </div>
-          <div class="details">
-            <h3 class="name">{item.title}</h3>
-            <p class="location">
-              <span class="icon">
-                <Icon name="mdi:my-location" class="icon" />
-              </span>
-              <span class="address">{item.locationType}</span>
-            </p>
-            <p class="about" set:html={item.description.substring(0, 108) + '...'} style="font-style: normal;" ></p>
-            <div class="tags">
-              {(item.tags?.map((tag: any) => tag.tag) || item.category || []).slice(0, 3).map((tag: string, index: number) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          </div>
-        </a>
-      ))
-    }
-
-    <!-- slide control bars for mobile display -->
-
-    <div class="card-controls opportunity-card-controls">
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-    </div>
+<div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !my-20">
+  <div class="!text-center !mb-12">
+    <h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-4">{title}</h2>
+    <p class="!text-lg !text-gray-600 !max-w-2xl !mx-auto">Discover amazing opportunities to contribute to climate action and make a difference</p>
   </div>
 
-  <!-- link to redirect landing page of opportunities -->
-  <a href="/opportunities" class="cta-link">See All</a>
-</div>
+  <!-- Opportunities Grid Container -->
+  <div class="!grid !grid-cols-1 lg:!grid-cols-2 xl:!grid-cols-3 !gap-8 !mb-12">
+    {
+      opportunityJSON.slice(0, 3).map((item) => (
+        <article class="group !bg-white !rounded-2xl !shadow-lg hover:!shadow-2xl !transition-all !duration-300 hover:!-translate-y-2 !border !border-gray-100 !overflow-hidden !min-h-[500px]">
+          <!-- Image Section -->
+          <div class="!relative !overflow-hidden !h-48 !bg-gradient-to-br !from-green-50 !to-emerald-50">
+            <img
+              src={item.bannerImageUrl || logo.src}
+              alt={item.title}
+              class="!w-full !h-full !object-cover group-hover:!scale-110 !transition-transform !duration-500"
+            />
+            <div class="!absolute !inset-0 !bg-gradient-to-t !from-black/20 !to-transparent"></div>
+          </div>
 
-<style>
-  .featured-card-section {
-    margin: 53px auto 40px auto;
-  }
+          <!-- Content Section -->
+          <div class="!p-6 !flex !flex-col !h-full">
+            <div class="!flex-1 !max-h-[220px]">
+              <h3 class="!text-xl !font-bold !text-gray-900 !mb-3 group-hover:!text-green-600 !transition-colors !duration-300 !overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                {item.title}
+              </h3>
+              
+              <!-- Location -->
+              <div class="!flex !items-center !mb-4">
+                <div class="!flex !items-center !text-green-600 !font-medium">
+                  <Icon name="mdi:my-location" class="!w-4 !h-4 !mr-2" />
+                  <span class="!text-sm">{item.locationType}</span>
+                </div>
+              </div>
 
-  @media screen and (max-width: 768px) {
-    .featured-card-section {
-      margin: 24px 32px 64px;
+              <!-- Description -->
+              <div class="!text-gray-600 !text-sm !mb-4 !leading-relaxed !overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;" set:html={item.description.substring(0, 108) + '...'}></div>
+
+              <!-- Tags -->
+              <div class="!flex !flex-wrap !gap-2 !mb-4">
+                {(item.tags?.map((tag: any) => tag.tag) || item.category || []).slice(0, 3).map((tag: string, index: number) => (
+                  <span class="!inline-flex !items-center !px-3 !py-1 !text-xs !font-medium !bg-green-50 !text-green-700 !border !border-green-200 !rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- View Details Button - Always at bottom -->
+            <div class="!mt-6 !pt-4">
+              <a 
+                href={`/opportunities/${createSlug(item.title)}`}
+                class="!inline-flex !items-center !justify-center !text-green-600 !font-medium !text-sm !py-2 !px-4 !rounded-lg !border !border-green-200  hover:!bg-green-100 hover:!border-green-300 hover:!text-green-700 !transition-all !duration-200 !w-full"
+              >
+                <span>View Details</span>
+                <Icon name="mdi:arrow-right" class="!w-4 !h-4 !ml-2 group-hover:!translate-x-1 !transition-transform !duration-200" />
+              </a>
+            </div>
+          </div>
+        </article>
+      ))
     }
-  }
-</style>
+  </div>
 
-<script>
-  import { createMobileSlider } from "../utils/slider";
-
-  // Get the necessary elements
-  const cards = document.querySelectorAll<HTMLElement>(".opportunity-card");
-  const cardControlsElement = document.querySelector<HTMLElement>(
-    ".opportunity-card-controls"
-  );
-  const bars = cardControlsElement?.querySelectorAll<HTMLElement>(
-    ".bar-opportunity-section"
-  );
-
-  // Check if cardControlsElement and bars are not null
-  if (cardControlsElement && bars) {
-    // Call the function to create the mobile slider
-    createMobileSlider(cards, bars);
-  }
-</script>
+  <!-- CTA Section -->
+  <div class="!text-center">
+    <a 
+      href="/opportunities" 
+      class="!inline-flex !items-center !px-8 !py-4 !bg-gradient-to-r !from-green-600 !to-emerald-600 !text-white !font-semibold !rounded-xl !shadow-lg hover:!shadow-xl hover:!from-green-700 hover:!to-emerald-700 !transition-all !duration-300 !transform hover:!-translate-y-1 focus:!outline-none focus:!ring-2 focus:!ring-green-500 focus:!ring-offset-2"
+    >
+      <span class="!mr-2">View All Opportunities</span>
+      <Icon name="mdi:arrow-right" class="!w-5 !h-5" />
+    </a>
+  </div>
+</div>
