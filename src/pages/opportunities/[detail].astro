@@ -11,7 +11,7 @@ import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
 } from '../../types/opportunity';
-import { fetchOpportunities } from '../../utils/api';
+import { fetchOpportunities } from '../../api';
 import { createSlug } from '../../utils/slug';
 
 
@@ -64,11 +64,7 @@ const opportunityDetail = {
 
 
    <section class="card-detail-section">
-      <CardDetailSection
-        cardId={0}
-        organization="false"
-        dataObj={opportunityDetail}
-      />
+     <CardDetailSection dataObj={opportunityDetail} organization="false" />
     </section>
     
     <section class="connect-card-section">
