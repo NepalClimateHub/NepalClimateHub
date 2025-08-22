@@ -1,14 +1,14 @@
 ---
-import '../styles/global.css';
-import EventFilter from '../components/EventFilter';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import CardFilterSection from '../layouts/CardFilterSection.astro';
+import '../../styles/global.css';
+import EventFilter from '../../components/EventFilter';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
-import BaseLayout from '../layouts/Layout.astro';
-import Loader from '../components/Loader.astro';
-import type { Event as ApiEvent } from '../types/event';
-import { fetchEvents } from '../utils/api';
+import BaseLayout from '../../layouts/Layout.astro';
+import Loader from '../../components/Loader.astro';
+import type { Event as ApiEvent } from '../../types/event';
+import { fetchEvents } from '../../api';
 
 const { data: apiEvents } = await fetchEvents();
 
