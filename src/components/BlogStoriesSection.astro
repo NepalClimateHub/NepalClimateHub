@@ -1,0 +1,111 @@
+---
+import '../styles/global.css';
+import { Icon } from 'astro-icon/components';
+import { fetchAllBlogs } from '../api';
+import logo from '../assets/logo/mainLogo.svg';
+import { createSlug } from '../utils/slug';
+
+// Fetch all blogs from API
+const { data: allBlogs } = await fetchAllBlogs();
+---
+
+<div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !py-12">
+  <!-- Header Section -->
+  <div class="!text-center !mb-12">
+    <h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-4">All Climate Blogs</h2>
+    <p class="!text-lg !text-gray-600 !max-w-2xl !mx-auto">Explore our comprehensive collection of climate blogs, research articles, and expert insights</p>
+  </div>
+
+  <!-- Blog Count and Stats -->
+  <div class="!flex !items-center !justify-between !mb-8 !p-4 !bg-gray-50 !rounded-lg">
+    <div class="!text-gray-700">
+      <span class="!font-medium">{allBlogs?.length || 0}</span> blogs available
+    </div>
+    <div class="!flex !items-center !gap-4">
+      <div class="!text-sm !text-gray-600">
+        <Icon name="mdi:clock-outline" class="!w-4 !h-4 !inline !mr-1" />
+        Latest first
+      </div>
+    </div>
+  </div>
+
+  <!-- Blogs Grid -->
+  <div class="!grid !grid-cols-1 lg:!grid-cols-2 xl:!grid-cols-3 !gap-8 !mb-12">
+    {
+      allBlogs && allBlogs.length > 0 ? (
+        allBlogs.map((blog) => (
+          <article class="group !bg-white !rounded-2xl !shadow-lg hover:!shadow-2xl !transition-all !duration-300 hover:!-translate-y-2 !border !border-gray-100 !overflow-hidden !min-h-[550px]">
+            <!-- Image Section -->
+            <div class="!relative !overflow-hidden !h-48 !bg-gradient-to-br !from-blue-50 !to-indigo-50">
+              <img
+                src={blog.bannerImageUrl || logo.src}
+                alt={blog.title}
+                class="!w-full !h-full !object-cover group-hover:!scale-110 !transition-transform !duration-500"
+              />
+              <div class="!absolute !inset-0 !bg-gradient-to-t !from-black/20 !to-transparent"></div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="!p-6 !flex !flex-col !h-full">
+              <div class="!flex-1 !max-h-[220px]">
+                <h3 class="!text-xl !font-bold !text-gray-900 !mb-3 group-hover:!text-blue-600 !transition-colors !duration-300 !overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                  {blog.title}
+                </h3>
+                
+                <!-- Author and Date -->
+                <div class="!flex !items-center !justify-between !mb-4">
+                  <div class="!flex !items-center !text-blue-600 !font-medium">
+                    <Icon name="mdi:account" class="!w-4 !h-4 !mr-2" />
+                    <span class="!text-sm">{blog.author}</span>
+                  </div>
+                  <div class="!text-gray-500 !text-xs">
+                    {new Date(blog.publishedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+
+                <!-- Reading Time and Category -->
+                <div class="!flex !items-center !justify-between !mb-4">
+                  <div class="!flex !items-center !text-gray-600 !text-sm">
+                    <Icon name="mdi:clock-outline" class="!w-4 !h-4 !mr-2" />
+                    <span>{blog.readingTime}</span>
+                  </div>
+                  <span class="!inline-flex !items-center !px-3 !py-1 !text-xs !font-medium !bg-blue-50 !text-blue-700 !border !border-blue-200 !rounded-full">
+                    {blog.category}
+                  </span>
+                </div>
+
+                <!-- Excerpt -->
+                <div class="!text-gray-600 !text-sm !mb-4 !leading-relaxed !overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                  {blog.excerpt}
+                </div>
+              </div>
+
+              <!-- Read More Button - Always at bottom -->
+              <div class="!mt-6 !pt-4">
+                <a 
+                  href={`/blogs/${createSlug(blog.title)}`}
+                  class="!inline-flex !items-center !justify-center !text-blue-600 !font-medium !text-sm !py-2 !px-4 !rounded-lg !border !border-blue-200 hover:!bg-blue-100 hover:!border-blue-300 hover:!text-blue-700 !transition-all !duration-200 !w-full"
+                >
+                  <span>Read More</span>
+                  <Icon name="mdi:arrow-right" class="!w-4 !h-4 !ml-2 group-hover:!translate-x-1 !transition-transform !duration-200" />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
+      ) : (
+        <div class="!col-span-full !text-center !py-12">
+          <div class="!text-gray-500 !text-lg">No blogs available at the moment.</div>
+          <div class="!text-gray-400 !text-sm !mt-2">Check back later for new content.</div>
+        </div>
+      )
+    }
+  </div>
+
+  <!-- Pagination Placeholder -->
+  {allBlogs && allBlogs.length > 0 && (
+    <div class="!text-center !py-8">
+      <div class="!text-gray-500 !text-sm">Pagination coming soon...</div>
+    </div>
+  )}
+</div>

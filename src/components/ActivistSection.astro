@@ -12,66 +12,38 @@ import activistJSON from '../data/featuredActivists.json';
 const { title } = Astro.props;
 ---
 
-<div class="section-container featured-card-section">
-	<h2 class="section-heading">{title}</h2>
-
-	<!-- container to wrap activist cards -->
-
-	<!-- render the activists from activistJSON -->
-	<div class="cards-container">
-		{
-			activistJSON.map((activist) => (
-				<a class="card activist-card" href={`/climate-champions/${activist.slug}`}>
-					<div class="img-wrapper" style="padding: 0;"> 
-						<img src={activist.logoUrl} alt={activist.name} style="object-fit: cover;"/>
-					</div>
-					<div class="details">
-						<h3 class="name">{activist.name}</h3>
-						<p class="location">
-							<span class="icon">
-								<Icon name="mdi:my-location" class="icon" />
-							</span>
-							<span class="address">{activist.address}</span>
-						</p>
-						<p class="about">{activist.description.substring(0, 112)}...</p>
-
-						<div class="tags">
-							{activist.tags.slice(0,3).map((tag) => (
-								<span class="tag">{tag}</span>
-							))}
-						</div>
-					</div>
-				</a>
-			))
-		}
-
-		<!-- slide control bars for mobile display -->
-
-		<div class="card-controls activist-card-controls">
-			<span class="bar bar-activist-section"></span>
-			<span class="bar bar-activist-section"></span>
-			<span class="bar bar-activist-section"></span>
-			<span class="bar bar-activist-section"></span>
+<div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !my-20">
+	<div class="!mb-8 !flex !items-end !justify-between">
+		<div class="!text-left">
+			<h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-0">{title}</h2>
+			<p class="!text-lg !text-gray-600">Meet the champions leading climate action</p>
 		</div>
+		<a href="/climate-champions" class="!text-sm !font-medium !text-blue-700 hover:!text-blue-800 !transition-colors">View all</a>
 	</div>
 
-	<!-- link to redirect landing pages of activists -->
-	<a href="/climate-champions" class="cta-link">See All</a>
+	<!-- Minimal activists grid -->
+	<div class="!grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3 xl:!grid-cols-4 !gap-6">
+		{
+			activistJSON.map((activist) => (
+				<article class="group !bg-white !rounded-2xl !border !border-gray-100 !shadow-sm hover:!shadow-md !transition-all !duration-300 hover:!-translate-y-1 !p-6 !flex !flex-col !items-center !text-center !h-full">
+					<!-- Content wrapper grows to push button down -->
+					<div class="!flex-1 !w-full !flex !flex-col !items-center">
+						<!-- Photo/Logo -->
+						<div class="!w-full !h-28 !mb-4 !flex !items-center !justify-center">
+							<img src={activist.logoUrl} alt={activist.name} class="!max-h-28 !object-contain !rounded-xl" />
+						</div>
+						<!-- Name -->
+						<h3 class="!text-base !font-semibold !text-gray-900">{activist.name}</h3>
+					</div>
+
+					<!-- View Profile Button at consistent bottom -->
+					<a href={`/climate-champions/${activist.slug}`} class="!mt-4 !inline-flex !items-center !justify-center !text-blue-700 !font-medium !text-sm !py-2 !px-4 !rounded-lg !border !border-blue-200 hover:!bg-blue-50 hover:!border-blue-300 hover:!text-blue-800 !transition-all !duration-200 !w-full">
+						<span>Read more</span>
+						<Icon name="mdi:arrow-right" class="!w-4 !h-4 !ml-2 group-hover:!translate-x-1 !transition-transform !duration-200" />
+					</a>
+				</article>
+			))
+		}
+	</div>
 </div>
-
-
-<script>
-	import { createMobileSlider } from "src/utils/slider";
-	
-	// Get the necessary elements
-	const cards = document.querySelectorAll<HTMLElement>(".activist-card");
-	const cardControlsElement = document.querySelector<HTMLElement>(".activist-card-controls");
-	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-activist-section");
-	
-	// Check if cardControlsElement and bars are not null
-	if (cardControlsElement && bars) {
-		// Call the function to create the mobile slider
-		createMobileSlider(cards, bars);
-	}
-	</script>
 
