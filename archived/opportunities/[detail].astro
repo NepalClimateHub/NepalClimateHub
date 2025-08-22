@@ -13,8 +13,8 @@ import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
 } from '../../types/opportunity';
-import { fetchOpportunities } from '../../utils/api';
-import { createSlug } from '../../utils/slug';
+import { fetchOpportunities } from '../../src/api';
+import { createSlug } from '../../src/utils/slug';
 
 export async function getStaticPaths() {
   // const { data: opportunities } = await fetchOpportunities();

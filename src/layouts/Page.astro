@@ -16,6 +16,7 @@ interface Props {
 }
 
 import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
+import FeaturedBlogSection from '@components/FeaturedBlogSection.astro';
 import BaseLayout from './Layout.astro';
 
 const { title } = Astro.props;
@@ -60,9 +61,19 @@ const { title } = Astro.props;
       />
     </section>
 
-      <FeaturedNewsSection />
+    <section class="!bg-white">
+      <FeaturedBlogSection
+        startIndex="0"
+        endIndex="3"
+        title="Blogs"
+      />
+    </section>
 
-    <section class="testimonial-section">
+    <section class="!bg-gray-50">
+      <FeaturedNewsSection />
+    </section>
+
+    <section class="!bg-gray-white">
       <Testimonials />
     </section>
 
@@ -89,7 +100,8 @@ const { title } = Astro.props;
   }
 
   .organization-section,
-  .opportunity-section {
+  .opportunity-section,
+  .blog-section {
     background-color: #ebf1f7;
   }
 
