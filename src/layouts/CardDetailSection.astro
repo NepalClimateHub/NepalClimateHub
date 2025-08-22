@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
+import HtmlRenderer from '../components/HtmlRenderer.astro';
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = 'true' } = Astro.props;
@@ -45,50 +46,13 @@ const pictures = isEvent
            {location}
          </div>
          
-                   <!-- HTML rendering with JavaScript override -->
-          <div class="!mb-9" id="description-content" set:html={description} />
+                   <!-- HTML rendering using shared renderer -->
+          <div class="!mb-9">
+            <HtmlRenderer content={description} />
+          </div>
           
           <script>
-            // Force list styling after the page loads
-            document.addEventListener('DOMContentLoaded', function() {
-              const descriptionContent = document.getElementById('description-content');
-              if (descriptionContent) {
-                // Remove default list styling to prevent double bullets
-                const lists = descriptionContent.querySelectorAll('ul');
-                lists.forEach(ul => {
-                  ul.style.setProperty('list-style', 'none', 'important');
-                  ul.style.setProperty('padding-left', '1.5rem', 'important');
-                  ul.style.setProperty('margin-bottom', '1rem', 'important');
-                });
-                
-                const listItems = descriptionContent.querySelectorAll('li');
-                listItems.forEach(li => {
-                  li.style.setProperty('list-style', 'none', 'important');
-                  li.style.setProperty('display', 'list-item', 'important');
-                  li.style.setProperty('margin-bottom', '0.5rem', 'important');
-                });
-                
-                // Add custom bullet points using ::before
-                const style = document.createElement('style');
-                style.textContent = `
-                  #description-content ul li {
-                    position: relative !important;
-                    padding-left: 0 !important;
-                  }
-                  
-                  #description-content ul li::before {
-                    content: "• " !important;
-                    color: #000 !important;
-                    font-weight: bold !important;
-                    position: absolute !important;
-                    left: -1rem !important;
-                    top: 0 !important;
-                    display: inline-block !important;
-                  }
-                `;
-                document.head.appendChild(style);
-              }
-            });
+            // The explicit JS list styling is no longer needed due to HtmlRenderer
           </script>
           
         

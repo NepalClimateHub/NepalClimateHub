@@ -3,7 +3,7 @@ import "../styles/global.css";
 import { Icon } from "astro-icon/components";
 // import newsTemp from '../data/newsTemp.json';
 import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
-import { fetchNews } from "../utils/api"; // Import fetchNews function
+import { fetchNews } from "../api"; // Import fetchNews function
 // Removed static JSON import
 // import unsortedNewsJSON from "../data/news.json";
 import sortNewsArray from "../utils/sortNewsArray.js";
@@ -31,9 +31,12 @@ const NewsJSON = sortNewsArray(transformedData);
 ---
 
 <div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !m-20">
-  <div class="!text-center !mb-12">
-    <h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-4">Latest News</h2>
-    <p class="!text-lg !text-gray-600 !max-w-2xl !mx-auto">Stay updated with the latest climate news and developments from around the world</p>
+  <div class="!mb-8 !flex !items-end !justify-between">
+    <div class="!text-left">
+      <h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-0">Latest News</h2>
+      <p class="!text-lg !text-gray-600">Stay updated with the latest climate news and developments from around the world</p>
+    </div>
+    <a href="/news" class="!text-sm !font-medium !text-blue-700 hover:!text-blue-800 !transition-colors">View all</a>
   </div>
 
   <!-- News Grid Container -->
@@ -102,16 +105,5 @@ const NewsJSON = sortNewsArray(transformedData);
         </article>
       ))
     }
-  </div>
-
-  <!-- CTA Section -->
-  <div class="!text-center">
-    <a 
-      href="/news" 
-      class="!inline-flex !items-center !px-8 !py-4 !bg-gradient-to-r !from-blue-600 !to-indigo-600 !text-white !font-semibold !rounded-xl !shadow-lg hover:!shadow-xl hover:!from-blue-700 hover:!to-indigo-700 !transition-all !duration-300 !transform hover:!-translate-y-1 focus:!outline-none focus:!ring-2 focus:!ring-blue-500 focus:!ring-offset-2"
-    >
-      <span class="!mr-2">View All News</span>
-      <Icon name="mdi:arrow-right" class="!w-5 !h-5" />
-    </a>
   </div>
 </div>
