@@ -1,0 +1,66 @@
+---
+interface Props {
+  content: string;
+  class?: string;
+}
+
+const { content, class: className = '' } = Astro.props;
+const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
+---
+
+<div id={uid} class={className} set:html={content} />
+
+<style is:global>
+  /* Robust, non-overridable defaults for any HtmlRenderer instance */
+  [id^="html-renderer-"] ul {
+    list-style: disc !important;
+    list-style-position: outside !important;
+    padding-left: 1.5rem !important;
+    margin: 0 0 1rem 0 !important;
+  }
+
+  [id^="html-renderer-"] ol {
+    list-style: decimal !important;
+    list-style-position: outside !important;
+    padding-left: 1.5rem !important;
+    margin: 0 0 1rem 0 !important;
+  }
+
+  [id^="html-renderer-"] li {
+    display: list-item !important;
+    list-style: inherit !important;
+    margin: 0 0 0.5rem 0 !important;
+  }
+
+  [id^="html-renderer-"] ul li::marker {
+    content: '• ' !important;
+    color: #374151 !important;
+    font-weight: 700 !important;
+  }
+
+  [id^="html-renderer-"] ol li::marker {
+    color: #374151 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Nested paragraphs from editors */
+  [id^="html-renderer-"] li > p,
+  [id^="html-renderer-"] li > .text-node {
+    display: inline !important;
+    margin: 0 !important;
+  }
+
+  /* Headings (includes editor heading-node) */
+  [id^="html-renderer-"] .heading-node,
+  [id^="html-renderer-"] h1,
+  [id^="html-renderer-"] h2,
+  [id^="html-renderer-"] h3,
+  [id^="html-renderer-"] h4,
+  [id^="html-renderer-"] h5,
+  [id^="html-renderer-"] h6 {
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+</style>
