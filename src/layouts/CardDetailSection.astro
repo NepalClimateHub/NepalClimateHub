@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { Organization } from '../interfaces/organizationInterface';
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = 'true' } = Astro.props;
@@ -27,6 +26,9 @@ const tags = isEvent
 const pictures = isEvent
   ? [activeDataObject?.bannerImage].filter(Boolean)
   : activeDataObject?.pictures || [];
+
+// Add extra br tag after each existing br tag for better paragraph separation
+const processedDescription = description.replace(/<br\s*\/?>/gi, '<br><br>');
 ---
 
 <div class="section-container">
@@ -42,14 +44,10 @@ const pictures = isEvent
         </span>
         {location}
       </div>
-
-      <div class="detail">
-        {
-          description
-            .split(/\\n|<br>/)
-            .map((paragraph: string) => <p>{paragraph}</p>)
-        }
-      </div>
+      
+      <div class="detail" id="description-content" set:html={processedDescription} />
+      
+      
 
       <!-- tags for organizations / activists causes -->
       <div class="tags">
@@ -137,11 +135,19 @@ const pictures = isEvent
 
   .detail {
     margin-bottom: 36px;
+    line-height: 1.6;
   }
 
-  .detail p {
-    line-height: 24px;
-    margin-bottom: 16px;
+  /* Minimal spacing for existing br tags from API */
+  .detail br {
+    display: block;
+    margin-bottom: 1px !important;
+  }
+
+  /* Basic text styling */
+  .detail {
+    line-height: 1.6;
+    text-align: justify;
   }
 
   .tags {
