@@ -17,6 +17,7 @@ const { startIndex, endIndex, title } = Astro.props;
 import { createSlug } from '../utils/slug';
 ---
 
+<<<<<<< HEAD
 <div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !my-20">
   <div class="!mb-8 !flex !items-end !justify-between">
     <div class="!text-left">
@@ -25,21 +26,36 @@ import { createSlug } from '../utils/slug';
     </div>
     <a href="/opportunities" class="!text-sm !font-medium !text-emerald-700 hover:!text-emerald-800 !transition-colors">View all</a>
   </div>
+=======
+<div class="section-container featured-card-section">
+  <h2 class="section-heading">{title}</h2>
+>>>>>>> 16356427a1f07d790e165a9d45665f7bebce0471
 
-  <!-- Opportunities Grid Container -->
-  <div class="!grid !grid-cols-1 lg:!grid-cols-2 xl:!grid-cols-3 !gap-8 !mb-12">
+  <!-- container to wrap opportunity cards -->
+
+  <!-- render the opportunities from opportunityJSON -->
+  <div class="cards-container" style="margin-bottom:72px;">
     {
+<<<<<<< HEAD
       opportunityJSON.slice(0, 3).map((item) => (
         <article class="group !bg-white !rounded-2xl !shadow-lg hover:!shadow-2xl !transition-all !duration-300 hover:!-translate-y-2 !border !border-gray-100 !overflow-hidden !min-h-[500px]">
           <!-- Image Section -->
           <div class="!relative !overflow-hidden !h-48 !bg-gradient-to-br !from-teal-50 !to-cyan-50">
+=======
+      opportunityJSON.slice(startIndex, endIndex).map((item) => (
+        <a
+          class="card opportunity-card"
+          href={`/opportunities/${createSlug(item.title)}`}
+        >
+          <div class="img-wrapper" style="padding: 0px;">
+>>>>>>> 16356427a1f07d790e165a9d45665f7bebce0471
             <img
-              src={item.bannerImageUrl || logo.src}
+              src={item.bannerImageUrl ||logo.src}
               alt={item.title}
-              class="!w-full !h-full !object-cover group-hover:!scale-110 !transition-transform !duration-500"
+              style="object-fit: cover;"
             />
-            <div class="!absolute !inset-0 !bg-gradient-to-t !from-black/20 !to-transparent"></div>
           </div>
+<<<<<<< HEAD
 
           <!-- Content Section -->
           <div class="!p-6 !flex !flex-col !h-full">
@@ -78,10 +94,71 @@ import { createSlug } from '../utils/slug';
                 <span>Read more</span>
                 <Icon name="mdi:arrow-right" class="!w-4 !h-4 !ml-2 group-hover:!translate-x-1 !transition-transform !duration-200" />
               </a>
+=======
+          <div class="details">
+            <h3 class="name">{item.title}</h3>
+            <p class="location">
+              <span class="icon">
+                <Icon name="mdi:my-location" class="icon" />
+              </span>
+              <span class="address">{item.locationType}</span>
+            </p>
+            <p class="about" set:html={item.description.substring(0, 108) + '...'} style="font-style: normal;" ></p>
+            <div class="tags">
+              {(item.tags?.map((tag: any) => tag.tag) || item.category || []).slice(0, 3).map((tag: string, index: number) => (
+                <span class="tag">{tag}</span>
+              ))}
+>>>>>>> 16356427a1f07d790e165a9d45665f7bebce0471
             </div>
           </div>
-        </article>
+        </a>
       ))
     }
+
+    <!-- slide control bars for mobile display -->
+
+    <div class="card-controls opportunity-card-controls">
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+      <span class="bar bar-opportunity-section"></span>
+    </div>
   </div>
+<<<<<<< HEAD
+=======
+
+  <!-- link to redirect landing page of opportunities -->
+  <a href="/opportunities" class="cta-link">See All</a>
+>>>>>>> 16356427a1f07d790e165a9d45665f7bebce0471
 </div>
+
+<style>
+  .featured-card-section {
+    margin: 53px auto 40px auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .featured-card-section {
+      margin: 24px 32px 64px;
+    }
+  }
+</style>
+
+<script>
+  import { createMobileSlider } from "../utils/slider";
+
+  // Get the necessary elements
+  const cards = document.querySelectorAll<HTMLElement>(".opportunity-card");
+  const cardControlsElement = document.querySelector<HTMLElement>(
+    ".opportunity-card-controls"
+  );
+  const bars = cardControlsElement?.querySelectorAll<HTMLElement>(
+    ".bar-opportunity-section"
+  );
+
+  // Check if cardControlsElement and bars are not null
+  if (cardControlsElement && bars) {
+    // Call the function to create the mobile slider
+    createMobileSlider(cards, bars);
+  }
+</script>
