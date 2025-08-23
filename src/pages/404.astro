@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Page Not Found | Nepal Climate Hub">
+  <main class="main-container">
+    <!-- Header Section -->
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
+    </section>
+
+    <!-- 404 Content -->
+    <section class="error-section">
+      <div class="error-container">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <div class="action-buttons">
+          <a href="/" class="btn-primary">Go Home</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  section {
+    padding: 0px 48px;
+  }
+
+  .error-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 48px;
+  }
+
+  .error-container {
+    max-width: 600px;
+  }
+
+  .error-container h1 {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #1A1B1E;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .error-container h2 {
+    font-size: 2.5rem;
+    color: #364FC7;
+    margin: 20px 0;
+  }
+
+  .error-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: #364FC7;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #2a3da0;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #364FC7;
+    border: 2px solid #364FC7;
+  }
+
+  .btn-secondary:hover {
+    background-color: #364FC7;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 0px 20px;
+    }
+    
+    .error-section {
+      padding: 60px 20px;
+    }
+
+    .error-container h1 {
+      font-size: 6rem;
+    }
+
+    .error-container h2 {
+      font-size: 2rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+  }
+</style>

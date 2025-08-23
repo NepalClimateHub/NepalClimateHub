@@ -2,7 +2,7 @@ import type { Event, EventResponse } from '../types/event';
 import type { NewsResponse } from '../types/news';
 import type { Opportunity, OpportunityResponse } from '../types/opportunity';
 
-const API_BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+const API_BASE_URL = import.meta.env.API_BASE_URL;
 
 if (!API_BASE_URL) {
   console.error('API_BASE_URL is not defined in environment variables');
@@ -36,7 +36,6 @@ async function handleResponse<T>(response: Response): Promise<T> {
 
 export const fetchNews = async (): Promise<NewsResponse> => {
   try {
-    console.log('Fetching news from:', `${API_BASE_URL}/api/v1/news`);
     const response = await fetch(`${API_BASE_URL}/api/v1/news`, {
       method: 'GET',
       headers: {
@@ -59,7 +58,6 @@ export const fetchNews = async (): Promise<NewsResponse> => {
 
 export const fetchEvents = async (): Promise<EventResponse> => {
   try {
-    console.log('Fetching events from:', `${API_BASE_URL}/api/v1/events`);
     const response = await fetch(`${API_BASE_URL}/api/v1/events`, {
       method: 'GET',
       headers: {
@@ -85,23 +83,17 @@ export const fetchEventById = async (
 ): Promise<{
   data: Event;
 }> => {
-  console.log(`Fetching event with ID: ${id}`);
   const response = await fetch(`${API_BASE_URL}/api/v1/events/${id}`);
   if (!response.ok) {
     console.error(`Error fetching event ${id}: ${response.statusText}`);
     throw new Error(`Failed to fetch event with ID ${id}`);
   }
   const data = await response.json();
-  console.log(`Successfully fetched event with ID: ${id}`, data);
   return data;
 };
 
 export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
   try {
-    console.log(
-      'Fetching opportunities from:',
-      `${API_BASE_URL}/api/v1/opportunities`
-    );
     const response = await fetch(`${API_BASE_URL}/api/v1/opportunities`, {
       method: 'GET',
       headers: {
@@ -127,13 +119,11 @@ export const fetchOpportunityById = async (
 ): Promise<{
   data: Opportunity;
 }> => {
-  console.log(`Fetching opportunity with ID: ${id}`);
   const response = await fetch(`${API_BASE_URL}/api/v1/opportunities/${id}`);
   if (!response.ok) {
     console.error(`Error fetching opportunity ${id}: ${response.statusText}`);
     throw new Error(`Failed to fetch opportunity with ID ${id}`);
   }
   const data = await response.json();
-  console.log(`Successfully fetched opportunity with ID: ${id}`, data);
   return data;
 };

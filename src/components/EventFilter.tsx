@@ -131,7 +131,6 @@ const filterOptions = [
 ];
 
 const EventFilter: React.FC<Props> = ({ events }) => {
-  console.log('Raw events data:', events);
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [filters, setFilters] = useState({
     type: '',
@@ -144,20 +143,10 @@ const EventFilter: React.FC<Props> = ({ events }) => {
   });
 
   useEffect(() => {
-    console.log(
-      'Event statuses:',
-      events.map((event) => ({
-        id: event.id,
-        status: event.status,
-      }))
-    );
-    console.log('Current filters:', filters);
-
     let result = events;
 
     Object.entries(filters).forEach(([key, value]) => {
       if (value) {
-        console.log(`Applying filter: ${key} = "${value}"`);
         if (key === 'category') {
           result = result.filter((event) =>
             event.category.some((cat) => cat.trim() === value.trim())
@@ -186,26 +175,19 @@ const EventFilter: React.FC<Props> = ({ events }) => {
         } else {
           result = result.filter((event) => {
             const eventValue = event[key as keyof Event] as string;
-            const isMatch = eventValue
+            return eventValue
               ? eventValue.trim() === value.trim()
               : false;
-            console.log(
-              `Event ${event.id} ${key}: "${eventValue}" vs "${value}" -> Match: ${isMatch}`
-            );
-            return isMatch;
           });
         }
-        console.log(`After ${key} filter:`, result);
       }
     });
 
     setFilteredEvents(result);
-    console.log('Filtered events:', result);
   }, [filters, events]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    console.log(`Filter changed: ${name} = "${value}"`);
     setFilters((prev) => ({
       ...prev,
       [name]: value,
@@ -213,7 +195,6 @@ const EventFilter: React.FC<Props> = ({ events }) => {
   };
 
   const resetFilters = () => {
-    console.log('Resetting filters');
     setFilters({
       type: '',
       locationType: '',

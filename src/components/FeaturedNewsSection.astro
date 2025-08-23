@@ -1,29 +1,30 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
-import newsTemp from '../data/newsTemp.json';
-import type { NewsItem, NewsTag } from '../types/news'; // Import NewsItem and NewsTag types
-import { fetchNews } from '../utils/api'; // Import fetchNews function
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+// import newsTemp from '../data/newsTemp.json';
+import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
+import { fetchNews } from "../utils/api"; // Import fetchNews function
 // Removed static JSON import
 // import unsortedNewsJSON from "../data/news.json";
-import sortNewsArray from '../utils/sortNewsArray.js';
-import type { SortData } from '../utils/sortNewsArray.js';
+import sortNewsArray from "../utils/sortNewsArray.js";
+import type { SortData } from "../utils/sortNewsArray.js";
+import logo from "../assets/logo/secondaryLogo.svg";
 
 // Fetch news data from API
-// const { data: apiNews } = await fetchNews();
+const { data: apiNews } = await fetchNews();
 // console.log(apiNews);
 
-const transformedData: SortData[] = newsTemp.map((item, index) => ({
+const transformedData: SortData[] = (apiNews || []).map((item, index) => ({
   id: index.toString(),
   title: item.title,
   source: item.source,
   mode: item.mode,
-  category: item.category.map((tag) => String(tag)),
+  category: item.tags.map((tag: any) => String(tag.tag)),
   publishedDate: item.publishedDate,
   publishedYear: item.publishedYear,
   newsLink: item.newsLink,
   contributedBy: item.contributedBy,
-  imgSrc: item.imgSrc,
+  imgSrc: item.bannerImageUrl,
 }));
 
 const NewsJSON = sortNewsArray(transformedData);
@@ -44,7 +45,11 @@ const NewsJSON = sortNewsArray(transformedData);
             <div class="content">
               <h3 class="news-headline">{news.title}</h3>
               <div class="news-image-wrapper">
-                <img src={news.imgSrc} alt="" />
+                <img
+                  style="height: auto;object-fit: cover;"
+                  src={news.imgSrc || logo.src}
+                  alt=""
+                />
               </div>
             </div>
 
@@ -138,7 +143,7 @@ const NewsJSON = sortNewsArray(transformedData);
 
   .news-image-wrapper img {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     object-fit: cover;
   }
 
