@@ -45,10 +45,7 @@ Want to explore NepalClimateHub locally? Follow these steps:
    ```bash
    cp .env.example .env
    ```
-5. Migrate the db
-   ```bash
-   npx prisma migrate deploy
-   ```
+   
 6. Run the application
    ```bash
    npm run dev
@@ -73,3 +70,8 @@ If you find NepalClimateHub valuable, share it with your friends and fellow clim
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 The goal for this project is to create a free to use starter kit for creating low emission, sustainable websites.
+
+## URLs
+
+Staging : https://nch-staging.netlify.app
+Production: https://nepalclimatehub.org

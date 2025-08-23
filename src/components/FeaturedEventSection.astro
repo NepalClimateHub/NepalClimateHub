@@ -2,24 +2,24 @@
 import '../styles/global.css';
 import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
-import eventsTemp from '../data/eventsTemp.json';
+// import eventsTemp from '../data/eventsTemp.json';
 import type { Event as ApiEvent } from '../types/event';
 import { fetchEvents } from '../utils/api';
 import { createSlug } from '../utils/slug';
 const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
-// const { data: apiEvents } = await fetchEvents();
+const { data: apiEvents } = await fetchEvents();
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
 }
 
-const transformedEvents = eventsTemp
+const transformedEvents = (apiEvents || [])
   .filter(
     (event) =>
       event?.bannerImageUrl &&
       event.title &&
-      event.category &&
+      event.tags &&
       event.locationType
   )
   .map((event: any) => ({
@@ -33,7 +33,7 @@ const transformedEvents = eventsTemp
     status: event.status,
     format: event.format,
     cost: event.cost,
-    category: event.category,
+    category: event.tags?.map((tag: any) => tag.tag) || [],
     bannerImage: event.bannerImageUrl || '/placeholder.svg',
     description: stripHtml(event.description || '') || '',
     organizer: event.organizer || '',
