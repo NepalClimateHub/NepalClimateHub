@@ -9,41 +9,67 @@ import { Icon } from 'astro-icon/components';
 //sample organization JSON organization
 import organizationJSON from '../data/organizations.json';
 const { startIndex, endIndex, title } = Astro.props;
+
+console.log(startIndex, endIndex);
 ---
 
-<div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !my-20">
-	<div class="!mb-8 !flex !items-end !justify-between">
-		<div class="!text-left">
-			<h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900">{title}</h2>
-			<p class="!text-lg !text-gray-600">Organizations contributing to climate action</p>
-		</div>
-		<a href="/organizations" class="!text-sm !font-medium !text-green-700 hover:!text-green-800 !transition-colors">View all</a>
-	</div>
+<div class="section-container featured-card-section">
+	<h2 class="section-heading">{title}</h2>
 
-	<!-- Minimal organizations grid -->
-	<div class="!grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3 xl:!grid-cols-4 !gap-6">
+	<!-- container to wrap organization cards -->
+
+	<!-- render the organization from organizationJSON -->
+	<div class="cards-container">
 		{
 			organizationJSON.slice(startIndex, endIndex).map((organization) => (
-				<article class="group !bg-white !rounded-2xl !border !border-gray-100 !shadow-sm hover:!shadow-md !transition-all !duration-300 hover:!-translate-y-1 !p-6 !flex !flex-col !items-center !text-center !h-full">
-					<!-- Content wrapper grows to push button down -->
-					<div class="!flex-1 !w-full !flex !flex-col !items-center">
-						<!-- Logo -->
-						<div class="!w-full !h-24 !mb-4 !flex !items-center !justify-center">
-							<img src={organization.logoUrl} alt={organization.name} class="!max-h-24 !object-contain" />
-						</div>
-
-						<!-- Name -->
-						<h3 class="!text-base !font-semibold !text-gray-900">{organization.name}</h3>
+			<a class="card organization-card" href={`/organizations/${organization.slug}`}>
+					<div class="img-wrapper" style="padding: 4px 8px">
+						<img src={organization.logoUrl} alt={organization.name} style="object-fit: contain;" />
 					</div>
-
-					<!-- View More Button at consistent bottom -->
-					<a href={`/organizations/${organization.slug}`} class="!mt-4 !inline-flex !items-center !justify-center !text-green-700 !font-medium !text-sm !py-2 !px-4 !rounded-lg !border !border-green-200 hover:!bg-green-50 hover:!border-green-300 hover:!text-green-800 !transition-all !duration-200 !w-full">
-						<span>Read more</span>
-						<Icon name="mdi:arrow-right" class="!w-4 !h-4 !ml-2 group-hover:!translate-x-1 !transition-transform !duration-200" />
-					</a>
-				</article>
+					<div class="details">
+						<h3 class="name">{organization.name}</h3>
+						<p class="location">
+							<span class="icon">
+								<Icon name="mdi:my-location" class="icon" />
+							</span>
+							<span class="address">{organization.address}</span>
+						</p>
+						<p class="about">{organization.description.substring(0, 112)}...</p>
+						<div class="tags">
+							{organization.tags.slice(0, 3).map((tag: string) => (
+								<span class="tag">{tag}</span>
+							))}
+						</div>
+					</div>
+				</a>
 			))
 		}
+
+		<!-- slide control bars for mobile display -->
+
+		<div class="card-controls organization-card-controls">
+			<span class="bar bar-organization-section"></span>
+			<span class="bar bar-organization-section"></span>
+			<span class="bar bar-organization-section"></span>
+			<span class="bar bar-organization-section"></span>
+		</div>
 	</div>
+
+	<!-- link to redirect landing page of organizations -->
+	<a href="/organizations" class="cta-link">See All</a>
 </div>
 
+<script>
+	import { createMobileSlider } from "src/utils/slider";
+	
+	// Get the necessary elements
+	const cards = document.querySelectorAll<HTMLElement>(".organization-card");
+	const cardControlsElement = document.querySelector<HTMLElement>(".organization-card-controls");
+	const bars = cardControlsElement?.querySelectorAll<HTMLElement>(".bar-organization-section");
+	
+	// Check if cardControlsElement and bars are not null
+	if (cardControlsElement && bars) {
+		// Call the function to create the mobile slider
+		createMobileSlider(cards, bars);
+	}
+	</script>

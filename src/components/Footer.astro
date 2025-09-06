@@ -3,80 +3,154 @@ import '../styles/global.css';
 import { Icon } from 'astro-icon/components';
 ---
 
-<footer class="!bg-[#1a1b1e] !text-white">
-  <div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !py-16">
-    <!-- Top: CTA columns -->
-    <div class="!grid !grid-cols-1 md:!grid-cols-3 !gap-10 !mb-12">
-      <!-- Volunteer -->
-      <div>
-        <h3 class="!text-xl !font-semibold !mb-3">Join</h3>
-        <p class="!text-sm !text-gray-300 !mb-4">Passionate about climate knowledge and action? Help keep Nepal Climate Hub running.</p>
-        <a href="/volunteer" class="!inline-flex !items-center !px-4 !py-2 !rounded-lg !bg-[#cefe00] !text-[#1a1b1e] !text-sm !font-medium hover:!bg-white !transition">Volunteer</a>
-      </div>
+<footer class="section-container">
+  <h2 class="section-heading">Join</h2>
 
-      <!-- Submit profile -->
-      <div>
-        <h3 class="!text-xl !font-semibold !mb-3">Contribute</h3>
-        <p class="!text-sm !text-gray-300 !mb-4">Don’t see your organization on Nepal Climate Hub? Register your profile with us!</p>
-        <a href="/contribute" class="!inline-flex !items-center !px-4 !py-2 !rounded-lg !bg-[#cefe00] !text-[#1a1b1e] !text-sm !font-medium hover:!bg-white !transition">Submit profile</a>
-      </div>
+  <!-- container to wrap footer content -->
 
-      <!-- Subscribe -->
-      <div>
-        <h3 class="!text-xl !font-semibold !mb-3">Stay in the loop</h3>
-        <p class="!text-sm !text-gray-300 !mb-3">Subscribe to future news and updates.</p>
-        <p class="emailMessage !text-sm !mb-2"></p>
-        <form class="form !flex !gap-3" method="post" id="emailForm">
-          <input id="userEmail" type="email" placeholder="Email" name="email" autocomplete="off" required class="!w-full !rounded-lg !px-4 !py-2 !bg-white !text-black placeholder:!text-gray-500 !border !border-gray-300 focus:!outline-none focus:!ring-2 focus:!ring-[#cefe00]" />
-          <button class="!px-4 !py-2 !rounded-lg !border !border-white hover:!bg-[#cefe00] hover:!text-[#1a1b1e] hover:!border-[#cefe00] !transition">Submit</button>
+  <!-- three column layout -->
+  <div class="content-wrapper">
+    <div class="column">
+      <p>
+        Passionate about climate knowledge and action? Help keep Nepal Climate
+        Hub running.
+      </p>
+      <button><a href="/volunteer">Volunteer</a></button>
+    </div>
+
+    <div class="column">
+      <p>
+        Don’t see your organization on Nepal Climate Hub? Register your profile
+        with us!
+      </p>
+      <button><a href="/contribute">Submit profile</a></button>
+    </div>
+
+    <div class="column">
+      <p>Subscribe to future news and updates.</p>
+      <div class="emailWrapper">
+        <p class="emailMessage"></p>
+        <form class="form" method="post" id="emailForm">
+          <input
+            id="userEmail"
+            type="email"
+            placeholder="Email"
+            name="email"
+            autocomplete="off"
+            required
+          />
+          <button>Submit</button>
         </form>
+      </div>
 
-        <!-- Socials -->
-        <div class="!mt-6">
-          <p class="!text-sm !text-gray-300 !mb-2">Stay connected : )</p>
-          <div class="!flex !items-center !gap-4">
-            <a href="https://www.linkedin.com/company/nepalclimatehub/" class="icon" aria-label="LinkedIn profile" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin hover:!text-[#cefe00]"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"></path><path d="M16 16v-3a2 2 0 1 0 -4 0"></path><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path></svg>
-            </a>
-            <a href="https://www.instagram.com/nepalclimatehub" class="icon" aria-label="Instagram profile" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram hover:!text-[#cefe00]"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 4 4h-8a4 4 0 0 1 -4 -4z"></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M16.5 7.5v.01"></path></svg>
-            </a>
-            <a href="https://www.facebook.com/nepalclimatehub" class="icon" aria-label="Facebook profile" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook hover:!text-[#cefe00]"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path></svg>
-            </a>
-          </div>
+      <div class="socials">
+        <p>Stay connected : )</p>
+        <div class="icon-wrapper">
+          <a
+            href="https://www.linkedin.com/company/nepalclimatehub/"
+            class="icon"
+            aria-label="LinkedIn profile"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"
+              ></path><path d="M16 16v-3a2 2 0 1 0 -4 0"></path><path
+                d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
+              ></path></svg
+            >
+          </a>
+          <a
+            href="https://www.instagram.com/nepalclimatehub"
+            class="icon"
+            aria-label="Instagram profile"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
+              ></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path
+                d="M16.5 7.5v.01"></path></svg
+            >
+          </a>
+          <a
+            href="https://www.facebook.com/nepalclimatehub"
+            class="icon"
+            aria-label="Facebook profile"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+              ></path></svg
+            >
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Bottom nav -->
-    <div class="!border-t !border-white/10 !pt-8">
-      <div class="!flex !flex-col md:!flex-row !items-start md:!items-center !justify-between !gap-6">
-        <nav class="!flex !flex-col sm:!flex-row !gap-4 !text-sm">
-          <div class="!flex !items-center !gap-2 !flex-wrap">
-            <span class="!text-gray-300">CONNECT</span>
-            <a href="/organizations" class="hover:!text-[#cefe00]">Organizations</a>
-            <span class="!text-gray-500">|</span>
-            <a href="/climate-champions" class="hover:!text-[#cefe00]">Climate Champions</a>
-            <span class="!text-gray-500">|</span>
-            <a href="/events" class="hover:!text-[#cefe00]">Events</a>
-          </div>
-          <div class="!flex !items-center !gap-2 !flex-wrap">
-            <span class="!text-gray-300">LEARN</span>
-            <a href="/resources" class="hover:!text-[#cefe00]">Resources</a>
-            <span class="!text-gray-500">|</span>
-            <a href="/action-steps" class="hover:!text-[#cefe00]">Action Steps</a>
-            <span class="!text-gray-500">|</span>
-            <a href="/news" class="hover:!text-[#cefe00]">News</a>
-          </div>
-          <div class="!flex !items-center !gap-2 !flex-wrap">
-            <span class="!text-gray-300">NCH.ORG</span>
-            <a href="/about" class="hover:!text-[#cefe00]">About</a>
-          </div>
-        </nav>
-        <p class="!text-xs !text-gray-400">&copy; 2025 Nepal Climate Hub. All Rights Reserved.</p>
+  <!-- horizontal menu bar -->
+
+  <div class="footer-detail">
+    <div class="footer-navbar">
+      <div class="navbar">
+        <h4>CONNECT</h4>
+        <a href="/organizations">ORGANIZATIONS</a>
+        &vert;
+        <a href="/climate-champions">CLIMATE CHAMPIONS</a>
+        &vert;
+        <a href="/events">EVENTS</a>
+      </div>
+
+      <div class="navbar">
+        <h4>LEARN</h4>
+        <a href="/resources">RESOURCES</a>
+        &vert;
+        <a href="/action-steps">ACTION STEPS</a>
+        &vert;
+        <a href="/news">NEWS</a>
+      </div>
+
+      <div class="navbar">
+        <h4>NCH.ORG</h4>
+        <a href="/about">ABOUT</a>
       </div>
     </div>
+
+    <p class="footer-note">
+      &copy; 2025 Nepal Climate Hub. All Rights Reserved.
+    </p>
   </div>
 </footer>
 
@@ -84,30 +158,46 @@ import { Icon } from 'astro-icon/components';
   const form = document.getElementById("emailForm");
 
   form?.addEventListener("submit", async function (event) {
-    event.preventDefault();
+    event.preventDefault(); // prevent page reload
     const form = event.target as HTMLFormElement | null;
-    let userEmail = document.getElementById("userEmail") as HTMLInputElement | null;
-    let emailMessage = document.querySelector(".emailMessage") as HTMLElement | null;
+    let userEmail = document.getElementById(
+      "userEmail"
+    ) as HTMLInputElement | null;
+    let emailMessage = document.querySelector(
+      ".emailMessage"
+    ) as HTMLElement | null;
 
     if (form && userEmail) {
-      let payload = { email: userEmail.value };
-      try {
-        const response = await fetch("https://nepalclimatehub.org/api/save-subscription-email", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+      let payload = {
+        email: userEmail.value,
+      };
 
-        (form as HTMLElement).style.display = "none";
+      try {
+        const response = await fetch(
+          "https://nepalclimatehub.org/api/save-subscription-email",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+
+        form.style.display = "none";
+
         if (response.ok) {
           if (emailMessage) {
             emailMessage.innerText = "Thank you for staying connected!";
             emailMessage.style.display = "block";
             emailMessage.style.color = "#cefe00";
           }
+
+          // Handle success response
         } else {
           if (emailMessage) {
-            emailMessage.innerText = "Email submission failed...Sorry! Contact us.";
+            emailMessage.innerText =
+              "Email submission failed...Sorry! Contact us.";
             emailMessage.style.display = "block";
             emailMessage.style.color = "red";
           }
@@ -118,3 +208,221 @@ import { Icon } from 'astro-icon/components';
     }
   });
 </script>
+
+<style>
+  .section-container {
+    padding: 86px 0px 36px;
+    position: relative;
+  }
+
+  .section-heading {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    background-color: #364fc7;
+    padding: 0px 12px;
+    position: absolute;
+    top: -10px;
+    transform: rotate(6deg);
+  }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 88px;
+  }
+
+  .content-wrapper .column {
+    width: 100%;
+  }
+
+  .content-wrapper p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 18px;
+  }
+
+  .content-wrapper button {
+    border: none;
+    border-radius: 16px;
+    display: block;
+  }
+
+  .content-wrapper button a {
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 16px;
+    background-color: #cefe00;
+    color: #25262b;
+  }
+
+  .content-wrapper button a:hover {
+    background-color: #1a1b1e;
+    color: white;
+    border: 1px solid white;
+  }
+
+  .form {
+    display: flex;
+    gap: 12px;
+    margin-top: -10px;
+  }
+
+  .form input {
+    width: 100%;
+    border-radius: 16px;
+    font-size: 14px;
+    padding: 2px 16px;
+    outline: 2px solid #fff;
+    border: none;
+  }
+
+  .form input:active,
+  .form input:focus {
+    outline: 2px solid #cefe00;
+  }
+
+  .form button {
+    padding: 4px 16px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+
+  .form button:hover {
+    background-color: #cefe00;
+    border-color: #cefe00;
+    color: #25262b;
+  }
+
+  .footer-detail {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-navbar {
+    display: flex;
+    gap: 24px;
+  }
+
+  .navbar {
+    display: flex;
+    gap: 8px;
+  }
+
+  .navbar h4 {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .navbar a {
+    color: #f8f9fa;
+    font-size: 14px;
+    text-decoration: none;
+    min-width: fit-content;
+  }
+
+  .navbar a:hover {
+    color: #cefe00;
+  }
+
+  .footer-note {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .emailWrapper {
+    position: relative;
+  }
+  .emailMessage {
+    display: block;
+    position: absolute;
+    top: -5px;
+  }
+
+  .socials {
+    width: 160px;
+    margin-top: 30px;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    gap: 12px;
+    margin-top: -12px;
+  }
+
+  svg:hover {
+    stroke: #cefe00;
+  }
+
+  /* styles for responsiveness */
+
+  @media screen and (max-width: 1296px) {
+    .section-container {
+      padding: 86px 24px 36px;
+      position: relative;
+    }
+
+    .footer-detail {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .section-container {
+      margin: 0px;
+      padding: 48px 0px 16px;
+    }
+
+    .section-heading {
+      top: -15px;
+      right: 24px;
+    }
+
+    .content-wrapper {
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+
+    .content-wrapper .column {
+      border-bottom: 1px solid #ebf1f7;
+      padding-bottom: 30px;
+    }
+
+    .footer-navbar {
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 0px;
+    }
+
+    .navbar {
+      align-items: center;
+      gap: 4px;
+    }
+
+    .navbar a {
+      font-size: 12px;
+    }
+
+    .navbar h4 {
+      font-size: 12px;
+      min-width: 60px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 0px 24px;
+    }
+  }
+
+  @media screen and (max-width: 396px) {
+    .navbar a {
+      font-size: 10px;
+    }
+  }
+</style>

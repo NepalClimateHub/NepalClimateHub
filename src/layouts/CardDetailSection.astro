@@ -1,7 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import '../styles/global.css';
-import HtmlRenderer from '../components/HtmlRenderer.astro';
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = 'true' } = Astro.props;
@@ -28,94 +26,255 @@ const tags = isEvent
 const pictures = isEvent
   ? [activeDataObject?.bannerImage].filter(Boolean)
   : activeDataObject?.pictures || [];
+
+// Add extra br tag after each existing br tag for better paragraph separation
+const processedDescription = description.replace(/<br\s*\/?>/gi, '<br><br>');
 ---
 
+<div class="section-container">
+  <!-- container for organization card -->
+  <div class="card-container">
+    <div class="card-details-wrapper">
+      <h2 class="card-name">
+        {name}
+      </h2>
+      <div class="address">
+        <span class="icon">
+          <Icon name="mdi:my-location" class="icon" />
+        </span>
+        {location}
+      </div>
+      
+      <div class="detail" id="description-content" set:html={processedDescription} />
 
-<center>
- <center class="max-w-7xl mx-auto px-6 lg:px-6 md:px-0 bg-white rounded-3xl shadow-xl border border-gray-100 !mb-20 !flex !justify-center !mt-10">
-   <!-- container for organization card -->
-   <div class="my-9 mb-22 flex text-start gap-4 !p-20 ">
-               <div class="w-1/2 border-b border-lime-400 pb-4 p-20 lg:w-full lg:p-8 md:w-full md:p-6 lg:border-b-0 md:border-b-0">
-         <h2 class="text-3xl lg:text-2xl md:text-xl font-bold leading-10 mb-6">
-           {name}
-         </h2>
-         <div class="text-sm leading-4 text-blue-600 mb-3 flex items-center gap-1">
-           <span class="icon">
-             <Icon name="mdi:my-location" class="icon" />
-           </span>
-           {location}
-         </div>
-         
-                   <!-- HTML rendering using shared renderer -->
-          <div class="!mb-9">
-            <HtmlRenderer content={description} />
+      <!-- tags for organizations / activists causes -->
+      <div class="tags">
+        {tags.map((tag: string) => <span class="tag">{tag}</span>)}
+      </div>
+
+      {
+        isEvent && activeDataObject?.registrationLink && (
+          <div class="registration">
+            <a
+              href={activeDataObject.registrationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="register-button"
+            >
+              Register Now
+            </a>
+            {activeDataObject?.registrationDeadline && (
+              <p class="deadline">
+                Registration Deadline:{" "}
+                {new Date(
+                  activeDataObject.registrationDeadline
+                ).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+            )}
           </div>
-          
-          <script>
-            // The explicit JS list styling is no longer needed due to HtmlRenderer
-          </script>
-          
-        
+        )
+      }
+    </div>
 
-                   <!-- tags for organizations / activists causes -->
-          <div class="flex flex-wrap gap-3 mb-6">
-            {tags.map((tag: string) => (
-              <span class="inline-flex items-center px-4 py-2 !p-2 text-sm font-medium bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border border-blue-200 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-blue-100 hover:to-indigo-100 hover:border-blue-300 cursor-pointer">
-                {tag}
-              </span>
-            ))}
+    <!-- image container section -->
+    <div class="img-container">
+      {
+        pictures.length == 1 ? (
+          // if length == 1, then apply single-image-wrapper class
+          <div class="img-wrapper single-image-wrapper">
+            <img src={pictures[0] || "/placeholder.svg"} alt="" />
           </div>
+        ) : (
+          pictures.map((pictureURL: string) => (
+            <div class="img-wrapper">
+              <img src={pictureURL || "/placeholder.svg"} alt="" />
+            </div>
+          ))
+        )
+      }
+    </div>
+  </div>
+</div>
 
-         {
-           isEvent && activeDataObject?.registrationLink && (
-             <div class="mt-5">
-               <a
-                 href={activeDataObject.registrationLink}
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="inline-block bg-lime-400 text-gray-900 font-semibold px-5 py-2.5 rounded-lg text-decoration-none transition-colors duration-300 hover:bg-lime-500"
-               >
-                 Register Now
-               </a>
-               {activeDataObject?.registrationDeadline && (
-                 <p class="text-sm text-gray-600 mt-2">
-                   Registration Deadline:{" "}
-                   {new Date(
-                     activeDataObject.registrationDeadline
-                   ).toLocaleDateString("en-US", {
-                     year: "numeric",
-                     month: "long",
-                     day: "numeric",
-                   })}
-                 </p>
-               )}
-             </div>
-           )
-         }
-       </div>
+<style>
+  .card-container {
+    margin: 36px 0px 88px;
+    display: flex;
+    gap: 16px 32px;
+  }
 
-       <!-- image container section -->
-       <div class="w-1/2 flex items-center lg:w-1/2 md:w-full">
-         {
-           pictures.length == 1 ? (
-             // if length == 1, then apply single-image-wrapper class
-             <div class="w-full h-auto rounded-2xl ml-auto float-right">
-               <img src={pictures[0] || "/placeholder.svg"} alt="" class="w-full h-auto object-contain rounded-2xl" />
-             </div>
-           ) : (
-             pictures.map((pictureURL: string) => (
-               <div class="w-full h-auto rounded-2xl">
-                 <img src={pictureURL || "/placeholder.svg"} alt="" class="w-full h-auto object-contain rounded-2xl" />
-               </div>
-             ))
-           )
-         }
-       </div>
-     </div>
-   </div>
-   </center>
-</center>
+  .card-details-wrapper {
+    width: 50%;
+    border-bottom: 1px solid #cefe00;
+    padding-bottom: 16px;
+  }
 
+  .card-name {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 23px;
+  }
 
+  .address,
+  .event-meta {
+    font-size: 14px;
+    line-height: 16px;
+    color: #364fc7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 
+  .detail {
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
 
+  /* Minimal spacing for existing br tags from API */
+  .detail br {
+    display: block;
+    margin-bottom: 1px !important;
+  }
+
+  /* Basic text styling */
+  .detail {
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    color: #364fc7;
+    line-height: 14px;
+    padding: 5px 12px;
+    border: 1px solid #cefe00;
+    border-radius: 16px;
+  }
+
+  .registration {
+    margin-top: 20px;
+  }
+
+  .register-button {
+    display: inline-block;
+    background-color: #cefe00;
+    color: #1a1b1e;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .register-button:hover {
+    background-color: #b8e500;
+  }
+
+  .deadline {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+  }
+
+  .img-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  /* for the activist profile picture only */
+  .single-image-wrapper {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    float: right;
+    border-radius: 16px;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+  }
+
+  /* style for responsiveness */
+
+  @media screen and (max-width: 1200px) {
+    .single-image-wrapper {
+      width: 95%;
+      height: 70%;
+    }
+  }
+
+  @media screen and (max-width: 924px) {
+    .card-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card-details-wrapper,
+    .img-container {
+      width: 100%;
+    }
+
+    .img-container {
+      gap: 16px;
+    }
+
+    .img-wrapper {
+      width: 46%;
+    }
+
+    .single-image-wrapper {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 24px 64px;
+    }
+
+    .img-container {
+      gap: 8px;
+    }
+
+    .img-wrapper {
+      width: 48%;
+      height: 160px;
+    }
+
+    .single-image-wrapper {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 512px) {
+    .card-container {
+      flex-direction: column-reverse;
+    }
+  }
+</style>
