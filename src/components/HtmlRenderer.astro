@@ -74,7 +74,28 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
   .html-rendered h6 {
     font-weight: 700 !important;
     color: #111827 !important;
-    margin-top: 1rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Paragraphs and text elements */
+  [id^="html-renderer-"] p {
+    margin-bottom: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  [id^="html-renderer-"] div {
+    margin-bottom: 1rem !important;
+  }
+
+  [id^="html-renderer-"] blockquote {
+    margin: 1rem 0 !important;
+    padding-left: 1rem !important;
+    border-left: 3px solid #cefe00 !important;
+    font-style: italic !important;
+  }
+
+  [id^="html-renderer-"] br {
     margin-bottom: 0.5rem !important;
   }
 </style>
