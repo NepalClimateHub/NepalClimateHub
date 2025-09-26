@@ -155,6 +155,7 @@ import { Icon } from 'astro-icon/components';
 </footer>
 
 <script>
+  import isValidEmail from "../utils/isValidEmail";
   const form = document.getElementById("emailForm");
 
   form?.addEventListener("submit", async function (event) {
@@ -168,9 +169,16 @@ import { Icon } from 'astro-icon/components';
     ) as HTMLElement | null;
 
     if (form && userEmail) {
-      let payload = {
-        email: userEmail.value,
-      };
+      const email = userEmail.value.trim();
+      if (!isValidEmail(email)) {
+        if (emailMessage) {
+          emailMessage.innerText = "Please enter a valid email.";
+          emailMessage.style.display = "block";
+          emailMessage.style.color = "red";
+        }
+        return;
+      }
+      let payload = { email };
 
       try {
         const response = await fetch(
@@ -184,9 +192,8 @@ import { Icon } from 'astro-icon/components';
           }
         );
 
-        form.style.display = "none";
-
         if (response.ok) {
+          form.style.display = "none";
           if (emailMessage) {
             emailMessage.innerText = "Thank you for staying connected!";
             emailMessage.style.display = "block";
@@ -204,6 +211,11 @@ import { Icon } from 'astro-icon/components';
         }
       } catch (error) {
         console.error("Error submitting form:", error);
+        if (emailMessage) {
+          emailMessage.innerText = "Network error. Please try again.";
+          emailMessage.style.display = "block";
+          emailMessage.style.color = "red";
+        }
       }
     }
   });
@@ -354,7 +366,11 @@ import { Icon } from 'astro-icon/components';
     margin-top: -12px;
   }
 
-  svg:hover {
+  .icon svg {
+    stroke: #ffffff;
+  }
+
+  .icon:hover svg {
     stroke: #cefe00;
   }
 

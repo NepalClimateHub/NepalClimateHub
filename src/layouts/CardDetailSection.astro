@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import HtmlRenderer from '../components/HtmlRenderer.astro';
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = 'true' } = Astro.props;
@@ -45,7 +46,7 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, '<br><br>');
         {location}
       </div>
       
-      <div class="detail" id="description-content" set:html={processedDescription} />
+      <HtmlRenderer content={processedDescription} class="detail" />
 
       <!-- tags for organizations / activists causes -->
       <div class="tags">
