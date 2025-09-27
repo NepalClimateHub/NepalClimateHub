@@ -155,31 +155,20 @@ import { Icon } from 'astro-icon/components';
 </footer>
 
 <script>
-  import isValidEmail from "../utils/isValidEmail";
-  const form = document.getElementById("emailForm");
+  const form = document.getElementById("emailForm") as HTMLFormElement;
+  const emailInput = document.getElementById("userEmail") as HTMLInputElement;
+  const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
 
-  form?.addEventListener("submit", async function (event) {
-    event.preventDefault(); // prevent page reload
-    const form = event.target as HTMLFormElement | null;
-    let userEmail = document.getElementById(
-      "userEmail"
-    ) as HTMLInputElement | null;
-    let emailMessage = document.querySelector(
-      ".emailMessage"
-    ) as HTMLElement | null;
-
-    if (form && userEmail) {
-      const email = userEmail.value.trim();
-      if (!isValidEmail(email)) {
-        if (emailMessage) {
-          emailMessage.innerText = "Please enter a valid email.";
-          emailMessage.style.display = "block";
-          emailMessage.style.color = "red";
-        }
-        return;
-      }
-      let payload = { email };
-
+  if (form && emailInput && emailMessage) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      
+      // Reset previous state
+      emailMessage.textContent = "";
+      emailMessage.style.display = "none";
+      
+      const email = emailInput.value.trim();
+      
       try {
         const response = await fetch(
           "https://nepalclimatehub.org/api/save-subscription-email",
@@ -188,37 +177,26 @@ import { Icon } from 'astro-icon/components';
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(payload),
+            body: JSON.stringify({ email }),
           }
         );
 
         if (response.ok) {
           form.style.display = "none";
-          if (emailMessage) {
-            emailMessage.innerText = "Thank you for staying connected!";
-            emailMessage.style.display = "block";
-            emailMessage.style.color = "#cefe00";
-          }
-
-          // Handle success response
+          emailMessage.textContent = "Thank you for staying connected!";
+          emailMessage.style.display = "block";
+          emailMessage.style.color = "#cefe00";
         } else {
-          if (emailMessage) {
-            emailMessage.innerText =
-              "Email submission failed...Sorry! Contact us.";
-            emailMessage.style.display = "block";
-            emailMessage.style.color = "red";
-          }
+          throw new Error(`HTTP ${response.status}`);
         }
       } catch (error) {
-        console.error("Error submitting form:", error);
-        if (emailMessage) {
-          emailMessage.innerText = "Network error. Please try again.";
-          emailMessage.style.display = "block";
-          emailMessage.style.color = "red";
-        }
+        console.error("Subscription error:", error);
+        emailMessage.textContent = "Unable to subscribe. Please try again later.";
+        emailMessage.style.display = "block";
+        emailMessage.style.color = "#ef4444";
       }
-    }
-  });
+    });
+  }
 </script>
 
 <style>
