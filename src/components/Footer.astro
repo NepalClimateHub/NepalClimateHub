@@ -1,6 +1,6 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer class="section-container">
@@ -162,13 +162,13 @@ import { Icon } from 'astro-icon/components';
   if (form && emailInput && emailMessage) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      
+
       // Reset previous state
       emailMessage.textContent = "";
       emailMessage.style.display = "none";
-      
+
       const email = emailInput.value.trim();
-      
+
       try {
         const response = await fetch(
           "https://nepalclimatehub.org/api/save-subscription-email",
@@ -191,7 +191,8 @@ import { Icon } from 'astro-icon/components';
         }
       } catch (error) {
         console.error("Subscription error:", error);
-        emailMessage.textContent = "Unable to subscribe. Please try again later.";
+        emailMessage.textContent =
+          "Unable to subscribe. Please try again later.";
         emailMessage.style.display = "block";
         emailMessage.style.color = "#ef4444";
       }
@@ -330,7 +331,8 @@ import { Icon } from 'astro-icon/components';
   .emailMessage {
     display: block;
     position: absolute;
-    top: -5px;
+    top: 32px;
+    font-size: 14px;
   }
 
   .socials {
