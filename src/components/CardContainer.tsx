@@ -1,22 +1,18 @@
 import '../styles/global.css';
 import { Card } from '@layouts/Card';
-import { type CSSProperties, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/components/CardContainer.module.css';
 
 // Generic props for card container
 interface CardContainerProps<T> {
   cardsArray: T[];
   dataType: string;
-  cardProfilePictureBgSize: CSSProperties['objectFit'];
-  cardPadding: string;
   initialCardCount: number | string;
 }
 
 export const CardContainer = <T extends { id: string | number }>({
   cardsArray,
   dataType,
-  cardProfilePictureBgSize,
-  cardPadding,
   initialCardCount,
 }: CardContainerProps<T>) => {
   // Handle the case where initialCardCount might be a string like "12/"
@@ -44,13 +40,7 @@ export const CardContainer = <T extends { id: string | number }>({
     <div className={`${styles['section-container']} section-container`}>
       <div className={styles['card-wrapper']}>
         {cardsArray.slice(0, cardCounter).map((cardData) => (
-          <Card
-            key={cardData.id}
-            data={cardData}
-            dataType={dataType}
-            cardProfilePictureBgSize={cardProfilePictureBgSize}
-            cardPadding={cardPadding}
-          />
+          <Card key={cardData.id} data={cardData} dataType={dataType} />
         ))}
       </div>
 

@@ -1,11 +1,11 @@
 ---
-import '../styles/global.css';
-import { CardContainer } from '../components/CardContainer';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import CardFilterSection from '../layouts/CardFilterSection.astro';
-import ActivistsJSON from '../data/activists.json';
-import BaseLayout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import { CardContainer } from "../components/CardContainer";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import CardFilterSection from "../layouts/CardFilterSection.astro";
+import ActivistsJSON from "../data/activists.json";
+import BaseLayout from "../layouts/Layout.astro";
 
 const transformedActivists = ActivistsJSON.map((activist) => ({
   ...activist,
@@ -40,8 +40,6 @@ const transformedActivists = ActivistsJSON.map((activist) => ({
           client:load
           cardsArray={transformedActivists}
           dataType="activist"
-          cardProfilePictureBgSize="cover"
-          cardPadding="0px"
           initialCardCount="12"
         />
       </section>
