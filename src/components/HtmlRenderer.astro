@@ -15,16 +15,16 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
   [id^="html-renderer-"] ul,
   .html-rendered ul {
     list-style: disc !important;
-    list-style-position: outside !important;
-    padding-left: 1.5rem !important;
+    list-style-position: inside !important;
+    padding-left: 0.75rem !important;
     margin: 0 0 1rem 0 !important;
   }
 
   [id^="html-renderer-"] ol,
   .html-rendered ol {
     list-style: decimal !important;
-    list-style-position: outside !important;
-    padding-left: 1.5rem !important;
+    list-style-position: inside !important;
+    padding-left: 0.75rem !important;
     margin: 0 0 1rem 0 !important;
   }
 
@@ -32,7 +32,7 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
   .html-rendered li {
     display: list-item !important;
     list-style: inherit !important;
-    margin: 0 0 0.5rem 0 !important;
+    margin: 0 0 8px 0 !important;
   }
 
   [id^="html-renderer-"] ul li::marker,
@@ -79,9 +79,55 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
   }
 
   /* Paragraphs and text elements */
-  [id^="html-renderer-"] p {
-    margin-bottom: 1rem !important;
-    line-height: 1.6 !important;
+  [id^="html-renderer-"] p,
+  .html-rendered p {
+    margin-bottom: 12px !important;
+    line-height: 1.7 !important;
+    white-space: pre-line !important;
+  }
+
+  [id^="html-renderer-"] li,
+  .html-rendered li {
+    white-space: pre-line !important;
+  }
+
+  /* Nested lists: slight indent and compact spacing */
+  [id^="html-renderer-"] ul ul,
+  [id^="html-renderer-"] ul ol,
+  [id^="html-renderer-"] ol ul,
+  [id^="html-renderer-"] ol ol,
+  .html-rendered ul ul,
+  .html-rendered ul ol,
+  .html-rendered ol ul,
+  .html-rendered ol ol {
+    padding-left: 0.75rem !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Gentle spacing when a list follows a paragraph */
+  [id^="html-renderer-"] p + ul,
+  [id^="html-renderer-"] p + ol,
+  .html-rendered p + ul,
+  .html-rendered p + ol {
+    margin-top: 6px !important;
+  }
+
+  /* Links: readable default */
+  [id^="html-renderer-"] a,
+  .html-rendered a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+  }
+
+  /* Images: responsive by default */
+  [id^="html-renderer-"] img,
+  .html-rendered img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 8px 0 !important;
   }
 
   [id^="html-renderer-"] div {

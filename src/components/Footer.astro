@@ -1,6 +1,6 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer class="section-container">
@@ -155,22 +155,19 @@ import { Icon } from 'astro-icon/components';
 </footer>
 
 <script>
-  const form = document.getElementById("emailForm");
+  const form = document.getElementById("emailForm") as HTMLFormElement;
+  const emailInput = document.getElementById("userEmail") as HTMLInputElement;
+  const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
 
-  form?.addEventListener("submit", async function (event) {
-    event.preventDefault(); // prevent page reload
-    const form = event.target as HTMLFormElement | null;
-    let userEmail = document.getElementById(
-      "userEmail"
-    ) as HTMLInputElement | null;
-    let emailMessage = document.querySelector(
-      ".emailMessage"
-    ) as HTMLElement | null;
+  if (form && emailInput && emailMessage) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    if (form && userEmail) {
-      let payload = {
-        email: userEmail.value,
-      };
+      // Reset previous state
+      emailMessage.textContent = "";
+      emailMessage.style.display = "none";
+
+      const email = emailInput.value.trim();
 
       try {
         const response = await fetch(
@@ -180,33 +177,27 @@ import { Icon } from 'astro-icon/components';
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(payload),
+            body: JSON.stringify({ email }),
           }
         );
 
-        form.style.display = "none";
-
         if (response.ok) {
-          if (emailMessage) {
-            emailMessage.innerText = "Thank you for staying connected!";
-            emailMessage.style.display = "block";
-            emailMessage.style.color = "#cefe00";
-          }
-
-          // Handle success response
+          form.style.display = "none";
+          emailMessage.textContent = "Thank you for staying connected!";
+          emailMessage.style.display = "block";
+          emailMessage.style.color = "#cefe00";
         } else {
-          if (emailMessage) {
-            emailMessage.innerText =
-              "Email submission failed...Sorry! Contact us.";
-            emailMessage.style.display = "block";
-            emailMessage.style.color = "red";
-          }
+          throw new Error(`HTTP ${response.status}`);
         }
       } catch (error) {
-        console.error("Error submitting form:", error);
+        console.error("Subscription error:", error);
+        emailMessage.textContent =
+          "Unable to subscribe. Please try again later.";
+        emailMessage.style.display = "block";
+        emailMessage.style.color = "#ef4444";
       }
-    }
-  });
+    });
+  }
 </script>
 
 <style>
@@ -340,7 +331,8 @@ import { Icon } from 'astro-icon/components';
   .emailMessage {
     display: block;
     position: absolute;
-    top: -5px;
+    top: 32px;
+    font-size: 14px;
   }
 
   .socials {
@@ -354,7 +346,11 @@ import { Icon } from 'astro-icon/components';
     margin-top: -12px;
   }
 
-  svg:hover {
+  .icon svg {
+    stroke: #ffffff;
+  }
+
+  .icon:hover svg {
     stroke: #cefe00;
   }
 
