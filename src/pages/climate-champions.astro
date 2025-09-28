@@ -1,56 +1,49 @@
 ---
-import '../styles/global.css';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import ActivistsJSON from '../data/activists.json';
-import BaseLayout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import { CardContainer } from "../components/CardContainer";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import CardFilterSection from "../layouts/CardFilterSection.astro";
+import ActivistsJSON from "../data/activists.json";
+import BaseLayout from "../layouts/Layout.astro";
+
+const transformedActivists = ActivistsJSON.map((activist) => ({
+  ...activist,
+  profilePicture: activist.logoUrl,
+}));
 ---
 
-<BaseLayout title="Climate Champions - Nepal Climate Hub">
+<BaseLayout title="Nepal Climate Hub">
   <main class="main-container">
     <!-- header section  -->
+
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
+
+      <!-- a mini navbar -->
       <div class="mini-nav">
         <a href="/">Home</a>
       </div>
     </section>
 
-    <!-- Page intro -->
-    <section class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !my-12 !text-center">
-      <h1 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-3">Climate Champions</h1>
-      <p class="!text-lg !text-gray-600">Celebrating people driving climate action across Nepal</p>
-    </section>
+    <div class="activist-wrapper">
+      <section class="filter-section">
+        <CardFilterSection
+          heading="Climate Champions"
+          type="activist"
+          filter="false"
+        />
+      </section>
 
-    <!-- Minimal grid of champions -->
-    <section class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !mb-16">
-      <div class="!grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3 xl:!grid-cols-4 !gap-6">
-        {
-          ActivistsJSON.map((item) => (
-            <article class="group !bg-white !rounded-2xl !border !border-gray-100 !shadow-sm hover:!shadow-md !transition-all !duration-300 hover:!-translate-y-1 !p-6 !flex !flex-col !items-center !text-center !h-full">
-              <!-- Content wrapper grows to push button down -->
-              <div class="!flex-1 !w-full !flex !flex-col !items-center">
-                <!-- Photo/Logo -->
-                <div class="!w-full !h-28 !mb-4 !flex !items-center !justify-center">
-                  <img src={item.logoUrl || item.pictures?.[0]} alt={item.name} class="!max-h-28 !object-contain !rounded-xl" />
-                </div>
-                <!-- Name -->
-                <h3 class="!text-base !font-semibold !text-gray-900">{item.name}</h3>
-                <!-- Location (optional) -->
-                {item.address && (
-                  <p class="!mt-1 !text-xs !text-gray-500">{item.address}</p>
-                )}
-              </div>
-
-              <!-- View Profile Button aligned at bottom -->
-              <a href={`/climate-champions/${item.slug}`} class="!mt-4 !inline-flex !items-center !justify-center !text-blue-700 !font-medium !text-sm !py-2 !px-4 !rounded-lg !border !border-blue-200 hover:!bg-blue-50 hover:!border-blue-300 hover:!text-blue-800 !transition-all !duration-200 !w-full">
-                <span>View Profile</span>
-              </a>
-            </article>
-          ))
-        }
-      </div>
-    </section>
+      <section class="activist-cards-section">
+        <CardContainer
+          client:load
+          cardsArray={transformedActivists}
+          dataType="activist"
+          initialCardCount="12"
+        />
+      </section>
+    </div>
 
     <section class="footer-section">
       <Footer />
@@ -61,6 +54,10 @@ import BaseLayout from '../layouts/Layout.astro';
 <style>
   section {
     padding: 0px 48px;
+  }
+
+  .activist-wrapper {
+    background-color: #ebf1f7;
   }
 
   .footer-section {

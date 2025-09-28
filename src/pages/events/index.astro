@@ -54,7 +54,7 @@ const events = (apiEvents || []).map((event: any) => {
     status: statusMap[event.status.toUpperCase()] || 'Closed',
     format: formatMap[event.format] || 'In-person',
     cost: event.cost ? costMap[event.cost] || 'Free' : 'Free',
-    category: event.category,
+    category: event.tags?.map((tag: any) => tag.tag) || [],
     bannerImage: event.bannerImageUrl,
     description: stripHtml(event.description || '') || '',
     organizer: event.organizer,

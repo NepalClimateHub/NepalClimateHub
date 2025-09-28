@@ -30,16 +30,6 @@ const transformedData: SortData[] = (apiNews || []).map((item, index) => ({
 const NewsJSON = sortNewsArray(transformedData);
 ---
 
-<<<<<<< HEAD
-<div class="!max-w-7xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !m-20">
-  <div class="!mb-8 !flex !items-end !justify-between">
-    <div class="!text-left">
-      <h2 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-0">Latest News</h2>
-      <p class="!text-lg !text-gray-600">Stay updated with the latest climate news and developments from around the world</p>
-    </div>
-    <a href="/news" class="!text-sm !font-medium !text-blue-700 hover:!text-blue-800 !transition-colors">View all</a>
-  </div>
-=======
 <div class="section-container">
   <h2 class="section-heading">News</h2>
 
@@ -47,7 +37,6 @@ const NewsJSON = sortNewsArray(transformedData);
 
   <div class="news-container">
     <!-- news card one -->
->>>>>>> 16356427a1f07d790e165a9d45665f7bebce0471
 
     {
       NewsJSON.slice(0, 6).map((news: any) => (
@@ -83,12 +72,9 @@ const NewsJSON = sortNewsArray(transformedData);
       ))
     }
   </div>
-<<<<<<< HEAD
-=======
 
   <!-- link to redirect to news landing page -->
   <a href="/news" class="cta-link">See All</a>
->>>>>>> 16356427a1f07d790e165a9d45665f7bebce0471
 </div>
 
 <style>

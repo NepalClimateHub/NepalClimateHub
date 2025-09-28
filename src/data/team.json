@@ -42,6 +42,25 @@
       ]
     },
     {
+      "name": "Climate Communication",
+      "members": [
+        {
+          "name": "Rashika Pandit",
+          "title": "Scientific Writer",
+          "bio": "Rashika is an Environmental Engineer and Climatebase Fellow with experience in climate change and waste management projects. She is currently leading a project, supported by the Young Scientist Program Grant (2024/2025) from the Nepal Academy of Science and Technology (NAST), that focuses on reducing food waste. She is passionate about sustainability, climate policy and mitigation, and pollution control.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/rashika%20p.jpg",
+          "linkedIn": "https://np.linkedin.com/in/rashika-pandit"
+        },
+        {
+          "name": "Nischal Raj Gautam ",
+          "title": "Creative Writer",
+          "bio": "Nischal Raj is a B.Sc. Agriculture student at Agriculture and Forestry University and a Youth Representative at the World Food Forum. He is a Global Youth Ambassador at Theirworld and Plastic Free NextGen Fellow (Plastic Free Foundation). He has also been recognized as a South Asian Climate Justice Fellow and Resilient Youth Network Fellow, with active engagement in climate-smart agriculture, food security and policy advocacy. Nischal Raj  is passionate about sustainability, climate resilience, organic farming and community empowerment through education and climate action.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/NRG.jpeg",
+          "linkedIn": "https://www.linkedin.com/in/nischal-raj-gautam-8a362b307/"
+        }
+      ]
+    },
+    {
       "name": "Tech Team",
       "members": [
         {
@@ -51,13 +70,7 @@
           "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/mukush.jpg",
           "linkedIn": "https://www.linkedin.com/in/mukezhz/"
         },
-        {
-          "name": "Avash Ghimire",
-          "title": "Sr. Software Engineer",
-          "bio": "Avash Ghimire is a software engineer passionate about all things tech. He turns caffeine into code and ideas into reality, always chasing the next big challenge. His ability to collaborate with multidisciplinary teams makes him a valuable asset to any team. He also writes blogs occasionally… when he's not busy procrastinating.",
-          "image": "https://placehold.co/400x400?text=Avash",
-          "linkedIn": "https://www.linkedin.com/in/avash-ghimire/"
-        },
+
         {
           "name": "Nischal Tamang",
           "title": "Software Engineer",
@@ -130,6 +143,18 @@
           "bio": "An experienced San Francisco Bay Area chief of staff and leader in communications and project management with a background in environmental science. Inspired by the power of science and collective action to build a sustainable future.",
           "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/Tara.jpg",
           "linkedIn": "https://www.linkedin.com/in/tara-marathe"
+        }
+      ]
+    },
+    {
+      "name": "Former Members",
+      "members": [
+        {
+          "name": "Avash Ghimire",
+          "title": "Sr. Software Engineer",
+          "bio": "Avash Ghimire is a software engineer passionate about all things tech. He turns caffeine into code and ideas into reality, always chasing the next big challenge. His ability to collaborate with multidisciplinary teams makes him a valuable asset to any team. He also writes blogs occasionally… when he's not busy procrastinating.",
+          "image": "https://placehold.co/400x400?text=Avash",
+          "linkedIn": "https://www.linkedin.com/in/avash-ghimire/"
         }
       ]
     }

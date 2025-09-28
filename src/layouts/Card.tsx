@@ -6,16 +6,9 @@ import { createSlug } from '../utils/slug';
 interface CardProps<T = any> {
   data: T;
   dataType: string;
-  cardProfilePictureBgSize: CSSProperties['objectFit'];
-  cardPadding: string;
 }
 
-export const Card = <T,>({
-  data,
-  dataType,
-  cardProfilePictureBgSize,
-  cardPadding,
-}: CardProps<T>) => {
+export const Card = <T,>({ data, dataType }: CardProps<T>) => {
   const isEvent = dataType === 'events';
   const isOpportunity = dataType === 'opportunities';
   const isOrganization = dataType === 'organization';
@@ -33,14 +26,9 @@ export const Card = <T,>({
   // Handle different image property names based on data type
   let image = '';
   if (isEvent || isOpportunity) {
-    image =
-      (data as any).bannerImage ||
-      'https://placehold.co/600x400/cefe00/black.png?text=Nepal%20Climate%20Hub';
+    image = (data as any).bannerImage;
   } else if (isOrganization) {
-    image =
-      (data as any).logoUrl ||
-      (data as any).logo ||
-      '/images/organization-placeholder.jpg';
+    image = (data as any).logoUrl || (data as any).logo;
   } else {
     image =
       (data as any).image || (data as any).profilePicture || '/placeholder.svg';
@@ -62,98 +50,37 @@ export const Card = <T,>({
   }
 
   return (
-    <a className={styles['organization-card']} href={url}>
-      {isOrganization ? (
-        // Organization card layout
-        <>
-          <div
-            className={styles['logo-wrapper']}
-            style={{
-              padding: cardPadding,
-              height: '160px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <img
-              src={image || '/placeholder.svg'}
-              alt={`${title} Logo`}
-              style={{
-                objectFit: cardProfilePictureBgSize,
-                maxWidth: '90%',
-                maxHeight: '90%',
-                borderRadius: '4px',
-              }}
-            />
-          </div>
-          <div className={styles.details}>
-            <h3 className={styles['organization-name']}>{title}</h3>
-            <p className={styles.location}>
-              <span className={styles.icon}>
-                <BiMap />
-              </span>
-              <span className={styles.address}>{location}</span>
-            </p>
-            <p className={styles.description}>
-              {description.length > 110
-                ? `${description.substring(0, 110)}...`
-                : description}
-            </p>
-            <div className={styles.tags}>
-              {categories.slice(0, 3).map((tag: string, index: number) => (
-                <span key={`${tag}-${index}`} className={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </>
-      ) : (
-        // Event/Opportunity card layout
-        <>
-          <div
-            className={styles['logo-wrapper']}
-            style={{
-              padding: cardPadding,
-              height: '160px',
-              overflow: 'hidden',
-            }}
-          >
-            <img
-              src={image || '/placeholder.svg'}
-              alt={`${title} Banner`}
-              style={{
-                objectFit: cardProfilePictureBgSize,
-                width: '100%',
-                height: '100%',
-                borderRadius: '8px',
-              }}
-            />
-          </div>
-          <div className={styles.details}>
-            <h3 className={styles['organization-name']}>{title}</h3>
-            <p className={styles.location}>
-              <span className={styles.icon}>
-                <BiMap />
-              </span>
-              <span className={styles.address}>{location}</span>
-            </p>
-            <p className={styles.description}>
-              {description.length > 110
-                ? `${description.substring(0, 110)}...`
-                : description}
-            </p>
-            <div className={styles.tags}>
-              {categories.slice(0, 3).map((tag: string, index: number) => (
-                <span key={`${tag}-${index}`} className={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+    <a className={styles['card']} href={url}>
+      <div className={styles['logo-wrapper']}>
+        <img
+          src={image}
+          alt={`${title} Logo`}
+          style={
+            isOrganization ? { objectFit: 'contain', padding: '20px' } : {}
+          }
+        />
+      </div>
+      <div className={styles.details}>
+        <h3 className={styles['card-name']}>{title}</h3>
+        <p className={styles.location}>
+          <span className={styles.icon}>
+            <BiMap />
+          </span>
+          <span className={styles.address}>{location}</span>
+        </p>
+        <p className={styles.description}>
+          {description.length > 110
+            ? `${description.substring(0, 110)}...`
+            : description}
+        </p>
+        <div className={styles.tags}>
+          {categories.slice(0, 3).map((tag: string, index: number) => (
+            <span key={`${tag}-${index}`} className={styles.tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
     </a>
   );
 };
