@@ -52,7 +52,7 @@ export interface Props {
           <li><a href="/resources">Resources</a></li>
           <li><a href="/action-steps">Action Steps</a></li>
           <li><a href="/news">News</a></li>
-          <li><a href="/blogs">Blogs</a></li>
+          <!-- <li><a href="/blogs">Blogs</a></li> -->
         </ul>
       </li>
 
@@ -131,7 +131,7 @@ export interface Props {
     text-align: center;
     border: none;
     border-radius: 16px;
-    align-self: end;
+    align-self: center;
     margin-bottom: 8px;
   }
 
@@ -242,6 +242,18 @@ export interface Props {
     top: 50%;
     transform: translateY(-50%);
     left: 8px;
+  }
+
+  .logo-wrapper {
+    width: 140px;
+    height: auto;
+    margin-bottom: 8px;
+  }
+
+  .logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   /* media queries for desktop */
@@ -470,13 +482,6 @@ export interface Props {
       width: 100%;
       height: 100%;
       object-fit: contain;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .logo-wrapper {
-      width: 140px;
-      height: auto;
     }
   }
 </style>
