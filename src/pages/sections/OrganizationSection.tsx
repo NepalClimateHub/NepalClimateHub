@@ -1,8 +1,8 @@
-import { CardContainer } from '../../components/CardContainer';
 import { NuqsAdapter } from 'nuqs/adapters/react';
+import { CardContainer } from '../../components/CardContainer';
+import OrganizationsJSON from '../../data/organizations.json';
 import { usePagination } from '../../hooks/use-pagination';
 import { withNuqsAdapter } from '../../provider/nuqsProvider';
-import OrganizationsJSON from '../../data/organizations.json';
 
 const Organization = () => {
   const paginationOptions = usePagination();
@@ -16,8 +16,6 @@ const Organization = () => {
           <CardContainer
             cardsArray={OrganizationsJSON}
             dataType="organization"
-            cardProfilePictureBgSize="contain"
-            cardPadding="4px 8px"
             initialCardCount="12/"
           />
         </section>
