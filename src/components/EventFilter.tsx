@@ -175,9 +175,7 @@ const EventFilter: React.FC<Props> = ({ events }) => {
         } else {
           result = result.filter((event) => {
             const eventValue = event[key as keyof Event] as string;
-            return eventValue
-              ? eventValue.trim() === value.trim()
-              : false;
+            return eventValue ? eventValue.trim() === value.trim() : false;
           });
         }
       }
@@ -194,17 +192,17 @@ const EventFilter: React.FC<Props> = ({ events }) => {
     }));
   };
 
-  const resetFilters = () => {
-    setFilters({
-      type: '',
-      locationType: '',
-      province: '',
-      status: '',
-      format: '',
-      cost: '',
-      category: '',
-    });
-  };
+  // const resetFilters = () => {
+  //   setFilters({
+  //     type: "",
+  //     locationType: "",
+  //     province: "",
+  //     status: "",
+  //     format: "",
+  //     cost: "",
+  //     category: "",
+  //   });
+  // };
 
   return (
     <div className={styles.eventFilterWrapper}>
@@ -241,8 +239,6 @@ const EventFilter: React.FC<Props> = ({ events }) => {
           <CardContainer
             cardsArray={filteredEvents}
             dataType="events"
-            cardProfilePictureBgSize="cover"
-            cardPadding="0px"
             initialCardCount={8}
           />
         )}
