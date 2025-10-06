@@ -1,6 +1,7 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import styles from '../styles/components/Opportunities.module.css';
+import { FaChevronDown } from 'react-icons/fa';
 import { CardContainer } from './CardContainer';
 
 interface Opportunity {
@@ -133,66 +134,175 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
   const [filteredOpportunities, setFilteredOpportunities] =
     useState(opportunities);
   const [filters, setFilters] = useState({
-    type: '',
-    locationType: '',
-    province: '',
-    status: '',
-    format: '',
-    cost: '',
-    category: '',
+    type: [] as string[],
+    locationType: [] as string[],
+    province: [] as string[],
+    status: [] as string[],
+    format: [] as string[],
+    cost: [] as string[],
+    category: [] as string[],
   });
+
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({
+    type: true,
+    locationType: true,
+    province: true,
+    status: true,
+    format: true,
+    cost: true,
+    category: true,
+  });
+
+  const toggleExpanded = (name: string) => {
+    setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
+  };
+
+  const toggleSelection = (name: keyof typeof filters, value: string) => {
+    setFilters((prev) => {
+      const current = new Set(prev[name]);
+      if (current.has(value)) current.delete(value);
+      else current.add(value);
+      return { ...prev, [name]: Array.from(current) };
+    });
+  };
+
+  const getCountsFor = (name: string, options: string[]) => {
+    const counts: Record<string, number> = {};
+    options.forEach((opt) => (counts[opt] = 0));
+    opportunities.forEach((opp) => {
+      if (name === 'category') {
+        options.forEach((opt) => {
+          if (opp.category?.some((c) => c.trim() === opt.trim())) counts[opt]++;
+        });
+      } else if (name === 'province') {
+        const val = opp.province?.trim();
+        if (val && counts[val] !== undefined) counts[val]++;
+      } else {
+        const val = (opp as any)[name]?.trim?.();
+        if (val && counts[val] !== undefined) counts[val]++;
+      }
+    });
+    return counts;
+  };
 
   useEffect(() => {
     let result = opportunities;
-
-    Object.entries(filters).forEach(([key, value]) => {
-      if (value) {
+    (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
+      const selected = filters[key];
+      if (selected.length > 0) {
         if (key === 'category') {
-          result = result.filter((opportunity) =>
-            opportunity.category.some((cat) => cat.trim() === value.trim())
+          result = result.filter((opp) =>
+            selected.some((val) => opp.category?.some((c) => c.trim() === val.trim()))
           );
+        } else if (key === 'province') {
+          result = result.filter((opp) => {
+            const val = opp.province?.trim() || '';
+            return selected.some((s) => s.trim() === val);
+          });
         } else {
-          result = result.filter(
-            (opportunity) => opportunity[key as keyof Opportunity] === value
-          );
+          result = result.filter((opp) => {
+            const val = ((opp as any)[key] as string) || '';
+            return selected.some((s) => val.trim() === s.trim());
+          });
         }
       }
     });
-
     setFilteredOpportunities(result);
   }, [filters, opportunities]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const resetFilters = () => {
+    setFilters({
+      type: [],
+      locationType: [],
+      province: [],
+      status: [],
+      format: [],
+      cost: [],
+      category: [],
+    });
   };
 
   return (
     <div className={styles.eventFilterWrapper}>
-      <div className={styles.filterContainer}>
-        {filterOptions.map(({ name, label, defaultOption, options }) => (
-          <div className={styles.filterGroup} key={name}>
-            <label htmlFor={name}>{label}</label>
-            <select
-              name={name}
-              onChange={handleChange}
-              value={filters[name as keyof typeof filters]}
-            >
-              <option value="">{defaultOption}</option>
-              {options.map((option) => (
-                <option value={option} key={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+      <aside className={styles.sidebar} aria-label="Opportunity filters">
+        <div className={styles.sidebarInner}>
+          <div className={styles.filterContainer}>
+            {filterOptions.map(({ name, label, options }) => {
+              const counts = getCountsFor(name, options);
+              return (
+                <div className={styles.filterGroup} key={name}>
+                  <button
+                    type="button"
+                    className={styles.groupHeader}
+                    onClick={() => toggleExpanded(name)}
+                    aria-expanded={expanded[name] ? 'true' : 'false'}
+                    aria-controls={`${name}-options`}
+                  >
+                    <span>{label}</span>
+                    <span
+                      className={`${styles.chevron} ${
+                        expanded[name] ? styles.chevronOpen : ''
+                      }`}
+                    >
+                      <FaChevronDown />
+                    </span>
+                  </button>
+                  <ul
+                    id={`${name}-options`}
+                    className={`${styles.checkboxList} ${
+                      expanded[name] ? '' : styles.collapsed
+                    }`}
+                  >
+                    {options.map((option) => {
+                      const checked = filters[name as keyof typeof filters].includes(option);
+                      return (
+                        <li key={option} className={styles.checkboxItem}>
+                          <label className={styles.checkboxLabel}>
+                            <input
+                              type="checkbox"
+                              className={styles.checkbox}
+                              checked={checked}
+                              onChange={() => toggleSelection(name as keyof typeof filters, option)}
+                            />
+                            <span className={styles.checkboxText}>{option}</span>
+                            <span className={styles.countBadge}>{counts[option] ?? 0}</span>
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
-        ))}
-      </div>
+        </div>
+      </aside>
 
-      {/* Check if no opportunities are found */}
-      <div className={styles.cardNotFoundMessage}>
+      <section className={styles.results}>
+        <div className={styles.selectedChipsRow}>
+          {(Object.keys(filters) as (keyof typeof filters)[]).flatMap((key) =>
+            filters[key].map((value) => (
+              <button
+                key={`${String(key)}-${value}`}
+                type="button"
+                className={styles.chip}
+                onClick={() => toggleSelection(key, value)}
+              >
+                <span className={styles.chipText}>{value}</span>
+                <span className={styles.chipClose}>×</span>
+              </button>
+            ))
+          )}
+          {((Object.keys(filters) as (keyof typeof filters)[]).some(
+            (k) => filters[k].length > 0
+          )) && (
+            <button type="button" className={styles.chipDanger} onClick={resetFilters}>
+              <span className={styles.chipText}>Close</span>
+              <span className={styles.chipClose}>×</span>
+            </button>
+          )}
+        </div>
+
         {filteredOpportunities.length === 0 ? (
           <p className={styles.noResults}> No opportunities found.</p>
         ) : (
@@ -204,7 +314,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
             initialCardCount={8}
           />
         )}
-      </div>
+      </section>
     </div>
   );
 };

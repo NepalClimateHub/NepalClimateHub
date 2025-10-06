@@ -1,42 +1,96 @@
 .eventFilterWrapper {
   max-width: 1280px;
   margin: 0px auto 83px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+}
+
+.sidebar { position: relative; }
+
+.sidebarInner {
+  position: sticky;
+  top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(26, 27, 30, 0.12);
+  border-radius: 12px;
+  background: #fff;
 }
 
 .filterContainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  align-items: flex-end;
-  justify-content: flex-start;
-  margin-bottom: 34px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.filterGroup {
-  flex: 0 0 1;
-  width: 169px;
+.filterGroup { display: flex; flex-direction: column; position: relative; }
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.chevron { display: inline-flex; transition: transform 0.2s ease; color: #6b7280; }
+.chevronOpen { transform: rotate(180deg); }
+
+.checkboxList {
+  list-style: none;
+  padding: 0 0 0 16px;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.filterGroup label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
+.collapsed { display: none; }
+
+.checkboxLabel { display: flex; align-items: center; gap: 10px; }
+.checkbox { width: 16px; height: 16px; }
+.checkboxText { color: #4b5563; }
+.countBadge {
+  margin-left: auto;
+  font-size: 12px;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 2px 8px;
 }
 
-.filterContainer select {
-  color: #878b97;
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid rgba(26, 27, 30, 0.12);
-  border-radius: 6px;
-  outline: none;
-  background-color: #fff;
+.results { min-height: 300px; }
+
+.selectedChipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.chip, .chipDanger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #111827;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+.chip:hover { background: #f3f4f6; }
+.chipDanger { background: #fee2e2; border-color: #fecaca; }
+.chipText { font-size: 13px; }
+.chipClose { font-size: 14px; line-height: 1; }
 
 .filterContainer select:hover {
   background-color: rgba(54, 79, 199, 0.04);
@@ -66,13 +120,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .filterContainer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 36px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .eventFilterWrapper { grid-template-columns: 1fr; }
+  .sidebarInner { position: static; }
 
   .filterGroup {
     width: 100%;

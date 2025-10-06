@@ -1,5 +1,5 @@
 .organization-card {
-  width: calc(25% - 12px);
+  width: calc(33.333% - 12px);
   border-radius: 8px;
   overflow: hidden;
   background-color: #f8f9fa;
