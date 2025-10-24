@@ -320,13 +320,18 @@ export interface Props {
     }
 
     nav .menu-heading a::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
       transition: left 0.5s ease;
     }
 
@@ -417,17 +422,17 @@ export interface Props {
     }
 
     /* Staggered fall down animation */
-    .menu-heading:hover .sub-menu li:nth-child(1) { 
-      transition-delay: 0.1s; 
+    .menu-heading:hover .sub-menu li:nth-child(1) {
+      transition-delay: 0.1s;
     }
-    .menu-heading:hover .sub-menu li:nth-child(2) { 
-      transition-delay: 0.15s; 
+    .menu-heading:hover .sub-menu li:nth-child(2) {
+      transition-delay: 0.15s;
     }
-    .menu-heading:hover .sub-menu li:nth-child(3) { 
-      transition-delay: 0.2s; 
+    .menu-heading:hover .sub-menu li:nth-child(3) {
+      transition-delay: 0.2s;
     }
-    .menu-heading:hover .sub-menu li:nth-child(4) { 
-      transition-delay: 0.25s; 
+    .menu-heading:hover .sub-menu li:nth-child(4) {
+      transition-delay: 0.25s;
     }
 
     /* Wrap up animation (reverse stagger when closing) */
@@ -437,7 +442,7 @@ export interface Props {
       opacity: 0;
     }
 
-   .sub-menu li a {
+    .sub-menu li a {
       display: block;
       width: 100%;
       border-radius: 0;
@@ -451,14 +456,13 @@ export interface Props {
       text-decoration: underline;
     }
 
-
     .bottom-nav {
       display: none;
     }
 
     .logo-wrapper {
       width: 200px;
-      height: auto;
+      height: 100px;
       margin-bottom: 8px;
     }
 
@@ -472,7 +476,13 @@ export interface Props {
   @media screen and (max-width: 768px) {
     .logo-wrapper {
       width: 140px;
-      height: auto;
+      height: 100px;
+    }
+
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 </style>

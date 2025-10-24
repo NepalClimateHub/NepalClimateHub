@@ -6,7 +6,9 @@
   gap: 24px;
 }
 
-.sidebar { position: relative; }
+.sidebar {
+  position: relative;
+}
 
 .sidebarInner {
   position: sticky;
@@ -23,7 +25,14 @@
   gap: 16px;
 }
 
-.filterGroup { display: flex; flex-direction: column; position: relative; }
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
 
 .groupHeader {
   display: flex;
@@ -40,8 +49,14 @@
   margin-bottom: 4px;
 }
 
-.chevron { display: inline-flex; transition: transform 0.2s ease; color: #6b7280; }
-.chevronOpen { transform: rotate(180deg); }
+.chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+  color: #6b7280;
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
 
 .checkboxList {
   list-style: none;
@@ -52,11 +67,22 @@
   gap: 10px;
 }
 
-.collapsed { display: none; }
+.collapsed {
+  display: none;
+}
 
-.checkboxLabel { display: flex; align-items: center; gap: 10px; }
-.checkbox { width: 16px; height: 16px; }
-.checkboxText { color: #4b5563; }
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox {
+  width: 16px;
+  height: 16px;
+}
+.checkboxText {
+  color: #4b5563;
+}
 .countBadge {
   margin-left: auto;
   font-size: 12px;
@@ -67,7 +93,9 @@
   padding: 2px 8px;
 }
 
-.results { min-height: 300px; }
+.results {
+  min-height: 300px;
+}
 
 .selectedChipsRow {
   display: flex;
@@ -76,7 +104,8 @@
   margin-bottom: 16px;
 }
 
-.chip, .chipDanger {
+.chip,
+.chipDanger {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -87,10 +116,20 @@
   color: #111827;
   cursor: pointer;
 }
-.chip:hover { background: #f3f4f6; }
-.chipDanger { background: #fee2e2; border-color: #fecaca; }
-.chipText { font-size: 13px; }
-.chipClose { font-size: 14px; line-height: 1; }
+.chip:hover {
+  background: #f3f4f6;
+}
+.chipDanger {
+  background: #fee2e2;
+  border-color: #fecaca;
+}
+.chipText {
+  font-size: 13px;
+}
+.chipClose {
+  font-size: 14px;
+  line-height: 1;
+}
 
 .filterContainer select:hover {
   background-color: rgba(54, 79, 199, 0.04);
@@ -120,8 +159,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .eventFilterWrapper { grid-template-columns: 1fr; }
-  .sidebarInner { position: static; }
+  .eventFilterWrapper {
+    grid-template-columns: 1fr;
+  }
+  .sidebarInner {
+    position: relative;
+    margin: 24px;
+  }
 
   .filterGroup {
     width: 100%;
@@ -134,5 +178,9 @@
   .noResults {
     width: auto;
     margin: 0 32px;
+  }
+
+  .selectedChipsRow {
+    margin: 24px;
   }
 }

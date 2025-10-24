@@ -84,7 +84,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 672px) {
   .organization-card {
     min-width: 100%;
   }

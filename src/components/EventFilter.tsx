@@ -144,12 +144,12 @@ const EventFilter: React.FC<Props> = ({ events }) => {
 
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     type: true,
-    locationType: true,
-    province: true,
-    status: true,
-    format: true,
-    cost: true,
-    category: true,
+    locationType: false,
+    province: false,
+    status: false,
+    format: false,
+    cost: false,
+    category: false,
   });
 
   const toggleExpanded = (name: string) => {
@@ -170,11 +170,14 @@ const EventFilter: React.FC<Props> = ({ events }) => {
 
   const getCountsFor = (name: string, options: string[]) => {
     const counts: Record<string, number> = {};
-    options.forEach((opt) => (counts[opt] = 0));
+    options.forEach((opt) => {
+      counts[opt] = 0;
+    });
     events.forEach((event) => {
       if (name === 'category') {
         options.forEach((opt) => {
-          if (event.category?.some((c) => c.trim() === opt.trim())) counts[opt]++;
+          if (event.category?.some((c) => c.trim() === opt.trim()))
+            counts[opt]++;
         });
       } else if (name === 'province') {
         const val = event.address?.state?.trim();
@@ -195,7 +198,9 @@ const EventFilter: React.FC<Props> = ({ events }) => {
       if (selected.length > 0) {
         if (key === 'category') {
           result = result.filter((event) =>
-            selected.some((val) => event.category?.some((c) => c.trim() === val.trim()))
+            selected.some((val) =>
+              event.category?.some((c) => c.trim() === val.trim())
+            )
           );
         } else if (key === 'province') {
           result = result.filter((event) => {
@@ -206,7 +211,8 @@ const EventFilter: React.FC<Props> = ({ events }) => {
           result = result.filter((event) => {
             const eventCost = event.cost ? event.cost.trim() : '';
             return selected.some(
-              (s) => eventCost === s.trim() || (eventCost === '' && s === 'Free')
+              (s) =>
+                eventCost === s.trim() || (eventCost === '' && s === 'Free')
             );
           });
         } else {
@@ -265,7 +271,8 @@ const EventFilter: React.FC<Props> = ({ events }) => {
                     }`}
                   >
                     {options.map((option) => {
-                      const checked = filters[name as keyof typeof filters].includes(option);
+                      const checked =
+                        filters[name as keyof typeof filters].includes(option);
                       return (
                         <li key={option} className={styles.checkboxItem}>
                           <label className={styles.checkboxLabel}>
@@ -273,10 +280,19 @@ const EventFilter: React.FC<Props> = ({ events }) => {
                               type="checkbox"
                               className={styles.checkbox}
                               checked={checked}
-                              onChange={() => toggleSelection(name as keyof typeof filters, option)}
+                              onChange={() =>
+                                toggleSelection(
+                                  name as keyof typeof filters,
+                                  option
+                                )
+                              }
                             />
-                            <span className={styles.checkboxText}>{option}</span>
-                            <span className={styles.countBadge}>{counts[option] ?? 0}</span>
+                            <span className={styles.checkboxText}>
+                              {option}
+                            </span>
+                            <span className={styles.countBadge}>
+                              {counts[option] ?? 0}
+                            </span>
                           </label>
                         </li>
                       );
@@ -308,10 +324,14 @@ const EventFilter: React.FC<Props> = ({ events }) => {
               </button>
             ))
           )}
-          {((Object.keys(filters) as (keyof typeof filters)[]).some(
+          {(Object.keys(filters) as (keyof typeof filters)[]).some(
             (k) => filters[k].length > 0
-          )) && (
-            <button type="button" className={styles.chipDanger} onClick={resetFilters}>
+          ) && (
+            <button
+              type="button"
+              className={styles.chipDanger}
+              onClick={resetFilters}
+            >
               <span className={styles.chipText}>Close</span>
               <span className={styles.chipClose}>×</span>
             </button>

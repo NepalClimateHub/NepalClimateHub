@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
-import styles from '../styles/components/Opportunities.module.css';
 import { FaChevronDown } from 'react-icons/fa';
+import styles from '../styles/components/Opportunities.module.css';
 import { CardContainer } from './CardContainer';
 
 interface Opportunity {
@@ -145,12 +145,12 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
 
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     type: true,
-    locationType: true,
-    province: true,
-    status: true,
-    format: true,
-    cost: true,
-    category: true,
+    locationType: false,
+    province: false,
+    status: false,
+    format: false,
+    cost: false,
+    category: false,
   });
 
   const toggleExpanded = (name: string) => {
@@ -168,7 +168,9 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
 
   const getCountsFor = (name: string, options: string[]) => {
     const counts: Record<string, number> = {};
-    options.forEach((opt) => (counts[opt] = 0));
+    options.forEach((opt) => {
+      counts[opt] = 0;
+    });
     opportunities.forEach((opp) => {
       if (name === 'category') {
         options.forEach((opt) => {
@@ -192,7 +194,9 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
       if (selected.length > 0) {
         if (key === 'category') {
           result = result.filter((opp) =>
-            selected.some((val) => opp.category?.some((c) => c.trim() === val.trim()))
+            selected.some((val) =>
+              opp.category?.some((c) => c.trim() === val.trim())
+            )
           );
         } else if (key === 'province') {
           result = result.filter((opp) => {
@@ -254,7 +258,8 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
                     }`}
                   >
                     {options.map((option) => {
-                      const checked = filters[name as keyof typeof filters].includes(option);
+                      const checked =
+                        filters[name as keyof typeof filters].includes(option);
                       return (
                         <li key={option} className={styles.checkboxItem}>
                           <label className={styles.checkboxLabel}>
@@ -262,10 +267,19 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
                               type="checkbox"
                               className={styles.checkbox}
                               checked={checked}
-                              onChange={() => toggleSelection(name as keyof typeof filters, option)}
+                              onChange={() =>
+                                toggleSelection(
+                                  name as keyof typeof filters,
+                                  option
+                                )
+                              }
                             />
-                            <span className={styles.checkboxText}>{option}</span>
-                            <span className={styles.countBadge}>{counts[option] ?? 0}</span>
+                            <span className={styles.checkboxText}>
+                              {option}
+                            </span>
+                            <span className={styles.countBadge}>
+                              {counts[option] ?? 0}
+                            </span>
                           </label>
                         </li>
                       );
@@ -293,10 +307,14 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
               </button>
             ))
           )}
-          {((Object.keys(filters) as (keyof typeof filters)[]).some(
+          {(Object.keys(filters) as (keyof typeof filters)[]).some(
             (k) => filters[k].length > 0
-          )) && (
-            <button type="button" className={styles.chipDanger} onClick={resetFilters}>
+          ) && (
+            <button
+              type="button"
+              className={styles.chipDanger}
+              onClick={resetFilters}
+            >
               <span className={styles.chipText}>Close</span>
               <span className={styles.chipClose}>×</span>
             </button>
