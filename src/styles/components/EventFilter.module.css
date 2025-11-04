@@ -180,14 +180,75 @@
   border-radius: 6px;
 }
 
+/* Hide mobile filter header on desktop */
+.mobileFilterHeader {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .eventFilterWrapper {
     grid-template-columns: 1fr;
+    margin: 0;
+  }
+
+  /* Mobile Filter Header */
+  .mobileFilterHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    margin-bottom: 16px;
+  }
+
+  .addFilterButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #f9fafb;
+    border: 1px solid rgba(26, 27, 30, 0.12);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .addFilterButton:hover {
+    background: #f3f4f6;
+    border-color: rgba(26, 27, 30, 0.2);
+  }
+
+  .filterIcon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  .totalCount {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  /* Sidebar - Hidden by default on mobile */
+  .sidebar {
+    display: none;
+    margin: 0 24px 24px;
+  }
+
+  .sidebar.mobileFilterOpen {
+    display: block;
+  }
+
+  .sidebar.mobileFilterClosed {
+    display: none;
   }
 
   .sidebarInner {
     position: relative;
-    margin: 24 px;
+    margin: 0;
   }
 
   .noResults {
@@ -196,6 +257,6 @@
   }
 
   .selectedChipsRow {
-    margin: 24px;
+    margin: 0 24px 16px;
   }
 }

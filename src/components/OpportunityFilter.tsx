@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/Opportunities.module.css';
 import { CardContainer } from './CardContainer';
+import filterIcon from '../assets/icons/Right Icon.png';
 
 interface Opportunity {
   id: string | number;
@@ -153,6 +154,8 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
     category: false,
   });
 
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+
   const toggleExpanded = (name: string) => {
     setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
   };
@@ -228,7 +231,32 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
 
   return (
     <div className={styles.eventFilterWrapper}>
-      <aside className={styles.sidebar} aria-label="Opportunity filters">
+      {/* Mobile Add Filter Button and Total Count */}
+      <div className={styles.mobileFilterHeader}>
+        <button
+          type="button"
+          className={styles.addFilterButton}
+          onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+          aria-label="Toggle filters"
+        >
+          <span>Add Filter</span>
+          <img
+            src={filterIcon.src}
+            alt="Filter icon"
+            className={styles.filterIcon}
+          />
+        </button>
+        <div className={styles.totalCount}>
+          Total: {filteredOpportunities.length}
+        </div>
+      </div>
+
+      <aside
+        className={`${styles.sidebar} ${
+          isMobileFilterOpen ? styles.mobileFilterOpen : styles.mobileFilterClosed
+        }`}
+        aria-label="Opportunity filters"
+      >
         <div className={styles.sidebarInner}>
           <div className={styles.filterContainer}>
             {filterOptions.map(({ name, label, options }) => {
