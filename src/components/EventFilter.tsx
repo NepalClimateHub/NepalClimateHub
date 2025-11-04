@@ -232,13 +232,13 @@ const EventFilter: React.FC<Props> = ({ events }) => {
 
   const resetFilters = () => {
     setFilters({
-      type: '',
-      locationType: '',
-      province: '',
-      status: '',
-      format: '',
-      cost: '',
-      category: '',
+      type: [],
+      locationType: [],
+      province: [],
+      status: [],
+      format: [],
+      cost: [],
+      category: [],
     });
   };
 
