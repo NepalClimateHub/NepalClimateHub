@@ -50,7 +50,7 @@ export const Card = <T,>({ data, dataType }: CardProps<T>) => {
   }
 
   return (
-    <a className={styles['card']} href={url}>
+    <a className={styles['organization-card']} href={url}>
       <div className={styles['logo-wrapper']}>
         <img
           src={image}
@@ -61,7 +61,7 @@ export const Card = <T,>({ data, dataType }: CardProps<T>) => {
         />
       </div>
       <div className={styles.details}>
-        <h3 className={styles['card-name']}>{title}</h3>
+        <h3 className={styles['organization-name']}>{title}</h3>
         <p className={styles.location}>
           <span className={styles.icon}>
             <BiMap />
