@@ -191,13 +191,13 @@
     margin: 0;
   }
 
-  /* Mobile Filter Header */
+  /* Mobile Filter Header - Aligned at 24px with header, heading, and cards */
   .mobileFilterHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    margin-bottom: 16px;
+    margin: 0 24px 16px;
+    padding: 0;
   }
 
   .addFilterButton {
@@ -232,7 +232,7 @@
     color: #111827;
   }
 
-  /* Sidebar - Hidden by default on mobile */
+  /* Sidebar - Hidden by default on mobile - Aligned at 24px */
   .sidebar {
     display: none;
     margin: 0 24px 24px;
