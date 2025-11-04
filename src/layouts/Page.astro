@@ -1,23 +1,23 @@
 ---
-import ActivistSection from '@components/ActivistSection.astro';
-import CtaSection from '@components/CtaSection.astro';
-import FactSection from '@components/FactSection.astro';
-import FeaturedEventSection from '@components/FeaturedEventSection.astro';
-import FeaturedNewsSection from '@components/FeaturedNewsSection.astro';
-import FeaturedOrganizationSection from '@components/FeaturedOrganizationSection.astro';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import HeroContent from '@components/HeroContent.astro';
-import Testimonials from '@components/Testimonials.astro';
-import '../styles/global.css';
+import ActivistSection from "@components/ActivistSection.astro";
+import CtaSection from "@components/CtaSection.astro";
+import FactSection from "@components/FactSection.astro";
+import FeaturedEventSection from "@components/FeaturedEventSection.astro";
+import FeaturedNewsSection from "@components/FeaturedNewsSection.astro";
+import FeaturedOrganizationSection from "@components/FeaturedOrganizationSection.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import HeroContent from "@components/HeroContent.astro";
+import Testimonials from "@components/Testimonials.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
 }
 
-import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.astro';
-import FeaturedBlogSection from '@components/FeaturedBlogSection.astro';
-import BaseLayout from './Layout.astro';
+import FeaturedOpportunitySection from "@components/FeaturedOpportunitySection.astro";
+import FeaturedBlogSection from "@components/FeaturedBlogSection.astro";
+import BaseLayout from "./Layout.astro";
 
 const { title } = Astro.props;
 ---
@@ -62,10 +62,6 @@ const { title } = Astro.props;
     </section>
 
     <section class="news-section">
-      <FeaturedNewsSection />
-    </section>
-
-    <section class="!bg-gray-50">
       <FeaturedNewsSection />
     </section>
 

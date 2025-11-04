@@ -355,8 +355,6 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
           <CardContainer
             cardsArray={filteredOpportunities}
             dataType="opportunities"
-            cardProfilePictureBgSize="cover"
-            cardPadding="0px"
             initialCardCount={8}
           />
         )}

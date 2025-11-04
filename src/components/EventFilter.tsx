@@ -371,8 +371,6 @@ const EventFilter: React.FC<Props> = ({ events }) => {
           <CardContainer
             cardsArray={filteredEvents}
             dataType="events"
-            cardProfilePictureBgSize="cover"
-            cardPadding="0px"
             initialCardCount={8}
           />
         )}
