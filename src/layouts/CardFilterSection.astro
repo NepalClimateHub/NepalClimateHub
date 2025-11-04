@@ -119,7 +119,7 @@ const { heading, filter, type } = Astro.props;
 
   @media screen and (max-width: 768px) {
     .section-container {
-      margin: 24px 32px 64px;
+      margin: 24px 8px 64px; /* 8px margin + 16px section padding = 24px from screen edge */
     }
 
     .filter-btn {

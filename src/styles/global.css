@@ -44,6 +44,6 @@ body {
 
 @media screen and (max-width: 768px) {
   .mini-nav {
-    margin: -10px 24px 12px;
+    margin: -10px 12px 12px;
   }
 }

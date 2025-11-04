@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px 16px;
   margin-bottom: 57px;
 }
 
@@ -33,6 +33,6 @@
 
 @media screen and (max-width: 768px) {
   .section-container {
-    margin: 0px 32px 64px;
+    margin: 0px 24px 64px; /* 24px from screen edge to align with header and filter */
   }
 }
