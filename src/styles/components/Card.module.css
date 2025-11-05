@@ -1,5 +1,5 @@
-.card {
-  width: calc(25% - 12px);
+.organization-card {
+  width: calc(33.333% - 12px);
   border-radius: 8px;
   overflow: hidden;
   background-color: #f8f9fa;
@@ -9,7 +9,7 @@
   color: #1a1b1e;
 }
 
-.card:hover {
+.organization-card:hover {
   outline: 1px solid #1a1b1e;
 }
 
@@ -27,11 +27,11 @@
   object-fit: cover;
 }
 
-.card .details {
+.organization-card .details {
   margin: 16px 12px;
 }
 
-.card-name {
+.organization-name {
   font-weight: 700;
   line-height: 20px;
   margin-bottom: 12px;
@@ -52,7 +52,7 @@
   display: block;
 }
 
-.card .description {
+.organization-card .description {
   font-size: 14px;
   line-height: 18px;
   margin-bottom: 12px;
@@ -75,7 +75,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .card {
+  .organization-card {
     width: calc(50% - 8px);
   }
 
@@ -84,8 +84,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .card {
+@media screen and (max-width: 672px) {
+  .organization-card {
     min-width: 100%;
   }
 
