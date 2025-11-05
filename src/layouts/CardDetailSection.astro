@@ -1,6 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
-import HtmlRenderer from "../components/HtmlRenderer.astro";
+import { Icon } from 'astro-icon/components';
+import HtmlRenderer from '../components/HtmlRenderer.astro';
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = "true" } = Astro.props;
@@ -45,7 +45,7 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, "<br><br>");
         </span>
         {location}
       </div>
-
+      
       <HtmlRenderer content={processedDescription} class="detail" />
 
       <!-- tags for organizations / activists causes -->
@@ -135,7 +135,6 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, "<br><br>");
   .detail {
     margin-bottom: 36px;
     line-height: 1.6;
-    border: 2px solid red;
   }
 
   /* Minimal spacing for existing br tags from API */
@@ -144,11 +143,16 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, "<br><br>");
     margin-bottom: 1px !important;
   }
 
+  /* Basic text styling */
+  .detail {
+    line-height: 1.6;
+    text-align: justify;
+  }
+
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 20px;
     margin-bottom: 20px;
   }
 
