@@ -1,41 +1,134 @@
 .eventFilterWrapper {
   max-width: 1280px;
   margin: 0px auto 83px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+}
+
+.sidebar {
+  position: relative;
+}
+
+.sidebarInner {
+  position: sticky;
+  top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(26, 27, 30, 0.12);
+  border-radius: 12px;
+  background: #fff;
 }
 
 .filterContainer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  align-items: flex-end;
-  justify-content: flex-start;
-  margin-bottom: 34px;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .filterGroup {
-  flex: 0 0 1;
-  width: 169px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
-.filterGroup label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.filterContainer select {
-  color: #878b97;
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid rgba(26, 27, 30, 0.12);
-  border-radius: 6px;
-  outline: none;
-  background-color: #fff;
+.groupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 6px 0;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+  color: #6b7280;
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.checkboxList {
+  list-style: none;
+  padding: 0 0 0 16px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.collapsed {
+  display: none;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox {
+  width: 16px;
+  height: 16px;
+}
+.checkboxText {
+  color: #4b5563;
+}
+.countBadge {
+  margin-left: auto;
+  font-size: 12px;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 2px 8px;
+}
+
+.results {
+  min-height: 300px;
+}
+
+.selectedChipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.chip,
+.chipDanger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #111827;
+  cursor: pointer;
+}
+.chip:hover {
+  background: #f3f4f6;
+}
+.chipDanger {
+  background: #fee2e2;
+  border-color: #fecaca;
+}
+.chipText {
+  font-size: 13px;
+}
+.chipClose {
+  font-size: 14px;
+  line-height: 1;
 }
 
 .filterContainer select:hover {
@@ -65,25 +158,83 @@
   border-radius: 6px;
 }
 
+/* Hide mobile filter header on desktop */
+.mobileFilterHeader {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
-  .filterContainer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 36px;
-    margin-left: auto;
-    margin-right: auto;
+  .eventFilterWrapper {
+    grid-template-columns: 1fr;
+    margin: 0;
   }
 
-  .filterGroup {
-    width: 100%;
+  /* Mobile Filter Header - Aligned at 24px with header, heading, and cards */
+  .mobileFilterHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 24px 16px;
+    padding: 0;
   }
 
-  .filterContainer select {
-    width: 100%;
+  .addFilterButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #f9fafb;
+    border: 1px solid rgba(26, 27, 30, 0.12);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .addFilterButton:hover {
+    background: #f3f4f6;
+    border-color: rgba(26, 27, 30, 0.2);
+  }
+
+  .filterIcon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  .totalCount {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  /* Sidebar - Hidden by default on mobile - Aligned at 24px */
+  .sidebar {
+    display: none;
+    margin: 0 24px 24px;
+  }
+
+  .sidebar.mobileFilterOpen {
+    display: block;
+  }
+
+  .sidebar.mobileFilterClosed {
+    display: none;
+  }
+
+  .sidebarInner {
+    position: relative;
+    margin: 0;
   }
 
   .noResults {
     width: auto;
     margin: 0 32px;
+  }
+
+  .selectedChipsRow {
+    margin: 0 24px 16px;
   }
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/EventFilter.module.css';
 import { CardContainer } from './CardContainer';
+import filterIcon from '../assets/icons/Right Icon.png';
 
 interface Event {
   id: string | number;
@@ -133,49 +134,94 @@ const filterOptions = [
 const EventFilter: React.FC<Props> = ({ events }) => {
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [filters, setFilters] = useState({
-    type: '',
-    locationType: '',
-    province: '',
-    status: '',
-    format: '',
-    cost: '',
-    category: '',
+    type: [] as string[],
+    locationType: [] as string[],
+    province: [] as string[],
+    status: [] as string[],
+    format: [] as string[],
+    cost: [] as string[],
+    category: [] as string[],
   });
+
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({
+    type: true,
+    locationType: false,
+    province: false,
+    status: false,
+    format: false,
+    cost: false,
+    category: false,
+  });
+
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+
+  const toggleExpanded = (name: string) => {
+    setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
+  };
+
+  const toggleSelection = (name: keyof typeof filters, value: string) => {
+    setFilters((prev) => {
+      const current = new Set(prev[name]);
+      if (current.has(value)) {
+        current.delete(value);
+      } else {
+        current.add(value);
+      }
+      return { ...prev, [name]: Array.from(current) };
+    });
+  };
+
+  const getCountsFor = (name: string, options: string[]) => {
+    const counts: Record<string, number> = {};
+    options.forEach((opt) => {
+      counts[opt] = 0;
+    });
+    events.forEach((event) => {
+      if (name === 'category') {
+        options.forEach((opt) => {
+          if (event.category?.some((c) => c.trim() === opt.trim()))
+            counts[opt]++;
+        });
+      } else if (name === 'province') {
+        const val = event.address?.state?.trim();
+        if (val && counts[val] !== undefined) counts[val]++;
+      } else {
+        const val = (event as any)[name]?.trim?.();
+        if (val && counts[val] !== undefined) counts[val]++;
+      }
+    });
+    return counts;
+  };
 
   useEffect(() => {
     let result = events;
 
-    Object.entries(filters).forEach(([key, value]) => {
-      if (value) {
+    (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
+      const selected = filters[key];
+      if (selected.length > 0) {
         if (key === 'category') {
           result = result.filter((event) =>
-            event.category.some((cat) => cat.trim() === value.trim())
+            selected.some((val) =>
+              event.category?.some((c) => c.trim() === val.trim())
+            )
           );
         } else if (key === 'province') {
-          result = result.filter(
-            (event) => event.address?.state?.trim() === value.trim()
-          );
-        } else if (key === 'locationType') {
-          result = result.filter(
-            (event) => event.locationType?.trim() === value.trim()
-          );
+          result = result.filter((event) => {
+            const val = event.address?.state?.trim() || '';
+            return selected.some((s) => s.trim() === val);
+          });
         } else if (key === 'cost') {
           result = result.filter((event) => {
             const eventCost = event.cost ? event.cost.trim() : '';
-            return (
-              eventCost === value.trim() ||
-              (eventCost === '' && value === 'Free')
+            return selected.some(
+              (s) =>
+                eventCost === s.trim() || (eventCost === '' && s === 'Free')
             );
-          });
-        } else if (key === 'type') {
-          result = result.filter((event) => {
-            const eventType = event.type ? event.type.trim() : '';
-            return eventType === value.trim();
           });
         } else {
           result = result.filter((event) => {
-            const eventValue = event[key as keyof Event] as string;
-            return eventValue ? eventValue.trim() === value.trim() : false;
+            const val = ((event as any)[key] as string) || '';
+            return selected.some((s) => val.trim() === s.trim());
           });
         }
       }
@@ -184,55 +230,141 @@ const EventFilter: React.FC<Props> = ({ events }) => {
     setFilteredEvents(result);
   }, [filters, events]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFilters((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const resetFilters = () => {
+    setFilters({
+      type: [],
+      locationType: [],
+      province: [],
+      status: [],
+      format: [],
+      cost: [],
+      category: [],
+    });
   };
-
-  // const resetFilters = () => {
-  //   setFilters({
-  //     type: "",
-  //     locationType: "",
-  //     province: "",
-  //     status: "",
-  //     format: "",
-  //     cost: "",
-  //     category: "",
-  //   });
-  // };
 
   return (
     <div className={styles.eventFilterWrapper}>
-      <div className={styles.filterContainer}>
-        {filterOptions.map(({ name, label, defaultOption, options }) => (
-          <div className={styles.filterGroup} key={name}>
-            <label htmlFor={name}>{label}</label>
-            <select
-              name={name}
-              onChange={handleChange}
-              value={filters[name as keyof typeof filters]}
-            >
-              <option value="">{defaultOption}</option>
-              {options.map((option) => (
-                <option value={option} key={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <span className={styles.menuDropdown}>
-              <FaChevronDown />
-            </span>
-          </div>
-        ))}
-        {/* <button onClick={resetFilters} className={styles.resetButton}>
-          Reset Filters
-        </button> */}
+      {/* Mobile Add Filter Button and Total Count */}
+      <div className={styles.mobileFilterHeader}>
+        <button
+          type="button"
+          className={styles.addFilterButton}
+          onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+          aria-label="Toggle filters"
+        >
+          <span>Add Filter</span>
+          <img
+            src={filterIcon.src}
+            alt="Filter icon"
+            className={styles.filterIcon}
+          />
+        </button>
+        <div className={styles.totalCount}>
+          Total: {filteredEvents.length}
+        </div>
       </div>
 
-      <div className={styles.cardNotFoundMessage}>
+      <aside
+        className={`${styles.sidebar} ${
+          isMobileFilterOpen ? styles.mobileFilterOpen : styles.mobileFilterClosed
+        }`}
+        aria-label="Event filters"
+      >
+        <div className={styles.sidebarInner}>
+          <div className={styles.filterContainer}>
+            {filterOptions.map(({ name, label, options }) => {
+              const counts = getCountsFor(name, options);
+              return (
+                <div className={styles.filterGroup} key={name}>
+                  <button
+                    type="button"
+                    className={styles.groupHeader}
+                    onClick={() => toggleExpanded(name)}
+                    aria-expanded={expanded[name] ? 'true' : 'false'}
+                    aria-controls={`${name}-options`}
+                  >
+                    <span>{label}</span>
+                    <span
+                      className={`${styles.chevron} ${
+                        expanded[name] ? styles.chevronOpen : ''
+                      }`}
+                    >
+                      <FaChevronDown />
+                    </span>
+                  </button>
+                  <ul
+                    id={`${name}-options`}
+                    className={`${styles.checkboxList} ${
+                      expanded[name] ? '' : styles.collapsed
+                    }`}
+                  >
+                    {options.map((option) => {
+                      const checked =
+                        filters[name as keyof typeof filters].includes(option);
+                      return (
+                        <li key={option} className={styles.checkboxItem}>
+                          <label className={styles.checkboxLabel}>
+                            <input
+                              type="checkbox"
+                              className={styles.checkbox}
+                              checked={checked}
+                              onChange={() =>
+                                toggleSelection(
+                                  name as keyof typeof filters,
+                                  option
+                                )
+                              }
+                            />
+                            <span className={styles.checkboxText}>
+                              {option}
+                            </span>
+                            <span className={styles.countBadge}>
+                              {counts[option] ?? 0}
+                            </span>
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+          {/* <button onClick={resetFilters} className={styles.resetButton}>
+            Reset Filters
+          </button> */}
+        </div>
+      </aside>
+
+      <section className={styles.results}>
+        {/* Selected filter chips */}
+        <div className={styles.selectedChipsRow}>
+          {(Object.keys(filters) as (keyof typeof filters)[]).flatMap((key) =>
+            filters[key].map((value) => (
+              <button
+                key={`${String(key)}-${value}`}
+                type="button"
+                className={styles.chip}
+                onClick={() => toggleSelection(key, value)}
+              >
+                <span className={styles.chipText}>{value}</span>
+                <span className={styles.chipClose}>×</span>
+              </button>
+            ))
+          )}
+          {(Object.keys(filters) as (keyof typeof filters)[]).some(
+            (k) => filters[k].length > 0
+          ) && (
+            <button
+              type="button"
+              className={styles.chipDanger}
+              onClick={resetFilters}
+            >
+              <span className={styles.chipText}>Close</span>
+              <span className={styles.chipClose}>×</span>
+            </button>
+          )}
+        </div>
         {filteredEvents.length === 0 ? (
           <p className={styles.noResults}>No events found.</p>
         ) : (
@@ -242,7 +374,7 @@ const EventFilter: React.FC<Props> = ({ events }) => {
             initialCardCount={8}
           />
         )}
-      </div>
+      </section>
     </div>
   );
 };
