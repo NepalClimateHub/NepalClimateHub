@@ -1,51 +1,52 @@
 ---
-import '../../styles/global.css';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import CardFilterSection from '../../layouts/CardFilterSection.astro';
+import "../../styles/global.css";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import CardFilterSection from "../../layouts/CardFilterSection.astro";
 // import opportunitiesTemp from '../data/opportunitiesTemp.json';
-import BaseLayout from '../../layouts/Layout.astro';
-import logo from '../../assets/logo/secondaryLogo.svg';
-import OpportunityFilter from '../../components/OpportunityFilter';
-import Loader from '../../components/Loader.astro';
+import BaseLayout from "../../layouts/Layout.astro";
+import logo from "../../assets/logo/secondaryLogo.svg";
+import OpportunityFilter from "../../components/OpportunityFilter";
+import Loader from "../../components/Loader.astro";
 import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
-} from '../../types/opportunity';
-import { fetchOpportunities } from '../../api';
+} from "../../types/opportunity";
+import { fetchOpportunities } from "../../api";
 
 const { data: apiOpportunities } = await fetchOpportunities();
 
 function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '');
+  return html.replace(/<[^>]*>/g, "");
 }
 
 const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
   id: opportunity.id,
   title: opportunity.title,
-  type: opportunity.type || '',
+  type: opportunity.type || "",
   locationType:
     opportunity.locationType.charAt(0).toUpperCase() +
     opportunity.locationType.slice(1).toLowerCase(),
-  province: opportunity.address?.state || '',
-  status: opportunity.status || '',
-  format: opportunity.format || '',
-  cost: opportunity.cost || '',
-  organization: (opportunity as any).organization || '',
-  description: stripHtml(opportunity.description || '') || '',
-  category: opportunity.tags?.map((tag: any) => tag.tag) || opportunity.category || [],
+  province: opportunity.address?.state || "",
+  status: opportunity.status || "",
+  format: opportunity.format || "",
+  cost: opportunity.cost || "",
+  organization: (opportunity as any).organization || "",
+  description: stripHtml(opportunity.description || "") || "",
+  category:
+    opportunity.tags?.map((tag: any) => tag.tag) || opportunity.category || [],
   bannerImage: opportunity.bannerImageUrl || logo.src,
-  applicationDeadline: opportunity.applicationDeadline || '',
-  duration: (opportunity as any).duration || '',
-  applicationDetail: opportunity.applicationLink || '#',
-  contactEmail: (opportunity as any).contactEmail || '',
-  website: (opportunity as any).website || '',
+  applicationDeadline: opportunity.applicationDeadline || "",
+  duration: (opportunity as any).duration || "",
+  applicationDetail: opportunity.applicationLink || "#",
+  contactEmail: (opportunity as any).contactEmail || "",
+  website: (opportunity as any).website || "",
   socials: (opportunity as any).socials || {
-    facebook: '',
-    linkedin: '',
-    instagram: '',
+    facebook: "",
+    linkedin: "",
+    instagram: "",
   },
-  contributedBy: (opportunity as any).contributedBy || '',
+  contributedBy: (opportunity as any).contributedBy || "",
 }));
 ---
 
@@ -71,8 +72,7 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
 
       <section class="opportunity-cards-section">
         <OpportunityFilter client:load opportunities={opportunities} />
-        
-    </section>
+      </section>
     </div>
 
     <!-- Footer Section -->
@@ -109,7 +109,7 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
 
   @media screen and (max-width: 768px) {
     section {
-      padding: 0px 16px;
+      padding: 0px;
     }
 
     .opportunity-cards-section {
@@ -117,5 +117,3 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
     }
   }
 </style>
-
-
