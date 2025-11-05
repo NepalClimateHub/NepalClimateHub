@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
-import '../styles/global.css';
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
 
 const { heading, filter, type } = Astro.props;
 ---
@@ -13,7 +13,10 @@ const { heading, filter, type } = Astro.props;
         These organizations are dedicated to advancing climate education,
         advocacy, policy, and resilience across Nepal. If you are working for a
         climate organization not already listed here, please{" "}
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUyXGXNG7OrINjSYYfSkHwVtIXCCrUd9JBJZCfS7MA0oaOUA/viewform" class="register-link">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfUyXGXNG7OrINjSYYfSkHwVtIXCCrUd9JBJZCfS7MA0oaOUA/viewform"
+          class="register-link"
+        >
           register your profile
         </a>{" "}
         to be added to our hub!
@@ -119,7 +122,7 @@ const { heading, filter, type } = Astro.props;
 
   @media screen and (max-width: 768px) {
     .section-container {
-      margin: 24px 8px 64px; /* 8px margin + 16px section padding = 24px from screen edge */
+      margin: 24px 24px 64px; /* 8px margin + 16px section padding = 24px from screen edge */
     }
 
     .filter-btn {
