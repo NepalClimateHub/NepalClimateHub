@@ -52,11 +52,39 @@
           "linkedIn": "https://np.linkedin.com/in/rashika-pandit"
         },
         {
-          "name": "Nischal Raj Gautam ",
+          "name": "Nischal Raj Gautam",
           "title": "Creative Writer",
-          "bio": "Nischal Raj is a B.Sc. Agriculture student at Agriculture and Forestry University and a Youth Representative at the World Food Forum. He is a Global Youth Ambassador at Theirworld and Plastic Free NextGen Fellow (Plastic Free Foundation). He has also been recognized as a South Asian Climate Justice Fellow and Resilient Youth Network Fellow, with active engagement in climate-smart agriculture, food security and policy advocacy. Nischal Raj  is passionate about sustainability, climate resilience, organic farming and community empowerment through education and climate action.",
+          "bio": "Nischal Raj is a Youth Representative at the World Food Forum, and a Global Youth Ambassador at Theirworld. He also serves as a Plastic Free NextGen Fellow and has been recognized as a South Asian Climate Justice Fellow and Resilient Youth Network Fellow. His work focuses on climate-smart agriculture, food security, and policy advocacy, with passions for sustainability, climate resilience, organic farming, and community empowerment.",
           "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/NRG.jpeg",
           "linkedIn": "https://www.linkedin.com/in/nischal-raj-gautam-8a362b307/"
+        },
+        {
+          "name": "Dipika Khadka",
+          "title": "Climate Storyteller",
+          "bio": "Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action. She served as Content and Media Coordinator at NYCA and believes meaningful storytelling drives action. Dipika thrives on connecting with people, learning from diverse perspectives, and blending science and creativity to inspire awareness and community-driven climate solutions.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/7.png",
+          "linkedIn": "https://www.linkedin.com/in/dipika-khadka-312550301/"
+        },
+        {
+          "name": "Yadav Singh Dhami",
+          "title": "Provincial Lead (Sudurpaschim)",
+          "bio": "Yadav Singh Dhami is a postgraduate in rural development, co-author of studies on climate vulnerability in Western Nepal, and a contributor on climate resilience and governance. Former MEAL intern at The Small World, he is an independent researcher with field experience in impact assessment, FGD facilitation, and stakeholder coordination. Yadav is actively involved in youth leadership and passionate about bridging data, storytelling, and community empowerment.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/Yadav.png",
+          "linkedIn": "https://www.linkedin.com/in/yadavdhami/"
+        },
+        {
+          "name": "Susmita Aryal",
+          "title": "Content Lead",
+          "bio": "Susmita Aryal is a Kathmandu-based published Author and Independent Journalist. A graduate in English Literature and Journalism, she brings years of writing and publishing experience. With a genuine love for art and storytelling, her works extensively center around communications. Curious about international affairs, she is currently pursuing a Master’s in International Relations and Diplomacy.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/2.png",
+          "linkedIn": "https://www.linkedin.com/in/susmita-aryal-494275229"
+        },
+        {
+          "name": "Monika Bhatt",
+          "title": "Creative Writer",
+          "bio": "Monika Bhatt is an Agriculture undergraduate interning at the National Plant Pathology Research Center. She leads a NAST Young Scientist Research Grant (2024/2025) on automated nutrient analysis of Ganoderma lucidum grown on different agro-waste substrates. Passionate about writing, communication, hiking, and climate change mitigation, Monika blends scientific curiosity with creativity to advance sustainable agricultural innovation.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/4.png",
+          "linkedIn": "https://www.linkedin.com/in/monika-bhatt-609ab5255"
         }
       ]
     },
@@ -70,7 +98,6 @@
           "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/mukush.jpg",
           "linkedIn": "https://www.linkedin.com/in/mukezhz/"
         },
-
         {
           "name": "Nischal Tamang",
           "title": "Software Engineer",
@@ -86,11 +113,46 @@
           "linkedIn": "https://www.linkedin.com/in/nikita-budhathoki/"
         },
         {
-          "name": "Milan Shrestha",
+          "name": "Nirmal Pandey",
+          "title": "AI Engineer",
+          "bio": "Nirmal Pandey is an AI Engineer at Nepal Climate Hub and a Machine Learning & Artificial Intelligence graduate from Lambton College, Canada. With a strong background as a Software Engineer, he brings strong technical expertise to advancing climate initiatives through data-driven solutions. Passionate about leveraging technology for environmental advocacy, he develops innovative approaches to support sustainable development and climate resilience in Nepal.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/6.png",
+          "linkedIn": "https://www.linkedin.com/in/nirmalpandey/"
+        },
+        {
+          "name": "Jyoti Sapkota",
           "title": "UI/UX Designer",
-          "bio": "Milan is a UX/UI Designer with over three years of experience, focused on marketing materials and improving web experiences for people and businesses. He has worked across EdTech, FinTech, PropTech, HealthTech, and Productivity, aiming to help people through design. Milan holds an undergraduate degree in BICT and is passionate about anything that keeps him inspired and excited.",
-          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/milan.jpg",
-          "linkedIn": "https://www.linkedin.com/in/milanshresta/"
+          "bio": "Jyoti Sapkota is an emerging UI/UX Designer from Nepal with a background in Electronics and Communication Engineering. Passionate about knowledge sharing, she has actively contributed to mentoring and community initiatives, including Women Leaders in Technology (WLiT), and has engaged in various speaking sessions on design awareness and personal development.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/5.png",
+          "linkedIn": "https://www.linkedin.com/in/jyoti-sapkota-61282b1bb"
+        },
+        {
+          "name": "Yunika Shakya",
+          "title": "UI/UX Designer",
+          "bio": "Yunika Shakya is a UI/UX Designer at Vrit Technologies, specializing in user experience design and collaborative, user-centered solutions. A 2024 graduate in Computer Science and Information Technology from Prime College, she also mentors aspiring designers at SkillShikshya. Yunika blends technical expertise with a passion for growth, creativity, and innovation in the design field.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/10.png",
+          "linkedIn": "https://www.linkedin.com/in/yunishakya058/"
+        },
+        {
+          "name": "Neha Shrestha",
+          "title": "Senior UI/UX Designer",
+          "bio": "Neha Shrestha is a UI/UX Designer with a Bachelor’s degree in Computer Science. She began her career as a Frontend Developer before transitioning into design, driven by her passion for creating user-friendly and visually engaging digital experiences. Neha blends creativity with technical expertise to craft intuitive, meaningful designs and enjoys continuous learning, problem-solving, and making a positive impact through design.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/1.png",
+          "linkedIn": "http://www.linkedin.com/in/neha215shrestha"
+        },
+        {
+          "name": "Tarun Thapa",
+          "title": "Video Editor",
+          "bio": "Tarun Thapa is a motion designer and video editor with over two years of experience working with IT companies and creative agencies. With a background in Information and Management, he now freelances, helping brands and creators tell their stories through engaging motion graphics and visually driven videos.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/3.png",
+          "linkedIn": "http://linkedin.com/in/tarun-thapa-27a287181"
+        },
+        {
+          "name": "Sajan Thapa",
+          "title": "Software Engineer",
+          "bio": "Sajan Thapa is a Software Engineer who enjoys learning, collaborating, and creating impactful solutions. He values curiosity, teamwork, and continuous growth.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/8.png",
+          "linkedIn": "https://www.linkedin.com/in/sajan-thapa-297280293/"
         }
       ]
     },
@@ -155,6 +217,13 @@
           "bio": "Avash Ghimire is a software engineer passionate about all things tech. He turns caffeine into code and ideas into reality, always chasing the next big challenge. His ability to collaborate with multidisciplinary teams makes him a valuable asset to any team. He also writes blogs occasionally… when he's not busy procrastinating.",
           "image": "https://placehold.co/400x400?text=Avash",
           "linkedIn": "https://www.linkedin.com/in/avash-ghimire/"
+        },
+        {
+          "name": "Milan Shrestha",
+          "title": "UI/UX Designer",
+          "bio": "Milan is a UX/UI Designer with over three years of experience, focused on marketing materials and improving web experiences for people and businesses. He has worked across EdTech, FinTech, PropTech, HealthTech, and Productivity, aiming to help people through design. Milan holds an undergraduate degree in BICT and is passionate about anything that keeps him inspired and excited.",
+          "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/milan.jpg",
+          "linkedIn": "https://www.linkedin.com/in/milanshresta/"
         }
       ]
     }
