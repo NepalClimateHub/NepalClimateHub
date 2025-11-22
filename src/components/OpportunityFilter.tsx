@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/Opportunities.module.css';
 import { CardContainer } from './CardContainer';
-import filterIcon from '../assets/icons/Right Icon.png';
+import filterIcon from '../assets/icons/RightIcon.png';
 
 interface Opportunity {
   id: string | number;
@@ -87,7 +87,7 @@ const filterOptions = [
     name: 'cost',
     label: 'Cost',
     defaultOption: 'All Cost Types',
-    options: ['Fully Funded', 'Partially Funded', 'Paid', 'Free'],
+    options: ['Fully_Funded', 'Partially_Funded', 'Paid', 'Free'],
   },
   {
     name: 'category',
@@ -143,7 +143,6 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
     cost: [] as string[],
     category: [] as string[],
   });
-
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     type: true,
     locationType: false,
@@ -153,12 +152,10 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
     cost: false,
     category: false,
   });
-
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
-  const toggleExpanded = (name: string) => {
+  const toggleExpanded = (name: string) =>
     setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
-  };
 
   const toggleSelection = (name: keyof typeof filters, value: string) => {
     setFilters((prev) => {
@@ -177,14 +174,22 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
     opportunities.forEach((opp) => {
       if (name === 'category') {
         options.forEach((opt) => {
-          if (opp.category?.some((c) => c.trim() === opt.trim())) counts[opt]++;
+          if (
+            opp.category?.some(
+              (c) => c.trim().toLowerCase() === opt.trim().toLowerCase()
+            )
+          )
+            counts[opt]++;
         });
-      } else if (name === 'province') {
-        const val = opp.province?.trim();
-        if (val && counts[val] !== undefined) counts[val]++;
       } else {
-        const val = (opp as any)[name]?.trim?.();
-        if (val && counts[val] !== undefined) counts[val]++;
+        const val =
+          (name === 'province'
+            ? opp.province?.trim()
+            : (opp as any)[name]?.trim?.()
+          )?.toLowerCase() || '';
+        options.forEach((opt) => {
+          if (val === opt.toLowerCase()) counts[opt]++;
+        });
       }
     });
     return counts;
@@ -198,26 +203,43 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
         if (key === 'category') {
           result = result.filter((opp) =>
             selected.some((val) =>
-              opp.category?.some((c) => c.trim() === val.trim())
+              opp.category?.some(
+                (c) => c.trim().toLowerCase() === val.trim().toLowerCase()
+              )
             )
           );
         } else if (key === 'province') {
+          result = result.filter((opp) =>
+            selected.some(
+              (s) =>
+                (opp.province?.trim().toLowerCase() || '') ===
+                s.trim().toLowerCase()
+            )
+          );
+        } else if (key === 'cost') {
           result = result.filter((opp) => {
-            const val = opp.province?.trim() || '';
-            return selected.some((s) => s.trim() === val);
+            const val = opp.cost?.trim().toLowerCase() || '';
+            return selected.some(
+              (s) =>
+                val === s.trim().toLowerCase() ||
+                (val === '' && s.trim().toLowerCase() === 'free')
+            );
           });
         } else {
-          result = result.filter((opp) => {
-            const val = ((opp as any)[key] as string) || '';
-            return selected.some((s) => val.trim() === s.trim());
-          });
+          result = result.filter((opp) =>
+            selected.some(
+              (s) =>
+                ((opp as any)[key]?.trim()?.toLowerCase() || '') ===
+                s.trim().toLowerCase()
+            )
+          );
         }
       }
     });
     setFilteredOpportunities(result);
   }, [filters, opportunities]);
 
-  const resetFilters = () => {
+  const resetFilters = () =>
     setFilters({
       type: [],
       locationType: [],
@@ -227,17 +249,14 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
       cost: [],
       category: [],
     });
-  };
 
   return (
     <div className={styles.eventFilterWrapper}>
-      {/* Mobile Add Filter Button and Total Count */}
       <div className={styles.mobileFilterHeader}>
         <button
           type="button"
           className={styles.addFilterButton}
           onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-          aria-label="Toggle filters"
         >
           <span>Add Filter</span>
           <img
@@ -252,10 +271,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
       </div>
 
       <aside
-        className={`${styles.sidebar} ${
-          isMobileFilterOpen ? styles.mobileFilterOpen : styles.mobileFilterClosed
-        }`}
-        aria-label="Opportunity filters"
+        className={`${styles.sidebar} ${isMobileFilterOpen ? styles.mobileFilterOpen : styles.mobileFilterClosed}`}
       >
         <div className={styles.sidebarInner}>
           <div className={styles.filterContainer}>
@@ -272,18 +288,14 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
                   >
                     <span>{label}</span>
                     <span
-                      className={`${styles.chevron} ${
-                        expanded[name] ? styles.chevronOpen : ''
-                      }`}
+                      className={`${styles.chevron} ${expanded[name] ? styles.chevronOpen : ''}`}
                     >
                       <FaChevronDown />
                     </span>
                   </button>
                   <ul
                     id={`${name}-options`}
-                    className={`${styles.checkboxList} ${
-                      expanded[name] ? '' : styles.collapsed
-                    }`}
+                    className={`${styles.checkboxList} ${expanded[name] ? '' : styles.collapsed}`}
                   >
                     {options.map((option) => {
                       const checked =
@@ -303,7 +315,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
                               }
                             />
                             <span className={styles.checkboxText}>
-                              {option}
+                              {option.replace(/_/g, ' ')}
                             </span>
                             <span className={styles.countBadge}>
                               {counts[option] ?? 0}
@@ -348,9 +360,8 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
             </button>
           )}
         </div>
-
         {filteredOpportunities.length === 0 ? (
-          <p className={styles.noResults}> No opportunities found.</p>
+          <p className={styles.noResults}>No opportunities found.</p>
         ) : (
           <CardContainer
             cardsArray={filteredOpportunities}
