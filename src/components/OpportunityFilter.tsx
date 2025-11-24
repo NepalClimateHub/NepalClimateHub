@@ -167,35 +167,44 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
   };
 
   const getCountsFor = (name: string, options: string[]) => {
-    const counts: Record<string, number> = {};
-    options.forEach((opt) => {
-      counts[opt] = 0;
-    });
-    opportunities.forEach((opp) => {
-      if (name === 'category') {
-        options.forEach((opt) => {
-          if (
-            opp.category?.some(
-              (c) => c.trim().toLowerCase() === opt.trim().toLowerCase()
-            )
-          )
-            counts[opt]++;
-        });
-      } else {
-        const val =
-          (name === 'province'
-            ? opp.province?.trim()
-            : (opp as any)[name]?.trim?.()
-          )?.toLowerCase() || '';
-        options.forEach((opt) => {
-          if (val === opt.toLowerCase()) counts[opt]++;
-        });
-      }
-    });
-    return counts;
-  };
+  const counts: Record<string, number> = {};
+  options.forEach((opt) => {
+    counts[opt] = 0;
+  });
 
-  useEffect(() => {
+  opportunities.forEach((opp) => {
+    if (name === "category") {
+      options.forEach((opt) => {
+        if (
+          opp.category?.some(
+            (c) => c.trim().toLowerCase() === opt.trim().toLowerCase()
+          )
+        ) {
+          counts[opt]++;
+        }
+      });
+    } else if (name === "province") {
+      const val = opp.province?.trim()?.toLowerCase();
+      options.forEach((opt) => {
+        if (val === opt.trim().toLowerCase()) {
+          counts[opt]++;
+        }
+      });
+    } else {
+      const val = (opp as any)[name]?.trim?.()?.toLowerCase();
+      options.forEach((opt) => {
+        if (val === opt.trim().toLowerCase()) {
+          counts[opt]++;
+        }
+      });
+    }
+  });
+
+  return counts;
+};
+
+
+useEffect(() => {
     let result = opportunities;
     (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
       const selected = filters[key];
@@ -203,36 +212,19 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
         if (key === 'category') {
           result = result.filter((opp) =>
             selected.some((val) =>
-              opp.category?.some(
-                (c) => c.trim().toLowerCase() === val.trim().toLowerCase()
-              )
+              opp.category?.some((c) => c.toLowerCase().trim() === val.toLowerCase().trim())
             )
           );
         } else if (key === 'province') {
-          result = result.filter((opp) =>
-            selected.some(
-              (s) =>
-                (opp.province?.trim().toLowerCase() || '') ===
-                s.trim().toLowerCase()
-            )
-          );
-        } else if (key === 'cost') {
           result = result.filter((opp) => {
-            const val = opp.cost?.trim().toLowerCase() || '';
-            return selected.some(
-              (s) =>
-                val === s.trim().toLowerCase() ||
-                (val === '' && s.trim().toLowerCase() === 'free')
-            );
+            const val = opp.province?.toLowerCase().trim() || '';
+            return selected.some((s) => s.toLowerCase().trim() === val);
           });
         } else {
-          result = result.filter((opp) =>
-            selected.some(
-              (s) =>
-                ((opp as any)[key]?.trim()?.toLowerCase() || '') ===
-                s.trim().toLowerCase()
-            )
-          );
+          result = result.filter((opp) => {
+            const val = ((opp as any)[key] as string).toLocaleLowerCase().trim() || '';
+            return selected.some((s) => val === s.toLowerCase().trim());
+          });
         }
       }
     });
