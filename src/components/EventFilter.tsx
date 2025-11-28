@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import styles from '../styles/components/EventFilter.module.css';
 import { CardContainer } from './CardContainer';
-import filterIcon from '../assets/icons/Right Icon.png';
+import filterIcon from '../assets/icons/RightIcon.png';
 
 interface Event {
   id: string | number;
