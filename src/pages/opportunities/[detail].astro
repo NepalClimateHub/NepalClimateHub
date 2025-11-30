@@ -42,7 +42,7 @@ const opportunityDetail = {
   ...apiOpportunity,
   bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
   description: apiOpportunity.description || '',
-  location:
+  locationType:
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
   province: apiOpportunity.address?.state || '',
@@ -64,7 +64,7 @@ const opportunityDetail = {
 
 
    <section class="card-detail-section">
-     <CardDetailSection dataObj={opportunityDetail} organization="false" />
+     <CardDetailSection dataObj={opportunityDetail} opportunity={true} organization="false" />
     </section>
     
     <section class="connect-card-section">

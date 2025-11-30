@@ -42,7 +42,7 @@ const eventData = {
   ...apiEvent,
   bannerImage: apiEvent.bannerImageUrl,
   description: apiEvent.description || '',
-  location:
+  locationType:
     apiEvent.locationType.charAt(0).toUpperCase() +
     apiEvent.locationType.slice(1).toLowerCase(),
   province: apiEvent.address?.state || '',
