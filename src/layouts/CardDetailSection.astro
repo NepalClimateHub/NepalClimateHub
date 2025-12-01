@@ -4,11 +4,18 @@ import HtmlRenderer from '../components/HtmlRenderer.astro';
 import { formatDateTime } from 'src/utils/formatDateTime';
 import StatusAndShare from '@components/StatusAndShare.astro';
 
+interface Props {
+  dataObj: any;
+  organization: boolean;
+  opportunity?: boolean;
+  cardId: number;
+}
+
 // dataObj can either be organization data or activist data or event data; sent via props
-const { dataObj, organization = "true", opportunity = false } = Astro.props;
+const { dataObj, organization = true, opportunity = false } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === "false" && dataObj && "title" in dataObj;
+const isEvent = !organization && dataObj && "title" in dataObj;
 
 // initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
@@ -20,11 +27,8 @@ const location = isEvent
   : activeDataObject?.address;
 const description = activeDataObject?.description || "";
 
-const eventLocation = activeDataObject?.location === "" ? 'Not disclosed' : activeDataObject?.location ;
-
-const status = activeDataObject?.status || "";
-const normalizedStatus = status.toLowerCase().trim();
-const statusClass = `status-${normalizedStatus}`;
+const eventLocation = activeDataObject?.location ? activeDataObject.location : 'Not disclosed';
+const status = activeDataObject?.status;
 
 const eventType = activeDataObject?.type || "";
 const cleanedType = eventType.toLowerCase().trim();
@@ -57,9 +61,8 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, "<br><br>");
   <!-- container for organization card -->
   <div class="card-container">
 
-    {
-      isEvent && <StatusAndShare status={normalizedStatus} statusClass={statusClass} />
-    }
+  {isEvent && (
+  <StatusAndShare status={status} />)}
 
     <div class="card-main">
      <div class="card-details-wrapper">
@@ -215,7 +218,7 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, "<br><br>");
               </svg>
             </div>
             <div class="info-section-content">
-              <span class="info-section-label">{opportunity ? 'Opportunity type': 'Event cost'}</span>
+              <span class="info-section-label">{opportunity ? 'Payment': 'Event cost'}</span>
               <span class="info-section-value">{cleanedCost}</span>
             </div>
           </div>

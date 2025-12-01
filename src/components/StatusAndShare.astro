@@ -1,15 +1,19 @@
 ---
 interface Props {
     status: string;
-    statusClass: string;
 }
 
-const {status, statusClass} = Astro.props;
+const {status} = Astro.props;
+
+const cleanedStatus = status.toLowerCase().trim();
+const statusClass = status ? `status-${cleanedStatus}`: 'status-unknown' ;
 ---
 
 <div class="container">
   <!-- event status -->
-  <div class={`event-status ${statusClass}`}>{status}</div>
+   {
+     status && (<div class={`event-status ${statusClass}`}>{cleanedStatus}</div>)
+   }
   <!-- Event share section -->
     <div class="event-share">
         <span class="share-label">Share:</span>
@@ -158,7 +162,7 @@ const {status, statusClass} = Astro.props;
     background-color: #FFE5E5;
     color: #D92D20;
   }
-  .status-upcoming {
+  .status-upcoming, .status-unknown {
     border: 1px solid #CA8A04;
     background-color: #FEF3C7;
     color: #CA8A04;
@@ -168,6 +172,7 @@ const {status, statusClass} = Astro.props;
     display: flex;
     gap: 8px;
     align-items: center;
+    margin-left: auto;
   }
   .share-label{
     color: #1A1B1E;
