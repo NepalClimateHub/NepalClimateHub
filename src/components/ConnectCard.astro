@@ -55,10 +55,9 @@ const emailParts = splitEmail(email);
 
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
-			<a
-				href={website == "" || !website ? "#NA" : website}
-				>{website == "" || !website ? "N/A" : website}</a
-			>
+			{
+				website == "" || !website ? <p class="website">Not available</p> : <a href={website}>{website}</a>
+			}
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
 			</div>
@@ -101,7 +100,7 @@ const emailParts = splitEmail(email);
 					{emailParts.username}<span style="display: none;">Go Away for here!!!</span>{emailParts.domain}
 				</p>
 			) : (
-				<p class="email">N/A</p>
+				<p class="email">Not available</p>
 			)}
 			{phone && (
 				<>
@@ -160,6 +159,7 @@ const emailParts = splitEmail(email);
 	}
 
 	.connect-card a,
+	.connect-card .website,
 	.connect-card .email,
 	.connect-card .phone {
 		color: #3b5bdb;
