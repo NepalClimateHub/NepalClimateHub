@@ -27,7 +27,7 @@ const location = isEvent
 const description = activeDataObject?.description || "";
 
 const eventLocation = activeDataObject?.location ? activeDataObject.location : 'Not disclosed';
-const status = activeDataObject?.status;
+const status = activeDataObject?.status || '';
 
 const eventType = activeDataObject?.type || "";
 const cleanedType = eventType.toLowerCase().trim();
