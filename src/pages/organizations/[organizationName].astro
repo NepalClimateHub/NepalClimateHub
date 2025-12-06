@@ -23,11 +23,16 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
+const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
 const metaDescription = stripHtml(organization.description) || `${organization.name} - ${organization.address || 'Climate organization in Nepal'}`;
 const metaImage = organization.pictures && organization.pictures.length > 0 
   ? organization.pictures[0] 
   : '/favicon.png';
-const metaUrl = Astro.url.href;
+const metaUrl = `${siteUrl}${fullPath}`;
 ---
 
 <BaseLayout 
