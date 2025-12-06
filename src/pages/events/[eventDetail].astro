@@ -12,8 +12,8 @@ import { fetchEvents } from '../../api';
 import { createSlug } from '../../utils/slug';
 // import eventJSON from '../../data/dummy-event.json';
 
-function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '');
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
 const { eventDetail } = Astro.params;
@@ -42,15 +42,25 @@ const eventData = {
   ...apiEvent,
   bannerImage: apiEvent.bannerImageUrl,
   description: apiEvent.description || '',
-  location:
+  locationType:
     apiEvent.locationType.charAt(0).toUpperCase() +
     apiEvent.locationType.slice(1).toLowerCase(),
   province: apiEvent.address?.state || '',
   category: apiEvent.tags?.map((tag: any) => tag.tag) || [],
 };
+
+// Prepare meta tags
+const metaDescription = stripHtml(eventData.description) || `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || 'Nepal Climate Hub'}.`;
+const metaImage = eventData.bannerImage || '/favicon.png';
+const metaUrl = Astro.url.href;
 ---
 
-<BaseLayout title={`${eventData.title} | Nepal Climate Hub`}>
+<BaseLayout 
+  title={`${eventData.title} | Nepal Climate Hub`}
+  description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
+>
   <main class="main-container">
     <!-- header section  -->
     <section class="header-section">
@@ -65,11 +75,11 @@ const eventData = {
     </section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId={0} organization="false" dataObj={eventData} />
+      <CardDetailSection organization={false} dataObj={eventData} />
     </section>
 
     <section class="connect-card-section">
-      <ConnectCard cardId={0} organization="false" dataObj={eventData} />
+      <ConnectCard cardId={0} organization={false} dataObj={eventData} />
     </section>
 
     <section class="organization-section">

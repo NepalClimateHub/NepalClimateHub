@@ -42,15 +42,29 @@ const opportunityDetail = {
   ...apiOpportunity,
   bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
   description: apiOpportunity.description || '',
-  location:
+  locationType:
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
   province: apiOpportunity.address?.state || '',
   category: apiOpportunity.tags?.map((tag: any) => tag.tag) || apiOpportunity.category || [],
 };
+
+// Prepare meta tags
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+const metaDescription = stripHtml(opportunityDetail.description) || `Apply for ${opportunityDetail.title} - ${opportunityDetail.locationType} opportunity in Nepal.`;
+const metaImage = opportunityDetail.bannerImage || '/favicon.png';
+const metaUrl = Astro.url.href;
 ---
 
-<BaseLayout title={`${opportunityDetail.title} | Nepal Climate Hub`}>
+<BaseLayout 
+  title={`${opportunityDetail.title} | Nepal Climate Hub`}
+  description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
+>
   <main class="main-container">
     <!-- Header Section -->
     <section class="header-section">
@@ -62,15 +76,14 @@ const opportunityDetail = {
       </div>
     </section>
 
-
    <section class="card-detail-section">
-     <CardDetailSection dataObj={opportunityDetail} organization="false" />
+     <CardDetailSection dataObj={opportunityDetail} opportunity={true} organization={false} />
     </section>
     
     <section class="connect-card-section">
       <ConnectCard
         cardId={0}
-        organization="false"
+        organization={false}
         dataObj={opportunityDetail}
       />
     </section>

@@ -17,9 +17,25 @@ const champion = climateChampionsJSON.find(
 if (!champion) {
   throw new Error(`Climate champion with slug ${climateChampionDetail} not found`);
 }
+
+// Prepare meta tags
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+const metaDescription = stripHtml(champion.description) || `Meet ${champion.name}, a climate champion working for climate action in Nepal.`;
+const metaImage = champion.pictures && champion.pictures.length > 0 
+  ? champion.pictures[0] 
+  : '/favicon.png';
+const metaUrl = Astro.url.href;
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout 
+  title={`${champion.name} | Climate Champion | Nepal Climate Hub`}
+  description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
+>
 	<main class="main-container">
 		<!-- header section  -->
 
@@ -35,11 +51,11 @@ if (!champion) {
 		</section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId= 0 organization = "false" dataObj = {champion} />
+      <CardDetailSection organization = {false} dataObj = {champion} />
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard cardId= 0 organization = "false" dataObj = {champion} />
+			<ConnectCard cardId={0} organization = {false} dataObj = {champion} />
 		</section>
 
 		<section class="organization-section">

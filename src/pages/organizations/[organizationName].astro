@@ -17,9 +17,25 @@ const organization = organizationsJSON.find(
 if (!organization) {
   throw new Error(`Organization with slug ${organizationName} not found`);
 }
+
+// Prepare meta tags
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+const metaDescription = stripHtml(organization.description) || `${organization.name} - ${organization.address || 'Climate organization in Nepal'}`;
+const metaImage = organization.pictures && organization.pictures.length > 0 
+  ? organization.pictures[0] 
+  : '/favicon.png';
+const metaUrl = Astro.url.href;
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout 
+  title={`${organization.name} | Nepal Climate Hub`}
+  description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
+>
 	<main class="main-container">
 		<!-- header section  -->
 
@@ -35,11 +51,11 @@ if (!organization) {
 		</section>
 
     <section class="organization-card-section">
-      <CardDetailSection cardId= 0 organization = "true" dataObj = {organization}/>
+      <CardDetailSection organization={true} dataObj = {organization}/>
     </section>
 
 		<section class="connect-card-section">
-			<ConnectCard cardId= 0 organization = "true" dataObj = {organization} />
+			<ConnectCard cardId={0} organization={true} dataObj = {organization} />
 		</section>
 
 		<section class="organization-section">
