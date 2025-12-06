@@ -1,4 +1,9 @@
 ---
+import facebookIcon from '../assets/icons/IconFacebook.png';
+import instagramIcon from '../assets/icons/IconInstagram.png';
+import linkedinIcon from '../assets/icons/IconLinkedin.png';
+import copyIcon from '../assets/icons/IconCopy.png';
+
 interface Props {
     status: string;
 }
@@ -20,102 +25,49 @@ const statusClass = status ? `status-${cleanedStatus}`: 'status-unknown' ;
     <div class="icon-wrapper">
       <div class="copy-container">
         <!-- Copy link button -->
-        <button class="copy-btn" type="button" aria-label="Copy link to clipboard">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.87868 3.87868C4.44129 3.31607 5.20435 3 6 3H14C14.7956 3 15.5587 3.31607 16.1213 3.87868C16.6839 4.44129 17 5.20435 17 6V7H18C19.6569 7 21 8.34315 21 10V18C21 19.6569 19.6569 21 18 21H10C8.34315 21 7 19.6569 7 18V17H6C5.20435 17 4.44129 16.6839 3.87868 16.1213C3.31607 15.5587 3 14.7956 3 14V6C3 5.20435 3.31607 4.44129 3.87868 3.87868ZM9 18C9 18.5523 9.44772 19 10 19H18C18.5523 19 19 18.5523 19 18V10C19 9.44772 18.5523 9 18 9H10C9.44772 9 9 9.44772 9 10V18ZM15 7H10C8.34315 7 7 8.34315 7 10V15H6C5.73478 15 5.48043 14.8946 5.29289 14.7071C5.10536 14.5196 5 14.2652 5 14V6C5 5.73478 5.10536 5.48043 5.29289 5.29289C5.48043 5.10536 5.73478 5 6 5H14C14.2652 5 14.5196 5.10536 14.7071 5.29289C14.8946 5.48043 15 5.73478 15 6V7Z"
-            />
-          </svg>
+        <button id="copy-btn" class="icon" type="button" aria-label="Copy link to clipboard">
+          <img alt="Copy link icon" src={copyIcon.src} />
         </button>
-        <div class="copied-toast" role="status">Link copied</div>
-        <div class="not-copied-toast" role="status">Failed to copy</div>
+        <div id="copied-toast" class="toast" role="status">Link copied</div>
+        <div id="not-copied-toast" class="toast" role="status">Failed to copy</div>
       </div>
       <!-- share to social media buttons -->
       <button
         type="button"
-        class="icon share-linkedin"
+        id="share-linkedin"
+        class="icon"
         aria-label="Share on LinkedIn"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M8 11v5"></path>
-          <path d="M8 8v.01"></path>
-          <path d="M12 16v-5"></path>
-          <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
-          <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
-        </svg>
+        <img alt="Linkedin icon" src={linkedinIcon.src} />
       </button>
       <button
         type="button"
-        class="icon share-instagram"
+        id="share-instagram"
+        class="icon"
         aria-label="Share on Instagram"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
-          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
-          <path d="M16.5 7.5v.01"></path>
-        </svg>
+        <img alt="Instagram icon" src={instagramIcon.src} />
       </button>
       <button
         type="button"
-        class="icon share-facebook"
+        id="share-facebook"
+        class="icon"
         aria-label="Share on Facebook"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path
-            d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-          ></path>
-        </svg>
+        <img alt="Facebook icon" src={facebookIcon.src} />
       </button>
     </div>
   </div>
 </div>
 
 <script>
-  const copyBtn = document.querySelector('.copy-btn') as HTMLButtonElement | null;
-  const copiedToast = document.querySelector('.copied-toast') as HTMLElement | null;
-  const notCopiedToast = document.querySelector('.not-copied-toast') as HTMLElement | null;
+  const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement | null;
+  const copiedToast = document.getElementById('copied-toast') as HTMLElement | null;
+  const notCopiedToast = document.getElementById('not-copied-toast') as HTMLElement | null;
 
-  const linkedinBtn = document.querySelector('.share-linkedin') as HTMLButtonElement | null;
-  const instagramBtn = document.querySelector('.share-instagram') as HTMLButtonElement | null;
-  const facebookBtn = document.querySelector('.share-facebook') as HTMLButtonElement | null;
+  const linkedinBtn = document.getElementById('share-linkedin') as HTMLButtonElement | null;
+  const instagramBtn = document.getElementById('share-instagram') as HTMLButtonElement | null;
+  const facebookBtn = document.getElementById('share-facebook') as HTMLButtonElement | null;
 
   let shouldWait = false;
 
@@ -249,48 +201,14 @@ const statusClass = status ? `status-${cleanedStatus}`: 'status-unknown' ;
 
   .event-share{
     display: flex;
-    gap: 8px;
+    gap: 14px;
     align-items: center;
     margin-left: auto;
   }
+
   .share-label{
     color: #1A1B1E;
     font-weight: 800;
-  }
-
-  .copy-container{
-    position: relative;
-  }
-  .copy-btn{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border: none;
-    background: none;
-  }
-  .copied-toast, .not-copied-toast{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform: translateY(110%);
-    border-radius: 4px;
-    color: #ffffff;
-    font-size: 12px;
-    background-color: #1A1B1E;
-    /* border: 1px solid #cefe00; */
-    text-align: center;
-    padding: 6px 10px;
-    white-space: nowrap;
-    display: none;
-  }
-  .copy-btn svg{
-    fill: #1A1B1E;
-  }
-  .copy-btn:hover svg{
-    fill: #cefe00
-  }
-  .copy-btn:active svg, .icon:active svg{
-    opacity: .3;
   }
 
   .icon-wrapper {
@@ -298,6 +216,7 @@ const statusClass = status ? `status-${cleanedStatus}`: 'status-unknown' ;
     gap: 12px;
     align-items: center;
   }
+
   .icon{
     display: flex;
     align-items: center;
@@ -306,10 +225,37 @@ const statusClass = status ? `status-${cleanedStatus}`: 'status-unknown' ;
     padding: 0;
     cursor: pointer;
   }
-  .icon svg {
-    stroke: #1A1B1E;
+
+  .copy-container{
+    position: relative;
   }
-  .icon:hover svg {
-    stroke: #cefe00;
+
+  .toast{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(110%);
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 12px;
+    background-color: #1A1B1E;
+    text-align: center;
+    padding: 6px 10px;
+    white-space: nowrap;
+    display: none;
+  }
+
+  .icon img{
+    width: 18px;
+    height: 18px;
+    transition: all .07s ease-in;
+  }
+  
+  .icon:hover img{
+    transform: scale(120%);
+  }
+  
+  .icon:active img{
+    transform: scale(110%)
   }
 </style>
