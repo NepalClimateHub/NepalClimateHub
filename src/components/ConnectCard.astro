@@ -56,7 +56,7 @@ const emailParts = splitEmail(email);
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
 			{
-				website == "" || !website ? <p class="website">Not available</p> : <a href={website}>{website}</a>
+				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>{website}</a>
 			}
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
@@ -83,7 +83,7 @@ const emailParts = splitEmail(email);
 				<a target="_blank" href={linkedin}>LinkedIn</a>
 			)}
 			{!facebook && !instagram && !linkedin && (
-				<span>No social media links available</span>
+				<span class=".no-socials">No social media links available</span>
 			)}
 
 			<div class="icon-wrapper">
@@ -100,7 +100,7 @@ const emailParts = splitEmail(email);
 					{emailParts.username}<span style="display: none;">Go Away for here!!!</span>{emailParts.domain}
 				</p>
 			) : (
-				<p class="email">Not available</p>
+				<p class="no-email">Not available</p>
 			)}
 			{phone && (
 				<>
@@ -166,6 +166,14 @@ const emailParts = splitEmail(email);
 		font-size: 16px;
 		line-height: 18px;
 		text-decoration: none;
+	}
+
+	.no-website,
+	.no-socials,
+	.no-website {
+		color: #1a1b1e;
+		font-size: 16px;
+		line-height: 18px;
 	}
 
 	.icon-wrapper {
