@@ -54,9 +54,14 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
+const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
 const metaDescription = stripHtml(opportunityDetail.description) || `Apply for ${opportunityDetail.title} - ${opportunityDetail.locationType} opportunity in Nepal.`;
 const metaImage = opportunityDetail.bannerImage || '/favicon.png';
-const metaUrl = Astro.url.href;
+const metaUrl = `${siteUrl}${fullPath}`;
 ---
 
 <BaseLayout 
