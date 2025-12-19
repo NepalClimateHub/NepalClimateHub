@@ -77,27 +77,11 @@ const NewsJSON = sortNewsArray(transformedData);
     font-size: 12px;
   }
 
-  @media screen and (max-width: 1024px) {
-    .news-container {
-      flex-wrap: wrap;
-    }
-  }
-
   /* media queries for desktop */
 
   @media screen and (max-width: 768px) {
     .section-container {
       margin: 24px 32px 64px;
-    }
-
-    .news-container {
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .news-headline {
-      font-size: 16px;
-      line-height: 20px;
     }
   }
 </style>
