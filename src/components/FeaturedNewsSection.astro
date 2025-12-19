@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { Icon } from "astro-icon/components";
 // import newsTemp from '../data/newsTemp.json';
 import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
 import { fetchNews } from "../api"; // Import fetchNews function
@@ -9,6 +8,7 @@ import { fetchNews } from "../api"; // Import fetchNews function
 import sortNewsArray from "../utils/sortNewsArray.js";
 import type { SortData } from "../utils/sortNewsArray.js";
 import NewsCard from '../components/NewsCard.astro';
+import styles from '../styles/components/News.module.css';
 
 // Fetch news data from API
 const { data: apiNews } = await fetchNews();
@@ -35,7 +35,7 @@ const NewsJSON = sortNewsArray(transformedData);
 
   <!-- container to wrap news cards -->
 
-  <div class="news-container">
+  <div class={styles.newsContainer}>
     <!-- news card one -->
 
     {
@@ -66,99 +66,6 @@ const NewsJSON = sortNewsArray(transformedData);
     font-weight: 700;
     line-height: 32px;
     margin-bottom: 24px;
-  }
-
-  .news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
-  .news-card {
-    display: block;
-    text-decoration: none;
-    padding: 30px;
-    border-radius: 12px;
-    background-color: #F8F9FA;
-    /* border-bottom: 1px solid #cefe00; */
-    /* max-width: 403px; */
-    border: 1px solid #EBEAEA;
-    overflow: hidden;
-  }
-
-  .news-card > a {
-    cursor: pointer;
-    color: #1a1b1e;
-    text-decoration: none;
-  }
-  
-  .news-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
-  }
-
-  .news-details {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .address {
-    font-size: 14px;
-    line-height: 16px;
-    color: #364fc7;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  
-  .news-headline {
-    font-size: 22px;
-    line-height: 28px;
-    font-weight: 500;
-    text-transform: capitalize;
-  }
-
-  .news-card:hover .news-headline {
-    text-decoration: underline;
-  }
-
-  .content {
-    width: 100%;
-  }
-
-  .news-link {
-    font-size: 14px;
-    color: #3C3C4399;
-    line-height: 16px;
-    text-decoration: none;
-    margin-top: auto;
-  }
-
-  .news-date {
-    font-size: 14px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .news-date img, .news-link img{
-    height: 20px;
-    width: 20px;
-  }
-
-  .date-text{
-    line-height: none;
-    font-weight: 500;
-  }
-
-  .icon {
-    display: inline-block;
-    vertical-align: middle;
   }
 
   .cta-link {
