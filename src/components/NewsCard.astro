@@ -1,0 +1,49 @@
+---
+import styles from "../styles/components/News.module.css";
+import calendarIcon from "../assets/icons/IconCalendar.png";
+import newsSourceIcon from "../assets/icons/IconNewsSource.png";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  source: string;
+  mode: string;
+  publishedDate: string;
+  newsLink: string;
+}
+
+const { title, source, mode, publishedDate, newsLink } = Astro.props;
+
+export function sliceTitle(title: string){
+  const sliceLength = 120;
+  const slicedTitle = title.length > sliceLength ? `${title.slice(0, sliceLength)}...` : title;
+  return slicedTitle;
+}
+---
+
+<div class={styles.newsCard}>
+  <a href={newsLink} target="_blank" rel="noopener noreferrer" class={styles.link}>
+    <div class={styles.wrapper}>
+      <div class={styles.details}>
+        <div class={styles.address}>
+          <Icon name="mdi:my-location" class={styles.icon} />
+          <span class={styles.addressText}>
+            {mode}
+          </span>
+        </div>
+
+        <div class={styles.date}>
+          <img src={calendarIcon.src} alt="calendar" />
+          <span>{new Date(publishedDate).toISOString().split("T")[0]}</span>
+        </div>
+      </div>
+
+      <h3 class={styles.headline}>{sliceTitle(title)}</h3>
+
+      <div class={styles.source}>
+        <img src={newsSourceIcon.src} alt="source" />
+        {source}
+      </div>
+    </div>
+  </a>
+</div>

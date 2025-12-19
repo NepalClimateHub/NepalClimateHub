@@ -8,7 +8,7 @@ import { fetchNews } from "../api"; // Import fetchNews function
 // import unsortedNewsJSON from "../data/news.json";
 import sortNewsArray from "../utils/sortNewsArray.js";
 import type { SortData } from "../utils/sortNewsArray.js";
-import logo from "../assets/logo/secondaryLogo.svg";
+import NewsCard from '../components/NewsCard.astro';
 
 // Fetch news data from API
 const { data: apiNews } = await fetchNews();
@@ -40,35 +40,13 @@ const NewsJSON = sortNewsArray(transformedData);
 
     {
       NewsJSON.slice(0, 6).map((news: any) => (
-        <div class="news-card">
-          <a href={news.newsLink} target="_blank">
-            <div class="content">
-              <h3 class="news-headline">{news.title}</h3>
-              <div class="news-image-wrapper">
-                <img
-                  style="height: auto;object-fit: cover;"
-                  src={news.imgSrc || logo.src}
-                  alt=""
-                />
-              </div>
-            </div>
-
-            <div class="news-details">
-              <div class="news-link">
-                <span class="icon">
-                  <Icon name="mdi:link" />
-                </span>
-                {news.source}
-              </div>
-
-              <div class="news-date">
-                <span class="date-text">
-                  📅 {new Date(news.publishedDate).toISOString().split("T")[0]}
-                </span>
-              </div>
-            </div>
-          </a>
-        </div>
+        <NewsCard
+          title={news.title}
+          source={news.source}
+          mode={news.mode}
+          publishedDate={news.publishedDate}
+          newsLink={news.newsLink}
+        />
       ))
     }
   </div>
@@ -91,21 +69,20 @@ const NewsJSON = sortNewsArray(transformedData);
   }
 
   .news-container {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
   }
 
   .news-card {
     display: block;
     text-decoration: none;
-
-    padding-bottom: 12px;
-    border-bottom: 1px solid #cefe00;
-
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #F8F9FA;
+    /* border-bottom: 1px solid #cefe00; */
     /* max-width: 403px; */
-    width: 31%;
+    border: 1px solid #EBEAEA;
     overflow: hidden;
   }
 
@@ -114,37 +91,12 @@ const NewsJSON = sortNewsArray(transformedData);
     color: #1a1b1e;
     text-decoration: none;
   }
-
-  .news-card .content {
+  
+  .news-content-wrapper {
     display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-
-  .news-headline {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 600;
-    text-transform: capitalize;
-    width: calc(100% - 136px);
-  }
-
-  .news-card:hover .news-headline {
-    text-decoration: underline;
-  }
-
-  .news-image-wrapper {
-    width: 112px;
-    height: 112px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .news-image-wrapper img {
-    width: 100%;
-    min-height: 100%;
-    object-fit: cover;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
   }
 
   .news-details {
@@ -152,15 +104,56 @@ const NewsJSON = sortNewsArray(transformedData);
     justify-content: space-between;
   }
 
+  .address {
+    font-size: 14px;
+    line-height: 16px;
+    color: #364fc7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .news-headline {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .news-card:hover .news-headline {
+    text-decoration: underline;
+  }
+
+  .content {
+    width: 100%;
+  }
+
   .news-link {
     font-size: 14px;
-    color: #364fc7;
+    color: #3C3C4399;
     line-height: 16px;
     text-decoration: none;
+    margin-top: auto;
   }
 
   .news-date {
     font-size: 14px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .news-date img, .news-link img{
+    height: 20px;
+    width: 20px;
+  }
+
+  .date-text{
+    line-height: none;
+    font-weight: 500;
   }
 
   .icon {
@@ -181,10 +174,6 @@ const NewsJSON = sortNewsArray(transformedData);
     .news-container {
       flex-wrap: wrap;
     }
-
-    .news-card {
-      width: 48%;
-    }
   }
 
   /* media queries for desktop */
@@ -197,10 +186,6 @@ const NewsJSON = sortNewsArray(transformedData);
     .news-container {
       flex-direction: column;
       gap: 24px;
-    }
-
-    .news-card {
-      width: 100%;
     }
 
     .news-headline {
