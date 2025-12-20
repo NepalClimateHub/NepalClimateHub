@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+
 ---
 
 <footer class="section-container">
@@ -155,6 +155,8 @@ import { Icon } from 'astro-icon/components';
 </footer>
 
 <script>
+  import { API_BASE_URL } from "src/api";
+
   const form = document.getElementById("emailForm") as HTMLFormElement;
   const emailInput = document.getElementById("userEmail") as HTMLInputElement;
   const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
@@ -171,7 +173,7 @@ import { Icon } from 'astro-icon/components';
       
       try {
         const response = await fetch(
-          "https://nepalclimatehub.org/api/save-subscription-email",
+          `${API_BASE_URL}/api/v1/email-subscription/subscribe`,
           {
             method: "POST",
             headers: {
