@@ -18,7 +18,7 @@ const isEvent = organization === false && dataObj && 'title' in dataObj;
 const activeDataObject = dataObj;
 
 // Get website based on data type
-const website = isEvent ? activeDataObject?.website : activeDataObject?.website;
+const website = isEvent ? activeDataObject?.website || activeDataObject?.websiteUrl : activeDataObject?.website;
 
 // Get social media links based on data type
 const facebook = isEvent
