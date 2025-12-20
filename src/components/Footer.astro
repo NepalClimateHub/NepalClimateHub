@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 
+// Get API_BASE_URL from server-side
+const API_BASE_URL = import.meta.env.API_BASE_URL;
 ---
 
 <footer class="section-container">
@@ -30,7 +32,12 @@ import '../styles/global.css';
       <p>Subscribe to future news and updates.</p>
       <div class="emailWrapper">
         <p class="emailMessage"></p>
-        <form class="form" method="post" id="emailForm">
+        <form 
+          class="form" 
+          method="post" 
+          id="emailForm"
+          data-api-url={API_BASE_URL}
+        >
           <input
             id="userEmail"
             type="email"
@@ -155,11 +162,12 @@ import '../styles/global.css';
 </footer>
 
 <script>
-  import { API_BASE_URL } from "src/api";
-
   const form = document.getElementById("emailForm") as HTMLFormElement;
   const emailInput = document.getElementById("userEmail") as HTMLInputElement;
   const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
+
+  // Get API URL from data attribute (set server-side)
+  const API_BASE_URL = form?.getAttribute("data-api-url");
 
   if (form && emailInput && emailMessage) {
     form.addEventListener("submit", async (event) => {
@@ -170,6 +178,14 @@ import '../styles/global.css';
       emailMessage.style.display = "none";
       
       const email = emailInput.value.trim();
+      
+      if (!API_BASE_URL) {
+        console.error("API_BASE_URL is not configured");
+        emailMessage.textContent = "Unable to subscribe. Please try again later.";
+        emailMessage.style.display = "block";
+        emailMessage.style.color = "#ef4444";
+        return;
+      }
       
       try {
         const response = await fetch(
