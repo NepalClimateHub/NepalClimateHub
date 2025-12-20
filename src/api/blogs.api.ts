@@ -3,8 +3,16 @@ import { API_BASE_URL, ApiError, handleResponse } from './index';
 export const fetchFeaturedBlogs = async (): Promise<{
   data: any[];
 }> => {
+  if (!API_BASE_URL) {
+    throw new ApiError(
+      500,
+      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+    );
+  }
+
   try {
-    const response = await fetch(`${API_BASE_URL}/api/v1/blogs/featured`, {
+    const url = `${API_BASE_URL}/api/v1/blogs/featured`;
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -17,6 +25,13 @@ export const fetchFeaturedBlogs = async (): Promise<{
     if (error instanceof ApiError) {
       throw error;
     }
+    // Check if it's a fetch error (usually means URL is invalid or network issue)
+    if (error instanceof Error && error.message.includes('fetch failed')) {
+      throw new ApiError(
+        500,
+        `Failed to fetch featured blogs data: Invalid API URL or network error. API_BASE_URL: ${API_BASE_URL}`
+      );
+    }
     throw new ApiError(
       500,
       `Failed to fetch featured blogs data: ${error instanceof Error ? error.message : 'Unknown error'}`
@@ -27,8 +42,16 @@ export const fetchFeaturedBlogs = async (): Promise<{
 export const fetchAllBlogs = async (): Promise<{
   data: any[];
 }> => {
+  if (!API_BASE_URL) {
+    throw new ApiError(
+      500,
+      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+    );
+  }
+
   try {
-    const response = await fetch(`${API_BASE_URL}/api/v1/blogs`, {
+    const url = `${API_BASE_URL}/api/v1/blogs`;
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -40,6 +63,13 @@ export const fetchAllBlogs = async (): Promise<{
     console.error('Error fetching all blogs:', error);
     if (error instanceof ApiError) {
       throw error;
+    }
+    // Check if it's a fetch error (usually means URL is invalid or network issue)
+    if (error instanceof Error && error.message.includes('fetch failed')) {
+      throw new ApiError(
+        500,
+        `Failed to fetch all blogs data: Invalid API URL or network error. API_BASE_URL: ${API_BASE_URL}`
+      );
     }
     throw new ApiError(
       500,

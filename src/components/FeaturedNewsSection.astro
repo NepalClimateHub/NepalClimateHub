@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { Icon } from "astro-icon/components";
 // import newsTemp from '../data/newsTemp.json';
 import type { NewsItem, NewsTag } from "../types/news"; // Import NewsItem and NewsTag types
 import { fetchNews } from "../api"; // Import fetchNews function
@@ -8,7 +7,8 @@ import { fetchNews } from "../api"; // Import fetchNews function
 // import unsortedNewsJSON from "../data/news.json";
 import sortNewsArray from "../utils/sortNewsArray.js";
 import type { SortData } from "../utils/sortNewsArray.js";
-import logo from "../assets/logo/secondaryLogo.svg";
+import NewsCard from '../components/NewsCard';
+import styles from '../styles/components/News.module.css';
 
 // Fetch news data from API
 const { data: apiNews } = await fetchNews();
@@ -35,40 +35,18 @@ const NewsJSON = sortNewsArray(transformedData);
 
   <!-- container to wrap news cards -->
 
-  <div class="news-container">
+  <div class={styles.newsContainer}>
     <!-- news card one -->
 
     {
       NewsJSON.slice(0, 6).map((news: any) => (
-        <div class="news-card">
-          <a href={news.newsLink} target="_blank">
-            <div class="content">
-              <h3 class="news-headline">{news.title}</h3>
-              <div class="news-image-wrapper">
-                <img
-                  style="height: auto;object-fit: cover;"
-                  src={news.imgSrc || logo.src}
-                  alt=""
-                />
-              </div>
-            </div>
-
-            <div class="news-details">
-              <div class="news-link">
-                <span class="icon">
-                  <Icon name="mdi:link" />
-                </span>
-                {news.source}
-              </div>
-
-              <div class="news-date">
-                <span class="date-text">
-                  📅 {new Date(news.publishedDate).toISOString().split("T")[0]}
-                </span>
-              </div>
-            </div>
-          </a>
-        </div>
+        <NewsCard
+          title={news.title}
+          source={news.source}
+          mode={news.mode}
+          publishedDate={news.publishedDate}
+          newsLink={news.newsLink}
+        />
       ))
     }
   </div>
@@ -90,84 +68,6 @@ const NewsJSON = sortNewsArray(transformedData);
     margin-bottom: 24px;
   }
 
-  .news-container {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    gap: 24px;
-  }
-
-  .news-card {
-    display: block;
-    text-decoration: none;
-
-    padding-bottom: 12px;
-    border-bottom: 1px solid #cefe00;
-
-    /* max-width: 403px; */
-    width: 31%;
-    overflow: hidden;
-  }
-
-  .news-card > a {
-    cursor: pointer;
-    color: #1a1b1e;
-    text-decoration: none;
-  }
-
-  .news-card .content {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-
-  .news-headline {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 600;
-    text-transform: capitalize;
-    width: calc(100% - 136px);
-  }
-
-  .news-card:hover .news-headline {
-    text-decoration: underline;
-  }
-
-  .news-image-wrapper {
-    width: 112px;
-    height: 112px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .news-image-wrapper img {
-    width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-  }
-
-  .news-details {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .news-link {
-    font-size: 14px;
-    color: #364fc7;
-    line-height: 16px;
-    text-decoration: none;
-  }
-
-  .news-date {
-    font-size: 14px;
-  }
-
-  .icon {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
   .cta-link {
     display: block;
     position: absolute;
@@ -177,35 +77,11 @@ const NewsJSON = sortNewsArray(transformedData);
     font-size: 12px;
   }
 
-  @media screen and (max-width: 1024px) {
-    .news-container {
-      flex-wrap: wrap;
-    }
-
-    .news-card {
-      width: 48%;
-    }
-  }
-
   /* media queries for desktop */
 
   @media screen and (max-width: 768px) {
     .section-container {
       margin: 24px 32px 64px;
-    }
-
-    .news-container {
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .news-card {
-      width: 100%;
-    }
-
-    .news-headline {
-      font-size: 16px;
-      line-height: 20px;
     }
   }
 </style>
