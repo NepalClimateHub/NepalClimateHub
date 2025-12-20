@@ -2,11 +2,17 @@
 import '../styles/global.css';
 import { Icon } from 'astro-icon/components';
 
+interface Props {
+	dataObj: any;
+	organization: boolean;
+	opportunity?: boolean;
+}
+
 // dataObj can either be organization data or activist data or event data; sent via props
-const { dataObj, organization = 'true' } = Astro.props;
+const { dataObj, organization = true } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === 'false' && dataObj && 'title' in dataObj;
+const isEvent = organization === false && dataObj && 'title' in dataObj;
 
 // Initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
