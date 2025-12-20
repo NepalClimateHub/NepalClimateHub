@@ -1,9 +1,9 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
+import filterIcon from '../assets/icons/RightIcon.png';
 import styles from '../styles/components/Opportunities.module.css';
 import { CardContainer } from './CardContainer';
-import filterIcon from '../assets/icons/RightIcon.png';
 
 interface Opportunity {
   id: string | number;
@@ -167,44 +167,43 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
   };
 
   const getCountsFor = (name: string, options: string[]) => {
-  const counts: Record<string, number> = {};
-  options.forEach((opt) => {
-    counts[opt] = 0;
-  });
+    const counts: Record<string, number> = {};
+    options.forEach((opt) => {
+      counts[opt] = 0;
+    });
 
-  opportunities.forEach((opp) => {
-    if (name === "category") {
-      options.forEach((opt) => {
-        if (
-          opp.category?.some(
-            (c) => c.trim().toLowerCase() === opt.trim().toLowerCase()
-          )
-        ) {
-          counts[opt]++;
-        }
-      });
-    } else if (name === "province") {
-      const val = opp.province?.trim()?.toLowerCase();
-      options.forEach((opt) => {
-        if (val === opt.trim().toLowerCase()) {
-          counts[opt]++;
-        }
-      });
-    } else {
-      const val = (opp as any)[name]?.trim?.()?.toLowerCase();
-      options.forEach((opt) => {
-        if (val === opt.trim().toLowerCase()) {
-          counts[opt]++;
-        }
-      });
-    }
-  });
+    opportunities.forEach((opp) => {
+      if (name === 'category') {
+        options.forEach((opt) => {
+          if (
+            opp.category?.some(
+              (c) => c.trim().toLowerCase() === opt.trim().toLowerCase()
+            )
+          ) {
+            counts[opt]++;
+          }
+        });
+      } else if (name === 'province') {
+        const val = opp.province?.trim()?.toLowerCase();
+        options.forEach((opt) => {
+          if (val === opt.trim().toLowerCase()) {
+            counts[opt]++;
+          }
+        });
+      } else {
+        const val = (opp as any)[name]?.trim?.()?.toLowerCase();
+        options.forEach((opt) => {
+          if (val === opt.trim().toLowerCase()) {
+            counts[opt]++;
+          }
+        });
+      }
+    });
 
-  return counts;
-};
+    return counts;
+  };
 
-
-useEffect(() => {
+  useEffect(() => {
     let result = opportunities;
     (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
       const selected = filters[key];
@@ -212,7 +211,9 @@ useEffect(() => {
         if (key === 'category') {
           result = result.filter((opp) =>
             selected.some((val) =>
-              opp.category?.some((c) => c.toLowerCase().trim() === val.toLowerCase().trim())
+              opp.category?.some(
+                (c) => c.toLowerCase().trim() === val.toLowerCase().trim()
+              )
             )
           );
         } else if (key === 'province') {
@@ -222,7 +223,8 @@ useEffect(() => {
           });
         } else {
           result = result.filter((opp) => {
-            const val = ((opp as any)[key] as string).toLocaleLowerCase().trim() || '';
+            const val =
+              ((opp as any)[key] as string).toLocaleLowerCase().trim() || '';
             return selected.some((s) => val === s.toLowerCase().trim());
           });
         }

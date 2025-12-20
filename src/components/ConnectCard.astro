@@ -61,9 +61,9 @@ const emailParts = splitEmail(email);
 
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
-			{
+		{
 				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>Website</a>
-			}
+		}
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
 			</div>
@@ -176,6 +176,14 @@ const emailParts = splitEmail(email);
 	
 	.connect-card a {
 		word-break: break-all;
+	}
+
+	.no-website,
+	.no-socials,
+	.no-website {
+		color: #1a1b1e;
+		font-size: 16px;
+		line-height: 18px;
 	}
 
 	.no-website,

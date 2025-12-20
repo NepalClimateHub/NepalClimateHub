@@ -50,9 +50,14 @@ const eventData = {
 };
 
 // Prepare meta tags
+const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
 const metaDescription = stripHtml(eventData.description) || `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || 'Nepal Climate Hub'}.`;
 const metaImage = eventData.bannerImage || '/favicon.png';
-const metaUrl = Astro.url.href;
+const metaUrl = `${siteUrl}${fullPath}`;
 ---
 
 <BaseLayout 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import IconChevronDown from '../assets/icons/IconChevronDown.png';
 import styles from '../styles/components/News.module.css';
-import NewsCard from './NewsCard'
+import NewsCard from './NewsCard';
 
 interface NewsItem {
   id: string;
@@ -169,12 +169,13 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         <div className={styles.newsContainer}>
           {visibleNews.map((news) => (
             <NewsCard
-          title={news.title}
-          source={news.source}
-          mode={news.mode}
-          publishedDate={news.publishedDate}
-          newsLink={news.newsLink}
-        />
+              key={news.id}
+              title={news.title}
+              source={news.source}
+              mode={news.mode}
+              publishedDate={news.publishedDate}
+              newsLink={news.newsLink}
+            />
           ))}
         </div>
       ) : (
@@ -184,7 +185,11 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
       {/* Load More Button */}
       {visibleCount < filteredNews.length && (
         <div className={styles.loadMoreWrapper}>
-          <button className={styles.loadMoreButton} onClick={handleLoadMore}>
+          <button
+            type="button"
+            className={styles.loadMoreButton}
+            onClick={handleLoadMore}
+          >
             Load More
           </button>
         </div>

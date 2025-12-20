@@ -1,9 +1,9 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
+import filterIcon from '../assets/icons/RightIcon.png';
 import styles from '../styles/components/EventFilter.module.css';
 import { CardContainer } from './CardContainer';
-import filterIcon from '../assets/icons/RightIcon.png';
 
 interface Event {
   id: string | number;
@@ -259,14 +259,14 @@ const EventFilter: React.FC<Props> = ({ events }) => {
             className={styles.filterIcon}
           />
         </button>
-        <div className={styles.totalCount}>
-          Total: {filteredEvents.length}
-        </div>
+        <div className={styles.totalCount}>Total: {filteredEvents.length}</div>
       </div>
 
       <aside
         className={`${styles.sidebar} ${
-          isMobileFilterOpen ? styles.mobileFilterOpen : styles.mobileFilterClosed
+          isMobileFilterOpen
+            ? styles.mobileFilterOpen
+            : styles.mobileFilterClosed
         }`}
         aria-label="Event filters"
       >
