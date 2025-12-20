@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import IconChevronDown from '../assets/icons/IconChevronDown.png';
-import IconCalendar from '../assets/icons/IconCalendar.png';
-import IconNewsSource from '../assets/icons/IconNewsSource.png';
 import styles from '../styles/components/News.module.css';
-import { BiTargetLock } from 'react-icons/bi';
+import NewsCard from './NewsCard'
 
 interface NewsItem {
   id: string;
@@ -28,13 +26,6 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [filteredNews, setFilteredNews] = useState<NewsItem[]>(newsData);
   const [visibleCount, setVisibleCount] = useState<number>(9);
-
-  function sliceTitle(title: string) {
-    const sliceLength = 120;
-    const slicedTitle =
-      title.length > sliceLength ? `${title.slice(0, sliceLength)}...` : title;
-    return slicedTitle;
-  }
 
   useEffect(() => {
     const filteredResults = newsData.filter((news) => {
@@ -177,32 +168,13 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
       {visibleNews.length > 0 ? (
         <div className={styles.newsContainer}>
           {visibleNews.map((news) => (
-            <div key={news.id} className={styles.newsCard}>
-              <a
-                href={news.newsLink}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.link}
-              >
-                <div className={styles.wrapper}>
-                  <div className={styles.details}>
-                    <div className={styles.address}>
-                      <BiTargetLock className={styles.addressIcon} />
-                      <span className={styles.addressText}>{news.mode}</span>
-                    </div>
-                    <div className={styles.date}>
-                      <img src={IconCalendar.src} alt="calendar" />
-                      {new Date(news.publishedDate).toISOString().split('T')[0]}
-                    </div>
-                  </div>
-                  <h3 className={styles.headline}>{sliceTitle(news.title)}</h3>
-                  <div className={styles.source}>
-                    <img src={IconNewsSource.src} alt="source" />
-                    {news.source}
-                  </div>
-                </div>
-              </a>
-            </div>
+            <NewsCard
+          title={news.title}
+          source={news.source}
+          mode={news.mode}
+          publishedDate={news.publishedDate}
+          newsLink={news.newsLink}
+        />
           ))}
         </div>
       ) : (
