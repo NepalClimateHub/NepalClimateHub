@@ -62,7 +62,7 @@ const emailParts = splitEmail(email);
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
 			{
-				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>Website</a>
+				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>{website}</a>
 			}
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
