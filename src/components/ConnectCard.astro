@@ -2,17 +2,23 @@
 import '../styles/global.css';
 import { Icon } from 'astro-icon/components';
 
+interface Props {
+	dataObj: any;
+	organization: boolean;
+	opportunity?: boolean;
+}
+
 // dataObj can either be organization data or activist data or event data; sent via props
-const { dataObj, organization = 'true' } = Astro.props;
+const { dataObj, organization = true } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === 'false' && dataObj && 'title' in dataObj;
+const isEvent = organization === false && dataObj && 'title' in dataObj;
 
 // Initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
 
 // Get website based on data type
-const website = isEvent ? activeDataObject?.website : activeDataObject?.website;
+const website = isEvent ? activeDataObject?.website || activeDataObject?.websiteUrl : activeDataObject?.website;
 
 // Get social media links based on data type
 const facebook = isEvent
@@ -56,7 +62,7 @@ const emailParts = splitEmail(email);
 		<div class="connect-card">
 			<h3 class="title">Website</h3>
 			{
-				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>{website}</a>
+				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>Website</a>
 			}
 			<div class="icon-wrapper">
 				<Icon name="mdi:web" class="icon" />
@@ -166,6 +172,18 @@ const emailParts = splitEmail(email);
 		font-size: 16px;
 		line-height: 18px;
 		text-decoration: none;
+	}
+	
+	.connect-card a {
+		word-break: break-all;
+	}
+
+	.no-website,
+	.no-socials,
+	.no-website {
+		color: #1a1b1e;
+		font-size: 16px;
+		line-height: 18px;
 	}
 
 	.no-website,
