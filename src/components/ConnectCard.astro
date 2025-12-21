@@ -1,24 +1,26 @@
 ---
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components';
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
 
 interface Props {
-	dataObj: any;
-	organization: boolean;
-	opportunity?: boolean;
+  dataObj: any;
+  organization: boolean;
+  opportunity?: boolean;
 }
 
 // dataObj can either be organization data or activist data or event data; sent via props
 const { dataObj, organization = true } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === false && dataObj && 'title' in dataObj;
+const isEvent = organization === false && dataObj && "title" in dataObj;
 
 // Initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
 
 // Get website based on data type
-const website = isEvent ? activeDataObject?.website || activeDataObject?.websiteUrl : activeDataObject?.website;
+const website = isEvent
+  ? activeDataObject?.website || activeDataObject?.websiteUrl
+  : activeDataObject?.website;
 
 // Get social media links based on data type
 const facebook = isEvent
@@ -35,13 +37,13 @@ const linkedin = isEvent
 const email = isEvent
   ? activeDataObject?.contactEmail
   : activeDataObject?.contact?.email;
-const phone = isEvent ? '' : activeDataObject?.contact?.phone;
+const phone = isEvent ? "" : activeDataObject?.contact?.phone;
 
 // Helper function to split email for anti-spam
 function splitEmail(email: string | undefined) {
-  if (!email) return { username: 'N/A', domain: '' };
-  const atIndex = email.indexOf('@');
-  if (atIndex === -1) return { username: email, domain: '' };
+  if (!email) return { username: "N/A", domain: "" };
+  const atIndex = email.indexOf("@");
+  if (atIndex === -1) return { username: email, domain: "" };
   return {
     username: email.slice(0, atIndex),
     domain: email.substring(atIndex),
@@ -52,189 +54,214 @@ const emailParts = splitEmail(email);
 ---
 
 <div class="section-container">
-	<h2 class="section-heading">Connect</h2>
+  <h2 class="section-heading">Connect</h2>
 
-	<!-- container to wrap all three connecting mediums -->
+  <!-- container to wrap all three connecting mediums -->
 
-	<div class="connect-card-container">
-		<!-- connect card one -->
+  <div class="connect-card-container">
+    <!-- connect card one -->
 
-		<div class="connect-card">
-			<h3 class="title">Website</h3>
-			{
-				website == "" || !website ? <p class=".no-website">Not available</p> : <a href={website}>Website</a>
-			}
-			<div class="icon-wrapper">
-				<Icon name="mdi:web" class="icon" />
-			</div>
-		</div>
+    <div class="connect-card">
+      <h3 class="title">Website</h3>
+      {
+        website == "" || !website ? (
+          <p class=".no-website">Not available</p>
+        ) : (
+          <a href={website} target="_blank">
+            {website}
+          </a>
+        )
+      }
+      <div class="icon-wrapper">
+        <Icon name="mdi:web" class="icon" />
+      </div>
+    </div>
 
-		<!-- connect card two -->
+    <!-- connect card two -->
 
-		<div class="connect-card">
-			<h3 class="title">Social</h3>
-			{facebook && (
-				<>
-					<a target="_blank" href={facebook}>Facebook</a>
-					{(instagram || linkedin) && <span class="separator">|</span>}
-				</>
-			)}
-			{instagram && (
-				<>
-					<a target="_blank" href={instagram}>Instagram</a>
-					{linkedin && <span class="separator">|</span>}
-				</>
-			)}
-			{linkedin && (
-				<a target="_blank" href={linkedin}>LinkedIn</a>
-			)}
-			{!facebook && !instagram && !linkedin && (
-				<span class=".no-socials">No social media links available</span>
-			)}
+    <div class="connect-card">
+      <h3 class="title">Social</h3>
+      {
+        facebook && (
+          <>
+            <a target="_blank" href={facebook}>
+              Facebook
+            </a>
+            {(instagram || linkedin) && <span class="separator">|</span>}
+          </>
+        )
+      }
+      {
+        instagram && (
+          <>
+            <a target="_blank" href={instagram}>
+              Instagram
+            </a>
+            {linkedin && <span class="separator">|</span>}
+          </>
+        )
+      }
+      {
+        linkedin && (
+          <a target="_blank" href={linkedin}>
+            LinkedIn
+          </a>
+        )
+      }
+      {
+        !facebook && !instagram && !linkedin && (
+          <span class=".no-socials">No social media links available</span>
+        )
+      }
 
-			<div class="icon-wrapper">
-				<Icon name="mdi:user" class="icon" />
-			</div>
-		</div>
+      <div class="icon-wrapper">
+        <Icon name="mdi:user" class="icon" />
+      </div>
+    </div>
 
-		<!-- connect card three -->
+    <!-- connect card three -->
 
-		<div class="connect-card">
-			<h3 class="title">Contact</h3>
-			{email ? (
-				<p class="email">
-					{emailParts.username}<span style="display: none;">Go Away for here!!!</span>{emailParts.domain}
-				</p>
-			) : (
-				<p class="no-email">Not available</p>
-			)}
-			{phone && (
-				<>
-					<span class="separator">|</span>
-					<span class="phone">{phone}</span>
-				</>
-			)}
-			<div class="icon-wrapper">
-				<Icon name="mdi:email" class="icon" />
-			</div>
-		</div>
-	</div>
+    <div class="connect-card">
+      <h3 class="title">Contact</h3>
+      {
+        email ? (
+          <p class="email">
+            {emailParts.username}
+            <span style="display: none;">Go Away for here!!!</span>
+            {emailParts.domain}
+          </p>
+        ) : (
+          <p class="no-email">Not available</p>
+        )
+      }
+      {
+        phone && (
+          <>
+            <span class="separator">|</span>
+            <span class="phone">{phone}</span>
+          </>
+        )
+      }
+      <div class="icon-wrapper">
+        <Icon name="mdi:email" class="icon" />
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-	.section-container {
-		padding: 48px 0px;
-		position: relative;
-	}
+  .section-container {
+    padding: 48px 0px;
+    position: relative;
+  }
 
-	.section-heading {
-		position: absolute;
-		top: -18px;
-		font-weight: 700;
-		font-size: 32px;
-		padding: 0px 16px;
-		color: white;
-		background-color: #1a1b1e;
-		transform: rotate(-3deg);
-		opacity: 1;
-	}
+  .section-heading {
+    position: absolute;
+    top: -18px;
+    font-weight: 700;
+    font-size: 32px;
+    padding: 0px 16px;
+    color: white;
+    background-color: #1a1b1e;
+    transform: rotate(-3deg);
+    opacity: 1;
+  }
 
-	.connect-card-container {
-		display: flex;
-		justify-content: center;
-		overflow: hidden;
-		width: 100%;
-		gap: 16px;
-	}
+  .connect-card-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    gap: 16px;
+  }
 
-	.connect-card {
-		width: 381px;
-		border: none;
-		background-color: white;
-		border-radius: 8px;
-		padding: 18px 28px 25px 28px;
-		position: relative;
-		transition: transform 0.3s ease-in-out;
-	}
+  .connect-card {
+    width: 381px;
+    border: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 18px 28px 25px 28px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
 
-	.title {
-		font-size: 20px;
-		font-weight: 700;
-		line-height: 24px;
-		margin-bottom: 16px;
-	}
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
 
-	.connect-card a,
-	.connect-card .website,
-	.connect-card .email,
-	.connect-card .phone {
-		color: #3b5bdb;
-		font-size: 16px;
-		line-height: 18px;
-		text-decoration: none;
-	}
-	
-	.connect-card a {
-		word-break: break-all;
-	}
+  .connect-card a,
+  .connect-card .website,
+  .connect-card .email,
+  .connect-card .phone {
+    color: #3b5bdb;
+    font-size: 16px;
+    line-height: 18px;
+    text-decoration: none;
+  }
 
-	.no-website,
-	.no-socials,
-	.no-website {
-		color: #1a1b1e;
-		font-size: 16px;
-		line-height: 18px;
-	}
+  .connect-card a {
+    word-break: break-all;
+  }
 
-	.no-website,
-	.no-socials,
-	.no-website {
-		color: #1a1b1e;
-		font-size: 16px;
-		line-height: 18px;
-	}
+  .no-website,
+  .no-socials,
+  .no-website {
+    color: #1a1b1e;
+    font-size: 16px;
+    line-height: 18px;
+  }
 
-	.icon-wrapper {
-		border: 1px solid black;
-		width: 24px;
-		height: 24px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 50%;
-		background-color: #1a1b1e;
-		position: absolute;
-		top: 16px;
-		right: 16px;
-	}
+  .no-website,
+  .no-socials,
+  .no-website {
+    color: #1a1b1e;
+    font-size: 16px;
+    line-height: 18px;
+  }
 
-	.icon {
-		color: white;
-	}
+  .icon-wrapper {
+    border: 1px solid black;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #1a1b1e;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
 
-	.separator {
-		color: #1a1b1e;
-	}
+  .icon {
+    color: white;
+  }
 
-	/* styles for responsiveness */
+  .separator {
+    color: #1a1b1e;
+  }
 
-	@media screen and (max-width: 768px) {
-		.section-container {
-			margin: 24px 32px 32px;
-		}
+  /* styles for responsiveness */
 
-		.section-heading {
-			top: -40px;
-		}
+  @media screen and (max-width: 768px) {
+    .section-container {
+      margin: 24px 32px 32px;
+    }
 
-		.connect-card-container {
-			flex-direction: column;
-			gap: 8px;
-		}
+    .section-heading {
+      top: -40px;
+    }
 
-		.connect-card {
-			width: 100%;
-		}
-	}
+    .connect-card-container {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .connect-card {
+      width: 100%;
+    }
+  }
 </style>
-

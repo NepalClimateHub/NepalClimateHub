@@ -25,15 +25,15 @@
 }
 
 .newsCard {
-  padding: 30px;
+  padding: 18px;
   border-radius: 12px;
-  background-color: #F8F9FA;
-  border: 1px solid #EBEAEA;
-  transition: all .2s ease;
+  background-color: #f8f9fa;
+  border: 1px solid #ebeaea;
+  transition: all 0.2s ease;
 }
-.newsCard:hover{
+.newsCard:hover {
   background-color: white;
-  box-shadow: 2px 0 4px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.10);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .link {
@@ -63,11 +63,11 @@
   align-items: center;
 }
 
-.addressIcon{
+.addressIcon {
   font-size: 18px;
 }
 
-.addressText{
+.addressText {
   font-size: 14px;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .headline {
-  font-size: 22px;
+  font-size: 16px;
   line-height: 28px;
   font-weight: 500;
 }
@@ -93,7 +93,7 @@
 
 .source {
   font-size: 14px;
-  color: #3C3C4399;
+  color: #3c3c4399;
   margin-top: auto;
 }
 
@@ -150,7 +150,7 @@
   border: none;
   outline: none;
   padding: 8px 12px;
-  border: 1px solid #EBF1F7;
+  border: 1px solid #ebf1f7;
   border-radius: 25px;
   outline: none;
   cursor: pointer;
@@ -169,7 +169,7 @@
   top: 9px;
 }
 
-.menuDropdown img{
+.menuDropdown img {
   width: 100%;
 }
 
@@ -214,7 +214,7 @@
 .loadMoreButton {
   padding: 0.6rem 1.5rem;
   border-radius: 30px;
-  border: 1px solid #A5A5A5;
+  border: 1px solid #a5a5a5;
   background-color: transparent;
   color: #333;
   cursor: pointer;
