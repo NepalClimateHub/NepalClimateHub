@@ -548,11 +548,11 @@
   {
     "id": 21,
     "name": "CliMates Nepal",
-    "description": "CliMates Nepal is a youth-led think-and-do tank focused on climate change, engaging volunteers who are both students and young professionals. The organization aims to raise awareness and promote action on climate issues through research, advocacy, and community engagement.",
-    "address": "Kathmandu, Nepal",
+    "description": "CliMates Nepal is the official Nepalese chapter of CliMates International, founded in Paris in 2011 as a pioneering global youth-led think-and-do tank combating climate change through innovative education, cutting-edge research, and strategic advocacy. Established in 2017 specifically to decentralize climate activism from Kathmandu, we have grown into a nationwide movement mobilizing 200+ dedicated Mates including board members, general members, students, young professionals, and volunteers across Nepal's diverse regions. <br> We drive impactful environmental campaigns, organize flagship COP in My City simulations replicating international climate negotiations, pioneer creative artivism through poetry, photography, and flashmobs, conduct field research on forestry and biodiversity, and champion sustainable land management and ecotourism development. Our advocacy addresses Nepal's pressing climate challenges: air pollution crises, biodiversity loss, mountain ecosystem degradation, and community resilience against climate disasters. <br> Through strategic multi-stakeholder collaborations, we partner with private sector companies, educational institutions, government organizations (GOs), national and international NGOs (INGOs) and local communities. These partnerships enable us to coordinate large-scale volunteer networks, secure competitive grants for community projects, influence policy through evidence-based advocacy, execute grassroots mobilization campaigns, and empower marginalized communities with sustainable livelihood opportunities. <br> CliMates Nepal bridges global climate expertise with local action, transforming passionate youth into effective climate leaders who drive Nepal's transition toward climate resilience, environmental justice, and sustainable development for current and future generations.",
+    "address": "Nepal",
     "contact": {
       "email": "climatesnepal20@gmail.com",
-      "phone": "986-9625519"
+      "phone": "+ 977 9843581549 / 9842695857 "
     },
     "socials": {
       "facebook": "https://www.facebook.com/CliMatesNepal/",
@@ -568,7 +568,7 @@
       "Youth"
     ],
     "logoUrl": "https://i.ibb.co/yP8StJL/climates-nepal-logo.jpg",
-    "pictures": ["https://i.ibb.co/bsVxzD1/climates-nepal-profile.jpg"],
+    "pictures": ["https://ik.imagekit.io/nch/Climates_Nepal.HEIC"],
     "slug": "climates-nepal"
   },
   {
