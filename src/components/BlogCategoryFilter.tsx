@@ -10,13 +10,13 @@ interface Props {
 
 const categories = [
   'All',
-  'Climate Science',
+  'Climate-Science',
   'Sustainability',
   'Development',
   'Environment',
   'Technology',
   'Policy',
-  'Research Education',
+  'Research',
 ];
 
 export default function BlogCategoryFilter({ blogs }: Props) {
@@ -47,7 +47,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
             }`}
             onClick={() => setActiveCategory(category)}
           >
-            {category}
+            {category.replace('-', ' ')}
           </button>
         ))}
       </div>
@@ -60,9 +60,9 @@ export default function BlogCategoryFilter({ blogs }: Props) {
           ))}
           <WriteBlog />
         </div>
-        ) : (
-          <p className={styles.noResults}>No blogs found in this category.</p>
-        )}
+      ) : (
+        <p className={styles.noResults}>No blogs found in this category.</p>
+      )}
     </section>
   );
 }

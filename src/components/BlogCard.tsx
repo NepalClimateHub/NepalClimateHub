@@ -8,7 +8,11 @@ interface Props {
   featuredPost?: boolean;
 }
 
-export default function BlogCard({ blog, latestPost = false, featuredPost = false }: Props) {
+export default function BlogCard({
+  blog,
+  latestPost = false,
+  featuredPost = false,
+}: Props) {
   const {
     bannerImageUrl,
     title,
@@ -35,8 +39,12 @@ export default function BlogCard({ blog, latestPost = false, featuredPost = fals
   const cardClass = latestPost ? styles.blogCardLatest : styles.blogCard;
   const imageContainerClass = latestPost
     ? styles.imageContainerLatest
-    : featuredPost ? styles.imageContainerFeatured : styles.imageContainer;
-  const authorSectionClass = latestPost ? styles.authorSection : `${styles.authorSection} ${styles.authorSectionMt}`;
+    : featuredPost
+      ? styles.imageContainerFeatured
+      : styles.imageContainer;
+  const authorSectionClass = latestPost
+    ? styles.authorSection
+    : `${styles.authorSection} ${styles.authorSectionMt}`;
 
   return (
     <a
@@ -46,11 +54,7 @@ export default function BlogCard({ blog, latestPost = false, featuredPost = fals
     >
       <article className={cardClass}>
         <figure className={imageContainerClass}>
-          <img
-            src={bannerImageUrl}
-            alt={title}
-            className={styles.blogImage}
-          />
+          <img src={bannerImageUrl} alt={title} className={styles.blogImage} />
           {!latestPost && <span className={styles.blogTag}>{category}</span>}
         </figure>
 
@@ -76,7 +80,9 @@ export default function BlogCard({ blog, latestPost = false, featuredPost = fals
                   {formattedDate}
                 </time>
                 <span className={styles.dotSeparator} />
-                <span className={styles.readingTime}>{`${readingTime} read`}</span>
+                <span
+                  className={styles.readingTime}
+                >{`${readingTime} read`}</span>
               </div>
             </div>
           </div>
@@ -85,4 +91,3 @@ export default function BlogCard({ blog, latestPost = false, featuredPost = fals
     </a>
   );
 }
-

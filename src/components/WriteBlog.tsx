@@ -15,7 +15,8 @@ export default function WriteBlog() {
               Have something to say about climate or the environment?
             </h3>
             <p className={styles.writeBlogBannerExcerpt}>
-              Share it with Nepal's climate-conscious community through our platform, socials, and 780-subscriber newsletter.
+              Share it with Nepal's climate-conscious community through our
+              platform, socials, and 780-subscriber newsletter.
             </p>
           </div>
         </div>
