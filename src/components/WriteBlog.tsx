@@ -1,4 +1,4 @@
-import styles from '../styles/components/Blogs.module.css';
+import styles from "../styles/components/Blogs.module.css";
 
 export default function WriteBlog() {
   // Default author image placeholder

@@ -1,37 +1,37 @@
-import { useState } from 'react';
-import type { Blog } from '../types/blog';
-import BlogCard from './BlogCard';
-import styles from '../styles/components/Blogs.module.css';
-import WriteBlog from './WriteBlog';
+import { useState } from "react";
+import type { Blog } from "../types/blog";
+import BlogCard from "./BlogCard";
+import styles from "../styles/components/Blogs.module.css";
+import WriteBlog from "./WriteBlog";
 
 interface Props {
   blogs: Blog[];
 }
 
 const categories = [
-  'All',
-  'Climate-Science',
-  'Sustainability',
-  'Development',
-  'Environment',
-  'Technology',
-  'Policy',
-  'Research',
+  "All",
+  "Climate Science",
+  "Sustainability",
+  "Development",
+  "Environment",
+  "Technology",
+  "Policy",
+  "Research Education",
 ];
 
 export default function BlogCategoryFilter({ blogs }: Props) {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredBlogs =
-    activeCategory === 'All'
+    activeCategory === "All"
       ? blogs
       : blogs.filter(
           (blog) =>
-            blog.category?.toLowerCase() === activeCategory.toLowerCase()
+            blog.category?.toLowerCase() === activeCategory.toLowerCase(),
         );
 
   return (
-    <div className={styles.sectionContainer}>
+    <section className={styles.section}>
       <h2 className={styles.sectionTitle}>Browse by Category</h2>
 
       {/* Category Filter Buttons */}
@@ -47,7 +47,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
             }`}
             onClick={() => setActiveCategory(category)}
           >
-            {category.replace('-', ' ')}
+            {category}
           </button>
         ))}
       </div>
@@ -56,13 +56,13 @@ export default function BlogCategoryFilter({ blogs }: Props) {
         // Blog Cards Grid
         <div className={styles.blogsGrid}>
           {filteredBlogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
+            <BlogCard key={blog.id} blog={blog} latestPost={false} />
           ))}
           <WriteBlog />
         </div>
       ) : (
         <p className={styles.noResults}>No blogs found in this category.</p>
       )}
-    </div>
+    </section>
   );
 }

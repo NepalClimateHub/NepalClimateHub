@@ -1,16 +1,18 @@
-import type { Blog } from '../types/blog';
-import { createSlug } from '../utils/slug';
-import styles from '../styles/components/Blogs.module.css';
+import type { Blog } from "../types/blog";
+import { createSlug } from "../utils/slug";
+import styles from "../styles/components/Blogs.module.css";
 
-export interface BlogCardProps {
+interface Props {
   blog: Blog;
-  cardType?: 'default' | 'highlight' | 'featured';
+  latestPost?: boolean;
+  featuredPost?: boolean;
 }
 
 export default function BlogCard({
   blog,
-  cardType = 'default',
-}: BlogCardProps) {
+  latestPost = false,
+  featuredPost = false,
+}: Props) {
   const {
     bannerImageUrl,
     title,
@@ -23,10 +25,10 @@ export default function BlogCard({
   } = blog;
 
   // Format the posted date
-  const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
+  const formattedDate = new Date(publishedDate).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
   });
 
   const slug = createSlug(title);
@@ -34,20 +36,15 @@ export default function BlogCard({
   // Default author image placeholder
   const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(author)}&background=1a1b1e&color=cefe00&size=96`;
 
-  // Determine classes based on cardType
-  const cardClass =
-    cardType === 'highlight'
-      ? styles.blogCardHighlight
-      : cardType === 'featured'
-      ? styles.blogCardFeatured
-      : styles.blogCard;
-
-  const imageContainerClass =
-    cardType === 'highlight'
-      ? styles.imageContainerHighlight
-      : cardType === 'featured'
+  const cardClass = latestPost ? styles.blogCardLatest : styles.blogCard;
+  const imageContainerClass = latestPost
+    ? styles.imageContainerLatest
+    : featuredPost
       ? styles.imageContainerFeatured
       : styles.imageContainer;
+  const authorSectionClass = latestPost
+    ? styles.authorSection
+    : `${styles.authorSection} ${styles.authorSectionMt}`;
 
   return (
     <a
@@ -58,20 +55,16 @@ export default function BlogCard({
       <article className={cardClass}>
         <figure className={imageContainerClass}>
           <img src={bannerImageUrl} alt={title} className={styles.blogImage} />
-          {(cardType !== 'highlight' ) && (
-            <span className={styles.blogTag}>{category?.replaceAll('-', ' ')}</span>
-          )}
+          {!latestPost && <span className={styles.blogTag}>{category}</span>}
         </figure>
 
         <div className={styles.blogContent}>
           <h3 className={styles.blogTitle}>{title}</h3>
 
-          {(cardType !== 'highlight') && (
-            <p className={styles.blogExcerpt}>{excerpt}</p>
-          )}
+          {!latestPost && <p className={styles.blogExcerpt}>{excerpt}</p>}
 
-          <div className={styles.authorSection}>
-            {(cardType !== 'highlight') && (
+          <div className={authorSectionClass}>
+            {!latestPost && (
               <img
                 src={authorImageUrl || defaultAuthorImage}
                 alt={`${author}'s profile picture`}
@@ -80,14 +73,16 @@ export default function BlogCard({
             )}
             <div className={styles.authorInfo}>
               <span className={styles.authorName}>
-                {(cardType !== 'highlight' ) ? author : `By ${author}`}
+                {latestPost ? `By ${author}` : author}
               </span>
               <div className={styles.dateTime}>
                 <time className={styles.date} dateTime={publishedDate}>
                   {formattedDate}
                 </time>
                 <span className={styles.dotSeparator} />
-                <span className={styles.readingTime}>{`${readingTime} read`}</span>
+                <span
+                  className={styles.readingTime}
+                >{`${readingTime} read`}</span>
               </div>
             </div>
           </div>
