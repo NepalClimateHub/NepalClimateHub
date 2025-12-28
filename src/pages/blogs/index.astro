@@ -1,0 +1,223 @@
+---
+import "../../styles/global.css";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import BlogCard from "../../components/BlogCard";
+import BlogCategoryFilter from "../../components/BlogCategoryFilter.tsx";
+import BaseLayout from "../../layouts/Layout.astro";
+import { fetchAllBlogs } from "../../api";
+import type { Blog } from "../../types/blog";
+
+// Fetch blogs from API
+const { data: apiBlogs } = await fetchAllBlogs();
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+const featuredBlogs: Blog[] | null = apiBlogs.filter((blog) => blog.isFeatured).slice(0, 1);
+const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
+---
+
+<BaseLayout title="Blogs | Nepal Climate Hub">
+  <main class="main-container">
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
+      <div class="mini-nav">
+        <a href="/">Home</a>
+        <span style="color: #364FC7">/</span>
+        <a href="/blogs">Blogs</a>
+      </div>
+    </section>
+
+    <section class="blogs-section">
+      <div class="blogs-container">
+        <!-- Featured Post -->
+        <div class="featured-post">
+          <h2 class="section-title">Featured Post</h2>
+          {featuredBlogs ? (
+            <div class="featured-card-wrapper">
+              <BlogCard
+                client:load
+                blog={featuredBlogs[0]}
+                latestPost={false}
+                featuredPost={true}
+              />
+            </div>
+          ) : (
+            <p class="no-blogs">No featured blog available.</p>
+          )}
+        </div>
+
+        <!-- Latest Posts -->
+        {!isMobile && (<div class="latest-posts">
+          <h2 class="section-title">Latest Posts</h2>
+          {latestBlogs.length > 0 ? (
+            <div class="latest-cards-wrapper">
+              {latestBlogs.map((blog) => (
+                <BlogCard
+                  client:load
+                  blog={blog}
+                  latestPost={true}
+                />
+              ))}
+            </div>
+          ) : (
+            <p class="no-blogs">No latest blogs available.</p>
+          )}
+        </div>)}
+      </div>
+    </section>
+
+    <section class="category-section">
+      <BlogCategoryFilter client:load blogs={apiBlogs} />
+    </section>
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  section {
+    padding: 0px 48px;
+  }
+
+  .blogs-section {
+    padding: 24px 48px 48px;
+  }
+
+  .blogs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1b1e;
+    margin: 0 0 16px 0;
+  }
+
+  .featured-post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-card-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-card-wrapper :global(.blog-card__link) {
+    flex: 1;
+    display: flex;
+  }
+
+  .featured-card-wrapper :global(.blog-card) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-card-wrapper :global(.blog-card__image-container) {
+    flex: 1;
+    min-height: 300px;
+  }
+
+  .featured-card-wrapper :global(.blog-card__image) {
+    min-height: 300px;
+  }
+
+  .latest-posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .latest-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .latest-cards-wrapper :global(.blog-card__link) {
+    flex: 1;
+  }
+
+  .latest-cards-wrapper :global(.blog-card--latest) {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #F8F9FA;
+  }
+
+  .category-section {
+    margin-bottom: 80px;
+  }
+
+  .no-blogs {
+    font-size: 16px;
+    color: rgba(26, 27, 30, 0.6);
+    text-align: center;
+    padding: 48px 24px;
+    background-color: #F8F9FA;
+    border-radius: 16px;
+  }
+
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
+
+  /* Responsive styles */
+  @media screen and (max-width: 1024px) {
+    .blogs-container {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .featured-card-wrapper :global(.blog-card__image-container) {
+      min-height: 250px;
+    }
+
+    .featured-card-wrapper :global(.blog-card__image) {
+      min-height: 250px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 0px;
+    }
+
+    .blogs-section {
+      padding: 16px 24px 32px;
+    }
+
+    .blogs-container {
+      gap: 32px;
+    }
+
+    .section-title {
+      font-size: 20px;
+    }
+
+    .latest-cards-wrapper :global(.blog-card--latest) {
+      flex-direction: column;
+    }
+
+    .latest-cards-wrapper :global(.blog-card--latest .blog-card__image-container) {
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+  .latest-posts {
+    display: none;
+  }
+}
+  }
+</style>
+
