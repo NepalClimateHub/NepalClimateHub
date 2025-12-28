@@ -47,7 +47,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
             }`}
             onClick={() => setActiveCategory(category)}
           >
-            {category}
+            {category.replace('-', ' ')}
           </button>
         ))}
       </div>
