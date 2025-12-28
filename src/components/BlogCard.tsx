@@ -55,7 +55,7 @@ export default function BlogCard({
       <article className={cardClass}>
         <figure className={imageContainerClass}>
           <img src={bannerImageUrl} alt={title} className={styles.blogImage} />
-          {!latestPost && <span className={styles.blogTag}>{category}</span>}
+          {!latestPost && <span className={styles.blogTag}>{category?.replaceAll('-', ' ')}</span>}
         </figure>
 
         <div className={styles.blogContent}>
