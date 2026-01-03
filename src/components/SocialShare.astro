@@ -1,0 +1,197 @@
+---
+import facebookIcon from '../assets/icons/IconFacebook.png';
+import instagramIcon from '../assets/icons/IconInstagram.png';
+import linkedinIcon from '../assets/icons/IconLinkedin.png';
+import copyIcon from '../assets/icons/IconCopy.png';
+---
+
+  <!-- Event share section -->
+  <!-- Share Section Component -->
+<div class="share-container">
+  <span class="share-label">Share:</span>
+  <div class="share-icons">
+    <!-- Copy link button -->
+    <div class="copy-wrapper">
+      <button id="copy-btn" class="share-btn" type="button" aria-label="Copy link to clipboard">
+        <img alt="Copy link icon" src={copyIcon.src} />
+      </button>
+      <div id="copied-toast" class="toast" role="status">Link copied</div>
+      <div id="not-copied-toast" class="toast" role="status">Failed to copy</div>
+    </div>
+
+    <!-- Social media share buttons -->
+    <button id="share-linkedin" class="share-btn" type="button" aria-label="Share on LinkedIn">
+      <img alt="LinkedIn icon" src={linkedinIcon.src} />
+    </button>
+    <button id="share-instagram" class="share-btn" type="button" aria-label="Share on Instagram">
+      <img alt="Instagram icon" src={instagramIcon.src} />
+    </button>
+    <button id="share-facebook" class="share-btn" type="button" aria-label="Share on Facebook">
+      <img alt="Facebook icon" src={facebookIcon.src} />
+    </button>
+  </div>
+</div>
+
+<script>
+  const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement | null;
+  const copiedToast = document.getElementById('copied-toast') as HTMLElement | null;
+  const notCopiedToast = document.getElementById('not-copied-toast') as HTMLElement | null;
+
+  const linkedinBtn = document.getElementById('share-linkedin') as HTMLButtonElement | null;
+  const instagramBtn = document.getElementById('share-instagram') as HTMLButtonElement | null;
+  const facebookBtn = document.getElementById('share-facebook') as HTMLButtonElement | null;
+
+  let shouldWait = false;
+
+  function getShareMeta() {
+    const url = window.location.href;
+    const title = document.title || 'Nepal Climate Hub';
+    const description =
+      document.querySelector('meta[name="description"]')?.getAttribute('content') ||
+      'Learn more on Nepal Climate Hub.';
+
+    return { url, title, description };
+  }
+
+  async function copyToClipboard() {
+    if (!copyBtn || !copiedToast || !notCopiedToast) return;
+    if (shouldWait) return;
+    shouldWait = true;
+
+    try {
+      if (!navigator.clipboard) {
+        throw new Error('Clipboard API not available');
+      }
+      await navigator.clipboard.writeText(window.location.href);
+      copiedToast.style.display = 'block';
+      setTimeout(function () {
+        copiedToast.style.display = 'none';
+        shouldWait = false;
+      }, 3000);
+    } catch (err) {
+      notCopiedToast.style.display = 'block';
+      setTimeout(function () {
+        notCopiedToast.style.display = 'none';
+        shouldWait = false;
+      }, 3000);
+    }
+  }
+
+  function openPopup(url: string) {
+    const width = 600;
+    const height = 600;
+    const left = window.screenX + (window.outerWidth - width) / 2;
+    const top = window.screenY + (window.outerHeight - height) / 2;
+
+    window.open(
+      url,
+      '_blank',
+      `width=${width},height=${height},left=${left},top=${top},noopener,noreferrer`
+    );
+  }
+
+  function shareOnLinkedIn() {
+    const { url } = getShareMeta();
+    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+      url
+    )}`;
+    openPopup(shareUrl);
+  }
+
+  function shareOnFacebook() {
+    const { url, title } = getShareMeta();
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+      url
+    )}&quote=${encodeURIComponent(title)}`;
+    openPopup(shareUrl);
+  }
+
+  async function shareOnInstagram() {
+    const { url, title, description } = getShareMeta();
+
+    // Prefer Web Share API when available (mobile browsers, some desktops)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title,
+          text: description,
+          url,
+        });
+        return;
+      } catch {
+        // user cancelled or share failed – silently ignore
+        return;
+      }
+    }
+
+    // Fallback: copy link and show "copied" toast so user can paste into Instagram
+    await copyToClipboard();
+  }
+
+  copyBtn?.addEventListener('click', copyToClipboard);
+  linkedinBtn?.addEventListener('click', shareOnLinkedIn);
+  facebookBtn?.addEventListener('click', shareOnFacebook);
+  instagramBtn?.addEventListener('click', shareOnInstagram);
+</script>
+
+<style>
+  .share-container {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .share-label {
+    font-weight: 800;
+    color: #1A1B1E;
+  }
+
+  .share-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .copy-wrapper {
+    position: relative;
+  }
+
+  .toast {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(110%);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #1A1B1E;
+    text-align: center;
+    padding: 6px 10px;
+    white-space: nowrap;
+    display: none;
+  }
+
+  .share-btn img {
+    width: 18px;
+    height: 18px;
+    transition: all 0.07s ease-in;
+  }
+
+  .share-btn:hover img {
+    transform: scale(1.2);
+  }
+
+  .share-btn:active img {
+    transform: scale(1.1);
+  }
+</style>

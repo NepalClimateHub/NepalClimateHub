@@ -2,17 +2,15 @@ import type { Blog } from '../types/blog';
 import { createSlug } from '../utils/slug';
 import styles from '../styles/components/Blogs.module.css';
 
-interface Props {
+export interface BlogCardProps {
   blog: Blog;
-  latestPost?: boolean;
-  featuredPost?: boolean;
+  cardType?: 'default' | 'highlight' | 'featured';
 }
 
 export default function BlogCard({
   blog,
-  latestPost = false,
-  featuredPost = false,
-}: Props) {
+  cardType = 'default',
+}: BlogCardProps) {
   const {
     bannerImageUrl,
     title,
@@ -36,15 +34,20 @@ export default function BlogCard({
   // Default author image placeholder
   const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(author)}&background=1a1b1e&color=cefe00&size=96`;
 
-  const cardClass = latestPost ? styles.blogCardLatest : styles.blogCard;
-  const imageContainerClass = latestPost
-    ? styles.imageContainerLatest
-    : featuredPost
+  // Determine classes based on cardType
+  const cardClass =
+    cardType === 'highlight'
+      ? styles.blogCardHighlight
+      : cardType === 'featured'
+      ? styles.blogCardFeatured
+      : styles.blogCard;
+
+  const imageContainerClass =
+    cardType === 'highlight'
+      ? styles.imageContainerHighlight
+      : cardType === 'featured'
       ? styles.imageContainerFeatured
       : styles.imageContainer;
-  const authorSectionClass = latestPost
-    ? styles.authorSection
-    : `${styles.authorSection} ${styles.authorSectionMt}`;
 
   return (
     <a
@@ -55,16 +58,20 @@ export default function BlogCard({
       <article className={cardClass}>
         <figure className={imageContainerClass}>
           <img src={bannerImageUrl} alt={title} className={styles.blogImage} />
-          {!latestPost && <span className={styles.blogTag}>{category?.replaceAll('-', ' ')}</span>}
+          {(cardType !== 'highlight' ) && (
+            <span className={styles.blogTag}>{category?.replaceAll('-', ' ')}</span>
+          )}
         </figure>
 
         <div className={styles.blogContent}>
           <h3 className={styles.blogTitle}>{title}</h3>
 
-          {!latestPost && <p className={styles.blogExcerpt}>{excerpt}</p>}
+          {(cardType !== 'highlight') && (
+            <p className={styles.blogExcerpt}>{excerpt}</p>
+          )}
 
-          <div className={authorSectionClass}>
-            {!latestPost && (
+          <div className={styles.authorSection}>
+            {(cardType !== 'highlight') && (
               <img
                 src={authorImageUrl || defaultAuthorImage}
                 alt={`${author}'s profile picture`}
@@ -73,16 +80,14 @@ export default function BlogCard({
             )}
             <div className={styles.authorInfo}>
               <span className={styles.authorName}>
-                {latestPost ? `By ${author}` : author}
+                {(cardType !== 'highlight' ) ? author : `By ${author}`}
               </span>
               <div className={styles.dateTime}>
                 <time className={styles.date} dateTime={publishedDate}>
                   {formattedDate}
                 </time>
                 <span className={styles.dotSeparator} />
-                <span
-                  className={styles.readingTime}
-                >{`${readingTime} read`}</span>
+                <span className={styles.readingTime}>{`${readingTime} read`}</span>
               </div>
             </div>
           </div>

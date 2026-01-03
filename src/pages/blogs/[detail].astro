@@ -1,19 +1,27 @@
 ---
 import '../../styles/global.css';
-import ConnectCard from '../../components/ConnectCard.astro';
-import FeaturedBlogSection from '../../components/FeaturedBlogSection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 import { fetchAllBlogs } from '../../api';
 import { createSlug } from '../../utils/slug';
-import { text } from 'stream/consumers';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
+import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
+import type { Blog as apiBlog } from 'src/types/blog';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
+import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 const { detail } = Astro.params;
 
-let apiBlog: any = null;
-let allBlogs: any[] = [];
+let apiBlog: apiBlog | null = null;
+let allBlogs: apiBlog[] = [];
 
 try {
   const response = await fetchAllBlogs();
@@ -32,6 +40,8 @@ if (!apiBlog) {
   throw new Error(`Blog with slug ${detail} not found`);
 }
 
+const latestBlogs: apiBlog[] = allBlogs.slice(0, 3);
+
 const blogDetail = {
   ...apiBlog,
   bannerImage: apiBlog.bannerImageUrl || '/placeholder.svg',
@@ -43,9 +53,28 @@ const blogDetail = {
   publishedDate: apiBlog.publishedDate || new Date().toISOString(),
   tags: apiBlog.tags || [],
 };
+
+const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
+const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.` || `Read blog by ${blogDetail.author}.`;
+const metaImage = blogDetail.bannerImage || '/favicon.png';
+const metaUrl = `${siteUrl}${fullPath}`;
+
+const socials = {
+  facebook: 'https://www.facebook.com/',
+  instagram: 'https://www.instagram.com/',
+  linkedin: 'https://www.linkedin.com/',
+};
+
+const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+  blogDetail.author
+)}&background=1a1b1e&color=cefe00&size=72`;
 ---
 
-<BaseLayout title={`${blogDetail.title} | Nepal Climate Hub`}>
+<BaseLayout title={`${blogDetail.title} | Nepal Climate Hub`} description={metaDescription} ogImage={metaImage} ogUrl={metaUrl}>
   <main class="main-container">
     <!-- Header Section -->
     <section class="header-section">
@@ -59,140 +88,76 @@ const blogDetail = {
 
     <!-- Blog Detail Section -->
     <section class="blog-detail-section">
-      <div class="!max-w-4xl !mx-auto !px-6 lg:!px-8 md:!px-6 sm:!px-4 !py-12">
-        <!-- Blog Header -->
-        <div class="!text-center !mb-12">
-          <h1 class="!text-4xl lg:!text-3xl md:!text-2xl !font-bold !text-gray-900 !mb-6">
-            {blogDetail.title}
-          </h1>
-          
-          <!-- Blog Meta -->
-          <div class="!flex !items-center !justify-center !gap-6 !mb-6 !text-gray-600">
-            <div class="!flex !items-center">
-              <span class="!w-4 !h-4 !mr-2">👤</span>
-              <span>{blogDetail.author}</span>
-            </div>
-            <div class="!flex !items-center">
-              <span class="!w-4 !h-4 !mr-2">📅</span>
-              <span>{new Date(blogDetail.publishedDate).toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}</span>
-            </div>
-            <div class="!flex !items-center">
-              <span class="!w-4 !h-4 !mr-2">⏱️</span>
-              <span>{blogDetail.readingTime}</span>
-            </div>
-          </div>
+      <div class="blog-container">
 
-          <!-- Category Badge -->
-          <div class="!mb-8">
-            <span class="!inline-flex !items-center !px-4 !py-2 !text-sm !font-medium !bg-blue-50 !text-blue-700 !border !border-blue-200 !rounded-full">
-              {blogDetail.category}
-            </span>
-          </div>
+        <!-- Blog Title -->
+        <header class="blog-header">
+          <h1 class="blog-title">{blogDetail.title}</h1>
+          <AuthorInfoandShareBlog
+            authorName={blogDetail.author}
+            authorImageUrl={blogDetail.authorImageUrl || ''}
+            date={blogDetail.publishedDate}
+            readTime={blogDetail.readingTime} />
+        </header>
 
-          <!-- Tags -->
-          {blogDetail.tags && blogDetail.tags.length > 0 && (
-            <div class="!flex !flex-wrap !justify-center !gap-2 !mb-8">
-              {blogDetail.tags.map((tag: string) => (
-                <span class="!inline-flex !items-center !px-3 !py-1 !text-xs !font-medium !bg-gray-50 !text-gray-700 !border !border-gray-200 !rounded-full">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+        <!-- Grid Layout -->
+        <div class="blog-grid">
+
+          <!-- LEFT: Blog Content -->
+          <article class="blog-content">
+            <HtmlRenderer content={blogDetail.content} />
+          </article>
+
+          <!-- RIGHT: Sidebar -->
+          {
+            !isMobile && (
+              <aside class="blog-sidebar">
+
+            <section class="sidebar-section">
+              <BlogHighlights title="Top Reads" blogs={latestBlogs} />
+            </section>
+            
+            <section class="sidebar-section stay-connected">
+              <h2 class="sidebar-title">Stay Connected</h2>
+              <EmailSubscriptionForm formBtnVariant="primary" />
+            </section>
+            
+            <section class="sidebar-section">
+              <BlogHighlights title="Latest Blogs" blogs={latestBlogs} />
+            </section>
+
+          {
+            blogDetail.tags.length >  0 && (
+              <section class="sidebar-section">
+                <h2 class="sidebar-title">Tags</h2>
+                <div class="tags-container">
+                  {blogDetail.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+          </aside>
+            )
+          }
+
         </div>
 
-        <!-- Blog Banner Image -->
-        <div class="!mb-12">
-          <img
-            src={blogDetail.bannerImage}
-            alt={blogDetail.title}
-            class="!w-full !h-96 !object-cover !rounded-2xl !shadow-lg"
-          />
-        </div>
-
-        <!-- Blog Content -->
-        <div class="!mb-12">
-          <HtmlRenderer content={blogDetail.content} />
-        </div>
-
-        <style is:global>
-          /* Global so it affects set:html content (no Astro scoping) */
-          #blog-content ul {
-            list-style: disc !important;
-            list-style-position: outside !important;
-            padding-left: 1.5rem !important;
-            margin: 0 0 1rem 0 !important;
-          }
-
-          #blog-content ol {
-            list-style: decimal !important;
-            list-style-position: outside !important;
-            padding-left: 1.5rem !important;
-            margin: 0 0 1rem 0 !important;
-          }
-
-          #blog-content li {
-            display: list-item !important;
-            list-style: inherit !important;
-            margin: 0 0 0.5rem 0 !important;
-          }
-
-          #blog-content ul li::marker {
-            content: '• ' !important;
-            color: #374151 !important;
-            font-weight: 700 !important;
-          }
-
-          #blog-content ol li::marker {
-            color: #374151 !important;
-            font-weight: 700 !important;
-          }
-
-          #blog-content li > p,
-          #blog-content li > .text-node {
-            display: inline !important;
-            margin: 0 !important;
-          }
-
-          #blog-content .heading-node,
-          #blog-content h1,
-          #blog-content h2,
-          #blog-content h3 {
-            font-weight: 700 !important;
-            color: #111827 !important;
-          }
-        </style>
-
-        <!-- Blog Footer -->
-        <div class="!border-t !border-gray-200 !pt-8 !text-center !text-gray-600">
-          <p>Written by <span class="!font-medium">{blogDetail.author}</span></p>
-          <p class="!text-sm !mt-2">Published on {new Date(blogDetail.publishedDate).toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })}</p>
-        </div>
+        {
+          !isMobile && (
+            <section class="author-section">
+              <AboutBlogAuthor
+                authorName={blogDetail.author}
+                authorImageUrl={defaultAuthorImage}
+                authorBio={'Climate Storyteller at Nepal Climate Hub'}
+                authorDescription={'Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action. She served as Content and Media Coordinator at NYCA and believes meaningful storytelling drives action. Dipika thrives on connecting with people, learning from diverse perspectives, and blending science and creativity to inspire awareness and community-driven climate solutions.'}
+                socials={socials}
+                />
+           </section>
+          )
+        }
       </div>
-    </section>
-    
-    <section class="connect-card-section">
-      <ConnectCard
-        organization={false}
-        dataObj={blogDetail}
-      />
-    </section>
-
-    <section class="other-blogs-section">
-      <FeaturedBlogSection
-        startIndex={0}
-        endIndex={3}
-        title="Other Blogs You Might Like"
-        currentBlogId={apiBlog.id}
-      />
     </section>
 
     <section class="footer-section">
@@ -202,12 +167,9 @@ const blogDetail = {
 </BaseLayout>
 
 <style>
-  section {
-    padding: 0px 48px;
-  }
 
-  .connect-card-section {
-    background-color: #cefe00;
+  .header-section, .blog-detail-section {
+    padding: 0px 48px;
   }
 
   .footer-section {
@@ -215,9 +177,126 @@ const blogDetail = {
     color: white;
   }
 
-  @media screen and (max-width: 768px) {
-    section {
-      padding: 0px;
-    }
+  .blog-detail-section{
+    margin-top: 24px;
+    padding: 0 48px 80px 48px;
   }
+
+  .blog-container {
+}
+
+/* Header */
+.blog-header {
+  margin-bottom: 16px;
+}
+
+.blog-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.blog-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Grid Layout */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 35%);
+  gap: 40px;
+}
+
+/* Left Content */
+.blog-content {
+  width: 100%;
+}
+
+/* Sidebar */
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Sidebar Sections */
+.sidebar-section {
+  width: 100%;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+/* Stay Connected Styling */
+.stay-connected {
+  background-color: #1a1b1e;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.stay-connected .sidebar-title {
+  color: #ffffff;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags-container .tag {
+  background-color: #ffffff;
+  color: #364fc7;
+  padding: 6px 12px;
+  border: 1px solid #cefe00;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.author-section {
+  margin-top: 64px;
+}
+
+@media screen  and (max-width: 1200px) {
+  .blog-detail-section {
+    padding: 0 48px 32px 48px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+   .header-section {
+    padding: 0;
+  }
+
+
+  .blog-detail-section {
+    padding: 0 24px 32px 24px;
+  }
+
+  .blog-sidebar {
+    display: none;
+  }
+
+  .blog-title {
+    font-size: 20px;
+  }
+
+  .aside,.author-section{
+    display: none;
+  }
+}
 </style>

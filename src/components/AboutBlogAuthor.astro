@@ -1,0 +1,189 @@
+---
+import facebookIcon from '../assets/icons/IconFacebook.png';
+import instagramIcon from '../assets/icons/IconInstagram.png';
+import linkedinIcon from '../assets/icons/IconLinkedin.png';
+
+interface Props {
+  authorName: string;
+  authorImageUrl?: string;
+  authorBio?: string;
+  authorDescription?: string;
+  socials?: {
+    facebook?: string;
+    linkedin?: string;
+    instagram?: string;
+  };
+}
+
+const { authorName, authorImageUrl, authorBio, authorDescription, socials } = Astro.props;
+---
+
+<section class="author-section">
+  <h2 class="section-title">About Author</h2>
+
+  <div class="author-container">
+    <!-- Author meta -->
+    <aside class="author-meta">
+      <figure class="author-image-container">
+        <img
+          src={authorImageUrl}
+          alt={authorName}
+          class="author-img"
+        />
+      </figure>
+
+      <div class="author-details">
+        <header class="author-header">
+          <!-- Name -->
+          <div class="author-name">{authorName}</div>
+          <!-- Bio -->
+          {authorBio && <div class="author-bio">{authorBio}</div>}
+        </header>
+
+        <!-- Social links -->
+        <address class="author-socials">
+          {socials?.facebook && (
+            <a target="_blank" href={socials?.facebook} aria-label="Facebook">
+              <img src={facebookIcon.src} alt="" />
+            </a>
+          )}
+          {socials?.instagram && (
+            <a target="_blank" href={socials?.instagram} aria-label="Instagram">
+              <img src={instagramIcon.src} alt="" />
+            </a>
+          )}
+          {socials?.linkedin && (
+            <a target="_blank" href={socials?.linkedin} aria-label="LinkedIn">
+              <img src={linkedinIcon.src} alt="" />
+            </a>
+          )}
+        </address>
+      </div>
+    </aside>
+
+    <!-- Author description -->
+    <div class="author-description">
+      <p>{authorDescription}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Section */
+.author-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1A1B1E;
+  margin-bottom: 24px;
+}
+
+/* Container */
+.author-container {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+  padding: 40px;
+}
+
+/* LEFT SIDE */
+.author-meta {
+  display: flex;
+  gap: 16px;
+  min-width: 260px;
+  align-items: flex-start;
+}
+
+/* Image */
+.author-image-container {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #CEFE00;
+  flex-shrink: 0;
+}
+
+.author-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Author text */
+.author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-right: 1px solid #5b5b5cb2;
+  padding-right: 40px;
+}
+
+.author-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.author-name {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #1A1B1E;
+  margin-bottom: 4px;
+}
+
+.author-bio {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1A1B1EB2;
+  line-height: 24px;
+}
+
+/* Socials */
+.author-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.author-socials img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Separator */
+.author-separator {
+  width: 1px;
+  background-color: #4e4f50b2;
+}
+
+/* RIGHT SIDE */
+.author-description {
+  flex-basis: 70%;
+}
+
+.author-description p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #1A1B1E;
+  margin: 0;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 830px){
+    .author-details{
+        border-right: none;
+        padding-right: 0px;
+    }
+
+    .author-container {
+    flex-direction: column;
+    }
+}
+</style>
