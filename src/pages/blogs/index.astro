@@ -7,6 +7,7 @@ import BlogCategoryFilter from "../../components/BlogCategoryFilter.tsx";
 import BaseLayout from "../../layouts/Layout.astro";
 import { fetchAllBlogs } from "../../api";
 import type { Blog } from "../../types/blog";
+import BlogHighlights from "@components/BlogHighlights.astro";
 
 // Fetch blogs from API
 const { data: apiBlogs } = await fetchAllBlogs();
@@ -38,8 +39,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
               <BlogCard
                 client:load
                 blog={featuredBlogs[0]}
-                latestPost={false}
-                featuredPost={true}
+                cardType='featured'
               />
             </div>
           ) : (
@@ -48,22 +48,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
         </div>
 
         <!-- Latest Posts -->
-        {!isMobile && (<div class="latest-posts">
-          <h2 class="section-title">Latest Posts</h2>
-          {latestBlogs.length > 0 ? (
-            <div class="latest-cards-wrapper">
-              {latestBlogs.map((blog) => (
-                <BlogCard
-                  client:load
-                  blog={blog}
-                  latestPost={true}
-                />
-              ))}
-            </div>
-          ) : (
-            <p class="no-blogs">No latest blogs available.</p>
-          )}
-        </div>)}
+        {!isMobile && <BlogHighlights title="Latest Posts" blogs={latestBlogs} />}
       </div>
     </section>
 
@@ -112,23 +97,23 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     flex-direction: column;
   }
 
-  .featured-card-wrapper :global(.blog-card__link) {
+  .featured-card-wrapper {
     flex: 1;
     display: flex;
   }
 
-  .featured-card-wrapper :global(.blog-card) {
+  .featured-card-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  .featured-card-wrapper :global(.blog-card__image-container) {
+  .featured-card-wrapper {
     flex: 1;
     min-height: 300px;
   }
 
-  .featured-card-wrapper :global(.blog-card__image) {
+  .featured-card-wrapper {
     min-height: 300px;
   }
 
@@ -144,11 +129,11 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     flex: 1;
   }
 
-  .latest-cards-wrapper :global(.blog-card__link) {
+  .latest-cards-wrapper {
     flex: 1;
   }
 
-  .latest-cards-wrapper :global(.blog-card--latest) {
+  .latest-cards-wrapper {
     flex: 1;
     border-radius: 16px;
     overflow: hidden;
@@ -180,11 +165,11 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
       gap: 48px;
     }
 
-    .featured-card-wrapper :global(.blog-card__image-container) {
+    .featured-card-wrapper {
       min-height: 250px;
     }
 
-    .featured-card-wrapper :global(.blog-card__image) {
+    .featured-card-wrapper {
       min-height: 250px;
     }
   }
@@ -206,11 +191,11 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
       font-size: 20px;
     }
 
-    .latest-cards-wrapper :global(.blog-card--latest) {
+    .latest-cards-wrapper {
       flex-direction: column;
     }
 
-    .latest-cards-wrapper :global(.blog-card--latest .blog-card__image-container) {
+    .latest-cards-wrapper {
       width: 100%;
     }
     @media screen and (max-width: 768px) {

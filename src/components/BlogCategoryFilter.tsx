@@ -56,7 +56,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
         // Blog Cards Grid
         <div className={styles.blogsGrid}>
           {filteredBlogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} latestPost={false} />
+            <BlogCard key={blog.id} blog={blog} />
           ))}
           <WriteBlog />
         </div>
