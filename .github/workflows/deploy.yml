@@ -36,25 +36,33 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: build
+          path: |
+            dist/
+            node_modules/
+            package.json
+            pnpm-lock.yaml
+            .env
 
   deploy:
     needs: build
-    if: github.event_name == 'push' # Only deploy on push to main, not on PRs
+    if: github.event_name == 'push'
     runs-on: self-hosted
 
     steps:
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: ./dist
+          name: build
+          path: ./build
 
       - name: Deploy to Web Server Directory
         run: |
-          echo "Build artifact downloaded. Deploying to runner..."
-          # Ensure the target directory exists
-          mkdir -p /home/azureuser/website/dist
-          # Sync files to the web server directory
-          cp -rv ./dist/* /home/azureuser/website/dist/
+          echo "Deploying Astro SSR build..."
+          # Create deployment directory
+          mkdir -p /home/azureuser/nch-website
+          # Copy files
+          cp -rv ./build/* /home/azureuser/nch-website/
+          # Restart the service
+          sudo systemctl restart nch-website
+          sudo systemctl status nch-website
