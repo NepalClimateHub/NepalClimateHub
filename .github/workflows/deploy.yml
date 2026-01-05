@@ -23,7 +23,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm" # Automatically caches dependencies for faster builds
 
       - name: Create .env file
         run: echo "${{ secrets.ENV_FILE }}" > .env
