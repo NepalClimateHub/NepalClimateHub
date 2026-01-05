@@ -6,6 +6,7 @@ export interface BlogTag {
   isEventTag: boolean;
   isNewsTag: boolean;
   isOpportunityTag: boolean;
+  isBlogTag: boolean;
   createdAt: string;
   updatedAt: string;
   deletedAt: string | null;
@@ -27,7 +28,7 @@ export interface Blog {
   contentImageUrl?: string;
   contentImageId?: string;
   authorImageUrl?: string;
-  tags: BlogTag[] | string[];
+  tags: BlogTag[];
   contributedBy?: string;
   createdAt: string;
   updatedAt: string;
