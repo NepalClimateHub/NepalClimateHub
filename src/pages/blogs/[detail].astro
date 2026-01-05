@@ -132,7 +132,7 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
                 <h2 class="sidebar-title">Tags</h2>
                 <div class="tags-container">
                   {blogDetail.tags.map((tag) => (
-                    <span class="tag">{tag}</span>
+                    <span class="tag">{tag?.tag}</span>
                   ))}
                 </div>
               </section>

@@ -30,7 +30,6 @@
   flex-direction: column;
   position: relative;
   max-height: fit-content;
-  overflow-y: auto;
   padding-right: 4px;
 }
 
