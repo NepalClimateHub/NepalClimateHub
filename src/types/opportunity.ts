@@ -21,6 +21,7 @@ export interface Opportunity {
   format: string;
   cost: string;
   organizer: string;
+  organizer: string;
   description: string;
   category: string[];
   bannerImage: string;
@@ -35,6 +36,7 @@ export interface Opportunity {
     instagram: string;
   };
   contributedBy: string;
+  websiteUrl?: string;
   websiteUrl?: string;
   applicationLink?: string;
   bannerImageUrl?: string;
