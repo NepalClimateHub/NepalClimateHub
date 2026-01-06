@@ -1,33 +1,86 @@
----
-import facebookIcon from '../assets/icons/IconFacebook.png';
-import instagramIcon from '../assets/icons/IconInstagram.png';
-import linkedinIcon from '../assets/icons/IconLinkedin.png';
-import copyIcon from '../assets/icons/IconCopy.png';
----
-
-  <!-- Event share section -->
-  <!-- Share Section Component -->
 <div class="share-container">
   <span class="share-label">Share:</span>
+
   <div class="share-icons">
     <!-- Copy link button -->
     <div class="copy-wrapper">
-      <button id="copy-btn" class="share-btn" type="button" aria-label="Copy link to clipboard">
-        <img alt="Copy link icon" src={copyIcon.src} />
+      <button class="icon" id="copy-btn" type="button" aria-label="Copy link to clipboard">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8V6C16 4.89543 15.1046 4 14 4H6C4.89543 4 4 4.89543 4 6V14C4 15.1046 4.89543 16 6 16H8" />
+          <rect x="8" y="8" width="12" height="12" rx="2" />
+        </svg>
       </button>
+
       <div id="copied-toast" class="toast" role="status">Link copied</div>
       <div id="not-copied-toast" class="toast" role="status">Failed to copy</div>
     </div>
 
     <!-- Social media share buttons -->
-    <button id="share-linkedin" class="share-btn" type="button" aria-label="Share on LinkedIn">
-      <img alt="LinkedIn icon" src={linkedinIcon.src} />
+    <button type="button" class="icon" id="share-linkedin" aria-label="Share on LinkedIn">
+      <!-- LinkedIn SVG -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"
+      >
+        <path class="background" d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
+        
+        <g fill="none">
+          <path d="M8 11v5"></path>
+          <path d="M8 8v.01"></path>
+          <path d="M12 16v-5"></path>
+          <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
+        </g>
+      </svg>
     </button>
-    <button id="share-instagram" class="share-btn" type="button" aria-label="Share on Instagram">
-      <img alt="Instagram icon" src={instagramIcon.src} />
+
+    <button type="button" class="icon" id="share-instagram" aria-label="Share on Instagram">
+      <!-- Instagram SVG -->
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+          <path d="M16.5 7.5v.01"></path>
+        </svg>
     </button>
-    <button id="share-facebook" class="share-btn" type="button" aria-label="Share on Facebook">
-      <img alt="Facebook icon" src={facebookIcon.src} />
+
+    <button type="button" class="icon" id="share-facebook" aria-label="Share on Facebook">
+      <!-- Facebook SVG -->
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+          ></path>
+        </svg>
     </button>
   </div>
 </div>
@@ -153,6 +206,17 @@ import copyIcon from '../assets/icons/IconCopy.png';
     align-items: center;
   }
 
+  button{
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  button:focus {
+    border: none;
+    outline: none
+  }
+
   .share-btn {
     display: flex;
     align-items: center;
@@ -181,17 +245,14 @@ import copyIcon from '../assets/icons/IconCopy.png';
     display: none;
   }
 
-  .share-btn img {
-    width: 18px;
-    height: 18px;
-    transition: all 0.07s ease-in;
+  .icon:active svg{
+    opacity: .3;
   }
 
-  .share-btn:hover img {
-    transform: scale(1.2);
+  .icon svg {
+    stroke: #1A1B1E;
   }
-
-  .share-btn:active img {
-    transform: scale(1.1);
+  .icon:hover svg {
+    fill: #cefe00;
   }
 </style>
