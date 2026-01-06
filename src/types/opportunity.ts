@@ -35,7 +35,7 @@ export interface Opportunity {
     instagram: string;
   };
   contributedBy: string;
-  websiteUrl?:string;
+  websiteUrl?: string;
   applicationLink?: string;
   bannerImageUrl?: string;
   publishedDate?: string;

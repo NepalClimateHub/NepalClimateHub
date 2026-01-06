@@ -1,6 +1,4 @@
 ---
-import facebookIcon from '../assets/icons/IconFacebook.png';
-import instagramIcon from '../assets/icons/IconInstagram.png';
 import linkedinIcon from '../assets/icons/IconLinkedin.png';
 
 interface Props {
@@ -42,16 +40,6 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
 
         <!-- Social links -->
         <address class="author-socials">
-          {socials?.facebook && (
-            <a target="_blank" href={socials?.facebook} aria-label="Facebook">
-              <img src={facebookIcon.src} alt="" />
-            </a>
-          )}
-          {socials?.instagram && (
-            <a target="_blank" href={socials?.instagram} aria-label="Instagram">
-              <img src={instagramIcon.src} alt="" />
-            </a>
-          )}
           {socials?.linkedin && (
             <a target="_blank" href={socials?.linkedin} aria-label="LinkedIn">
               <img src={linkedinIcon.src} alt="" />
