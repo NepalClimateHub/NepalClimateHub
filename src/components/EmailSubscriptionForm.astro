@@ -1,0 +1,181 @@
+---
+interface Props {
+  formBtnVariant?: 'footer' | 'primary';
+}
+
+// Get API_BASE_URL from server-side
+const API_BASE_URL = import.meta.env.API_BASE_URL;
+
+const { formBtnVariant = 'footer' } = Astro.props;
+---
+
+
+<p>Subscribe to future news and updates.</p>
+
+<div class="emailWrapper">
+    <form class="form" method="post" id="emailForm" data-api-url={API_BASE_URL}>
+        <input
+        id="userEmail"
+        type="email"
+        placeholder="Email"
+        name="email"
+        autocomplete="off"
+        required
+        />
+        <button class={formBtnVariant}>Submit</button>
+    </form>
+    <p class="emailMessage" id="emailMessage"></p>
+</div>
+
+<script>
+  const form = document.getElementById("emailForm") as HTMLFormElement;
+  const emailInput = document.getElementById("userEmail") as HTMLInputElement;
+  const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
+
+  // Get API URL from data attribute (set server-side)
+  const API_BASE_URL = form?.getAttribute("data-api-url");
+
+  if (form && emailInput && emailMessage) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      
+      // Reset previous state
+      emailMessage.textContent = "";
+      emailMessage.style.display = "none";
+      
+      const email = emailInput.value.trim();
+      
+      if (!API_BASE_URL) {
+        console.error("API_BASE_URL is not configured");
+        emailMessage.textContent = "Unable to subscribe. Please try again later.";
+        emailMessage.style.display = "block";
+        emailMessage.style.color = "#ef4444";
+        return;
+      }
+      
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/v1/email-subscription/subscribe`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          }
+        );
+
+        if (response.ok) {
+        emailInput.value = "";
+        emailMessage.textContent = "";
+        emailMessage.textContent = "Thank you for staying connected!";
+        emailMessage.style.display = "block";
+        emailMessage.style.color = "#cefe00";
+        } else {
+          throw new Error(`HTTP ${response.status}`);
+        }
+      } catch (error) {
+        console.error("Subscription error:", error);
+        emailMessage.textContent = "Unable to subscribe. Please try again later.";
+        emailMessage.style.display = "block";
+        emailMessage.style.color = "#ef4444";
+      }
+    });
+  }
+</script>
+
+<style>
+p {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.emailWrapper {
+  position: relative;
+  /* height: 70px; */
+  margin-top: 20px;
+}
+
+.emailMessage {
+  display: block;
+  /* position: absolute;
+  bottom: -8px;
+  left: 0; */
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+ .form input {
+    flex: 1;
+    border-radius: 16px;
+    font-size: 14px;
+    padding: 8px 16px;
+    outline: 2px solid #fff;
+    border: none;
+    box-sizing: border-box;
+    min-width: 100px;
+    max-width: 500px;
+  }
+
+  .form input:active,
+  .form input:focus {
+    outline: 2px solid #cefe00;
+  }
+
+.form button {
+  padding: 8px 22px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 24px;
+  transition: all 0.2s ease;
+  border: none;
+  width: fit-content
+}
+
+/* Footer variant (default) */
+.form button.footer {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.form button.footer:hover {
+  background-color: #cefe00;
+  border-color: #cefe00;
+  color: #25262b;
+}
+
+/* Primary variant */
+.form button.primary {
+  background-color: #cefe00;
+  border-color: #cefe00;
+  color: #25262b;
+}
+
+.form button.primary:hover {
+  background-color: #b8e600;
+  border-color: #b8e600;
+  color: #25262b;
+}
+
+@media screen and (max-width: 348px) {
+    .emailWrapper {
+      height: 100px;
+    }
+  }
+
+@media screen and (max-width: 500px) {
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+</style>

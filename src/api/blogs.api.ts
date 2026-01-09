@@ -1,8 +1,7 @@
 import { API_BASE_URL, ApiError, handleResponse } from './index';
+import type { Blog, BlogResponse } from '../types/blog';
 
-export const fetchFeaturedBlogs = async (): Promise<{
-  data: any[];
-}> => {
+export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
@@ -19,7 +18,7 @@ export const fetchFeaturedBlogs = async (): Promise<{
         'Content-Type': 'application/json',
       },
     });
-    return handleResponse<{ data: any[] }>(response);
+    return handleResponse<BlogResponse>(response);
   } catch (error) {
     console.error('Error fetching featured blogs:', error);
     if (error instanceof ApiError) {
@@ -39,9 +38,7 @@ export const fetchFeaturedBlogs = async (): Promise<{
   }
 };
 
-export const fetchAllBlogs = async (): Promise<{
-  data: any[];
-}> => {
+export const fetchAllBlogs = async (): Promise<BlogResponse> => {
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
@@ -58,7 +55,7 @@ export const fetchAllBlogs = async (): Promise<{
         'Content-Type': 'application/json',
       },
     });
-    return handleResponse<{ data: any[] }>(response);
+    return handleResponse<BlogResponse>(response);
   } catch (error) {
     console.error('Error fetching all blogs:', error);
     if (error instanceof ApiError) {

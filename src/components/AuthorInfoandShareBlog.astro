@@ -1,0 +1,114 @@
+---
+import { format } from 'path';
+import SocialShare from './SocialShare.astro';
+
+interface Props {
+  authorName: string;
+  authorImageUrl: string;
+  date: string;
+  readTime: string;
+}
+
+const { authorName, authorImageUrl, date, readTime } = Astro.props;
+
+function formatDate(isoDate: string): string {
+  const date = new Date(isoDate);
+  const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
+ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(authorName)}&background=1a1b1e&color=cefe00&size=38`;
+---
+
+<div class="container">
+  <!-- Author info with semantic HTML -->
+  <figure class="author-info">
+    <figcaption class="author">
+        <div class="author-image-container">
+          <img
+            src={authorImageUrl || defaultAuthorImage}
+            alt={`${authorImageUrl}'s profile picture`}
+            class="author-img"/>
+        </div>
+      <span class="author-name">{`By ${authorName}`}</span>
+    </figcaption>
+    <span class="separator">|</span>
+    <time class="info-text" datetime={new Date(date).toISOString()}>{formatDate(date)}</time>
+    <span class="separator">|</span>
+    <span class="info-text">{readTime}</span>
+  </figure>
+
+  <!-- Share blog to social media -->
+  <SocialShare />
+</div>
+
+<style>
+.container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: system-ui, sans-serif;
+  color: #464646;
+  font-size: 14px;
+  margin: 0;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author-image-container {
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #CEFE00;
+}
+
+.author-name {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1A1B1E;
+}
+
+.author-img {
+  object-fit: cover;
+}
+
+.info-text, .separator {
+  font-size: 14px;
+  color: #1A1B1EB2;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+    .author-info{
+        gap: 6px;
+    }
+}
+
+@media  screen and (max-width: 355px) {
+    .author-name {
+        font-weight: 400;
+        font-size: 14px;
+        color: #1A1B1E;
+    }
+
+    .info-text, .separator {
+        font-size: 12px;
+        color: #1A1B1EB2;
+        font-weight: 400;
+    }
+}
+
+</style>
