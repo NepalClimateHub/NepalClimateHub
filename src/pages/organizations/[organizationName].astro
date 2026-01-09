@@ -9,10 +9,17 @@ import BaseLayout from '../../layouts/Layout.astro';
 
 import organizationsJSON from '../../data/organizations.json';
 
+// Add getStaticPaths for static generation
+export function getStaticPaths() {
+  return organizationsJSON.map((organization) => ({
+    params: { organizationName: organization.slug },
+    props: { organization }
+  }));
+}
+
+// Get the organization from props
+const { organization } = Astro.props;
 const { organizationName } = Astro.params;
-const organization = organizationsJSON.find(
-  (organization) => organization.slug === organizationName
-);
 
 if (!organization) {
   throw new Error(`Organization with slug ${organizationName} not found`);
