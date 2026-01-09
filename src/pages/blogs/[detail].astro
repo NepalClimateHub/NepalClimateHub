@@ -117,28 +117,26 @@ const socials = {
             />
           </div>
 
+          {!isMobile && (<div class="sidebar-section stay-connected">
+            <h2 class="sidebar-title">Stay Connected</h2>
+            <EmailSubscriptionForm formBtnVariant="primary" />
+          </div>)}
+
           <section class="top-reads-section">
             <BlogHighlights title="Top Reads" blogs={topReads} />
-           </section>             
-          
-          {!isMobile && (<div class="sidebar-section stay-connected">
-                <h2 class="sidebar-title">Stay Connected</h2>
-                <EmailSubscriptionForm formBtnVariant="primary" />
-              </div>)}
+          </section>             
 
-
-              {blogDetail.tags.length > 0 && (
-                <div class="sidebar-section">
-                  <h2 class="sidebar-title">Tags</h2>
-                  <div class="tags-container">
-                    {blogDetail.tags.map((tag) => (
-                      <span class="tag">{tag?.tag}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-            </aside>
+          {blogDetail.tags.length > 0 && (
+            <div class="sidebar-section">
+              <h2 class="sidebar-title">Tags</h2>
+              <div class="tags-container">
+                {blogDetail.tags.map((tag) => (
+                  <span class="tag">{tag?.tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+          </aside>
         </div>
         
           <div id="author-section-bottom" class="section-container author-section">
@@ -208,10 +206,7 @@ section {
 .blog-sidebar {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
   gap: 32px;
-  position: sticky;
-  top: 16px;
   margin-bottom: 40px;
 }
 
@@ -228,8 +223,8 @@ section {
 
 .top-reads-section {
   padding: 0;
-  /* position: sticky;
-  top: 16px; */
+  position: sticky;
+  top: 16px;
 }
 
 /* Stay Connected */
