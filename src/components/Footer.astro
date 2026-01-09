@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
-
-// Get API_BASE_URL from server-side
-const API_BASE_URL = import.meta.env.API_BASE_URL;
+import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
 ---
 
 <footer class="section-container">
@@ -29,26 +27,7 @@ const API_BASE_URL = import.meta.env.API_BASE_URL;
     </div>
 
     <div class="column">
-      <p>Subscribe to future news and updates.</p>
-      <div class="emailWrapper">
-        <p class="emailMessage"></p>
-        <form 
-          class="form" 
-          method="post" 
-          id="emailForm"
-          data-api-url={API_BASE_URL}
-        >
-          <input
-            id="userEmail"
-            type="email"
-            placeholder="Email"
-            name="email"
-            autocomplete="off"
-            required
-          />
-          <button>Submit</button>
-        </form>
-      </div>
+      <EmailSubscriptionForm/>
 
       <div class="socials">
         <p>Stay connected : )</p>
@@ -161,62 +140,6 @@ const API_BASE_URL = import.meta.env.API_BASE_URL;
   </div>
 </footer>
 
-<script>
-  const form = document.getElementById("emailForm") as HTMLFormElement;
-  const emailInput = document.getElementById("userEmail") as HTMLInputElement;
-  const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
-
-  // Get API URL from data attribute (set server-side)
-  const API_BASE_URL = form?.getAttribute("data-api-url");
-
-  if (form && emailInput && emailMessage) {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      
-      // Reset previous state
-      emailMessage.textContent = "";
-      emailMessage.style.display = "none";
-      
-      const email = emailInput.value.trim();
-      
-      if (!API_BASE_URL) {
-        console.error("API_BASE_URL is not configured");
-        emailMessage.textContent = "Unable to subscribe. Please try again later.";
-        emailMessage.style.display = "block";
-        emailMessage.style.color = "#ef4444";
-        return;
-      }
-      
-      try {
-        const response = await fetch(
-          `${API_BASE_URL}/api/v1/email-subscription/subscribe`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email }),
-          }
-        );
-
-        if (response.ok) {
-          form.style.display = "none";
-          emailMessage.textContent = "Thank you for staying connected!";
-          emailMessage.style.display = "block";
-          emailMessage.style.color = "#cefe00";
-        } else {
-          throw new Error(`HTTP ${response.status}`);
-        }
-      } catch (error) {
-        console.error("Subscription error:", error);
-        emailMessage.textContent = "Unable to subscribe. Please try again later.";
-        emailMessage.style.display = "block";
-        emailMessage.style.color = "#ef4444";
-      }
-    });
-  }
-</script>
-
 <style>
   .section-container {
     padding: 86px 0px 36px;
@@ -272,40 +195,6 @@ const API_BASE_URL = import.meta.env.API_BASE_URL;
     border: 1px solid white;
   }
 
-  .form {
-    display: flex;
-    gap: 12px;
-    margin-top: -10px;
-  }
-
-  .form input {
-    width: 100%;
-    border-radius: 16px;
-    font-size: 14px;
-    padding: 2px 16px;
-    outline: 2px solid #fff;
-    border: none;
-  }
-
-  .form input:active,
-  .form input:focus {
-    outline: 2px solid #cefe00;
-  }
-
-  .form button {
-    padding: 4px 16px;
-    color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    cursor: pointer;
-  }
-
-  .form button:hover {
-    background-color: #cefe00;
-    border-color: #cefe00;
-    color: #25262b;
-  }
-
   .footer-detail {
     display: flex;
     justify-content: space-between;
@@ -340,18 +229,6 @@ const API_BASE_URL = import.meta.env.API_BASE_URL;
   .footer-note {
     font-size: 12px;
     line-height: 14px;
-  }
-
-  .emailWrapper {
-    position: relative;
-    height: 70px;
-  }
-  .emailMessage {
-    display: block;
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    font-style: italic;
   }
 
   .socials {
@@ -438,11 +315,6 @@ const API_BASE_URL = import.meta.env.API_BASE_URL;
   @media screen and (max-width: 396px) {
     .navbar a {
       font-size: 10px;
-    }
-  }
-  @media screen and (max-width: 348px) {
-    .emailWrapper {
-      height: 100px;
     }
   }
 </style>
