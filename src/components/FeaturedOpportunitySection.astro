@@ -9,15 +9,50 @@ import { Icon } from "astro-icon/components";
 // import opportunityJSON from '../data/opportunitiesTemp.json';
 import { fetchOpportunities } from "../api";
 import logo from "../assets/logo/secondaryLogo.svg";
+import { createSlug } from "../utils/slug";
 
-const { data: opportunityJSON } = await fetchOpportunities();
+const { data: apiOpportunity } = await fetchOpportunities();
 const { startIndex, endIndex, title } = Astro.props;
 
-// Create slugs for the opportunities
-import { createSlug } from "../utils/slug";
+const stripHtml = (html: string) => {
+  return html.replace(/<[^>]*>/g, "");
+};
+
+const transformedOpportunities = (apiOpportunity || [])
+  .filter(
+    (opportunity) =>
+      opportunity?.bannerImageUrl &&
+      opportunity.title &&
+      opportunity.tags &&
+      opportunity.locationType
+  )
+  .map((opportunity: any) => ({
+    id: opportunity.id,
+    title: opportunity.title,
+    type: opportunity.type,
+    location:
+      opportunity.locationType.charAt(0).toUpperCase() +
+      opportunity.locationType.slice(1).toLowerCase(),
+    province: opportunity.address?.state || '',
+    status: opportunity.status,
+    format: opportunity.format,
+    cost: opportunity.cost,
+    category: opportunity.tags?.map((tag: any) => tag.tag) || opportunity.category || [],
+    bannerImage: opportunity.bannerImageUrl || '/placeholder.svg',
+    description: stripHtml(opportunity.description || '') || '',
+    organizer: opportunity.organizer || '',
+    registrationLink: opportunity.websiteUrl|| '',
+    contactEmail: opportunity.contactEmail || '',
+  }));
+
+
+  const featuredOpportunities = transformedOpportunities.slice(
+    startIndex,
+    Math.min(endIndex, startIndex + 4)
+  );
 ---
 
-<div class="section-container featured-card-section">
+<div class="section-container featured-card-section"> 
   <h2 class="section-heading">{title}</h2>
 
   <!-- container to wrap opportunity cards -->
@@ -25,41 +60,39 @@ import { createSlug } from "../utils/slug";
   <!-- render the opportunities from opportunityJSON -->
   <div class="cards-container" style="margin-bottom:72px;">
     {
-      opportunityJSON.slice(startIndex, endIndex).map((item) => (
+      featuredOpportunities.map((oppportunity) => (
         <a
           class="card opportunity-card"
-          href={`/opportunities/${createSlug(item.title)}`}
+          href={`/opportunities/${createSlug(oppportunity.title)}`}
         >
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={item.bannerImageUrl || logo.src}
-              alt={item.title}
+              src={oppportunity.bannerImage || logo.src}
+              alt={oppportunity.title}
               style={
-                item.bannerImageUrl
+                oppportunity.bannerImage
                   ? {}
                   : { width: "80%", height: "auto", margin: "20px" }
               }
             />
           </div>
           <div class="details">
-            <h3 class="name">{item.title}</h3>
+            <h3 class="name">{oppportunity.title}</h3>
             <p class="location">
               <span class="icon">
                 <Icon name="mdi:my-location" class="icon" />
               </span>
-              <span class="address">{item.locationType}</span>
+              <span class="address">{oppportunity.location}</span>
             </p>
             <p
               class="about"
-              set:html={item.description.substring(0, 108) + "..."}
+              set:html={oppportunity.description.substring(0, 108) + "..."}
               style="font-style: normal;"
             />
             <div class="tags">
-              {(item.tags?.map((tag: any) => tag.tag) || item.category || [])
-                .slice(0, 3)
-                .map((tag: string, index: number) => (
-                  <span class="tag">{tag}</span>
-                ))}
+              {oppportunity.category.slice(0, 3).map((tag: string) => (
+                <span class="tag">{tag}</span>
+              ))}
             </div>
           </div>
         </a>

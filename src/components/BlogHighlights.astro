@@ -1,0 +1,52 @@
+---
+import type { Blog } from 'src/types/blog';
+import BlogCard from './BlogCard.jsx'; // or .tsx
+// import type { Blog } from '../types/blog';
+
+interface Props {
+  title: string;
+  blogs: Blog[];
+}
+
+const { title, blogs} = Astro.props;
+---
+
+<div class="blog-list">
+  <h2 class="section-title">{title}</h2>
+
+    <div class="blog-cards-wrapper">
+      {blogs.map((blog) => (
+        <BlogCard
+          client:load
+          blog={blog}
+          cardType='highlight'
+        />
+      ))}
+    </div>
+</div>
+
+<style>
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1b1e;
+    margin: 0 0 16px 0;
+  }
+
+  .blog-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .no-blogs {
+    font-size: 14px;
+    color: #6b7280;
+  }
+</style>
