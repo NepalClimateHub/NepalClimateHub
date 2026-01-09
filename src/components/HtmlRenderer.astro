@@ -10,7 +10,131 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
 
 <div id={uid} class={`html-rendered ${className}`} set:html={content} />
 
+<script>
+  // Group consecutive images into a grid container
+  document.addEventListener('DOMContentLoaded', () => {
+    const renderers = document.querySelectorAll('[id^="html-renderer-"]');
+    
+    renderers.forEach(renderer => {
+      const children = Array.from(renderer.children);
+      let i = 0;
+      let figureCounter = 1;
+      
+      while (i < children.length) {
+        const child = children[i];
+        
+        if (child.tagName === 'IMG') {
+          const consecutiveImages = [child];
+          let j = i + 1;
+          
+          // Collect consecutive images
+          while (j < children.length && children[j].tagName === 'IMG') {
+            consecutiveImages.push(children[j]);
+            j++;
+          }
+          
+          // If there are 2 or more consecutive images, create a grid
+          if (consecutiveImages.length >= 2) {
+            const gridContainer = document.createElement('div');
+            gridContainer.className = 'image-grid';
+            
+            consecutiveImages.forEach(img => {
+              const wrapper = document.createElement('div');
+              wrapper.className = 'image-wrapper';
+              
+              const caption = img.getAttribute('caption');
+              const imgClone = img.cloneNode(true);
+              wrapper.appendChild(imgClone);
+              
+              if (caption) {
+                const captionEl = document.createElement('p');
+                captionEl.className = 'image-caption';
+                
+                const figureLabel = document.createElement('span');
+                figureLabel.className = 'figure-label';
+                figureLabel.textContent = `Figure ${figureCounter}: `;
+                
+                captionEl.appendChild(figureLabel);
+                captionEl.appendChild(document.createTextNode(caption));
+                
+                wrapper.appendChild(captionEl);
+                figureCounter++;
+              }
+              
+              gridContainer.appendChild(wrapper);
+            });
+            
+            // Replace first image with grid container
+            const firstImage = consecutiveImages[0];
+            if (firstImage && firstImage.parentNode) {
+              firstImage.parentNode.insertBefore(gridContainer, firstImage);
+            }
+            
+            // Remove original images
+            consecutiveImages.forEach(img => img.remove());
+            
+            i = j;
+          } else {
+            // Single image - add caption if it exists
+            const caption = child.getAttribute('caption');
+            if (caption && child.parentNode) {
+              const captionEl = document.createElement('p');
+              captionEl.className = 'image-caption';
+              
+              const figureLabel = document.createElement('span');
+              figureLabel.className = 'figure-label';
+              figureLabel.textContent = `Figure ${figureCounter}: `;
+              
+              captionEl.appendChild(figureLabel);
+              captionEl.appendChild(document.createTextNode(caption));
+              
+              child.parentNode.insertBefore(captionEl, child.nextSibling);
+              figureCounter++;
+            }
+            i++;
+          }
+        } else {
+          i++;
+        }
+      }
+    });
+  });
+</script>
+
 <style is:global>
+  /* Image grid for consecutive images */
+  [id^="html-renderer-"] .image-grid,
+  .html-rendered .image-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    margin: 1rem 0 !important;
+  }
+
+  [id^="html-renderer-"] .image-wrapper,
+  .html-rendered .image-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  [id^="html-renderer-"] .image-caption,
+  .html-rendered .image-caption {
+    font-size: 14px !important;
+    color: #1A1B1EB2 !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    line-height: 180% !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  [id^="html-renderer-"] .figure-label,
+  .html-rendered .figure-label {
+    font-weight: 600 !important;
+    font-style: italic !important;
+    color: #1A1B1EB2 !important;
+  }
+
   /* Robust, non-overridable defaults for any HtmlRenderer instance */
   [id^="html-renderer-"] ul,
   .html-rendered ul {
@@ -130,6 +254,15 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
     margin: 8px 0 !important;
   }
 
+  /* Images inside grid wrapper take full width with object-cover */
+  [id^="html-renderer-"] .image-wrapper img,
+  .html-rendered .image-wrapper img {
+    width: 100% !important;
+    aspect-ratio: 0.95 !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+  }
+
   [id^="html-renderer-"] div {
     margin-bottom: 1rem !important;
   }
@@ -143,5 +276,13 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
 
   [id^="html-renderer-"] br {
     margin-bottom: 0.5rem !important;
+  }
+
+  /* Responsive grid for mobile */
+  @media (max-width: 640px) {
+    [id^="html-renderer-"] .image-grid,
+    .html-rendered .image-grid {
+      grid-template-columns: 1fr !important;
+    }
   }
 </style>
