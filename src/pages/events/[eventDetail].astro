@@ -5,34 +5,34 @@ import FeaturedEventSection from '../../components/FeaturedEventSection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
-// import eventsTemp from '../../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Event as ApiEvent } from '../../types/event';
 import { fetchEvents } from '../../api';
 import { createSlug } from '../../utils/slug';
-// import eventJSON from '../../data/dummy-event.json';
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
-const { eventDetail } = Astro.params;
-
-let apiEvent: ApiEvent | null = null;
-let allEvents: ApiEvent[] = [];
-
-try {
-  const response = await fetchEvents();
-  allEvents = response.data || [];
-  apiEvent = allEvents.find(
-    (event) => createSlug(event.title) === eventDetail
-  ) || null;
-} catch (error) {
-  console.error('Error fetching events:', error);
-  // Fallback to empty data if API fails
-  allEvents = [];
-  apiEvent = null;
+// Add getStaticPaths for static generation
+export async function getStaticPaths() {
+  try {
+    const response = await fetchEvents();
+    const allEvents = response.data || [];
+    
+    return allEvents.map((event: ApiEvent) => ({
+      params: { eventDetail: createSlug(event.title) },
+      props: { apiEvent: event, allEvents }
+    }));
+  } catch (error) {
+    console.error('Error fetching events for static paths:', error);
+    return [];
+  }
 }
+
+// Get the props passed from getStaticPaths
+const { apiEvent, allEvents } = Astro.props;
+const { eventDetail } = Astro.params;
 
 if (!apiEvent) {
   throw new Error(`Event with slug ${eventDetail} not found`);

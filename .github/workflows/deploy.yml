@@ -1,0 +1,68 @@
+name: Deploy NCH Website
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: |
+            dist/
+            node_modules/
+            package.json
+            pnpm-lock.yaml
+            .env
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: self-hosted
+
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./build
+
+      - name: Deploy to Web Server Directory
+        run: |
+          echo "Deploying Astro SSR build..."
+          # Create deployment directory
+          mkdir -p /home/azureuser/nch-website
+          # Copy files
+          cp -rv ./build/* /home/azureuser/nch-website/
+          # Restart the service
+          sudo systemctl restart nch-website
+          sudo systemctl status nch-website

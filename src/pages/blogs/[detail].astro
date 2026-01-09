@@ -7,26 +7,27 @@ import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 import { fetchAllBlogs } from '../../api';
 import { createSlug } from '../../utils/slug';
-import { text } from 'stream/consumers';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
 
-const { detail } = Astro.params;
-
-let apiBlog: any = null;
-let allBlogs: any[] = [];
-
-try {
-  const response = await fetchAllBlogs();
-  allBlogs = response.data || [];
-  apiBlog = allBlogs.find(
-    (blog) => createSlug(blog.title) === detail
-  ) || null;
-} catch (error) {
-  console.error('Error fetching blogs:', error);
-  // Fallback to empty data if API fails
-  allBlogs = [];
-  apiBlog = null;
+// Add this function for static generation
+export async function getStaticPaths() {
+  try {
+    const response = await fetchAllBlogs();
+    const allBlogs = response.data || [];
+    
+    return allBlogs.map((blog: any) => ({
+      params: { detail: createSlug(blog.title) },
+      props: { apiBlog: blog, allBlogs }
+    }));
+  } catch (error) {
+    console.error('Error fetching blogs for static paths:', error);
+    return [];
+  }
 }
+
+// Get the props passed from getStaticPaths
+const { apiBlog, allBlogs } = Astro.props;
+const { detail } = Astro.params;
 
 if (!apiBlog) {
   throw new Error(`Blog with slug ${detail} not found`);

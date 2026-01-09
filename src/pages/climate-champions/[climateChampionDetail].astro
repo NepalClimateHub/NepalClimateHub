@@ -9,10 +9,17 @@ import BaseLayout from '../../layouts/Layout.astro';
 
 import climateChampionsJSON from '../../data/activists.json';
 
+// Add getStaticPaths for static generation
+export function getStaticPaths() {
+  return climateChampionsJSON.map((champion) => ({
+    params: { climateChampionDetail: champion.slug },
+    props: { champion }
+  }));
+}
+
+// Get the champion from props
+const { champion } = Astro.props;
 const { climateChampionDetail } = Astro.params;
-const champion = climateChampionsJSON.find(
-  (champion) => champion.slug === climateChampionDetail
-);
 
 if (!champion) {
   throw new Error(`Climate champion with slug ${climateChampionDetail} not found`);
