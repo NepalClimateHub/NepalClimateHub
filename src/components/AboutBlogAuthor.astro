@@ -16,7 +16,7 @@ interface Props {
 const { authorName, authorImageUrl, authorBio, authorDescription, socials } = Astro.props;
 ---
 
-<section class="author-section">
+<div class="author-section">
   <h2 class="section-title">About Author</h2>
 
   <div class="author-container">
@@ -41,8 +41,26 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
         <!-- Social links -->
         <address class="author-socials">
           {socials?.linkedin && (
-            <a target="_blank" href={socials?.linkedin} aria-label="LinkedIn">
-              <img src={linkedinIcon.src} alt="" />
+            <a
+              href={socials.linkedin}
+              class="social-link"
+              aria-label="LinkedIn profile"
+              target="_blank"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="3 3 18 18"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM8 7C8.55228 7 9 7.44772 9 8V8.01C9 8.56228 8.55228 9.01 8 9.01C7.44772 9.01 7 8.56228 7 8.01V8C7 7.44772 7.44772 7 8 7ZM8 10C8.55228 10 9 10.4477 9 11V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V11C7 10.4477 7.44772 10 8 10ZM11 16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13C13 12.7348 13.1054 12.4804 13.2929 12.2929C13.4804 12.1054 13.7348 12 14 12C14.2652 12 14.5196 12.1054 14.7071 12.2929C14.8946 12.4804 15 12.7348 15 13V16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16V13C17 12.2043 16.6839 11.4413 16.1213 10.8787C15.5587 10.3161 14.7957 10 14 10C13.5483 10 13.1071 10.1019 12.7071 10.2929C12.5261 10.1119 12.2761 10 12 10C11.4477 10 11 10.4477 11 11V16Z"
+                  fill="currentColor"
+                />
+              </svg>
             </a>
           )}
         </address>
@@ -54,7 +72,7 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
       <p>{authorDescription}</p>
     </div>
   </div>
-</section>
+</div>
 
 <style>
 /* Section */
@@ -68,15 +86,14 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   font-size: 32px;
   font-weight: 600;
   color: #1A1B1E;
-  margin-bottom: 24px;
 }
 
 /* Container */
 .author-container {
   display: flex;
-  gap: 40px;
+  gap: 32px;
   align-items: stretch;
-  padding: 40px;
+  padding: 24px 32px;
 }
 
 /* LEFT SIDE */
@@ -107,7 +124,7 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
 .author-details {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   border-right: 1px solid #5b5b5cb2;
   padding-right: 40px;
 }
@@ -116,7 +133,6 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 16px;
 }
 
 .author-name {
@@ -140,9 +156,17 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   gap: 12px;
 }
 
-.author-socials img {
+.author-socials .social-link {
   width: 32px;
   height: 32px;
+}
+
+.author-socials .social-link svg {
+  color: #1A1B1E;
+}
+
+.author-socials .social-link:active svg {
+  color: #0072b1;
 }
 
 /* Separator */
@@ -162,14 +186,52 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   color: #1A1B1E;
   margin: 0;
   line-height: 24px;
+  font-size: 18px;
 }
+
+@media screen  and (max-width: 1024px) {
+  .author-section {
+    gap: 8px;
+  }
+
+  .section-title{
+    margin-bottom: 0;
+  }
+
+  .author-container {
+    gap: 16px;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 1px solid #5b5b5cb2;
+    padding-right: 16px;
+  }
+
+  .author-image-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .author-details {
+    gap: 8px;
+  }
+
+  .author-description p {
+    font-size: 16px;
+  }
+}
+
 
 @media screen and (max-width: 830px){
     .author-details{
         border-right: none;
-        padding-right: 0px;
+        padding: 0px;
     }
-
     .author-container {
     flex-direction: column;
     }

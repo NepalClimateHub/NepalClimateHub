@@ -31,7 +31,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
         );
 
   return (
-    <section className={styles.section}>
+    <div className={styles.sectionContainer}>
       <h2 className={styles.sectionTitle}>Browse by Category</h2>
 
       {/* Category Filter Buttons */}
@@ -63,6 +63,6 @@ export default function BlogCategoryFilter({ blogs }: Props) {
       ) : (
         <p className={styles.noResults}>No blogs found in this category.</p>
       )}
-    </section>
+    </div>
   );
 }

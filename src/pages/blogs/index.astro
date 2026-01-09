@@ -12,7 +12,9 @@ import BlogHighlights from "@components/BlogHighlights.astro";
 // Fetch blogs from API
 const { data: apiBlogs } = await fetchAllBlogs();
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const ua = Astro.request.headers.get("user-agent") ?? "";
+const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+
 
 const featuredBlogs: Blog[] | null = apiBlogs.filter((blog) => blog.isFeatured).slice(0, 1);
 const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
@@ -30,7 +32,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     </section>
 
     <section class="blogs-section">
-      <div class="blogs-container">
+      <div class="blogs-container section-container">
         <!-- Featured Post -->
         <div class="featured-post">
           <h2 class="section-title">Featured Post</h2>
@@ -48,7 +50,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
         </div>
 
         <!-- Latest Posts -->
-        {!isMobile && <BlogHighlights title="Latest Posts" blogs={latestBlogs} />}
+        <BlogHighlights title="Latest Posts" blogs={latestBlogs} />
       </div>
     </section>
 
@@ -68,7 +70,8 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   }
 
   .blogs-section {
-    padding: 24px 48px 48px;
+    padding-top: 24px;
+    margin-bottom: 80px
   }
 
   .blogs-container {
@@ -76,7 +79,6 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     max-width: 1280px;
-    margin: 0 auto;
   }
 
   .section-title {
@@ -141,7 +143,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   }
 
   .category-section {
-    margin-bottom: 80px;
+    margin-bottom: 32px;
   }
 
   .no-blogs {
@@ -156,13 +158,19 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   .footer-section {
     background-color: #1a1b1e;
     color: white;
+    margin-top: 80px;
   }
 
   /* Responsive styles */
   @media screen and (max-width: 1024px) {
+    .blogs-section {
+      margin-bottom: 32px;
+    }
+  
     .blogs-container {
       grid-template-columns: 1fr;
       gap: 48px;
+      margin: 24px auto 32px auto;
     }
 
     .featured-card-wrapper {
@@ -171,6 +179,10 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 
     .featured-card-wrapper {
       min-height: 250px;
+    }
+
+    .footer-section {
+      margin-top: 32px;
     }
   }
 
