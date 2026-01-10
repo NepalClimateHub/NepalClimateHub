@@ -19,21 +19,28 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+// Add getStaticPaths for static generation
+export async function getStaticPaths() {
+  try {
+    const response = await fetchAllBlogs();
+    const allBlogs = response.data || [];
+    
+    return allBlogs.map((blog: apiBlog) => ({
+      params: { detail: createSlug(blog.title) },
+      props: { apiBlog: blog, allBlogs }
+    }));
+  } catch (error) {
+    console.error('Error fetching blogs for static paths:', error);
+    return [];
+  }
+}
+
 const ua = Astro.request.headers.get("user-agent") ?? "";
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
+// Get the props passed from getStaticPaths
+const { apiBlog, allBlogs } = Astro.props;
 const { detail } = Astro.params;
-
-let apiBlog: apiBlog | null = null;
-let allBlogs: apiBlog[] = [];
-
-try {
-  const response = await fetchAllBlogs();
-  allBlogs = response.data || [];
-  apiBlog = allBlogs.find((blog) => createSlug(blog.title) === detail) || null;
-} catch (error) {
-  console.error("Error fetching blogs:", error);
-}
 
 if (!apiBlog) {
   throw new Error(`Blog with slug ${detail} not found`);
