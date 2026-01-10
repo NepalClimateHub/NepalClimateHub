@@ -58,11 +58,44 @@ jobs:
 
       - name: Deploy to Web Server Directory
         run: |
-          echo "Deploying Astro SSR build..."
+          echo "Deploying Astro static build..."
           # Create deployment directory
           mkdir -p /home/azureuser/nch-website
           # Copy files
           cp -rv ./build/* /home/azureuser/nch-website/
-          # Restart the service
+
+          # Create a startup script that sources NVM and runs pnpm preview
+          cat > /home/azureuser/nch-website/start.sh << 'EOF'
+          #!/bin/bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          cd /home/azureuser/nch-website
+          pnpm preview --host 0.0.0.0 --port 4321
+          EOF
+          chmod +x /home/azureuser/nch-website/start.sh
+
+          # Update systemd service file
+          sudo tee /etc/systemd/system/nch-website.service > /dev/null << 'EOF'
+          [Unit]
+          Description=Nepal Climate Hub Website (Astro)
+          After=network.target
+
+          [Service]
+          Type=simple
+          User=azureuser
+          WorkingDirectory=/home/azureuser/nch-website
+          ExecStart=/bin/bash /home/azureuser/nch-website/start.sh
+          Restart=always
+          RestartSec=10
+          StandardOutput=journal
+          StandardError=journal
+          Environment=NODE_ENV=production
+
+          [Install]
+          WantedBy=multi-user.target
+          EOF
+
+          # Reload systemd and restart the service
+          sudo systemctl daemon-reload
           sudo systemctl restart nch-website
           sudo systemctl status nch-website
