@@ -37,7 +37,17 @@ if (!apiBlog) {
   throw new Error(`Blog with slug ${detail} not found`);
 }
 
-const topReads = allBlogs.slice(0, 3);
+const topReads = function () {
+  let result: apiBlog[] = []
+
+  for(let i = 0; result.length < 3; i++) {
+    if (allBlogs[i].id === apiBlog.id) {
+      continue
+    }
+    result.push(allBlogs[i])
+  }
+  return result;
+}();
 
 const blogDetail = {
   ...apiBlog,
@@ -52,9 +62,13 @@ const blogDetail = {
 };
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-const metaDescription =
-  `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
-  `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
+const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
+const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const metaUrl = `${siteUrl}${fullPath}`;
 
 const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
   blogDetail.author
@@ -68,6 +82,8 @@ const socials = {
 <BaseLayout
   title={`${blogDetail.title} | Nepal Climate Hub`}
   description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
 >
   <main class="main-container">
 
@@ -83,7 +99,6 @@ const socials = {
 
     <!-- Blog Detail Section -->
     <section class="blog-detail-section">
-      <div class="blog-container">
 
         <!-- Blog Header -->
         <header class="blog-header section-container">
@@ -121,10 +136,10 @@ const socials = {
             <h2 class="sidebar-title">Stay Connected</h2>
             <EmailSubscriptionForm formBtnVariant="primary" />
           </div>)}
-
+          
           <section class="top-reads-section">
             <BlogHighlights title="Top Reads" blogs={topReads} />
-          </section>             
+          </section>         
 
           {blogDetail.tags.length > 0 && (
             <div class="sidebar-section">
@@ -148,8 +163,7 @@ const socials = {
               socials={socials}
             />
           </div>
-      </div>
-    </section>
+        </section>
 
     <!-- Footer -->
     <section class="footer-section">
@@ -178,10 +192,6 @@ section {
   padding-bottom: 80px;
 }
 
-.blog-container {
-  width: 100%;
-}
-
 .blog-header {
   margin-bottom: 16px;
 }
@@ -208,6 +218,9 @@ section {
   flex-direction: column;
   gap: 32px;
   margin-bottom: 40px;
+  /* position: sticky;
+  top: 16px;
+  align-self: flex-start; */
 }
 
 .sidebar-section {
