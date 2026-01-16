@@ -1,31 +1,34 @@
-import type { Event, EventResponse } from '../types/event';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import type { Event, EventResponse } from "../types/event";
+import { API_BASE_URL, ApiError, handleResponse } from "./index";
 
 export const fetchEvents = async (): Promise<EventResponse> => {
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
-      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+      "API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables."
     );
   }
 
   try {
     const url = `${API_BASE_URL}/api/v1/events`;
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
       },
+      cache: "no-store",
     });
     return handleResponse<EventResponse>(response);
   } catch (error) {
-    console.error('Error fetching events:', error);
+    console.error("Error fetching events:", error);
     if (error instanceof ApiError) {
       throw error;
     }
     // Check if it's a fetch error (usually means URL is invalid or network issue)
-    if (error instanceof Error && error.message.includes('fetch failed')) {
+    if (error instanceof Error && error.message.includes("fetch failed")) {
       throw new ApiError(
         500,
         `Failed to fetch events data: Invalid API URL or network error. API_BASE_URL: ${API_BASE_URL}`
@@ -33,7 +36,9 @@ export const fetchEvents = async (): Promise<EventResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch events data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch events data: ${
+        error instanceof Error ? error.message : "Unknown error"
+      }`
     );
   }
 };
@@ -46,7 +51,7 @@ export const fetchEventById = async (
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
-      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+      "API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables."
     );
   }
 
@@ -61,7 +66,9 @@ export const fetchEventById = async (
     }
     throw new ApiError(
       500,
-      `Failed to fetch event with ID ${id}: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch event with ID ${id}: ${
+        error instanceof Error ? error.message : "Unknown error"
+      }`
     );
   }
 };
