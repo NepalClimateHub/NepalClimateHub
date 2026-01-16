@@ -16,10 +16,7 @@ export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
       },
-      cache: "no-store",
     });
     return handleResponse<OpportunityResponse>(response);
   } catch (error) {

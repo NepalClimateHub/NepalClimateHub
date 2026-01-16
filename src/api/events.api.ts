@@ -16,10 +16,7 @@ export const fetchEvents = async (): Promise<EventResponse> => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
       },
-      cache: "no-store",
     });
     return handleResponse<EventResponse>(response);
   } catch (error) {
