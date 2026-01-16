@@ -10,32 +10,25 @@ import type { Event as ApiEvent } from '../../types/event';
 import { fetchEvents } from '../../api';
 import { createSlug } from '../../utils/slug';
 
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
+
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
-// Add getStaticPaths for static generation
-export async function getStaticPaths() {
-  try {
-    const response = await fetchEvents();
-    const allEvents = response.data || [];
-    
-    return allEvents.map((event: ApiEvent) => ({
-      params: { eventDetail: createSlug(event.title) },
-      props: { apiEvent: event, allEvents }
-    }));
-  } catch (error) {
-    console.error('Error fetching events for static paths:', error);
-    return [];
-  }
-}
-
-// Get the props passed from getStaticPaths
-const { apiEvent, allEvents } = Astro.props;
+// Fetch data at runtime
 const { eventDetail } = Astro.params;
 
+// Fetch all events to find the matching one
+const response = await fetchEvents();
+const allEvents = response.data || [];
+
+// Find the event that matches the slug
+const apiEvent = allEvents.find((event: ApiEvent) => createSlug(event.title) === eventDetail);
+
 if (!apiEvent) {
-  throw new Error(`Event with slug ${eventDetail} not found`);
+  return Astro.redirect("/404");
 }
 
 const eventData = {

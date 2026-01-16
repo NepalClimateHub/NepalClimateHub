@@ -13,28 +13,21 @@ import type {
 import { fetchOpportunities } from '../../api';
 import { createSlug } from '../../utils/slug';
 
-// Add getStaticPaths for static generation
-export async function getStaticPaths() {
-  try {
-    const response = await fetchOpportunities();
-    const allOpportunities = response.data || [];
-    
-    return allOpportunities.map((opportunity: ApiOpportunity) => ({
-      params: { detail: createSlug(opportunity.title) },
-      props: { apiOpportunity: opportunity, allOpportunities }
-    }));
-  } catch (error) {
-    console.error('Error fetching opportunities for static paths:', error);
-    return [];
-  }
-}
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
 
-// Get the props passed from getStaticPaths
-const { apiOpportunity, allOpportunities } = Astro.props;
+// Fetch data at runtime
 const { detail } = Astro.params;
 
+// Fetch all opportunities to find the matching one
+const response = await fetchOpportunities();
+const allOpportunities = response.data || [];
+
+// Find the opportunity that matches the slug
+const apiOpportunity = allOpportunities.find((opportunity: ApiOpportunity) => createSlug(opportunity.title) === detail);
+
 if (!apiOpportunity) {
-  throw new Error(`Opportunity with slug ${detail} not found`);
+  return Astro.redirect("/404");
 }
 
 const opportunityDetail = {
