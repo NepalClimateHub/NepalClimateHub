@@ -12,6 +12,9 @@ import BlogHighlights from "@components/BlogHighlights.astro";
 import AuthorInfoandShareBlog from "@components/AuthorInfoandShareBlog.astro";
 import AboutBlogAuthor from "@components/AboutBlogAuthor.astro";
 
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
+
 function stripHtml(html: string): string {
   return html
     .replace(/<[^>]*>/g, "")
@@ -19,31 +22,21 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-// Add getStaticPaths for static generation
-export async function getStaticPaths() {
-  try {
-    const response = await fetchAllBlogs();
-    const allBlogs = response.data || [];
-    
-    return allBlogs.map((blog: apiBlog) => ({
-      params: { detail: createSlug(blog.title) },
-      props: { apiBlog: blog, allBlogs }
-    }));
-  } catch (error) {
-    console.error('Error fetching blogs for static paths:', error);
-    return [];
-  }
-}
-
 const ua = Astro.request.headers.get("user-agent") ?? "";
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
-// Get the props passed from getStaticPaths
-const { apiBlog, allBlogs } = Astro.props;
+// Fetch data at runtime
 const { detail } = Astro.params;
 
+// Fetch all blogs to find the matching one
+const response = await fetchAllBlogs();
+const allBlogs = response.data || [];
+
+// Find the blog that matches the slug
+const apiBlog = allBlogs.find((blog: apiBlog) => createSlug(blog.title) === detail);
+
 if (!apiBlog) {
-  throw new Error(`Blog with slug ${detail} not found`);
+  return Astro.redirect("/404");
 }
 
 const topReads = allBlogs.slice(0, 3);
