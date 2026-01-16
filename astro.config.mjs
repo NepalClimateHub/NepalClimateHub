@@ -9,7 +9,7 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   site: "https://nepalclimatehub.org",
-  output: "dynamic",
+  output: "server",
   i18n: {
     defaultLocale: "en",
     locales: ["es", "en"],
