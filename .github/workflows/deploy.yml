@@ -7,8 +7,9 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    if: github.event_name == 'push'
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Repository
@@ -33,69 +34,17 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: |
-            dist/
-            node_modules/
-            package.json
-            pnpm-lock.yaml
-            .env
-
-  deploy:
-    needs: build
-    if: github.event_name == 'push'
-    runs-on: self-hosted
-
-    steps:
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: ./build
-
       - name: Deploy to Web Server Directory
         run: |
           echo "Deploying Astro static build..."
+          # Deploy directory
+          DEPLOY_DIR="/var/www/nepalclimatehub"
+
           # Create deployment directory
-          mkdir -p /home/azureuser/nch-website
-          # Copy files
-          cp -rv ./build/* /home/azureuser/nch-website/
+          sudo mkdir -p $DEPLOY_DIR
 
-          # Create a startup script that sources NVM and runs pnpm preview
-          cat > /home/azureuser/nch-website/start.sh << 'EOF'
-          #!/bin/bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          cd /home/azureuser/nch-website
-          pnpm preview --host 0.0.0.0 --port 4321
-          EOF
-          chmod +x /home/azureuser/nch-website/start.sh
+          # Copy built files to deployment directory
+          sudo cp -r dist/* $DEPLOY_DIR/
 
-          # Update systemd service file
-          sudo tee /etc/systemd/system/nch-website.service > /dev/null << 'EOF'
-          [Unit]
-          Description=Nepal Climate Hub Website (Astro)
-          After=network.target
-
-          [Service]
-          Type=simple
-          User=azureuser
-          WorkingDirectory=/home/azureuser/nch-website
-          ExecStart=/bin/bash /home/azureuser/nch-website/start.sh
-          Restart=always
-          RestartSec=10
-          StandardOutput=journal
-          StandardError=journal
-          Environment=NODE_ENV=production
-
-          [Install]
-          WantedBy=multi-user.target
-          EOF
-
-          # Reload systemd and restart the service
-          sudo systemctl daemon-reload
-          sudo systemctl restart nch-website
-          sudo systemctl status nch-website
+          # Set proper permissions
+          sudo chown -R azureuser:azureuser $DEPLOY_DIR
