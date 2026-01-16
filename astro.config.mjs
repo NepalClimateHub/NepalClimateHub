@@ -10,6 +10,10 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   site: "https://nepalclimatehub.org",
   output: "server",
+  server:{
+    port:4321,
+    host:true,
+  },
   i18n: {
     defaultLocale: "en",
     locales: ["es", "en"],
