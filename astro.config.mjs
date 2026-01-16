@@ -3,17 +3,13 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import net0Integration from "./toolbar/integration.ts";
-
-import netlify from "@astrojs/netlify";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://nepalclimatehub.org",
   output: "server",
-  server:{
-    port:4321,
-    host:true,
-  },
+  server: {},
   i18n: {
     defaultLocale: "en",
     locales: ["es", "en"],
