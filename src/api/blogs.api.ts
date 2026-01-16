@@ -16,10 +16,7 @@ export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
       },
-      cache: "no-store",
     });
     return handleResponse<BlogResponse>(response);
   } catch (error) {
@@ -58,10 +55,7 @@ export const fetchAllBlogs = async (): Promise<BlogResponse> => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
       },
-      cache: "no-store",
     });
     return handleResponse<BlogResponse>(response);
   } catch (error) {
