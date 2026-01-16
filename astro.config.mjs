@@ -18,7 +18,9 @@ export default defineConfig({
     },
   },
   integrations: [net0Integration, sitemap(), [icon()], react()],
-  adapter: netlify(),
+  adapter: node({
+    mode: "standalone",
+  }),
   vite: {
     envPrefix: "PUBLIC_",
     resolve: {
