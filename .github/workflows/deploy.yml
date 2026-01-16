@@ -34,17 +34,44 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Deploy to Web Server Directory
+      - name: Deploy and Restart Service
         run: |
-          echo "Deploying Astro static build..."
-          # Deploy directory
-          DEPLOY_DIR="/var/www/nepalclimatehub"
-
-          # Create deployment directory
-          sudo mkdir -p $DEPLOY_DIR
-
+          echo "Deploying Node.js server..."
+          
           # Copy built files to deployment directory
-          sudo cp -r dist/* $DEPLOY_DIR/
-
-          # Set proper permissions
+          DEPLOY_DIR="/var/www/nepalclimatehub"
+          sudo mkdir -p $DEPLOY_DIR
+          sudo cp -r dist/ $DEPLOY_DIR/
+          sudo cp -r node_modules/ $DEPLOY_DIR/
+          sudo cp package.json $DEPLOY_DIR/
+          sudo cp .env $DEPLOY_DIR/
           sudo chown -R azureuser:azureuser $DEPLOY_DIR
+          
+          # Create systemd service
+          sudo tee /etc/systemd/system/nch-website.service > /dev/null << 'EOF'
+          [Unit]
+          Description=Nepal Climate Hub Website
+          After=network.target
+
+          [Service]
+          Type=simple
+          User=azureuser
+          WorkingDirectory=/var/www/nepalclimatehub
+          ExecStart=/usr/bin/node /var/www/nepalclimatehub/dist/server/entry.mjs
+          Restart=always
+          RestartSec=10
+          StandardOutput=journal
+          StandardError=journal
+          Environment=NODE_ENV=production
+          Environment=HOST=0.0.0.0
+          Environment=PORT=4321
+
+          [Install]
+          WantedBy=multi-user.target
+          EOF
+          
+          # Reload and restart service
+          sudo systemctl daemon-reload
+          sudo systemctl enable nch-website
+          sudo systemctl restart nch-website
+          sudo systemctl status nch-website --no-pager
