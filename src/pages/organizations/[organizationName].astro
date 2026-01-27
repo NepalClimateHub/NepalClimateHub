@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import '../../styles/global.css';
 import ConnectCard from '../../components/ConnectCard.astro';
 import FeaturedOrganizationSection from '../../components/FeaturedOrganizationSection.astro';
@@ -9,10 +10,15 @@ import BaseLayout from '../../layouts/Layout.astro';
 
 import organizationsJSON from '../../data/organizations.json';
 
+export function getStaticPaths() {
+  return organizationsJSON.map((organization) => ({
+    params: { organizationName: organization.slug },
+    props: { organization },
+  }));
+}
+
 const { organizationName } = Astro.params;
-const organization = organizationsJSON.find(
-  (organization) => organization.slug === organizationName
-);
+const { organization } = Astro.props;
 
 if (!organization) {
   throw new Error(`Organization with slug ${organizationName} not found`);
