@@ -17,7 +17,13 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [net0Integration, sitemap(), [icon()], react()],
+  integrations: [net0Integration, sitemap({
+    customSitemaps: [
+      'https://nepalclimatehub.org/blogs/sitemap.xml',
+      'https://nepalclimatehub.org/opportunities/sitemap.xml',
+      'https://nepalclimatehub.org/events/sitemap.xml',
+    ]
+  }), [icon()], react()],
   adapter: netlify(),
   vite: {
     envPrefix: 'PUBLIC_',
