@@ -37,7 +37,7 @@ jobs:
       - name: Deploy and Restart Service
         run: |
           echo "Deploying Node.js server..."
-          
+
           # Copy built files to deployment directory
           DEPLOY_DIR="/var/www/nepalclimatehub"
           sudo mkdir -p $DEPLOY_DIR
@@ -46,9 +46,12 @@ jobs:
           sudo cp package.json $DEPLOY_DIR/
           sudo cp .env $DEPLOY_DIR/
           sudo chown -R azureuser:azureuser $DEPLOY_DIR
-          
+
+          # Get the actual node path
+          NODE_PATH=$(which node)
+
           # Create systemd service
-          sudo tee /etc/systemd/system/nch-website.service > /dev/null << 'EOF'
+          sudo tee /etc/systemd/system/nch-website.service > /dev/null << EOF
           [Unit]
           Description=Nepal Climate Hub Website
           After=network.target
@@ -57,7 +60,7 @@ jobs:
           Type=simple
           User=azureuser
           WorkingDirectory=/var/www/nepalclimatehub
-          ExecStart=/usr/bin/node /var/www/nepalclimatehub/dist/server/entry.mjs
+          ExecStart=$NODE_PATH /var/www/nepalclimatehub/dist/server/entry.mjs
           Restart=always
           RestartSec=10
           StandardOutput=journal
@@ -69,7 +72,7 @@ jobs:
           [Install]
           WantedBy=multi-user.target
           EOF
-          
+
           # Reload and restart service
           sudo systemctl daemon-reload
           sudo systemctl enable nch-website
