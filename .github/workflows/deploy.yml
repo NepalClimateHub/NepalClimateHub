@@ -36,6 +36,10 @@ jobs:
           # Copy built files to deployment directory
           DEPLOY_DIR="/var/www/nepalclimatehub"
           sudo mkdir -p $DEPLOY_DIR
+
+          # Remove old node_modules to avoid pnpm/npm conflicts
+          sudo rm -rf $DEPLOY_DIR/node_modules
+
           sudo cp -r dist/ $DEPLOY_DIR/
           sudo cp -r node_modules/ $DEPLOY_DIR/
           sudo cp package.json $DEPLOY_DIR/
