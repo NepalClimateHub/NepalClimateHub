@@ -14,7 +14,7 @@ const { title, blogs} = Astro.props;
 <div class="blog-list">
   <h2 class="section-title">{title}</h2>
 
-    <div class="blog-cards-wrapper">
+    <div class="blog-cards-grid">
       {blogs.map((blog) => (
         <BlogCard
           client:load
@@ -38,7 +38,7 @@ const { title, blogs} = Astro.props;
     margin: 0 0 16px 0;
   }
 
-  .blog-cards-wrapper {
+  .blog-cards-grid {
     display: flex;
     flex-direction: column;
     gap: 16px;
