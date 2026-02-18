@@ -59,6 +59,10 @@ const blogDetail = {
   readingTime: apiBlog.readingTime || '5 minutes',
   publishedDate: apiBlog.publishedDate || new Date().toISOString(),
   tags: apiBlog.tags || [],
+  authorImage: apiBlog.authorUser?.profilePhotoUrl,
+  authorLinkedin: apiBlog.authorUser?.linkedin,
+  authorBio: apiBlog.authorUser?.bio,
+  authorRole: apiBlog.authorUser?.currentRole
 };
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
@@ -73,10 +77,6 @@ const metaUrl = `${siteUrl}${fullPath}`;
 const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
   blogDetail.author
 )}&background=1a1b1e&color=cefe00&size=72`;
-
-const socials = {
-  linkedin: 'https://www.linkedin.com/',
-};
 ---
 
 <BaseLayout
@@ -105,7 +105,7 @@ const socials = {
           <h1 class="blog-title">{blogDetail.title}</h1>
           <AuthorInfoandShareBlog
             authorName={blogDetail.author}
-            authorImageUrl={blogDetail.authorImageUrl || ''}
+            authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
             date={blogDetail.publishedDate}
             readTime={blogDetail.readingTime}
           />
@@ -125,10 +125,10 @@ const socials = {
           <div id="author-section-top" class="author-section">
             <AboutBlogAuthor
               authorName={blogDetail.author}
-              authorImageUrl={defaultAuthorImage}
-              authorBio="Climate Storyteller at Nepal Climate Hub"
-              authorDescription="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
-              socials={socials}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
             />
           </div>
 
@@ -154,15 +154,19 @@ const socials = {
           </aside>
         </div>
         
-          <div id="author-section-bottom" class="section-container author-section">
+          {
+            apiBlog.authorUser && (
+            <div id="author-section-bottom" class="section-container author-section">
             <AboutBlogAuthor
               authorName={blogDetail.author}
-              authorImageUrl={defaultAuthorImage}
-              authorBio="Climate Storyteller at Nepal Climate Hub"
-              authorDescription="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
-              socials={socials}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
             />
           </div>
+            )
+          }
         </section>
 
     <!-- Footer -->

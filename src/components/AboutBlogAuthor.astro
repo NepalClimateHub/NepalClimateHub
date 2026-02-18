@@ -4,16 +4,12 @@ import linkedinIcon from '../assets/icons/IconLinkedin.png';
 interface Props {
   authorName: string;
   authorImageUrl?: string;
+  authorRole?: string;
   authorBio?: string;
-  authorDescription?: string;
-  socials?: {
-    facebook?: string;
-    linkedin?: string;
-    instagram?: string;
-  };
+  authorLinkedin?: string;
 }
 
-const { authorName, authorImageUrl, authorBio, authorDescription, socials } = Astro.props;
+const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = Astro.props;
 ---
 
 <div class="author-section">
@@ -35,14 +31,14 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
           <!-- Name -->
           <div class="author-name">{authorName}</div>
           <!-- Bio -->
-          {authorBio && <div class="author-bio">{authorBio}</div>}
+          {authorRole && <div class="author-role">{authorRole}</div>}
         </header>
 
         <!-- Social links -->
         <address class="author-socials">
-          {socials?.linkedin && (
+          {authorLinkedin && (
             <a
-              href={socials.linkedin}
+              href={authorLinkedin}
               class="social-link"
               aria-label="LinkedIn profile"
               target="_blank"
@@ -68,8 +64,8 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
     </aside>
 
     <!-- Author description -->
-    <div class="author-description">
-      <p>{authorDescription}</p>
+    <div class="author-bio">
+      <p>{authorBio}</p>
     </div>
   </div>
 </div>
@@ -143,7 +139,7 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   margin-bottom: 4px;
 }
 
-.author-bio {
+.author-role {
   font-size: 16px;
   font-weight: 400;
   color: #1A1B1EB2;
@@ -176,7 +172,7 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
 }
 
 /* RIGHT SIDE */
-.author-description {
+.author-bio {
   flex-basis: 70%;
 }
 
@@ -221,7 +217,7 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
     gap: 8px;
   }
 
-  .author-description p {
+  .author-bio p {
     font-size: 16px;
   }
 }

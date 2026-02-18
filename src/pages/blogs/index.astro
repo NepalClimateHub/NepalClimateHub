@@ -32,7 +32,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     </section>
 
     <section class="blogs-section">
-      <div class="blogs-container section-container">
+      <div class="blogs-container">
         <!-- Featured Post -->
         <div class="featured-post">
           <h2 class="section-title">Featured Post</h2>
@@ -164,13 +164,13 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   /* Responsive styles */
   @media screen and (max-width: 1024px) {
     .blogs-section {
-      margin-bottom: 32px;
+      margin-bottom: 0;
     }
   
     .blogs-container {
       grid-template-columns: 1fr;
       gap: 48px;
-      margin: 24px auto 32px auto;
+      margin: 24px auto 0 auto;
     }
 
     .featured-card-wrapper {
@@ -192,7 +192,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     }
 
     .blogs-section {
-      padding: 16px 24px 32px;
+      padding: 16px 24px 16px 24px;
     }
 
     .blogs-container {
