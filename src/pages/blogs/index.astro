@@ -5,7 +5,7 @@ import Header from "../../components/Header.astro";
 import BlogCard from "../../components/BlogCard";
 import BlogCategoryFilter from "../../components/BlogCategoryFilter.tsx";
 import BaseLayout from "../../layouts/Layout.astro";
-import { fetchAllBlogs } from "../../api";
+import { fetchAllBlogs, getFeaturedPost } from "../../api";
 import type { Blog } from "../../types/blog";
 import BlogHighlights from "@components/BlogHighlights.astro";
 
@@ -16,7 +16,7 @@ const ua = Astro.request.headers.get("user-agent") ?? "";
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 
-const featuredBlogs: Blog[] | null = apiBlogs.filter((blog) => blog.isFeatured).slice(0, 1);
+const featuredBlog = await getFeaturedPost();
 const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 ---
 
@@ -36,11 +36,11 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
         <!-- Featured Post -->
         <div class="featured-post">
           <h2 class="section-title">Featured Post</h2>
-          {featuredBlogs ? (
+          {featuredBlog ? (
             <div class="featured-card-wrapper">
               <BlogCard
                 client:load
-                blog={featuredBlogs[0]}
+                blog={featuredBlog}
                 cardType='featured'
               />
             </div>
@@ -71,7 +71,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 
   .blogs-section {
     padding-top: 24px;
-    margin-bottom: 80px
+    margin-bottom: 80px;
   }
 
   .blogs-container {
@@ -79,6 +79,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     max-width: 1280px;
+    margin: 0 auto;
   }
 
   .section-title {

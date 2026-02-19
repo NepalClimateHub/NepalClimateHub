@@ -12,7 +12,7 @@ import thesisThumbnail from '../assets/thesis.png';
 import toolkitsGuidesThumbnail from '../assets/toolkits-guides.png';
 import defaultThumbnail from '../assets/documentary.png';
 import youtubePlayButton from '../assets/youtube-play-button.png';
-import youtubeLogo from '../assets/youtubeLogo.png'
+import youtubeLogo from '../assets/youtubeLogo.png';
 
 interface CardProps<T = any> {
   data: T;

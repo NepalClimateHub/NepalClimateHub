@@ -1,15 +1,15 @@
-import type { Blog } from "../types/blog";
-import { createSlug } from "../utils/slug";
-import styles from "../styles/components/Blogs.module.css";
+import type { Blog } from '../types/blog';
+import { createSlug } from '../utils/slug';
+import styles from '../styles/components/Blogs.module.css';
 
 export interface BlogCardProps {
   blog: Blog;
-  cardType?: "default" | "highlight" | "featured";
+  cardType?: 'default' | 'highlight' | 'featured';
 }
 
 export default function BlogCard({
   blog,
-  cardType = "default",
+  cardType = 'default',
 }: BlogCardProps) {
   const {
     bannerImageUrl,
@@ -23,10 +23,10 @@ export default function BlogCard({
   } = blog;
 
   // Format the posted date
-  const formattedDate = new Date(publishedDate).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
+  const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
   });
 
   const slug = createSlug(title);
@@ -36,16 +36,16 @@ export default function BlogCard({
 
   // Determine classes based on cardType
   const cardClass =
-    cardType === "highlight"
+    cardType === 'highlight'
       ? styles.blogCardHighlight
-      : cardType === "featured"
+      : cardType === 'featured'
         ? styles.blogCardFeatured
         : styles.blogCard;
 
   const imageContainerClass =
-    cardType === "highlight"
+    cardType === 'highlight'
       ? styles.imageContainerHighlight
-      : cardType === "featured"
+      : cardType === 'featured'
         ? styles.imageContainerFeatured
         : styles.imageContainer;
 
@@ -58,9 +58,9 @@ export default function BlogCard({
       <article className={cardClass}>
         <figure className={imageContainerClass}>
           <img src={bannerImageUrl} alt={title} className={styles.blogImage} />
-          {cardType !== "highlight" && (
+          {cardType !== 'highlight' && (
             <span className={styles.blogTag}>
-              {category?.replaceAll("-", " ")}
+              {category?.replaceAll('-', ' ')}
             </span>
           )}
         </figure>
@@ -68,12 +68,12 @@ export default function BlogCard({
         <div className={styles.blogContent}>
           <h3 className={styles.blogTitle}>{title}</h3>
 
-          {cardType !== "highlight" && (
+          {cardType !== 'highlight' && (
             <p className={styles.blogExcerpt}>{excerpt}</p>
           )}
 
           <div className={styles.authorSection}>
-            {cardType !== "highlight" && (
+            {cardType !== 'highlight' && (
               <img
                 src={authorUser?.profilePhotoUrl || defaultAuthorImage}
                 alt={`${author}'s profile picture`}
@@ -82,7 +82,7 @@ export default function BlogCard({
             )}
             <div className={styles.authorInfo}>
               <span className={styles.authorName}>
-                {cardType !== "highlight" ? author : `By ${author}`}
+                {cardType !== 'highlight' ? author : `By ${author}`}
               </span>
               <div className={styles.dateTime}>
                 <time className={styles.date} dateTime={publishedDate}>
