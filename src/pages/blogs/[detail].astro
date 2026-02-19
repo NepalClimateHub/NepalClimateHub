@@ -3,8 +3,7 @@ import '../../styles/global.css';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import { fetchAllBlogs } from '../../api';
-import { createSlug } from '../../utils/slug';
+import { getBlog, getTopReadPosts } from '../../api';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
 import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
 import type { Blog as apiBlog } from 'src/types/blog';
@@ -21,44 +20,27 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 const { detail } = Astro.params;
 
-let apiBlog: apiBlog | null = null;
-let allBlogs: apiBlog[] = [];
-
-try {
-  const response = await fetchAllBlogs();
-  allBlogs = response.data || [];
-  apiBlog =
-    allBlogs.find((blog) => createSlug(blog.title) === detail) || null;
-} catch (error) {
-  console.error('Error fetching blogs:', error);
+if (!detail) {
+  throw new Error('Blog detail parameter is required');
 }
+
+const apiBlog = await getBlog(detail);
+const topReads = await getTopReadPosts();
 
 if (!apiBlog) {
-  throw new Error(`Blog with slug ${detail} not found`);
+  return new Response(null, { status: 404 });
 }
-
-const topReads = function () {
-  let result: apiBlog[] = []
-
-  for(let i = 0; result.length < 3; i++) {
-    if (allBlogs[i].id === apiBlog.id) {
-      continue
-    }
-    result.push(allBlogs[i])
-  }
-  return result;
-}();
 
 const blogDetail = {
   ...apiBlog,
-  bannerImage: apiBlog.bannerImageUrl || '/placeholder.svg',
-  content: apiBlog.content || '',
-  excerpt: apiBlog.excerpt || '',
-  author: apiBlog.author || 'Unknown Author',
-  category: apiBlog.category || 'General',
-  readingTime: apiBlog.readingTime || '5 minutes',
-  publishedDate: apiBlog.publishedDate || new Date().toISOString(),
-  tags: apiBlog.tags || [],
+  bannerImage: apiBlog.bannerImageUrl,
+  content: apiBlog.content,
+  excerpt: apiBlog.excerpt,
+  author: apiBlog.author,
+  category: apiBlog.category,
+  readingTime: apiBlog.readingTime,
+  publishedDate: apiBlog.publishedDate,
+  tags: apiBlog.tags,
   authorImage: apiBlog.authorUser?.profilePhotoUrl,
   authorLinkedin: apiBlog.authorUser?.linkedin,
   authorBio: apiBlog.authorUser?.bio,

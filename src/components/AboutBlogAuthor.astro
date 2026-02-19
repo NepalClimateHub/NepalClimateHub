@@ -96,8 +96,10 @@ const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = As
 .author-meta {
   display: flex;
   gap: 16px;
-  min-width: 260px;
+  width: 260px;
+  flex-basis: 30%;
   align-items: flex-start;
+  border-right: 1px solid #5b5b5cb2;
 }
 
 /* Image */
@@ -121,7 +123,6 @@ const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = As
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-right: 1px solid #5b5b5cb2;
   padding-right: 40px;
 }
 
@@ -165,7 +166,7 @@ const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = As
 
 /* RIGHT SIDE */
 .author-bio {
-  flex-basis: 70%;
+  flex: 1;
 }
 
 .author-description p {
@@ -196,7 +197,6 @@ const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = As
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-right: 1px solid #5b5b5cb2;
     padding-right: 16px;
   }
 
@@ -216,7 +216,7 @@ const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = As
 
 
 @media screen and (max-width: 830px){
-    .author-details{
+    .author-meta{
         border-right: none;
         padding: 0px;
     }

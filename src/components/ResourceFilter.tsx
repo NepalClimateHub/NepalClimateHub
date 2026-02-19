@@ -138,13 +138,13 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
             className={styles.filterIcon}
           />
         </button>
-        <div className={styles.totalCount}>Total: {filteredResources.length}</div>
+        <div className={styles.totalCount}>
+          Total: {filteredResources.length}
+        </div>
       </div>
 
       <aside
-        className={`${
-          styles.sidebar
-        } ${
+        className={`${styles.sidebar} ${
           isMobileFilterOpen
             ? styles.mobileFilterOpen
             : styles.mobileFilterClosed

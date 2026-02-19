@@ -38,7 +38,8 @@ const Pagination: React.FC<PaginationProps> = ({
 
       // Add the pages in the current range
       for (let i = start; i <= end; i++) {
-        if (i !== 1 && i !== totalPages) { // Don't duplicate 1 or totalPages
+        if (i !== 1 && i !== totalPages) {
+          // Don't duplicate 1 or totalPages
           pages.push(i);
         }
       }
@@ -97,7 +98,9 @@ const Pagination: React.FC<PaginationProps> = ({
         className={`${styles.pageButton} ${styles.arrowButton} ${
           currentPage === totalPages ? styles.disabled : ''
         }`}
-        onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
+        onClick={() =>
+          currentPage < totalPages && onPageChange(currentPage + 1)
+        }
         disabled={currentPage === totalPages}
         aria-label="Next page"
       >
