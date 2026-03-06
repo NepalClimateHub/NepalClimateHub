@@ -6,7 +6,21 @@ import CardFilterSection from '../layouts/CardFilterSection.astro';
 import ResourceFilter from '../components/ResourceFilter';
 import BaseLayout from '../layouts/Layout.astro';
 import Loader from '../components/Loader.astro';
-import resourceJSON from '../data/resources.json';
+import { fetchAllResources } from '../api';
+
+// Fetch resources from API
+const { data: apiResources } = await fetchAllResources();
+
+// Transform API data to match the expected Resource interface
+const resources = apiResources.map(resource => ({
+  id: parseInt(resource.id, 10),
+  title: resource.title,
+  description: resource.overview,
+  href: resource.link,
+  type: resource.type,
+  level: resource.level,
+  bannerImageUrl: resource.bannerImageUrl,
+}));
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -24,7 +38,7 @@ import resourceJSON from '../data/resources.json';
       </section>
 
       <section class="resource-cards-section">
-        <ResourceFilter client:load resources={resourceJSON} />
+        <ResourceFilter client:load resources={resources} />
       </section>
     </div>
 
