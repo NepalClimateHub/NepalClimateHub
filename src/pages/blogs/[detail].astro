@@ -3,13 +3,13 @@ import '../../styles/global.css';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import { getBlog, getTopReadPosts } from '../../api';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
 import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
 import type { Blog as apiBlog } from 'src/types/blog';
 import BlogHighlights from '@components/BlogHighlights.astro';
 import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
 import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+import { getBlog, getTopReadPosts } from '../../api';
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
@@ -41,20 +41,12 @@ const blogDetail = {
   readingTime: apiBlog.readingTime,
   publishedDate: apiBlog.publishedDate,
   tags: apiBlog.tags,
-  authorImage: apiBlog.authorUser?.profilePhotoUrl,
-  authorLinkedin: apiBlog.authorUser?.linkedin,
-  authorBio: apiBlog.authorUser?.bio,
-  authorRole: apiBlog.authorUser?.currentRole
 };
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-const pathname = Astro.url.pathname;
-const search = Astro.url.search;
-const hash = Astro.url.hash;
-const fullPath = `${pathname}${search}${hash}`;
-const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
-const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.`;
-const metaUrl = `${siteUrl}${fullPath}`;
+const metaDescription =
+  `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
+  `Read about ${blogDetail.title} on Nepal Climate Hub.`;
 
 const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
   blogDetail.author
@@ -64,8 +56,6 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
 <BaseLayout
   title={`${blogDetail.title} | Nepal Climate Hub`}
   description={metaDescription}
-  ogImage={metaImage}
-  ogUrl={metaUrl}
 >
   <main class="main-container">
 
@@ -81,13 +71,14 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
 
     <!-- Blog Detail Section -->
     <section class="blog-detail-section">
+      <div class="blog-container">
 
         <!-- Blog Header -->
         <header class="blog-header section-container">
           <h1 class="blog-title">{blogDetail.title}</h1>
           <AuthorInfoandShareBlog
             authorName={blogDetail.author}
-            authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+            authorImageUrl={blogDetail.authorUser?.profilePhotoUrl || ''}
             date={blogDetail.publishedDate}
             readTime={blogDetail.readingTime}
           />
@@ -107,49 +98,52 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
           <div id="author-section-top" class="author-section">
             <AboutBlogAuthor
               authorName={blogDetail.author}
-              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
-              authorRole={blogDetail.authorRole}
-              authorBio={blogDetail.authorBio}
-              authorLinkedin={blogDetail.authorLinkedin}
+              authorImageUrl={defaultAuthorImage}
+              authorRole="Climate Storyteller at Nepal Climate Hub"
+              authorBio="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
+              authorLinkedin={blogDetail.authorUser?.linkedin}    
             />
           </div>
 
-          {!isMobile && (<div class="sidebar-section stay-connected">
-            <h2 class="sidebar-title">Stay Connected</h2>
-            <EmailSubscriptionForm formBtnVariant="primary" />
-          </div>)}
-          
           <section class="top-reads-section">
             <BlogHighlights title="Top Reads" blogs={topReads} />
-          </section>         
+           </section>             
+          
+          {!isMobile && (<div class="sidebar-section stay-connected">
+                <h2 class="sidebar-title">Stay Connected</h2>
+                <EmailSubscriptionForm formBtnVariant="primary" />
+              </div>)}
 
-          {blogDetail.tags.length > 0 && (
-            <div class="sidebar-section">
-              <h2 class="sidebar-title">Tags</h2>
-              <div class="tags-container">
-                {blogDetail.tags.map((tag) => (
-                  <span class="tag">{tag?.tag}</span>
-                ))}
-              </div>
-            </div>
-          )}
-          </aside>
+
+              {blogDetail.tags.length > 0 && (
+                <div class="sidebar-section">
+                  <h2 class="sidebar-title">Tags</h2>
+                  <div class="tags-container">
+                    {blogDetail.tags.map((tag) => (
+                      <span class="tag">{tag?.tag}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </aside>
         </div>
-        
-          {
-            apiBlog.authorUser && (
-            <div id="author-section-bottom" class="section-container author-section">
-            <AboutBlogAuthor
-              authorName={blogDetail.author}
-              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
-              authorRole={blogDetail.authorRole}
-              authorBio={blogDetail.authorBio}
-              authorLinkedin={blogDetail.authorLinkedin}
-            />
-          </div>
-            )
-          }
-        </section>
+
+        {
+          !isMobile && (
+            <section class="author-section">
+              <AboutBlogAuthor
+                authorName={blogDetail.author}
+                authorImageUrl={defaultAuthorImage}
+                authorRole={'Climate Storyteller at Nepal Climate Hub'}
+                authorBio={'Dipika Khadka is pursuing a Master\'s Degree in Environmental Science and is passionate about geospatial science and climate action. She served as Content and Media Coordinator at NYCA and believes meaningful storytelling drives action. Dipika thrives on connecting with people, learning from diverse perspectives, and blending science and creativity to inspire awareness and community-driven climate solutions.'}
+                authorLinkedin={blogDetail.authorUser?.linkedin}
+                />
+           </section>
+          )
+        }
+      </div>
+    </section>
 
     <!-- Footer -->
     <section class="footer-section">
@@ -178,6 +172,10 @@ section {
   padding-bottom: 80px;
 }
 
+.blog-container {
+  width: 100%;
+}
+
 .blog-header {
   margin-bottom: 16px;
 }
@@ -202,11 +200,11 @@ section {
 .blog-sidebar {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   gap: 32px;
-  margin-bottom: 40px;
-  /* position: sticky;
+  position: sticky;
   top: 16px;
-  align-self: flex-start; */
+  margin-bottom: 40px;
 }
 
 .sidebar-section {
@@ -222,8 +220,8 @@ section {
 
 .top-reads-section {
   padding: 0;
-  position: sticky;
-  top: 16px;
+  /* position: sticky;
+  top: 16px; */
 }
 
 /* Stay Connected */
