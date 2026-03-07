@@ -4,7 +4,20 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 import { getBlog, getTopReadPosts } from '../../api';
+import { getBlog, getTopReadPosts } from '../../api';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
+import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
+import type { Blog as apiBlog } from 'src/types/blog';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
+import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+const ua = Astro.request.headers.get("user-agent") ?? "";
+const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
 import type { Blog as apiBlog } from 'src/types/blog';
 import BlogHighlights from '@components/BlogHighlights.astro';
@@ -26,13 +39,46 @@ if (!detail) {
 
 const apiBlog = await getBlog(detail);
 const topReads = await getTopReadPosts();
+if (!detail) {
+  throw new Error('Blog detail parameter is required');
+}
+
+const apiBlog = await getBlog(detail);
+const topReads = await getTopReadPosts();
 
 if (!apiBlog) {
+  return new Response(null, { status: 404 });
   return new Response(null, { status: 404 });
 }
 
 const blogDetail = {
   ...apiBlog,
+  bannerImage: apiBlog.bannerImageUrl,
+  content: apiBlog.content,
+  excerpt: apiBlog.excerpt,
+  author: apiBlog.author,
+  category: apiBlog.category,
+  readingTime: apiBlog.readingTime,
+  publishedDate: apiBlog.publishedDate,
+  tags: apiBlog.tags,
+  authorImage: apiBlog.authorUser?.profilePhotoUrl,
+  authorLinkedin: apiBlog.authorUser?.linkedin,
+  authorBio: apiBlog.authorUser?.bio,
+  authorRole: apiBlog.authorUser?.currentRole
+};
+
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
+const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
+const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const metaUrl = `${siteUrl}${fullPath}`;
+
+const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+  blogDetail.author
+)}&background=1a1b1e&color=cefe00&size=72`;
   bannerImage: apiBlog.bannerImageUrl,
   content: apiBlog.content,
   excerpt: apiBlog.excerpt,
@@ -67,13 +113,21 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
   ogImage={metaImage}
   ogUrl={metaUrl}
 >
+<BaseLayout
+  title={`${blogDetail.title} | Nepal Climate Hub`}
+  description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
+>
   <main class="main-container">
+
 
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
       <div class="mini-nav">
         <a href="/">Home</a>
+        <span>/</span>
         <span>/</span>
         <a href="/blogs">Blogs</a>
       </div>
@@ -82,7 +136,37 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
     <!-- Blog Detail Section -->
     <section class="blog-detail-section">
 
+
         <!-- Blog Header -->
+        <header class="blog-header section-container">
+          <h1 class="blog-title">{blogDetail.title}</h1>
+          <AuthorInfoandShareBlog
+            authorName={blogDetail.author}
+            authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+            date={blogDetail.publishedDate}
+            readTime={blogDetail.readingTime}
+          />
+        </header>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid section-container">
+
+          <!-- Blog Content -->
+          <article class="blog-content">
+            <HtmlRenderer content={blogDetail.content} />
+          </article>
+
+          <!-- Sidebar -->
+            <aside class="blog-sidebar">
+
+          <div id="author-section-top" class="author-section">
+            <AboutBlogAuthor
+              authorName={blogDetail.author}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
+            />
         <header class="blog-header section-container">
           <h1 class="blog-title">{blogDetail.title}</h1>
           <AuthorInfoandShareBlog
@@ -131,10 +215,45 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
                   <span class="tag">{tag?.tag}</span>
                 ))}
               </div>
+          {!isMobile && (<div class="sidebar-section stay-connected">
+            <h2 class="sidebar-title">Stay Connected</h2>
+            <EmailSubscriptionForm formBtnVariant="primary" />
+          </div>)}
+          
+          <section class="top-reads-section">
+            <BlogHighlights title="Top Reads" blogs={topReads} />
+          </section>         
+
+          {blogDetail.tags.length > 0 && (
+            <div class="sidebar-section">
+              <h2 class="sidebar-title">Tags</h2>
+              <div class="tags-container">
+                {blogDetail.tags.map((tag) => (
+                  <span class="tag">{tag?.tag}</span>
+                ))}
+              </div>
             </div>
           )}
           </aside>
+          </aside>
         </div>
+        
+          {
+            apiBlog.authorUser && (
+            <div id="author-section-bottom" class="section-container author-section">
+            <AboutBlogAuthor
+              authorName={blogDetail.author}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
+            />
+          </div>
+            )
+          }
+        </section>
+
+    <!-- Footer -->
         
           {
             apiBlog.authorUser && (
@@ -156,10 +275,14 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
       <Footer />
     </section>
 
+
   </main>
 </BaseLayout>
 
 <style>
+section {
+  padding: 0 48px;
+}
 section {
   padding: 0 48px;
 }
@@ -168,7 +291,149 @@ section {
   background-color: #1a1b1e;
   color: white;
 }
+.footer-section {
+  background-color: #1a1b1e;
+  color: white;
+}
 
+.header-section {
+  width: 100%;
+}
+
+.blog-detail-section {
+  margin-top: 24px;
+  padding-bottom: 80px;
+}
+
+.blog-header {
+  margin-bottom: 16px;
+}
+
+.blog-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 35%);
+  gap: 40px;
+}
+
+.blog-content {
+  width: 100%;
+}
+
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+  /* position: sticky;
+  top: 16px;
+  align-self: flex-start; */
+}
+
+.sidebar-section {
+  width: 100%;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.top-reads-section {
+  padding: 0;
+  position: sticky;
+  top: 16px;
+}
+
+/* Stay Connected */
+.stay-connected {
+  background-color: #1a1b1e;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.stay-connected .sidebar-title {
+  color: #ffffff;
+}
+
+/* Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #ffffff;
+  color: #364fc7;
+  padding: 6px 12px;
+  border: 1px solid #cefe00;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.author-section {
+  margin-top: 60px;
+}
+
+#author-section-top {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .blog-detail-section {
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .stay-connected {
+      display: none;
+    }
+
+    .blog-sidebar {
+      position: static;
+    }
+
+    .author-section {
+      margin-top: 32px;
+    }
+
+    #author-section-bottom {
+      display: none;
+    }
+
+    #author-section-top {
+      display: block;
+    }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 0;
+  }
+
+  .blog-detail-section {
+    padding: 0 24px;
+  }
+
+  .blog-title {
+    font-size: 20px;
+  }
+}
 .header-section {
   width: 100%;
 }
