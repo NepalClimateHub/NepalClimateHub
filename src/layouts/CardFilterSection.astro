@@ -64,6 +64,14 @@ const { heading, filter, type } = Astro.props;
   }
 
   {
+    type == "resource" && (
+      <p class="page-tagline">
+        Explore a curated collection of climate-related resources from local, national, and international organizations. This directory brings together policies, research, data, learning materials, and media to support students, researchers, practitioners, and youth working on climate action.
+      </p>
+    )
+  }
+
+  {
     filter == "true" && (
       <div class="filter-wrapper">
         {/* <button class="filter-btn">
