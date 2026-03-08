@@ -10,6 +10,13 @@ import BaseLayout from "../../layouts/Layout.astro";
 import organizationsJSON from "../../data/organizations.json";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 
+export function getStaticPaths() {
+  return organizationsJSON.map((organization) => ({
+    params: { organizationName: organization.slug },
+    props: { organization },
+  }));
+}
+
 const { organizationName } = Astro.params;
 const organization = organizationsJSON.find(
   (organization) => organization.slug === organizationName,
