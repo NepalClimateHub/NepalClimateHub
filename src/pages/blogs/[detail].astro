@@ -28,7 +28,7 @@ let apiBlog: apiBlog | null = null;
 let topReads: apiBlog[] = [];
 
 try {
-  apiBlog = await getBlog(detail);
+  apiBlog = await getBlog(detail) as apiBlog | null;
   topReads = await getTopReadPosts();
 } catch (error) {
   console.error('Error fetching blog:', error);
