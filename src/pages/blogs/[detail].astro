@@ -3,7 +3,8 @@ import '../../styles/global.css';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import { getBlog, getTopReadPosts } from '../../api';
+import { fetchAllBlogs } from '../../api';
+import { createSlug } from '../../utils/slug';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
 import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
 import type { Blog as apiBlog } from 'src/types/blog';
@@ -28,8 +29,15 @@ let apiBlog: apiBlog | null = null;
 let topReads: apiBlog[] = [];
 
 try {
-  apiBlog = await getBlog(detail);
-  topReads = await getTopReadPosts();
+  // Call API once and reuse the data for both blog and top reads
+  const response = await fetchAllBlogs();
+  const allBlogs = response.data || [];
+  
+  // Find the specific blog from the fetched data
+  apiBlog = allBlogs.find((blog) => createSlug(blog.title) === detail) || null;
+  
+  // Get top reads from the already-fetched data
+  topReads = allBlogs.filter((blog) => blog.isTopRead).slice(0, 3);
 } catch (error) {
   console.error('Error fetching blog:', error);
   apiBlog = null;

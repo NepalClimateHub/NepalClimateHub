@@ -9,14 +9,15 @@ import { fetchAllBlogs, getFeaturedPost } from "../../api";
 import type { Blog } from "../../types/blog";
 import BlogHighlights from "@components/BlogHighlights.astro";
 
-// Fetch blogs from API
+// Fetch blogs from API - call once and reuse the data
 let apiBlogs: Blog[] = [];
 let featuredBlog: Blog | null = null;
 
 try {
   const response = await fetchAllBlogs();
   apiBlogs = response.data || [];
-  featuredBlog = await getFeaturedPost();
+  // Get featured post from the already-fetched data instead of calling API again
+  featuredBlog = apiBlogs.filter((blog) => blog.isFeatured)[0] || null;
 } catch (error) {
   console.error('Error fetching blogs:', error);
   // Fallback to empty arrays if API fails
