@@ -1,0 +1,71 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  justify-content: flex-end;
+}
+
+.pageButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #dfe3e8;
+  background-color: white;
+  color: #212b36;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageButton:hover:not(.disabled):not(.active) {
+  border-color: #919eab;
+}
+
+.pageButton.active {
+  color: #4200ff;
+  border-color: #4200ff;
+}
+
+.pageButton.disabled {
+  background-color: #919eab;
+  border-color: #919eab;
+  cursor: not-allowed;
+}
+
+/* Arrow buttons use same styling as page buttons */
+
+.chevron {
+  font-size: 12px;
+  color: #c4cdd5;
+}
+
+.disabled .chevron {
+  color: #c4cdd5;
+}
+
+.ellipsis {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #dfe3e8;
+  background-color: white;
+  color: #212b36;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .paginationContainer {
+    margin-top: 24px;
+    justify-content: center;
+  }
+}

@@ -3,8 +3,7 @@ import '../../styles/global.css';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import { fetchAllBlogs } from '../../api';
-import { createSlug } from '../../utils/slug';
+import { getBlog, getTopReadPosts } from '../../api';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
 import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
 import type { Blog as apiBlog } from 'src/types/blog';
@@ -21,53 +20,61 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 const { detail } = Astro.params;
 
+if (!detail) {
+  return Astro.redirect('/blogs');
+}
+
 let apiBlog: apiBlog | null = null;
-let allBlogs: apiBlog[] = [];
+let topReads: apiBlog[] = [];
 
 try {
-  const response = await fetchAllBlogs();
-  allBlogs = response.data || [];
-  apiBlog =
-    allBlogs.find((blog) => createSlug(blog.title) === detail) || null;
+  apiBlog = await getBlog(detail);
+  topReads = await getTopReadPosts();
 } catch (error) {
-  console.error('Error fetching blogs:', error);
+  console.error('Error fetching blog:', error);
+  apiBlog = null;
+  topReads = [];
 }
 
 if (!apiBlog) {
-  throw new Error(`Blog with slug ${detail} not found`);
+  return Astro.redirect('/blogs');
 }
-
-const topReads = allBlogs.slice(0, 3);
 
 const blogDetail = {
   ...apiBlog,
-  bannerImage: apiBlog.bannerImageUrl || '/placeholder.svg',
-  content: apiBlog.content || '',
-  excerpt: apiBlog.excerpt || '',
-  author: apiBlog.author || 'Unknown Author',
-  category: apiBlog.category || 'General',
-  readingTime: apiBlog.readingTime || '5 minutes',
-  publishedDate: apiBlog.publishedDate || new Date().toISOString(),
-  tags: apiBlog.tags || [],
+  bannerImage: apiBlog.bannerImageUrl,
+  content: apiBlog.content,
+  excerpt: apiBlog.excerpt,
+  author: apiBlog.author,
+  category: apiBlog.category,
+  readingTime: apiBlog.readingTime,
+  publishedDate: apiBlog.publishedDate,
+  tags: apiBlog.tags,
+  authorImage: apiBlog.authorUser?.profilePhotoUrl,
+  authorLinkedin: apiBlog.authorUser?.linkedin,
+  authorBio: apiBlog.authorUser?.bio,
+  authorRole: apiBlog.authorUser?.currentRole
 };
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-const metaDescription =
-  `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
-  `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
+const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
+const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const metaUrl = `${siteUrl}${fullPath}`;
 
 const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
   blogDetail.author
 )}&background=1a1b1e&color=cefe00&size=72`;
-
-const socials = {
-  linkedin: 'https://www.linkedin.com/',
-};
 ---
 
 <BaseLayout
   title={`${blogDetail.title} | Nepal Climate Hub`}
   description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
 >
   <main class="main-container">
 
@@ -83,14 +90,13 @@ const socials = {
 
     <!-- Blog Detail Section -->
     <section class="blog-detail-section">
-      <div class="blog-container">
 
         <!-- Blog Header -->
         <header class="blog-header section-container">
           <h1 class="blog-title">{blogDetail.title}</h1>
           <AuthorInfoandShareBlog
             authorName={blogDetail.author}
-            authorImageUrl={blogDetail.authorImageUrl || ''}
+            authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
             date={blogDetail.publishedDate}
             readTime={blogDetail.readingTime}
           />
@@ -110,10 +116,10 @@ const socials = {
           <div id="author-section-top" class="author-section">
             <AboutBlogAuthor
               authorName={blogDetail.author}
-              authorImageUrl={defaultAuthorImage}
-              authorBio="Climate Storyteller at Nepal Climate Hub"
-              authorDescription="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
-              socials={socials}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
             />
           </div>
 
@@ -121,10 +127,10 @@ const socials = {
             <h2 class="sidebar-title">Stay Connected</h2>
             <EmailSubscriptionForm formBtnVariant="primary" />
           </div>)}
-
+          
           <section class="top-reads-section">
             <BlogHighlights title="Top Reads" blogs={topReads} />
-          </section>             
+          </section>         
 
           {blogDetail.tags.length > 0 && (
             <div class="sidebar-section">
@@ -139,17 +145,20 @@ const socials = {
           </aside>
         </div>
         
-          <div id="author-section-bottom" class="section-container author-section">
+          {
+            apiBlog.authorUser && (
+            <div id="author-section-bottom" class="section-container author-section">
             <AboutBlogAuthor
               authorName={blogDetail.author}
-              authorImageUrl={defaultAuthorImage}
-              authorBio="Climate Storyteller at Nepal Climate Hub"
-              authorDescription="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
-              socials={socials}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
             />
           </div>
-      </div>
-    </section>
+            )
+          }
+        </section>
 
     <!-- Footer -->
     <section class="footer-section">
@@ -178,10 +187,6 @@ section {
   padding-bottom: 80px;
 }
 
-.blog-container {
-  width: 100%;
-}
-
 .blog-header {
   margin-bottom: 16px;
 }
@@ -208,6 +213,9 @@ section {
   flex-direction: column;
   gap: 32px;
   margin-bottom: 40px;
+  /* position: sticky;
+  top: 16px;
+  align-self: flex-start; */
 }
 
 .sidebar-section {
