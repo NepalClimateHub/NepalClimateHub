@@ -21,14 +21,23 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 const { detail } = Astro.params;
 
 if (!detail) {
-  throw new Error('Blog detail parameter is required');
+  return Astro.redirect('/blogs');
 }
 
-const apiBlog = await getBlog(detail);
-const topReads = await getTopReadPosts();
+let apiBlog: apiBlog | null = null;
+let topReads: apiBlog[] = [];
+
+try {
+  apiBlog = await getBlog(detail);
+  topReads = await getTopReadPosts();
+} catch (error) {
+  console.error('Error fetching blog:', error);
+  apiBlog = null;
+  topReads = [];
+}
 
 if (!apiBlog) {
-  return new Response(null, { status: 404 });
+  return Astro.redirect('/blogs');
 }
 
 const blogDetail = {

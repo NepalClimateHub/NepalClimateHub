@@ -9,7 +9,16 @@ import Loader from '../components/Loader.astro';
 import { fetchAllResources } from '../api';
 
 // Fetch resources from API
-const { data: apiResources } = await fetchAllResources();
+let apiResources: any[] = [];
+
+try {
+  const response = await fetchAllResources();
+  apiResources = response.data || [];
+} catch (error) {
+  console.error('Error fetching resources:', error);
+  // Fallback to empty array if API fails
+  apiResources = [];
+}
 
 // Transform API data to match the expected Resource interface
 const resources = apiResources.map(resource => ({
