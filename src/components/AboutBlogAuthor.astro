@@ -4,16 +4,12 @@ import linkedinIcon from '../assets/icons/IconLinkedin.png';
 interface Props {
   authorName: string;
   authorImageUrl?: string;
+  authorRole?: string;
   authorBio?: string;
-  authorDescription?: string;
-  socials?: {
-    facebook?: string;
-    linkedin?: string;
-    instagram?: string;
-  };
+  authorLinkedin?: string;
 }
 
-const { authorName, authorImageUrl, authorBio, authorDescription, socials } = Astro.props;
+const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = Astro.props;
 ---
 
 <div class="author-section">
@@ -35,14 +31,14 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
           <!-- Name -->
           <div class="author-name">{authorName}</div>
           <!-- Bio -->
-          {authorBio && <div class="author-bio">{authorBio}</div>}
+          {authorRole && <div class="author-role">{authorRole}</div>}
         </header>
 
         <!-- Social links -->
         <address class="author-socials">
-          {socials?.linkedin && (
+          {authorLinkedin && (
             <a
-              href={socials.linkedin}
+              href={authorLinkedin}
               class="social-link"
               aria-label="LinkedIn profile"
               target="_blank"
@@ -68,8 +64,8 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
     </aside>
 
     <!-- Author description -->
-    <div class="author-description">
-      <p>{authorDescription}</p>
+    <div class="author-bio">
+      <p>{authorBio}</p>
     </div>
   </div>
 </div>
@@ -100,8 +96,10 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
 .author-meta {
   display: flex;
   gap: 16px;
-  min-width: 260px;
+  width: 260px;
+  flex-basis: 30%;
   align-items: flex-start;
+  border-right: 1px solid #5b5b5cb2;
 }
 
 /* Image */
@@ -125,7 +123,6 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-right: 1px solid #5b5b5cb2;
   padding-right: 40px;
 }
 
@@ -143,7 +140,7 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   margin-bottom: 4px;
 }
 
-.author-bio {
+.author-role {
   font-size: 16px;
   font-weight: 400;
   color: #1A1B1EB2;
@@ -161,14 +158,6 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
   height: 32px;
 }
 
-.author-socials .social-link svg {
-  color: #1A1B1E;
-}
-
-.author-socials .social-link:active svg {
-  color: #0072b1;
-}
-
 /* Separator */
 .author-separator {
   width: 1px;
@@ -176,8 +165,8 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
 }
 
 /* RIGHT SIDE */
-.author-description {
-  flex-basis: 70%;
+.author-bio {
+  flex: 1;
 }
 
 .author-description p {
@@ -208,7 +197,6 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-right: 1px solid #5b5b5cb2;
     padding-right: 16px;
   }
 
@@ -221,14 +209,14 @@ const { authorName, authorImageUrl, authorBio, authorDescription, socials } = As
     gap: 8px;
   }
 
-  .author-description p {
+  .author-bio p {
     font-size: 16px;
   }
 }
 
 
 @media screen and (max-width: 830px){
-    .author-details{
+    .author-meta{
         border-right: none;
         padding: 0px;
     }
