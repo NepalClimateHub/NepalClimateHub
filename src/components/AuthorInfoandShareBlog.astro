@@ -1,3 +1,4 @@
+---
 import SocialShare from './SocialShare.astro';
 
 interface Props {
@@ -11,7 +12,11 @@ const { authorName, authorImageUrl, date, readTime } = Astro.props;
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
-  const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  };
   return date.toLocaleDateString('en-US', options);
 }
 ---

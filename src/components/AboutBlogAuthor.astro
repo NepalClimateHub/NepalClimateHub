@@ -1,3 +1,4 @@
+---
 interface Props {
   authorName: string;
   authorImageUrl?: string;
@@ -6,7 +7,13 @@ interface Props {
   authorLinkedin?: string;
 }
 
-const { authorName, authorImageUrl, authorRole, authorBio,  authorLinkedin} = Astro.props;
+const {
+  authorName,
+  authorImageUrl,
+  authorRole,
+  authorBio,
+  authorLinkedin,
+} = Astro.props;
 ---
 
 <div class="author-section">
