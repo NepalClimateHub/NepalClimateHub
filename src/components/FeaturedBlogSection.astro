@@ -16,7 +16,7 @@ const { startIndex, endIndex, title, currentBlogId } = Astro.props;
 import { createSlug } from '../utils/slug';
 
 // Fetch featured blogs from API
-import { fetchFeaturedBlogs, fetchAllBlogs } from '../api';
+import { fetchFeaturedBlogs } from '../api';
 
 const { data: featuredBlogs } = await fetchFeaturedBlogs();
 ---
