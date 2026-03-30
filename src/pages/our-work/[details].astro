@@ -8,6 +8,7 @@ import { createSlug } from '../../utils/slug';
 import type { Project } from '../../types/project';
 import HtmlRenderer from '@components/HtmlRenderer.astro';
 import { RiAlarmLine } from 'react-icons/ri';
+import { notFound } from 'astro:i18n';
 
 const { details } = Astro.params;
 let project: Project | undefined;
@@ -24,7 +25,7 @@ try {
 }
 
 if (!project) {
-  return Astro.redirect('/our-work');
+  return notFound();
 }
 
 try {
