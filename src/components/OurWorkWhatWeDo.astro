@@ -1,0 +1,142 @@
+---
+import IconBook from '../assets/icons/IconBook.png';
+import IconUsers from '../assets/icons/IconUsers.png';
+import IconUserPlus from '../assets/icons/IconUserPlus.png';
+---
+
+<section class="what-we-do-section">
+  <div class="section-container">
+    <h2 class="section-title">What we do</h2>
+
+    <p class="section-description">
+      We help the youth <span class="highlight">discover, connect, and act</span> on climate.
+    </p>
+
+    <div class="grid">
+      <div class="item">
+        <div class="icon-circle">
+          <img src={IconBook.src} alt="Educate Icon" width="12" height="12" />
+        </div>
+        <div class="text">
+          <p class="item-title">Educate</p>
+          <p class="item-desc">We make climate knowledge accessible, relevant, and beginner-friendly.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="icon-circle">
+          <img src={IconUsers.src} alt="Empower Icon" width="12" height="12" />
+        </div>
+        <div class="text">
+          <p class="item-title">Empower</p>
+          <p class="item-desc">We help youth turn awareness into real opportunities and impact.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="icon-circle">
+          <img src={IconUserPlus.src} alt="Connect Icon" width="12" height="12" />
+        </div>
+        <div class="text">
+          <p class="item-title">Connect</p>
+          <p class="item-desc">We strengthen Nepal's climate community by connecting people and organizations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .what-we-do-section {
+    background-color: #f8f9fa;
+    padding: 35px 48px;
+  }
+
+  .section-container {
+    /* max-width: 984px; */
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 20px;
+    color: #1a1b1e;
+    line-height: 32px;
+    margin: 0 0 16px 0;
+    font-weight: 700;
+  }
+
+  .section-description {
+    font-size: 16px;
+    color: #1a1b1e;
+    line-height: 24px;
+    margin: 0 0 32px 0;
+  }
+
+  .highlight {
+    font-weight: 700;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .icon-circle {
+    width: 32px;
+    height: 32px;
+    background-color: #1a1b1e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .icon-circle img {
+    width: 12px;
+    height: 12px;
+    filter: brightness(0) invert(1);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .item-title {
+    font-size: 16px;
+    color: #1a1b1e;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .item-desc {
+    font-size: 14px;
+    color: #1a1b1e;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .what-we-do-section {
+      padding: 24px 24px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+    }
+  }
+</style>
