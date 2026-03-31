@@ -1,9 +1,9 @@
-import type React from "react";
-import { useEffect, useState } from "react";
-import { BsChevronDown } from "react-icons/bs";
-import filterIcon from "../assets/icons/RightIcon.png";
-import styles from "../styles/components/ResourceFilter.module.css";
-import { CardContainer } from "./CardContainer";
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import { BsChevronDown } from 'react-icons/bs';
+import filterIcon from '../assets/icons/RightIcon.png';
+import styles from '../styles/components/ResourceFilter.module.css';
+import { CardContainer } from './CardContainer';
 
 interface Resource {
   id: number;
@@ -25,7 +25,7 @@ interface FilterConfig {
   label: string;
   defaultOption: string;
   options: FilterOption[];
-  inputType: "radio" | "checkbox";
+  inputType: 'radio' | 'checkbox';
 }
 
 interface Props {
@@ -34,36 +34,36 @@ interface Props {
 
 const filterOptions: FilterConfig[] = [
   {
-    name: "type",
-    label: "Resource Type",
-    defaultOption: "All Types",
+    name: 'type',
+    label: 'Resource Type',
+    defaultOption: 'All Types',
     options: [
-      { value: "DOCUMENTARY", label: "Documentary" },
-      { value: "PODCASTS_AND_TELEVISION", label: "Podcasts And Television" },
-      { value: "COURSES", label: "Courses" },
-      { value: "PLANS_AND_POLICIES", label: "Plans And Policies" },
-      { value: "DATA_RESOURCES", label: "Data Resources" },
-      { value: "PLATFORMS", label: "Platforms" },
-      { value: "RESEARCH_ARTICLES", label: "Research Articles" },
-      { value: "THESES_&_DISSERTATIONS", label: "Theses And Dissertations" },
-      { value: "CASE_STUDIES", label: "Case Studies" },
-      { value: "REPORTS", label: "Reports" },
-      { value: "TOOLKITS_AND_GUIDES", label: "Toolkits And Guides" },
+      { value: 'DOCUMENTARY', label: 'Documentary' },
+      { value: 'PODCASTS_AND_TELEVISION', label: 'Podcasts And Television' },
+      { value: 'COURSES', label: 'Courses' },
+      { value: 'PLANS_AND_POLICIES', label: 'Plans And Policies' },
+      { value: 'DATA_RESOURCES', label: 'Data Resources' },
+      { value: 'PLATFORMS', label: 'Platforms' },
+      { value: 'RESEARCH_ARTICLES', label: 'Research Articles' },
+      { value: 'THESES_&_DISSERTATIONS', label: 'Theses And Dissertations' },
+      { value: 'CASE_STUDIES', label: 'Case Studies' },
+      { value: 'REPORTS', label: 'Reports' },
+      { value: 'TOOLKITS_AND_GUIDES', label: 'Toolkits And Guides' },
     ] as FilterOption[],
-    inputType: "radio" as const,
+    inputType: 'radio' as const,
   },
   {
-    name: "level",
-    label: "Level",
-    defaultOption: "All Levels",
+    name: 'level',
+    label: 'Level',
+    defaultOption: 'All Levels',
     options: [
-      { value: "INTERNATIONAL", label: "International" },
-      { value: "REGIONAL", label: "Regional" },
-      { value: "NATIONAL", label: "National" },
-      { value: "PROVINCIAL", label: "Provincial" },
-      { value: "LOCAL", label: "Local" },
+      { value: 'INTERNATIONAL', label: 'International' },
+      { value: 'REGIONAL', label: 'Regional' },
+      { value: 'NATIONAL', label: 'National' },
+      { value: 'PROVINCIAL', label: 'Provincial' },
+      { value: 'LOCAL', label: 'Local' },
     ] as FilterOption[],
-    inputType: "checkbox" as const,
+    inputType: 'checkbox' as const,
   },
 ];
 
@@ -94,7 +94,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
   };
 
   const toggleSelection = (name: keyof typeof filters, value: string) => {
-    if (name === "type") {
+    if (name === 'type') {
       // Radio button behavior - only one selection
       setFilters((prev) => ({
         ...prev,
@@ -133,7 +133,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
       const selected = filters[key];
       if (selected.length > 0) {
         result = result.filter((resource) => {
-          const val = ((resource as any)[key] as string) || "";
+          const val = ((resource as any)[key] as string) || '';
           return selected.some((s) => val.trim() === s.trim());
         });
       }
@@ -189,13 +189,13 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
                     type="button"
                     className={styles.groupHeader}
                     onClick={() => toggleExpanded(name)}
-                    aria-expanded={expanded[name] ? "true" : "false"}
+                    aria-expanded={expanded[name] ? 'true' : 'false'}
                     aria-controls={`${name}-options`}
                   >
                     <span>{label}</span>
                     <span
                       className={`${styles.chevron} ${
-                        expanded[name] ? styles.chevronOpen : ""
+                        expanded[name] ? styles.chevronOpen : ''
                       }`}
                     >
                       <BsChevronDown />
@@ -204,7 +204,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
                   <ul
                     id={`${name}-options`}
                     className={`${styles.checkboxList} ${
-                      expanded[name] ? "" : styles.collapsed
+                      expanded[name] ? '' : styles.collapsed
                     }`}
                   >
                     {options.map((option) => {
@@ -216,13 +216,13 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
                           <label className={styles.checkboxLabel}>
                             <input
                               type={inputType}
-                              name={inputType === "radio" ? name : undefined}
+                              name={inputType === 'radio' ? name : undefined}
                               className={styles.checkbox}
                               checked={checked}
                               onChange={() =>
                                 toggleSelection(
                                   name as keyof typeof filters,
-                                  option.value,
+                                  option.value
                                 )
                               }
                             />
@@ -247,7 +247,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
       <section className={styles.results}>
         {/* Selected filter chips - only show when filters are selected */}
         {(Object.keys(filters) as (keyof typeof filters)[]).some(
-          (k) => filters[k].length > 0,
+          (k) => filters[k].length > 0
         ) && (
           <div className={styles.selectedChipsRow}>
             {(Object.keys(filters) as (keyof typeof filters)[]).flatMap((key) =>
@@ -263,7 +263,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
                   </span>
                   <span className={styles.chipClose}>×</span>
                 </button>
-              )),
+              ))
             )}
             <button
               type="button"
