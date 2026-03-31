@@ -1,0 +1,309 @@
+---
+import MakeRealImpact from '../assets/makeRealImpact.png';
+import BuildValuableSkills from '../assets/buildValuableSkills.png';
+import ExpandYourNetwork from '../assets/expandYourNetwork.png';
+import ReceiveRecognition from '../assets/receiveRecognition.png';
+import JoinTheMovement from '../assets/joinTheMovement.png';
+---
+
+<div class="section-container">
+  <div class="benefits-grid">
+    <!-- Card 1 -->
+    <div class="benefit-card card-wide">
+      <div class="card-text">
+        <h3 class="card-title">Make Real Impact</h3>
+        <p class="card-description">
+          Work on climate initiatives that directly contribute to Nepal's
+          climate resilience and help empower youth across the nation.
+        </p>
+      </div>
+      <div class="card-image-container">
+        <img
+        src={MakeRealImpact.src}
+        alt="Make Real Impact"
+        class="card-image card-image-right"
+        />
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="benefit-card">
+      <div class="card-text">
+        <h3 class="card-title">Build Valuable Skills</h3>
+        <p class="card-description">
+          Develop expertise in climate communication, advocacy, and nonprofit
+          operations while mentored by experienced professionals.
+        </p>
+      </div>
+      <img
+        src={BuildValuableSkills.src}
+        alt="Build Valuable Skills"
+        class="card-image card-image-corner"
+      />
+    </div>
+
+    <!-- Card 3 -->
+    <div class="benefit-card">
+      <div class="card-text">
+        <h3 class="card-title">Expand Your Network</h3>
+        <p class="card-description">
+          Connect with passionate climate advocates, fellow volunteers, and
+          organizations working toward positive environmental change.
+        </p>
+      </div>
+      <img
+        src={ExpandYourNetwork.src}
+        alt="Expand Your Network"
+        class="card-image card-image-corner"
+      />
+    </div>
+
+    <!-- Card 4 -->
+    <div class="benefit-card">
+      <div class="card-text">
+        <h3 class="card-title">Make Lasting Friendships</h3>
+        <p class="card-description">
+          Build meaningful relationships with like-minded individuals who share
+          your passion for climate action and making a difference.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="benefit-card">
+      <div class="card-text">
+        <h3 class="card-title">Personal Growth</h3>
+        <p class="card-description">
+          Develop leadership skills, gain experience in project management, and
+          grow both professionally and personally.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="benefit-card card-wide">
+      <div class="card-text">
+        <h3 class="card-title">Receive Recognition</h3>
+        <p class="card-description">
+          Be acknowledged for your contributions and have your work featured in
+          our community communications and annual impact reports.
+        </p>
+      </div>
+      <div class="card-image-container">
+        <img
+          src={ReceiveRecognition.src}
+          alt="Receive Recognition"
+          class="card-image card-image-right"
+        />
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="benefit-card card-icon">
+      <div class="icon-box">
+        <img
+          src={JoinTheMovement.src}
+          alt="Join the Movement"
+          class="card-icon-img"
+        />
+      </div>
+      <h3 class="card-title">Join the Movement</h3>
+      <p class="card-description">
+        Be part of a growing movement of young people driving climate action in
+        Nepal and beyond.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .benefit-card {
+    background: #ebf1f7;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    min-height: 220px;
+  }
+
+  .card-wide {
+    grid-column: span 2;
+  }
+
+  .card-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #cefe00;
+    padding: 24px;
+  }
+
+  .card-text {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-wide .card-text {
+    width: 50%;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0;
+  }
+
+  .card-description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    margin: 0;
+  }
+
+  .card-image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 24px;
+    display: flex;
+    justify-content: right;
+  }
+
+  .card-image {
+    position: absolute;
+    object-fit: contain;
+  }
+
+  .card-image-right {
+    object-fit: contain;
+    position: static;
+  }
+
+  .card-image-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    /* control size properly */
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .icon-box {
+    width: 44px;
+    height: 44px;
+    background: #e2f58e;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-icon-img {
+    width: 18px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .card-icon .card-text {
+    padding: 0 24px 24px 24px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .section-container {
+      padding: 40px 48px;
+      margin-bottom: 50px;
+    }
+  }
+  
+  @media screen and (max-width: 1180px) {
+    .benefits-grid {
+      grid-template-columns: 1fr 1fr;
+      gap:32px;
+    }
+  }
+  
+
+  @media screen and (max-width: 1024px) {
+    .card-image-corner {
+      max-width: 40%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .card-wide {
+      grid-column: span 1;
+    }
+
+    .benefit-card {
+      min-height: auto;
+    }
+
+    .card-wide .card-text {
+      width: 100%;
+    }
+
+    .card-image-right {
+      width: 100%;
+      height: auto;
+      position: static;
+      margin-top: 12px;
+    }
+
+    .card-image-corner {
+      position: static;
+      width: 100px;
+      max-width: 220px;
+      height: auto;
+      margin-top: 12px;
+      float: right;
+    }
+
+    .card-image-container {
+      position: static;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 12px;
+      padding-top: 0;
+    }
+
+    .card-image-right {
+      width: 70%;
+      max-width: 100px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+</style>

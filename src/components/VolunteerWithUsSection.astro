@@ -1,0 +1,129 @@
+---
+import VolunteerWithUsImg from '../assets/volunteerWithUs.jpg';
+---
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="section-container">
+  <div class="with-us-grid">
+    <div class="with-us-image-col">
+      <div class="image-wrapper">
+        <img
+          src={VolunteerWithUsImg.src}
+          alt="Volunteer with us"
+          class="with-us-image"
+        />
+        <div class="volunteer-badge">
+          <p class="volunteer-badge-text">Volunteer with us</p>
+        </div>
+      </div>
+    </div>
+    <div class="with-us-content-col">
+      <h2 class="with-us-title">
+        Excited to get involved? Check out open roles below.
+      </h2>
+      <p class="with-us-paragraph">
+        No suitable roles? Email us at
+        <a href="mailto:info@nepalclimatehub.org">info@nepalclimatehub.org</a>
+        and tell us a bit about yourself and how you'd like to get involved.
+      </p>
+      <p class="with-us-paragraph">
+        Want to stay in the loop first? Sign up for our newsletter to stay
+        updated on our work, climate opportunities, and upcoming events.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+  
+.with-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 24px);
+  align-items: center;
+  width: 100%;
+}
+
+  .image-wrapper {
+    position: relative;
+  }
+
+  .with-us-image {
+    width: 100%;
+  }
+
+  .volunteer-badge {
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    transform: rotate(-3deg);
+    background: #cefe00;
+    padding: 2px 14px;
+    z-index: 10;
+  }
+
+  .volunteer-badge-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0;
+  }
+
+  .with-us-title {
+  font-family: "Zilla Slab", serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: clamp(30px, 3vw, 42px);
+  margin-bottom: clamp(16px, 2vw, 24px);
+  color: #1a1b1e;
+}
+
+.with-us-paragraph {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: clamp(22px, 2vw, 26px);
+  margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+  .with-us-paragraph a {
+    color: #364fc7;
+    text-decoration: none;
+  }
+
+  .with-us-paragraph a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .section-container {
+      padding: 40px 48px;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .with-us-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .with-us-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+</style>
