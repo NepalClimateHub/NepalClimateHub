@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styles from '../styles/components/Pagination.module.css';
 
@@ -64,6 +64,7 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className={styles.paginationContainer}>
       {/* Previous arrow */}
       <button
+        type="button"
         className={`${styles.pageButton} ${styles.arrowButton} ${
           currentPage === 1 ? styles.disabled : ''
         }`}
@@ -81,6 +82,7 @@ const Pagination: React.FC<PaginationProps> = ({
             <div className={styles.ellipsis}>...</div>
           ) : (
             <button
+              type="button"
               className={`${styles.pageButton} ${
                 page === currentPage ? styles.active : ''
               }`}
@@ -95,6 +97,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
       {/* Next arrow */}
       <button
+        type="button"
         className={`${styles.pageButton} ${styles.arrowButton} ${
           currentPage === totalPages ? styles.disabled : ''
         }`}
