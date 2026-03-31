@@ -1,0 +1,135 @@
+---
+---
+
+<section class="ways-support-section">
+  <div class="section-inner">
+    <h2 class="ways-banner">Ways to support</h2>
+
+    <div class="ways-cards">
+      <div class="ways-card">
+        <p class="ways-card-title">
+          <span class="emphasis">One-time donation</span> to support our work today
+        </p>
+      </div>
+
+      <div class="ways-card">
+        <p class="ways-card-title">
+          <span class="emphasis">Monthly contribution</span> to help sustain long-term impact
+        </p>
+      </div>
+
+      <div class="ways-card">
+        <p class="ways-card-title">
+          <span class="emphasis">Institutional or corporate support</span> to partner with us
+        </p>
+      </div>
+
+      <div class="ways-card">
+        <p class="ways-card-title">
+          <span class="emphasis">Support our ongoing and upcoming</span> initiatives
+        </p>
+      </div>
+    </div>
+
+    <p class="ways-footer-text">
+      For donations, partnerships, or questions, contact us at
+      <span class="ways-footer-email">info@nepalclimatehub.org</span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .ways-support-section {
+    background-color: #cefe00;
+    padding: 2rem 0 3.5rem;
+  }
+
+  .section-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .ways-banner {
+    position: absolute;
+    top: -109px;
+    background-color: #111827;
+    padding: 0 16px;
+    transform: rotate(-3deg);
+    z-index: 3;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 1;
+  }
+
+  .ways-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 56px; /* make room for the tilted banner */
+  }
+
+  .ways-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+  }
+
+  .ways-card-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #111827;
+  }
+
+  .ways-card-title .emphasis {
+    font-weight: 600;
+  }
+
+  .ways-footer-text {
+    margin: 24px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: #111827;
+  }
+
+  .ways-footer-email {
+    font-weight: 700;
+  }
+
+  @media (max-width: 1024px) {
+    .section-inner {
+      padding: 0 32px;
+    }
+
+    .ways-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-inner {
+      padding: 0 24px;
+    }
+
+    .ways-banner {
+      top: -32px;
+    }
+
+    .ways-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .ways-footer-text {
+      margin-top: 20px;
+      font-size: 13px;
+    }
+  }
+</style>
+

@@ -1,0 +1,116 @@
+---
+import AboutHeroImg from '../assets/abouthero.jpg';
+---
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="hero-section">
+  <div class="img-wrapper">
+    <img src={AboutHeroImg.src} alt="Our Work Hero Image" />
+  </div>
+</div>
+<div class="section-container">
+  <div class="work-content">
+    <div class="our-work-container">
+      <p class="our-work-text">Our Work</p>
+    </div>
+
+    <h1 class="work-heading">
+      We are building Nepal's first digital climate community, platform, and tools with youth at the center.
+    </h1>
+
+    <p class="work-paragraph">
+      Nepal Climate Hub is a climate-tech nonprofit developing digital infrastructure for Nepal's climate movement. Explore what we're building, running, and improving from tools to programs to community initiatives.
+    </p>
+
+    <p class="work-paragraph">
+      We're building in public sharing progress, updates, and learnings openly to strengthen transparency, trust, and collaboration.
+    </p>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    font-family: Roboto;
+  }
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: 416px;
+    overflow: hidden;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .our-work-container {
+    padding: 2px 14px;
+    position: absolute;
+    background-color: #cefe00;
+    transform: rotate(-3deg);
+    top: -20px;
+    left: 0px;
+    z-index: 10;
+  }
+
+  .our-work-text {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+  }
+
+  .work-content {
+    max-width: 984px;
+    padding: 3rem 0px 4rem;
+    position: relative;
+  }
+
+  .work-heading {
+    font-size: 1.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    color: #000;
+    font-family: "Zilla Slab", serif;
+    font-weight: bold;
+    line-height: 36px;
+    font-size: 30px;
+  }
+
+  .work-paragraph {
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .work-content {
+      margin: 0px 48px;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .work-content {
+      padding: 2rem 0px;
+      margin: 0px 24px;
+    }
+
+    .work-heading {
+      font-size: 1.5rem;
+    }
+  }
+</style>

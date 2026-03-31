@@ -23,6 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Cursor editor
+.cursor/
+
 # Local Netlify folder
 .netlify
 
