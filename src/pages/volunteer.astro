@@ -6,8 +6,13 @@ import '../styles/global.css';
 
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
+import VolunteerHeroSection from '@components/VolunteerHeroSection.astro';
+import VolunteerIntroSection from '@components/VolunteerIntroSection.astro';
+import VolunteerBenefitsSection from '@components/VolunteerBenefitsSection.astro';
+import VolunteerWithUsSection from '@components/VolunteerWithUsSection.astro';
+import VolunteerOpenRolesSection from '@components/VolunteerOpenRolesSection.astro';
+import VolunteerApplicationJourney from '@components/VolunteerApplicationJourney.astro';
 import VolunteerSection from '@components/VolunteerSection.astro';
-// import the components
 import BaseLayout from '../layouts/Layout.astro';
 
 // for displaying error message if given object key are empty or fail our requirement
@@ -123,7 +128,7 @@ if (Astro.request.method === 'POST') {
 }
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title="Volunteer | Nepal Climate Hub">
   <main class="main-container">
     <!-- header section  -->
 
@@ -136,7 +141,31 @@ if (Astro.request.method === 'POST') {
       </div>
     </section>
 
-    <section class="volunteer-section">
+    <section class="volunteer-hero-section">
+      <VolunteerHeroSection />
+    </section>
+
+    <section class="volunteer-intro-section">
+      <VolunteerIntroSection />
+    </section>
+
+    <section class="volunteer-benefits-section">
+      <VolunteerBenefitsSection />
+    </section>
+
+    <section class="volunteer-with-us-section">
+      <VolunteerWithUsSection />
+    </section>
+
+    <section class="volunteer-open-roles-section">
+      <VolunteerOpenRolesSection />
+    </section>
+
+    <section class="volunteer-application-journey-section">
+      <VolunteerApplicationJourney />
+    </section>
+
+    <section class="meet-our-volunteers-section">
       <VolunteerSection />
     </section>
 
@@ -340,8 +369,8 @@ if (Astro.request.method === 'POST') {
 </BaseLayout>
 
 <style>
-  section {
-    padding: 0px 48px;
+  .header-section {
+    padding: 0 48px;
   }
 
   .footer-section {
@@ -350,8 +379,8 @@ if (Astro.request.method === 'POST') {
   }
 
   @media screen and (max-width: 768px) {
-    section {
-      padding: 0px;
+    .header-section {
+      padding: 0;
     }
   }
 
