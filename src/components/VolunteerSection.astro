@@ -1,7 +1,10 @@
 ---
 import teamData from '../data/team.json';
 
-const allMembers = teamData.categories.flatMap(category => category.members);
+const allMembers = teamData.categories.flatMap((category) => category.members);
+const volunteerMembers = allMembers.filter(
+  (member) => member.name === 'Nischal Raj Gautam',
+);
 ---
 
 <div class="section-container">
@@ -11,9 +14,14 @@ const allMembers = teamData.categories.flatMap(category => category.members);
   </p>
 
   <div class="container">
-    <div class="team-grid">
+    <div
+      class:list={[
+        'team-grid',
+        { 'team-grid--single': volunteerMembers.length === 1 },
+      ]}
+    >
       {
-        allMembers.map((member) => (
+        volunteerMembers.map((member) => (
           <div class="team-member">
             <div class="member-image-container">
               <img
@@ -92,6 +100,13 @@ const allMembers = teamData.categories.flatMap(category => category.members);
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem 2rem;
   margin-top: 3rem;
+}
+
+.team-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .team-member {
