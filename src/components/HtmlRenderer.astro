@@ -11,83 +11,83 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
 <div id={uid} class={`html-rendered ${className}`} set:html={content} />
 
 <script>
-  // Group consecutive images into a grid container
   document.addEventListener('DOMContentLoaded', () => {
     const renderers = document.querySelectorAll('[id^="html-renderer-"]');
-    
+
     renderers.forEach(renderer => {
       const children = Array.from(renderer.children);
-      let i = 0;
       let figureCounter = 1;
-      
+
+      // Helper: is this element an empty/whitespace-only paragraph?
+      const isEmptyP = (el: Element) =>
+        el.tagName === 'P' && el.textContent.trim() === '';
+
+      let i = 0;
       while (i < children.length) {
         const child = children[i];
-        
+
         if (child.tagName === 'IMG') {
-          const consecutiveImages = [child];
+          const group = [{ img: child, index: i }];
+          const emptyPs = [];
           let j = i + 1;
-          
-          // Collect consecutive images
-          while (j < children.length && children[j].tagName === 'IMG') {
-            consecutiveImages.push(children[j]);
+
+          // Look ahead, collecting images and skipping empty <p> nodes
+          while (j < children.length) {
+            if (children[j].tagName === 'IMG') {
+              group.push({ img: children[j], index: j });
+            } else if (isEmptyP(children[j])) {
+              emptyPs.push(children[j]);
+            } else {
+              break;
+            }
             j++;
           }
-          
-          // If there are 2 or more consecutive images, create a grid
-          if (consecutiveImages.length >= 2) {
+
+          if (group.length >= 2) {
             const gridContainer = document.createElement('div');
             gridContainer.className = 'image-grid';
-            
-            consecutiveImages.forEach(img => {
+
+            group.forEach(({ img }) => {
               const wrapper = document.createElement('div');
               wrapper.className = 'image-wrapper';
-              
+
               const caption = img.getAttribute('caption');
-              const imgClone = img.cloneNode(true);
-              wrapper.appendChild(imgClone);
-              
+              wrapper.appendChild(img.cloneNode(true));
+
               if (caption) {
                 const captionEl = document.createElement('p');
                 captionEl.className = 'image-caption';
-                
                 const figureLabel = document.createElement('span');
                 figureLabel.className = 'figure-label';
                 figureLabel.textContent = `Figure ${figureCounter}: `;
-                
                 captionEl.appendChild(figureLabel);
                 captionEl.appendChild(document.createTextNode(caption));
-                
                 wrapper.appendChild(captionEl);
                 figureCounter++;
               }
-              
+
               gridContainer.appendChild(wrapper);
             });
-            
-            // Replace first image with grid container
-            const firstImage = consecutiveImages[0];
-            if (firstImage && firstImage.parentNode) {
-              firstImage.parentNode.insertBefore(gridContainer, firstImage);
-            }
-            
-            // Remove original images
-            consecutiveImages.forEach(img => img.remove());
-            
+
+            // Insert grid before the first image
+            child.parentNode?.insertBefore(gridContainer, child);
+
+            // Remove original images and the empty <p> spacers between them
+            group.forEach(({ img }) => img.remove());
+            emptyPs.forEach((p) => p.remove());
+
             i = j;
           } else {
-            // Single image - add caption if it exists
+            // Single image — add caption if present
             const caption = child.getAttribute('caption');
             if (caption && child.parentNode) {
               const captionEl = document.createElement('p');
               captionEl.className = 'image-caption';
-              
               const figureLabel = document.createElement('span');
               figureLabel.className = 'figure-label';
               figureLabel.textContent = `Figure ${figureCounter}: `;
-              
               captionEl.appendChild(figureLabel);
               captionEl.appendChild(document.createTextNode(caption));
-              
               child.parentNode.insertBefore(captionEl, child.nextSibling);
               figureCounter++;
             }
