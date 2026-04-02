@@ -1,3 +1,4 @@
+
 import { fetchAllBlogs, fetchEvents } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
@@ -24,9 +25,11 @@ export async function GET() {
     ${urls}
 </urlset>`;
 
+
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml',
     },
   });
+
 }
