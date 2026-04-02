@@ -8,6 +8,7 @@ import DonateContributionSection from '@components/DonateContributionSection.ast
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import BaseLayout from '../layouts/Layout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 ---
 
 <BaseLayout title="Donate | Nepal Climate Hub">
@@ -16,12 +17,12 @@ import BaseLayout from '../layouts/Layout.astro';
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
 
-      <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span>/</span>
-        <a href="/donate">Donate</a>
-      </div>
+        <Breadcrumbs
+          data={[
+            { label: "Donate"},
+          ]}
+      />
+   
     </section>
 
     <section class="donate-hero-section">

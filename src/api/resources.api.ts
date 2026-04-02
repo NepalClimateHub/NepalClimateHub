@@ -1,4 +1,4 @@
-import type { ResourceResponse } from '../types/resource';
+import type { Resource, ResourceResponse } from '../types/resource';
 import { API_BASE_URL, ApiError, handleResponse } from './index';
 
 export const fetchAllResources = async (): Promise<ResourceResponse> => {

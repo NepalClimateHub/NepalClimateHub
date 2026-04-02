@@ -14,6 +14,7 @@ import VolunteerOpenRolesSection from '@components/VolunteerOpenRolesSection.ast
 import VolunteerApplicationJourney from '@components/VolunteerApplicationJourney.astro';
 import VolunteerSection from '@components/VolunteerSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 
 // for displaying error message if given object key are empty or fail our requirement
 const errors = {
@@ -135,10 +136,7 @@ if (Astro.request.method === 'POST') {
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
 
-      <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-      </div>
+      <Breadcrumbs data={[{ label: "Join NCH", href: "/volunteer" }]} />
     </section>
 
     <section class="volunteer-hero-section">
