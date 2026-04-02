@@ -8,8 +8,8 @@ export interface Project {
   title: string;
   duration: string;
   overview: string;
-  description: string;        // raw HTML
-  status: string;             // "UPCOMING" | "ONGOING" | "COMPLETED" etc.
+  description: string; // raw HTML
+  status: string; // "UPCOMING" | "ONGOING" | "COMPLETED" etc.
   bannerImageUrl: string;
   bannerImageId?: string;
   isDraft?: boolean;

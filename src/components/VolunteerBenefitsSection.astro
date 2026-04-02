@@ -1,0 +1,405 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="section-container">
+  <div class="bento-grid">
+    <!-- Row 1 left: large dark card -->
+    <article class="bento-card bento-card--impact">
+      <div class="bento-card--impact__pattern" aria-hidden="true"></div>
+      <div class="bento-card--impact__inner">
+        <div class="bento-icon bento-icon--lime">
+          <Icon name="mdi:hand-heart" class="bento-icon-svg" />
+        </div>
+        <h3 class="bento-title bento-title--light">
+          Make a <span class="bento-title-accent">real impact</span> on the ground.
+        </h3>
+        <p class="bento-desc bento-desc--muted-light">
+          Help educate and empower young people across Nepal to take meaningful
+          climate action.
+        </p>
+      </div>
+    </article>
+
+    <!-- Row 1 right: skills -->
+    <article class="bento-card bento-card--skills">
+      <div class="bento-icon bento-icon--book">
+        <Icon name="mdi:book-open-outline" class="bento-icon-svg bento-icon-svg--blue" />
+      </div>
+      <h3 class="bento-title">Build valuable skills</h3>
+      <p class="bento-desc">
+        Gain hands-on experience in communications, tech, design, writing, and
+        community building.
+      </p>
+    </article>
+
+    <!-- Row 2 left -->
+    <article class="bento-card bento-card--network">
+      <div class="bento-icon bento-icon--people">
+        <Icon name="mdi:account-group-outline" class="bento-icon-svg" />
+      </div>
+      <h3 class="bento-title">Expand network</h3>
+      <p class="bento-desc">
+        Connect with passionate, like-minded peers, experts, advocates, and
+        organizations.
+      </p>
+    </article>
+
+    <!-- Row 2 center: stacked compact cards -->
+    <div class="bento-stack">
+      <article class="bento-card bento-card--compact">
+        <div class="bento-icon bento-icon--globe">
+          <Icon name="mdi:earth" class="bento-icon-svg bento-icon-svg--globe" />
+        </div>
+        <div class="bento-compact-text">
+          <h3 class="bento-title bento-title--sm">Gain Exposure</h3>
+          <p class="bento-desc bento-desc--sm">
+            Represent NCH at leading events.
+          </p>
+        </div>
+      </article>
+      <article class="bento-card bento-card--compact">
+        <div class="bento-icon bento-icon--medal">
+          <Icon name="mdi:medal-outline" class="bento-icon-svg" />
+        </div>
+        <div class="bento-compact-text">
+          <h3 class="bento-title bento-title--sm">Get recognized</h3>
+          <p class="bento-desc bento-desc--sm">
+            Strengthen your official CV.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Row 2 right: team / lime -->
+    <article class="bento-card bento-card--team">
+      <span class="bento-badge">
+        <Icon name="mdi:target" class="bento-badge-icon" />
+        Workshops
+      </span>
+      <h3 class="bento-title bento-title--lg">Team activities</h3>
+      <p class="bento-desc bento-desc--on-lime">
+        Take part in learning sessions, fun events, hikes, and active meetups.
+      </p>
+    </article>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: clamp(16px, 2vw, 22px);
+    align-items: stretch;
+  }
+
+  .bento-card {
+    border-radius: clamp(20px, 2.5vw, 28px);
+    padding: clamp(22px, 3vw, 28px);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-card--impact {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    background: #1a1b1e;
+    min-height: clamp(220px, 28vw, 280px);
+  }
+
+  .bento-card--impact__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    background:
+      radial-gradient(
+        circle at 15% 25%,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 70%,
+        rgba(255, 255, 255, 0.04) 0%,
+        transparent 50%
+      ),
+      repeating-radial-gradient(
+        circle at 100% 0%,
+        transparent 0,
+        transparent 28px,
+        rgba(255, 255, 255, 0.04) 28px,
+        rgba(255, 255, 255, 0.04) 29px
+      );
+    pointer-events: none;
+  }
+
+  .bento-card--impact__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 2vw, 16px);
+    max-width: 36rem;
+  }
+
+  .bento-card--skills {
+    grid-column: 3;
+    grid-row: 1;
+    background: #e8edf3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(14px, 2vw, 20px);
+    justify-content: center;
+    min-height: clamp(220px, 28vw, 280px);
+  }
+
+  .bento-card--network {
+    grid-column: 1;
+    grid-row: 2;
+    background: #ffffff;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      0 4px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef0f2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 2vw, 16px);
+  }
+
+  .bento-stack {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2vw, 22px);
+    min-height: 100%;
+  }
+
+  .bento-card--compact {
+    background: #ffffff;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      0 4px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef0f2;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: clamp(18px, 2.5vw, 22px) clamp(18px, 2.5vw, 24px);
+  }
+
+  .bento-compact-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bento-card--team {
+    grid-column: 3;
+    grid-row: 2;
+    background: #cefe00;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 2vw, 16px);
+    justify-content: flex-start;
+  }
+
+  .bento-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    color: #1a1b1e;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  .bento-badge-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .bento-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .bento-icon--lime {
+    background: #cefe00;
+  }
+
+  .bento-icon--book {
+    background: transparent;
+    border: 2px solid rgba(54, 79, 199, 0.35);
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .bento-icon--people {
+    background: #f1f3f5;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+  }
+
+  .bento-icon--globe {
+    background: #e3f2fd;
+    width: 52px;
+    height: 52px;
+  }
+
+  .bento-icon--medal {
+    background: #f1f3f5;
+    width: 52px;
+    height: 52px;
+  }
+
+  .bento-icon-svg {
+    width: 26px;
+    height: 26px;
+    color: #1a1b1e;
+  }
+
+  .bento-icon-svg--blue {
+    color: #364fc7;
+  }
+
+  .bento-icon-svg--globe {
+    color: #1976d2;
+  }
+
+  .bento-title {
+    font-family: Roboto, sans-serif;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .bento-title--light {
+    color: #ffffff;
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.2;
+  }
+
+  .bento-title-accent {
+    color: #cefe00;
+  }
+
+  .bento-title--sm {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .bento-title--lg {
+    font-size: clamp(22px, 2.8vw, 28px);
+  }
+
+  .bento-desc {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .bento-desc--muted-light {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+  }
+
+  .bento-desc--sm {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .bento-desc--on-lime {
+    color: #1a1b1e;
+    opacity: 0.9;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .section-container {
+      padding: 0 48px;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .bento-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+    .bento-card--impact {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .bento-card--skills {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      min-height: auto;
+    }
+
+    .bento-card--network {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .bento-stack {
+      grid-column: 2;
+      grid-row: auto;
+    }
+
+    .bento-card--team {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      padding: 0 24px;
+      margin-bottom: 32px;
+    }
+
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-card--impact,
+    .bento-card--skills,
+    .bento-card--network,
+    .bento-stack,
+    .bento-card--team {
+      grid-column: 1;
+    }
+
+    .bento-card--skills {
+      flex-direction: column;
+    }
+  }
+</style>
