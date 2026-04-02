@@ -1,3 +1,4 @@
+
 import { fetchOpportunities } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
@@ -23,6 +24,7 @@ export async function GET() {
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     ${urls}
 </urlset>`;
+
 
   return new Response(xml, {
     headers: {
