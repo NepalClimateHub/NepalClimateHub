@@ -10,13 +10,15 @@ interface Props {
 
 const categories = [
   'All',
-  'Climate Science',
-  'Sustainability',
-  'Development',
+  'Voices & Stories',
+  'Community',
+  'Education',
   'Environment',
-  'Technology',
-  'Policy',
-  'Research Education',
+  'Climate Technology',
+  'Climate Policy',
+  'Sustainability',
+  'Climate Justice',
+  'Climate Science',
 ];
 
 export default function BlogCategoryFilter({ blogs }: Props) {

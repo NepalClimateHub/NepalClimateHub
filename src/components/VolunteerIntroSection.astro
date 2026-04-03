@@ -1,0 +1,101 @@
+---
+import TeamNCH from '../assets/TeamNCH.jpg';
+---
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="section-container">
+  <div class="intro-grid">
+    <div class="intro-left">
+      <p class="intro-paragraph">
+        NCH is a youth-led nonprofit bringing young people together to learn,
+        connect, and take meaningful climate action in Nepal.
+      </p>
+      <p class="intro-paragraph">
+        Our mission is to educate, connect, and empower youth in Nepal by
+        providing timely information, practical guidance, resources, and
+        networks to respond to the climate crisis individually and collectively.
+      </p>
+      <h2 class="intro-title">Why be part of NCH?</h2>
+      <p class="intro-paragraph">
+        Volunteering with NCH offers an opportunity to gain hands-on experience
+        in a non-profit while working alongside a passionate young team
+        dedicated to climate action in Nepal. This is your chance to grow
+        personally, professionally, and socially, while making a real impact and
+        long-lasting connections.
+      </p>
+    </div>
+    <div class="intro-right">
+      <img
+        src={TeamNCH.src}
+        alt="Volunteer intro section"
+        class="intro-image"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    padding-top: 60px;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .intro-paragraph {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .intro-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    color: #1a1b1e;
+    font-family: 'Zilla Slab', serif;
+  }
+
+  .intro-image {
+    width: 100%;
+    aspect-ratio: 1.74;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .section-container {
+      padding: 40px 48px;
+      padding-top: 60px;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

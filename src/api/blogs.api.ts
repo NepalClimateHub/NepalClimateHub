@@ -112,8 +112,8 @@ export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {
 
 export const getFeaturedPost = async (): Promise<Blog | null> => {
   try {
-    const response = await fetchFeaturedBlogs();
-    return response.data[0] || null;
+    const response = await fetchAllBlogs();
+    return response.data.find((blog) => blog.isFeatured) || null;
   } catch (error) {
     console.error('Error fetching featured post:', error);
     return null;
