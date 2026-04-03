@@ -15,7 +15,7 @@ import teamData from '../data/team.json';
           {category.name}
         </h3>
         <div class={`${category.name.toLowerCase()}-grid team-grid`}>
-          {category.members.map((member) => (
+          {category.members.filter((member) => !member.volunteerOnly).map((member) => (
             <div class="team-member">
               <div class="member-image-container">
                 <img
