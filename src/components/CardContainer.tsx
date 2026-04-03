@@ -1,8 +1,8 @@
 import '../styles/global.css';
 import { Card } from '@layouts/Card';
 import { useEffect, useState } from 'react';
-import Pagination from './Pagination';
 import styles from '../styles/components/CardContainer.module.css';
+import Pagination from './Pagination';
 
 // Generic props for card container
 interface CardContainerProps<T> {

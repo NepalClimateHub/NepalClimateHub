@@ -3,13 +3,16 @@ import '../../styles/global.css';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import { getBlog, getTopReadPosts } from '../../api';
+import { getBlogBySlug, getTopReadPosts } from '../../api';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
 import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
 import type { Blog as apiBlog } from 'src/types/blog';
 import BlogHighlights from '@components/BlogHighlights.astro';
 import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
 import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { notFound } from 'astro:i18n';
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
@@ -20,15 +23,17 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 const { detail } = Astro.params;
 
-if (!detail) {
-  return Astro.redirect('/blogs');
+if(!detail) {
+  return notFound();
 }
 
 let apiBlog: apiBlog | null = null;
 let topReads: apiBlog[] = [];
 
 try {
-  apiBlog = await getBlog(detail);
+
+  const response = await getBlogBySlug(detail);
+  apiBlog = response || null;
   topReads = await getTopReadPosts();
 } catch (error) {
   console.error('Error fetching blog:', error);
@@ -37,7 +42,7 @@ try {
 }
 
 if (!apiBlog) {
-  return Astro.redirect('/blogs');
+  return notFound();
 }
 
 const blogDetail = {
@@ -81,11 +86,13 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span>/</span>
-        <a href="/blogs">Blogs</a>
-      </div>
+     <Breadcrumbs
+        data={[
+          { label: "Blogs", href: "/blogs" },
+          { label:blogDetail.title,  },
+
+        ]}
+      />
     </section>
 
     <!-- Blog Detail Section -->

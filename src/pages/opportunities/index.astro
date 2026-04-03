@@ -1,4 +1,7 @@
 ---
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
+
 import "../../styles/global.css";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
@@ -13,6 +16,7 @@ import type {
   OpportunityTag,
 } from "../../types/opportunity";
 import { fetchOpportunities } from "../../api";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 const { data: apiOpportunities } = await fetchOpportunities();
 
@@ -55,9 +59,10 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-      </div>
+
+      <Breadcrumbs
+        data={[{ label: "Opportunities", href: "/opportunities" }]}
+      />
     </section>
 
     <!-- Opportunity Section -->

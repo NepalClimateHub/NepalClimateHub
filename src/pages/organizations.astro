@@ -6,6 +6,7 @@ import CardFilterSection from '@layouts/CardFilterSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
 
 import { OrganizationSection } from './sections/OrganizationSection';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -16,9 +17,11 @@ import { OrganizationSection } from './sections/OrganizationSection';
       <Header logoColor="#1A1B1E" />
 
       <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-      </div>
+      <Breadcrumbs
+        data={[
+          { label: "Organizations", href: "/organizations" },
+        ]}
+      />
     </section>
 
     <div class="organization-wrapper">

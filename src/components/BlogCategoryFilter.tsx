@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import styles from '../styles/components/Blogs.module.css';
 import type { Blog } from '../types/blog';
 import BlogCard from './BlogCard';
-import styles from '../styles/components/Blogs.module.css';
 import WriteBlog from './WriteBlog';
 
 interface Props {
@@ -10,13 +10,15 @@ interface Props {
 
 const categories = [
   'All',
-  'Climate Science',
-  'Sustainability',
-  'Development',
+  'Voices & Stories',
+  'Community',
+  'Education',
   'Environment',
-  'Technology',
-  'Policy',
-  'Research Education',
+  'Climate Technology',
+  'Climate Policy',
+  'Sustainability',
+  'Climate Justice',
+  'Climate Science',
 ];
 
 export default function BlogCategoryFilter({ blogs }: Props) {

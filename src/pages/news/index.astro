@@ -1,10 +1,14 @@
 ---
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
+
 import '../../styles/global.css';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import NewsStoriesSection from '../../components/NewsStoriesSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 import Loader from '../../components/Loader.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -15,9 +19,12 @@ import Loader from '../../components/Loader.astro';
 			<Header logoColor="#1A1B1E" />
 
 			<!-- a mini navbar -->
-			<div class="mini-nav">
-				<a href="/">Home</a>
-			</div>
+			  	<Breadcrumbs
+        		data={[
+					  { label: "News", href: "/news" },
+
+				]}
+      			/>
 		</section>
 
     <section class="news-section">

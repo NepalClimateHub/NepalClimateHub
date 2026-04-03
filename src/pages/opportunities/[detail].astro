@@ -5,7 +5,6 @@ import FeaturedOpportunitySection from '../../components/FeaturedOpportunitySect
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
-// import opportunitiesTemp from '../../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type {
   Opportunity as ApiOpportunity,
@@ -13,29 +12,23 @@ import type {
 } from '../../types/opportunity';
 import { fetchOpportunities } from '../../api';
 import { createSlug } from '../../utils/slug';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
 
-
+// Fetch data at runtime
 const { detail } = Astro.params;
 
-let apiOpportunity: ApiOpportunity | null = null;
-let allOpportunities: ApiOpportunity[] = [];
+// Fetch all opportunities to find the matching one
+const response = await fetchOpportunities();
+const allOpportunities = response.data || [];
 
-try {
-  const response = await fetchOpportunities();
-  allOpportunities = response.data || [];
-  apiOpportunity = allOpportunities.find(
-    (opportunity) => createSlug(opportunity.title) === detail
-  ) || null;
-} catch (error) {
-  console.error('Error fetching opportunities:', error);
-  // Fallback to empty data if API fails
-  allOpportunities = [];
-  apiOpportunity = null;
-}
+// Find the opportunity that matches the slug
+const apiOpportunity = allOpportunities.find((opportunity: ApiOpportunity) => createSlug(opportunity.title) === detail);
 
 if (!apiOpportunity) {
-  throw new Error(`Opportunity with slug ${detail} not found`);
+  return Astro.redirect("/404");
 }
 
 const opportunityDetail = {
@@ -74,14 +67,16 @@ const metaUrl = `${siteUrl}${fullPath}`;
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/opportunities">Opportunities</a>
-      </div>
+
+     	<Breadcrumbs
+        		data={[
+					  { label: "Opportunities", href: "/opportunities" },
+					  { label: opportunityDetail.title,  },
+				]}
+      			/>
     </section>
 
-   <section class="card-detail-section">
+  <section class="card-detail-section">
      <CardDetailSection dataObj={opportunityDetail} opportunity={true} organization={false} />
     </section>
     
