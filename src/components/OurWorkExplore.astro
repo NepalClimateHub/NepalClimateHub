@@ -83,6 +83,7 @@ const { projects } = Astro.props;
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
     gap: 16px;
     margin-bottom: 110px;
   }
@@ -98,7 +99,7 @@ const { projects } = Astro.props;
   .card-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
@@ -117,6 +118,7 @@ const { projects } = Astro.props;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    width: 100%;
     transition: box-shadow 0.2s ease;
   }
 
@@ -153,6 +155,10 @@ const { projects } = Astro.props;
     color: #464646;
     line-height: 1.4;
     margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .overview-label {
@@ -206,7 +212,7 @@ const { projects } = Astro.props;
     }
 
     .grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       margin-bottom: 80px;
     }
   }

@@ -10,6 +10,7 @@ import BaseLayout from '../../layouts/Layout.astro';
 import type { Event as ApiEvent } from '../../types/event';
 import { fetchEvents } from '../../api';
 import { createSlug } from '../../utils/slug';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 // import eventJSON from '../../data/dummy-event.json';
 
 function stripHtml(html: string): string {
@@ -72,11 +73,13 @@ const metaUrl = `${siteUrl}${fullPath}`;
       <Header logoColor="#1A1B1E" />
 
       <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/events">Events</a>
-      </div>
+   	<Breadcrumbs
+        		data={[
+					{ label: "Events", href: "/events" },
+					{ label: eventData.title,  },
+
+				]}
+      			/>
     </section>
 
     <section class="organization-card-section">
