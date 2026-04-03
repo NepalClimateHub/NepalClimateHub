@@ -1,0 +1,178 @@
+---
+---
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="hero-section">
+  <div class="img-wrapper">
+    <img
+      src="https://ik.imagekit.io/mbccqjudb/donate%20page/donatepagehero.png"
+      alt="Donate to Nepal Climate Hub"
+    />
+  </div>
+</div>
+
+<div class="section-container">
+  <div class="donate-content">
+    <div class="donate-banner">
+      <p class="donate-text">Donate us</p>
+    </div>
+    <div class="donate-layout">
+      <div class="donate-text-column">
+        <h1 class="donate-heading">
+          Donate to Nepal Climate Hub
+        </h1>
+
+        <p class="donate-paragraph">
+          Nepal is already facing the impacts of climate change. Many young
+          people want to act but lack access to clear information, networks, and
+          real opportunities to get involved.
+        </p>
+
+        <p class="donate-paragraph">
+          Nepal Climate Hub is a registered, youth-led nonprofit working to
+          change that. We educate, connect, and empower youth across Nepal to
+          take informed, meaningful climate action.
+        </p>
+
+        <p class="donate-paragraph">
+          NCH is run by volunteers who are also full-time students and young
+          professionals. We’ve built and sustained this work by contributing our
+          own time and covering many costs ourselves. As we grow, your support
+          helps young people turn climate concern into action, while keeping NCH
+          free, accessible and sustainable for youth across Nepal.
+        </p>
+      </div>
+
+      <div class="donate-image-column">
+        <img
+          src="https://ik.imagekit.io/mbccqjudb/donate%20page/Team%20NCH%201.png"
+          alt="Team Nepal Climate Hub"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    font-family: Roboto;
+  }
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: 416px;
+    overflow: hidden;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .donate-banner {
+    padding: 2px 14px;
+    position: absolute;
+    background-color: #cefe00;
+    transform: rotate(-3deg);
+    top: -20px;
+    left: 0px;
+    z-index: 10;
+  }
+
+  .donate-text {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+  }
+
+  .donate-content {
+    max-width: 1280px;
+    padding: 3rem 0px 4rem;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .donate-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 32px;
+  }
+
+  .donate-text-column {
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+  }
+
+  .donate-image-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .donate-heading {
+    font-size: 30px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    color: #000;
+    font-family: "Zilla Slab", serif;
+    font-weight: bold;
+    line-height: 36px;
+  }
+
+  .donate-paragraph {
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .donate-content {
+      margin: 0px 48px;
+    }
+
+    .donate-layout {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+    }
+
+    .donate-image-column {
+      justify-self: end;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .donate-content {
+      padding: 2rem 0px;
+      margin: 0px 24px;
+    }
+
+    .donate-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .donate-image-column {
+      margin-top: 16px;
+    }
+
+    .donate-heading {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+

@@ -1,6 +1,7 @@
 .section-container {
-  margin: 0px auto 83px;
+  margin: 0px auto 83px auto;
   position: relative;
+  padding: 0;
 }
 
 .card-wrapper {
@@ -11,25 +12,14 @@
   margin-bottom: 57px;
 }
 
-.load-more-btn {
-  display: block;
-  width: 104px;
-  margin: 0 auto;
-  font-size: 14px;
-  font-family: Roboto, sans-serif;
-  line-height: 16px;
-  border-radius: 16px;
-  padding: 8px 16px;
-  border: 1px solid #1a1b1e;
-  cursor: pointer;
-  background-color: transparent;
-  margin-bottom: 71px;
-}
+/* .resourse-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 16px;
+  margin-bottom: 57px;
+} */
 
-.load-more-btn:hover {
-  background-color: #1a1b1e;
-  color: white;
-}
+/* Load more button styles removed - using pagination now */
 
 @media screen and (max-width: 768px) {
   .section-container {

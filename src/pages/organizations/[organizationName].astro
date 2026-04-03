@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import '../../styles/global.css';
 import ConnectCard from '../../components/ConnectCard.astro';
 import FeaturedOrganizationSection from '../../components/FeaturedOrganizationSection.astro';
@@ -6,45 +7,51 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 import organizationsJSON from '../../data/organizations.json';
 
-// Prerender this page at build time so getStaticPaths is used
-export const prerender = true;
-
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-}
 
 export function getStaticPaths() {
   return organizationsJSON.map((organization) => ({
     params: { organizationName: organization.slug },
-    props: { organization }
+    props: { organization },
   }));
 }
 
-// Get the organization from props
-const { organization } = Astro.props;
 const { organizationName } = Astro.params;
 
+const { organization } = Astro.props;
+
+
 if (!organization) {
-  return Astro.redirect("/404");
+  throw new Error(`Organization with slug ${organizationName} not found`);
 }
 
 // Prepare meta tags
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 const siteUrl = Astro.site || "https://nepalclimatehub.org";
 const pathname = Astro.url.pathname;
 const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
-const metaDescription = stripHtml(organization.description) || `${organization.name} - ${organization.address || 'Climate organization in Nepal'}`;
-const metaImage = organization.pictures && organization.pictures.length > 0
-  ? organization.pictures[0]
-  : '/favicon.png';
+const metaDescription =
+  stripHtml(organization.description) ||
+  `${organization.name} - ${organization.address || "Climate organization in Nepal"}`;
+const metaImage =
+  organization.pictures && organization.pictures.length > 0
+    ? organization.pictures[0]
+    : "/favicon.png";
 const metaUrl = `${siteUrl}${fullPath}`;
 ---
 
-<BaseLayout 
+<BaseLayout
   title={`${organization.name} | Nepal Climate Hub`}
   description={metaDescription}
   ogImage={metaImage}
@@ -52,15 +59,16 @@ const metaUrl = `${siteUrl}${fullPath}`;
 >
   <main class="main-container">
     <!-- header section  -->
+
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
 
-      <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/organizations">Organizations</a>
-      </div>
+      <Breadcrumbs
+        data={[
+          { label: "Organizations", href: "/organizations" },
+          { label: organization.name },
+        ]}
+      />
     </section>
 
     <section class="organization-card-section">
@@ -72,7 +80,11 @@ const metaUrl = `${siteUrl}${fullPath}`;
     </section>
 
     <section class="organization-section">
-      <FeaturedOrganizationSection startIndex={0} endIndex={4} title="Similar Organizations" />
+      <FeaturedOrganizationSection
+        startIndex="0"
+        endIndex="4"
+        title="Similar Organizations"
+      />
     </section>
 
     <section class="footer-section">

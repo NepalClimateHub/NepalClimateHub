@@ -12,6 +12,7 @@ import BaseLayout from "../../layouts/Layout.astro";
 import Loader from "../../components/Loader.astro";
 import type { Event as ApiEvent } from "../../types/event";
 import { fetchEvents } from "../../api";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 const { data: apiEvents } = await fetchEvents();
 
@@ -73,9 +74,12 @@ const events = (apiEvents || []).map((event: any) => {
   <main class="main-container">
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-      </div>
+
+       	<Breadcrumbs
+        		data={[
+					  { label: "Events", href: "/events" },
+				]}
+      			/>
     </section>
 
     <div class="event-wrapper">

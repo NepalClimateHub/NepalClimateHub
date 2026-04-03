@@ -1,6 +1,6 @@
+import styles from '../styles/components/Blogs.module.css';
 import type { Blog } from '../types/blog';
 import { createSlug } from '../utils/slug';
-import styles from '../styles/components/Blogs.module.css';
 
 export interface BlogCardProps {
   blog: Blog;
@@ -16,7 +16,7 @@ export default function BlogCard({
     title,
     excerpt,
     author,
-    authorImageUrl,
+    authorUser,
     readingTime,
     category,
     publishedDate,
@@ -75,8 +75,8 @@ export default function BlogCard({
           <div className={styles.authorSection}>
             {cardType !== 'highlight' && (
               <img
-                src={authorImageUrl || defaultAuthorImage}
-                alt={`${author}'s profile picture`}
+                src={authorUser?.profilePhotoUrl || defaultAuthorImage}
+                alt={`${author}'s profile`}
                 className={styles.authorImage}
               />
             )}

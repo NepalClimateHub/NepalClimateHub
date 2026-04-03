@@ -29,7 +29,8 @@ NepalClimateHub uses npm workspaces, so you should **always run `npm install` fr
 
 ### Development
 
-Always create a new branch when you want to contribute.
+Always create a new branch when you want to contribute;
+OR feel free to push on develop branch.
 
 ```shell
 # start a new branch from master branch
@@ -48,6 +49,7 @@ Server-side rendering (SSR) can be complicated. The Astro package (`packages/ast
 
 ## Branches
 
-### `master`
 
-Active NepalClimateHub development happens on the master branch. `master` always reflects the latest code.
+Active NepalClimateHub production runs from the `main` branch.
+For testing `staging` branch is used.
+For development `develop` branch is used.

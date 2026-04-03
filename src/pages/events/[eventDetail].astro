@@ -5,30 +5,38 @@ import FeaturedEventSection from '../../components/FeaturedEventSection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
+// import eventsTemp from '../../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Event as ApiEvent } from '../../types/event';
 import { fetchEvents } from '../../api';
 import { createSlug } from '../../utils/slug';
-
-// Mark this page as dynamic (not pre-rendered)
-export const prerender = false;
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+// import eventJSON from '../../data/dummy-event.json';
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
-// Fetch data at runtime
 const { eventDetail } = Astro.params;
 
-// Fetch all events to find the matching one
-const response = await fetchEvents();
-const allEvents = response.data || [];
+let apiEvent: ApiEvent | null = null;
+let allEvents: ApiEvent[] = [];
 
-// Find the event that matches the slug
-const apiEvent = allEvents.find((event: ApiEvent) => createSlug(event.title) === eventDetail);
+try {
+  const response = await fetchEvents();
+  allEvents = response.data || [];
+  apiEvent = allEvents.find(
+    (event) => createSlug(event.title) === eventDetail
+  ) || null;
+} catch (error) {
+  console.error('Error fetching events:', error);
+  // Fallback to empty data if API fails
+  allEvents = [];
+  apiEvent = null;
+}
 
 if (!apiEvent) {
-  return Astro.redirect("/404");
+  throw new Error(`Event with slug ${eventDetail} not found`);
 }
 
 const eventData = {
@@ -65,11 +73,13 @@ const metaUrl = `${siteUrl}${fullPath}`;
       <Header logoColor="#1A1B1E" />
 
       <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/events">Events</a>
-      </div>
+   	<Breadcrumbs
+        		data={[
+					{ label: "Events", href: "/events" },
+					{ label: eventData.title,  },
+
+				]}
+      			/>
     </section>
 
     <section class="organization-card-section">
