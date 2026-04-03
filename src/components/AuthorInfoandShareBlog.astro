@@ -1,5 +1,4 @@
 ---
-import { format } from 'path';
 import SocialShare from './SocialShare.astro';
 
 interface Props {
@@ -13,11 +12,13 @@ const { authorName, authorImageUrl, date, readTime } = Astro.props;
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
-  const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  };
   return date.toLocaleDateString('en-US', options);
 }
-
- const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(authorName)}&background=1a1b1e&color=cefe00&size=38`;
 ---
 
 <div class="container">
@@ -26,7 +27,7 @@ function formatDate(isoDate: string): string {
     <figcaption class="author">
         <div class="author-image-container">
           <img
-            src={authorImageUrl || defaultAuthorImage}
+            src={authorImageUrl}
             alt={`${authorImageUrl}'s profile picture`}
             class="author-img"/>
         </div>
@@ -67,21 +68,24 @@ function formatDate(isoDate: string): string {
   gap: 8px;
 }
 
-.author-image-container {
-  width: 38px;
-  height: 38px;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 1px solid #CEFE00;
-}
-
 .author-name {
   font-weight: 500;
   font-size: 16px;
   color: #1A1B1E;
 }
 
+.author-image-container {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #CEFE00;
+  flex-shrink: 0;
+}
+
 .author-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 

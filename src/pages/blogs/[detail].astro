@@ -1,96 +1,109 @@
 ---
-import "../../styles/global.css";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import BaseLayout from "../../layouts/Layout.astro";
-import { fetchAllBlogs } from "../../api";
-import { createSlug } from "../../utils/slug";
-import HtmlRenderer from "../../components/HtmlRenderer.astro";
-import EmailSubscriptionForm from "@components/EmailSubscriptionForm.astro";
-import type { Blog as apiBlog } from "src/types/blog";
-import BlogHighlights from "@components/BlogHighlights.astro";
-import AuthorInfoandShareBlog from "@components/AuthorInfoandShareBlog.astro";
-import AboutBlogAuthor from "@components/AboutBlogAuthor.astro";
+import '../../styles/global.css';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import BaseLayout from '../../layouts/Layout.astro';
+import { getBlogBySlug, getTopReadPosts } from '../../api';
+import HtmlRenderer from '../../components/HtmlRenderer.astro';
+import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
+import type { Blog as apiBlog } from 'src/types/blog';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
+import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
 
-// Mark this page as dynamic (not pre-rendered)
-export const prerender = false;
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { notFound } from 'astro:i18n';
 
 function stripHtml(html: string): string {
-  return html
-    .replace(/<[^>]*>/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
+  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
 const ua = Astro.request.headers.get("user-agent") ?? "";
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
-// Fetch data at runtime
 const { detail } = Astro.params;
 
-// Fetch all blogs to find the matching one
-const response = await fetchAllBlogs();
-const allBlogs = response.data || [];
-
-// Find the blog that matches the slug
-const apiBlog = allBlogs.find((blog: apiBlog) => createSlug(blog.title) === detail);
-
-if (!apiBlog) {
-  return Astro.redirect("/404");
+if(!detail) {
+  return notFound();
 }
 
-const topReads = allBlogs.slice(0, 3);
+let apiBlog: apiBlog | null = null;
+let topReads: apiBlog[] = [];
+
+try {
+
+  const response = await getBlogBySlug(detail);
+  apiBlog = response || null;
+  topReads = await getTopReadPosts();
+} catch (error) {
+  console.error('Error fetching blog:', error);
+  apiBlog = null;
+  topReads = [];
+}
+
+if (!apiBlog) {
+  return notFound();
+}
 
 const blogDetail = {
   ...apiBlog,
-  bannerImage: apiBlog.bannerImageUrl || "/placeholder.svg",
-  content: apiBlog.content || "",
-  excerpt: apiBlog.excerpt || "",
-  author: apiBlog.author || "Unknown Author",
-  category: apiBlog.category || "General",
-  readingTime: apiBlog.readingTime || "5 minutes",
-  publishedDate: apiBlog.publishedDate || new Date().toISOString(),
-  tags: apiBlog.tags || [],
+  bannerImage: apiBlog.bannerImageUrl,
+  content: apiBlog.content,
+  excerpt: apiBlog.excerpt,
+  author: apiBlog.author,
+  category: apiBlog.category,
+  readingTime: apiBlog.readingTime,
+  publishedDate: apiBlog.publishedDate,
+  tags: apiBlog.tags,
+  authorImage: apiBlog.authorUser?.profilePhotoUrl,
+  authorLinkedin: apiBlog.authorUser?.linkedin,
+  authorBio: apiBlog.authorUser?.bio,
+  authorRole: apiBlog.authorUser?.currentRole
 };
 
-const siteUrl = Astro.site || "https://nepalclimatehub.org";
-const metaDescription =
-  `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
-  `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
+const pathname = Astro.url.pathname;
+const search = Astro.url.search;
+const hash = Astro.url.hash;
+const fullPath = `${pathname}${search}${hash}`;
+const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
+const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const metaUrl = `${siteUrl}${fullPath}`;
 
 const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
   blogDetail.author
 )}&background=1a1b1e&color=cefe00&size=72`;
-
-const socials = {
-  linkedin: "https://www.linkedin.com/",
-};
 ---
 
 <BaseLayout
   title={`${blogDetail.title} | Nepal Climate Hub`}
   description={metaDescription}
+  ogImage={metaImage}
+  ogUrl={metaUrl}
 >
   <main class="main-container">
+
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span>/</span>
-        <a href="/blogs">Blogs</a>
-      </div>
+     <Breadcrumbs
+        data={[
+          { label: "Blogs", href: "/blogs" },
+          { label:blogDetail.title,  },
+
+        ]}
+      />
     </section>
 
     <!-- Blog Detail Section -->
     <section class="blog-detail-section">
-      <div class="blog-container">
+
         <!-- Blog Header -->
         <header class="blog-header section-container">
           <h1 class="blog-title">{blogDetail.title}</h1>
           <AuthorInfoandShareBlog
             authorName={blogDetail.author}
-            authorImageUrl={blogDetail.authorImageUrl || ""}
+            authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
             date={blogDetail.publishedDate}
             readTime={blogDetail.readingTime}
           />
@@ -98,183 +111,179 @@ const socials = {
 
         <!-- Blog Grid -->
         <div class="blog-grid section-container">
+
           <!-- Blog Content -->
           <article class="blog-content">
             <HtmlRenderer content={blogDetail.content} />
           </article>
 
           <!-- Sidebar -->
-          <aside class="blog-sidebar">
-            <div id="author-section-top" class="author-section">
-              <AboutBlogAuthor
-                authorName={blogDetail.author}
-                authorImageUrl={defaultAuthorImage}
-                authorBio="Climate Storyteller at Nepal Climate Hub"
-                authorDescription="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
-                socials={socials}
-              />
+            <aside class="blog-sidebar">
+
+          <div id="author-section-top" class="author-section">
+            <AboutBlogAuthor
+              authorName={blogDetail.author}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
+            />
+          </div>
+
+          {!isMobile && (<div class="sidebar-section stay-connected">
+            <h2 class="sidebar-title">Stay Connected</h2>
+            <EmailSubscriptionForm formBtnVariant="primary" />
+          </div>)}
+          
+          <section class="top-reads-section">
+            <BlogHighlights title="Top Reads" blogs={topReads} />
+          </section>         
+
+          {blogDetail.tags.length > 0 && (
+            <div class="sidebar-section">
+              <h2 class="sidebar-title">Tags</h2>
+              <div class="tags-container">
+                {blogDetail.tags.map((tag) => (
+                  <span class="tag">{tag?.tag}</span>
+                ))}
+              </div>
             </div>
-
-            {
-              !isMobile && (
-                <div class="sidebar-section stay-connected">
-                  <h2 class="sidebar-title">Stay Connected</h2>
-                  <EmailSubscriptionForm formBtnVariant="primary" />
-                </div>
-              )
-            }
-
-            <section class="top-reads-section">
-              <BlogHighlights title="Top Reads" blogs={topReads} />
-            </section>
-
-            {
-              blogDetail.tags.length > 0 && (
-                <div class="sidebar-section">
-                  <h2 class="sidebar-title">Tags</h2>
-                  <div class="tags-container">
-                    {blogDetail.tags.map((tag) => (
-                      <span class="tag">{tag?.tag}</span>
-                    ))}
-                  </div>
-                </div>
-              )
-            }
+          )}
           </aside>
         </div>
-
-        <div
-          id="author-section-bottom"
-          class="section-container author-section"
-        >
-          <AboutBlogAuthor
-            authorName={blogDetail.author}
-            authorImageUrl={defaultAuthorImage}
-            authorBio="Climate Storyteller at Nepal Climate Hub"
-            authorDescription="Dipika Khadka is pursuing a Master’s Degree in Environmental Science and is passionate about geospatial science and climate action."
-            socials={socials}
-          />
-        </div>
-      </div>
-    </section>
+        
+          {
+            apiBlog.authorUser && (
+            <div id="author-section-bottom" class="section-container author-section">
+            <AboutBlogAuthor
+              authorName={blogDetail.author}
+              authorImageUrl={blogDetail.authorImage || defaultAuthorImage}
+              authorRole={blogDetail.authorRole}
+              authorBio={blogDetail.authorBio}
+              authorLinkedin={blogDetail.authorLinkedin}
+            />
+          </div>
+            )
+          }
+        </section>
 
     <!-- Footer -->
     <section class="footer-section">
       <Footer />
     </section>
+
   </main>
 </BaseLayout>
 
 <style>
-  section {
-    padding: 0 48px;
-  }
+section {
+  padding: 0 48px;
+}
 
-  .footer-section {
-    background-color: #1a1b1e;
-    color: white;
-  }
+.footer-section {
+  background-color: #1a1b1e;
+  color: white;
+}
 
-  .header-section {
-    width: 100%;
-  }
+.header-section {
+  width: 100%;
+}
 
+.blog-detail-section {
+  margin-top: 24px;
+  padding-bottom: 80px;
+}
+
+.blog-header {
+  margin-bottom: 16px;
+}
+
+.blog-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 35%);
+  gap: 40px;
+}
+
+.blog-content {
+  width: 100%;
+}
+
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+  /* position: sticky;
+  top: 16px;
+  align-self: flex-start; */
+}
+
+.sidebar-section {
+  width: 100%;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.top-reads-section {
+  padding: 0;
+  position: sticky;
+  top: 16px;
+}
+
+/* Stay Connected */
+.stay-connected {
+  background-color: #1a1b1e;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.stay-connected .sidebar-title {
+  color: #ffffff;
+}
+
+/* Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #ffffff;
+  color: #364fc7;
+  padding: 6px 12px;
+  border: 1px solid #cefe00;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.author-section {
+  margin-top: 60px;
+}
+
+#author-section-top {
+  display: none;
+}
+
+@media (max-width: 1200px) {
   .blog-detail-section {
-    margin-top: 24px;
-    padding-bottom: 80px;
+    padding-bottom: 32px;
   }
+}
 
-  .blog-container {
-    width: 100%;
-  }
-
-  .blog-header {
-    margin-bottom: 16px;
-  }
-
-  .blog-title {
-    font-size: 32px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
-  }
-
-  .blog-grid {
-    display: grid;
-    grid-template-columns: 1fr minmax(300px, 35%);
-    gap: 40px;
-  }
-
-  .blog-content {
-    width: 100%;
-  }
-
-  .blog-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    margin-bottom: 40px;
-  }
-
-  .sidebar-section {
-    width: 100%;
-  }
-
-  .sidebar-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: #111827;
-  }
-
-  .top-reads-section {
-    padding: 0;
-    position: sticky;
-    top: 16px;
-  }
-
-  /* Stay Connected */
-  .stay-connected {
-    background-color: #1a1b1e;
-    padding: 32px;
-    border-radius: 16px;
-  }
-
-  .stay-connected .sidebar-title {
-    color: #ffffff;
-  }
-
-  /* Tags */
-  .tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag {
-    background-color: #ffffff;
-    color: #364fc7;
-    padding: 6px 12px;
-    border: 1px solid #cefe00;
-    border-radius: 20px;
-    font-size: 14px;
-  }
-
-  .author-section {
-    margin-top: 60px;
-  }
-
-  #author-section-top {
-    display: none;
-  }
-
-  @media (max-width: 1200px) {
-    .blog-detail-section {
-      padding-bottom: 32px;
-    }
-  }
-
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
     .blog-grid {
       grid-template-columns: 1fr;
       gap: 20px;
@@ -299,19 +308,19 @@ const socials = {
     #author-section-top {
       display: block;
     }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 0;
   }
 
-  @media (max-width: 768px) {
-    section {
-      padding: 0;
-    }
-
-    .blog-detail-section {
-      padding: 0 24px;
-    }
-
-    .blog-title {
-      font-size: 20px;
-    }
+  .blog-detail-section {
+    padding: 0 24px;
   }
+
+  .blog-title {
+    font-size: 20px;
+  }
+}
 </style>

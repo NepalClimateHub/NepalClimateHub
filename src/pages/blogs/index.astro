@@ -8,18 +8,29 @@ import Header from "../../components/Header.astro";
 import BlogCard from "../../components/BlogCard";
 import BlogCategoryFilter from "../../components/BlogCategoryFilter.tsx";
 import BaseLayout from "../../layouts/Layout.astro";
-import { fetchAllBlogs } from "../../api";
+import { fetchAllBlogs, getFeaturedPost } from "../../api";
 import type { Blog } from "../../types/blog";
 import BlogHighlights from "@components/BlogHighlights.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 // Fetch blogs from API
-const { data: apiBlogs } = await fetchAllBlogs();
+let apiBlogs: Blog[] = [];
+let featuredBlog: Blog | null = null;
+
+try {
+  const response = await fetchAllBlogs();
+  apiBlogs = response.data || [];
+  featuredBlog = await getFeaturedPost();
+} catch (error) {
+  console.error('Error fetching blogs:', error);
+  // Fallback to empty arrays if API fails
+  apiBlogs = [];
+  featuredBlog = null;
+}
 
 const ua = Astro.request.headers.get("user-agent") ?? "";
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
-
-const featuredBlogs: Blog[] | null = apiBlogs.filter((blog) => blog.isFeatured).slice(0, 1);
 const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 ---
 
@@ -27,23 +38,24 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   <main class="main-container">
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/blogs">Blogs</a>
-      </div>
+   <Breadcrumbs
+        data={[
+          { label: "Blogs", href: "/blogs" },
+
+        ]}
+      />
     </section>
 
     <section class="blogs-section">
-      <div class="blogs-container section-container">
+      <div class="blogs-container">
         <!-- Featured Post -->
         <div class="featured-post">
           <h2 class="section-title">Featured Post</h2>
-          {featuredBlogs ? (
+          {featuredBlog ? (
             <div class="featured-card-wrapper">
               <BlogCard
                 client:load
-                blog={featuredBlogs[0]}
+                blog={featuredBlog}
                 cardType='featured'
               />
             </div>
@@ -74,7 +86,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 
   .blogs-section {
     padding-top: 24px;
-    margin-bottom: 80px
+    margin-bottom: 80px;
   }
 
   .blogs-container {
@@ -82,6 +94,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     max-width: 1280px;
+    margin: 0 auto;
   }
 
   .section-title {
@@ -100,25 +113,6 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-
-  .featured-card-wrapper {
-    flex: 1;
-    display: flex;
-  }
-
-  .featured-card-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .featured-card-wrapper {
-    flex: 1;
-    min-height: 300px;
-  }
-
-  .featured-card-wrapper {
     min-height: 300px;
   }
 
@@ -131,14 +125,6 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     display: flex;
     flex-direction: column;
     gap: 16px;
-    flex: 1;
-  }
-
-  .latest-cards-wrapper {
-    flex: 1;
-  }
-
-  .latest-cards-wrapper {
     flex: 1;
     border-radius: 16px;
     overflow: hidden;
@@ -167,17 +153,13 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   /* Responsive styles */
   @media screen and (max-width: 1024px) {
     .blogs-section {
-      margin-bottom: 32px;
+      margin-bottom: 0;
     }
   
     .blogs-container {
       grid-template-columns: 1fr;
       gap: 48px;
-      margin: 24px auto 32px auto;
-    }
-
-    .featured-card-wrapper {
-      min-height: 250px;
+      margin: 24px auto 0 auto;
     }
 
     .featured-card-wrapper {
@@ -195,7 +177,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     }
 
     .blogs-section {
-      padding: 16px 24px 32px;
+      padding: 16px 24px 16px 24px;
     }
 
     .blogs-container {
@@ -208,16 +190,12 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 
     .latest-cards-wrapper {
       flex-direction: column;
-    }
-
-    .latest-cards-wrapper {
       width: 100%;
     }
-    @media screen and (max-width: 768px) {
-  .latest-posts {
-    display: none;
-  }
-}
+
+    .latest-posts {
+      display: none;
+    }
   }
 </style>
 

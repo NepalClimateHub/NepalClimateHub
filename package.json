@@ -10,32 +10,31 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^6.5.6",
-    "@astrojs/node": "^9.5.2",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.2",
-    "@iconify-json/hugeicons": "^1.2.8",
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/netlify": "^6.6.4",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "@iconify-json/hugeicons": "^1.2.23",
     "@iconify-json/mdi": "^1.2.3",
-    "@types/react": "^18.3.23",
+    "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
-    "astro": "^5.12.9",
+    "astro": "^5.17.1",
     "astro-icon": "^1.1.5",
     "dotenv": "^16.6.1",
-    "nuqs": "^2.4.3",
+    "nuqs": "^2.8.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^6.30.1",
-    "typescript": "^5.9.2"
+    "react-router-dom": "^6.30.3",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@tgwf/co2": "^0.15.0",
-    "@types/node": "^20.19.10",
+    "@types/node": "^20.19.30",
     "@types/ws": "^8.18.1",
-    "lefthook": "^1.12.3"
+    "lefthook": "^1.13.6"
   },
   "engines": {
     "node": ">=18.20.6"
