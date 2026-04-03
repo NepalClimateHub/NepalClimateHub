@@ -65,3 +65,5 @@ export * from './opportunities.api';
 export * from './news.api';
 export * from './events.api';
 export * from './blogs.api';
+export * from './resources.api';
+export * from './projects.api';

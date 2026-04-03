@@ -2,7 +2,8 @@ import styles from '../styles/components/Blogs.module.css';
 
 export default function WriteBlog() {
   // Default author image placeholder
-  const defaultAuthorImage = `https://ui-avatars.com/api/?name=A&background=1a1b1e&color=cefe00&size=96`;
+  const defaultAuthorImage =
+    'https://ui-avatars.com/api/?name=A&background=1a1b1e&color=cefe00&size=96';
 
   return (
     <div className={styles.blogCardLink}>
@@ -25,16 +26,21 @@ export default function WriteBlog() {
         <div className={styles.blogContent}>
           <div className={styles.writeBlogInfo}>
             <h3 className={styles.blogTitle}>Title of the Blog</h3>
-            <button type="button" className={styles.writeBlogButton}>
+            <a
+              href="https://docs.google.com/document/d/1o_yJzqtwYdLaXGFZQBXqQxjhG9N5csgGI9CykxQk7l8/edit?tab=t.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.writeBlogButton}
+            >
               Write a Blog
-            </button>
+            </a>
           </div>
 
           {/* Author section with placeholder data */}
           <div className={`${styles.authorSection} ${styles.authorSectionMt}`}>
             <img
               src={defaultAuthorImage}
-              alt="Author profile picture"
+              alt="Author profile"
               className={styles.authorImage}
             />
             <div className={styles.authorInfo}>
