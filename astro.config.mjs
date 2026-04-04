@@ -4,7 +4,7 @@ import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import net0Integration from './toolbar/integration.ts';
 
-import netlify from '@astrojs/netlify';
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +24,7 @@ export default defineConfig({
       'https://nepalclimatehub.org/events/sitemap.xml',
     ]
   }), [icon()], react()],
-  adapter: netlify(),
+  adapter: node(),
   vite: {
     envPrefix: 'PUBLIC_',
     resolve: {
