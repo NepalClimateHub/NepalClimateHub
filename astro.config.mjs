@@ -24,7 +24,7 @@ export default defineConfig({
       'https://nepalclimatehub.org/events/sitemap.xml',
     ]
   }), [icon()], react()],
-  adapter: node(),
+  adapter: node({ mode: 'standalone' }),
   vite: {
     envPrefix: 'PUBLIC_',
     resolve: {
