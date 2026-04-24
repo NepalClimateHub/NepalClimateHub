@@ -1,12 +1,12 @@
 ---
 import '../styles/global.css';
+import { fetchAllResources } from '../api';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import CardFilterSection from '../layouts/CardFilterSection.astro';
-import ResourceFilter from '../components/ResourceFilter';
-import BaseLayout from '../layouts/Layout.astro';
 import Loader from '../components/Loader.astro';
-import { fetchAllResources } from '../api';
+import ResourceFilter from '../components/ResourceFilter';
+import CardFilterSection from '../layouts/CardFilterSection.astro';
+import BaseLayout from '../layouts/Layout.astro';
 
 // Fetch resources from API
 let apiResources: any[] = [];
@@ -21,8 +21,8 @@ try {
 }
 
 // Transform API data to match the expected Resource interface
-const resources = apiResources.map(resource => ({
-  id: parseInt(resource.id, 10),
+const resources = apiResources.map((resource) => ({
+  id: Number.parseInt(resource.id, 10),
   title: resource.title,
   description: resource.overview,
   href: resource.link,

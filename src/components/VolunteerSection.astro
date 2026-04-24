@@ -1,11 +1,13 @@
 ---
+import formerVolunteers from '../data/formerVolunteers.json';
 import teamData from '../data/team.json';
 
 const allMembers = teamData.categories.flatMap((category) => category.members);
 const volunteerNames = ['Nischal Raj Gautam', 'Biswas Kaphle'];
-const volunteerMembers = allMembers.filter(
-  (member) => volunteerNames.includes(member.name),
+const currentVolunteers = allMembers.filter((member) =>
+  volunteerNames.includes(member.name)
 );
+const allVolunteers = [...currentVolunteers, ...formerVolunteers];
 ---
 
 <div class="section-container">
@@ -18,11 +20,11 @@ const volunteerMembers = allMembers.filter(
     <div
       class:list={[
         'team-grid',
-        { 'team-grid--single': volunteerMembers.length === 1 },
+        { 'team-grid--single': allVolunteers.length === 1 },
       ]}
     >
       {
-        volunteerMembers.map((member) => (
+        allVolunteers.map((member) => (
           <div class="team-member">
             <div class="member-image-container">
               <img

@@ -1,12 +1,12 @@
 ---
-import "../styles/global.css";
-import { CardContainer } from "../components/CardContainer";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import CardFilterSection from "../layouts/CardFilterSection.astro";
-import ActivistsJSON from "../data/activists.json";
-import BaseLayout from "../layouts/Layout.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
+import '../styles/global.css';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { CardContainer } from '../components/CardContainer';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import ActivistsJSON from '../data/activists.json';
+import CardFilterSection from '../layouts/CardFilterSection.astro';
+import BaseLayout from '../layouts/Layout.astro';
 
 const transformedActivists = ActivistsJSON.map((activist) => ({
   ...activist,

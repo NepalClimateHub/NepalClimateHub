@@ -1,16 +1,15 @@
 ---
 export const prerender = true;
 import '../../styles/global.css';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import ConnectCard from '../../components/ConnectCard.astro';
 import FeaturedOrganizationSection from '../../components/FeaturedOrganizationSection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 import organizationsJSON from '../../data/organizations.json';
-
 
 export function getStaticPaths() {
   return organizationsJSON.map((organization) => ({
@@ -23,7 +22,6 @@ const { organizationName } = Astro.params;
 
 const { organization } = Astro.props;
 
-
 if (!organization) {
   throw new Error(`Organization with slug ${organizationName} not found`);
 }
@@ -31,23 +29,23 @@ if (!organization) {
 // Prepare meta tags
 function stripHtml(html: string): string {
   return html
-    .replace(/<[^>]*>/g, "")
-    .replace(/\s+/g, " ")
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
     .trim();
 }
 
-const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
 const pathname = Astro.url.pathname;
 const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
 const metaDescription =
   stripHtml(organization.description) ||
-  `${organization.name} - ${organization.address || "Climate organization in Nepal"}`;
+  `${organization.name} - ${organization.address || 'Climate organization in Nepal'}`;
 const metaImage =
   organization.pictures && organization.pictures.length > 0
     ? organization.pictures[0]
-    : "/favicon.png";
+    : '/favicon.png';
 const metaUrl = `${siteUrl}${fullPath}`;
 ---
 

@@ -1,20 +1,20 @@
 ---
 import '../../styles/global.css';
-import BaseLayout from '../../layouts/Layout.astro';
-import Header from '@components/Header.astro';
+import { notFound } from 'astro:i18n';
 import Footer from '@components/Footer.astro';
-import { getProject, fetchAllProjects } from '../../api';
-import { createSlug } from '../../utils/slug';
-import type { Project } from '../../types/project';
+import Header from '@components/Header.astro';
 import HtmlRenderer from '@components/HtmlRenderer.astro';
 import { RiAlarmLine } from 'react-icons/ri';
-import { notFound } from 'astro:i18n';
+import { fetchAllProjects, getProject } from '../../api';
+import BaseLayout from '../../layouts/Layout.astro';
+import type { Project } from '../../types/project';
+import { createSlug } from '../../utils/slug';
 
 const { details } = Astro.params;
 let project: Project | undefined;
 let otherProjects: Project[] = [];
 
-if(!details) {
+if (!details) {
   return notFound();
 }
 
