@@ -42,6 +42,10 @@ body {
   color: #364fc7;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
   .mini-nav {
     margin: -10px 24px 12px;

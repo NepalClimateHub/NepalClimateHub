@@ -88,7 +88,6 @@
 }
 
 .blogCardLink {
-  text-decoration: none;
 }
 
 /* Highlight Card */
@@ -322,6 +321,7 @@
   transition: all 0.2s ease;
   font-family: "Roboto", sans-serif;
   width: fit-content;
+  text-decoration: none;
 }
 
 .writeBlogButton:hover {
@@ -496,7 +496,6 @@
 }
 
 .blogCardLink {
-  text-decoration: none;
 }
 
 /* Highlight Card */
@@ -730,6 +729,7 @@
   transition: all 0.2s ease;
   font-family: "Roboto", sans-serif;
   width: fit-content;
+  text-decoration: none;
 }
 
 .writeBlogButton:hover {
