@@ -1,0 +1,86 @@
+---
+import AboutHeroImg from '../assets/abouthero.jpg';
+---
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="hero-section">
+  <div class="img-wrapper">
+    <img src={AboutHeroImg.src} alt="Volunteer hero banner" />
+  </div>
+</div>
+
+<div class="section-container">
+  <div class="volunteer-hero-content">
+    <div class="get-involved-container">
+      <p class="get-involved-text">Get Involved</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    font-family: Roboto, sans-serif;
+  }
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: 416px;
+    overflow: hidden;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .volunteer-hero-content {
+    max-width: 984px;
+    padding: 0 0 32px;
+    position: relative;
+  }
+
+  .get-involved-container {
+    padding: 2px 14px;
+    position: absolute;
+    background-color: #cefe00;
+    transform: rotate(-3deg);
+    top: -20px;
+    left: 0;
+    z-index: 10;
+  }
+
+  .get-involved-text {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .volunteer-hero-content {
+      margin: 0 48px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .img-wrapper {
+      height: min(416px, 55vw);
+    }
+
+    .volunteer-hero-content {
+      margin: 0 24px;
+      padding: 2rem 0 0;
+    }
+  }
+</style>

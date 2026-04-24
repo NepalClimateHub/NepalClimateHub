@@ -1,41 +1,36 @@
 ---
 import '../../styles/global.css';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { fetchOpportunities } from '../../api';
 import ConnectCard from '../../components/ConnectCard.astro';
 import FeaturedOpportunitySection from '../../components/FeaturedOpportunitySection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
-// import opportunitiesTemp from '../../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type {
   Opportunity as ApiOpportunity,
   OpportunityTag,
 } from '../../types/opportunity';
-import { fetchOpportunities } from '../../api';
 import { createSlug } from '../../utils/slug';
 
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
 
-
+// Fetch data at runtime
 const { detail } = Astro.params;
 
-let apiOpportunity: ApiOpportunity | null = null;
-let allOpportunities: ApiOpportunity[] = [];
+// Fetch all opportunities to find the matching one
+const response = await fetchOpportunities();
+const allOpportunities = response.data || [];
 
-try {
-  const response = await fetchOpportunities();
-  allOpportunities = response.data || [];
-  apiOpportunity = allOpportunities.find(
-    (opportunity) => createSlug(opportunity.title) === detail
-  ) || null;
-} catch (error) {
-  console.error('Error fetching opportunities:', error);
-  // Fallback to empty data if API fails
-  allOpportunities = [];
-  apiOpportunity = null;
-}
+// Find the opportunity that matches the slug
+const apiOpportunity = allOpportunities.find(
+  (opportunity: ApiOpportunity) => createSlug(opportunity.title) === detail
+);
 
 if (!apiOpportunity) {
-  throw new Error(`Opportunity with slug ${detail} not found`);
+  return Astro.redirect('/404');
 }
 
 const opportunityDetail = {
@@ -46,20 +41,28 @@ const opportunityDetail = {
     apiOpportunity.locationType.charAt(0).toUpperCase() +
     apiOpportunity.locationType.slice(1).toLowerCase(),
   province: apiOpportunity.address?.state || '',
-  category: apiOpportunity.tags?.map((tag: any) => tag.tag) || apiOpportunity.category || [],
+  category:
+    apiOpportunity.tags?.map((tag: any) => tag.tag) ||
+    apiOpportunity.category ||
+    [],
 };
 
 // Prepare meta tags
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
 const pathname = Astro.url.pathname;
 const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
-const metaDescription = stripHtml(opportunityDetail.description) || `Apply for ${opportunityDetail.title} - ${opportunityDetail.locationType} opportunity in Nepal.`;
+const metaDescription =
+  stripHtml(opportunityDetail.description) ||
+  `Apply for ${opportunityDetail.title} - ${opportunityDetail.locationType} opportunity in Nepal.`;
 const metaImage = opportunityDetail.bannerImage || '/favicon.png';
 const metaUrl = `${siteUrl}${fullPath}`;
 ---
@@ -74,14 +77,16 @@ const metaUrl = `${siteUrl}${fullPath}`;
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/opportunities">Opportunities</a>
-      </div>
+
+     	<Breadcrumbs
+        		data={[
+					  { label: "Opportunities", href: "/opportunities" },
+					  { label: opportunityDetail.title,  },
+				]}
+      			/>
     </section>
 
-   <section class="card-detail-section">
+  <section class="card-detail-section">
      <CardDetailSection dataObj={opportunityDetail} opportunity={true} organization={false} />
     </section>
     

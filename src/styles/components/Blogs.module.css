@@ -87,10 +87,6 @@
   box-shadow: 0 2px 6px rgba(26, 27, 30, 0.12);
 }
 
-.blogCardLink {
-  text-decoration: none;
-}
-
 /* Highlight Card */
 .blogCardHighlight {
   display: grid;
@@ -322,6 +318,7 @@
   transition: all 0.2s ease;
   font-family: "Roboto", sans-serif;
   width: fit-content;
+  text-decoration: none;
 }
 
 .writeBlogButton:hover {
@@ -493,10 +490,6 @@
 .blogCardHighlight:hover,
 .blogCardFeatured:hover {
   box-shadow: 0 2px 6px rgba(26, 27, 30, 0.12);
-}
-
-.blogCardLink {
-  text-decoration: none;
 }
 
 /* Highlight Card */
@@ -730,6 +723,7 @@
   transition: all 0.2s ease;
   font-family: "Roboto", sans-serif;
   width: fit-content;
+  text-decoration: none;
 }
 
 .writeBlogButton:hover {

@@ -33,7 +33,9 @@ export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch opportunities data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch opportunities data: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };
@@ -61,7 +63,9 @@ export const fetchOpportunityById = async (
     }
     throw new ApiError(
       500,
-      `Failed to fetch opportunity with ID ${id}: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch opportunity with ID ${id}: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };

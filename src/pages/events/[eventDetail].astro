@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { fetchEvents } from '../../api';
 import ConnectCard from '../../components/ConnectCard.astro';
 import FeaturedEventSection from '../../components/FeaturedEventSection.astro';
 import Footer from '../../components/Footer.astro';
@@ -8,12 +10,14 @@ import CardDetailSection from '../../layouts/CardDetailSection.astro';
 // import eventsTemp from '../../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Event as ApiEvent } from '../../types/event';
-import { fetchEvents } from '../../api';
 import { createSlug } from '../../utils/slug';
 // import eventJSON from '../../data/dummy-event.json';
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 const { eventDetail } = Astro.params;
@@ -24,9 +28,8 @@ let allEvents: ApiEvent[] = [];
 try {
   const response = await fetchEvents();
   allEvents = response.data || [];
-  apiEvent = allEvents.find(
-    (event) => createSlug(event.title) === eventDetail
-  ) || null;
+  apiEvent =
+    allEvents.find((event) => createSlug(event.title) === eventDetail) || null;
 } catch (error) {
   console.error('Error fetching events:', error);
   // Fallback to empty data if API fails
@@ -50,12 +53,14 @@ const eventData = {
 };
 
 // Prepare meta tags
-const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
 const pathname = Astro.url.pathname;
 const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
-const metaDescription = stripHtml(eventData.description) || `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || 'Nepal Climate Hub'}.`;
+const metaDescription =
+  stripHtml(eventData.description) ||
+  `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || 'Nepal Climate Hub'}.`;
 const metaImage = eventData.bannerImage || '/favicon.png';
 const metaUrl = `${siteUrl}${fullPath}`;
 ---
@@ -72,11 +77,13 @@ const metaUrl = `${siteUrl}${fullPath}`;
       <Header logoColor="#1A1B1E" />
 
       <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/events">Events</a>
-      </div>
+   	<Breadcrumbs
+        		data={[
+					{ label: "Events", href: "/events" },
+					{ label: eventData.title,  },
+
+				]}
+      			/>
     </section>
 
     <section class="organization-card-section">

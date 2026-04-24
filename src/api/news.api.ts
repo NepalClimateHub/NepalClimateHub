@@ -33,7 +33,9 @@ export const fetchNews = async (): Promise<NewsResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch news data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch news data: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };

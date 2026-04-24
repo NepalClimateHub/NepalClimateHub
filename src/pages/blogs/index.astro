@@ -1,13 +1,17 @@
 ---
-import "../../styles/global.css";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import BlogCard from "../../components/BlogCard";
-import BlogCategoryFilter from "../../components/BlogCategoryFilter.tsx";
-import BaseLayout from "../../layouts/Layout.astro";
-import { fetchAllBlogs, getFeaturedPost } from "../../api";
-import type { Blog } from "../../types/blog";
-import BlogHighlights from "@components/BlogHighlights.astro";
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
+
+import '../../styles/global.css';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { fetchAllBlogs, getFeaturedPost } from '../../api';
+import BlogCard from '../../components/BlogCard';
+import BlogCategoryFilter from '../../components/BlogCategoryFilter.tsx';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import BaseLayout from '../../layouts/Layout.astro';
+import type { Blog } from '../../types/blog';
 
 // Fetch blogs from API
 let apiBlogs: Blog[] = [];
@@ -24,7 +28,7 @@ try {
   featuredBlog = null;
 }
 
-const ua = Astro.request.headers.get("user-agent") ?? "";
+const ua = Astro.request.headers.get('user-agent') ?? '';
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
@@ -34,11 +38,12 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
   <main class="main-container">
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
-        <a href="/blogs">Blogs</a>
-      </div>
+   <Breadcrumbs
+        data={[
+          { label: "Blogs", href: "/blogs" },
+
+        ]}
+      />
     </section>
 
     <section class="blogs-section">

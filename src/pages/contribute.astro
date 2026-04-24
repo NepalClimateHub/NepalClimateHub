@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import AboutAcknowledgement from '@components/AboutAcknowledgement.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 import ContributeEventsSection from '@components/ContributeEventSection.astro';
 import ContributeHeroSection from '@components/ContributeHeroSection.astro';
 import ContributeNewsSection from '@components/ContributeNewsSection.astro';
@@ -20,9 +21,7 @@ import BaseLayout from '../layouts/Layout.astro';
       <Header logoColor="#1A1B1E" />
 
       <!-- a mini navbar -->
-      <div class="mini-nav">
-        <a href="/">Home</a>
-      </div>
+       <Breadcrumbs data={[{ label: "Contribute", href: "/contribute" }]} />
     </section>
 
     <section class="contribute-hero-section">

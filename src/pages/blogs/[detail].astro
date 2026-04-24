@@ -1,34 +1,41 @@
 ---
 import '../../styles/global.css';
+import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
+import type { Blog as BlogType } from 'src/types/blog';
+import { getBlogBySlug, getTopReadPosts } from '../../api';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import BaseLayout from '../../layouts/Layout.astro';
-import { getBlog, getTopReadPosts } from '../../api';
 import HtmlRenderer from '../../components/HtmlRenderer.astro';
-import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
-import type { Blog as apiBlog } from 'src/types/blog';
-import BlogHighlights from '@components/BlogHighlights.astro';
-import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
-import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+import BaseLayout from '../../layouts/Layout.astro';
+
+import { notFound } from 'astro:i18n';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-const ua = Astro.request.headers.get("user-agent") ?? "";
+const ua = Astro.request.headers.get('user-agent') ?? '';
 const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 const { detail } = Astro.params;
 
 if (!detail) {
-  return Astro.redirect('/blogs');
+  return notFound();
 }
 
-let apiBlog: apiBlog | null = null;
-let topReads: apiBlog[] = [];
+let apiBlog: BlogType | null = null;
+let topReads: BlogType[] = [];
 
 try {
-  apiBlog = await getBlog(detail);
+  const response = await getBlogBySlug(detail);
+  apiBlog = response || null;
   topReads = await getTopReadPosts();
 } catch (error) {
   console.error('Error fetching blog:', error);
@@ -37,7 +44,7 @@ try {
 }
 
 if (!apiBlog) {
-  return Astro.redirect('/blogs');
+  return notFound();
 }
 
 const blogDetail = {
@@ -53,7 +60,7 @@ const blogDetail = {
   authorImage: apiBlog.authorUser?.profilePhotoUrl,
   authorLinkedin: apiBlog.authorUser?.linkedin,
   authorBio: apiBlog.authorUser?.bio,
-  authorRole: apiBlog.authorUser?.currentRole
+  authorRole: apiBlog.authorUser?.currentRole,
 };
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
@@ -62,7 +69,9 @@ const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
 const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
-const metaDescription = `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` || `Read about ${blogDetail.title} on Nepal Climate Hub.`;
+const metaDescription =
+  `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
+  `Read about ${blogDetail.title} on Nepal Climate Hub.`;
 const metaUrl = `${siteUrl}${fullPath}`;
 
 const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(
@@ -81,11 +90,11 @@ const defaultAuthorImage = `https://ui-avatars.com/api/?name=${encodeURIComponen
     <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
-      <div class="mini-nav">
-        <a href="/">Home</a>
-        <span>/</span>
-        <a href="/blogs">Blogs</a>
-      </div>
+     <Breadcrumbs
+        data={[
+          { label: "Blogs", href: "/blogs" },
+        ]}
+      />
     </section>
 
     <!-- Blog Detail Section -->

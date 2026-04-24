@@ -1,0 +1,30 @@
+---
+interface Props {
+  hideHome?: boolean;
+  data: Array<{
+    label: string;
+    href?: string;
+  }>;
+}
+const { data, hideHome = true } = Astro.props;
+---
+
+<div class="mini-nav">
+  {
+    hideHome && (
+      <>
+        <a href="/">Home</a>
+        <span style="color: #364FC7"> / </span>
+      </>
+    )
+  }
+
+  {
+    data.map((d, index) => (
+      <>
+        <a href={d.href}>{d.label}</a>
+        {index !== data.length - 1 && <span style="color: #364FC7"> / </span>}
+      </>
+    ))
+  }
+</div>

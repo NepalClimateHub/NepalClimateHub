@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 const { logoColor } = Astro.props;
-import mainLogo from "../assets/logo/secondaryLogo.svg";
-import HomeLogo from "../assets/logo/mainLogo.svg";
+import HomeLogo from '../assets/logo/mainLogo.svg';
+import mainLogo from '../assets/logo/secondaryLogo.svg';
 export interface Props {
   logoColor: string;
 }
@@ -52,7 +52,7 @@ export interface Props {
           <li><a href="/resources">Resources</a></li>
           <li><a href="/action-steps">Action Steps</a></li>
           <li><a href="/news">News</a></li>
-          <!-- <li><a href="/blogs">Blogs</a></li> -->
+          <li><a href="/blogs">Blogs</a></li>
         </ul>
       </li>
 
@@ -63,8 +63,11 @@ export interface Props {
         <ul class="sub-menu">
           <li><a href="/volunteer">Volunteer</a></li>
           <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/donate">Donate</a></li>
         </ul>
       </li>
+
+      <li class="menu-heading desktop-only"><a href="/our-work">Our Work</a></li>
 
       <li class="menu-heading"><a href="/about">About</a></li>
     </ul>
@@ -73,6 +76,7 @@ export interface Props {
     <div class="bottom-nav">
       <span>NEPALCLIMATEHUB.ORG</span>
       <ul>
+        <li><a href="/our-work">Our Work</a></li>
         <li><a href="/about">About</a></li>
       </ul>
     </div>
@@ -485,6 +489,10 @@ export interface Props {
     }
   }
   @media screen and (max-width: 768px) {
+    .desktop-only {
+      display: none;
+    }
+
     .mini-nav {
       margin: -10px 12px 12px;
     }

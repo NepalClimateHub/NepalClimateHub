@@ -1,8 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
-import HtmlRenderer from '../components/HtmlRenderer.astro';
-import { formatDateTime } from 'src/utils/formatDateTime';
 import StatusAndShare from '@components/StatusAndShare.astro';
+import { Icon } from 'astro-icon/components';
+import { formatDateTime } from 'src/utils/formatDateTime';
+import HtmlRenderer from '../components/HtmlRenderer.astro';
 
 interface Props {
   dataObj: any;
@@ -14,7 +14,7 @@ interface Props {
 const { dataObj, organization = true, opportunity = false } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = !organization && dataObj && "title" in dataObj;
+const isEvent = !organization && dataObj && 'title' in dataObj;
 
 // initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
@@ -24,21 +24,25 @@ const name = isEvent ? activeDataObject?.title : activeDataObject?.name;
 const location = isEvent
   ? activeDataObject?.locationType
   : activeDataObject?.address;
-const description = activeDataObject?.description || "";
+const description = activeDataObject?.description || '';
 
-const eventLocation = activeDataObject?.location ? activeDataObject.location : 'Not disclosed';
+const eventLocation = activeDataObject?.location
+  ? activeDataObject.location
+  : 'Not disclosed';
 const status = activeDataObject?.status || '';
 
-const eventType = activeDataObject?.type || "";
+const eventType = activeDataObject?.type || '';
 const cleanedType = eventType.toLowerCase().trim();
 
-const eventFormat = activeDataObject?.format || "";
+const eventFormat = activeDataObject?.format || '';
 const cleanedFormat = eventFormat.replace(/_/g, '-').toLowerCase().trim();
 
-const eventCost = activeDataObject?.cost || "";
+const eventCost = activeDataObject?.cost || '';
 const cleanedCost = eventCost.replace(/_/g, ' ').toLowerCase().trim();
 
-const {date: eventStartDate, time: eventStartTime} = formatDateTime(activeDataObject?.startDate);
+const { date: eventStartDate, time: eventStartTime } = formatDateTime(
+  activeDataObject?.startDate
+);
 
 const opportunityDuration = activeDataObject?.duration || 'Not disclosed';
 
@@ -53,7 +57,7 @@ const pictures = isEvent
   : activeDataObject?.pictures || [];
 
 // Add extra br tag after each existing br tag for better paragraph separation
-const processedDescription = description.replace(/<br\s*\/?>/gi, "<br><br>");
+const processedDescription = description.replace(/<br\s*\/?>/gi, '<br><br>');
 ---
 
 <div class="section-container">

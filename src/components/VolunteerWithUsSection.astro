@@ -1,0 +1,307 @@
+---
+const API_BASE_URL = import.meta.env.API_BASE_URL;
+---
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="section-container">
+  <div class="with-us-grid">
+    <div class="with-us-image-col">
+      <div class="image-wrapper">
+        <img
+          src="https://ik.imagekit.io/mbccqjudb/Climate%20Visuals/volunteer-card-image-.JPG"
+          alt="Volunteer with us"
+          class="with-us-image"
+        />
+        <div class="volunteer-badge">
+          <p class="volunteer-badge-text">Volunteer with us</p>
+        </div>
+      </div>
+    </div>
+    <div class="with-us-content-col">
+      <h2 class="with-us-title">
+        Excited to get involved? Check out open roles below.
+      </h2>
+      <p class="with-us-paragraph">
+        No suitable roles? Email us at
+        <a href="mailto:info@nepalclimatehub.org">info@nepalclimatehub.org</a>
+        and tell us a bit about yourself and how you'd like to get involved.
+      </p>
+
+      <div class="newsletter-box">
+        <p class="newsletter-intro">
+          Want to stay in the loop first? Sign up for our newsletter to stay
+          updated on our work, climate opportunities, and upcoming events.
+        </p>
+        <h3 class="newsletter-heading">Subscribe to newsletter</h3>
+        <form
+          class="newsletter-form"
+          id="volunteerNewsletterForm"
+          data-api-url={API_BASE_URL}
+        >
+          <input
+            id="volunteerNewsletterEmail"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+            class="newsletter-input"
+          />
+          <button type="submit" class="newsletter-submit">Subscribe</button>
+        </form>
+        <p class="newsletter-message" id="volunteerNewsletterMessage" hidden
+        ></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById(
+    'volunteerNewsletterForm',
+  ) as HTMLFormElement | null;
+  const emailInput = document.getElementById(
+    'volunteerNewsletterEmail',
+  ) as HTMLInputElement | null;
+  const emailMessage = document.getElementById(
+    'volunteerNewsletterMessage',
+  ) as HTMLParagraphElement | null;
+
+  const API_BASE_URL = form?.getAttribute('data-api-url');
+
+  if (form && emailInput && emailMessage) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      emailMessage.textContent = '';
+      emailMessage.hidden = true;
+
+      const email = emailInput.value.trim();
+
+      if (!API_BASE_URL) {
+        console.error('API_BASE_URL is not configured');
+        emailMessage.textContent =
+          'Unable to subscribe. Please try again later.';
+        emailMessage.hidden = false;
+        emailMessage.classList.add('newsletter-message--error');
+        emailMessage.classList.remove('newsletter-message--success');
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/v1/email-subscription/subscribe`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          },
+        );
+
+        if (response.ok) {
+          emailInput.value = '';
+          emailMessage.textContent = 'Thank you for staying connected!';
+          emailMessage.hidden = false;
+          emailMessage.classList.add('newsletter-message--success');
+          emailMessage.classList.remove('newsletter-message--error');
+        } else {
+          throw new Error(`HTTP ${response.status}`);
+        }
+      } catch {
+        emailMessage.textContent =
+          'Unable to subscribe. Please try again later.';
+        emailMessage.hidden = false;
+        emailMessage.classList.add('newsletter-message--error');
+        emailMessage.classList.remove('newsletter-message--success');
+      }
+    });
+  }
+</script>
+
+<style>
+  .section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+  
+.with-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 24px);
+  align-items: center;
+  width: 100%;
+}
+
+  .image-wrapper {
+    position: relative;
+  }
+
+  .with-us-image {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .volunteer-badge {
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    transform: rotate(-3deg);
+    background: #cefe00;
+    padding: 2px 14px;
+    z-index: 10;
+  }
+
+  .volunteer-badge-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0;
+  }
+
+  .with-us-title {
+  font-family: "Zilla Slab", serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: clamp(30px, 3vw, 42px);
+  margin-bottom: clamp(16px, 2vw, 24px);
+  color: #1a1b1e;
+}
+
+.with-us-paragraph {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: clamp(22px, 2vw, 26px);
+  margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+  .with-us-paragraph a {
+    color: #364fc7;
+    text-decoration: none;
+  }
+
+  .with-us-paragraph a:hover {
+    text-decoration: underline;
+  }
+
+  .newsletter-box {
+    margin-top: clamp(8px, 1.5vw, 16px);
+    padding: clamp(20px, 3vw, 28px);
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    border-radius: 12px;
+  }
+
+  .newsletter-intro {
+    font-family: Roboto, sans-serif;
+    font-size: clamp(15px, 1.6vw, 16px);
+    line-height: clamp(22px, 2vw, 24px);
+    color: #1a1b1e;
+    margin: 0 0 clamp(16px, 2vw, 20px) 0;
+  }
+
+  .newsletter-heading {
+    font-family: Roboto, sans-serif;
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-weight: 700;
+    line-height: 24px;
+    color: #1a1b1e;
+    margin: 0 0 clamp(12px, 1.5vw, 16px) 0;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    min-width: 160px;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-family: Roboto, sans-serif;
+    color: #1a1b1e;
+    background-color: #ffffff;
+    border: 1px solid #d4d4d8;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .newsletter-input::placeholder {
+    color: #a1a1aa;
+  }
+
+  .newsletter-input:focus {
+    border-color: #1a1b1e;
+  }
+
+  .newsletter-submit {
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: Roboto, sans-serif;
+    color: #ffffff;
+    background-color: #1a1b1e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+
+  .newsletter-submit:hover {
+    background-color: #2c2e33;
+  }
+
+  .newsletter-message {
+    margin: 12px 0 0 0;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+  }
+
+  .newsletter-message--success {
+    color: #2b8a3e;
+  }
+
+  .newsletter-message--error {
+    color: #c92a2a;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .section-container {
+      padding: 40px 48px;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-container {
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .with-us-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .with-us-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .newsletter-submit {
+      width: 100%;
+    }
+  }
+</style>

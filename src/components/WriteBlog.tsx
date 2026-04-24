@@ -26,9 +26,14 @@ export default function WriteBlog() {
         <div className={styles.blogContent}>
           <div className={styles.writeBlogInfo}>
             <h3 className={styles.blogTitle}>Title of the Blog</h3>
-            <button type="button" className={styles.writeBlogButton}>
+            <a
+              href="https://docs.google.com/document/d/1o_yJzqtwYdLaXGFZQBXqQxjhG9N5csgGI9CykxQk7l8/edit?tab=t.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.writeBlogButton}
+            >
               Write a Blog
-            </button>
+            </a>
           </div>
 
           {/* Author section with placeholder data */}

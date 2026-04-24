@@ -1,0 +1,226 @@
+---
+import { RiGlobalLine } from 'react-icons/ri';
+---
+
+<section class="build-with-us-section">
+  
+  <div class="section-container">
+      <h2 class="section-heading">Build with us</h2>
+      <p class="section-intro">
+        Nepal Climate Hub is powered by youth, volunteers, mentors, and partners
+        and we're always open to collaboration. Ways you can support us are as
+        follows:
+      </p>
+
+      <div class="grid">
+        <!-- Volunteer Card -->
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Volunteer</h3>
+            <p class="card-description">
+              Tech, content, design, community building
+            </p>
+          </div>
+          <div class="icon-circle">
+            <RiGlobalLine size={20} />
+          </div>
+        </div>
+
+        <!-- Partner Card -->
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Partner</h3>
+            <p class="card-description">
+              Outreach person, youth orgs, non-profits, for-profits, NGOs,
+              universities, innovators
+            </p>
+          </div>
+          <div class="icon-circle">
+            <RiGlobalLine size={20} />
+          </div>
+        </div>
+
+        <!-- Sponsor Card -->
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Sponsor</h3>
+            <p class="card-description">
+              Support our programs and core operations
+            </p>
+          </div>
+          <div class="icon-circle">
+            <RiGlobalLine size={20} />
+          </div>
+        </div>
+
+        <!-- Contribute Resources Card -->
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Contribute Resources</h3>
+            <p class="card-description">
+              Share tools, knowledge, or opportunities
+            </p>
+          </div>
+          <div class="icon-circle">
+            <RiGlobalLine size={20} />
+          </div>
+        </div>
+      </div>
+
+      <p class="contact-text">
+        *** Reach us at <a href="mailto:info@nepalclimatehub.org"
+          >info@nepalclimatehub.org</a
+        > for partnerships and collaboration
+      </p>
+    </div>
+</section>
+
+<style>
+  .build-with-us-section {
+    margin: 0;
+    background-color: #CEFE00;  
+  }
+  
+  .section-container {
+    /* background-color: #CEFE00; */
+    /* max-width: 984px; */
+    padding: 44px 0;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    opacity: 1;
+    font-weight: 700;
+    font-size: 32px;
+    background-color: #1a1b1e;
+    transform: rotate(-3deg);
+    color: white;
+    max-width: fit-content;
+    padding: 0px 16px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: #1a1b1e;
+    line-height: 24px;
+    margin: 0 0 32px 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #1a1b1e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  .icon-circle :global(svg) {
+    color: white;
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+  }
+
+  .card-description {
+    font-size: 14px;
+    color: #464646;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .contact-text {
+    font-size: 16px;
+    color: #364fc7;
+    font-weight: 700;
+    margin: 0;
+    line-height: 24px;
+  }
+
+  .contact-text a {
+    color: #364fc7;
+    text-decoration: underline;
+    font-weight: 700;
+  }
+
+  .contact-text a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .build-with-us-section {
+      padding: 0 24px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .build-with-us-section {
+      /* padding: 24px 24px; */
+    }
+
+    .section-intro {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      padding: 16px;
+      min-height: auto;
+    }
+
+    .card-title {
+      font-size: 16px;
+    }
+
+    .card-description {
+      font-size: 13px;
+    }
+
+    .contact-text {
+      font-size: 14px;
+    }
+  }
+</style>

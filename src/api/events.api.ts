@@ -33,7 +33,9 @@ export const fetchEvents = async (): Promise<EventResponse> => {
     }
     throw new ApiError(
       500,
-      `Failed to fetch events data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch events data: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };
@@ -61,7 +63,9 @@ export const fetchEventById = async (
     }
     throw new ApiError(
       500,
-      `Failed to fetch event with ID ${id}: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to fetch event with ID ${id}: ${
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
 };

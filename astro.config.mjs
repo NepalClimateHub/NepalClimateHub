@@ -4,7 +4,7 @@ import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import net0Integration from './toolbar/integration.ts';
 
-import netlify from '@astrojs/netlify';
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,13 +17,18 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [net0Integration, sitemap({
-    customSitemaps: [
-      'https://nepalclimatehub.org/blogs/sitemap.xml',
-      'https://nepalclimatehub.org/opportunities/sitemap.xml',
-      'https://nepalclimatehub.org/events/sitemap.xml',
-    ]
-  }), [icon()], react()],
+  integrations: [
+    net0Integration,
+    sitemap({
+      customSitemaps: [
+        'https://nepalclimatehub.org/blogs/sitemap.xml',
+        'https://nepalclimatehub.org/opportunities/sitemap.xml',
+        'https://nepalclimatehub.org/events/sitemap.xml',
+      ],
+    }),
+    [icon()],
+    react(),
+  ],
   adapter: netlify(),
   vite: {
     envPrefix: 'PUBLIC_',
@@ -34,8 +39,8 @@ export default defineConfig({
         '@assets': '/src/assets',
         '@i18n': '/src/i18n',
         '@styles': '/src/styles',
-        '@pages': '/src/pages'
-      }
-    }
+        '@pages': '/src/pages',
+      },
+    },
   },
 });
