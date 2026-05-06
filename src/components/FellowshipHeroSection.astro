@@ -1,0 +1,199 @@
+---
+
+---
+
+<div class="section-container hero-inner">
+  <!-- Left Column -->
+  <div class="hero-left">
+    <span class="hero-badge">Application opening soon</span>
+    <h1 class="hero-title">
+      Turn environmental passion into <span class="accent">data-driven</span> impact
+    </h1>
+    <p class="hero-desc">
+      A 6-month structured learning journey designed to tackle Nepal's
+      environmental challenges using real-world data and analytical skills.
+    </p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">
+        Apply now
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#" class="btn-secondary">Explore the program</a>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">Months of Learning</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">16</span>
+        <span class="stat-label">Expert Mentors</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">12</span>
+        <span class="stat-label">Data Projects</span>
+      </div>
+      <div class="stat-item stat-item--blue">
+        <span class="stat-number">$336</span>
+        <span class="stat-label">Average Stipend</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Inner: two-column flex layout */
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 200px;
+  }
+
+  /* Each column takes equal width */
+  .hero-left,
+  .hero-right {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-block;
+    background-color: #364FC7;
+    color: #CEFE00;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* Title */
+  .hero-title {
+    margin-top: 24px;
+    color: white;
+    font-family: "Zilla Slab", serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 60px;
+  }
+  .hero-title .accent {
+    color: #CEFE00;
+    word-break: keep-all;
+  }
+
+  /* Description */
+  .hero-desc {
+    margin-top: 24px;
+    font-size: 18px;
+    color: #F8F9FA;
+    line-height: 28px;
+    font-weight: 400;
+  }
+
+  /* Buttons row */
+  .hero-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background-color: #CEFE00;
+    color: #1A1B1E;
+    border: 1px solid #CEFE00;
+  }
+  .btn-primary:hover {
+    background-color: #b8e600;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #6C757D;
+  }
+  .btn-secondary:hover {
+    border-color: white;
+  }
+
+  /* Stats grid: 2 columns */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-item {
+    background-color: #292A2C;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-item--blue {
+    background-color: #364FC7;
+  }
+
+  .stat-number {
+    color: #CEFE00;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .stat-label {
+    color: #F8F9FA;
+    font-size: 14px;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 1280px) {
+    .hero-inner { gap: 48px; }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .hero-inner { gap: 32px; }
+    .hero-title { font-size: 44px; line-height: 50px; }
+    .stat-number { font-size: 40px; }
+    .btn-primary, .btn-secondary { font-size: 14px; padding: 10px 24px; }
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-inner {
+      flex-direction: column;
+      gap: 48px;
+      align-items: start;
+    }
+    .hero-title { font-size: 36px; line-height: 44px; }
+    .stat-number { font-size: 36px; }
+  }
+
+  @media screen and (max-width: 480px) {
+    .hero-title { font-size: 28px; line-height: 36px; }
+    .hero-buttons {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-primary, .btn-secondary { max-width: fit-content;}
+  }
+</style>
