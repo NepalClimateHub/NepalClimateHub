@@ -27,7 +27,7 @@
     <div class="stats-grid">
       <div class="stat-item">
         <span class="stat-number">6</span>
-        <span class="stat-label">Months of Learning</span>
+        <span class="stat-label">Months of structured Learning</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">16</span>
@@ -50,7 +50,8 @@
   .hero-inner {
     display: flex;
     align-items: center;
-    gap: 200px;
+    gap: 140px;
+    justify-content: space-between;
   }
 
   /* Each column takes equal width */
@@ -58,6 +59,10 @@
   .hero-right {
     flex: 1 1 0;
     min-width: 0;
+  }
+
+  .hero-right {
+    max-width: 500px;
   }
 
   /* Badge */
@@ -147,7 +152,7 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 20px;
   }
 
   .stat-item--blue {
@@ -162,8 +167,8 @@
   }
 
   .stat-label {
-    color: #F8F9FA;
-    font-size: 14px;
+    color: #A8A8A8;
+    font-size: 18px;
   }
 
   /* Responsive */
