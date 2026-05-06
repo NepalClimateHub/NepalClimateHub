@@ -50,7 +50,7 @@
   .hero-inner {
     display: flex;
     align-items: center;
-    gap: 140px;
+    gap: 240px;
     justify-content: space-between;
   }
 
@@ -174,6 +174,8 @@
   /* Responsive */
   @media screen and (max-width: 1280px) {
     .hero-inner { gap: 48px; }
+    .stat-number { font-size: 46px; }
+    .stat-label { font-size: 16px; }
   }
 
   @media screen and (max-width: 1024px) {
@@ -191,6 +193,10 @@
     }
     .hero-title { font-size: 36px; line-height: 44px; }
     .stat-number { font-size: 36px; }
+    .hero-right {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   @media screen and (max-width: 480px) {
@@ -200,5 +206,8 @@
       gap: 12px;
     }
     .btn-primary, .btn-secondary { max-width: fit-content;}
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
