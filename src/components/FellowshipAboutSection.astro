@@ -1,0 +1,193 @@
+---
+const aboutItems = [
+  {
+    title: 'Hands-on practical curriculum',
+    description: 'Python or R programming, data cleaning, exploratory analysis, and generating insights from real environmental datasets.',
+  },
+  {
+    title: 'Guided mentorship pairs',
+    description: 'Each group of fellows is paired with a dedicated mentor who provides hands-on guidance throughout the program.',
+  },
+  {
+    title: 'Real-world capstone project',
+    description: 'Fellows pitch, build, and publish a full data project — a portfolio piece that demonstrates applied skills to employers.',
+  },
+  {
+    title: 'Community & network access',
+    description: 'Connect with SAFE Nepal, NFCA Nepal, fellow cohort members, mentors, and speakers across climate, data, and academia.',
+  },
+];
+---
+
+<div class="section-container about-content">
+  <div class="about-wrapper">
+    <div class="about-left">
+      <span class="section-badge">About the fellowship</span>
+
+      <h2 class="about-title">
+        Bridging the gap between knowledge and impact
+      </h2>
+
+      <p class="about-description">
+        The NCH Data Fellowship 2026 is a 6-month structured learning and
+        mentorship program designed to equip students and early-career
+        professionals from environmental and related disciplines with practical
+        data and analytical skills
+      </p>
+
+      <p class="about-description">
+        Environmental challenges such as climate change, urban flooding,
+        biodiversity loss, and air pollution are intensifying across Nepal and
+        addressing them requires more than theoretical understanding. Through
+        hand-on learning, guided mentorship, and real-world project work,
+        fellows build the ebaility to work with data- analyzing trends,
+        interpreting petterns and generating evidence for decision-making.
+      </p>
+    </div>
+
+    <div class="about-right">
+      {
+        aboutItems.map((item, index) => (
+          <div class={`about-card ${index === aboutItems.length - 1 ? 'last' : ''}`}>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-description">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .about-wrapper {
+    display: flex;
+    gap: 180px;
+    align-items: center;
+  }
+
+  .about-left {
+    flex: 1;
+  }
+
+  .about-right {
+    flex: 1;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .about-title {
+    margin-top: 24px;
+    font-family: "Zilla Slab", serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 50px;
+    color: #1A1B1E;
+  }
+
+  .about-description {
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #1A1B1E;
+  }
+
+  .about-description:nth-of-type(2) {
+    margin-top: 24px;
+  }
+
+  .about-card {
+    padding: 24px;
+    border-bottom: 1px solid #EBF1F7;
+  }
+
+  .about-card.last {
+    border-bottom: none;
+  }
+
+  .card-title {
+    font-family: "Zilla Slab", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin: 0;
+  }
+
+  .card-description {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #A8A8A8;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .about-wrapper {
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .about-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .about-title {
+      font-size: 30px;
+      line-height: 32px;
+    }
+
+    .about-description {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .card-title {
+      font-size: 20px;
+    }
+
+    .card-description {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .about-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .about-description {
+      font-size: 16px;
+    }
+
+    .about-card {
+      padding: 16px;
+    }
+
+    .card-title {
+      font-size: 18px;
+    }
+
+    .card-description {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

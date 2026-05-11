@@ -31,15 +31,15 @@
       </div>
       <div class="stat-item">
         <span class="stat-number">16</span>
-        <span class="stat-label">Expert Mentors</span>
+        <span class="stat-label">Fellows per Cohort</span>
       </div>
       <div class="stat-item">
         <span class="stat-number">12</span>
-        <span class="stat-label">Data Projects</span>
+        <span class="stat-label">Expert speakers & mentors</span>
       </div>
       <div class="stat-item stat-item--blue">
         <span class="stat-number">$336</span>
-        <span class="stat-label">Average Stipend</span>
+        <span class="stat-label">DataCamp subscription  included</span>
       </div>
     </div>
   </div>
@@ -119,6 +119,7 @@
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease;
+    white-space: nowrap;
   }
 
   .btn-primary {
@@ -183,6 +184,7 @@
     .hero-title { font-size: 44px; line-height: 50px; }
     .stat-number { font-size: 40px; }
     .btn-primary, .btn-secondary { font-size: 14px; padding: 10px 24px; }
+    .hero-desc { font-size: 20px; line-height: 24px; }
   }
 
   @media screen and (max-width: 768px) {
@@ -192,6 +194,7 @@
       align-items: start;
     }
     .hero-title { font-size: 36px; line-height: 44px; }
+    .hero-desc { font-size: 18px; line-height: 22px; }
     .stat-number { font-size: 36px; }
     .hero-right {
       width: 100%;
@@ -202,7 +205,7 @@
   @media screen and (max-width: 480px) {
     .hero-title { font-size: 28px; line-height: 36px; }
     .hero-buttons {
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 12px;
     }
     .btn-primary, .btn-secondary { max-width: fit-content;}

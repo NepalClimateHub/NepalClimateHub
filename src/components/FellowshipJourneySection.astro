@@ -1,0 +1,171 @@
+---
+const journeyItems = [
+  {
+    number: 1,
+    month: "July",
+    title: "Onboarding & Orientation",
+    description: "Meet your mentor and group. Set up your tools and start learning. Build community and establish your learning pathway."
+  },
+  {
+    number: 2,
+    month: "August",
+    title: "Programming Foundations",
+    description: "Build Python or R programming skills, analytical thinking, and core statistics. Work through structured Datacamp modules with mentor support."
+  },
+  {
+    number: 3,
+    month: "September–October",
+    title: "Data Analysis",
+    description: "Work with real datasets: cleaning, preprocessing, exploratory analysis, and generating insights."
+  },
+  {
+    number: 4,
+    month: "November",
+    title: "Capstone Project",
+    description: "Pick your environmental topic, pitch your proposal, and build a full data project with mentor support."
+  },
+  {
+    number: 5,
+    month: "December",
+    title: "Demo Day",
+    description: "Present your work, publish your blog, and celebrate at the graduation ceremony in Kathmandu."
+  }
+];
+---
+<div class="section-container">
+  <div class="section-badge">Program journey</div>
+  <h2 class="section-title">Six months. One transformation</h2>
+  <div class="journey-list">
+    {journeyItems.map((item) => (
+      <div class="step-item" key={item.number}>
+        <div class="step-number">{item.number}</div>
+        <div class="step-content">
+          <div class="step-month">{item.month}</div>
+          <h3 class="step-title">{item.title}</h3>
+          <p class="step-description">{item.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 24px;
+    line-height: 50px;
+    margin-bottom: 0;
+  }
+  .journey-list {
+    margin-top: 40px;
+    position: relative;
+  }
+  .journey-list::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 20px;
+    width: 2px;
+    height: calc(100% - 70px);
+    background-color: #EBF1F7;
+    z-index: 0;
+  }
+  .step-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .step-item:last-child {
+    margin-bottom: 0;
+  }
+  .step-number {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 10px;
+    background-color: #364FC7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #CEFE00;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-month {
+    color: #364FC7;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .step-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+  .step-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #A8A8A8;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 30px;
+      line-height: 32px;
+    }
+    .step-item {
+      gap: 20px;
+    }
+    .step-title {
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    .step-item {
+      gap: 16px;
+    }
+    .step-title {
+      font-size: 18px;
+    }
+  }
+</style>
