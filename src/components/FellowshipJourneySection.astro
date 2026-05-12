@@ -37,7 +37,7 @@ const journeyItems = [
   <h2 class="section-title">Six months. One transformation</h2>
   <div class="journey-list">
     {journeyItems.map((item) => (
-      <div class="step-item" key={item.number}>
+      <div class="step-item">
         <div class="step-number">{item.number}</div>
         <div class="step-content">
           <div class="step-month">{item.month}</div>
@@ -83,7 +83,7 @@ const journeyItems = [
     left: 19px;
     top: 20px;
     width: 2px;
-    height: calc(100% - 70px);
+    height: calc(100% - 100px);
     background-color: #EBF1F7;
     z-index: 0;
   }
@@ -166,6 +166,9 @@ const journeyItems = [
     }
     .step-title {
       font-size: 18px;
+    }
+    .journey-list::before {
+      height: calc(100% - 120px);
     }
   }
 </style>

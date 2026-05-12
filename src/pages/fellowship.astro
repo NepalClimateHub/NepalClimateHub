@@ -10,6 +10,8 @@ import FellowshipQualificationsSection from '@components/FellowshipQualification
 import FellowshipBenefitsSection from '@components/FellowshipBenefitsSection.astro';
 import FellowshipTeamSection from '@components/FellowshipTeamSection.astro';
 import FellowshipApplicationProcessSection from '@components/FellowshipApplicationProcessSection.astro';
+import FellowshipPartnersSection from '@components/FellowshipPartnersSection.astro';
+import FellowshipFAQSection from '@components/FellowshipFAQSection.astro';
 import Footer from '@components/Footer.astro';
 import BaseLayout from '../layouts/Layout.astro';
 ---
@@ -67,6 +69,16 @@ import BaseLayout from '../layouts/Layout.astro';
     <!-- Application Process Section -->
     <section class="fellowship-application-process-section">
       <FellowshipApplicationProcessSection />
+    </section>
+
+    <!-- Partners Section -->
+    <section class="fellowship-partners-section">
+      <FellowshipPartnersSection />
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="fellowship-faq-section">
+      <FellowshipFAQSection />
     </section>
 
     <!-- Footer Section -->
@@ -138,6 +150,18 @@ import BaseLayout from '../layouts/Layout.astro';
     padding: 78px 44px;
   }
 
+  /* Partners section */
+  .fellowship-partners-section {
+    background-color: #FFFFFF;
+    padding: 78px 44px;
+  }
+
+  /* FAQ section */
+  .fellowship-faq-section {
+    background-color: #F8F9FA;
+    padding: 78px 44px;
+  }
+
   /* Footer section */
   .footer-section {
     background-color: #1a1b1e;
@@ -155,6 +179,8 @@ import BaseLayout from '../layouts/Layout.astro';
     .fellowship-benefits-section { padding: 64px 32px; }
     .fellowship-team-section { padding: 64px 32px; }
     .fellowship-application-process-section { padding: 64px 32px; }
+    .fellowship-partners-section { padding: 64px 32px; }
+    .fellowship-faq-section { padding: 64px 32px; }
   }
 
   @media screen and (max-width: 768px) {
@@ -168,5 +194,7 @@ import BaseLayout from '../layouts/Layout.astro';
     .fellowship-benefits-section { padding: 48px 24px; }
     .fellowship-team-section { padding: 48px 24px; }
     .fellowship-application-process-section { padding: 48px 24px; }
+    .fellowship-partners-section { padding: 48px 24px; }
+    .fellowship-faq-section { padding: 48px 24px; }
   }
 </style>
