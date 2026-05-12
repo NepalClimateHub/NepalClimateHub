@@ -1,21 +1,21 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
 // import card container styles(reusing)
-import "../styles/components/FeaturedCardStyles.css";
+import '../styles/components/FeaturedCardStyles.css';
 
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
 
 // import opportunityJSON from '../data/opportunitiesTemp.json';
-import { fetchOpportunities } from "../api";
-import logo from "../assets/logo/secondaryLogo.svg";
-import { createSlug } from "../utils/slug";
+import { fetchOpportunities } from '../api';
+import logo from '../assets/logo/secondaryLogo.svg';
+import { createSlug } from '../utils/slug';
 
 const { data: apiOpportunity } = await fetchOpportunities();
 const { startIndex, endIndex, title } = Astro.props;
 
 const stripHtml = (html: string) => {
-  return html.replace(/<[^>]*>/g, "");
+  return html.replace(/<[^>]*>/g, '');
 };
 
 const transformedOpportunities = (apiOpportunity || [])
@@ -37,19 +37,21 @@ const transformedOpportunities = (apiOpportunity || [])
     status: opportunity.status,
     format: opportunity.format,
     cost: opportunity.cost,
-    category: opportunity.tags?.map((tag: any) => tag.tag) || opportunity.category || [],
+    category:
+      opportunity.tags?.map((tag: any) => tag.tag) ||
+      opportunity.category ||
+      [],
     bannerImage: opportunity.bannerImageUrl || '/placeholder.svg',
     description: stripHtml(opportunity.description || '') || '',
     organizer: opportunity.organizer || '',
-    registrationLink: opportunity.websiteUrl|| '',
+    registrationLink: opportunity.websiteUrl || '',
     contactEmail: opportunity.contactEmail || '',
   }));
 
-
-  const featuredOpportunities = transformedOpportunities.slice(
-    startIndex,
-    Math.min(endIndex, startIndex + 4)
-  );
+const featuredOpportunities = transformedOpportunities.slice(
+  startIndex,
+  Math.min(endIndex, startIndex + 4)
+);
 ---
 
 <div class="section-container featured-card-section"> 

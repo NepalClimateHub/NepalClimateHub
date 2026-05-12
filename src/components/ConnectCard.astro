@@ -1,6 +1,6 @@
 ---
-import "../styles/global.css";
-import { Icon } from "astro-icon/components";
+import '../styles/global.css';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
   dataObj: any;
@@ -12,7 +12,7 @@ interface Props {
 const { dataObj, organization = true } = Astro.props;
 
 // Check if this is an event (has different structure than organizations/activists)
-const isEvent = organization === false && dataObj && "title" in dataObj;
+const isEvent = organization === false && dataObj && 'title' in dataObj;
 
 // Initialize activeDataObject with a proper type
 const activeDataObject = dataObj;
@@ -37,13 +37,13 @@ const linkedin = isEvent
 const email = isEvent
   ? activeDataObject?.contactEmail
   : activeDataObject?.contact?.email;
-const phone = isEvent ? "" : activeDataObject?.contact?.phone;
+const phone = isEvent ? '' : activeDataObject?.contact?.phone;
 
 // Helper function to split email for anti-spam
 function splitEmail(email: string | undefined) {
-  if (!email) return { username: "N/A", domain: "" };
-  const atIndex = email.indexOf("@");
-  if (atIndex === -1) return { username: email, domain: "" };
+  if (!email) return { username: 'N/A', domain: '' };
+  const atIndex = email.indexOf('@');
+  if (atIndex === -1) return { username: email, domain: '' };
   return {
     username: email.slice(0, atIndex),
     domain: email.substring(atIndex),

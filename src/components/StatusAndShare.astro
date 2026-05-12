@@ -2,13 +2,13 @@
 import SocialShare from './SocialShare.astro';
 
 interface Props {
-    status: string;
+  status: string;
 }
 
-const {status} = Astro.props;
+const { status } = Astro.props;
 
 const cleanedStatus = status.toLowerCase().trim();
-const statusClass = status ? `status-${cleanedStatus}`: 'status-unknown' ;
+const statusClass = status ? `status-${cleanedStatus}` : 'status-unknown';
 ---
 
 <div class="container">

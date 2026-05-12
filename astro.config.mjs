@@ -17,14 +17,19 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [net0Integration, sitemap({
-    customSitemaps: [
-      'https://nepalclimatehub.org/blogs/sitemap.xml',
-      'https://nepalclimatehub.org/opportunities/sitemap.xml',
-      'https://nepalclimatehub.org/events/sitemap.xml',
-    ]
-  }), [icon()], react()],
-  adapter: node({ mode: 'standalone' }),
+  integrations: [
+    net0Integration,
+    sitemap({
+      customSitemaps: [
+        'https://nepalclimatehub.org/blogs/sitemap.xml',
+        'https://nepalclimatehub.org/opportunities/sitemap.xml',
+        'https://nepalclimatehub.org/events/sitemap.xml',
+      ],
+    }),
+    [icon()],
+    react(),
+  ],
+  adapter: netlify(),
   vite: {
     envPrefix: 'PUBLIC_',
     resolve: {
@@ -34,8 +39,8 @@ export default defineConfig({
         '@assets': '/src/assets',
         '@i18n': '/src/i18n',
         '@styles': '/src/styles',
-        '@pages': '/src/pages'
-      }
-    }
+        '@pages': '/src/pages',
+      },
+    },
   },
 });

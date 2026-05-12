@@ -87,9 +87,6 @@
   box-shadow: 0 2px 6px rgba(26, 27, 30, 0.12);
 }
 
-.blogCardLink {
-}
-
 /* Highlight Card */
 .blogCardHighlight {
   display: grid;
@@ -493,9 +490,6 @@
 .blogCardHighlight:hover,
 .blogCardFeatured:hover {
   box-shadow: 0 2px 6px rgba(26, 27, 30, 0.12);
-}
-
-.blogCardLink {
 }
 
 /* Highlight Card */

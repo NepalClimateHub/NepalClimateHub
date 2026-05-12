@@ -8,13 +8,13 @@ import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 
-import climateChampionsJSON from '../../data/activists.json';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
+import climateChampionsJSON from '../../data/activists.json';
 
 export function getStaticPaths() {
   return climateChampionsJSON.map((champion) => ({
     params: { climateChampionDetail: champion.slug },
-    props: { champion }
+    props: { champion },
   }));
 }
 
@@ -22,23 +22,31 @@ const { champion } = Astro.props;
 const { climateChampionDetail } = Astro.params;
 
 if (!champion) {
-  throw new Error(`Climate champion with slug ${climateChampionDetail} not found`);
+  throw new Error(
+    `Climate champion with slug ${climateChampionDetail} not found`
+  );
 }
 
 // Prepare meta tags
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-const siteUrl = Astro.site || "https://nepalclimatehub.org";
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
 const pathname = Astro.url.pathname;
 const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
-const metaDescription = stripHtml(champion.description) || `Meet ${champion.name}, a climate champion working for climate action in Nepal.`;
-const metaImage = champion.pictures && champion.pictures.length > 0 
-  ? champion.pictures[0] 
-  : '/favicon.png';
+const metaDescription =
+  stripHtml(champion.description) ||
+  `Meet ${champion.name}, a climate champion working for climate action in Nepal.`;
+const metaImage =
+  champion.pictures && champion.pictures.length > 0
+    ? champion.pictures[0]
+    : '/favicon.png';
 const metaUrl = `${siteUrl}${fullPath}`;
 ---
 
