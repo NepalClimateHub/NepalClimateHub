@@ -1,0 +1,162 @@
+---
+import UNESCO from '../assets/UNESCO.png';
+import UNFCC from '../assets/UNFCC.png';
+---
+
+<section>
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-badge">OUR PARTNERS</div>
+      <h2 class="section-title">Backed by a community of change makers</h2>
+    </div>
+
+    <div class="partners-grid">
+      <div class="partner-group">
+        <h3 class="group-title">Community partners</h3>
+        <div class="logos-row">
+          <img src={UNESCO.src} alt="UNESCO" class="partner-logo" />
+          <img src={UNFCC.src} alt="UNFCC" class="partner-logo" />
+        </div>
+      </div>
+
+      <div class="partner-group">
+        <h3 class="group-title">Supported by</h3>
+        <div class="logos-row">
+          <img src={UNESCO.src} alt="UNESCO" class="partner-logo" />
+          <img src={UNFCC.src} alt="UNFCC" class="partner-logo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style scoped>
+
+  @media (max-width: 1024px) {
+    section {
+      padding: 64px 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 48px 24px;
+    }
+
+    .partners-grid {
+      flex-direction: column;
+      gap: 60px;
+    }
+  }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 24px;
+    line-height: 50px;
+  }
+
+  .partners-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 190px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .partner-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .group-title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #1A1B1E;
+  }
+
+  .logos-row {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partner-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .partners-grid {
+      gap: 60px;
+    }
+
+    .group-title {
+      font-size: 20px;
+    }
+
+    .logos-row {
+      gap: 30px;
+    }
+
+    .partner-logo {
+      height: 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .partners-grid {
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 32px;
+      align-items: center;
+    }
+
+    .group-title {
+      font-size: 18px;
+    }
+
+    .logos-row {
+      gap: 24px;
+    }
+
+    .partner-logo {
+      height: 50px;
+    }
+  }
+</style>
