@@ -1,4 +1,4 @@
-import { fetchAllBlogs, fetchEvents } from 'src/api';
+import { fetchEvents } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
 export async function GET() {
