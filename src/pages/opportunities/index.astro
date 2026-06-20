@@ -8,15 +8,10 @@ import { fetchOpportunities } from '../../api';
 import logo from '../../assets/logo/secondaryLogo.svg';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import Loader from '../../components/Loader.astro';
 import OpportunityFilter from '../../components/OpportunityFilter';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import opportunitiesTemp from '../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
-import type {
-  Opportunity as ApiOpportunity,
-  OpportunityTag,
-} from '../../types/opportunity';
 
 const { data: apiOpportunities } = await fetchOpportunities();
 
