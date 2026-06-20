@@ -404,6 +404,8 @@ import '../styles/global.css';
       updateDots();
     }
 
+    window['currentSlide'] = currentSlide;
+
     function applySlideTransition() {
       slideWidth = getSlideFullWidth();
       slidesWrapper.style.transform = `translateX(-${displayedIndex * slideWidth}px)`;

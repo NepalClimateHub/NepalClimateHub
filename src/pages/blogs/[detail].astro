@@ -14,6 +14,8 @@ import BaseLayout from '../../layouts/Layout.astro';
 import { notFound } from 'astro:i18n';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 
+notFound;
+
 function stripHtml(html: string): string {
   return html
     .replace(/<[^>]*>/g, '')

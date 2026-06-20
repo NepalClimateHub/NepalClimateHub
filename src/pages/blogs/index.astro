@@ -27,10 +27,6 @@ try {
   apiBlogs = [];
   featuredBlog = null;
 }
-
-const ua = Astro.request.headers.get('user-agent') ?? '';
-const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
-
 const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
 ---
 
