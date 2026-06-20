@@ -1,14 +1,9 @@
 import { NuqsAdapter } from 'nuqs/adapters/react';
 import { CardContainer } from '../../components/CardContainer';
 import OrganizationsJSON from '../../data/organizations.json';
-import { usePagination } from '../../hooks/use-pagination';
 import { withNuqsAdapter } from '../../provider/nuqsProvider';
 
 const Organization = () => {
-  const paginationOptions = usePagination();
-  const { pagination, currentPage } = paginationOptions;
-  const totalCount = 300;
-
   return (
     <>
       <NuqsAdapter>

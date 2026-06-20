@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react';
 import { BiMap } from 'react-icons/bi';
 import coursesThumbnail from '../assets/courses.png';
 import dataThumbnail from '../assets/data.png';
