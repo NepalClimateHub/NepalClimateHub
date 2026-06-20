@@ -40,9 +40,9 @@ const cleanedFormat = eventFormat.replace(/_/g, '-').toLowerCase().trim();
 const eventCost = activeDataObject?.cost || '';
 const cleanedCost = eventCost.replace(/_/g, ' ').toLowerCase().trim();
 
-const { date: eventStartDate, time: eventStartTime } = formatDateTime(
+const { date: eventStartDate, time: eventStartTime } = activeDataObject?.startDate ? formatDateTime(
   activeDataObject?.startDate
-);
+) : { date: '-', time: '-' };
 
 const opportunityDuration = activeDataObject?.duration || 'Not disclosed';
 

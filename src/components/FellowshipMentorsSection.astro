@@ -1,0 +1,286 @@
+---
+const mentors = [
+  {
+    name: "Dr. Sarah Chen",
+    role: "Senior Data Scientist at NCH",
+    actualRole: "Climate Data Specialist",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    description: "Leads climate data analysis initiatives and mentors fellows in statistical methods."
+  },
+  {
+    name: "Rajesh Poudel",
+    role: "Environmental Scientist at NCH",
+    actualRole: "Environmental Consultant",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    description: "Expert in environmental science with 8+ years of experience in Nepal."
+  },
+  {
+    name: "Lisa Sharma",
+    role: "Data Engineer at NCH",
+    actualRole: "ML Engineer",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    description: "Specializes in building data pipelines and machine learning models."
+  },
+  {
+    name: "Arjun Tamang",
+    role: "Program Lead at NCH",
+    actualRole: "Climate Policy Advisor",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    description: "Guides fellows through project implementation and career development."
+  }
+];
+---
+
+<div class="section-container">
+  <div class="section-badge">Meet your mentors</div>
+  <h2 class="section-title">Guided by experienced practitioners</h2>
+  <p class="section-description">
+    Each group of 4 fellows is paired with a dedicated mentor who provides hands-on guidance throughout the program.
+  </p>
+
+  <div class="mentors-grid">
+    {mentors.map((mentor) => (
+      <div class="mentor-card">
+        <div class="mentor-image-container">
+          <img src={mentor.image} alt={mentor.name} class="mentor-image" />
+          <div class="mentor-overlay">
+            <p class="overlay-description">{mentor.description}</p>
+          </div>
+          <div class="mentor-role-badge">{mentor.role}</div>
+        </div>
+        <h3 class="mentor-name">{mentor.name}</h3>
+        <p class="mentor-actual-role">{mentor.actualRole}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 24px;
+    line-height: 50px;
+    margin-bottom: 0;
+  }
+
+  .section-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1A1B1E;
+    line-height: 150%;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .mentor-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mentor-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    margin-bottom: 16px;
+  }
+
+  .mentor-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+
+  .mentor-image-container:hover .mentor-image {
+    filter: brightness(0.6);
+  }
+
+  .mentor-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mentor-image-container:hover .mentor-overlay {
+    opacity: 1;
+  }
+
+  .overlay-description {
+    color: #F8F9FA;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+  }
+
+  .mentor-role-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background-color: #CEFE00;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #000000;
+    border-radius: 0;
+  }
+
+  .mentor-name {
+    font-family: 'Zilla Slab', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #3750C8;
+    line-height: 28px;
+    margin: 0;
+    margin-bottom: 0;
+  }
+
+  .mentor-actual-role {
+    font-size: 14px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 24px;
+    margin: 0;
+    margin-top: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .section-description {
+      font-size: 15px;
+    }
+
+    .mentors-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .mentor-name {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    .mentor-actual-role {
+      font-size: 13px;
+      line-height: 22px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 30px;
+      line-height: 32px;
+    }
+
+    .section-description {
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
+    .mentors-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .mentor-image-container {
+      margin-bottom: 12px;
+    }
+
+    .mentor-name {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .mentor-actual-role {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .section-description {
+      font-size: 13px;
+    }
+
+    .mentors-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .mentor-image-container {
+      margin-bottom: 10px;
+    }
+
+    .overlay-description {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .mentor-name {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    .mentor-actual-role {
+      font-size: 11px;
+      line-height: 18px;
+    }
+  }
+</style>

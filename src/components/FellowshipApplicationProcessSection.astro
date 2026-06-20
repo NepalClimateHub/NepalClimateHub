@@ -1,0 +1,214 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Apply Online",
+    step: "Step 01"
+  },
+  {
+    number: "02",
+    title: "Shortlisting round",
+    step: "Step 02"
+  },
+  {
+    number: "03",
+    title: "Interview round",
+    step: "Step 03"
+  },
+  {
+    number: "04",
+    title: "Final selection",
+    step: "Step 04"
+  }
+];
+---
+<div class="section-container">
+  <h2 class="section-title">Application<span class="title-primary">Process</span></h2>
+  <div class="steps-grid">
+    {steps.map((step) => (
+      <div class="step-card">
+        <p class="step-label">{step.step}</p>
+        <div class="step-dot-row">
+          <div class="step-circle"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-large-number">{step.number}</div>
+          <h3 class="step-title">{step.title}</h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 160%;
+    margin: 0;
+    word-break: keep-all;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .title-primary {
+    color: #CEFE00;
+    margin-left: 12px;
+  }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-top: 52px;
+    position: relative;
+  }
+  .steps-grid::before {
+  content: '';
+  position: absolute;
+  top: calc(54px);
+  left: calc(50% / 4);
+  right: calc(50% / 4);
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5) 0px,
+    rgba(255, 255, 255, 0.5) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  z-index: 0;
+}
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .step-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 23px;
+    margin: 0;
+  }
+  .step-dot-row {
+    margin-top: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .step-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #CEFE00;
+    border-radius: 50%;
+  }
+  .step-content {
+    margin-top: 18px;
+    position: relative;
+  }
+  .step-large-number {
+    font-size: 90px;
+    font-weight: 600;
+    color: #AFAFAF;
+    opacity: 0.3;
+    line-height: 1;
+    margin: 0;
+  }
+  .step-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 36px;
+    margin: 0;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 40px;
+    }
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 44px;
+    }
+    .steps-grid::before {
+      display: none;
+    }
+    .step-label {
+      font-size: 16px;
+    }
+    .step-large-number {
+      font-size: 72px;
+    }
+    .step-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 32px;
+      line-height: 140%;
+    }
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 36px;
+    }
+    .step-label {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .step-dot-row {
+      margin-top: 12px;
+    }
+    .step-circle {
+      width: 24px;
+      height: 24px;
+    }
+    .step-content {
+      margin-top: 12px;
+    }
+    .step-large-number {
+      font-size: 60px;
+    }
+    .step-title {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 24px;
+      line-height: 140%;
+    }
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .step-label {
+      font-size: 13px;
+    }
+    .step-circle {
+      width: 20px;
+      height: 20px;
+    }
+    .step-content {
+      margin-top: 10px;
+    }
+    .step-large-number {
+      font-size: 48px;
+    }
+    .step-title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+</style>
