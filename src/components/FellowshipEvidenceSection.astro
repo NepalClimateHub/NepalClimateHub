@@ -1,0 +1,263 @@
+---
+import unescoLogo from '../assets/UNESCO.png';
+import himalLogo from '../assets/himalkhabar.png';
+import unfccLogo from '../assets/UNFCC.png';
+import { FiArrowUpRight } from "react-icons/fi";
+
+const evidenceItems = [
+  {
+    quote:"Limited capacity to use climate data for decision-making remains one of the most persistent barriers to effective climate action across developing nations.",
+    highlight: "Limited capacity to use climate data",
+    orgName: 'UNESCO',
+    logo: unescoLogo,
+    sourceLink: '#',
+  },
+  {
+    quote:"Persistent data gaps hinder climate policy analysis in Nepal, leaving planners without the evidence base needed to respond to escalating environmental risks.",
+    highlight: "Persistent data gaps hinder climate policy analysis",
+    orgName: 'Himal Khabar',
+    logo: himalLogo,
+    sourceLink: '#',
+  },
+  {
+    quote:
+      "Gaps in data, institutional capacity, and technical expertise that limit evidence-based policy are among the foremost challenges facing Nepal's climate commitments.",
+    highlight:
+      "Gaps in data, institutional capacity, and technical expertise",
+    orgName: 'UNFCCC',
+    logo: unfccLogo,
+    sourceLink: '#',
+  },
+];
+---
+
+<div class="section-container evidence-content">
+  <span class="section-badge">The research agrees</span>
+
+  <h2 class="evidence-title">
+    The global evidence behind why this fellowship exists
+  </h2>
+
+  <div class="evidence-grid">
+    {
+      evidenceItems.map((item) => {
+        const remainingText = item.quote.replace(item.highlight, '');
+
+        return (
+          <div class="evidence-card">
+            <q class="quote-text">
+              <span class="highlight">{item.highlight}</span>
+              {remainingText}
+            </q>
+
+            <div class="card-footer">
+              <div class="source-org">
+                <img
+                  src={item.logo.src}
+                  alt={item.orgName}
+                  width="56"
+                  height="56"
+                />
+
+                <span class="org-name">{item.orgName}</span>
+              </div>
+
+              <a href={item.sourceLink} class="source-link">
+                <span class="source-label">SOURCE</span>
+
+                <FiArrowUpRight style={{ color: '#1A1B1E' }} />
+              </a>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
+
+<style>
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .evidence-title {
+    margin-top: 24px;
+    font-family: "Zilla Slab", serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 50px;
+    color: #1A1B1E;
+  }
+
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+  }
+
+  .evidence-card {
+    background-color: #F8F9FA;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .quote-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #1A1B1E;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .quote-text .highlight {
+    font-style: normal;
+    color: #364FC7;
+    font-weight: 600;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .source-org {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .source-org img {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  .org-name {
+    text-transform: uppercase;
+    color: #A8A8A8;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .source-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .source-label {
+    text-transform: uppercase;
+    color: #1A1B1E;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .source-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .evidence-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .evidence-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .source-org img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .org-name {
+      font-size: 14px;
+    }
+
+    .source-label {
+      font-size: 14px;
+    }
+
+    .source-link svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .evidence-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .evidence-title {
+      font-size: 30px;
+      line-height: 32px;
+    }
+
+    .source-org img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .org-name {
+      font-size: 14px;
+    }
+
+    .source-label {
+      font-size: 14px;
+    }
+
+    .source-link svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .evidence-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .evidence-card {
+      padding: 16px;
+    }
+
+    .source-org img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .org-name {
+      font-size: 12px;
+    }
+
+    .source-label {
+      font-size: 12px;
+    }
+
+    .source-link svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+</style>

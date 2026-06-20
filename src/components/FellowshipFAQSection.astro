@@ -1,0 +1,117 @@
+---
+import FAQAccordion from './FAQAccordion.jsx';
+---
+
+<section>
+  <div class="section-container">
+    <div class="faq-wrapper">
+      <!-- Left Side -->
+      <div class="faq-left">
+        <div class="section-badge">COMMON QUESTIONS</div>
+        <h2 class="section-title">Everything you need to know</h2>
+        <p class="faq-description">Still have questions? Reach out to the NCH team directly or check back as more details are released.</p>
+      </div>
+
+      <!-- Right Side - Accordions -->
+      <div class="faq-right">
+        <div class="accordion-container">
+          <FAQAccordion client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .faq-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 44px;
+    align-items: flex-start;
+  }
+
+  .faq-left {
+    flex: 0 0 auto;
+    max-width: 400px;
+  }
+
+  .faq-right {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 24px;
+    line-height: 50px;
+    margin-bottom: 0;
+  }
+
+  .faq-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1A1B1E;
+    line-height: 24px;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .accordion-container {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 1024px) {
+    .faq-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .faq-left {
+      max-width: 100%;
+    }
+
+    .section-title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .faq-wrapper {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .faq-description {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

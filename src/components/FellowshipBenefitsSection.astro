@@ -1,0 +1,238 @@
+---
+import { MdMenuBook } from "react-icons/md";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { LuFolderOpen } from "react-icons/lu";
+import { PiCertificateBold } from "react-icons/pi";
+import { FaBuildingUser } from "react-icons/fa6";
+import { RiGraduationCapLine } from "react-icons/ri";
+
+const benefits = [
+  {
+    icon: MdMenuBook,
+    title: "Premium learning resources",
+    description: "Full Datacamp subscription ($336) covering Python, R, statistics and data science."
+  },
+  {
+    icon: FaChalkboardTeacher,
+    title: "Personalised mentorship",
+    description: "A dedicated mentor for your group of 4, guiding your project and career pathway."
+  },
+  {
+    icon: LuFolderOpen,
+    title: "Real-world project portfolio",
+    description: "A published capstone with a blog post to showcase applied skills to employers."
+  },
+  {
+    icon: PiCertificateBold,
+    title: "Certificate & recognition",
+    description: "Certificate of completion, letter of recommendation for outstanding fellows and goodies."
+  },
+  {
+    icon: FaBuildingUser,
+    title: "Internship opportunities",
+    description: "Top performers are invited to intern at Nepal Climate Hub and join the professional network."
+  },
+  {
+    icon: RiGraduationCapLine,
+    title: "Graduation in Kathmandu",
+    description: "In-person graduation ceremony with fellow cohort members, mentors and speakers."
+  }
+];
+---
+
+<div class="section-container">
+  <div class="section-header">
+    <h2 class="section-title">More than a Certificate</h2>
+    <p class="section-description">
+      Joining this fellowship is more than just receiving certificate - you will become part of a purpose-driven team whose members show up for each other as much as for NCH's mission. We carefully select individuals who are collaborative, reliable, and deeply motivated to create impact.
+    </p>
+  </div>
+
+  <div class="benefits-grid">
+    {benefits.map((benefit) => {
+      const IconComponent = benefit.icon;
+      return (
+        <div class="benefit-card">
+          <IconComponent className="benefit-icon" size={28} />
+          <h3 class="benefit-title">{benefit.title}</h3>
+          <p class="benefit-description">{benefit.description}</p>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    width: 770px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 24px;
+    margin-bottom: 0;
+    line-height: 44px;
+  }
+
+  .section-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 160%;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .benefit-card {
+    border-radius: 16px;
+    border-top: 2px solid #CEFE00;
+    padding: 24px;
+    background-color: #FFFFFF;
+  }
+
+  .benefit-icon {
+    color: #1A1B1E;
+    margin-top: 38px;
+    display: block;
+  }
+
+  .benefit-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A1B1E;
+    line-height: 28px;
+    margin-top: 32px;
+    margin-bottom: 0;
+  }
+
+  .benefit-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 26px;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .section-header {
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+    .section-description {
+      font-size: 18px;
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .benefit-title {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    .benefit-description {
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 26px;
+      line-height: 32px;
+    }
+
+    .section-description {
+      font-size: 16px;
+      margin-top: 16px;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .benefit-card {
+      padding: 20px;
+    }
+
+    .benefit-icon {
+      margin-top: 24px;
+    }
+
+    .benefit-title {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .benefit-description {
+      font-size: 14px;
+      line-height: 22px;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    .section-description {
+      font-size: 15px;
+    }
+
+    .benefits-grid {
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .benefit-card {
+      padding: 16px;
+    }
+
+    .benefit-icon {
+      margin-top: 16px;
+    }
+
+    .benefit-title {
+      font-size: 15px;
+      line-height: 22px;
+      margin-top: 10px;
+    }
+
+    .benefit-description {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 8px;
+    }
+  }
+</style>

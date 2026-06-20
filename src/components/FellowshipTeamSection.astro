@@ -1,0 +1,399 @@
+---
+const mentors = [
+  {
+    name: "Dr. Sarah Chen",
+    role: "Senior Data Scientist",
+    actualRole: "Climate Data Specialist",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    description: "Leads climate data analysis initiatives and mentors fellows in statistical methods."
+  },
+  {
+    name: "Rajesh Poudel",
+    role: "Environmental Scientist",
+    actualRole: "Environmental Consultant",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    description: "Expert in environmental science with 8+ years of experience in Nepal."
+  },
+  {
+    name: "Lisa Sharma",
+    role: "Data Engineer",
+    actualRole: "ML Engineer",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    description: "Specializes in building data pipelines and machine learning models."
+  },
+  {
+    name: "Arjun Tamang",
+    role: "Program Lead",
+    actualRole: "Climate Policy Advisor",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    description: "Guides fellows through project implementation and career development."
+  }
+];
+
+const speakers = [
+  {
+    name: "Dr. Arun Sharma",
+    role: "Environmental Scientist",
+    actualRole: "Climate Researcher at ICIMOD",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    description: "Leading climate research in the Himalayas with focus on glacier dynamics."
+  },
+  {
+    name: "Priya Maharjan",
+    role: "Data Specialist",
+    actualRole: "Data Lead at World Bank",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    description: "Uses data to drive sustainable development initiatives across South Asia."
+  },
+  {
+    name: "Prof. James Wilson",
+    role: "Climate Policy Professor",
+    actualRole: "Academic Director at Oxford",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    description: "Explores intersection of climate science and policy-making."
+  },
+  {
+    name: "Bishnu Neupane",
+    role: "Climate Tech Entrepreneur",
+    actualRole: "Founder of EcoTech Nepal",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    description: "Building tech solutions for environmental monitoring in Nepal."
+  },
+  {
+    name: "Dr. Maya Patel",
+    role: "Geospatial Analyst",
+    actualRole: "Chief Scientist at GEO Foundation",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    description: "Pioneer in using satellite data for climate action."
+  },
+  {
+    name: "Tsering Dorje",
+    role: "Biodiversity Expert",
+    actualRole: "Conservation Lead at WWF",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    description: "Focuses on ecosystem conservation and community engagement."
+  },
+  {
+    name: "Dr. Hassan Khan",
+    role: "UN Development Expert",
+    actualRole: "Data Science Director at UN",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    description: "Leverages data science for sustainable development goals."
+  },
+  {
+    name: "Aarati Giri",
+    role: "Environmental Data Scientist",
+    actualRole: "Head of Analytics at UNEP",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    description: "Leads environmental monitoring and data initiatives globally."
+  }
+];
+---
+
+<div class="section-container">
+  <!-- Mentors Subsection -->
+  <div class="subsection">
+    <div class="section-badge">Meet your mentors</div>
+    <h2 class="section-title">Guided by experienced practitioners</h2>
+    <p class="section-description">
+      Each group of 4 fellows is paired with a dedicated mentor who provides hands-on guidance throughout the program.
+    </p>
+
+    <div class="team-grid mentors-grid">
+      {mentors.map((mentor) => (
+        <div class="team-card">
+          <div class="team-image-container">
+            <img src={mentor.image} alt={mentor.name} class="team-image" />
+            <div class="team-overlay">
+              <p class="overlay-description">{mentor.description}</p>
+            </div>
+            <div class="team-role-badge">{mentor.role}</div>
+          </div>
+          <h3 class="team-name">{mentor.name}</h3>
+          <p class="team-actual-role">{mentor.actualRole}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Speakers Subsection -->
+  <div class="subsection speakers-subsection">
+    <div class="section-badge">Meet your speakers</div>
+    <h2 class="section-title">Learn from leaders across climate, data and academia</h2>
+    <p class="section-description">
+      Each group of 4 fellows is paired with a dedicated mentor who provides hands-on guidance throughout the program.
+    </p>
+
+    <div class="team-grid speakers-grid">
+      {speakers.map((speaker) => (
+        <div class="team-card">
+          <div class="team-image-container">
+            <img src={speaker.image} alt={speaker.name} class="team-image" />
+            <div class="team-overlay">
+              <p class="overlay-description">{speaker.description}</p>
+            </div>
+            <div class="team-role-badge">{speaker.role}</div>
+          </div>
+          <h3 class="team-name">{speaker.name}</h3>
+          <p class="team-actual-role">{speaker.actualRole}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .subsection {
+    margin-bottom: 80px;
+  }
+
+  .subsection:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: #EBF1F7;
+    color: #364FC7;
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-title {
+    font-family: 'Zilla Slab', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1A1B1E;
+    margin-top: 24px;
+    line-height: 50px;
+    margin-bottom: 0;
+  }
+
+  .section-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1A1B1E;
+    line-height: 150%;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .team-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .mentors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .speakers-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    margin-bottom: 16px;
+  }
+
+  .team-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+
+  .team-image-container:hover .team-image {
+    filter: brightness(0.6);
+  }
+
+  .team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .team-image-container:hover .team-overlay {
+    opacity: 1;
+  }
+
+  .overlay-description {
+    color: #F8F9FA;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+  }
+
+  .team-role-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background-color: #CEFE00;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #000000;
+    border-radius: 0;
+  }
+
+  .team-name {
+    font-family: 'Zilla Slab', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #3750C8;
+    line-height: 28px;
+    margin: 0;
+    margin-bottom: 0;
+  }
+
+  .team-actual-role {
+    font-size: 14px;
+    font-weight: 400;
+    color: #64748B;
+    line-height: 24px;
+    margin: 0;
+    margin-top: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .section-description {
+      font-size: 15px;
+    }
+
+    .mentors-grid,
+    .speakers-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .team-name {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    .team-actual-role {
+      font-size: 13px;
+      line-height: 22px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .subsection {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      line-height: 32px;
+    }
+
+    .section-description {
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
+    .mentors-grid,
+    .speakers-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .team-image-container {
+      margin-bottom: 12px;
+    }
+
+    .team-name {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .team-actual-role {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .subsection {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .section-description {
+      font-size: 13px;
+    }
+
+    .mentors-grid,
+    .speakers-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .team-image-container {
+      margin-bottom: 10px;
+    }
+
+    .overlay-description {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .team-name {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    .team-actual-role {
+      font-size: 11px;
+      line-height: 18px;
+    }
+  }
+</style>
