@@ -1,5 +1,47 @@
 [
   {
+    "name": "Nikita Budhathoki",
+    "title": "Design",
+    "volunteerDate": "Jan 2025 – May 2026",
+    "bio": "Nikita Budhathoki is a product designer with a background in Computer Science and Information Technology. She has been actively involved in community-based initiatives that connect her to social and environmental issues. Alongside her design work, she explores traditional art forms like mandala and thanka to express cultural and personal narratives. Nikita is passionate about using design and creativity to raise awareness and inspire action on climate and sustainability.",
+    "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/nikki.jpg",
+    "linkedIn": "https://www.linkedin.com/in/nikita-budhathoki/"
+  },
+  {
+    "name": "Susmita Aryal",
+    "title": "Content",
+    "volunteerDate": "Nov 2025 – Apr 2026",
+    "bio": "Susmita Aryal is a Kathmandu-based published Author and Independent Journalist. A graduate in English Literature and Journalism, she brings years of writing and publishing experience. With a genuine love for art and storytelling, her works extensively center around communications. Curious about international affairs, she is currently pursuing a Master's in International Relations and Diplomacy.",
+    "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/2.png",
+    "linkedIn": "https://www.linkedin.com/in/susmita-aryal-494275229"
+  },
+  {
+    "name": "Tarun Thapa",
+    "title": "Content",
+    "volunteerDate": "Nov 2025 – Apr 2026",
+    "bio": "Tarun Thapa is a motion designer and video editor with over two years of experience working with IT companies and creative agencies. With a background in Information and Management, he now freelances, helping brands and creators tell their stories through engaging motion graphics and visually driven videos.",
+    "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/3.png",
+    "linkedIn": "http://linkedin.com/in/tarun-thapa-27a287181"
+  },
+  {
+    "name": "Nischal Raj Gautam",
+    "title": "Creative Writer | Data and Content",
+    "bio": "Nischal Raj is a Youth Representative at the World Food Forum, and a Global Youth Ambassador at Theirworld. He also serves as a Plastic Free NextGen Fellow and has been recognized as a South Asian Climate Justice Fellow and Resilient Youth Network Fellow. His work focuses on climate-smart agriculture, food security, and policy advocacy, with passions for sustainability, climate resilience, organic farming, and community empowerment.",
+    "image": "https://ik.imagekit.io/mbccqjudb/NCH%20Team/NRG.jpeg",
+    "linkedIn": "https://www.linkedin.com/in/nischal-raj-gautam-8a362b307/",
+    "volunteerDate": "Nov 2025 – Mar 2026",
+    "volunteerOnly": true
+  },
+  {
+    "name": "Biswas Kaphle",
+    "title": "Scientific Writer | Climate Communication",
+    "bio": "Biswas is a civil engineering graduate and climate researcher from Nepal, interested in hydrology, urban flooding, and climate extremes. He enjoys turning complex scientific studies into clear, engaging stories that connect climate science with real-world impacts.",
+    "image": "https://ik.imagekit.io/mbccqjudb/development/Biswas%20Kaphle.png",
+    "linkedIn": "https://www.linkedin.com/in/biswashk920/",
+    "volunteerDate": "Jan 2026 – Mar 2026",
+    "volunteerOnly": true
+  },
+  {
     "name": "Milan Shrestha",
     "title": "UI/UX Designer | Tech",
     "volunteerDate": "Nov 2024 – Nov 2025",
