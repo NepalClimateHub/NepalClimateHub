@@ -53,6 +53,7 @@ const FAQAccordion = () => {
           }}
         >
           <button
+            type="button"
             className={`accordion-question ${openIndex === index ? 'active' : ''}`}
             onClick={() => toggleAccordion(index)}
             aria-expanded={openIndex === index}
