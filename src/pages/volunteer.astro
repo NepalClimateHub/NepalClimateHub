@@ -4,17 +4,22 @@ export const prerender = false;
 // import global styles
 import '../styles/global.css';
 
-import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
-import VolunteerApplicationJourney from '@components/VolunteerApplicationJourney.astro';
-import VolunteerBenefitsSection from '@components/VolunteerBenefitsSection.astro';
 import VolunteerHeroSection from '@components/VolunteerHeroSection.astro';
 import VolunteerIntroSection from '@components/VolunteerIntroSection.astro';
-import VolunteerOpenRolesSection from '@components/VolunteerOpenRolesSection.astro';
-import VolunteerSection from '@components/VolunteerSection.astro';
+import VolunteerBenefitsSection from '@components/VolunteerBenefitsSection.astro';
 import VolunteerWithUsSection from '@components/VolunteerWithUsSection.astro';
+import VolunteerOpenRolesSection from '@components/VolunteerOpenRolesSection.astro';
+import VolunteerApplicationJourney from '@components/VolunteerApplicationJourney.astro';
+import VolunteerSection from '@components/VolunteerSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import teamData from '../data/team.json';
+
+import { fetchAllMembers } from 'src/api/members.api';
+
+const {data} = await fetchAllMembers();
 
 // for displaying error message if given object key are empty or fail our requirement
 const errors = {
@@ -164,7 +169,7 @@ if (Astro.request.method === 'POST') {
     </section>
 
     <section class="meet-our-volunteers-section">
-      <VolunteerSection />
+      <VolunteerSection volunteers={data.slice(0, 16)} />
     </section>
 
     <!-- <section class="volunteer-form-section">
