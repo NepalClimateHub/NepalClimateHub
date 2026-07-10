@@ -1,11 +1,31 @@
-import type { Member, MembersResponse } from "../types/member";
-import { API_BASE_URL, ApiError, handleResponse } from "./index";
+import type { Member, MembersResponse } from '../types/member';
+import { API_BASE_URL, ApiError, handleResponse } from './index';
 
-export const fetchAllMembers = async (): Promise<MembersResponse> => {
+interface StaffCategory {
+  name: string;
+  members: Member[];
+}
+
+interface Members {
+  staff: {
+    categories: StaffCategory[];
+  };
+  volunteers: Member[];
+}
+
+const CATEGORY_ORDER = [
+  'Leadership',
+  'Climate Communication',
+  'Tech',
+  'Board',
+  'Advisors',
+];
+
+export const fetchMembers = async (): Promise<Members> => {
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
-      "API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.",
+      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
     );
   }
 
@@ -13,41 +33,73 @@ export const fetchAllMembers = async (): Promise<MembersResponse> => {
     const url = `${API_BASE_URL}/api/v1/members`;
 
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     });
 
-    return handleResponse<MembersResponse>(response);
+    const membersResponse = await handleResponse<MembersResponse>(response);
+
+    const staffMembers = membersResponse.data.filter(
+      (member) => member.status.toLowerCase() === 'staff'
+    );
+
+    const volunteers = membersResponse.data.filter(
+      (member) => member.status.toLowerCase() === 'volunteer'
+    );
+
+    const categories = Object.values(
+      staffMembers.reduce<Record<string, StaffCategory>>((acc, member) => {
+        const categoryName = member.team;
+
+        if (!acc[categoryName]) {
+          acc[categoryName] = {
+            name: categoryName,
+            members: [],
+          };
+        }
+
+        acc[categoryName].members.push(member);
+
+        return acc;
+      }, {})
+    ).sort((a, b) => {
+      const aIndex = CATEGORY_ORDER.indexOf(a.name);
+      const bIndex = CATEGORY_ORDER.indexOf(b.name);
+
+      return (
+        (aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex) -
+        (bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex)
+      );
+    });
+
+    return {
+      staff: {
+        categories,
+      },
+      volunteers,
+    };
   } catch (error) {
-    console.error("Error fetching all members:", error);
+    console.error('Error fetching members:', error);
 
     if (error instanceof ApiError) {
       throw error;
     }
 
-    if (error instanceof Error && error.message.includes("fetch failed")) {
+    if (error instanceof Error && error.message.includes('fetch failed')) {
       throw new ApiError(
         500,
-        `Failed to fetch members data: Invalid API URL or network error. API_BASE_URL: ${API_BASE_URL}`,
+        'Failed to load members. Please try again later.'
       );
     }
 
     throw new ApiError(
       500,
       `Failed to fetch members data: ${
-        error instanceof Error ? error.message : "Unknown error"
-      }`,
+        error instanceof Error ? error.message : 'Unknown error'
+      }`
     );
   }
-};
-
-export const getMember = async (id: string): Promise<Member | undefined> => {
-  if (!id) return;
-
-  const response = await fetchAllMembers();
-
-  return response.data.find((member) => member.id === id);
 };

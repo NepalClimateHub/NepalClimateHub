@@ -1,0 +1,281 @@
+---
+import lcoyLogo from "../../assets/lcoy/logo/lcoyLogo.jpg";
+---
+
+<footer class="lcoy-footer">
+  <div class="footer-container">
+    {/* Left Side - Logo & Description */}
+    <div class="footer-left">
+      <img 
+        src={lcoyLogo.src} 
+        alt="LCOY Nepal Logo" 
+        class="footer-logo"
+      />
+      <p class="footer-description">
+        Nepalese Youth for Climate Action. Empowering young people to lead climate action and build a sustainable future for Nepal.
+      </p>
+    </div>
+
+    {/* Vertical Separator */}
+    <div class="footer-divider-vertical"></div>
+
+    {/* Right Side */}
+    <div class="footer-right">
+      {/* Quick Links Section */}
+      <div class="footer-section">
+        <h3 class="footer-section-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      {/* Vertical Divider */}
+      <div class="footer-divider-vertical"></div>
+
+      {/* Copyright & Links Section */}
+      <div class="footer-section">
+        <p class="footer-copyright">© 2026 LCOY Nepal</p>
+        <div class="footer-links-bottom">
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .lcoy-footer {
+    background: #F8FAF6;
+    padding: 32px 64px;
+    border-top: 1px solid #BFC9C14D;
+  }
+
+  .footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  /* Left Side */
+  .footer-left {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 114px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  .footer-description {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #404943;
+    margin: 0;
+    padding-top: 4px;
+  }
+
+  /* Vertical Divider */
+  .footer-divider {
+    width: 1px;
+    background: #BFC9C14D;
+    min-height: 120px;
+  }
+
+  /* Right Side */
+  .footer-right {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #1D5C42;
+    text-align: center;
+    margin: 0 0 12px 0;
+  }
+
+  .footer-links {
+    list-style: none;
+    margin: 0 0 24px 0;
+    padding: 0;
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #1D5C42;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #00442D;
+  }
+
+  /* Vertical Divider between sections */
+  .footer-divider-vertical {
+    width: 1px;
+    background: #BFC9C14D;
+    min-height: 80px;
+  }
+
+  .footer-copyright {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #404943;
+    margin: 0 0 12px 0;
+    text-align: center;
+  }
+
+  .footer-links-bottom {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .footer-links-bottom a {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #1D5C42;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links-bottom a:hover {
+    color: #00442D;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .footer-container {
+      gap: 32px;
+    }
+
+    .footer-left {
+        flex-direction: column;
+    }
+
+    .lcoy-footer {
+      padding: 32px 48px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lcoy-footer {
+      padding: 24px 32px;
+    }
+
+    .footer-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-divider {
+      display: none;
+    }
+
+    .footer-left {
+      gap: 12px;
+    }
+
+    .footer-description {
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    .footer-right {
+      flex-direction: column;
+      gap: 24px;
+      border-top: 1px solid #BFC9C14D;
+      padding-top: 24px;
+      width: 100%;
+    }
+
+    .footer-section {
+      width: 100%;
+      align-items: center;
+    }
+
+    .footer-divider-vertical {
+      display: none;
+    }
+
+    .footer-divider-horizontal {
+      margin: 16px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .lcoy-footer {
+      padding: 16px 16px;
+    }
+
+    .footer-container {
+      gap: 16px;
+    }
+
+    .footer-description {
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    .footer-section-title {
+      font-size: 11px;
+    }
+
+    .footer-links a,
+    .footer-links-bottom a {
+      font-size: 11px;
+    }
+
+    .footer-copyright {
+      font-size: 11px;
+    }
+
+    .footer-links-bottom {
+      gap: 12px;
+    }
+  }
+</style>
