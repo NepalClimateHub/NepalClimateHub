@@ -1,0 +1,412 @@
+---
+import {aslf, byan, nch, Resilience_labs, swiof, unicef, wff, wycj, ycgn, ycnn} from "../../assets/lcoy/logo/partners"
+
+const strategicPartners = [
+  {
+    logo: unicef,
+  },
+];
+
+const inclusionPartners = [
+  {
+    logo: byan,
+  },
+];
+
+const youthPartners = [
+  {
+        logo: aslf,
+  },
+  {
+        logo: byan,
+  },
+  {
+        logo: ycnn,
+  },
+  {
+        logo: nch,
+  },
+  {
+        logo: Resilience_labs,
+  },
+  {
+        logo: swiof,
+  },
+  {
+        logo: wff,
+  },
+  {
+        logo: ycgn,
+  },
+  {
+        logo: wycj,
+  },
+];
+
+---
+
+<section id="collaborating-partners" class="partners-section">
+  <div class="partners-inner">
+    <h2 class="section-title">Collaborating Partners</h2>
+
+    {/* Title Partners */}
+    <div class="partner-group">
+      <p class="partner-category">Strategic Partner</p>
+      <div class="partners-flex">
+        {strategicPartners.map((partner) => (
+          <div class="title-partner-card">
+           {
+            partner.logo ? <img class="partner-logo" src={partner.logo.src} /> : <span class="partner-logo-text">PARTNER LOGO</span>
+           }
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Supporting Partners */}
+    <div class="partner-group">
+      <p class="partner-category">SUPPORTING PARTNERS</p>
+      <div class="partners-flex">
+        {inclusionPartners.map((partner) => (
+          <div class="partner-card">
+           {
+            partner.logo ? <img class="partner-logo" src={partner.logo.src} /> : <span class="partner-logo-text">PARTNER LOGO</span>
+           }
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Youth Partners */}
+    <div class="partner-group">
+      <p class="partner-category">youth partners</p>
+      <div class="partners-flex large-group">
+        {youthPartners.map((partner) => (
+          <div class="partner-card">
+           {
+            partner.logo ? <img class="partner-logo" src={partner.logo.src} /> : <span class="partner-logo-text">PARTNER LOGO</span>
+           }
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* CTA Text */}
+    <p class="cta-text">
+      Interested in supporting LCOY Nepal 2026? Contact <a href="mailto:sponsors@lcoynepal.org">sponsors@lcoynepal.org</a> or <a href="mailto:partnerships@lcoynepal.org">partnerships@lcoynepal.org</a>.
+    </p>
+
+    {/* Organizers */}
+    <!-- <div class="partner-group">
+      <p class="partner-category">ORGANIZERS</p>
+      <div class="partners-flex organizers-flex">
+        {organizers.map((organizer) => (
+          <div class="organizer-card">
+           {
+            organizer.logo ? <img src={organizer.logo} /> : <span class="partner-logo-text">PARTNER LOGO</span>
+           }
+          </div>
+        ))}
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<style>
+  .partners-section {
+    background: #F8FAF6;
+    padding: 120px 0;
+  }
+
+  .partners-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 41.6px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #00442D;
+    margin: 0 0 64px 0;
+  }
+
+  .partner-group {
+    margin-bottom: 96px;
+  }
+
+  .partner-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .partner-category {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 12px;
+    letter-spacing: 1.2px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #404943;
+    margin: 0 0 32px 0;
+  }
+
+  .partners-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .partner-logo {
+    object-fit: contain;
+    height: 100%;
+  }
+
+  .partners-flex.large-group {
+    gap: 32px;
+  }
+
+  .partners-flex.organizers-flex {
+    gap: 48px;
+  }
+
+  .partner-card {
+    width: 250px;
+    aspect-ratio: 2 / 1;
+    border-radius: 16px;
+    border: 1px solid #BFC9C14D;
+    background: #FFFFFF;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .partner-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .title-partner-card {
+    width: 192px;
+    aspect-ratio: 2 / 1;
+    border-radius: 16px;
+    border: 1px solid #BFC9C14D;
+    background: #FFFFFF;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .title-partner-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .organizer-card {
+    width: 384px;
+    aspect-ratio: 2 / 1;
+    border-radius: 16px;
+    border: 1px solid #BFC9C14D;
+    background: #FFFFFF;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-height: 210px;
+  }
+
+  .organizer-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .partner-logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #94A3B8;
+  }
+
+  .title-partner-card,
+  .partner-card,
+  .organizer-card {
+    position: relative;
+  }
+
+  .cta-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    color: #00442D;
+    margin: 112px 0;
+  }
+
+  .cta-text a {
+    color: #00442D;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .cta-text a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1024px) {
+    .partners-inner {
+      padding: 0 48px;
+    }
+
+    .title-partner-card {
+      max-width: 160px;
+    }
+
+    .partner-card {
+      max-width: 160px;
+    }
+
+    .organizer-card {
+      max-width: 300px;
+    }
+
+    .partners-flex {
+      gap: 16px;
+    }
+
+    .partners-flex.large-group {
+      gap: 20px;
+    }
+
+    .partner-group {
+      margin-bottom: 64px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .partners-section {
+      padding: 80px 0;
+    }
+
+    .partners-inner {
+      padding: 0 32px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 48px;
+    }
+
+    .partner-category {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .title-partner-card {
+      max-width: 140px;
+    }
+
+    .partner-card {
+      max-width: 140px;
+    }
+
+    .organizer-card {
+      max-width: 250px;
+    }
+
+    .partner-group {
+      margin-bottom: 48px;
+    }
+
+    .cta-text {
+      font-size: 16px;
+      line-height: 20px;
+      margin: 48px 0;
+    }
+
+    .partners-flex {
+      gap: 12px;
+    }
+
+    .partners-flex.large-group {
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .partners-section {
+      padding: 60px 0;
+    }
+
+    .partners-inner {
+      padding: 0 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 32px;
+    }
+
+    .partner-category {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .title-partner-card {
+      max-width: 100%;
+    }
+
+    .partner-card {
+      /* max-width: 120px; */
+    }
+
+    .organizer-card {
+      max-width: 100%;
+    }
+
+    .partner-group {
+      margin-bottom: 32px;
+    }
+
+    .cta-text {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 32px 0;
+    }
+
+    .partners-flex {
+      gap: 8px;
+    }
+
+    .partners-flex.large-group {
+      gap: 12px;
+    }
+
+    .partners-flex.organizers-flex {
+      gap: 24px;
+    }
+  }
+</style>
