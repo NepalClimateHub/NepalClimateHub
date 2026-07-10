@@ -1,0 +1,191 @@
+---
+interface Props {
+  imageOne: { src: string };
+  imageTwo: { src: string };
+  imageThree: { src: string };
+  imageFour: { src: string };
+}
+
+const { imageOne, imageTwo, imageThree, imageFour } = Astro.props;
+---
+
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-images">
+      <div class="about-image-col col-first">
+        <img src={imageOne.src} alt="LCOY Nepal image 1" />
+        <img class="image-square" src={imageTwo.src} alt="LCOY Nepal image 2" />
+      </div>
+      <div class="about-image-col col-second">
+        <img class="image-square" src={imageThree.src} alt="LCOY Nepal image 3" />
+        <img src={imageFour.src} alt="LCOY Nepal image 4" />
+      </div>
+    </div>
+
+    <div class="about-copy">
+      <div class="section-tag">ABOUT LCOY NEPAL</div>
+      <h2>About LCOY Nepal 2026</h2>
+      <p>
+        A YOUNGO-endorsed, youth-led conference bringing together 150-200 young people from all seven provinces of Nepal to build climate knowledge, skills, and networks through workshops, policy simulations, and community engagement — culminating in a National Children and Youth Statement submitted to government and international bodies.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: #F2F4F0;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .about-inner {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .about-images {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .about-image-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-images img {
+    width: 100%;
+    aspect-ratio: 259/325;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .about-images .image-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .col-second {
+    transform: translateY(48px);
+  }
+
+  .about-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 560px;
+  }
+
+  .section-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 700;
+    color: #00442D;
+    text-transform: uppercase;
+  }
+
+  .about-copy h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(28px, 2.5vw, 32px);
+    line-height: 42px;
+    font-weight: 600;
+    color: #00442D;
+    margin: 0;
+  }
+
+  .about-copy p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    line-height: 29px;
+    font-weight: 400;
+    color: #404943;
+    margin: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .about-inner {
+      gap: 48px;
+      padding: 0 32px;
+    }
+
+    .about-copy h2 {
+      font-size: 28px;
+    }
+
+    .about-copy p {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+@media (max-width: 768px) {
+  .about-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .about-inner {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 24px;
+  }
+  .about-images img {
+    aspect-ratio: 1 / 1;
+  }
+  .col-second {
+    transform: none;
+  }
+  .about-copy {
+    max-width: 100%;
+  }
+  .about-copy h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .about-copy p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+  @media (max-width: 480px) {
+    .about-section {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .about-inner {
+      padding: 0 16px;
+      gap: 16px;
+    }
+
+    .about-images {
+      gap: 12px;
+    }
+
+    .about-image-col {
+      gap: 12px;
+    }
+
+    .section-tag {
+      font-size: 10px;
+    }
+
+    .about-copy h2 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .about-copy p {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+</style>

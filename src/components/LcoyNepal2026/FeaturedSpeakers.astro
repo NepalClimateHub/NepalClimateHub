@@ -1,0 +1,168 @@
+---
+import {dikshya} from '../../assets/lcoy/images/organizing-team'
+import {jaldeep} from '../../assets/lcoy/images/speakers'
+
+const speakers = [
+  {
+    name: 'Dikshya Subedi',
+    role: '',
+    organization: 'YASEN',
+    image: dikshya,
+  },
+  {
+    name: 'Jaldeep Sapkota',
+    role: '',
+    organization: 'BYAN',
+    image: jaldeep,
+  },
+];
+
+const borderColors = ['#38B2AC', '#E5B63B', '#F06C5D', '#38B2AC'];
+---
+
+<section id="speakers" class="featured-speakers-section">
+  <div class="featured-speakers-inner">
+    <p class="section-eyebrow">EXPERT INSIGHTS</p>
+    <h2 class="section-title">Featured Speakers</h2>
+
+    <div class="speakers-grid">
+      {speakers.map((speaker, index) => (
+        <article class="speaker-card">
+          <div class="speaker-image-wrapper" style={{ '--border-color': borderColors[index % borderColors.length] }}>
+            <img src={speaker.image.src} alt={speaker.name} />
+          </div>
+          <h3>{speaker.name}</h3>
+          {speaker?.role && <p class="speaker-role">{speaker?.role}</p>}
+          <p class="speaker-organization">{speaker.organization}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-speakers-section {
+    background: #F8FAF6;
+    padding: 96px 0;
+  }
+
+  .featured-speakers-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-eyebrow {
+    margin: 0 0 14px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #00442D;
+  }
+
+  .section-title {
+    margin: 0 0 64px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    line-height: 41.6px;
+    font-weight: 600;
+    color: #00442D;
+  }
+
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 48px;
+    column-gap: 32px;
+  }
+
+  .speaker-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .speaker-image-wrapper {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    padding: 4px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .speaker-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .speaker-card h3 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #00442D;
+  }
+
+  .speaker-role {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #404943;
+  }
+
+  .speaker-organization {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #404943;
+  }
+
+  @media (max-width: 1200px) {
+    .speakers-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .featured-speakers-section {
+      padding: 72px 0;
+    }
+
+    .featured-speakers-inner {
+      padding: 0 24px;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .speakers-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .speakers-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

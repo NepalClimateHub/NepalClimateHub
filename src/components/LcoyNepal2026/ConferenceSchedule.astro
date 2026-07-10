@@ -1,0 +1,265 @@
+---
+const dayOne = {
+  icon: `<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0208 0 18.55 0 18V4C0 3.45 0.195833 2.97917 0.5875 2.5875C0.979167 2.19583 1.45 2 2 2H3V0H5V2H13V0H15V2H16C16.55 2 17.0208 2.19583 17.4125 2.5875C17.8042 2.97917 18 3.45 18 4V18C18 18.55 17.8042 19.0208 17.4125 19.4125C17.0208 19.8042 16.55 20 16 20H2ZM2 18H16V8H2V18ZM2 6H16V4H2V6ZM2 6V4V6Z" fill="#38B2AC"/>
+  </svg>`,
+  title: 'Day 1 — Inspiration & Dialogue',
+  subtitle: 'Focus on visioning and local realities',
+  items: [
+    { time: '09:00 AM', title: 'Opening Plenary & Keynote', color: '#38B2AC' },
+    { time: '11:30 AM', title: 'State of the Climate in Nepal', color: '#F06C5D' },
+    { time: '02:00 PM', title: 'Thematic Panel Discussions', color: '#E5B63B' }
+  ]
+};
+
+const dayTwo = {
+  icon: `<svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.55 16.2L11.725 10H7.725L8.45 4.325L3.825 11H7.3L6.55 16.2ZM4 20L5 13H0L9 0H11L10 8H16L6 20H4Z" fill="#E5B63B"/>
+  </svg>`,
+  title: 'Day 2 — Action & Solutions',
+  subtitle: 'Workshops and tactical skill-building',
+  items: [
+    { time: '10:00 AM', title: 'Thematic Breakouts', color: '#E5B63B' },
+    { time: '01:30 PM', title: 'Climate Innovation Lab', color: '#38B2AC' },
+    { time: '04:00 PM', title: 'Negotiation Simulation', color: '#F06C5D' }
+  ]
+};
+---
+
+<section id="conference-schedule" class="schedule-section">
+  <div class="schedule-inner">
+    <h2 class="section-title">Conference Schedule</h2>
+    <div class="title-divider"></div>
+
+    <div class="schedule-grid">
+      <div class="schedule-column">
+        <div class="column-heading">
+          <div class="icon-wrapper" set:html={dayOne.icon}></div>
+          <div class="column-heading-text">
+            <h3>{dayOne.title}</h3>
+            <p>{dayOne.subtitle}</p>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="schedule-cards">
+          {dayOne.items.map((item) => (
+            <article class="schedule-card" style={{ '--card-accent': item.color }}>
+              <div class="time-block">
+                <span class="time-text">{item.time}</span>
+              </div>
+              <div class="card-content">
+                <p>{item.title}</p>
+              </div>
+              <div class="plus-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 0H8V6H14V8H8V14H6V8H0V6H6V0Z" fill="white"/>
+                </svg>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="schedule-column">
+        <div class="column-heading">
+          <div class="icon-wrapper" set:html={dayTwo.icon}></div>
+          <div class="column-heading-text">
+            <h3>{dayTwo.title}</h3>
+            <p>{dayTwo.subtitle}</p>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="schedule-cards">
+          {dayTwo.items.map((item) => (
+            <article class="schedule-card" style={{ '--card-accent': item.color }}>
+              <div class="time-block">
+                <span class="time-text">{item.time}</span>
+              </div>
+              <div class="card-content">
+                <p>{item.title}</p>
+              </div>
+              <div class="plus-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 0H8V6H14V8H8V14H6V8H0V6H6V0Z" fill="white"/>
+                </svg>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .schedule-section {
+    background: #1D5C42;
+    padding: 96px 0;
+  }
+
+  .schedule-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-title {
+    margin: 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    line-height: 41.6px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .title-divider {
+    width: 80px;
+    height: 4px;
+    border-radius: 12px;
+    background-color: #E5B63B;
+    margin: 16px auto 64px;
+  }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+
+  .schedule-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(56, 178, 172, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .column-heading-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .column-heading h3 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  .column-heading p {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .separator {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 32px;
+  }
+
+  .schedule-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .schedule-card {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 24px;
+    border-left: 4px solid var(--card-accent);
+    border-radius: 0 12px 12px 0;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .time-block {
+    flex-shrink: 0;
+    min-width: 88px;
+  }
+
+  .time-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--card-accent);
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .card-content p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  .plus-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+  }
+
+  @media (max-width: 1024px) {
+    .schedule-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .schedule-section {
+      padding: 72px 0;
+    }
+
+    .schedule-inner {
+      padding: 0 24px;
+    }
+
+    .schedule-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .plus-icon {
+      align-self: flex-end;
+    }
+  }
+</style>
