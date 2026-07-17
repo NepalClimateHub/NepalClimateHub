@@ -1,53 +1,56 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/Layout.astro';
-import Header from '../components/LcoyNepal2026/Header.astro';
-import HeroSection from '../components/LcoyNepal2026/HeroSection.astro';
-import imageOne from '../assets/lcoy/images/lcoynepalone.jpg';
-import imageTwo from '../assets/lcoy/images/lcoynepaltwo.jpg';
-import imageThree from '../assets/lcoy/images/lcoynepalthree.jpg';
-import imageFour from '../assets/lcoy/images/lcoynepalfour.jpg';
-import OurObjectives from '@components/LcoyNepal2026/OurObjectives.astro';
-import AboutSection from '@components/LcoyNepal2026/AboutSection.astro';
-import WhyAttend from '@components/LcoyNepal2026/WhyAttend.astro';
-import ConferenceThemes from '@components/LcoyNepal2026/ConferenceThemes.astro';
-import ConferenceSchedule from '@components/LcoyNepal2026/ConferenceSchedule.astro';
-import FeaturedSpeakers from '@components/LcoyNepal2026/FeaturedSpeakers.astro';
-import ImpactOutcomes from '@components/LcoyNepal2026/ImpactOutcomes.astro';
-import CTASection from '@components/LcoyNepal2026/CTASection.astro';
-import FAQSection from '@components/LcoyNepal2026/FAQSection';
-import OrganizingTeam from '@components/LcoyNepal2026/OrganizingTeam.astro';
-import CollaboratingPartners from '@components/LcoyNepal2026/CollaboratingPartners.astro';
-import Footer from '@components/LcoyNepal2026/Footer.astro';
+import "../styles/global.css";
+import BaseLayout from "../layouts/Layout.astro";
+import Header from "../components/LcoyNepal2026/Header.astro";
+import HeroSection from "../components/LcoyNepal2026/HeroSection.astro";
+import imageOne from "../assets/lcoy/images/lcoynepalone.jpg";
+import imageTwo from "../assets/lcoy/images/lcoynepaltwo.jpg";
+import imageThree from "../assets/lcoy/images/lcoynepalthree.jpg";
+import imageFour from "../assets/lcoy/images/lcoynepalfour.jpg";
+// import OurObjectives from "@components/LcoyNepal2026/OurObjectives.astro";
+import AboutSection from "@components/LcoyNepal2026/AboutSection.astro";
+import WhyAttend from "@components/LcoyNepal2026/WhyAttend.astro";
+import ConferenceThemes from "@components/LcoyNepal2026/ConferenceThemes.astro";
+// import ConferenceSchedule from "@components/LcoyNepal2026/ConferenceSchedule.astro";
+// import FeaturedSpeakers from "@components/LcoyNepal2026/FeaturedSpeakers.astro";
+import ImpactOutcomes from "@components/LcoyNepal2026/ImpactOutcomes.astro";
+// import CTASection from "@components/LcoyNepal2026/CTASection.astro";
+// import FAQSection from "@components/LcoyNepal2026/FAQSection";
+import OrganizingTeam from "@components/LcoyNepal2026/OrganizingTeam.astro";
+import CollaboratingPartners from "@components/LcoyNepal2026/CollaboratingPartners.astro";
+import Footer from "@components/LcoyNepal2026/Footer.astro";
 ---
 
 <BaseLayout title="LCOY Nepal 2026">
   <main class="main-container">
-    <section class="page-section">
-      <Header />
-    </section>
+    <Header />
 
     <HeroSection />
 
-    <AboutSection imageOne={imageOne} imageTwo={imageTwo} imageThree={imageThree} imageFour={imageFour} />
+    <AboutSection
+      imageOne={imageOne}
+      imageTwo={imageTwo}
+      imageThree={imageThree}
+      imageFour={imageFour}
+    />
 
-    <OurObjectives />
+    <!-- <OurObjectives /> -->
 
     <WhyAttend />
 
     <ConferenceThemes />
 
-    <ConferenceSchedule />
+    <!-- <ConferenceSchedule /> -->
 
-    <FeaturedSpeakers />
+    <!-- <FeaturedSpeakers /> -->
 
     <ImpactOutcomes />
 
-    <CTASection />
+    <!-- <CTASection /> -->
 
-    <section id="faq">
+    <!-- <section id="faq">
       <FAQSection client:load />
-    </section>
+    </section> -->
 
     <OrganizingTeam />
 
@@ -58,171 +61,170 @@ import Footer from '@components/LcoyNepal2026/Footer.astro';
 </BaseLayout>
 
 <style>
-.page-section {
-  padding: 0 64px;
-}
-
-.section-panel {
-  padding-top: 48px;
-  padding-bottom: 48px;
-}
-
-.section-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-}
-
-.section-panel h1,
-.section-panel h2 {
-  color: #1D5C42;
-  margin-bottom: 16px;
-  font-size: clamp(22px, 1.4rem + 1vw, 32px);
-  line-height: 1.3;
-}
-
-.section-panel p {
-  color: #404943;
-  line-height: 1.6;
-  font-size: clamp(15px, 0.9rem + 0.2vw, 16px);
-  max-width: 760px;
-}
-
-.objectives-section {
-  background: #1D5C42;
-  color: white;
-  padding-top: 96px;
-  padding-bottom: 96px;
-}
-
-.objectives-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-}
-
-.section-head {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 56px;
-  text-align: center;
-  width: 100%;
-}
-
-.section-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;
-  line-height: 42px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.objectives-section h2 {
-  color: white;
-  font-size: clamp(32px, 3vw, 44px);
-  line-height: 1.1;
-  margin: 0;
-}
-
-.objectives-section p {
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-  font-size: clamp(16px, 1vw, 18px);
-  line-height: 1.8;
-}
-
-.objectives-grid {
-  display: flex;
-  /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
-  gap: 24px;
-  justify-content: center;
-}
-
-.objectives-grid-two {
-  display: flex;
-  /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
-  gap: 24px;
-  margin-top: 32px;
-  justify-content: center;
-}
-
-.objective-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 24px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-height: 240px;
-  align-items: center;
-  max-width: 270px;
-}
-
-.objective-card-number {
-  color: #B6E2D4;
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-
-.objective-card p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: white;
-  margin: 0;
-  text-align: center;
-}
-
-@media screen and (max-width: 1024px) {
-  .objectives-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .page-section {
+    padding: 0 64px;
   }
 
-  .about-inner {
-    flex-direction: column;
-    align-items: flex-start;
+  .section-panel {
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
-  .about-images {
+  .section-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-panel h1,
+  .section-panel h2 {
+    color: #1d5c42;
+    margin-bottom: 16px;
+    font-size: clamp(22px, 1.4rem + 1vw, 32px);
+    line-height: 1.3;
+  }
+
+  .section-panel p {
+    color: #404943;
+    line-height: 1.6;
+    font-size: clamp(15px, 0.9rem + 0.2vw, 16px);
+    max-width: 760px;
+  }
+
+  .objectives-section {
+    background: #1d5c42;
+    color: white;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .objectives-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-head {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    margin-bottom: 56px;
+    text-align: center;
+    width: 100%;
   }
 
-  .about-image-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .page-section {
-    padding: 0 24px;
+  .section-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.85);
   }
 
-  .about-inner,
-  .objectives-inner {
-    flex-direction: column;
-    padding: 0 24px;
+  .objectives-section h2 {
+    color: white;
+    font-size: clamp(32px, 3vw, 44px);
+    line-height: 1.1;
+    margin: 0;
   }
 
-  .about-inner {
-    gap: 32px;
+  .objectives-section p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-size: clamp(16px, 1vw, 18px);
+    line-height: 1.8;
   }
 
   .objectives-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
+    gap: 24px;
+    justify-content: center;
   }
-}
 
-@media screen and (max-width: 480px) {
-  .page-section {
-    padding: 0 16px;
+  .objectives-grid-two {
+    display: flex;
+    /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
+    gap: 24px;
+    margin-top: 32px;
+    justify-content: center;
   }
-}
+
+  .objective-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 240px;
+    align-items: center;
+    max-width: 270px;
+  }
+
+  .objective-card-number {
+    color: #b6e2d4;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .objective-card p {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .objectives-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .about-images {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-image-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .page-section {
+      padding: 0 24px;
+    }
+
+    .about-inner,
+    .objectives-inner {
+      flex-direction: column;
+      padding: 0 24px;
+    }
+
+    .about-inner {
+      gap: 32px;
+    }
+
+    .objectives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .page-section {
+      padding: 0 16px;
+    }
+  }
 </style>

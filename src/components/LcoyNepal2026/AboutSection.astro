@@ -17,7 +17,11 @@ const { imageOne, imageTwo, imageThree, imageFour } = Astro.props;
         <img class="image-square" src={imageTwo.src} alt="LCOY Nepal image 2" />
       </div>
       <div class="about-image-col col-second">
-        <img class="image-square" src={imageThree.src} alt="LCOY Nepal image 3" />
+        <img
+          class="image-square"
+          src={imageThree.src}
+          alt="LCOY Nepal image 3"
+        />
         <img src={imageFour.src} alt="LCOY Nepal image 4" />
       </div>
     </div>
@@ -25,16 +29,37 @@ const { imageOne, imageTwo, imageThree, imageFour } = Astro.props;
     <div class="about-copy">
       <div class="section-tag">ABOUT LCOY NEPAL</div>
       <h2>About LCOY Nepal 2026</h2>
-      <p>
-        A YOUNGO-endorsed, youth-led conference bringing together 150-200 young people from all seven provinces of Nepal to build climate knowledge, skills, and networks through workshops, policy simulations, and community engagement — culminating in a National Children and Youth Statement submitted to government and international bodies.
-      </p>
+      <div>
+        <p>
+          LCOY Nepal 2026 is a youth-led national climate conference
+          co-organized by Youth Action for Sustainable and Eco Nepal (YASEN) and
+          Nepalese Youth for Climate Action (NYCA). Endorsed by YOUNGO, the
+          conference serves as Nepal's official Local Conference of Youth,
+          connecting Nepalese youth with national and international climate
+          processes.
+        </p>
+        <br />
+        <p>
+          Through expert-led sessions, policy simulations, thematic discussions,
+          and collaborative learning, participants will strengthen their
+          knowledge, leadership, and advocacy skills all while contributing to
+          climate solutions rooted in Nepal's local realities.
+        </p>
+        <br />
+        <p>
+          The conference will culminate in the development of the National
+          Children and Youth Statement on Climate Change 2026, which will be
+          submitted to the Government of Nepal and contribute to global youth
+          climate discussions.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .about-section {
-    background: #F2F4F0;
+    background: #f2f4f0;
     padding-top: 96px;
     padding-bottom: 96px;
   }
@@ -83,25 +108,25 @@ const { imageOne, imageTwo, imageThree, imageFour } = Astro.props;
   }
 
   .section-tag {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 12px;
     line-height: 12px;
     font-weight: 700;
-    color: #00442D;
+    color: #00442d;
     text-transform: uppercase;
   }
 
   .about-copy h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: clamp(28px, 2.5vw, 32px);
     line-height: 42px;
     font-weight: 600;
-    color: #00442D;
+    color: #00442d;
     margin: 0;
   }
 
   .about-copy p {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 18px;
     line-height: 29px;
     font-weight: 400;
@@ -126,34 +151,34 @@ const { imageOne, imageTwo, imageThree, imageFour } = Astro.props;
     }
   }
 
-@media (max-width: 768px) {
-  .about-section {
-    padding-top: 64px;
-    padding-bottom: 64px;
+  @media (max-width: 768px) {
+    .about-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+    .about-inner {
+      flex-direction: column;
+      gap: 32px;
+      padding: 0 24px;
+    }
+    .about-images img {
+      aspect-ratio: 1 / 1;
+    }
+    .col-second {
+      transform: none;
+    }
+    .about-copy {
+      max-width: 100%;
+    }
+    .about-copy h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .about-copy p {
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
-  .about-inner {
-    flex-direction: column;
-    gap: 32px;
-    padding: 0 24px;
-  }
-  .about-images img {
-    aspect-ratio: 1 / 1;
-  }
-  .col-second {
-    transform: none;
-  }
-  .about-copy {
-    max-width: 100%;
-  }
-  .about-copy h2 {
-    font-size: 24px;
-    line-height: 32px;
-  }
-  .about-copy p {
-    font-size: 14px;
-    line-height: 22px;
-  }
-}
 
   @media (max-width: 480px) {
     .about-section {
