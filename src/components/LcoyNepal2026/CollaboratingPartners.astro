@@ -1,5 +1,16 @@
 ---
-import {aslf, byan, nch, Resilience_labs, swiof, unicef, wff, wycj, ycgn, ycnn} from "../../assets/lcoy/logo/partners"
+import {
+  aslf,
+  byan,
+  nch,
+  Resilience_labs,
+  swiof,
+  unicef,
+  wff,
+  wycj,
+  ycgn,
+  ycnn,
+} from "../../assets/lcoy/logo/partners";
 
 const strategicPartners = [
   {
@@ -15,34 +26,33 @@ const inclusionPartners = [
 
 const youthPartners = [
   {
-        logo: aslf,
+    logo: aslf,
   },
   {
-        logo: byan,
+    logo: byan,
   },
   {
-        logo: ycnn,
+    logo: ycnn,
   },
   {
-        logo: nch,
+    logo: nch,
   },
   {
-        logo: Resilience_labs,
+    logo: Resilience_labs,
   },
   {
-        logo: swiof,
+    logo: swiof,
   },
   {
-        logo: wff,
+    logo: wff,
   },
   {
-        logo: ycgn,
+    logo: ycgn,
   },
   {
-        logo: wycj,
+    logo: wycj,
   },
 ];
-
 ---
 
 <section id="collaborating-partners" class="partners-section">
@@ -53,13 +63,17 @@ const youthPartners = [
     <div class="partner-group">
       <p class="partner-category">Strategic Partner</p>
       <div class="partners-flex">
-        {strategicPartners.map((partner) => (
-          <div class="title-partner-card">
-           {
-            partner.logo ? <img class="partner-logo" src={partner.logo.src} /> : <span class="partner-logo-text">PARTNER LOGO</span>
-           }
-          </div>
-        ))}
+        {
+          strategicPartners.map((partner) => (
+            <div class="title-partner-card">
+              {partner.logo ? (
+                <img class="partner-logo" src={partner.logo.src} />
+              ) : (
+                <span class="partner-logo-text">PARTNER LOGO</span>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
 
@@ -67,13 +81,17 @@ const youthPartners = [
     <div class="partner-group">
       <p class="partner-category">SUPPORTING PARTNERS</p>
       <div class="partners-flex">
-        {inclusionPartners.map((partner) => (
-          <div class="partner-card">
-           {
-            partner.logo ? <img class="partner-logo" src={partner.logo.src} /> : <span class="partner-logo-text">PARTNER LOGO</span>
-           }
-          </div>
-        ))}
+        {
+          inclusionPartners.map((partner) => (
+            <div class="partner-card">
+              {partner.logo ? (
+                <img class="partner-logo" src={partner.logo.src} />
+              ) : (
+                <span class="partner-logo-text">PARTNER LOGO</span>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
 
@@ -81,19 +99,27 @@ const youthPartners = [
     <div class="partner-group">
       <p class="partner-category">youth partners</p>
       <div class="partners-flex large-group">
-        {youthPartners.map((partner) => (
-          <div class="partner-card">
-           {
-            partner.logo ? <img class="partner-logo" src={partner.logo.src} /> : <span class="partner-logo-text">PARTNER LOGO</span>
-           }
-          </div>
-        ))}
+        {
+          youthPartners.map((partner) => (
+            <div class="partner-card">
+              {partner.logo ? (
+                <img class="partner-logo" src={partner.logo.src} />
+              ) : (
+                <span class="partner-logo-text">PARTNER LOGO</span>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
 
     {/* CTA Text */}
     <p class="cta-text">
-      Interested in supporting LCOY Nepal 2026? Contact <a href="mailto:sponsors@lcoynepal.org">sponsors@lcoynepal.org</a> or <a href="mailto:partnerships@lcoynepal.org">partnerships@lcoynepal.org</a>.
+      Interested in supporting LCOY Nepal 2026? Contact <a
+        href="mailto:sponsors@lcoynepal.org">sponsors@lcoynepal.org</a
+      > or <a href="mailto:partnerships@lcoynepal.org"
+        >partnerships@lcoynepal.org</a
+      >.
     </p>
 
     {/* Organizers */}
@@ -114,7 +140,7 @@ const youthPartners = [
 
 <style>
   .partners-section {
-    background: #F8FAF6;
+    background: #f8faf6;
     padding: 120px 0;
   }
 
@@ -125,13 +151,13 @@ const youthPartners = [
   }
 
   .section-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 32px;
     line-height: 41.6px;
     letter-spacing: 0px;
     text-align: center;
-    color: #00442D;
+    color: #00442d;
     margin: 0 0 64px 0;
   }
 
@@ -144,7 +170,7 @@ const youthPartners = [
   }
 
   .partner-category {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 12px;
@@ -180,8 +206,8 @@ const youthPartners = [
     width: 250px;
     aspect-ratio: 2 / 1;
     border-radius: 16px;
-    border: 1px solid #BFC9C14D;
-    background: #FFFFFF;
+    border: 1px solid #bfc9c14d;
+    background: #ffffff;
     padding: 16px;
     display: flex;
     align-items: center;
@@ -199,8 +225,8 @@ const youthPartners = [
     width: 192px;
     aspect-ratio: 2 / 1;
     border-radius: 16px;
-    border: 1px solid #BFC9C14D;
-    background: #FFFFFF;
+    border: 1px solid #bfc9c14d;
+    background: #ffffff;
     padding: 16px;
     display: flex;
     align-items: center;
@@ -218,8 +244,8 @@ const youthPartners = [
     width: 384px;
     aspect-ratio: 2 / 1;
     border-radius: 16px;
-    border: 1px solid #BFC9C14D;
-    background: #FFFFFF;
+    border: 1px solid #bfc9c14d;
+    background: #ffffff;
     padding: 16px;
     display: flex;
     align-items: center;
@@ -229,13 +255,12 @@ const youthPartners = [
   }
 
   .organizer-card img {
-    max-width: 100%;
-    max-height: 100%;
     object-fit: contain;
+    max-width: 161px;
   }
 
   .partner-logo-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 10px;
     line-height: 15px;
@@ -243,7 +268,7 @@ const youthPartners = [
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
-    color: #94A3B8;
+    color: #94a3b8;
   }
 
   .title-partner-card,
@@ -253,19 +278,19 @@ const youthPartners = [
   }
 
   .cta-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
     letter-spacing: 0px;
     text-align: center;
     vertical-align: middle;
-    color: #00442D;
+    color: #00442d;
     margin: 112px 0;
   }
 
   .cta-text a {
-    color: #00442D;
+    color: #00442d;
     text-decoration: none;
     font-weight: 500;
   }

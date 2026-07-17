@@ -10,8 +10,8 @@
           </svg>
         </div>
         <div class="card-copy">
-          <h3>Learn & Build Capacity</h3>
-          <p>Gain insights from scientists and practitioners on adaptation, mitigation, and finance</p>
+          <h3>Learn from Experts</h3>
+          <p>Build your understanding of climate governance, climate justice, policy processes, and Nepal's climate priorities through interactive sessions led by field experts and related practitioners.</p>
         </div>
       </article>
 
@@ -22,8 +22,8 @@
           </svg>
         </div>
         <div class="card-copy">
-          <h3>Connect & Network</h3>
-          <p>Join a national network of students, entrepreneurs, and activists</p>
+          <h3>Connect with Changemakers</h3>
+          <p>Meet passionate young leaders, researchers, practitioners, policymakers, and organizations working across Nepal's climate landscape.</p>
         </div>
       </article>
 
@@ -34,8 +34,20 @@
           </svg>
         </div>
         <div class="card-copy">
-          <h3>Influence Policy</h3>
-          <p>Shape the National Statement feeding into global processes like COP 31</p>
+          <h3>Influence Climate Policies</h3>
+          <p>Contribute directly to the National Children and Youth Statement on Climate Change, ensuring youth perspectives inform national and global climate discussions.</p>
+        </div>
+      </article>
+
+      <article class="why-attend-card">
+        <div class="icon-wrapper icon-blue">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 18H18V16H2V18ZM5 14H3V6C3 4.9 3.9 4 5 4C5.55 4 6 3.55 6 3C6 1.9 5.1 1 4 1C1.79 1 0 2.79 0 5V14C0 15.1 0.9 16 2 16C3.1 16 4 15.1 4 14V8H5V14ZM13 14H11V4H13V14ZM20 14V4C20 1.79 18.21 0 16 0C13.79 0 12 1.79 12 4V14C12 15.1 12.9 16 14 16C15.1 16 16 15.1 16 14V5C16 4.45 16.45 4 17 4C17.55 4 18 4.45 18 5V14C18 15.1 18.9 16 20 16C21.1 16 22 15.1 22 14V5C22 3.35 20.65 2 19 2C17.9 2 17 2.9 17 4C17 5.1 17.9 6 19 6H20V14Z" fill="#0066CC"/>
+          </svg>
+        </div>
+        <div class="card-copy">
+          <h3>Build Skills for Action</h3>
+          <p>Strengthen your leadership, advocacy, negotiation, communication, and collaboration skills to drive meaningful climate action in your community.</p>
         </div>
       </article>
     </div>
@@ -65,13 +77,13 @@
   }
 
   .why-attend-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     align-items: stretch;
   }
 
   .why-attend-card {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -105,6 +117,10 @@
     background: rgba(229, 182, 59, 0.1);
   }
 
+  .icon-blue {
+    background: rgba(0, 102, 204, 0.1);
+  }
+
   .card-copy {
     display: flex;
     flex-direction: column;
@@ -130,9 +146,9 @@
     color: #4B554C;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     .why-attend-grid {
-      flex-direction: column;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
@@ -147,6 +163,11 @@
 
     .section-title {
       margin-bottom: 32px;
+    }
+
+    .why-attend-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
 
     .why-attend-card {
