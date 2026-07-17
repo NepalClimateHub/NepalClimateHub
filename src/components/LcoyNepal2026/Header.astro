@@ -1,12 +1,12 @@
 ---
-import lcoyLogo from '../../assets/lcoy/logo/lcoyLogo.jpg';
+import lcoyLogo from "../../assets/lcoy/logo/lcoyLogo.jpg";
 
 const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'objectives', label: 'Objectives' },
-  { id: 'speakers', label: 'Speakers' },
-  { id: 'faq', label: 'FAQ' },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "objectives", label: "Objectives" },
+  // { id: "speakers", label: "Speakers" },
+  // { id: "faq", label: "FAQ" },
 ];
 ---
 
@@ -16,103 +16,248 @@ const navItems = [
       <img src={lcoyLogo.src} alt="LCOY Nepal 2026 logo" />
     </a>
 
+    <button
+      class="menu-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
     <nav class="nav-links" aria-label="Page navigation">
-      {navItems.map((item) => (
-        <a class="nav-link" href={`#${item.id}`} data-target={item.id}>
-          {item.label}
-        </a>
-      ))}
+      {
+        navItems.map((item) => (
+          <a class="nav-link" href={`#${item.id}`} data-target={item.id}>
+            {item.label}
+          </a>
+        ))
+      }
     </nav>
 
-    <a class="cta-button" href="#about">Register Now</a>
+    <!-- <a class="cta-button" href="#about">Register Now</a> -->
   </div>
 </header>
 
 <script type="module">
   const updateActiveNav = () => {
-    const currentHash = window.location.hash || '#home';
-    document.querySelectorAll('.nav-link').forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === currentHash);
+    const currentHash = window.location.hash || "#home";
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === currentHash,
+      );
     });
   };
 
-  window.addEventListener('hashchange', updateActiveNav);
-  window.addEventListener('DOMContentLoaded', updateActiveNav);
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", !isOpen);
+    navLinks?.classList.toggle("open");
+  });
+
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle?.setAttribute("aria-expanded", "false");
+      navLinks?.classList.remove("open");
+    });
+  });
+
+  window.addEventListener("hashchange", updateActiveNav);
+  window.addEventListener("DOMContentLoaded", updateActiveNav);
 </script>
 
 <style>
-.lcoy-header {
-  padding: 16px 0;
-}
+  .lcoy-header {
+    padding: 16px 0;
+    position: relative;
+  }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.logo-link img {
-  display: block;
-  max-height: 40px;
-  width: auto;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  flex: 1;
-}
-
-.nav-link {
-  color: #404943;
-  font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 1.2px;
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 4px;
-}
-
-.nav-link.active {
-  color: #00442D;
-  border-color: #00442D;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #1D5C42;
-  color: white;
-  border-radius: 12px;
-  padding: 14px 36px;
-  font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 1.2px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-@media screen and (max-width: 768px) {
   .header-inner {
-    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+    /* padding: 0 24px; */
+    position: relative;
+  }
+
+  .logo-link img {
+    display: block;
+    max-height: 40px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background-color: #00442d;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    transform-origin: center;
+    display: block;
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
   }
 
   .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: space-between;
-    gap: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex: 1;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
   }
 
-  .cta-button {
-    order: 2;
+  .nav-link {
+    color: #404943;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    white-space: nowrap;
   }
-}
+
+  .nav-link.active {
+    color: #00442d;
+    border-color: #00442d;
+  }
+
+  /* .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1d5c42;
+    color: white;
+    border-radius: 12px;
+    padding: 14px 36px;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    text-decoration: none;
+  } */
+
+  @media screen and (max-width: 1024px) {
+    .nav-links {
+      gap: 24px;
+    }
+
+    .nav-link {
+      font-size: 11px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .header-inner {
+      padding: 0 16px;
+    }
+
+    .menu-toggle {
+      display: flex;
+      order: 2;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+      transform: none;
+      bottom: auto;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .nav-links.open {
+      max-height: 300px;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(0, 68, 45, 0.08);
+      margin: 0;
+      white-space: normal;
+      border-bottom-width: 1px;
+    }
+
+    .nav-link.active {
+      background-color: rgba(0, 68, 45, 0.05);
+      border-bottom: 1px solid rgba(0, 68, 45, 0.08);
+    }
+
+    .cta-button {
+      order: 3;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .lcoy-header {
+      padding: 12px 0;
+    }
+
+    .logo-link img {
+      max-height: 32px;
+    }
+
+    .nav-links {
+      top: 60px;
+    }
+
+    .nav-link {
+      padding: 12px 16px;
+      font-size: 11px;
+    }
+  }
 </style>
