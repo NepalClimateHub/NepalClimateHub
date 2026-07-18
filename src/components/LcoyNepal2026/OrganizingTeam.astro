@@ -1,0 +1,223 @@
+---
+import {
+  ganesh,
+  aakriti,
+  dikshya,
+  kirtan,
+  sneha,
+  hemant,
+  sindhu,
+  subarna,
+} from "../../assets/lcoy/images/organizing-team";
+
+const team = [
+  {
+    name: "Ganesh Poudel",
+    role: "Focal Point",
+    image: ganesh,
+  },
+  {
+    name: "Aakriti Dotel",
+    role: "Focal Point",
+    image: aakriti,
+  },
+  // {
+  //   name: 'Dikshya Subedi',
+  //   role: 'Advisor',
+  //   image: dikshya,
+  // },
+  // {
+  //   name: 'Kirtan Pandit',
+  //   role: 'Creatives Lead',
+  //   image: kirtan,
+  // },
+  // {
+  //   name: 'Sneha Uprety',
+  //   role: 'Design and Social Media Lead',
+  //   image: sneha,
+  // },
+  // {
+  //   name: 'Hemant Kandel',
+  //   role: 'Creatives Lead',
+  //   image: hemant,
+  // },
+  // {
+  //   name: 'Sindhu Sharma',
+  //   role: 'Virtual Consultation Lead',
+  //   image: sindhu,
+  // },
+  // {
+  //   name: 'Subarna Poudel',
+  //   role: 'Volunteer Lead',
+  //   image: subarna,
+  // },
+];
+
+const borderColors = ["#38B2AC", "#E5B63B", "#F06C5D", "#38B2AC"];
+---
+
+<section id="organizing-team" class="organizing-team-section">
+  <div class="organizing-team-inner">
+    <h2 class="section-title">The Organizing Team</h2>
+    <p class="section-subtitle">
+      A dedicated team of youth leaders from YASEN and NYCA.
+    </p>
+
+    <div class="team-grid">
+      {
+        team.map((member, index) => (
+          <article class="team-card">
+            <div
+              class="team-image-wrapper"
+              style={{
+                "--border-color": borderColors[index % borderColors.length],
+              }}
+            >
+              <img src={member.image?.src} alt={member.name} />
+            </div>
+            <h3 class="member-name">{member.name}</h3>
+            <p class="member-role">{member.role}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .organizing-team-section {
+    background: #1d5c42;
+    padding: 96px 0;
+  }
+
+  .organizing-team-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 41.6px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 16px;
+    color: white;
+  }
+
+  .section-subtitle {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28.8px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 48px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 32px;
+    justify-content: center;
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .team-image-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+
+  .team-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .member-name {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0;
+    color: #1d5c42;
+  }
+
+  .member-role {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    margin: 0;
+    color: #404943;
+  }
+
+  @media (max-width: 1200px) {
+    .team-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .organizing-team-inner {
+      padding: 0 48px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .team-card {
+      padding: 8px;
+      gap: 8px;
+    }
+  }
+</style>

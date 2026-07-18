@@ -1,0 +1,257 @@
+---
+import impactImage from "../../assets/lcoy/images/impactsoutcomes.jpg";
+
+const outcomes = [
+  {
+    icon: `<svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 20H15V17.5H5V20ZM5 15H15V12.5H5V15ZM2.5 25C1.8125 25 1.22396 24.7552 0.734375 24.2656C0.244792 23.776 0 23.1875 0 22.5V2.5C0 1.8125 0.244792 1.22396 0.734375 0.734375C1.22396 0.244792 1.8125 0 2.5 0H12.5L20 7.5V22.5C20 23.1875 19.7552 23.776 19.2656 24.2656C18.776 24.7552 18.1875 25 17.5 25H2.5ZM11.25 8.75V2.5H2.5V22.5H17.5V8.75H11.25ZM2.5 2.5V8.75V2.5V8.75V22.5V2.5Z" fill="#38B2AC"/>
+    </svg>`,
+    title: "National Children & Youth Statement",
+    description:
+      "A collective youth statement with policy recommendations submitted to the Government of Nepal and contributing to global climate dialogue.",
+  },
+  {
+    icon: `<svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M0 23.75V18.75C0 18.0417 0.244792 17.4479 0.734375 16.9688C1.22396 16.4896 1.8125 16.25 2.5 16.25H6.59375C7.01042 16.25 7.40625 16.3542 7.78125 16.5625C8.15625 16.7708 8.45833 17.0521 8.6875 17.4062C9.29167 18.2188 10.0365 18.8542 10.9219 19.3125C11.8073 19.7708 12.75 20 13.75 20C14.7708 20 15.724 19.7708 16.6094 19.3125C17.4948 18.8542 18.2292 18.2188 18.8125 17.4062C19.0833 17.0521 19.401 16.7708 19.7656 16.5625C20.1302 16.3542 20.5104 16.25 20.9062 16.25H25C25.7083 16.25 26.3021 16.4896 26.7812 16.9688C27.2604 17.4479 27.5 18.0417 27.5 18.75V23.75H18.75V20.9062C18.0208 21.4271 17.2344 21.8229 16.3906 22.0938C15.5469 22.3646 14.6667 22.5 13.75 22.5C12.8542 22.5 11.9792 22.3594 11.125 22.0781C10.2708 21.7969 9.47917 21.3958 8.75 20.875V23.75H0ZM3.75 15C2.70833 15 1.82292 14.6354 1.09375 13.9062C0.364583 13.1771 0 12.2917 0 11.25C0 10.1875 0.364583 9.29688 1.09375 8.57812C1.82292 7.85938 2.70833 7.5 3.75 7.5C4.8125 7.5 5.70312 7.85938 6.42188 8.57812C7.14062 9.29688 7.5 10.1875 7.5 11.25C7.5 12.2917 7.14062 13.1771 6.42188 13.9062C5.70312 14.6354 4.8125 15 3.75 15ZM23.75 15C22.7083 15 21.8229 14.6354 21.0938 13.9062C20.3646 13.1771 20 12.2917 20 11.25C20 10.1875 20.3646 9.29688 21.0938 8.57812C21.8229 7.85938 22.7083 7.5 23.75 7.5C24.8125 7.5 25.7031 7.85938 26.4219 8.57812C27.1406 9.29688 27.5 10.1875 27.5 11.25C27.5 12.2917 27.1406 13.1771 26.4219 13.9062C25.7031 14.6354 24.8125 15 23.75 15ZM13.75 12.5C12.3333 11.2083 11.1771 10.1198 10.2812 9.23438C9.38542 8.34896 8.6875 7.58333 8.1875 6.9375C7.6875 6.29167 7.34375 5.72396 7.15625 5.23438C6.96875 4.74479 6.875 4.25 6.875 3.75C6.875 2.70833 7.23958 1.82292 7.96875 1.09375C8.69792 0.364583 9.59375 0 10.6562 0C11.2396 0 11.8021 0.130208 12.3438 0.390625C12.8854 0.651042 13.3542 1 13.75 1.4375C14.1458 1 14.6146 0.651042 15.1562 0.390625C15.6979 0.130208 16.2604 0 16.8438 0C17.9062 0 18.8021 0.364583 19.5312 1.09375C20.2604 1.82292 20.625 2.70833 20.625 3.75C20.625 4.25 20.5312 4.74479 20.3438 5.23438C20.1562 5.72396 19.8125 6.29167 19.3125 6.9375C18.8125 7.58333 18.1146 8.34896 17.2188 9.23438C16.3229 10.1198 15.1667 11.2083 13.75 12.5ZM13.75 9.125C15.25 7.75 16.3542 6.63021 17.0625 5.76562C17.7708 4.90104 18.125 4.22917 18.125 3.75C18.125 3.39583 18 3.09896 17.75 2.85938C17.5 2.61979 17.1979 2.5 16.8438 2.5C16.5938 2.5 16.349 2.57292 16.1094 2.71875C15.8698 2.86458 15.625 3.08333 15.375 3.375L13.7812 5.21875L12.1875 3.4375C11.8958 3.10417 11.6302 2.86458 11.3906 2.71875C11.151 2.57292 10.9062 2.5 10.6562 2.5C10.3021 2.5 10 2.61979 9.75 2.85938C9.5 3.09896 9.375 3.39583 9.375 3.75C9.375 4.22917 9.72917 4.90104 10.4375 5.76562C11.1458 6.63021 12.25 7.75 13.75 9.125Z" fill="#E5B63B"/>
+    </svg>
+`,
+    title: "Strengthened Youth Leadership",
+    description:
+      "Strengthening the capacity of young Nepalese climate advocates in policy engagement, advocacy, and leadership.",
+  },
+  {
+    icon: `<svg width="25" height="15" viewBox="0 0 25 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.75 15L0 13.25L9.25 3.9375L14.25 8.9375L20.75 2.5H17.5V0H25V7.5H22.5V4.25L14.25 12.5L9.25 7.5L1.75 15Z" fill="#F06C5D"/>
+    </svg>`,
+    title: "Policy Engagement",
+    description:
+      "Increasing engagement of government officials and policymakers with youth perspectives on climate change.",
+  },
+];
+---
+
+<section id="impact-outcomes" class="impact-outcomes-section">
+  <div class="impact-outcomes-inner">
+    <div class="content-column">
+      <h2>Impact & Outcomes</h2>
+      <p class="lead-text">
+        What we aim to achieve by the end of the 3-day summit.
+      </p>
+
+      <div class="outcomes-grid">
+        {
+          outcomes.map((outcome) => (
+            <article class="outcome-card">
+              <div class="outcome-icon" set:html={outcome.icon} />
+              <div class="outcome-copy">
+                <h3>{outcome.title}</h3>
+                <p>{outcome.description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="image-column">
+      <div class="image-wrapper">
+        <img src={impactImage.src} alt="LCOY Nepal impact and outcomes" />
+        <div class="impact-badge">
+          <span>100% IMPACT</span>
+          <span>FOCUS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .impact-outcomes-section {
+    background: #00442d;
+    padding: 96px 0;
+  }
+
+  .impact-outcomes-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 40px;
+    align-items: center;
+  }
+
+  .content-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-column h2 {
+    margin: 0 0 32px;
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    line-height: 41.6px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .lead-text {
+    margin: 0 0 32px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    line-height: 28.8px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  .outcome-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+
+  .outcome-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .outcome-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .outcome-copy h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .outcome-copy p {
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .image-column {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .image-wrapper {
+    position: relative;
+  }
+
+  .image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+  }
+
+  .impact-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(12deg) translate(15%, -30%);
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background: #e5b63b;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .impact-badge span {
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #00442d;
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .impact-outcomes-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .image-column {
+      width: 100%;
+    }
+
+    .image-wrapper {
+      width: 100%;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .impact-outcomes-section {
+      padding: 72px 0;
+    }
+
+    .impact-outcomes-inner {
+      padding: 0 24px;
+      gap: 24px;
+    }
+
+    .outcomes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .impact-badge {
+      width: clamp(72px, 22vw, 104px);
+      height: clamp(72px, 22vw, 104px);
+      right: -12px;
+      top: 12px;
+      padding: clamp(8px, 2vw, 16px);
+    }
+
+    .impact-badge span {
+      font-size: clamp(9px, 2.6vw, 13px);
+      line-height: 1.3;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .impact-badge {
+      width: 60px;
+      height: 60px;
+      right: -8px;
+      top: 8px;
+      transform: rotate(12deg) translate(10%, -25%);
+    }
+
+    .impact-badge span {
+      font-size: 10px;
+    }
+  }
+</style>

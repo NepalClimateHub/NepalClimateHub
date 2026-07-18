@@ -1,0 +1,435 @@
+---
+import heroImage from "../../assets/lcoy/images/heroimage.jpg";
+---
+
+<>
+  <section id="home" class="hero-section">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="hero-eyebrow">National Conference of Youth</p>
+        <div class="hero-title">
+          <span>Empowering Youth,</span>
+          <span>Sustaining the Future</span>
+        </div>
+        <p class="hero-copy">
+          The Local Conference of Youth (LCOY) Nepal is a national youth-led
+          climate conference endorsed by YOUNGO, the official children and youth
+          constituency of the United Nations Framework Convention on Climate
+          Change (UNFCCC). It brings together young people from across the
+          country to discuss concurrent climate issues, strengthen their
+          knowledge and leadership, and develop collective youth positions ahead
+          of the annual Conference of Parties (COP). Since its emergence around
+          COP21 and the Paris Agreement in 2015, LCOY has become an important
+          platform for strengthening youth participation in climate governance,
+          enabling young people to engage in climate dialogue, understand
+          national and global climate processes, and contribute their
+          perspectives to climate policy and action.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#about">Learn more</a>
+          <!-- <a class="button button-secondary" href="#about">Learn more</a> -->
+        </div>
+
+        <div class="hero-separator"></div>
+
+        <div class="hero-meta-grid">
+          <div class="hero-meta-item">
+            <div class="meta-label">DATE</div>
+            <div class="meta-value">August,</div>
+            <div class="meta-sub">2026</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="meta-label">LOCATION</div>
+            <div class="meta-value">Kathmandu,</div>
+            <div class="meta-sub">Nepal</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="meta-label">DELEGATES</div>
+            <div class="meta-value">100-150 Youths</div>
+            <div class="meta-sub">Leaders</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-image-wrapper">
+          <img src={heroImage.src} alt="LCOY Nepal 2026 hero" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero-info-section">
+    <div class="hero-info-container">
+      <div class="hero-info-item">
+        <div class="info-label">DATE</div>
+        <div class="info-value highlight">August 2026</div>
+      </div>
+      <div class="hero-info-item">
+        <div class="info-label">LOCATION</div>
+        <div class="info-value">Kathmandu, Nepal</div>
+      </div>
+      <div class="hero-info-item">
+        <div class="info-label">FORMAT</div>
+        <div class="info-value">In-Person Residential Conference</div>
+      </div>
+      <div class="hero-info-item">
+        <div class="info-label">DELEGATES</div>
+        <div class="info-value">100-150 Youth Participants</div>
+      </div>
+    </div>
+  </section>
+</>
+
+<style>
+  .hero-section {
+    background: #1d5c42;
+    color: white;
+    padding: clamp(32px, 4vw, 56px) clamp(20px, 6vw, 64px);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+    margin: 0 auto;
+    align-items: center;
+    max-width: 1180px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    max-width: 511px;
+  }
+
+  .hero-eyebrow {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.4;
+    font-style: italic;
+    color: #38b2ac;
+    margin-bottom: clamp(16px, 3vw, 32px);
+  }
+
+  .hero-title {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(28px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: clamp(16px, 3vw, 32px);
+  }
+
+  .hero-copy {
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(15px, 1.8vw, 18px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: white;
+    max-width: 620px;
+    margin-bottom: clamp(20px, 3vw, 32px);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: clamp(20px, 3vw, 32px);
+    flex-wrap: wrap;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    padding: clamp(14px, 2vw, 17px) clamp(22px, 3vw, 32px);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .button-primary {
+    background: #f06c5d;
+    color: white;
+  }
+
+  .button-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-separator {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: clamp(20px, 3vw, 32px);
+    width: 100%;
+  }
+
+  .hero-meta-grid {
+    display: flex;
+    gap: clamp(16px, 3vw, 32px);
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 90px;
+  }
+
+  .meta-label {
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+  }
+
+  .meta-value,
+  .meta-sub {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: white;
+  }
+
+  .meta-sub {
+    opacity: 0.9;
+  }
+
+  .hero-right {
+    display: flex;
+    width: 100%;
+  }
+
+  .hero-image-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    transform: rotate(3deg);
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hero-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-bottom-panel {
+    margin-top: 48px;
+    padding: 0 48px;
+  }
+
+  .hero-bottom-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    background: white;
+    padding: 80px 48px;
+    border-radius: 24px;
+    flex-wrap: wrap;
+  }
+
+  .hero-bottom-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1 1 150px;
+    min-width: 130px;
+  }
+
+  .item-top {
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #1a1b1e;
+  }
+
+  .item-bottom {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #1a1b1e;
+  }
+
+  .item-bottom.highlight {
+    color: #1d5c42;
+  }
+
+  /* Hero Info Section */
+  .hero-info-section {
+    background: #f8faf6;
+    padding: 48px 80px;
+    border-top: 1px solid #3f4a3c1a;
+    border-bottom: 1px solid #3f4a3c1a;
+  }
+
+  .hero-info-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .hero-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .info-label {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #1a1b1e;
+    margin-bottom: 4px;
+  }
+
+  .info-value {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25.6px;
+    letter-spacing: 0px;
+    color: #1a1b1e;
+  }
+
+  .info-value.highlight {
+    color: #1d5c42;
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-info-section {
+      padding: 48px 32px;
+    }
+
+    .hero-right {
+      order: -1;
+    }
+
+    .hero-left {
+      max-width: 100%;
+    }
+
+    .hero-image-wrapper {
+      max-width: 100%;
+      aspect-ratio: 2/1;
+      transform: rotate(0deg);
+    }
+
+    .hero-bottom-grid {
+      padding: 48px 32px;
+    }
+  }
+
+  /* Large phones / small tablets */
+  @media screen and (max-width: 768px) {
+    .hero-grid {
+      gap: 28px;
+    }
+
+    .hero-image-wrapper {
+      transform: rotate(0deg);
+    }
+
+    .hero-bottom-grid {
+      gap: 16px;
+      padding: 32px 24px;
+    }
+
+    .hero-meta-grid {
+      gap: 24px;
+    }
+  }
+
+  /* Phones */
+  @media screen and (max-width: 560px) {
+    .hero-section {
+      padding: 28px 20px;
+    }
+
+    .hero-bottom-panel {
+      padding: 0 16px;
+    }
+
+    .hero-bottom-grid {
+      justify-content: center;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .hero-info-section {
+      padding: 28px 20px;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 8vw, 34px);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-actions .button {
+      width: 100%;
+    }
+
+    .hero-image-wrapper {
+      transform: none;
+      border-radius: 12px;
+    }
+
+    .hero-meta-grid {
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .hero-meta-item {
+      min-width: 80px;
+    }
+  }
+
+  /* Very small phones */
+  @media screen and (max-width: 380px) {
+    .hero-meta-grid {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+</style>

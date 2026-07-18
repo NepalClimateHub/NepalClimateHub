@@ -17,10 +17,9 @@ import BaseLayout from '../layouts/Layout.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import teamData from '../data/team.json';
 
-import { fetchAllMembers } from 'src/api/members.api';
+import { fetchMembers  } from 'src/api/members.api';
 
-const {data} = await fetchAllMembers();
-
+const {volunteers} = await fetchMembers();
 // for displaying error message if given object key are empty or fail our requirement
 const errors = {
   name: '',
@@ -169,7 +168,7 @@ if (Astro.request.method === 'POST') {
     </section>
 
     <section class="meet-our-volunteers-section">
-      <VolunteerSection volunteers={data.slice(0, 16)} />
+      <VolunteerSection volunteers={volunteers} />
     </section>
 
     <!-- <section class="volunteer-form-section">

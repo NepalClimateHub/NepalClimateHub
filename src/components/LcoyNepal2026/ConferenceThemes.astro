@@ -1,0 +1,177 @@
+---
+const themes = [
+  {
+    badge: 'ENGAGEMENT',
+    title: 'Youth & Children\nEngagement in Climate\nProcesses',
+    description: 'Promoting meaningful participation of children and youth in national and international climate decision-making processes.',
+    color: '#38B2AC'
+  },
+  {
+    badge: 'FINANCE',
+    title: 'Loss & Damage, Climate\nFinance & Just Transition',
+    description: 'Addressing climate-induced losses while exploring climate finance and equitable transition pathways.',
+    color: '#F06C5D'
+  },
+  {
+    badge: 'MOUNTAINS',
+    title: 'Changing Mountains &\nLivelihoods',
+    description: 'Highlighting the impacts of climate change on Nepal\'s mountain ecosystems, rural livelihoods, and cultural heritage.',
+    color: '#E5B63B'
+  },
+  {
+    badge: 'EDUCATION',
+    title: 'Climate Resilient Education\n& Action for Climate\nEmpowerment (ACE)',
+    description: 'Supporting climate-resilient education, climate literacy, green skills, and Action for Climate Empowerment (ACE).',
+    color: '#38B2AC'
+  },
+  {
+    badge: 'FOOD',
+    title: 'Agriculture, Food Security\n& Nutrition',
+    description: 'Building climate-resilient food systems by exploring indigenous agricultural practices and food security.',
+    color: '#F06C5D'
+  },
+  {
+    badge: 'WATER',
+    title: 'WASH & Water Security',
+    description: 'Examining how climate change affects access to safe water, sanitation, and hygiene across Nepal.',
+    color: '#E5B63B'
+  },
+  {
+    badge: 'INCLUSION',
+    title: 'Gender Equality, Disability\n& Social Inclusion (GEDSI)',
+    description: 'Promoting inclusive, equitable, and rights-based climate action through the meaningful participation of marginalized communities.',
+    color: '#38B2AC'
+  }
+];
+---
+
+<section id="conference-themes" class="conference-themes-section">
+  <div class="conference-themes-inner">
+    <p class="section-eyebrow">KEY FOCUS AREAS</p>
+    <h2 class="section-title">Conference Themes</h2>
+
+    <div class="themes-grid">
+      {themes.map((theme) => (
+        <article class="theme-card">
+          <div class="theme-badge" style={{ '--theme-color': theme.color, '--theme-bg': `${theme.color}1A` }}>
+            {theme.badge}
+          </div>
+          <h3>{theme.title}</h3>
+          <p>{theme.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .conference-themes-section {
+    background: #EEF6F0;
+    padding: 96px 0;
+  }
+
+  .conference-themes-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-eyebrow {
+    margin: 0 0 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #00442D;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    margin: 0 0 64px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    line-height: 41.6px;
+    font-weight: 600;
+    color: #00442D;
+  }
+
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .theme-card {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px;
+    border: 1px solid rgba(0, 68, 45, 0.12);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 68, 45, 0.05);
+  }
+
+  .theme-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--theme-bg);
+    color: var(--theme-color);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .theme-card h3 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    color: #00442D;
+    white-space: pre-line;
+  }
+
+  .theme-card p {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #4B554C;
+  }
+
+  @media (max-width: 1024px) {
+    .themes-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .themes-grid {
+      grid-template-columns: 1fr;
+    }
+    .conference-themes-section {
+      padding: 72px 0;
+    }
+
+    .conference-themes-inner {
+      padding: 0 24px;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+  }
+</style>
