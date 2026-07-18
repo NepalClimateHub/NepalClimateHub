@@ -13,12 +13,12 @@ import {
 const team = [
   {
     name: "Ganesh Poudel",
-    role: "Focal Point",
+    role: "YASEN",
     image: ganesh,
   },
   {
     name: "Aakriti Dotel",
-    role: "Focal Point",
+    role: "NYCA",
     image: aakriti,
   },
   // {
@@ -58,7 +58,7 @@ const borderColors = ["#38B2AC", "#E5B63B", "#F06C5D", "#38B2AC"];
 
 <section id="organizing-team" class="organizing-team-section">
   <div class="organizing-team-inner">
-    <h2 class="section-title">The Organizing Team</h2>
+    <h2 class="section-title">Focal point</h2>
     <p class="section-subtitle">
       A dedicated team of youth leaders from YASEN and NYCA.
     </p>
@@ -120,10 +120,11 @@ const borderColors = ["#38B2AC", "#E5B63B", "#F06C5D", "#38B2AC"];
   }
 
   .team-grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 32px;
     justify-content: center;
+    align-items: center;
   }
 
   .team-card {
@@ -134,6 +135,7 @@ const borderColors = ["#38B2AC", "#E5B63B", "#F06C5D", "#38B2AC"];
     background: white;
     border-radius: 16px;
     padding: 12px;
+    width: 170px;
   }
 
   .team-image-wrapper {
@@ -183,14 +185,12 @@ const borderColors = ["#38B2AC", "#E5B63B", "#F06C5D", "#38B2AC"];
 
   @media (max-width: 1200px) {
     .team-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 24px;
     }
   }
 
   @media (max-width: 768px) {
     .team-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -211,7 +211,6 @@ const borderColors = ["#38B2AC", "#E5B63B", "#F06C5D", "#38B2AC"];
 
   @media (max-width: 480px) {
     .team-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
