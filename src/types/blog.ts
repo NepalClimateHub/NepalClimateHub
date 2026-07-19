@@ -14,7 +14,9 @@ export interface BlogTag {
 
 export interface Author {
   id: string;
-  linkedin?: string;
+  socials: {
+    linkedin?: string;
+  };
   currentRole?: string;
   fullName: string;
   email?: string;
