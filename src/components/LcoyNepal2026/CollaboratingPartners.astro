@@ -10,6 +10,15 @@ import {
   wycj,
   ycgn,
   ycnn,
+  yasen,
+  nyca,
+  fao,
+  icimod,
+  koica,
+  yuwa,
+  prc,
+  unfpa,
+  planInternational,
 } from "../../assets/lcoy/logo/partners";
 
 const strategicPartners = [
@@ -55,43 +64,52 @@ const youthPartners = [
 ];
 ---
 
-<section id="collaborating-partners" class="partners-section">
+<section id="partners" class="partners-section">
   <div class="partners-inner">
-    <h2 class="section-title">Collaborating Partners</h2>
-
-    {/* Title Partners */}
+    {/* Organized By */}
     <div class="partner-group">
-      <p class="partner-category">Strategic Partner</p>
+      <p class="partner-category">Organized by</p>
       <div class="partners-flex">
-        {
-          strategicPartners.map((partner) => (
-            <div class="title-partner-card">
-              {partner.logo ? (
-                <img class="partner-logo" src={partner.logo.src} />
-              ) : (
-                <span class="partner-logo-text">PARTNER LOGO</span>
-              )}
-            </div>
-          ))
-        }
+        <div class="partner-card">
+          <img src={yasen.src} alt="YASEN" />
+        </div>
+        <div class="partner-card">
+          <img src={nyca.src} alt="NYCA" />
+        </div>
       </div>
     </div>
 
-    {/* Supporting Partners */}
+    {/* In Partnership With */}
     <div class="partner-group">
-      <p class="partner-category">SUPPORTING PARTNERS</p>
+      <p class="partner-category">In partnership with</p>
       <div class="partners-flex">
-        {
-          inclusionPartners.map((partner) => (
-            <div class="partner-card">
-              {partner.logo ? (
-                <img class="partner-logo" src={partner.logo.src} />
-              ) : (
-                <span class="partner-logo-text">PARTNER LOGO</span>
-              )}
-            </div>
-          ))
-        }
+        <div class="partner-card">
+          <img src={unicef.src} alt="UNICEF" />
+        </div>
+        <div class="partner-card">
+          <img src={fao.src} alt="FAO" />
+        </div>
+        <div class="partner-card">
+          <img src={icimod.src} alt="ICIMOD" />
+        </div>
+      </div>
+    </div>
+
+    {/* Knowledge Partners */}
+    <div class="partner-group knowledge-partners-section">
+      <p class="partner-category">Knowledge partners</p>
+      <div class="knowledge-partners-container">
+        <div class="knowledge-partners-flex">
+          <img src={koica.src} alt="KOICA" class="knowledge-partner-logo" />
+          <img
+            src={planInternational.src}
+            alt="UNFPA"
+            class="knowledge-partner-logo"
+          />
+          <img src={yuwa.src} alt="YUWA" class="knowledge-partner-logo" />
+          <img src={prc.src} alt="PRC" class="knowledge-partner-logo" />
+          <img src={unfpa.src} alt="UNFPA" class="knowledge-partner-logo" />
+        </div>
       </div>
     </div>
 
@@ -115,26 +133,9 @@ const youthPartners = [
 
     {/* CTA Text */}
     <p class="cta-text">
-      Interested in supporting LCOY Nepal 2026? Contact <a
-        href="mailto:sponsors@lcoynepal.org">sponsors@lcoynepal.org</a
-      > or <a href="mailto:partnerships@lcoynepal.org"
-        >partnerships@lcoynepal.org</a
-      >.
+      Contact <a href="mailto:sponsors@lcoynepal.org">lcoynepalhost@gmail.com</a
+      >
     </p>
-
-    {/* Organizers */}
-    <!-- <div class="partner-group">
-      <p class="partner-category">ORGANIZERS</p>
-      <div class="partners-flex organizers-flex">
-        {organizers.map((organizer) => (
-          <div class="organizer-card">
-           {
-            organizer.logo ? <img src={organizer.logo} /> : <span class="partner-logo-text">PARTNER LOGO</span>
-           }
-          </div>
-        ))}
-      </div>
-    </div> -->
   </div>
 </section>
 
@@ -216,7 +217,7 @@ const youthPartners = [
   }
 
   .partner-card img {
-    max-width: 100%;
+    max-width: 180px;
     max-height: 100%;
     object-fit: contain;
   }
@@ -291,12 +292,38 @@ const youthPartners = [
 
   .cta-text a {
     color: #00442d;
-    text-decoration: none;
     font-weight: 500;
   }
 
   .cta-text a:hover {
     text-decoration: underline;
+  }
+
+  /* Knowledge Partners Section */
+  .knowledge-partners-container {
+    background: #ffffff;
+    border: 1px solid #bfc9c14d;
+    border-radius: 16px;
+    padding: 48px;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .knowledge-partners-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .knowledge-partner-logo {
+    height: 75px;
+    max-width: 140px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   @media (max-width: 1024px) {
@@ -326,6 +353,20 @@ const youthPartners = [
 
     .partner-group {
       margin-bottom: 64px;
+    }
+
+    .knowledge-partners-container {
+      padding: 32px;
+    }
+
+    .knowledge-partners-flex {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px 48px;
+    }
+
+    .knowledge-partner-logo {
+      height: 60px;
+      max-width: 120px;
     }
   }
 
@@ -377,6 +418,20 @@ const youthPartners = [
 
     .partners-flex.large-group {
       gap: 16px;
+    }
+
+    .knowledge-partners-container {
+      padding: 24px;
+    }
+
+    .knowledge-partners-flex {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 40px;
+    }
+
+    .knowledge-partner-logo {
+      height: 50px;
+      max-width: 100px;
     }
   }
 
@@ -432,6 +487,20 @@ const youthPartners = [
 
     .partners-flex.organizers-flex {
       gap: 24px;
+    }
+
+    .knowledge-partners-container {
+      padding: 20px;
+    }
+
+    .knowledge-partners-flex {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 24px;
+    }
+
+    .knowledge-partner-logo {
+      height: 40px;
+      max-width: 80px;
     }
   }
 </style>

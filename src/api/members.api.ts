@@ -43,7 +43,7 @@ export const fetchMembers = async (): Promise<Members> => {
     const membersResponse = await handleResponse<MembersResponse>(response);
 
     const staffMembers = membersResponse.data.filter(
-      (member) => member.status.toLowerCase() === 'staff'
+      (member) => member.status.toLowerCase() !== 'volunteer'
     );
 
     const volunteers = membersResponse.data.filter(
