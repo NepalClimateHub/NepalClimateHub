@@ -1,22 +1,22 @@
 ---
-import '../../styles/global.css';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchEvents } from '../../api';
-import ConnectCard from '../../components/ConnectCard.astro';
-import FeaturedEventSection from '../../components/FeaturedEventSection.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import CardDetailSection from '../../layouts/CardDetailSection.astro';
+import "../../styles/global.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import { fetchEvents } from "../../api";
+import ConnectCard from "../../components/ConnectCard.astro";
+import FeaturedEventSection from "../../components/FeaturedEventSection.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import CardDetailSection from "../../layouts/CardDetailSection.astro";
 // import eventsTemp from '../../data/eventsTemp.json';
-import BaseLayout from '../../layouts/Layout.astro';
-import type { Event as ApiEvent } from '../../types/event';
-import { createSlug } from '../../utils/slug';
+import BaseLayout from "../../layouts/Layout.astro";
+import type { Event as ApiEvent } from "../../types/event";
+import { createSlug } from "../../utils/slug";
 // import eventJSON from '../../data/dummy-event.json';
 
 function stripHtml(html: string): string {
   return html
-    .replace(/<[^>]*>/g, '')
-    .replace(/\s+/g, ' ')
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
@@ -27,11 +27,13 @@ let allEvents: ApiEvent[] = [];
 
 try {
   const response = await fetchEvents();
+  console.log("Response data:", response.data);
   allEvents = response.data || [];
   apiEvent =
     allEvents.find((event) => createSlug(event.title) === eventDetail) || null;
+  console.log("Found Event Detail:", apiEvent);
 } catch (error) {
-  console.error('Error fetching events:', error);
+  console.error("Error fetching events:", error);
   // Fallback to empty data if API fails
   allEvents = [];
   apiEvent = null;
@@ -44,28 +46,28 @@ if (!apiEvent) {
 const eventData = {
   ...apiEvent,
   bannerImage: apiEvent.bannerImageUrl,
-  description: apiEvent.description || '',
+  description: apiEvent.description || "",
   locationType:
     apiEvent.locationType.charAt(0).toUpperCase() +
     apiEvent.locationType.slice(1).toLowerCase(),
-  province: apiEvent.address?.state || '',
+  province: apiEvent.address?.state || "",
   category: apiEvent.tags?.map((tag: any) => tag.tag) || [],
 };
 
 // Prepare meta tags
-const siteUrl = Astro.site || 'https://nepalclimatehub.org';
+const siteUrl = Astro.site || "https://nepalclimatehub.org";
 const pathname = Astro.url.pathname;
 const search = Astro.url.search;
 const hash = Astro.url.hash;
 const fullPath = `${pathname}${search}${hash}`;
 const metaDescription =
   stripHtml(eventData.description) ||
-  `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || 'Nepal Climate Hub'}.`;
-const metaImage = eventData.bannerImage || '/favicon.png';
+  `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || "Nepal Climate Hub"}.`;
+const metaImage = eventData.bannerImage || "/favicon.png";
 const metaUrl = `${siteUrl}${fullPath}`;
 ---
 
-<BaseLayout 
+<BaseLayout
   title={`${eventData.title} | Nepal Climate Hub`}
   description={metaDescription}
   ogImage={metaImage}
@@ -77,13 +79,12 @@ const metaUrl = `${siteUrl}${fullPath}`;
       <Header logoColor="#1A1B1E" />
 
       <!-- a mini navbar -->
-   	<Breadcrumbs
-        		data={[
-					{ label: "Events", href: "/events" },
-					{ label: eventData.title,  },
-
-				]}
-      			/>
+      <Breadcrumbs
+        data={[
+          { label: "Events", href: "/events" },
+          { label: eventData.title },
+        ]}
+      />
     </section>
 
     <section class="organization-card-section">
