@@ -14,11 +14,11 @@ interface Members {
 }
 
 const CATEGORY_ORDER = [
-  'Leadership',
-  'Climate Communication',
-  'Tech',
-  'Board',
-  'Advisors',
+  'leadership',
+  'executive',
+  'climate communication',
+  'tech',
+  'advisors',
 ];
 
 export const fetchMembers = async (): Promise<Members> => {
@@ -66,8 +66,8 @@ export const fetchMembers = async (): Promise<Members> => {
         return acc;
       }, {})
     ).sort((a, b) => {
-      const aIndex = CATEGORY_ORDER.indexOf(a.name);
-      const bIndex = CATEGORY_ORDER.indexOf(b.name);
+      const aIndex = CATEGORY_ORDER.indexOf(a.name.toLowerCase());
+      const bIndex = CATEGORY_ORDER.indexOf(b.name.toLowerCase());
 
       return (
         (aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex) -
