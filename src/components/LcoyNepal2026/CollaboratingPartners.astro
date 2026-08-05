@@ -19,6 +19,20 @@ import {
   prc,
   unfpa,
   planInternational,
+  gef,
+  gon,
+  wwf,
+  whh,
+  wat,
+  yee,
+  just,
+  fan,
+  cen,
+  yae,
+  she,
+  iwmi,
+  hostehoina,
+  nyn,
 } from "../../assets/lcoy/logo/partners";
 
 const strategicPartners = [
@@ -79,6 +93,23 @@ const youthPartners = [
       </div>
     </div>
 
+    {/* Co-Organized By */}
+    <div class="partner-group">
+      <p class="partner-category">Co-organized by</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={gef.src} alt="GEF" />
+        </div>
+        <div class="partner-card">
+          <img src={gon.src} alt="GON" />
+        </div>
+        <div class="partner-card">
+          <img src={wwf.src} alt="WWF" />
+        </div>
+      </div>
+      <p class="cbit-project-text">CBIT Project</p>
+    </div>
+
     {/* In Partnership With */}
     <div class="partner-group">
       <p class="partner-category">In partnership with</p>
@@ -91,6 +122,9 @@ const youthPartners = [
         </div>
         <div class="partner-card">
           <img src={icimod.src} alt="ICIMOD" />
+        </div>
+        <div class="partner-card">
+          <img src={whh.src} alt="WHH" />
         </div>
       </div>
     </div>
@@ -109,6 +143,82 @@ const youthPartners = [
           <img src={yuwa.src} alt="YUWA" class="knowledge-partner-logo" />
           <img src={prc.src} alt="PRC" class="knowledge-partner-logo" />
           <img src={unfpa.src} alt="UNFPA" class="knowledge-partner-logo" />
+          <img src={wycj.src} alt="WYCJ" class="knowledge-partner-logo" />
+        </div>
+      </div>
+    </div>
+
+    {/* Global Dialogue Project Facilitator */}
+    <div class="partner-group">
+      <p class="partner-category">Global Dialogue Project Facilitator</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={wat.src} alt="WAT" />
+        </div>
+        <div class="partner-card">
+          <img src={yee.src} alt="YEE" />
+        </div>
+        <div class="partner-card">
+          <img src={just.src} alt="JUST" />
+        </div>
+      </div>
+    </div>
+
+    {/* Networking Partner */}
+    <div class="partner-group">
+      <p class="partner-category">Networking partner</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={fan.src} alt="FAN" />
+        </div>
+        <div class="partner-card">
+          <img src={she.src} alt="SHE" />
+        </div>
+      </div>
+    </div>
+
+    {/* Technical Partner */}
+    <div class="partner-group">
+      <p class="partner-category">Technical partner</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={cen.src} alt="CEN" />
+        </div>
+        <div class="partner-card">
+          <img src={yae.src} alt="YAE" />
+        </div>
+      </div>
+    </div>
+
+    {/* Supporting Partner */}
+    <div class="partner-group">
+      <p class="partner-category">Supporting partner</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={iwmi.src} alt="IWMI" />
+        </div>
+      </div>
+    </div>
+
+    {/* Sustainability Partners */}
+    <div class="partner-group">
+      <p class="partner-category">Sustainability partners</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={hostehoina.src} alt="HOSTEHOINA" />
+        </div>
+        <div class="partner-card">
+          <img src={nyn.src} alt="NYN" />
+        </div>
+      </div>
+    </div>
+
+    {/* Inclusion Partner */}
+    <div class="partner-group">
+      <p class="partner-category">Inclusion partner</p>
+      <div class="partners-flex">
+        <div class="partner-card">
+          <img src={byan.src} alt="BYAN" />
         </div>
       </div>
     </div>
@@ -299,6 +409,17 @@ const youthPartners = [
     text-decoration: underline;
   }
 
+  .cbit-project-text {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #404943;
+    margin-top: 16px;
+  }
+
   /* Knowledge Partners Section */
   .knowledge-partners-container {
     background: #ffffff;
@@ -367,6 +488,10 @@ const youthPartners = [
     .knowledge-partner-logo {
       height: 60px;
       max-width: 120px;
+    }
+
+    .partner-card img {
+      max-width: 100%;
     }
   }
 
