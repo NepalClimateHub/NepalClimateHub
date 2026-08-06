@@ -53,8 +53,11 @@ import heroImage from "../../assets/lcoy/images/heroimage.jpg";
       </div>
 
       <div class="hero-right">
-        <div class="hero-image-wrapper">
-          <img src={heroImage.src} alt="LCOY Nepal 2026 hero" />
+        <div class="hero-image-container">
+          <div class="hero-image-wrapper">
+            <img src={heroImage.src} alt="LCOY Nepal 2026 hero" />
+          </div>
+          <p class="hero-image-credit">Picture courtesy: Kirtan Pandit</p>
         </div>
       </div>
     </div>
@@ -212,6 +215,13 @@ import heroImage from "../../assets/lcoy/images/heroimage.jpg";
     width: 100%;
   }
 
+  .hero-image-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+  }
+
   .hero-image-wrapper {
     border-radius: 16px;
     overflow: hidden;
@@ -227,6 +237,16 @@ import heroImage from "../../assets/lcoy/images/heroimage.jpg";
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .hero-image-credit {
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 24px auto 0;
+    text-align: center;
+    letter-spacing: 0.5px;
   }
 
   .hero-bottom-panel {

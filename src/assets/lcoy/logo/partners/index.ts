@@ -17,6 +17,20 @@ import yuwa from "./yuwa.png";
 import prc from "./prc.png";
 import unfpa from "./unfpa.png";
 import planInternational from "./planinternational.jpg";
+import gef from "./gef.png";
+import gon from "./gon.png";
+import wwf from "./wwf.jpg";
+import whh from "./whh.png";
+import wat from "./wat.png";
+import yee from "./yee.png";
+import just from "./just.jpg";
+import fan from "./fan.png";
+import cen from "./cen.png";
+import yae from "./yae.png";
+import she from "./she.png";
+import iwmi from "./iwmi.jpg";
+import hostehoina from "./hostehoina.jpg";
+import nyn from "./nyn.jpeg";
 
 export {
   aslf,
@@ -38,4 +52,18 @@ export {
   prc,
   unfpa,
   planInternational,
+  gef,
+  gon,
+  wwf,
+  whh,
+  wat,
+  yee,
+  just,
+  fan,
+  cen,
+  yae,
+  she,
+  iwmi,
+  hostehoina,
+  nyn,
 };
