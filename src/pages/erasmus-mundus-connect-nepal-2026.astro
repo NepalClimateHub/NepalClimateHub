@@ -1,0 +1,169 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HeroSection from "../components/ErasmusMundusConnect/HeroSection.astro";
+import AboutSection from "../components/ErasmusMundusConnect/AboutSection.astro";
+import ScholarshipBenefitSection from "../components/ErasmusMundusConnect/ScholarshipBenefitSection.astro";
+import WhatYouWillLearnSection from "../components/ErasmusMundusConnect/WhatYouWillLearnSection.astro";
+import WhoShouldAttendSection from "../components/ErasmusMundusConnect/WhoShouldAttendSection.astro";
+import SpeakersSection from "../components/ErasmusMundusConnect/SpeakersSection.astro";
+import LastEditionImpactSection from "../components/ErasmusMundusConnect/LastEditionImpactSection.astro";
+import PartnershipSection from "../components/ErasmusMundusConnect/PartnershipSection.astro";
+import FAQSection from "../components/ErasmusMundusConnect/FAQSection.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Erasmus Mundus Connect Nepal 2026">
+  <main class="main-container">
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
+      <div class="mini-nav">
+        <a href="/">Home</a>
+        <a href="/">/</a>
+        <a href="/">Erasmus Mundus Connect</a>
+      </div>
+    </section>
+
+    <section class="hero-section">
+      <HeroSection />
+    </section>
+
+    <section class="about-section">
+      <AboutSection />
+    </section>
+
+    <section class="scholarship-section">
+      <ScholarshipBenefitSection />
+    </section>
+
+    <section class="learn-section">
+      <WhatYouWillLearnSection />
+    </section>
+
+    <section class="attend-section">
+      <WhoShouldAttendSection />
+    </section>
+
+    <section class="speakers-section">
+      <SpeakersSection />
+    </section>
+
+    <section class="impact-section">
+      <LastEditionImpactSection />
+    </section>
+
+    <section class="partnership-section">
+      <PartnershipSection />
+    </section>
+
+    <section class="faq-section">
+      <FAQSection />
+    </section>
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-section,
+  .about-section,
+  .scholarship-section,
+  .learn-section,
+  .attend-section,
+  .speakers-section,
+  .impact-section,
+  .partnership-section,
+  .faq-section {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .learn-section {
+    background-color: #f8f9fa;
+  }
+
+  .impact-section {
+    background-color: #ebf1f7;
+  }
+
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .hero-section,
+    .about-section,
+    .scholarship-section,
+    .learn-section,
+    .attend-section,
+    .speakers-section,
+    .impact-section,
+    .partnership-section,
+    .faq-section,
+    .header-section {
+      padding: 0px 48px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .header-section,
+    .hero-section,
+    .about-section,
+    .scholarship-section,
+    .learn-section,
+    .attend-section,
+    .speakers-section,
+    .impact-section,
+    .partnership-section,
+    .faq-section {
+      padding: 0px 32px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-container {
+      padding: 0;
+    }
+
+    .header-section,
+    .hero-section,
+    .about-section,
+    .scholarship-section,
+    .learn-section,
+    .attend-section {
+      padding: 0px 32px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-container {
+      padding: 0;
+    }
+
+    .header-section {
+      padding: 0px;
+    }
+
+    .hero-section,
+    .about-section,
+    .scholarship-section,
+    .learn-section,
+    .attend-section,
+    .speakers-section,
+    .impact-section,
+    .partnership-section,
+    .faq-section {
+      padding: 24px;
+    }
+  }
+</style>
