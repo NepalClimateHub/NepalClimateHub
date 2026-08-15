@@ -6,34 +6,40 @@ const ErasmusMundusAccordion = () => {
 
   const faqs = [
     {
-      question: 'Is the event free?',
+      question: 'What is Erasmus Mundus Connect Nepal 2026?',
       answer:
-        'Yes, the Erasmus Mundus Connect event is completely free to attend. Registration is open to all interested participants from Nepal and the region.',
+        "EMCN 2026 is a virtual awareness and capacity-building event on the Erasmus Mundus Joint Master's Programme.",
     },
     {
-      question: 'Who can attend?',
+      question: 'Why is a climate non-profit organizing this event?',
       answer:
-        'The event is open to anyone interested in learning about the Erasmus Mundus scholarship and international educational opportunities. Students, professionals, educators, and career changers are all welcome.',
+        "We believe investing in young people is key to solving global challenges. Erasmus Mundus offers fully funded master's programs in climate, environment, agriculture, technology, and many other fields, helping youth gain knowledge and experience to create positive impact.",
     },
     {
-      question: 'Is this event only for environmental students?',
+      question:
+        'Is this scholarship available for technology, business, and other fields?',
       answer:
-        'No, the event welcomes students from all academic backgrounds. While it focuses on environmental and sustainability-related Erasmus Mundus programs, students from various disciplines can benefit from the knowledge shared.',
+        "Yes. Erasmus Mundus offers over 220 master's programs across technology, business, engineering, social sciences, and more.",
     },
     {
-      question: 'Will the sessions be recorded?',
+      question: 'Will the event be virtual or in person?',
       answer:
-        'Recordings will be made available for those who cannot attend live sessions. Details about recording access will be provided to registered participants after the event.',
+        'The event will be fully virtual, making it accessible to participants across Nepal.',
     },
     {
-      question: 'Will I receive a certificate?',
+      question: 'Who are the speakers?',
       answer:
-        'Yes, participants who attend the event will receive a participation certificate. Certificates will be issued to those who complete the registration process and attend the sessions.',
+        'All speakers are current or former Erasmus Mundus Scholars with firsthand experience of the program and application process.',
     },
     {
-      question: 'How do I register?',
+      question: 'When will the event take place?',
       answer:
-        'You can register for the Erasmus Mundus Connect event through our website registration form. Simply fill in your details, select your preferred sessions, and submit. You will receive a confirmation email with further instructions.',
+        'The event is expected to take place in the third or fourth week of September. Follow our social media channels for updates and registration details.',
+    },
+    {
+      question: 'Is this a free event?',
+      answer:
+        "As a youth-led climate non-profit, this event is part of our first fundraising effort to help cover the organization's operating costs. A nominal registration fee of NPR 150 will be charged to support event organization and our ongoing initiatives.",
     },
   ];
 
