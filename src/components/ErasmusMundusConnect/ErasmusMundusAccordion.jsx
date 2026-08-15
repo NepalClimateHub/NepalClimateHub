@@ -6,35 +6,10 @@ const ErasmusMundusAccordion = () => {
 
   const faqs = [
     {
-      question: "What is Erasmus Mundus Connect Nepal 2026?",
-      answer:
-        "EMCN 2026 is a virtual awareness and capacity-building event on the Erasmus Mundus Joint Master's Programme.",
-    },
-    {
-      question: "Why is a climate non-profit organizing this event?",
-      answer:
-        "We believe investing in young people is key to solving global challenges. Erasmus Mundus offers fully funded master's programs in climate, environment, agriculture, technology, and many other fields, helping youth gain knowledge and experience to create positive impact.",
-    },
-    {
       question:
         "Is this scholarship available for technology, business, and other fields?",
       answer:
         "Yes. Erasmus Mundus offers over 220 master's programs across technology, business, engineering, social sciences, and more.",
-    },
-    {
-      question: "Will the event be virtual or in person?",
-      answer:
-        "The event will be fully virtual, making it accessible to participants across Nepal.",
-    },
-    {
-      question: "Who are the speakers?",
-      answer:
-        "All speakers are current or former Erasmus Mundus Scholars with firsthand experience of the program and application process.",
-    },
-    {
-      question: "When will the event take place?",
-      answer:
-        "The event is expected to take place in the third or fourth week of September. Follow our social media channels for updates and registration details.",
     },
     {
       question:
@@ -51,6 +26,16 @@ const ErasmusMundusAccordion = () => {
       question: "I am in my second or third year. Should I participate?",
       answer:
         "Yes! In fact, this is a great time to start preparing. Many successful applicants begin preparing as early as their third year.",
+    },
+    {
+      question: "Will the event be virtual or in person?",
+      answer:
+        "The event will be fully virtual, making it accessible to participants across Nepal.",
+    },
+    {
+      question: "Who are the speakers?",
+      answer:
+        "All speakers are current or former Erasmus Mundus Scholars with firsthand experience of the program and application process.",
     },
     {
       question: "Is this a free event?",
