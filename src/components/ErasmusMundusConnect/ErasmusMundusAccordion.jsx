@@ -1,45 +1,61 @@
-import { useState } from 'react';
-import { FiArrowDownRight } from 'react-icons/fi';
+import { useState } from "react";
+import { FiArrowDownRight } from "react-icons/fi";
 
 const ErasmusMundusAccordion = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
     {
-      question: 'What is Erasmus Mundus Connect Nepal 2026?',
+      question: "What is Erasmus Mundus Connect Nepal 2026?",
       answer:
         "EMCN 2026 is a virtual awareness and capacity-building event on the Erasmus Mundus Joint Master's Programme.",
     },
     {
-      question: 'Why is a climate non-profit organizing this event?',
+      question: "Why is a climate non-profit organizing this event?",
       answer:
         "We believe investing in young people is key to solving global challenges. Erasmus Mundus offers fully funded master's programs in climate, environment, agriculture, technology, and many other fields, helping youth gain knowledge and experience to create positive impact.",
     },
     {
       question:
-        'Is this scholarship available for technology, business, and other fields?',
+        "Is this scholarship available for technology, business, and other fields?",
       answer:
         "Yes. Erasmus Mundus offers over 220 master's programs across technology, business, engineering, social sciences, and more.",
     },
     {
-      question: 'Will the event be virtual or in person?',
+      question: "Will the event be virtual or in person?",
       answer:
-        'The event will be fully virtual, making it accessible to participants across Nepal.',
+        "The event will be fully virtual, making it accessible to participants across Nepal.",
     },
     {
-      question: 'Who are the speakers?',
+      question: "Who are the speakers?",
       answer:
-        'All speakers are current or former Erasmus Mundus Scholars with firsthand experience of the program and application process.',
+        "All speakers are current or former Erasmus Mundus Scholars with firsthand experience of the program and application process.",
     },
     {
-      question: 'When will the event take place?',
+      question: "When will the event take place?",
       answer:
-        'The event is expected to take place in the third or fourth week of September. Follow our social media channels for updates and registration details.',
+        "The event is expected to take place in the third or fourth week of September. Follow our social media channels for updates and registration details.",
     },
     {
-      question: 'Is this a free event?',
+      question:
+        "I am already pursuing or have completed a master's degree. Can I apply?",
       answer:
-        "As a youth-led climate non-profit, this event is part of our first fundraising effort to help cover the organization's operating costs. A nominal registration fee of NPR 150 will be charged to support event organization and our ongoing initiatives.",
+        "Yes, absolutely. Many Erasmus Mundus scholars have already completed a master's degree. It can even be an advantage if presented effectively in your application.",
+    },
+    {
+      question: "I am in my final semester. Can I apply?",
+      answer:
+        "Yes. Many programs allow conditional admission, provided you graduate before the program starts (September 2027).",
+    },
+    {
+      question: "I am in my second or third year. Should I participate?",
+      answer:
+        "Yes! In fact, this is a great time to start preparing. Many successful applicants begin preparing as early as their third year.",
+    },
+    {
+      question: "Is this a free event?",
+      answer:
+        "The event has a nominal registration fee of NPR 100. As a youth-led climate nonprofit, we are making this second edition part of our first fundraising effort to help cover our organization's operating costs. The previous edition was free.",
     },
   ];
 
@@ -55,19 +71,19 @@ const ErasmusMundusAccordion = () => {
           className="accordion-item"
           style={{
             borderBottom:
-              index !== faqs.length - 1 ? '2px solid #EBF1F7' : 'none',
+              index !== faqs.length - 1 ? "2px solid #EBF1F7" : "none",
           }}
         >
           <button
             type="button"
-            className={`accordion-question ${openIndex === index ? 'active' : ''}`}
+            className={`accordion-question ${openIndex === index ? "active" : ""}`}
             onClick={() => toggleAccordion(index)}
             aria-expanded={openIndex === index}
           >
             <span>{faq.question}</span>
             <FiArrowDownRight
               size={20}
-              className={`accordion-icon ${openIndex === index ? 'open' : ''}`}
+              className={`accordion-icon ${openIndex === index ? "open" : ""}`}
             />
           </button>
           {openIndex === index && (
