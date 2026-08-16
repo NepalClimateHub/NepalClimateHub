@@ -103,23 +103,24 @@ const speakers: Speaker[] = [
   }
 
   .section-title {
-    font-family: "Zilla Slab", serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: -0.96px;
     color: #1a1b1e;
     margin: 0;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
   }
 
   .section-subtitle {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
-    color: #4a4b4e;
+    color: #1a1b1e;
     margin: 0;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 
   .speakers-grid {
@@ -138,7 +139,7 @@ const speakers: Speaker[] = [
   .speaker-image {
     width: 100%;
     aspect-ratio: 1 / 1;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     border-radius: 12px;
     overflow: hidden;
   }
@@ -155,10 +156,11 @@ const speakers: Speaker[] = [
 
   .speaker-name {
     font-family: Roboto, sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 18px;
-    line-height: 130%;
-    color: #1a1b1e;
+    line-height: 100%;
+    letter-spacing: -2%;
+    color: #000000;
     margin: 0;
     margin-bottom: 4px;
   }
@@ -167,10 +169,11 @@ const speakers: Speaker[] = [
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: 140%;
-    color: #5a5b5e;
+    line-height: 100%;
+    letter-spacing: -1%;
+    color: rgba(0, 0, 0, 0.7);
     margin: 0;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .speaker-footer {
@@ -183,9 +186,33 @@ const speakers: Speaker[] = [
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: 140%;
-    color: #5a5b5e;
+    line-height: 100%;
+    letter-spacing: -1%;
+    color: rgba(0, 0, 0, 0.7);
     margin: 0;
+  }
+
+  .linkedin-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #000000;
+    transition: color 0.3s ease;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .linkedin-link:hover {
+    color: #0a66c2;
+  }
+
+  .linkedin-link svg {
+    width: 24px;
+    height: 24px;
   }
 
   /* Tablet */
@@ -213,21 +240,33 @@ const speakers: Speaker[] = [
 
     .section-title {
       font-size: 28px;
-      line-height: 130%;
+      line-height: 28px;
+      margin-bottom: 16px;
     }
 
     .section-subtitle {
-      font-size: 16px;
-      margin-bottom: 24px;
+      font-size: 14px;
+      margin-bottom: 32px;
     }
 
     .speakers-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 20px;
+    }
+
+    .speaker-name {
+      font-size: 16px;
+    }
+
+    .speaker-qualification {
+      font-size: 13px;
+    }
+
+    .speaker-location {
+      font-size: 13px;
     }
   }
 
-  /* Mobile */
   @media screen and (max-width: 560px) {
     .speakers-section {
       padding: 36px 0;
@@ -235,18 +274,27 @@ const speakers: Speaker[] = [
 
     .section-title {
       font-size: 24px;
-      line-height: 130%;
+      line-height: 24px;
       margin-bottom: 12px;
     }
 
     .section-subtitle {
-      font-size: 15px;
-      margin-bottom: 20px;
+      font-size: 13px;
+      margin-bottom: 24px;
     }
 
-    .speakers-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
+    .speaker-image {
+      margin-bottom: 12px;
+    }
+
+    .speaker-name {
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .speaker-qualification {
+      font-size: 12px;
+      margin-bottom: 10px;
     }
   }
 </style>

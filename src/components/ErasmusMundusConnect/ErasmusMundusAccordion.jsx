@@ -124,12 +124,11 @@ const ErasmusMundusAccordion = () => {
         }
 
         .accordion-answer {
-          padding: 0 24px 20px 24px;
-          font-family: Roboto, sans-serif;
-          font-size: 15px;
+          padding: 0 24px 24px 24px;
+          font-size: 16px;
           font-weight: 400;
-          line-height: 150%;
-          color: #4a4b4e;
+          line-height: 24px;
+          color: #A8A8A8;
           animation: slideDown 0.3s ease;
         }
 
