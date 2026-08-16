@@ -54,8 +54,7 @@ const impactStats: ImpactStat[] = [
   .impact-section {
     background-color: #ebf1f7;
     width: 100%;
-    padding: 64px 0;
-    margin-bottom: 64px;
+    padding: 62px 0;
   }
 
   .impact-container {
@@ -67,23 +66,24 @@ const impactStats: ImpactStat[] = [
   }
 
   .section-title {
-    font-family: "Zilla Slab", serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: -0.96px;
     color: #1a1b1e;
     margin: 0;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
 
   .section-subtitle {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
-    color: #4a4b4e;
+    color: #1a1b1e;
     margin: 0;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 
   .stats-grid {
@@ -98,22 +98,22 @@ const impactStats: ImpactStat[] = [
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     box-shadow: 0 2px 8px rgba(26, 27, 30, 0.08);
   }
 
   .stat-number {
     color: #cefe00;
     font-family: Roboto, sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 100%;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
   }
 
   .stat-label {
-    color: #d0d0d0;
+    color: #a8a8a8;
     font-family: Roboto, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 140%;
   }
@@ -122,18 +122,17 @@ const impactStats: ImpactStat[] = [
   @media screen and (max-width: 1024px) {
     .impact-section {
       padding: 48px 0;
-      margin-bottom: 48px;
     }
 
     .section-title {
-      font-size: 28px;
-      line-height: 130%;
-      margin-bottom: 12px;
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 16px;
     }
 
     .section-subtitle {
-      font-size: 16px;
-      margin-bottom: 24px;
+      font-size: 15px;
+      margin-bottom: 32px;
     }
 
     .stats-grid {
@@ -142,34 +141,69 @@ const impactStats: ImpactStat[] = [
     }
 
     .stat-number {
-      font-size: 40px;
+      font-size: 44px;
     }
 
     .stat-label {
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .stat-item {
       padding: 20px;
+      gap: 16px;
     }
   }
 
   /* Mobile */
+  @media screen and (max-width: 768px) {
+    .impact-section {
+      padding: 40px 0;
+    }
+
+    .section-title {
+      font-size: 28px;
+      line-height: 28px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-number {
+      font-size: 36px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+    }
+
+    .stat-item {
+      padding: 16px;
+      gap: 12px;
+    }
+  }
+
   @media screen and (max-width: 560px) {
     .impact-section {
-      padding: 36px 0;
-      margin-bottom: 36px;
+      padding: 32px 0;
     }
 
     .section-title {
       font-size: 24px;
-      line-height: 130%;
+      line-height: 24px;
       margin-bottom: 10px;
     }
 
     .section-subtitle {
-      font-size: 15px;
-      margin-bottom: 20px;
+      font-size: 13px;
+      margin-bottom: 24px;
     }
 
     .stats-grid {
@@ -182,7 +216,7 @@ const impactStats: ImpactStat[] = [
     }
 
     .stat-label {
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .stat-item {
@@ -190,6 +224,10 @@ const impactStats: ImpactStat[] = [
       gap: 12px;
       flex-direction: row;
       align-items: center;
+    }
+
+    .stat-number {
+      min-width: 60px;
     }
   }
 </style>
