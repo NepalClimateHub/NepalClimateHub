@@ -1,55 +1,46 @@
 ---
-import { unicef } from "@assets/lcoy/logo/partners";
-
 interface Partner {
   id: string;
   name: string;
   location: string;
-  logo: string;
 }
 
 const inPartnershipWith: Partner[] = [
   {
     id: "partner-1",
-    name: "European Union",
-    location: "Brussels, Belgium",
-    logo: unicef.src,
+    name: "Your Organization Name",
+    location: "Location",
   },
   {
     id: "partner-2",
-    name: "Nepal Climate Hub",
-    location: "Kathmandu, Nepal",
-    logo: unicef.src,
+    name: "Your Organization Name",
+    location: "Location",
   },
 ];
 
 const supportedBy: Partner[] = [
   {
     id: "supporter-1",
-    name: "Ministry of Education",
-    location: "Kathmandu, Nepal",
-    logo: unicef.src,
+    name: "Your Organization Name",
+    location: "Location",
   },
   {
     id: "supporter-2",
-    name: "IWMI Asia",
-    location: "Colombo, Sri Lanka",
-    logo: unicef.src,
+    name: "Your Organization Name",
+    location: "Location",
   },
 ];
 
 const communityPartners: Partner[] = [
   {
     id: "community-1",
-    name: "Local University Network",
-    location: "Nepal",
-    logo: unicef.src,
+    name: "Your Organization Name",
+    location: "Location",
   },
   {
     id: "community-2",
-    name: "Climate Action Initiative",
-    location: "South Asia",
-    logo: unicef.src,
+    name: "Your Organization Name",
+    location: "Location",
   },
 ];
 ---
@@ -63,7 +54,7 @@ const communityPartners: Partner[] = [
         inPartnershipWith.map((partner) => (
           <div class="partner-card">
             <div class="logo-container">
-              <img src={partner.logo} alt={partner.name} />
+              <p class="logo-placeholder">Organization Logo</p>
             </div>
             <h4 class="organization-name">{partner.name}</h4>
             <p class="organization-location">{partner.location}</p>
@@ -79,7 +70,7 @@ const communityPartners: Partner[] = [
         supportedBy.map((partner) => (
           <div class="partner-card">
             <div class="logo-container">
-              <img src={partner.logo} alt={partner.name} />
+              <p class="logo-placeholder">Organization Logo</p>
             </div>
             <h4 class="organization-name">{partner.name}</h4>
             <p class="organization-location">{partner.location}</p>
@@ -95,7 +86,7 @@ const communityPartners: Partner[] = [
         communityPartners.map((partner) => (
           <div class="partner-card">
             <div class="logo-container">
-              <img src={partner.logo} alt={partner.name} />
+              <p class="logo-placeholder">Organization Logo</p>
             </div>
             <h4 class="organization-name">{partner.name}</h4>
             <p class="organization-location">{partner.location}</p>
@@ -148,7 +139,7 @@ const communityPartners: Partner[] = [
     gap: 24px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 44px;
+    /* margin-bottom: 44px; */
   }
 
   .partner-card {
@@ -173,11 +164,12 @@ const communityPartners: Partner[] = [
     justify-content: center;
   }
 
-  .logo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 8px;
+  .logo-placeholder {
+    color: #364fc7;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
   }
 
   .organization-name {
@@ -218,7 +210,6 @@ const communityPartners: Partner[] = [
     }
 
     .cards-container {
-      gap: 16px;
       margin-bottom: 36px;
     }
 
@@ -253,7 +244,7 @@ const communityPartners: Partner[] = [
     }
 
     .cards-container {
-      gap: 12px;
+      gap: 16px;
       margin-bottom: 32px;
       flex-direction: column;
       align-items: center;
@@ -295,7 +286,6 @@ const communityPartners: Partner[] = [
     }
 
     .cards-container {
-      gap: 12px;
       margin-bottom: 24px;
     }
 

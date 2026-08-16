@@ -1,5 +1,5 @@
 ---
-import { whyAttend } from "../../assets/erasmus/images";
+import whyAttendImage from "../../assets/volunteerWithUs.jpg";
 ---
 
 <div class="attend-section">
@@ -36,7 +36,7 @@ import { whyAttend } from "../../assets/erasmus/images";
     </div>
 
     <div class="attend-right">
-      <img src={whyAttend.src} alt="Who should attend" />
+      <img src={whyAttendImage.src} alt="Who should attend" />
     </div>
   </div>
 
@@ -63,7 +63,7 @@ import { whyAttend } from "../../assets/erasmus/images";
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-bottom: 72px;
+    padding-top: 72px;
     max-width: 1280px;
   }
 
@@ -84,7 +84,7 @@ import { whyAttend } from "../../assets/erasmus/images";
   }
 
   .attend-left {
-    flex: 1;
+    flex: 0 0 53%;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -174,7 +174,7 @@ import { whyAttend } from "../../assets/erasmus/images";
   /* Tablet */
   @media screen and (max-width: 1024px) {
     .attend-section {
-      margin-bottom: 44px;
+      padding-top: 56px;
     }
 
     .attend-container {
@@ -212,7 +212,7 @@ import { whyAttend } from "../../assets/erasmus/images";
   /* Mobile */
   @media screen and (max-width: 768px) {
     .attend-section {
-      margin-bottom: 32px;
+      padding-top: 48px;
     }
 
     .attend-container {
@@ -264,7 +264,7 @@ import { whyAttend } from "../../assets/erasmus/images";
 
   @media screen and (max-width: 560px) {
     .attend-section {
-      margin-bottom: 24px;
+      padding-top: 24px;
     }
 
     .attend-left {
