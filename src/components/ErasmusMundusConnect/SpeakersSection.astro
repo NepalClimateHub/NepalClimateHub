@@ -1,47 +1,5 @@
 ---
-interface Speaker {
-  id: string;
-  name: string;
-  qualification: string;
-  location: string;
-  linkedinUrl: string;
-  image: string;
-}
-
-const speakers: Speaker[] = [
-  {
-    id: "speaker-1",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/johnanderson",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
-  },
-  {
-    id: "speaker-2",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/sarahchen",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
-  },
-  {
-    id: "speaker-3",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/mariedubois",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
-  },
-  {
-    id: "speaker-4",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/marcorossi",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
-  },
-];
+import { speakers } from "../../content/erasmus";
 ---
 
 <div class="speakers-section">
@@ -192,7 +150,7 @@ const speakers: Speaker[] = [
     margin: 0;
   }
 
-  .linkedin-link {
+  /* .linkedin-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,16 +162,16 @@ const speakers: Speaker[] = [
     background: none;
     padding: 0;
     cursor: pointer;
-  }
+  } */
 
-  .linkedin-link:hover {
+  /* .linkedin-link:hover {
     color: #0a66c2;
-  }
-
+  } */
+  /* 
   .linkedin-link svg {
     width: 24px;
     height: 24px;
-  }
+  } */
 
   /* Tablet */
   @media screen and (max-width: 1024px) {
