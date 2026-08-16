@@ -104,7 +104,7 @@ const communityPartners: Partner[] = [
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: 72px 0;
+    margin-bottom: 64px;
   }
 
   .partnership-container {
@@ -116,22 +116,20 @@ const communityPartners: Partner[] = [
   }
 
   .section-title {
-    font-family: Roboto, sans-serif;
-    font-weight: 600;
+    font-family: "Zilla Slab", serif;
+    font-weight: 700;
     font-size: 32px;
-    line-height: 150%;
+    line-height: 130%;
     color: #1a1b1e;
     margin: 0;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     text-align: center;
   }
 
-  .supported-title {
-    margin-top: 44px;
-  }
-
+  .supported-title,
   .community-title {
-    margin-top: 44px;
+    margin-top: 40px;
+    font-size: 26px;
   }
 
   .cards-container {
@@ -143,19 +141,24 @@ const communityPartners: Partner[] = [
   }
 
   .partner-card {
-    max-width: 310px;
+    max-width: 280px;
     width: 100%;
     border-radius: 16px;
     background-color: #ebf1f7;
     padding: 16px;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-2px);
   }
 
   .logo-container {
     width: 100%;
-    height: 120px;
-    margin-bottom: 16px;
+    height: 110px;
+    margin-bottom: 14px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #ffffff;
@@ -174,11 +177,10 @@ const communityPartners: Partner[] = [
 
   .organization-name {
     font-family: Roboto, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: -2%;
-    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+    color: #1a1b1e;
     margin: 0;
     margin-bottom: 4px;
   }
@@ -187,26 +189,26 @@ const communityPartners: Partner[] = [
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: 100%;
-    letter-spacing: -1%;
-    color: rgba(0, 0, 0, 0.7);
+    line-height: 130%;
+    color: #5a5b5e;
     margin: 0;
   }
 
   /* Tablet */
   @media screen and (max-width: 1024px) {
     .partnership-section {
-      padding: 56px 0;
+      margin-bottom: 48px;
     }
 
     .section-title {
       font-size: 28px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .supported-title,
     .community-title {
-      margin-top: 36px;
+      margin-top: 32px;
+      font-size: 22px;
     }
 
     .cards-container {
@@ -214,33 +216,26 @@ const communityPartners: Partner[] = [
     }
 
     .partner-card {
-      max-width: 280px;
-    }
-
-    .organization-name {
-      font-size: 16px;
-    }
-
-    .organization-location {
-      font-size: 13px;
+      max-width: 260px;
     }
   }
 
   /* Mobile */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 560px) {
     .partnership-section {
-      padding: 48px 0;
+      margin-bottom: 36px;
     }
 
     .section-title {
       font-size: 24px;
-      line-height: 140%;
-      margin-bottom: 20px;
+      line-height: 130%;
+      margin-bottom: 16px;
     }
 
     .supported-title,
     .community-title {
-      margin-top: 32px;
+      margin-top: 24px;
+      font-size: 20px;
     }
 
     .cards-container {
@@ -295,15 +290,6 @@ const communityPartners: Partner[] = [
 
     .logo-container {
       height: 90px;
-      margin-bottom: 10px;
-    }
-
-    .organization-name {
-      font-size: 15px;
-    }
-
-    .organization-location {
-      font-size: 12px;
     }
   }
 </style>

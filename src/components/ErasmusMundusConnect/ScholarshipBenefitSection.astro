@@ -187,45 +187,46 @@
   }
 
   .section-title {
-    font-family: Roboto, sans-serif;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 100%;
-    color: #000000;
+    font-family: "Zilla Slab", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    color: #1a1b1e;
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   .section-subtitle {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 140%;
-    color: #000000cc;
+    font-size: 18px;
+    line-height: 150%;
+    color: #4a4b4e;
     margin: 0;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+    max-width: 800px;
   }
 
   .benefit-heading {
     font-family: "Zilla Slab", serif;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 22px;
-    color: #000000;
+    font-size: 22px;
+    line-height: 130%;
+    color: #1a1b1e;
     margin: 0;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .benefits-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px 32px;
+    gap: 24px 28px;
   }
 
   .benefit-item {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     align-items: flex-start;
   }
 
@@ -248,9 +249,9 @@
   .benefit-text {
     font-family: Roboto, sans-serif;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    color: #000000cc;
+    font-size: 15px;
+    line-height: 145%;
+    color: #2d2e31;
     margin: 0;
   }
 
@@ -282,29 +283,22 @@
 
     .section-title {
       font-size: 28px;
-      line-height: 28px;
-      margin-bottom: 16px;
+      line-height: 130%;
     }
 
     .section-subtitle {
-      font-size: 18px;
-      margin-bottom: 32px;
+      font-size: 16px;
+      margin-bottom: 24px;
     }
 
     .benefit-heading {
       font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .benefits-grid {
-      grid-template-columns: 1fr;
-      gap: 16px 16px;
-    }
-
-    .benefit-text {
-      font-size: 15px;
-      line-height: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 20px;
     }
   }
 
@@ -315,25 +309,33 @@
 
     .section-title {
       font-size: 24px;
+      line-height: 130%;
     }
 
     .section-subtitle {
-      font-size: 16px;
-      margin-bottom: 24px;
+      font-size: 15px;
+      margin-bottom: 20px;
     }
 
     .benefit-heading {
       font-size: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
 
     .benefit-item {
-      gap: 12px;
+      gap: 10px;
+      flex-direction: row;
+      align-items: center;
     }
 
     .benefit-text {
       font-size: 14px;
-      line-height: 18px;
+      line-height: 140%;
     }
   }
 </style>

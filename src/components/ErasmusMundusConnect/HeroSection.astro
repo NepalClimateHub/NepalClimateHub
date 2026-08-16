@@ -101,12 +101,12 @@ import { hero } from "../../assets/erasmus/images";
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 66px;
+    gap: 56px;
     margin: 0 auto;
     align-items: stretch;
     justify-content: space-between;
-    margin-top: 22px;
-    margin-bottom: 72px;
+    margin-top: 16px;
+    margin-bottom: 64px;
     max-width: 1280px;
   }
 
@@ -120,11 +120,11 @@ import { hero } from "../../assets/erasmus/images";
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 12px;
+    padding: 8px 14px;
     background: #ebf1f7;
     border-radius: 15px;
     width: fit-content;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .badge-dot {
@@ -147,44 +147,45 @@ import { hero } from "../../assets/erasmus/images";
   .hero-title {
     font-family: "Zilla Slab", serif;
     font-weight: 700;
-    font-size: 36px;
-    line-height: 36px;
-    color: #000000;
+    font-size: 40px;
+    line-height: 125%;
+    color: #1a1b1e;
     margin: 0;
-    margin-bottom: 12px;
-    max-width: 500px;
+    margin-bottom: 16px;
+    max-width: 540px;
   }
 
   .hero-subtitle {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 140%;
-    color: #1a1b1e;
+    font-size: 18px;
+    line-height: 150%;
+    color: #4a4b4e;
     margin: 0;
-    margin-bottom: 32px;
-    max-width: 500px;
+    margin-bottom: 28px;
+    max-width: 520px;
   }
 
   .cta-button {
     align-self: flex-start;
-    padding: 12px 16px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 21px;
+    border-radius: 24px;
     background: #cefe00;
     font-family: Roboto, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 140%;
     color: #1a1b1e;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     margin-bottom: 36px;
   }
 
   .cta-button:hover {
     background: #b8e600;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(206, 254, 0, 0.4);
   }
 
   .info-container {
@@ -192,7 +193,7 @@ import { hero } from "../../assets/erasmus/images";
     justify-content: space-between;
     border-radius: 16px;
     background: #ebf1f7;
-    padding: 24px;
+    padding: 20px 24px;
   }
 
   .info-item:last-child {
@@ -202,8 +203,8 @@ import { hero } from "../../assets/erasmus/images";
   .info-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 10px;
+    margin-bottom: 6px;
   }
 
   .info-header svg {
@@ -213,7 +214,7 @@ import { hero } from "../../assets/erasmus/images";
   .info-label {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 100%;
     color: #1a1b1e;
     opacity: 0.7;
@@ -221,16 +222,16 @@ import { hero } from "../../assets/erasmus/images";
 
   .info-value {
     font-family: Roboto, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
     color: #1a1b1e;
   }
 
   .hero-right {
     overflow: hidden;
-    border-radius: 24px;
-    background-color: red;
+    border-radius: 20px;
+    background-color: #f8f9fa;
     position: relative;
   }
 
@@ -253,17 +254,13 @@ import { hero } from "../../assets/erasmus/images";
 
     .hero-right {
       order: -1;
-      border-radius: 12px;
-      height: 300px;
-    }
-
-    .hero-image-placeholder {
-      aspect-ratio: 2/1;
+      border-radius: 16px;
+      height: 320px;
     }
 
     .hero-title {
-      font-size: 28px;
-      line-height: 28px;
+      font-size: 32px;
+      line-height: 130%;
       max-width: 100%;
     }
 
@@ -304,6 +301,7 @@ import { hero } from "../../assets/erasmus/images";
 
     .info-value {
       font-size: 16px;
+      max-width: 100%;
     }
   }
 
@@ -314,55 +312,32 @@ import { hero } from "../../assets/erasmus/images";
     }
 
     .hero-right {
-      height: 200px;
-    }
-
-    .badge {
-      padding: 6px 10px;
-      gap: 8px;
-    }
-
-    .badge-text {
-      font-size: 11px;
+      height: 220px;
+      border-radius: 12px;
     }
 
     .hero-title {
-      font-size: 20px;
-      line-height: 20px;
-      margin-bottom: 8px;
+      font-size: 26px;
+      line-height: 130%;
+      margin-bottom: 12px;
     }
 
     .hero-subtitle {
-      font-size: 14px;
-      margin-bottom: 16px;
+      font-size: 15px;
+      margin-bottom: 20px;
     }
 
     .cta-button {
-      padding: 10px 14px;
-      font-size: 14px;
+      padding: 10px 20px;
+      font-size: 15px;
       margin-bottom: 24px;
+      width: 100%;
+      text-align: center;
     }
 
     .info-container {
-      padding: 12px;
+      padding: 16px;
       gap: 12px;
-    }
-
-    .info-header {
-      gap: 4px;
-    }
-
-    .info-header svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .info-label {
-      font-size: 12px;
-    }
-
-    .info-value {
-      font-size: 14px;
     }
   }
 
