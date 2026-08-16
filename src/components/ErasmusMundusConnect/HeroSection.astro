@@ -247,9 +247,9 @@ import { hero } from "../../assets/erasmus/images";
   /* Tablet */
   @media screen and (max-width: 1024px) {
     .hero-section {
+      margin-bottom: 58px;
       grid-template-columns: 1fr;
       gap: 32px;
-      margin-bottom: 48px;
     }
 
     .hero-right {
@@ -265,6 +265,41 @@ import { hero } from "../../assets/erasmus/images";
     }
 
     .hero-subtitle {
+      font-size: 18px;
+      max-width: 100%;
+    }
+  }
+
+  /* Large phones / small tablets */
+  @media screen and (max-width: 768px) {
+    .hero-section {
+      margin-bottom: 48px;
+      grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-container {
+      padding: 16px;
+    }
+
+    .info-header {
+      gap: 6px;
+    }
+
+    .info-label {
+      font-size: 14px;
+    }
+
+    .info-value {
       font-size: 16px;
       max-width: 100%;
     }

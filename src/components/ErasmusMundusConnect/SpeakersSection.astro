@@ -98,7 +98,7 @@ const speakers: Speaker[] = [
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-bottom: 64px;
+    padding: 72px 0;
     max-width: 1280px;
   }
 
@@ -191,7 +191,24 @@ const speakers: Speaker[] = [
   /* Tablet */
   @media screen and (max-width: 1024px) {
     .speakers-section {
-      margin-bottom: 48px;
+      padding: 64px 0;
+    }
+
+    .section-title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .speakers-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+    .speakers-section {
+      padding: 56px 0;
     }
 
     .section-title {
@@ -213,7 +230,7 @@ const speakers: Speaker[] = [
   /* Mobile */
   @media screen and (max-width: 560px) {
     .speakers-section {
-      margin-bottom: 36px;
+      padding: 36px 0;
     }
 
     .section-title {
