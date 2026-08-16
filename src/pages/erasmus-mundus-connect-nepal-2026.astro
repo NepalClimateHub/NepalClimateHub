@@ -111,7 +111,7 @@ import Footer from "../components/Footer.astro";
     .partnership-section,
     .faq-section,
     .header-section {
-      padding: 0 48px;
+      padding: 0px 48px;
     }
   }
 
@@ -126,12 +126,19 @@ import Footer from "../components/Footer.astro";
     .impact-section,
     .partnership-section,
     .faq-section {
-      padding: 0 32px;
+      padding: 0px 32px;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .header-section,
+    .main-container {
+      padding: 0;
+    }
+
+    .header-section {
+      padding: 0px;
+    }
+
     .hero-section,
     .about-section,
     .scholarship-section,
@@ -141,7 +148,7 @@ import Footer from "../components/Footer.astro";
     .impact-section,
     .partnership-section,
     .faq-section {
-      padding: 0 20px;
+      padding: 0 24px;
     }
   }
 </style>
