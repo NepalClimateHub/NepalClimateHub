@@ -1,0 +1,263 @@
+---
+import { unicef } from "@assets/lcoy/logo/partners";
+
+interface Partner {
+  id: string;
+  name: string;
+  location: string;
+  logo: string;
+}
+
+const inPartnershipWith: Partner[] = [
+  {
+    id: "partner-1",
+    name: "European Union",
+    location: "Brussels, Belgium",
+    logo: unicef.src,
+  },
+  {
+    id: "partner-2",
+    name: "Nepal Climate Hub",
+    location: "Kathmandu, Nepal",
+    logo: unicef.src,
+  },
+];
+
+const supportedBy: Partner[] = [
+  {
+    id: "supporter-1",
+    name: "Ministry of Education",
+    location: "Kathmandu, Nepal",
+    logo: unicef.src,
+  },
+  {
+    id: "supporter-2",
+    name: "IWMI Asia",
+    location: "Colombo, Sri Lanka",
+    logo: unicef.src,
+  },
+];
+
+const communityPartners: Partner[] = [
+  {
+    id: "community-1",
+    name: "Local University Network",
+    location: "Nepal",
+    logo: unicef.src,
+  },
+  {
+    id: "community-2",
+    name: "Climate Action Initiative",
+    location: "South Asia",
+    logo: unicef.src,
+  },
+];
+---
+
+<div class="partnership-section">
+  <div class="partnership-container">
+    <h2 class="section-title">In partnership with</h2>
+
+    <div class="cards-container">
+      {
+        inPartnershipWith.map((partner) => (
+          <div class="partner-card">
+            <div class="logo-container">
+              <img src={partner.logo} alt={partner.name} />
+            </div>
+            <h4 class="organization-name">{partner.name}</h4>
+            <p class="organization-location">{partner.location}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <h2 class="section-title supported-title">Supported by</h2>
+
+    <div class="cards-container">
+      {
+        supportedBy.map((partner) => (
+          <div class="partner-card">
+            <div class="logo-container">
+              <img src={partner.logo} alt={partner.name} />
+            </div>
+            <h4 class="organization-name">{partner.name}</h4>
+            <p class="organization-location">{partner.location}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <h2 class="section-title community-title">Community partners</h2>
+
+    <div class="cards-container">
+      {
+        communityPartners.map((partner) => (
+          <div class="partner-card">
+            <div class="logo-container">
+              <img src={partner.logo} alt={partner.name} />
+            </div>
+            <h4 class="organization-name">{partner.name}</h4>
+            <p class="organization-location">{partner.location}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .partnership-section {
+    background: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 64px;
+  }
+
+  .partnership-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+  }
+
+  .section-title {
+    font-family: "Zilla Slab", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    color: #1a1b1e;
+    margin: 0;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .supported-title,
+  .community-title {
+    margin-top: 40px;
+    font-size: 26px;
+  }
+
+  .cards-container {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .partner-card {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 16px;
+    background-color: #ebf1f7;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .logo-container {
+    width: 100%;
+    height: 110px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
+
+  .organization-name {
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+    color: #1a1b1e;
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  .organization-location {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #5a5b5e;
+    margin: 0;
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 1024px) {
+    .partnership-section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .supported-title,
+    .community-title {
+      margin-top: 32px;
+      font-size: 22px;
+    }
+
+    .cards-container {
+      gap: 16px;
+    }
+
+    .partner-card {
+      max-width: 260px;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 560px) {
+    .partnership-section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 130%;
+      margin-bottom: 16px;
+    }
+
+    .supported-title,
+    .community-title {
+      margin-top: 24px;
+      font-size: 20px;
+    }
+
+    .cards-container {
+      gap: 12px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .partner-card {
+      max-width: 100%;
+    }
+
+    .logo-container {
+      height: 90px;
+    }
+  }
+</style>

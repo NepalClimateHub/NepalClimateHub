@@ -1,0 +1,261 @@
+---
+import { whyAttend } from "../../assets/erasmus/images";
+---
+
+<div class="attend-section">
+  <h2 class="attend-title">Who should attend</h2>
+
+  <div class="attend-container">
+    <div class="attend-left">
+      <div class="attend-item">
+        <div class="item-badge">1</div>
+        <p class="item-text">Undergraduate students</p>
+      </div>
+
+      <div class="attend-item">
+        <div class="item-badge">2</div>
+        <p class="item-text">Recent graduates</p>
+      </div>
+
+      <div class="attend-item">
+        <div class="item-badge">3</div>
+        <p class="item-text">Young professionals</p>
+      </div>
+
+      <div class="attend-item">
+        <div class="item-badge">4</div>
+        <p class="item-text">Researchers</p>
+      </div>
+
+      <div class="attend-item">
+        <div class="item-badge">5</div>
+        <p class="item-text">
+          Anyone planning to pursue a fully funded master's degree in Europe
+        </p>
+      </div>
+    </div>
+
+    <div class="attend-right">
+      <img src={whyAttend.src} alt="Who should attend" />
+    </div>
+  </div>
+
+  <p class="description">
+    Although Nepal Climate Hub focuses on climate and sustainability, the
+    Erasmus Mundus scholarship spans <span class="highlight">200+ masters,</span
+    > making this event relevant to students from all academic backgrounds.
+  </p>
+
+  <div class="quote-box">
+    <p class="quote-text">
+      Students who participate gain an extra edge and confidence in their
+      application journey, moving far ahead with the preparation guidance, tips,
+      and personal experiences of previous scholars, insights you will rarely
+      find elsewhere in your preparation journey.
+    </p>
+  </div>
+</div>
+
+<style>
+  .attend-section {
+    background: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 64px;
+    max-width: 1280px;
+  }
+
+  .attend-title {
+    font-family: "Zilla Slab", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    color: #1a1b1e;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+
+  .attend-container {
+    display: flex;
+    gap: 48px;
+    align-items: stretch;
+  }
+
+  .attend-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .attend-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .item-badge {
+    width: 36px;
+    height: 36px;
+    background: #364fc7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    color: #cefe00;
+    flex-shrink: 0;
+  }
+
+  .item-text {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 140%;
+    color: #2d2e31;
+    margin: 0;
+  }
+
+  .attend-right {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .attend-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .description {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #4a4b4e;
+    margin-top: 32px;
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .description .highlight {
+    font-weight: 600;
+    color: #1a1b1e;
+  }
+
+  .quote-box {
+    background: #364fc7;
+    border-radius: 16px;
+    padding: 36px 32px;
+    max-width: 100%;
+    margin: 28px auto 0;
+  }
+
+  .quote-text {
+    font-family: "Zilla Slab", serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 140%;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 1024px) {
+    .attend-section {
+      margin-bottom: 48px;
+    }
+
+    .attend-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .attend-title {
+      font-size: 28px;
+      line-height: 130%;
+    }
+
+    .item-text {
+      font-size: 16px;
+    }
+
+    .attend-right img {
+      height: 280px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 145%;
+      margin-top: 24px;
+    }
+
+    .quote-box {
+      padding: 28px 24px;
+      margin-top: 24px;
+    }
+
+    .quote-text {
+      font-size: 19px;
+      line-height: 135%;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 560px) {
+    .attend-section {
+      margin-bottom: 36px;
+    }
+
+    .attend-title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .attend-item {
+      gap: 14px;
+    }
+
+    .item-badge {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      min-width: 30px;
+    }
+
+    .item-text {
+      font-size: 15px;
+      line-height: 135%;
+    }
+
+    .attend-right img {
+      height: 200px;
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 145%;
+      margin-top: 20px;
+      padding: 0;
+    }
+
+    .quote-box {
+      padding: 20px 16px;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    .quote-text {
+      font-size: 16px;
+      line-height: 135%;
+    }
+  }
+</style>

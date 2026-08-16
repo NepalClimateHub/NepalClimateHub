@@ -1,0 +1,195 @@
+---
+interface ImpactStat {
+  id: string;
+  number: string;
+  label: string;
+}
+
+const impactStats: ImpactStat[] = [
+  {
+    id: "stat-1",
+    number: "915",
+    label: "Registrations",
+  },
+  {
+    id: "stat-2",
+    number: "7",
+    label: "Provinces represented",
+  },
+  {
+    id: "stat-3",
+    number: "10",
+    label: "Nepalese universities",
+  },
+  {
+    id: "stat-4",
+    number: "10+",
+    label: "Speakers",
+  },
+];
+---
+
+<div class="impact-section">
+  <div class="impact-container">
+    <h2 class="section-title">Last Edition Impact</h2>
+
+    <p class="section-subtitle">
+      The first edition, held on August 2025, exceeded all expectations.
+    </p>
+
+    <div class="stats-grid">
+      {
+        impactStats.map((stat) => (
+          <div class="stat-item">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .impact-section {
+    background-color: #ebf1f7;
+    width: 100%;
+    padding: 64px 0;
+    margin-bottom: 64px;
+  }
+
+  .impact-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+  }
+
+  .section-title {
+    font-family: "Zilla Slab", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    color: #1a1b1e;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #4a4b4e;
+    margin: 0;
+    margin-bottom: 32px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .stat-item {
+    background-color: #292a2c;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(26, 27, 30, 0.08);
+  }
+
+  .stat-number {
+    color: #cefe00;
+    font-family: Roboto, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  .stat-label {
+    color: #d0d0d0;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 1024px) {
+    .impact-section {
+      padding: 48px 0;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      line-height: 130%;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stat-number {
+      font-size: 40px;
+    }
+
+    .stat-label {
+      font-size: 15px;
+    }
+
+    .stat-item {
+      padding: 20px;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 560px) {
+    .impact-section {
+      padding: 36px 0;
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 130%;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .stat-number {
+      font-size: 32px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+    }
+
+    .stat-item {
+      padding: 16px;
+      gap: 12px;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+</style>

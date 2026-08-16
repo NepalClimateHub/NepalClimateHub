@@ -1,0 +1,132 @@
+---
+import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
+---
+
+<section>
+  <div class="section-container">
+    <div class="faq-wrapper">
+      <!-- Left Side -->
+      <div class="faq-left">
+        <div class="section-badge-text">Frequently asked questions</div>
+        <h2 class="section-title">Everything you need to know</h2>
+        <p class="faq-description">
+          Have questions about the event? Check our FAQ section or reach out to
+          the Nepal Climate Hub team for more information.
+        </p>
+      </div>
+
+      <!-- Right Side - Accordions -->
+      <div class="faq-right">
+        <div class="accordion-container">
+          <ErasmusMundusAccordion client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto 64px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .faq-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .faq-left {
+    flex: 0 0 auto;
+    max-width: 380px;
+  }
+
+  .faq-right {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .section-badge-text {
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #364fc7;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: "Zilla Slab", serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1b1e;
+    line-height: 130%;
+    margin: 0;
+  }
+
+  .faq-description {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #4a4b4e;
+    line-height: 150%;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
+  .accordion-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #ebf1f7;
+    overflow: hidden;
+  }
+
+  @media (max-width: 1024px) {
+    .section-container {
+      margin-bottom: 48px;
+    }
+
+    .faq-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 32px;
+    }
+
+    .faq-left {
+      max-width: 100%;
+    }
+
+    .section-title {
+      font-size: 28px;
+      line-height: 130%;
+    }
+
+    .faq-description {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .section-container {
+      margin-bottom: 36px;
+    }
+
+    .faq-wrapper {
+      gap: 24px;
+    }
+
+    .section-title {
+      font-size: 24px;
+    }
+
+    .faq-description {
+      font-size: 14px;
+      margin-top: 12px;
+    }
+  }
+</style>
