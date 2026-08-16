@@ -1,5 +1,6 @@
 ---
 import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
+import { faqData } from "../../content/erasmus";
 ---
 
 <section>
@@ -7,11 +8,10 @@ import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
     <div class="faq-wrapper">
       <!-- Left Side -->
       <div class="faq-left">
-        <div class="section-badge-text">Frequently asked questions</div>
-        <h2 class="section-title">Everything you need to know</h2>
+        <div class="section-badge-text">{faqData.badgeText}</div>
+        <h2 class="section-title">{faqData.title}</h2>
         <p class="faq-description">
-          Have questions about the event? Check our FAQ section or reach out to
-          the Nepal Climate Hub team for more information.
+          {faqData.description}
         </p>
       </div>
 
