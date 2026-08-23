@@ -45,6 +45,7 @@ export const fetchVacancies = async (): Promise<VacanciesResponse> => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
+      cache: 'no-store',
     });
     return handleResponse<VacanciesResponse>(response);
   } catch (error) {
