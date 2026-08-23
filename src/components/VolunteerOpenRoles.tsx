@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { fetchVacancies, applyToVacancy, type Vacancy } from '../api/vacancies.api';
 
-export const VolunteerOpenRoles: React.FC = () => {
-  const [vacancies, setVacancies] = useState<Vacancy[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+interface VolunteerOpenRolesProps {
+  initialVacancies?: Vacancy[];
+}
+
+export const VolunteerOpenRoles: React.FC<VolunteerOpenRolesProps> = ({
+  initialVacancies = [],
+}) => {
+  const [vacancies, setVacancies] = useState<Vacancy[]>(initialVacancies);
+  const [loading, setLoading] = useState<boolean>(initialVacancies.length === 0);
   const [error, setError] = useState<string | null>(null);
-  
+
   // Selected vacancy for application modal
   const [selectedVacancy, setSelectedVacancy] = useState<Vacancy | null>(null);
-  
+
   // Form state
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +22,7 @@ export const VolunteerOpenRoles: React.FC = () => {
   const [currentAddress, setCurrentAddress] = useState('');
   const [message, setMessage] = useState('');
   const [cvUrl, setCvUrl] = useState('');
-  
+
   const [submitting, setSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -24,12 +30,14 @@ export const VolunteerOpenRoles: React.FC = () => {
   useEffect(() => {
     const loadVacancies = async () => {
       try {
-        setLoading(true);
+        if (vacancies.length === 0) setLoading(true);
         const res = await fetchVacancies();
         setVacancies(res?.data || []);
       } catch (err) {
         console.error('Error fetching vacancies:', err);
-        setError('Failed to load open roles.');
+        if (vacancies.length === 0) {
+          setError('Failed to load open roles.');
+        }
       } finally {
         setLoading(false);
       }
