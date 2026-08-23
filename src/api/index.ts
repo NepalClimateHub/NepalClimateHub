@@ -2,7 +2,7 @@
 const rawApiBaseUrl =
   import.meta.env.PUBLIC_API_BASE_URL ||
   import.meta.env.API_BASE_URL ||
-  'http://localhost:8081';
+  'https://api.cms.nepalclimatehub.org';
 
 // Normalize the URL to fix common issues (missing slashes, trailing slashes, etc.)
 function normalizeApiUrl(url: string | undefined): string | undefined {
