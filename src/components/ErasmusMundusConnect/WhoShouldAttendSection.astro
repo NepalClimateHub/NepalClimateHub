@@ -1,38 +1,19 @@
 ---
 import whyAttendImage from "../../assets/volunteerWithUs.jpg";
+import { whoShouldAttendData } from "../../content/erasmus";
 ---
 
 <div class="attend-section">
-  <h2 class="attend-title">Who should attend</h2>
+  <h2 class="attend-title">{whoShouldAttendData.title}</h2>
 
   <div class="attend-container">
     <div class="attend-left">
-      <div class="attend-item">
-        <div class="item-badge">1</div>
-        <p class="item-text">Undergraduate students</p>
-      </div>
-
-      <div class="attend-item">
-        <div class="item-badge">2</div>
-        <p class="item-text">Recent graduates</p>
-      </div>
-
-      <div class="attend-item">
-        <div class="item-badge">3</div>
-        <p class="item-text">Young professionals</p>
-      </div>
-
-      <div class="attend-item">
-        <div class="item-badge">4</div>
-        <p class="item-text">Researchers</p>
-      </div>
-
-      <div class="attend-item">
-        <div class="item-badge">5</div>
-        <p class="item-text">
-          Anyone planning to pursue a fully funded master's degree in Europe
-        </p>
-      </div>
+      {whoShouldAttendData.items.map((item) => (
+        <div class="attend-item">
+          <div class="item-badge">{item.number}</div>
+          <p class="item-text">{item.text}</p>
+        </div>
+      ))}
     </div>
 
     <div class="attend-right">
@@ -41,17 +22,12 @@ import whyAttendImage from "../../assets/volunteerWithUs.jpg";
   </div>
 
   <p class="description">
-    Although Nepal Climate Hub focuses on climate and sustainability, the
-    Erasmus Mundus scholarship spans <span class="highlight">200+ masters,</span
-    > making this event relevant to students from all academic backgrounds.
+    {whoShouldAttendData.description}
   </p>
 
   <div class="quote-box">
     <p class="quote-text">
-      Students who participate gain an extra edge and confidence in their
-      application journey, moving far ahead with the preparation guidance, tips,
-      and personal experiences of previous scholars, insights you will rarely
-      find elsewhere in your preparation journey.
+      {whoShouldAttendData.quote}
     </p>
   </div>
 </div>

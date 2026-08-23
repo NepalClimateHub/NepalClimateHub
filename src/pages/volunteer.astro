@@ -2,84 +2,91 @@
 export const prerender = false;
 
 // import global styles
-import '../styles/global.css';
+import "../styles/global.css";
 
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import VolunteerHeroSection from '@components/VolunteerHeroSection.astro';
-import VolunteerIntroSection from '@components/VolunteerIntroSection.astro';
-import VolunteerBenefitsSection from '@components/VolunteerBenefitsSection.astro';
-import VolunteerWithUsSection from '@components/VolunteerWithUsSection.astro';
-import VolunteerOpenRolesSection from '@components/VolunteerOpenRolesSection.astro';
-import VolunteerApplicationJourney from '@components/VolunteerApplicationJourney.astro';
-import VolunteerSection from '@components/VolunteerSection.astro';
-import BaseLayout from '../layouts/Layout.astro';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
-import teamData from '../data/team.json';
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import VolunteerHeroSection from "@components/VolunteerHeroSection.astro";
+import VolunteerIntroSection from "@components/VolunteerIntroSection.astro";
+import VolunteerBenefitsSection from "@components/VolunteerBenefitsSection.astro";
+import VolunteerWithUsSection from "@components/VolunteerWithUsSection.astro";
+import VolunteerOpenRolesSection from "@components/VolunteerOpenRolesSection.astro";
+import VolunteerApplicationJourney from "@components/VolunteerApplicationJourney.astro";
+import VolunteerSection from "@components/VolunteerSection.astro";
+import BaseLayout from "../layouts/Layout.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import teamData from "../data/team.json";
 
-import { fetchMembers  } from 'src/api/members.api';
+import { fetchMembers } from "src/api/members.api";
 
-const {volunteers} = await fetchMembers();
+let volunteers: any[] = [];
+try {
+  const membersData = await fetchMembers();
+  volunteers = membersData?.volunteers || [];
+} catch (error) {
+  console.error("Error fetching members during SSR:", error);
+  volunteers = [];
+}
 // for displaying error message if given object key are empty or fail our requirement
 const errors = {
-  name: '',
-  email: '',
-  currentResidence: '',
-  linkedinUrl: '',
-  cv: '',
-  bio: '',
-  experience: '',
-  motivation: '',
+  name: "",
+  email: "",
+  currentResidence: "",
+  linkedinUrl: "",
+  cv: "",
+  bio: "",
+  experience: "",
+  motivation: "",
 };
 
 // trigger when the request is POST
-if (Astro.request.method === 'POST') {
+if (Astro.request.method === "POST") {
   try {
     // gather the form data
     const data = await Astro.request.formData();
-    const name = data.get('name');
-    const email = data.get('email');
-    const currentResidence = data.get('current-residence');
-    const linkedinUrl = data.get('linkedin-url');
-    const role = data.get('role');
-    const bio = data.get('bio');
-    const experience = data.get('experience');
-    const motivation = data.get('motivation');
-    const profilePicture = data.get('profile-picture');
-    const cv = data.get('cv');
-    const questions = data.get('questions');
+    const name = data.get("name");
+    const email = data.get("email");
+    const currentResidence = data.get("current-residence");
+    const linkedinUrl = data.get("linkedin-url");
+    const role = data.get("role");
+    const bio = data.get("bio");
+    const experience = data.get("experience");
+    const motivation = data.get("motivation");
+    const profilePicture = data.get("profile-picture");
+    const cv = data.get("cv");
+    const questions = data.get("questions");
 
     // error handling
-    if (typeof name !== 'string' || name.length < 1) {
-      errors.name += 'Please enter your full name. ';
+    if (typeof name !== "string" || name.length < 1) {
+      errors.name += "Please enter your full name. ";
     }
 
-    if (typeof email !== 'string' || email.length < 1) {
-      errors.email += 'Email is not valid. ';
+    if (typeof email !== "string" || email.length < 1) {
+      errors.email += "Email is not valid. ";
     }
 
-    if (typeof currentResidence !== 'string' || currentResidence.length < 1) {
-      errors.currentResidence += 'Please enter your current residence. ';
+    if (typeof currentResidence !== "string" || currentResidence.length < 1) {
+      errors.currentResidence += "Please enter your current residence. ";
     }
 
-    if (typeof linkedinUrl !== 'string' || linkedinUrl.length < 1) {
-      errors.currentResidence += 'Please enter your LinkedIn profile URL. ';
+    if (typeof linkedinUrl !== "string" || linkedinUrl.length < 1) {
+      errors.currentResidence += "Please enter your LinkedIn profile URL. ";
     }
 
-    if (typeof bio !== 'string' || bio.length < 1) {
-      errors.bio += 'Please enter your bio. ';
+    if (typeof bio !== "string" || bio.length < 1) {
+      errors.bio += "Please enter your bio. ";
     }
 
-    if (typeof experience !== 'string' || experience.length < 1) {
-      errors.experience += 'Please enter your experience. ';
+    if (typeof experience !== "string" || experience.length < 1) {
+      errors.experience += "Please enter your experience. ";
     }
 
-    if (typeof motivation !== 'string' || motivation.length < 1) {
-      errors.motivation += 'Please enter your motivation. ';
+    if (typeof motivation !== "string" || motivation.length < 1) {
+      errors.motivation += "Please enter your motivation. ";
     }
 
-    if (typeof cv !== 'string' || cv.length < 1) {
-      errors.cv += 'Please enter the link to your CV. ';
+    if (typeof cv !== "string" || cv.length < 1) {
+      errors.cv += "Please enter the link to your CV. ";
     }
 
     // payload for our request
@@ -104,25 +111,25 @@ if (Astro.request.method === 'POST') {
     if (!hasErrors) {
       // make a api post request to save our data (save-volunteer.ts)
       const response = await fetch(
-        'https://nepalclimatehub.org/api/save-volunteer',
+        "https://nepalclimatehub.org/api/save-volunteer",
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(volunteerData),
-        }
+        },
       );
 
       if (response.ok) {
         // set up the cookies values
-        Astro.cookies.set('successType', 'volunteerProfile', {
-          path: '/success',
+        Astro.cookies.set("successType", "volunteerProfile", {
+          path: "/success",
         });
 
-        return Astro.redirect('/success');
+        return Astro.redirect("/success");
       } else {
-        console.error('Failed to save volunteer data');
+        console.error("Failed to save volunteer data");
       }
     }
   } catch (error) {

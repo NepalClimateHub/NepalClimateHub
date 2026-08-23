@@ -1,40 +1,13 @@
 ---
-interface ImpactStat {
-  id: string;
-  number: string;
-  label: string;
-}
-
-const impactStats: ImpactStat[] = [
-  {
-    id: "stat-1",
-    number: "915",
-    label: "Registrations",
-  },
-  {
-    id: "stat-2",
-    number: "7",
-    label: "Provinces represented",
-  },
-  {
-    id: "stat-3",
-    number: "10",
-    label: "Nepalese universities",
-  },
-  {
-    id: "stat-4",
-    number: "10+",
-    label: "Speakers",
-  },
-];
+import { impactStats, lastEditionImpactData } from "../../content/erasmus";
 ---
 
 <div class="impact-section">
   <div class="impact-container">
-    <h2 class="section-title">Last Edition Impact</h2>
+    <h2 class="section-title">{lastEditionImpactData.title}</h2>
 
     <p class="section-subtitle">
-      The first edition, held on August 2025, exceeded all expectations.
+      {lastEditionImpactData.subtitle}
     </p>
 
     <div class="stats-grid">
