@@ -1,6 +1,8 @@
-// Shared utilities
-// Use API_BASE_URL from environment variables
-const rawApiBaseUrl = import.meta.env.API_BASE_URL;
+// Use API_BASE_URL or PUBLIC_API_BASE_URL from environment variables
+const rawApiBaseUrl =
+  import.meta.env.PUBLIC_API_BASE_URL ||
+  import.meta.env.API_BASE_URL ||
+  'http://localhost:8081';
 
 // Normalize the URL to fix common issues (missing slashes, trailing slashes, etc.)
 function normalizeApiUrl(url: string | undefined): string | undefined {
@@ -24,7 +26,7 @@ const API_BASE_URL = normalizeApiUrl(rawApiBaseUrl);
 if (!API_BASE_URL) {
   console.error(
     'API_BASE_URL is not defined in environment variables. ' +
-      'Please set API_BASE_URL in your .env file.'
+    'Please set API_BASE_URL in your .env file.'
   );
 } else if (rawApiBaseUrl !== API_BASE_URL) {
   console.warn(
@@ -67,3 +69,5 @@ export * from './events.api';
 export * from './blogs.api';
 export * from './resources.api';
 export * from './projects.api';
+export * from './vacancies.api';
+
