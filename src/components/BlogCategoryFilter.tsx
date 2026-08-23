@@ -1,39 +1,40 @@
-import { useState } from 'react';
-import styles from '../styles/components/Blogs.module.css';
-import type { Blog } from '../types/blog';
-import BlogCard from './BlogCard';
-import WriteBlog from './WriteBlog';
+import { useState } from "react";
+import styles from "../styles/components/Blogs.module.css";
+import type { Blog } from "../types/blog";
+import BlogCard from "./BlogCard";
+import WriteBlog from "./WriteBlog";
 
 interface Props {
   blogs: Blog[];
 }
 
 const categories = [
-  'All',
-  'Voices & Stories',
-  'Community',
-  'Education',
-  'Environment',
-  'Climate Technology',
-  'Climate Policy',
-  'Sustainability',
-  'Climate Justice',
-  'Climate Science',
+  "All",
+  "Voices & Stories",
+  "Community",
+  "Education",
+  "Environment",
+  "Climate Technology",
+  "Climate Policy",
+  "Sustainability",
+  "Climate Justice",
+  "Climate Science",
 ];
 
 export default function BlogCategoryFilter({ blogs }: Props) {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredBlogs =
-    activeCategory === 'All'
+    activeCategory === "All"
       ? blogs
       : blogs.filter(
           (blog) =>
-            blog.category?.toLowerCase() === activeCategory.toLowerCase()
+            blog.category?.toLowerCase() === activeCategory.toLowerCase(),
         );
 
   return (
     <div className={styles.sectionContainer}>
+      <WriteBlog />
       <h2 className={styles.sectionTitle}>Browse by Category</h2>
 
       {/* Category Filter Buttons */}
@@ -49,7 +50,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
             }`}
             onClick={() => setActiveCategory(category)}
           >
-            {category.replace('-', ' ')}
+            {category.replace("-", " ")}
           </button>
         ))}
       </div>
@@ -60,7 +61,6 @@ export default function BlogCategoryFilter({ blogs }: Props) {
           {filteredBlogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />
           ))}
-          <WriteBlog />
         </div>
       ) : (
         <p className={styles.noResults}>No blogs found in this category.</p>
