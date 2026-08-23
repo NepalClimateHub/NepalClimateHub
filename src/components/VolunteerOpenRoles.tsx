@@ -32,9 +32,11 @@ export const VolunteerOpenRoles: React.FC<VolunteerOpenRolesProps> = ({
       try {
         if (vacancies.length === 0) setLoading(true);
         const res = await fetchVacancies();
-        setVacancies(res?.data || []);
+        if (res?.data && Array.isArray(res.data)) {
+          setVacancies(res.data);
+        }
       } catch (err) {
-        console.error('Error fetching vacancies:', err);
+        console.error('Error fetching vacancies client-side:', err);
         if (vacancies.length === 0) {
           setError('Failed to load open roles.');
         }
