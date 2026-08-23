@@ -1,5 +1,6 @@
 ---
 import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
+import { faqData } from "../../content/erasmus";
 ---
 
 <section>
@@ -7,11 +8,10 @@ import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
     <div class="faq-wrapper">
       <!-- Left Side -->
       <div class="faq-left">
-        <div class="section-badge-text">Frequently asked questions</div>
-        <h2 class="section-title">Everything you need to know</h2>
+        <div class="section-badge-text">{faqData.badgeText}</div>
+        <h2 class="section-title">{faqData.title}</h2>
         <p class="faq-description">
-          Have questions about the event? Check our FAQ section or reach out to
-          the Nepal Climate Hub team for more information.
+          {faqData.description}
         </p>
       </div>
 
@@ -28,21 +28,21 @@ import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
 <style>
   .section-container {
     max-width: 1280px;
-    margin: 0 auto 64px;
+    margin: 0 auto;
     width: 100%;
-    padding: 0;
+    padding: 78px 0;
   }
 
   .faq-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 48px;
+    gap: 44px;
     align-items: flex-start;
   }
 
   .faq-left {
     flex: 0 0 auto;
-    max-width: 380px;
+    max-width: 400px;
   }
 
   .faq-right {
@@ -51,50 +51,47 @@ import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
   }
 
   .section-badge-text {
-    font-family: Roboto, sans-serif;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     color: #364fc7;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
   }
 
   .section-title {
     font-family: "Zilla Slab", serif;
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 600;
     color: #1a1b1e;
-    line-height: 130%;
-    margin: 0;
+    margin-top: 0;
+    line-height: 50px;
+    margin-bottom: 0;
   }
 
   .faq-description {
-    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #4a4b4e;
-    line-height: 150%;
-    margin-top: 16px;
+    color: #1a1b1e;
+    line-height: 24px;
+    margin-top: 24px;
     margin-bottom: 0;
   }
 
   .accordion-container {
     background-color: #ffffff;
-    border-radius: 16px;
-    border: 1px solid #ebf1f7;
+    border-radius: 12px;
     overflow: hidden;
   }
 
   @media (max-width: 1024px) {
     .section-container {
-      margin-bottom: 48px;
+      padding: 56px 0;
     }
 
     .faq-wrapper {
       flex-direction: column;
       align-items: stretch;
-      gap: 32px;
     }
 
     .faq-left {
@@ -102,31 +99,35 @@ import ErasmusMundusAccordion from "./ErasmusMundusAccordion.jsx";
     }
 
     .section-title {
-      font-size: 28px;
-      line-height: 130%;
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-container {
+      padding: 48px 0;
+    }
+
+    .faq-wrapper {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      line-height: 32px;
     }
 
     .faq-description {
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 20px;
     }
   }
 
   @media (max-width: 560px) {
     .section-container {
-      margin-bottom: 36px;
-    }
-
-    .faq-wrapper {
-      gap: 24px;
-    }
-
-    .section-title {
-      font-size: 24px;
-    }
-
-    .faq-description {
-      font-size: 14px;
-      margin-top: 12px;
+      padding: 40px 0;
     }
   }
 </style>

@@ -1,79 +1,28 @@
 ---
-
+import { whatYouWillLearnData } from "../../content/erasmus";
 ---
 
 <div class="learn-section">
   <div class="learn-container">
     <div class="learn-left">
-      <h2 class="learn-title">What you will learn</h2>
+      <h2 class="learn-title">{whatYouWillLearnData.title}</h2>
       <p class="learn-subtitle">
-        Our program is based on properly guiding you through every aspect of the
-        scholarship, covering the entire application journey.
+        {whatYouWillLearnData.subtitle}
       </p>
     </div>
 
     <div class="learn-right">
-      <div class="learn-item">
-        <span class="item-number">01</span>
-        <p class="item-text">Understand the Erasmus Mundus scholarship</p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">02</span>
-        <p class="item-text">Navigate the Erasmus Mundus programme catalogue</p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">03</span>
-        <p class="item-text">
-          Research programs, requirements, and partner universities
-        </p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">04</span>
-        <p class="item-text">Choose programs that match their interests</p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">05</span>
-        <p class="item-text">
-          Build a CV the admission committee wants (in European format)
-        </p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">06</span>
-        <p class="item-text">Write a compelling motivation letter</p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">07</span>
-        <p class="item-text">Secure strong reference letters</p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">08</span>
-        <p class="item-text">Avoid common application mistakes</p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">09</span>
-        <p class="item-text">
-          Learn directly from previous scholarship recipients
-        </p>
-      </div>
-
-      <div class="learn-item">
-        <span class="item-number">10</span>
-        <p class="item-text">Ask questions during an interactive Q&A session</p>
-      </div>
+      {whatYouWillLearnData.items.map((item) => (
+        <div class="learn-item">
+          <span class="item-number">{item.number}</span>
+          <p class="item-text">{item.text}</p>
+        </div>
+      ))}
     </div>
   </div>
 
   <p class="learn-footer">
-    Many of these are also required for other scholarships and universities, so
-    regardless, you'll be prepared for scholarships across the world!
+    {whatYouWillLearnData.footer}
   </p>
 </div>
 
@@ -82,41 +31,39 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 64px 0;
-    margin: 0 auto 64px;
+    margin: 72px auto;
     max-width: 1280px;
   }
 
   .learn-container {
     display: flex;
-    gap: 48px;
-    margin-bottom: 36px;
+    gap: 52px;
+    margin-bottom: 40px;
     justify-content: space-between;
   }
 
   .learn-left {
-    width: 340px;
-    flex-shrink: 0;
+    width: 359px;
     display: flex;
     flex-direction: column;
   }
 
   .learn-title {
-    font-family: "Zilla Slab", serif;
-    font-weight: 700;
-    font-size: 32px;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
     line-height: 130%;
     color: #1a1b1e;
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   .learn-subtitle {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
-    color: #4a4b4e;
+    font-size: 20px;
+    line-height: 28px;
+    color: #666666;
     margin: 0;
   }
 
@@ -129,8 +76,8 @@
   .learn-item {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 14px 0;
+    gap: 24px;
+    padding: 12.63px 0;
     border-bottom: 1px solid #eaeaea;
   }
 
@@ -141,19 +88,19 @@
   .item-number {
     font-family: "Zilla Slab", serif;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 100%;
+    font-size: 32px;
+    line-height: 32px;
     color: #364fc7;
     flex-shrink: 0;
-    min-width: 32px;
+    min-width: 40px;
   }
 
   .item-text {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #2d2e31;
+    font-size: 24px;
+    line-height: 34px;
+    color: #343232;
     margin: 0;
   }
 
@@ -161,24 +108,59 @@
     font-family: "Zilla Slab", serif;
     font-weight: 600;
     font-style: italic;
-    font-size: 20px;
-    line-height: 140%;
+    font-size: 24px;
+    line-height: 28px;
     text-align: center;
     color: #1a1b1e;
     margin: 0;
-    margin-top: 16px;
   }
 
   /* Tablet */
   @media screen and (max-width: 1024px) {
     .learn-section {
-      padding: 48px 0;
-      margin-bottom: 48px;
+      margin-top: 44px;
+      margin-bottom: 44px;
+    }
+
+    .learn-container {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .learn-left {
+      width: 100%;
+    }
+
+    .learn-title {
+      font-size: 32px;
+    }
+
+    .learn-subtitle {
+      font-size: 18px;
+    }
+
+    .item-text {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .learn-footer {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+    .learn-section {
+      margin-top: 32px;
+      margin-bottom: 32px;
     }
 
     .learn-container {
       flex-direction: column;
       gap: 24px;
+      margin-bottom: 32px;
     }
 
     .learn-left {
@@ -187,29 +169,41 @@
 
     .learn-title {
       font-size: 28px;
-      line-height: 130%;
+      line-height: 28px;
+      margin-bottom: 16px;
     }
 
     .learn-subtitle {
       font-size: 16px;
+      line-height: 24px;
+    }
+
+    .learn-item {
+      gap: 16px;
+      padding: 12px 0;
+    }
+
+    .item-number {
+      font-size: 28px;
+      line-height: 36px;
+      min-width: 36px;
     }
 
     .item-text {
-      font-size: 15px;
-      line-height: 145%;
+      font-size: 18px;
+      line-height: 24px;
     }
 
     .learn-footer {
       font-size: 18px;
-      line-height: 135%;
+      line-height: 22px;
     }
   }
 
-  /* Mobile */
   @media screen and (max-width: 560px) {
     .learn-section {
-      padding: 36px 0;
-      margin-bottom: 36px;
+      margin-top: 24px;
+      margin-bottom: 24px;
     }
 
     .learn-container {
@@ -223,27 +217,28 @@
 
     .learn-subtitle {
       font-size: 14px;
-      line-height: 145%;
+      line-height: 20px;
     }
 
     .learn-item {
       gap: 12px;
-      padding: 12px 0;
+      padding: 10px 0;
     }
 
     .item-number {
-      font-size: 20px;
-      min-width: 28px;
+      font-size: 24px;
+      line-height: 32px;
+      min-width: 32px;
     }
 
     .item-text {
-      font-size: 14px;
-      line-height: 140%;
+      font-size: 16px;
+      line-height: 22px;
     }
 
     .learn-footer {
       font-size: 16px;
-      line-height: 135%;
+      line-height: 20px;
     }
   }
 </style>

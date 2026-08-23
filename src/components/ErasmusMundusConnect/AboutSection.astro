@@ -1,9 +1,9 @@
 ---
-
+import { aboutData } from "../../content/erasmus";
 ---
 
 <div class="about-section">
-  <h2 class="about-title">About the event</h2>
+  <h2 class="about-title">{aboutData.title}</h2>
 
   <p class="about-paragraph">
     Erasmus Mundus Connect Nepal 2026 is one of the NCH's flagship
@@ -11,12 +11,12 @@
     the Erasmus Mundus Joint Master's Scholarship – a prestigious, fully funded
     European Union program covering 200+ master's degrees across <span
       class="highlight"
-      >climate, environment, agriculture, forestry, food systems, technology</span
+      >{aboutData.highlights[0]}</span
     > and more.
   </p>
 
   <p class="about-paragraph">
-    <span class="highlight">Investing in young people</span> is one of the most effective
+    <span class="highlight">{aboutData.highlights[1]}</span> is one of the most effective
     ways to address Nepal's long-term environmental and development challenges. Erasmus
     Mundus equips youth with new knowledge, global networks, and practical skills
     to apply locally. Through this initiative, we make these opportunities more accessible
@@ -27,16 +27,13 @@
 
   <p class="about-paragraph">
     Last year,
-    <span class="highlight">915</span> students from all 7 provinces showed up for
+    <span class="highlight">{aboutData.highlights[2]}</span> students from all 7 provinces showed up for
     edition one. This year, we're going bigger and better.
   </p>
 
   <div class="quote-box">
     <q class="quote-text">
-      Many talented students, despite their potential, remain unaware that these
-      scholarships exist. Many more don't know how to prepare a competitive
-      application. And most lack the support system needed to turn interest and
-      potential into an actual offer. We hope to bridge this gap!
+      {aboutData.quote}
     </q>
   </div>
 </div>
@@ -48,52 +45,53 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-bottom: 64px;
     max-width: 1280px;
   }
 
   .about-title {
-    font-family: "Zilla Slab", serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 32px;
     color: #1a1b1e;
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .about-paragraph {
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 160%;
-    color: #2d2e31;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #1a1b1e;
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   .about-paragraph:last-of-type {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 
   .highlight {
     font-weight: 600;
-    color: #1a1b1e;
+    color: #292929;
   }
 
   .quote-box {
     background: #364fc7;
     border-radius: 16px;
-    padding: 36px 32px;
-    max-width: 100%;
+    padding: 40px 24px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
   .quote-text {
     font-family: "Zilla Slab", serif;
     font-weight: 600;
-    font-size: 22px;
-    line-height: 140%;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -1%;
     text-align: center;
     color: #ffffff;
     margin: 0;
@@ -101,56 +99,69 @@
 
   /* Tablet */
   @media screen and (max-width: 1024px) {
-    .about-section {
-      margin-bottom: 48px;
-    }
-
     .about-title {
-      font-size: 28px;
-      line-height: 130%;
+      font-size: 32px;
     }
 
     .about-paragraph {
-      font-size: 15px;
-      line-height: 155%;
-    }
-
-    .quote-box {
-      padding: 28px 24px;
+      font-size: 16px;
+      line-height: 24px;
     }
 
     .quote-text {
-      font-size: 19px;
-      line-height: 135%;
+      font-size: 20px;
     }
   }
 
   /* Mobile */
+  @media screen and (max-width: 768px) {
+    .about-title {
+      font-size: 28px;
+      line-height: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about-paragraph {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 16px;
+    }
+
+    .about-paragraph:last-of-type {
+      margin-bottom: 32px;
+    }
+
+    .quote-box {
+      padding: 32px 20px;
+    }
+
+    .quote-text {
+      font-size: 18px;
+    }
+  }
+
   @media screen and (max-width: 560px) {
     .about-section {
-      margin-bottom: 36px;
+      margin-bottom: 24px;
     }
 
     .about-title {
       font-size: 24px;
-      line-height: 130%;
-      margin-bottom: 16px;
+      line-height: 24px;
     }
 
     .about-paragraph {
-      font-size: 14px;
-      line-height: 150%;
-      margin-bottom: 14px;
+      font-size: 15px;
+      line-height: 22px;
     }
 
     .quote-box {
-      padding: 20px 16px;
-      border-radius: 12px;
+      padding: 24px 16px;
     }
 
     .quote-text {
       font-size: 16px;
-      line-height: 135%;
+      line-height: 120%;
     }
   }
 </style>
