@@ -149,11 +149,13 @@ export const heroData = {
   title: "Erasmus Mundus Connect Nepal 2026",
   subtitle:
     "Empowering Nepalese students to access fully funded European education and bring global knowledge back to solve Nepal's climate, environmental, technological, and development challenges.",
-  buttonText: "Registration opens soon",
+  buttonText: "Registration Open",
+  buttonLink:
+    "https://docs.google.com/forms/d/e/1FAIpQLSfpkILPVtVxKY3kI8Lyo-chYR5A8soGPTLcENCghBhKjwZOBA/viewform?usp=sharing&ouid=105240458402098881478",
   infoItems: [
     {
       label: "Date",
-      value: "September, 2026",
+      value: "September 19, 2026",
     },
     {
       label: "Speakers",
@@ -192,7 +194,7 @@ export const scholarshipBenefitData = {
   benefits: [
     { id: "benefit-1", text: "Full Tuition Fees" },
     { id: "benefit-2", text: "Travel allowance" },
-    { id: "benefit-3", text: "Monthly living stipend (1,300 Euros)" },
+    { id: "benefit-3", text: "Monthly living stipend (1,400 Euros)" },
     { id: "benefit-4", text: "Health Insurance" },
     {
       id: "benefit-5",
