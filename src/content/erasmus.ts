@@ -58,25 +58,12 @@ export const impactStats = [
   },
 ];
 
-// Partnership Data
-export const inPartnershipWith = [
-  {
-    id: "partner-1",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-  {
-    id: "partner-2",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-];
-
 export const supportedBy = [
   {
     id: "supporter-1",
-    name: "Your Organization Name",
+    name: "Erasmus Nepal",
     location: "Location",
+    logo: 
   },
   {
     id: "supporter-2",
@@ -149,7 +136,7 @@ export const scholarshipBenefitData = {
   benefits: [
     { id: "benefit-1", text: "Full Tuition Fees" },
     { id: "benefit-2", text: "Travel allowance" },
-    { id: "benefit-3", text: "Monthly living stipend (1,300 Euros)" },
+    { id: "benefit-3", text: "Monthly living stipend (1,400 Euros)" },
     { id: "benefit-4", text: "Health Insurance" },
     {
       id: "benefit-5",

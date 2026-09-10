@@ -1,29 +1,9 @@
 ---
-import {
-  inPartnershipWith,
-  supportedBy,
-  communityPartners,
-} from "../../content/erasmus";
+import { supportedBy, communityPartners } from "../../content/erasmus";
 ---
 
 <div class="partnership-section">
   <div class="partnership-container">
-    <h2 class="section-title">In partnership with</h2>
-
-    <div class="cards-container">
-      {
-        inPartnershipWith.map((partner) => (
-          <div class="partner-card">
-            <div class="logo-container">
-              <p class="logo-placeholder">Organization Logo</p>
-            </div>
-            <h4 class="organization-name">{partner.name}</h4>
-            <p class="organization-location">{partner.location}</p>
-          </div>
-        ))
-      }
-    </div>
-
     <h2 class="section-title supported-title">Supported by</h2>
 
     <div class="cards-container">
