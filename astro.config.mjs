@@ -1,14 +1,28 @@
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import net0Integration from './toolbar/integration.ts';
-import netlify from '@astrojs/netlify';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://nepalclimatehub.org',
   output: 'server',
+  env: {
+    schema: {
+      // `context: 'client'` because src/api/index.ts is isomorphic: it is pulled into
+      // the browser bundle via VolunteerOpenRoles.tsx (client:load). The value is
+      // inlined at build time from `.env` and is public anyway.
+      API_BASE_URL: envField.string({
+        context: 'client',
+        access: 'public',
+        default: 'https://api.cms.nepalclimatehub.org',
+      }),
+      // Secrets: read at runtime from the Worker env. Set with `wrangler secret put`,
+      // and mirror them in `.dev.vars` for local dev. Read via `getSecret('NAME')`.
+    },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['es', 'en'],
@@ -28,9 +42,13 @@ export default defineConfig({
     [icon()],
     react(),
   ],
-  adapter: netlify(),
+  adapter: cloudflare({
+    imageService: 'compile',
+    platformProxy: {
+      enabled: true,
+    },
+  }),
   vite: {
-    envPrefix: 'PUBLIC_',
     resolve: {
       alias: {
         '@layouts': '/src/layouts',

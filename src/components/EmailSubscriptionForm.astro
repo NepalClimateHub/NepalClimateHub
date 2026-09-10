@@ -1,10 +1,9 @@
 ---
+import { API_BASE_URL } from 'astro:env/client';
+
 interface Props {
   formBtnVariant?: 'footer' | 'primary';
 }
-
-// Get API_BASE_URL from server-side
-const API_BASE_URL = import.meta.env.API_BASE_URL;
 
 const { formBtnVariant = 'footer' } = Astro.props;
 ---
