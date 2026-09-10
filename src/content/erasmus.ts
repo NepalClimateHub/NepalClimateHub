@@ -1,3 +1,17 @@
+import erasmusNepalLogo from "../assets/erasmus/logos/erasmusNepal.jpg";
+import sheTech from "../assets/erasmus/logos/sheTech.png";
+import rotaractBalaju from "../assets/erasmus/logos/rotaractBalaju.jpg";
+import soes from "../assets/erasmus/logos/soes.jpg";
+import cess from "../assets/erasmus/logos/cess.jpg";
+import sowrec from "../assets/erasmus/logos/sowrec.jpg";
+import bcnHetauda from "../assets/erasmus/logos/bcnHetauda.webp";
+import nycaHetauda from "../assets/erasmus/logos/nycaHetauda.png";
+import safeNepal from "../assets/erasmus/logos/safeNepal.jpg";
+import awsCloudPnc from "../assets/erasmus/logos/awsCloudPnc.jpg";
+import stemSisters from "../assets/erasmus/logos/stemSisters.jpg";
+import kvaa from "../assets/erasmus/logos/kvaa.png";
+import ainfyn from "../assets/erasmus/logos/ainfyn.jpeg";
+
 // Speakers Data
 export const speakers = [
   {
@@ -58,43 +72,74 @@ export const impactStats = [
   },
 ];
 
-// Partnership Data
-export const inPartnershipWith = [
-  {
-    id: "partner-1",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-  {
-    id: "partner-2",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-];
-
 export const supportedBy = [
   {
     id: "supporter-1",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-  {
-    id: "supporter-2",
-    name: "Your Organization Name",
-    location: "Location",
+    name: "Erasmus Nepal",
+    logo: erasmusNepalLogo.src,
   },
 ];
 
 export const communityPartners = [
   {
     id: "community-1",
-    name: "Your Organization Name",
-    location: "Location",
+    name: "SheTech PNC",
+    logo: sheTech.src,
   },
   {
     id: "community-2",
-    name: "Your Organization Name",
-    location: "Location",
+    name: "Rotaract Club of Balaju",
+    logo: rotaractBalaju.src,
+  },
+  {
+    id: "community-3",
+    name: "Society of Engineering Students(SOES)",
+    logo: soes.src,
+  },
+  {
+    id: "community-4",
+    name: "CESS(Club of Environmental Science Saptagandaki)",
+    logo: cess.src,
+  },
+  {
+    id: "community-5",
+    name: "Society for Wildlife Research and Conservation (SOWREC)",
+    logo: sowrec.src,
+  },
+  {
+    id: "community-6",
+    name: "BCN Hetauda",
+    logo: bcnHetauda.src,
+  },
+  {
+    id: "community-7",
+    name: "NYCA Hetauda",
+    logo: nycaHetauda.src,
+  },
+  {
+    id: "community-8",
+    name: "SAFE-Nepal",
+    logo: safeNepal.src,
+  },
+  {
+    id: "community-9",
+    name: "AWS-Cloud Club PNC",
+    logo: awsCloudPnc.src,
+  },
+  {
+    id: "community-10",
+    name: "Stem Sisters",
+    logo: stemSisters.src,
+  },
+  {
+    id: "community-11",
+    name: "Kopila Valley Alumni Association",
+    logo: kvaa.src,
+  },
+  {
+    id: "community-12",
+    name: "Amnesty International Nepal Forestry Youth Network (AINFYN)",
+    logo: ainfyn.src,
   },
 ];
 
