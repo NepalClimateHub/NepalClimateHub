@@ -14,7 +14,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/cloudflare": "^12.6.13",
-    "@astrojs/netlify": "^6.6.5",
     "@astrojs/node": "^9.5.5",
     "@astrojs/react": "^4.4.2",
     "@astrojs/rss": "^4.0.19",
@@ -36,7 +35,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@tgwf/co2": "^0.15.0",
-    "@types/node": "^20.19.43",
+    "@types/node": "^22.0.0",
     "@types/ws": "^8.18.1",
     "lefthook": "^1.13.6",
     "wrangler": "^4.131.0"
