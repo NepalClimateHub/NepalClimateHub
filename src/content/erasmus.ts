@@ -1,35 +1,103 @@
+import erasmusNepalLogo from "../assets/erasmus/logos/erasmusNepal.jpg";
+import sheTech from "../assets/erasmus/logos/sheTech.png";
+import rotaractBalaju from "../assets/erasmus/logos/rotaractBalaju.jpg";
+import soes from "../assets/erasmus/logos/soes.jpg";
+import cess from "../assets/erasmus/logos/cess.jpg";
+import sowrec from "../assets/erasmus/logos/sowrec.jpg";
+import bcnHetauda from "../assets/erasmus/logos/bcnHetauda.webp";
+import nycaHetauda from "../assets/erasmus/logos/nycaHetauda.png";
+import safeNepal from "../assets/erasmus/logos/safeNepal.jpg";
+import awsCloudPnc from "../assets/erasmus/logos/awsCloudPnc.jpg";
+import stemSisters from "../assets/erasmus/logos/stemSisters.jpg";
+import kvaa from "../assets/erasmus/logos/kvaa.png";
+import ainfyn from "../assets/erasmus/logos/ainfyn.jpeg";
+
 // Speakers Data
 export const speakers = [
   {
     id: "speaker-1",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/johnanderson",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    name: "Nirisha Manandhar",
+    qualification: "Senior Associate AI Engineer at PwC",
+    location:
+      "Master in Transition, Innovation and Sustainability Environments (2023-2025) | Portugal, Ireland, Poland, Austria",
+    linkedinUrl: null,
+    image:
+      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Nirisha-Manandhar.png",
   },
   {
     id: "speaker-2",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/sarahchen",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    name: "Sunika Joshi",
+    qualification: "Co-founder of Lighthouse Neural",
+    location: "Global MINDS program (2018–2020) | Poland, Turkey, Portugal",
+    linkedinUrl: null,
+    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sunika-Joshi.jpg",
   },
   {
     id: "speaker-3",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/mariedubois",
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    name: "Aakriti Maraseni",
+    qualification: "Erasmus Mundus Scholar",
+    location:
+      "Master’s in Aquaculture, Environment and Society (2024-2026) | Scotland, Greece, France",
+    linkedinUrl: null,
+    image:
+      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Aakriti%20Maraseni.jpg",
   },
   {
     id: "speaker-4",
-    name: "will be updated soon",
-    qualification: "will be updated soon",
-    location: "will be updated soon",
-    linkedinUrl: "https://linkedin.com/in/marcorossi",
+    name: "Manisha Koirala",
+    qualification: "Erasmus Mundus Scholar",
+    location: "Master's in Plant Breeding (2024-2026) | Hungary, Austria",
+    linkedinUrl: null,
+    image:
+      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Manisha%20Koirala.jpg",
+  },
+  {
+    id: "speaker-5",
+    name: "Bibek Pant",
+    qualification: "Founder of Nepal Climate Hub",
+    location:
+      "Masters in Geospatial Technologies (2024-2026) | Spain, Germany, Portugal",
+    linkedinUrl: null,
+    image: "https://ik.imagekit.io/mbccqjudb/production/Bibek_m5Ebi4sGA.webp",
+  },
+  {
+    id: "speaker-6",
+    name: "To be updated",
+    qualification: null,
+    location: null,
+    linkedinUrl: null,
+    image: "https://placehold.co/400x400?text=Speaker+Image",
+  },
+  {
+    id: "speaker-7",
+    name: "To be updated",
+    qualification: null,
+    location: null,
+    linkedinUrl: null,
+    image: "https://placehold.co/400x400?text=Speaker+Image",
+  },
+  {
+    id: "speaker-8",
+    name: "To be updated",
+    qualification: null,
+    location: null,
+    linkedinUrl: null,
+    image: "https://placehold.co/400x400?text=Speaker+Image",
+  },
+  {
+    id: "speaker-9",
+    name: "To be updated",
+    qualification: null,
+    location: null,
+    linkedinUrl: null,
+    image: "https://placehold.co/400x400?text=Speaker+Image",
+  },
+  {
+    id: "speaker-10",
+    name: "To be updated",
+    qualification: null,
+    location: null,
+    linkedinUrl: null,
     image: "https://placehold.co/400x400?text=Speaker+Image",
   },
 ];
@@ -58,43 +126,74 @@ export const impactStats = [
   },
 ];
 
-// Partnership Data
-export const inPartnershipWith = [
-  {
-    id: "partner-1",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-  {
-    id: "partner-2",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-];
-
 export const supportedBy = [
   {
     id: "supporter-1",
-    name: "Your Organization Name",
-    location: "Location",
-  },
-  {
-    id: "supporter-2",
-    name: "Your Organization Name",
-    location: "Location",
+    name: "Erasmus Nepal",
+    logo: erasmusNepalLogo.src,
   },
 ];
 
 export const communityPartners = [
   {
     id: "community-1",
-    name: "Your Organization Name",
-    location: "Location",
+    name: "SheTech PNC",
+    logo: sheTech.src,
   },
   {
     id: "community-2",
-    name: "Your Organization Name",
-    location: "Location",
+    name: "Rotaract Club of Balaju",
+    logo: rotaractBalaju.src,
+  },
+  {
+    id: "community-3",
+    name: "Society of Engineering Students(SOES)",
+    logo: soes.src,
+  },
+  {
+    id: "community-4",
+    name: "CESS(Club of Environmental Science Saptagandaki)",
+    logo: cess.src,
+  },
+  {
+    id: "community-5",
+    name: "Society for Wildlife Research and Conservation (SOWREC)",
+    logo: sowrec.src,
+  },
+  {
+    id: "community-6",
+    name: "BCN Hetauda",
+    logo: bcnHetauda.src,
+  },
+  {
+    id: "community-7",
+    name: "NYCA Hetauda",
+    logo: nycaHetauda.src,
+  },
+  {
+    id: "community-8",
+    name: "SAFE-Nepal",
+    logo: safeNepal.src,
+  },
+  {
+    id: "community-9",
+    name: "AWS-Cloud Club PNC",
+    logo: awsCloudPnc.src,
+  },
+  {
+    id: "community-10",
+    name: "Stem Sisters",
+    logo: stemSisters.src,
+  },
+  {
+    id: "community-11",
+    name: "Kopila Valley Alumni Association",
+    logo: kvaa.src,
+  },
+  {
+    id: "community-12",
+    name: "Amnesty International Nepal Forestry Youth Network (AINFYN)",
+    logo: ainfyn.src,
   },
 ];
 
@@ -104,11 +203,13 @@ export const heroData = {
   title: "Erasmus Mundus Connect Nepal 2026",
   subtitle:
     "Empowering Nepalese students to access fully funded European education and bring global knowledge back to solve Nepal's climate, environmental, technological, and development challenges.",
-  buttonText: "Registration opens soon",
+  buttonText: "Registration Open",
+  buttonLink:
+    "https://docs.google.com/forms/d/e/1FAIpQLSfpkILPVtVxKY3kI8Lyo-chYR5A8soGPTLcENCghBhKjwZOBA/viewform?usp=sharing&ouid=105240458402098881478",
   infoItems: [
     {
       label: "Date",
-      value: "September, 2026",
+      value: "September 19, 2026",
     },
     {
       label: "Speakers",
@@ -147,7 +248,7 @@ export const scholarshipBenefitData = {
   benefits: [
     { id: "benefit-1", text: "Full Tuition Fees" },
     { id: "benefit-2", text: "Travel allowance" },
-    { id: "benefit-3", text: "Monthly living stipend (1,300 Euros)" },
+    { id: "benefit-3", text: "Monthly living stipend (1,400 Euros)" },
     { id: "benefit-4", text: "Health Insurance" },
     {
       id: "benefit-5",
