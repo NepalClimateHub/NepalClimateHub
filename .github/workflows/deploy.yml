@@ -8,8 +8,7 @@ on:
 
 jobs:
   build-and-deploy:
-    if: github.event_name == 'push'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
@@ -20,60 +19,23 @@ jobs:
         with:
           node-version: 22
 
+      # Build-time config. API_BASE_URL is inlined by Vite during `astro build`,
+      # so it has to exist here, not as a Worker runtime binding. Falls back to
+      # the default declared in the env.schema block of astro.config.mjs.
       - name: Create .env file
         run: echo "${{ secrets.ENV_FILE }}" > .env
 
       - name: Install dependencies
         run: npm install
 
+      # Runs on pull requests too, so a broken build is caught before merge.
       - name: Build
         run: npm run build
 
-      - name: Deploy and Restart Service
-        run: |
-          echo "Deploying Node.js server..."
-
-          # Copy built files to deployment directory
-          DEPLOY_DIR="/var/www/nepalclimatehub"
-          sudo mkdir -p $DEPLOY_DIR
-
-          # Remove old node_modules to avoid pnpm/npm conflicts
-          sudo rm -rf $DEPLOY_DIR/node_modules
-
-          sudo cp -r dist/ $DEPLOY_DIR/
-          sudo cp -r node_modules/ $DEPLOY_DIR/
-          sudo cp package.json $DEPLOY_DIR/
-          sudo cp .env $DEPLOY_DIR/
-          sudo chown -R azureuser:azureuser $DEPLOY_DIR
-
-          # Get the actual node path
-          NODE_PATH=$(which node)
-
-          # Create systemd service
-          sudo tee /etc/systemd/system/nch-website.service > /dev/null << EOF
-          [Unit]
-          Description=Nepal Climate Hub Website
-          After=network.target
-
-          [Service]
-          Type=simple
-          User=azureuser
-          WorkingDirectory=/var/www/nepalclimatehub
-          ExecStart=$NODE_PATH /var/www/nepalclimatehub/dist/server/entry.mjs
-          Restart=always
-          RestartSec=10
-          StandardOutput=journal
-          StandardError=journal
-          Environment=NODE_ENV=production
-          Environment=HOST=0.0.0.0
-          Environment=PORT=4321
-
-          [Install]
-          WantedBy=multi-user.target
-          EOF
-
-          # Reload and restart service
-          sudo systemctl daemon-reload
-          sudo systemctl enable nch-website
-          sudo systemctl restart nch-website
-          sudo systemctl status nch-website --no-pager
+      - name: Deploy to Cloudflare Workers
+        if: github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

@@ -35,3 +35,8 @@ postgres_data/
 package-lock.json
 yarn.lock
 pnpm-lock.yaml.claude/
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+worker-configuration.d.ts

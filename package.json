@@ -6,11 +6,14 @@
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/node": "^9.5.5",
     "@astrojs/react": "^4.4.2",
     "@astrojs/rss": "^4.0.19",
@@ -34,7 +37,8 @@
     "@tgwf/co2": "^0.15.0",
     "@types/node": "^22.0.0",
     "@types/ws": "^8.18.1",
-    "lefthook": "^1.13.6"
+    "lefthook": "^1.13.6",
+    "wrangler": "^4.131.0"
   },
   "engines": {
     "node": ">=18.20.6"
