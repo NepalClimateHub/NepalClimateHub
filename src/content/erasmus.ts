@@ -16,6 +16,15 @@ import ainfyn from "../assets/erasmus/logos/ainfyn.jpeg";
 export const speakers = [
   {
     id: "speaker-1",
+    name: "Sumeera Shrestha",
+    qualification: "Country Representative at Erasmus Mundus Association",
+    location: "Masters in Development Economics (2010-2012) | Poland, Belgium",
+    linkedinUrl: null,
+    image:
+      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sumeera%20Shrestha.jpeg",
+  },
+  {
+    id: "speaker-2",
     name: "Nirisha Manandhar",
     qualification: "Senior Associate AI Engineer at PwC",
     location:
@@ -25,7 +34,7 @@ export const speakers = [
       "https://ik.imagekit.io/nch/Erasmus%20Speakers/Nirisha-Manandhar.png",
   },
   {
-    id: "speaker-2",
+    id: "speaker-3",
     name: "Sunika Joshi",
     qualification: "Co-founder of Lighthouse Neural",
     location: "Global MINDS program (2018–2020) | Poland, Turkey, Portugal",
@@ -33,7 +42,7 @@ export const speakers = [
     image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sunika-Joshi.jpg",
   },
   {
-    id: "speaker-3",
+    id: "speaker-4",
     name: "Aakriti Maraseni",
     qualification: "Erasmus Mundus Scholar",
     location:
@@ -43,7 +52,7 @@ export const speakers = [
       "https://ik.imagekit.io/nch/Erasmus%20Speakers/Aakriti%20Maraseni.jpg",
   },
   {
-    id: "speaker-4",
+    id: "speaker-5",
     name: "Manisha Koirala",
     qualification: "Erasmus Mundus Scholar",
     location: "Master's in Plant Breeding (2024-2026) | Hungary, Austria",
@@ -52,7 +61,7 @@ export const speakers = [
       "https://ik.imagekit.io/nch/Erasmus%20Speakers/Manisha%20Koirala.jpg",
   },
   {
-    id: "speaker-5",
+    id: "speaker-6",
     name: "Bibek Pant",
     qualification: "Founder of Nepal Climate Hub",
     location:
@@ -61,36 +70,29 @@ export const speakers = [
     image: "https://ik.imagekit.io/mbccqjudb/production/Bibek_m5Ebi4sGA.webp",
   },
   {
-    id: "speaker-6",
-    name: "To be updated",
-    qualification: null,
-    location: null,
-    linkedinUrl: null,
-    image: "https://placehold.co/400x400?text=Speaker+Image",
-  },
-  {
     id: "speaker-7",
-    name: "To be updated",
-    qualification: null,
-    location: null,
+    name: "Rakshya Silwal",
+    qualification: "Economic Governance Advisor at GIZ Nepal",
+    location: "Masters in Gender and Women's Studies (2018-2020) | Poland, UK",
     linkedinUrl: null,
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Rakshya.jpg",
   },
   {
     id: "speaker-8",
-    name: "To be updated",
-    qualification: null,
-    location: null,
+    name: "Sarkal Jyakhwa",
+    qualification: "Junior Research Fellow, University of Tartu, Estonia",
+    location: "Master’s degree in Plant Breeding (2020-2022) | France, Finland",
     linkedinUrl: null,
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sarkal.png",
   },
   {
     id: "speaker-9",
-    name: "To be updated",
-    qualification: null,
-    location: null,
+    name: "Nabin Bhatta",
+    qualification: "Erasmus Mundus Scholar",
+    location:
+      "Masters in Management and Engineering of Environment and Energy (2024-2026) | Hungary, Italy, France",
     linkedinUrl: null,
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Nabin%20Bhatta.jpg",
   },
   {
     id: "speaker-10",
@@ -203,7 +205,7 @@ export const heroData = {
   title: "Erasmus Mundus Connect Nepal 2026",
   subtitle:
     "Empowering Nepalese students to access fully funded European education and bring global knowledge back to solve Nepal's climate, environmental, technological, and development challenges.",
-  buttonText: "Registration Open",
+  buttonText: "Register Here",
   buttonLink:
     "https://docs.google.com/forms/d/e/1FAIpQLSfpkILPVtVxKY3kI8Lyo-chYR5A8soGPTLcENCghBhKjwZOBA/viewform?usp=sharing&ouid=105240458402098881478",
   infoItems: [
