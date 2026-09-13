@@ -20,7 +20,7 @@ let featuredBlog: Blog | null = null;
 try {
   const response = await fetchAllBlogs();
   apiBlogs = response.data || [];
-  featuredBlog = await getFeaturedPost();
+  featuredBlog = getFeaturedPost(apiBlogs);
 } catch (error) {
   console.error('Error fetching blogs:', error);
   // Fallback to empty arrays if API fails
