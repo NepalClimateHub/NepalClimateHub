@@ -68,11 +68,9 @@ import {
   .partnership-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
-    box-sizing: border-box;
+    max-width: 1280px;
+    width: 100%;
   }
 
   .section-title {
@@ -81,7 +79,8 @@ import {
     font-size: 32px;
     line-height: 150%;
     color: #1a1b1e;
-    margin: 0 0 32px;
+    margin: 0;
+    margin-bottom: 32px;
     text-align: center;
   }
 
@@ -94,16 +93,16 @@ import {
   }
 
   .cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 310px));
+    display: flex;
     gap: 24px;
     justify-content: center;
-    width: 100%;
+    flex-wrap: wrap;
+    /* margin-bottom: 44px; */
   }
 
   .partner-card {
+    max-width: 310px;
     width: 100%;
-    box-sizing: border-box;
     border-radius: 16px;
     background-color: #ebf1f7;
     padding: 16px;
@@ -142,9 +141,10 @@ import {
     font-weight: 500;
     font-size: 18px;
     line-height: 100%;
-    letter-spacing: -0.02em;
+    letter-spacing: -2%;
     color: #000000;
-    margin: 0 0 4px;
+    margin: 0;
+    margin-bottom: 4px;
   }
 
   .organization-location {
@@ -152,11 +152,12 @@ import {
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-    letter-spacing: -0.01em;
+    letter-spacing: -1%;
     color: rgba(0, 0, 0, 0.7);
     margin: 0;
   }
 
+  /* Tablet */
   @media screen and (max-width: 1024px) {
     .partnership-section {
       padding: 56px 0;
@@ -173,8 +174,11 @@ import {
     }
 
     .cards-container {
-      grid-template-columns: repeat(2, minmax(0, 280px));
-      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .partner-card {
+      max-width: 280px;
     }
 
     .organization-name {
@@ -186,13 +190,10 @@ import {
     }
   }
 
+  /* Mobile */
   @media screen and (max-width: 768px) {
     .partnership-section {
       padding: 48px 0;
-    }
-
-    .partnership-container {
-      padding: 0 20px;
     }
 
     .section-title {
@@ -208,11 +209,14 @@ import {
 
     .cards-container {
       gap: 16px;
+      margin-bottom: 32px;
+      flex-direction: column;
+      align-items: center;
     }
 
     .partner-card {
-      width: 100%;
       max-width: 100%;
+      width: 100%;
     }
 
     .logo-container {
@@ -235,13 +239,8 @@ import {
       padding: 40px 0;
     }
 
-    .partnership-container {
-      padding: 0 16px;
-    }
-
     .section-title {
       font-size: 20px;
-      line-height: 140%;
       margin-bottom: 16px;
     }
 
@@ -251,7 +250,7 @@ import {
     }
 
     .cards-container {
-      gap: 16px;
+      margin-bottom: 24px;
     }
 
     .partner-card {
@@ -271,11 +270,4 @@ import {
       font-size: 12px;
     }
   }
-
-  @media screen and (max-width: 480px) {
-    .cards-container {
-      grid-template-columns: 1fr;
-    }
-  }
 </style>
-
