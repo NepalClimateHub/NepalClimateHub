@@ -1,8 +1,7 @@
-// Use API_BASE_URL or PUBLIC_API_BASE_URL from environment variables
-const rawApiBaseUrl =
-  import.meta.env.PUBLIC_API_BASE_URL ||
-  import.meta.env.API_BASE_URL ||
-  'https://api.cms.nepalclimatehub.org';
+// Declared in the `env.schema` block of astro.config.mjs, which validates it at build
+// time and supplies the default. This module is isomorphic (it reaches the browser via
+// VolunteerOpenRoles.tsx), so the import has to come from `astro:env/client`.
+import { API_BASE_URL as rawApiBaseUrl } from 'astro:env/client';
 
 // Normalize the URL to fix common issues (missing slashes, trailing slashes, etc.)
 function normalizeApiUrl(url: string | undefined): string | undefined {
@@ -25,8 +24,8 @@ const API_BASE_URL = normalizeApiUrl(rawApiBaseUrl);
 
 if (!API_BASE_URL) {
   console.error(
-    'API_BASE_URL is not defined in environment variables. ' +
-    'Please set API_BASE_URL in your .env file.'
+    'API_BASE_URL resolved to an empty value. ' +
+      'Set API_BASE_URL in your .env file (see .env.sample).'
   );
 } else if (rawApiBaseUrl !== API_BASE_URL) {
   console.warn(
@@ -70,4 +69,3 @@ export * from './blogs.api';
 export * from './resources.api';
 export * from './projects.api';
 export * from './vacancies.api';
-

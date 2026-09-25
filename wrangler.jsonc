@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nepal-climate-hub",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+    // Serve dist/foo/index.html at /foo (and redirect /foo/ -> /foo), matching the
+    // trailing-slash-free URLs Astro emits in links and what Netlify served before.
+    "html_handling": "drop-trailing-slash",
+    // Unmatched paths fall through to the Worker so Astro renders SSR routes and its 404.
+    "not_found_handling": "none"
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Runtime bindings, readable via `Astro.locals.runtime.env` or, when declared as a
+  // secret in the `env.schema` block of astro.config.mjs, via `getSecret('NAME')`.
+  //
+  // NOTE: API_BASE_URL is deliberately NOT here. It is a build-time value inlined by
+  // Vite from `.env` (or the Workers Builds env vars), so a runtime binding would
+  // never be read. Runtime `vars` are for values only the deployed Worker needs.
+  // Anything sensitive goes through `wrangler secret put`, never in this file.
+  "vars": {}
+}

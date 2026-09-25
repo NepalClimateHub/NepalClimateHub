@@ -8,7 +8,7 @@ We crafted NepalClimateHub using a modern, efficient tech stack:
 
 - **Astro with ReactJS**: For a dynamic, responsive user interface
 - **CSS**: To ensure the platform is visually appealing and user-friendly
-- **Netlify**: For robust deployment and fast, secure access
+- **Cloudflare Workers**: For robust deployment and fast, secure access
 
 ## 🔮 Features
 
@@ -50,6 +50,40 @@ Want to explore NepalClimateHub locally? Follow these steps:
    ```bash
    npm run dev
    ```
+
+## ☁️ Deployment (Cloudflare Workers)
+
+The site is an Astro SSR app (`output: 'server'`) built with `@astrojs/cloudflare` and deployed
+to Cloudflare Workers with static assets. Configuration lives in `wrangler.jsonc`.
+
+1. Authenticate once:
+
+   ```bash
+   npx wrangler login
+   ```
+
+2. Preview the real Worker locally (build + workerd runtime):
+
+   ```bash
+   npm run preview
+   ```
+
+3. Deploy:
+
+   ```bash
+   npm run deploy
+   ```
+
+Notes:
+
+- `dist/_worker.js` is the Worker entry; everything else in `dist/` is uploaded as static
+  assets. `public/.assetsignore` keeps `_worker.js` and `_routes.json` out of the asset bundle.
+- `API_BASE_URL` is read through `import.meta.env`, so it is inlined at **build** time. Set it in
+  `.env` locally, or as a build environment variable if building on Cloudflare Workers Builds.
+  The same value is also exposed as a runtime `var` in `wrangler.jsonc` for `Astro.locals.runtime.env`.
+  Use `npx wrangler secret put <NAME>` for anything sensitive.
+- Run `npm run cf-typegen` after changing bindings in `wrangler.jsonc` to regenerate
+  `worker-configuration.d.ts` (gitignored).
 
 ## 🤝 Contributing
 

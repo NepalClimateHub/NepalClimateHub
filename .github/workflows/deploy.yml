@@ -1,0 +1,41 @@
+name: Deploy NCH Website
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Build-time config. API_BASE_URL is inlined by Vite during `astro build`,
+      # so it has to exist here, not as a Worker runtime binding. Falls back to
+      # the default declared in the env.schema block of astro.config.mjs.
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: Install dependencies
+        run: npm install
+
+      # Runs on pull requests too, so a broken build is caught before merge.
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Workers
+        if: github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
