@@ -9,6 +9,9 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://nepalclimatehub.org',
   output: 'server',
+  devToolbar: {
+    enabled: false,
+  },
   env: {
     schema: {
       // `context: 'client'` because src/api/index.ts is isomorphic: it is pulled into
