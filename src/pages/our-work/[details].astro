@@ -1,9 +1,6 @@
 ---
 import '../../styles/global.css';
-import { notFound } from 'astro:i18n';
 import Footer from '@components/Footer.astro';
-
-notFound;
 import Header from '@components/Header.astro';
 import HtmlRenderer from '@components/HtmlRenderer.astro';
 import { RiAlarmLine } from 'react-icons/ri';
@@ -17,7 +14,7 @@ let project: Project | undefined;
 let otherProjects: Project[] = [];
 
 if (!details) {
-  return notFound();
+  return Astro.rewrite("/404");
 }
 
 try {
@@ -27,7 +24,7 @@ try {
 }
 
 if (!project) {
-  return notFound();
+  return Astro.rewrite("/404");
 }
 
 try {
