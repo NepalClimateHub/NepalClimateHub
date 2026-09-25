@@ -31,6 +31,8 @@ jobs:
       # Runs on pull requests too, so a broken build is caught before merge.
       - name: Build
         run: npm run build
+        env:
+          DEPLOY_TARGET: cloudflare
 
       - name: Deploy to Cloudflare Workers
         if: github.event_name == 'push'

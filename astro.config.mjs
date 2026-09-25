@@ -3,6 +3,11 @@ import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { defineConfig, envField } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
+
+// Dokploy runs a Node server; the GitHub Action deploys to Cloudflare Workers
+// and sets DEPLOY_TARGET=cloudflare.
+const isCloudflare = process.env.DEPLOY_TARGET === 'cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,12 +48,14 @@ export default defineConfig({
     [icon()],
     react(),
   ],
-  adapter: cloudflare({
-    imageService: 'compile',
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  adapter: isCloudflare
+    ? cloudflare({
+        imageService: 'compile',
+        platformProxy: {
+          enabled: true,
+        },
+      })
+    : node({ mode: 'standalone' }),
   vite: {
     resolve: {
       alias: {
