@@ -53,6 +53,9 @@ export default defineConfig({
     },
   }),
   vite: {
+    server: {
+      allowedHosts: ['nepalclimatehub.org', '.nepalclimatehub.org'],
+    },
     resolve: {
       alias: {
         '@layouts': '/src/layouts',
