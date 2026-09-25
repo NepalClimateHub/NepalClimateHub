@@ -11,6 +11,10 @@ const isCloudflare = process.env.DEPLOY_TARGET === 'cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 4321,
+  },
   site: 'https://nepalclimatehub.org',
   output: 'server',
   devToolbar: {
@@ -31,8 +35,8 @@ export default defineConfig({
     },
   },
   i18n: {
-    defaultLocale: 'en',
-    locales: ['es', 'en'],
+    defaultLocale: "en",
+    locales: ["es", "en"],
     routing: {
       prefixDefaultLocale: false,
     },
@@ -57,6 +61,9 @@ export default defineConfig({
       })
     : node({ mode: 'standalone' }),
   vite: {
+    server: {
+      allowedHosts: ['nepalclimatehub.org', '.nepalclimatehub.org'],
+    },
     resolve: {
       alias: {
         '@layouts': '/src/layouts',
