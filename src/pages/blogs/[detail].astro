@@ -11,10 +11,7 @@ import Header from "../../components/Header.astro";
 import HtmlRenderer from "../../components/HtmlRenderer.astro";
 import BaseLayout from "../../layouts/Layout.astro";
 
-import { notFound } from "astro:i18n";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
-
-notFound;
 
 function stripHtml(html: string): string {
   return html
@@ -29,7 +26,7 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 const { detail } = Astro.params;
 
 if (!detail) {
-  return notFound();
+  return Astro.rewrite("/404");
 }
 
 let apiBlog: BlogType | null = null;
@@ -46,7 +43,7 @@ try {
 }
 
 if (!apiBlog) {
-  return notFound();
+  return Astro.rewrite("/404");
 }
 
 const blogDetail = {
