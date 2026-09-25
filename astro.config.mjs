@@ -2,7 +2,6 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { defineConfig, envField } from 'astro/config';
-import net0Integration from './toolbar/integration.ts';
 import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
@@ -34,7 +33,6 @@ export default defineConfig({
     },
   },
   integrations: [
-    net0Integration,
     sitemap({
       customSitemaps: [
         'https://nepalclimatehub.org/blogs/sitemap.xml',
