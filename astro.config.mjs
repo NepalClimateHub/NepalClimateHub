@@ -7,6 +7,10 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 4321,
+  },
   site: 'https://nepalclimatehub.org',
   output: 'server',
   env: {
@@ -24,8 +28,8 @@ export default defineConfig({
     },
   },
   i18n: {
-    defaultLocale: 'en',
-    locales: ['es', 'en'],
+    defaultLocale: "en",
+    locales: ["es", "en"],
     routing: {
       prefixDefaultLocale: false,
     },
