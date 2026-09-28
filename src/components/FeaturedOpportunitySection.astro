@@ -10,6 +10,7 @@ import { Icon } from 'astro-icon/components';
 import { fetchOpportunities } from '../api';
 import logo from '../assets/logo/secondaryLogo.svg';
 import { createSlug } from '../utils/slug';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 
 const { data: apiOpportunity } = await fetchOpportunities();
 const { startIndex, endIndex, title } = Astro.props;
@@ -69,13 +70,15 @@ const featuredOpportunities = transformedOpportunities.slice(
         >
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={oppportunity.bannerImage || logo.src}
+              src={optimizeImageUrl(oppportunity.bannerImage || logo.src)}
               alt={oppportunity.title}
               style={
                 oppportunity.bannerImage
                   ? {}
                   : { width: "80%", height: "auto", margin: "20px" }
               }
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="details">

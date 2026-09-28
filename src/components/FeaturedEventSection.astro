@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components';
 import { fetchEvents } from '../api';
 // import eventsTemp from '../data/eventsTemp.json';
 import { createSlug } from '../utils/slug';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
 const { data: apiEvents } = await fetchEvents();
@@ -59,9 +60,11 @@ const featuredEvents = filteredEvents.slice(
         <a class="card event-card" href={`/events/${createSlug(event.title)}`}>
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={event.bannerImage || "/placeholder.svg"}
+              src={optimizeImageUrl(event.bannerImage || "/placeholder.svg")}
               alt={event.title}
               style="object-fit: cover;"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="details">
