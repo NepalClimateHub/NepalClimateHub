@@ -9,6 +9,7 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import HeroContent from '@components/HeroContent.astro';
 import Testimonials from '@components/Testimonials.astro';
+import heroImage from '../assets/homepage-hero-desktop.jpg';
 import '../styles/global.css';
 
 interface Props {
@@ -23,7 +24,7 @@ import BaseLayout from './Layout.astro';
 const { title } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} preloadImage={heroImage.src}>
   <main class="main-container">
     <section class="hero-section">
       <Header logoColor="white" />
