@@ -50,7 +50,6 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
           {featuredBlog ? (
             <div class="featured-card-wrapper">
               <BlogCard
-                client:load
                 blog={featuredBlog}
                 cardType='featured'
               />
@@ -194,4 +193,3 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     }
   }
 </style>
-

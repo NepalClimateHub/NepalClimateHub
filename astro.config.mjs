@@ -23,7 +23,7 @@ export default defineConfig({
   env: {
     schema: {
       // `context: 'client'` because src/api/index.ts is isomorphic: it is pulled into
-      // the browser bundle via VolunteerOpenRoles.tsx (client:load). The value is
+      // the browser bundle via the hydrated VolunteerOpenRoles.tsx island. The value is
       // inlined at build time from `.env` and is public anyway.
       API_BASE_URL: envField.string({
         context: 'client',
