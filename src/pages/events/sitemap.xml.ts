@@ -1,8 +1,8 @@
-import { fetchEvents } from 'src/api';
+import { fetchEventSummaries } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
 export async function GET() {
-  const data = await fetchEvents();
+  const data = await fetchEventSummaries();
 
   if (!data || !data.data) {
     throw new Error('Error fetching Events');

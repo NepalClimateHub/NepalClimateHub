@@ -125,6 +125,8 @@ export const Card = <T,>({ data, dataType }: CardProps<T>) => {
             src={thumbnailSrc}
             alt={`${resourceType} thumbnail`}
             className={styles['resource-thumbnail']}
+            loading="lazy"
+            decoding="async"
             style={
               bannerImageUrl
                 ? {

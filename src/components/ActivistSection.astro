@@ -23,7 +23,13 @@ const { title } = Astro.props;
 			activistJSON.map((activist) => (
 				<a class="card activist-card" href={`/climate-champions/${activist.slug}`}>
 					<div class="img-wrapper" style="padding: 0;"> 
-						<img src={activist.logoUrl} alt={activist.name} style="object-fit: cover;"/>
+						<img
+							src={activist.logoUrl}
+							alt={activist.name}
+							loading="lazy"
+							decoding="async"
+							style="object-fit: cover;"
+						/>
 					</div>
 					<div class="details">
 						<h3 class="name">{activist.name}</h3>

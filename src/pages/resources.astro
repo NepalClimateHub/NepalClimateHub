@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { fetchAllResources } from '../api';
+import { fetchResourceSummaries } from '../api';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import ResourceFilter from '../components/ResourceFilter';
@@ -11,7 +11,7 @@ import BaseLayout from '../layouts/Layout.astro';
 let apiResources: any[] = [];
 
 try {
-  const response = await fetchAllResources();
+  const response = await fetchResourceSummaries();
   apiResources = response.data || [];
 } catch (error) {
   console.error('Error fetching resources:', error);

@@ -7,12 +7,25 @@ import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
 
 // import opportunityJSON from '../data/opportunitiesTemp.json';
-import { fetchOpportunities } from '../api';
+import { fetchOpportunitySummaries } from '../api';
 import logo from '../assets/logo/secondaryLogo.svg';
+import type { Opportunity } from '../types/opportunity';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 import { createSlug } from '../utils/slug';
 
-const { data: apiOpportunity } = await fetchOpportunities();
-const { startIndex, endIndex, title } = Astro.props;
+interface Props {
+  startIndex: number | string;
+  endIndex: number | string;
+  title: string;
+  currentOpportunityId?: string | number;
+  opportunities?: Opportunity[];
+}
+
+const { startIndex, endIndex, title, opportunities } = Astro.props as Props;
+const apiOpportunity =
+  opportunities ?? (await fetchOpportunitySummaries()).data;
+const start = Number(startIndex);
+const end = Number(endIndex);
 
 const stripHtml = (html: string) => {
   return html.replace(/<[^>]*>/g, '');
@@ -49,8 +62,8 @@ const transformedOpportunities = (apiOpportunity || [])
   }));
 
 const featuredOpportunities = transformedOpportunities.slice(
-  startIndex,
-  Math.min(endIndex, startIndex + 4)
+  start,
+  Math.min(end, start + 4)
 );
 ---
 
@@ -69,13 +82,15 @@ const featuredOpportunities = transformedOpportunities.slice(
         >
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={oppportunity.bannerImage || logo.src}
+              src={optimizeImageUrl(oppportunity.bannerImage || logo.src)}
               alt={oppportunity.title}
               style={
                 oppportunity.bannerImage
                   ? {}
                   : { width: "80%", height: "auto", margin: "20px" }
               }
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="details">

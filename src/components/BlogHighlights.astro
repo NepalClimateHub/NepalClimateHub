@@ -17,7 +17,6 @@ const { title, blogs } = Astro.props;
     <div class="blog-cards-grid">
       {blogs.map((blog) => (
         <BlogCard
-          client:load
           blog={blog}
           cardType='highlight'
         />

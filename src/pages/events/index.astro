@@ -4,7 +4,7 @@ export const prerender = false;
 
 import '../../styles/global.css';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchEvents } from '../../api';
+import { fetchEventSummaries } from '../../api';
 import EventFilter from '../../components/EventFilter';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -12,7 +12,7 @@ import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 
-const { data: apiEvents } = await fetchEvents();
+const { data: apiEvents } = await fetchEventSummaries();
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -59,10 +59,6 @@ const events = (apiEvents || []).map((event: any) => {
     category: event.tags?.map((tag: any) => tag.tag) || [],
     bannerImage: event.bannerImageUrl,
     description: stripHtml(event.description || '') || '',
-    organizer: event.organizer,
-    startDate: event.startDate,
-    registrationLink: event.registrationLink,
-    contactEmail: event.contactEmail,
     address: event.address,
   };
 });

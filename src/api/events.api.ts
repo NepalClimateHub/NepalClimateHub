@@ -1,4 +1,8 @@
-import type { Event, EventResponse } from '../types/event';
+import type {
+  Event,
+  EventResponse,
+  EventSummaryResponse,
+} from '../types/event';
 import { API_BASE_URL, ApiError, handleResponse } from './index';
 
 export const fetchEvents = async (): Promise<EventResponse> => {
@@ -38,6 +42,21 @@ export const fetchEvents = async (): Promise<EventResponse> => {
       }`
     );
   }
+};
+
+export const fetchEventSummaries = async (): Promise<EventSummaryResponse> => {
+  if (!API_BASE_URL) {
+    throw new ApiError(
+      500,
+      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+    );
+  }
+
+  const response = await fetch(`${API_BASE_URL}/api/v1/events?view=summary`, {
+    method: 'GET',
+    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+  });
+  return handleResponse<EventSummaryResponse>(response);
 };
 
 export const fetchEventById = async (

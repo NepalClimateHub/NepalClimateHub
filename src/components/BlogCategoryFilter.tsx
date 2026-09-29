@@ -1,35 +1,34 @@
-import { useState } from "react";
-import styles from "../styles/components/Blogs.module.css";
-import type { Blog } from "../types/blog";
-import BlogCard from "./BlogCard";
-import WriteBlog from "./WriteBlog";
+import { useState } from 'react';
+import styles from '../styles/components/Blogs.module.css';
+import BlogCard, { type BlogCardData } from './BlogCard';
+import WriteBlog from './WriteBlog';
 
 interface Props {
-  blogs: Blog[];
+  blogs: BlogCardData[];
 }
 
 const categories = [
-  "All",
-  "Voices & Stories",
-  "Community",
-  "Education",
-  "Environment",
-  "Climate Technology",
-  "Climate Policy",
-  "Sustainability",
-  "Climate Justice",
-  "Climate Science",
+  'All',
+  'Voices & Stories',
+  'Community',
+  'Education',
+  'Environment',
+  'Climate Technology',
+  'Climate Policy',
+  'Sustainability',
+  'Climate Justice',
+  'Climate Science',
 ];
 
 export default function BlogCategoryFilter({ blogs }: Props) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredBlogs =
-    activeCategory === "All"
+    activeCategory === 'All'
       ? blogs
       : blogs.filter(
           (blog) =>
-            blog.category?.toLowerCase() === activeCategory.toLowerCase(),
+            blog.category?.toLowerCase() === activeCategory.toLowerCase()
         );
 
   return (
@@ -50,7 +49,7 @@ export default function BlogCategoryFilter({ blogs }: Props) {
             }`}
             onClick={() => setActiveCategory(category)}
           >
-            {category.replace("-", " ")}
+            {category.replace('-', ' ')}
           </button>
         ))}
       </div>

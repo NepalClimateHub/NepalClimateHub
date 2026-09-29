@@ -22,9 +22,15 @@ import FeaturedOpportunitySection from '@components/FeaturedOpportunitySection.a
 import BaseLayout from './Layout.astro';
 
 const { title } = Astro.props;
+const homepageFontStylesheet =
+  'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Zilla+Slab:wght@700&display=swap';
 ---
 
-<BaseLayout title={title} preloadImage={heroImage.src}>
+<BaseLayout
+  title={title}
+  preloadImage={heroImage.src}
+  fontStylesheetHref={homepageFontStylesheet}
+>
   <main class="main-container">
     <section class="hero-section">
       <Header logoColor="white" />
