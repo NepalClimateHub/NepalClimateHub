@@ -7,7 +7,7 @@ import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
 
 // import opportunityJSON from '../data/opportunitiesTemp.json';
-import { fetchOpportunities } from '../api';
+import { fetchOpportunitySummaries } from '../api';
 import logo from '../assets/logo/secondaryLogo.svg';
 import type { Opportunity } from '../types/opportunity';
 import { optimizeImageUrl } from '../utils/optimizeImageUrl';
@@ -22,7 +22,8 @@ interface Props {
 }
 
 const { startIndex, endIndex, title, opportunities } = Astro.props as Props;
-const apiOpportunity = opportunities ?? (await fetchOpportunities()).data;
+const apiOpportunity =
+  opportunities ?? (await fetchOpportunitySummaries()).data;
 const start = Number(startIndex);
 const end = Number(endIndex);
 
