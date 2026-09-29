@@ -6,9 +6,22 @@ import { fetchEvents } from '../api';
 // import eventsTemp from '../data/eventsTemp.json';
 import { createSlug } from '../utils/slug';
 import { optimizeImageUrl } from '../utils/optimizeImageUrl';
-const { startIndex, endIndex, title, currentEventId, events } = Astro.props;
+import type { Event } from '../types/event';
 
-const apiEvents = events ?? (await fetchEvents()).data;
+interface Props {
+  startIndex: number | string;
+  endIndex: number | string;
+  title: string;
+  currentEventId?: string;
+  events?: Event[];
+}
+
+const { startIndex, endIndex, title, currentEventId, events } =
+  Astro.props as Props;
+const start = Number(startIndex);
+const end = Number(endIndex);
+
+const apiEvents: Event[] = events ?? (await fetchEvents()).data;
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -19,13 +32,13 @@ const transformedEvents = (apiEvents || [])
     (event) =>
       event?.bannerImageUrl && event.title && event.tags && event.locationType
   )
-  .map((event: any) => ({
+  .map((event) => ({
     id: event.id,
     title: event.title,
     location:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    category: event.tags?.map((tag: any) => tag.tag) || [],
+    category: event.tags?.map((tag) => tag.tag) || [],
     bannerImage: event.bannerImageUrl || '/placeholder.svg',
     description: stripHtml(event.description || '') || '',
   }));
@@ -37,8 +50,8 @@ const filteredEvents = currentEventId
   : transformedEvents;
 
 const featuredEvents = filteredEvents.slice(
-  startIndex,
-  Math.min(endIndex, startIndex + 4)
+  start,
+  Math.min(end, start + 4)
 );
 ---
 
