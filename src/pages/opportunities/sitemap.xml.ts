@@ -1,8 +1,8 @@
-import { fetchOpportunities } from 'src/api';
+import { fetchOpportunitySummaries } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
 export async function GET() {
-  const data = await fetchOpportunities();
+  const data = await fetchOpportunitySummaries();
 
   if (!data || !data.data) {
     throw new Error('Error fetching Opportunities');

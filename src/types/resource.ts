@@ -24,3 +24,18 @@ export interface ResourceResponse {
     count: number;
   };
 }
+
+export interface ResourceSummary {
+  id: string;
+  title: string;
+  overview?: string;
+  type: string;
+  level?: string;
+  link?: string;
+  bannerImageUrl?: string;
+}
+
+export interface ResourceSummaryResponse {
+  data: ResourceSummary[];
+  meta: { count: number };
+}

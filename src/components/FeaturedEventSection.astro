@@ -2,11 +2,11 @@
 import '../styles/global.css';
 import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
-import { fetchEvents } from '../api';
+import { fetchEventSummaries } from '../api';
+import type { Event } from '../types/event';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 // import eventsTemp from '../data/eventsTemp.json';
 import { createSlug } from '../utils/slug';
-import { optimizeImageUrl } from '../utils/optimizeImageUrl';
-import type { Event } from '../types/event';
 
 interface Props {
   startIndex: number | string;
@@ -21,7 +21,7 @@ const { startIndex, endIndex, title, currentEventId, events } =
 const start = Number(startIndex);
 const end = Number(endIndex);
 
-const apiEvents: Event[] = events ?? (await fetchEvents()).data;
+const apiEvents = events ?? (await fetchEventSummaries()).data;
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -49,10 +49,7 @@ const filteredEvents = currentEventId
     )
   : transformedEvents;
 
-const featuredEvents = filteredEvents.slice(
-  start,
-  Math.min(end, start + 4)
-);
+const featuredEvents = filteredEvents.slice(start, Math.min(end, start + 4));
 ---
 
 <div class="section-container featured-card-section">
