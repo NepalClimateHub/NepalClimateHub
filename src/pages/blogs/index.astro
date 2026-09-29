@@ -28,6 +28,31 @@ try {
   featuredBlog = null;
 }
 const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
+const categoryBlogs = apiBlogs.map(
+  ({
+    id,
+    title,
+    excerpt,
+    author,
+    authorUser,
+    readingTime,
+    category,
+    publishedDate,
+    bannerImageUrl,
+  }) => ({
+    id,
+    title,
+    excerpt,
+    author,
+    authorUser: authorUser
+      ? { profilePhotoUrl: authorUser.profilePhotoUrl }
+      : undefined,
+    readingTime,
+    category,
+    publishedDate,
+    bannerImageUrl,
+  })
+);
 ---
 
 <BaseLayout title="Blogs | Nepal Climate Hub">
@@ -65,7 +90,7 @@ const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
     </section>
 
     <section class="category-section">
-      <BlogCategoryFilter client:load blogs={apiBlogs} />
+      <BlogCategoryFilter client:load blogs={categoryBlogs} />
     </section>
 
     <section class="footer-section">

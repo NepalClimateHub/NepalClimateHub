@@ -182,6 +182,16 @@ Measurement plan after approval: update only the relevant activist/featured-orga
 - `npx --no-install astro build` passed after the batch and `git diff --check` passed. A targeted Biome check reports pre-existing import-order/format diagnostics in the two touched Astro files and `astro.config.mjs`; the directive/comment edits did not introduce them, and no unrelated reformatting was applied.
 - Decision: **KEEP** both deferrals. They are below the initial viewport at both benchmark sizes, preserve SSR content, and defer approximately 12.1 KB raw island code until a user reaches it. Do not defer filter/pagination islands without route-specific interaction-readiness evidence.
 
+### Fast frontend navigation and route-consumption pass (2026-09-28)
+
+- Added Astro 5 `ClientRouter` at the shared layout boundary. This keeps the current document visible during eligible same-origin navigation, supplies native history/back-forward and route announcements, and retains SSR/SEO. Automatic prefetching is explicitly disabled because Events, Resources, and Blogs are CMS-backed; no speculative API load is added.
+- Removed the legacy full-page loader overlay, which otherwise hid the retained page during a ClientRouter transition. Header and HTML-renderer scripts now run again after swapped pages. The mobile Action Menu is a semantic button rather than a nested `href="#"` link, and multipart profile forms explicitly opt out through `data-astro-reload` to preserve native uploads.
+- Events: event detail passes its already-fetched collection into `FeaturedEventSection`, removing that component's duplicate frontend CMS list request. The Events filter projection no longer includes four unused fields (organizer, start date, registration link, contact email).
+- Blogs: blog detail derives Top Reads from the same summary list used to resolve the requested slug, then fetches only the selected blog body. The hydrated category filter now receives a card-level projection instead of full list records. Non-featured BlogCard images and author avatars are lazy/async; featured cards remain eager.
+- Resources: resource thumbnails are lazy/async. The immediately visible Resource/Event/Blog filter islands remain hydrated because deferring them would alter first-interaction readiness.
+- This was intentionally a no-benchmark pass: no before/after transfer or timing claim is made. Production builds and non-metric desktop/mobile smoke checks covered ClientRouter presence, Home -> Events -> Back history, overlay removal, no overflow, and mobile menu initialization. CMS-dependent route/detail coverage remains limited by the benchmark environment's API/DNS availability.
+- Backend follow-up: CMS latency/availability still controls first HTML for Events, Resources, Blogs and detail routes; this pass found no safe frontend substitute for that server wait. The backend pass should investigate CMS DNS reachability, response caching/freshness, list/detail endpoint latency and payload shape, and failures/timeouts independently.
+
 ## Parallel implementation policy
 
 - Do not run builds or browser benchmarks concurrently; serialize them with identical production setup.

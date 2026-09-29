@@ -1,11 +1,25 @@
 import styles from '../styles/components/Blogs.module.css';
-import type { Blog } from '../types/blog';
+import type { Author, Blog } from '../types/blog';
 import { createSlug } from '../utils/slug';
 
 export interface BlogCardProps {
-  blog: Blog;
+  blog: BlogCardData;
   cardType?: 'default' | 'highlight' | 'featured';
 }
+
+export type BlogCardData = Pick<
+  Blog,
+  | 'id'
+  | 'title'
+  | 'excerpt'
+  | 'author'
+  | 'readingTime'
+  | 'category'
+  | 'publishedDate'
+  | 'bannerImageUrl'
+> & {
+  authorUser?: Pick<Author, 'profilePhotoUrl'>;
+};
 
 export default function BlogCard({
   blog,
@@ -57,7 +71,13 @@ export default function BlogCard({
     >
       <article className={cardClass}>
         <figure className={imageContainerClass}>
-          <img src={bannerImageUrl} alt={title} className={styles.blogImage} />
+          <img
+            src={bannerImageUrl}
+            alt={title}
+            className={styles.blogImage}
+            loading={cardType === 'featured' ? 'eager' : 'lazy'}
+            decoding="async"
+          />
           {cardType !== 'highlight' && (
             <span className={styles.blogTag}>
               {category?.replaceAll('-', ' ')}
@@ -78,6 +98,8 @@ export default function BlogCard({
                 src={authorUser?.profilePhotoUrl || defaultAuthorImage}
                 alt={`${author}'s profile`}
                 className={styles.authorImage}
+                loading="lazy"
+                decoding="async"
               />
             )}
             <div className={styles.authorInfo}>

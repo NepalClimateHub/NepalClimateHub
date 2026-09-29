@@ -6,9 +6,9 @@ import { fetchEvents } from '../api';
 // import eventsTemp from '../data/eventsTemp.json';
 import { createSlug } from '../utils/slug';
 import { optimizeImageUrl } from '../utils/optimizeImageUrl';
-const { startIndex, endIndex, title, currentEventId } = Astro.props;
+const { startIndex, endIndex, title, currentEventId, events } = Astro.props;
 
-const { data: apiEvents } = await fetchEvents();
+const apiEvents = events ?? (await fetchEvents()).data;
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -22,21 +22,12 @@ const transformedEvents = (apiEvents || [])
   .map((event: any) => ({
     id: event.id,
     title: event.title,
-    type: event.type,
     location:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    province: event.address?.state || '',
-    status: event.status,
-    format: event.format,
-    cost: event.cost,
     category: event.tags?.map((tag: any) => tag.tag) || [],
     bannerImage: event.bannerImageUrl || '/placeholder.svg',
     description: stripHtml(event.description || '') || '',
-    organizer: event.organizer || '',
-    startDate: event.startDate || '',
-    registrationLink: event.registrationLink || '',
-    contactEmail: event.contactEmail || '',
   }));
 
 const filteredEvents = currentEventId

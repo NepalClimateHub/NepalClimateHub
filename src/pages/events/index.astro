@@ -59,10 +59,6 @@ const events = (apiEvents || []).map((event: any) => {
     category: event.tags?.map((tag: any) => tag.tag) || [],
     bannerImage: event.bannerImageUrl,
     description: stripHtml(event.description || '') || '',
-    organizer: event.organizer,
-    startDate: event.startDate,
-    registrationLink: event.registrationLink,
-    contactEmail: event.contactEmail,
     address: event.address,
   };
 });

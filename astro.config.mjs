@@ -20,6 +20,10 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  // Keep navigation client-side without automatically prefetching CMS-backed pages.
+  prefetch: {
+    prefetchAll: false,
+  },
   env: {
     schema: {
       // `context: 'client'` because src/api/index.ts is isomorphic: it is pulled into
