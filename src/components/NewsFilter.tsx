@@ -1,6 +1,14 @@
-import { useEffect, useState } from 'react';
+import { navigate } from 'astro:transitions/client';
+import type React from 'react';
 import IconChevronDown from '../assets/icons/IconChevronDown.png';
 import styles from '../styles/components/News.module.css';
+import {
+  CATEGORY_OPTIONS,
+  MODE_OPTIONS,
+  type NewsFilterState,
+  YEAR_OPTIONS,
+  serializeNewsFilters,
+} from '../utils/newsFilters';
 import NewsCard from './NewsCard';
 
 interface NewsItem {
@@ -17,42 +25,37 @@ interface NewsItem {
 }
 
 interface Props {
-  newsData: NewsItem[];
+  news: NewsItem[];
+  currentPage: number;
+  pageSize: number;
+  totalNews: number;
+  totalPages: number;
+  activeFilters: NewsFilterState;
 }
 
-const NewsFilter: React.FC<Props> = ({ newsData }) => {
-  const [selectedYear, setSelectedYear] = useState<string>('All Years');
-  const [selectedType, setSelectedType] = useState<string>('All');
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [filteredNews, setFilteredNews] = useState<NewsItem[]>(newsData);
-  const [visibleCount, setVisibleCount] = useState<number>(9);
-
-  useEffect(() => {
-    const filteredResults = newsData.filter((news) => {
-      const matchesYear =
-        selectedYear === 'All Years' ||
-        String(new Date(news.publishedYear).getFullYear()) === selectedYear;
-      const matchesType =
-        selectedType === 'All' ||
-        news.mode?.toLowerCase() === selectedType.toLowerCase();
-      const matchesCategory =
-        selectedCategory === 'All' ||
-        news.category?.some(
-          (cat) => cat.toLowerCase() === selectedCategory.toLowerCase()
-        );
-
-      return matchesYear && matchesType && matchesCategory;
-    });
-
-    setFilteredNews(filteredResults);
-    setVisibleCount(9);
-  }, [selectedYear, selectedType, selectedCategory, newsData]);
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 6);
+const NewsFilter: React.FC<Props> = ({
+  news,
+  currentPage,
+  totalNews,
+  totalPages,
+  activeFilters,
+}) => {
+  const navigateToFilters = (nextFilters: NewsFilterState) => {
+    const params = serializeNewsFilters(nextFilters);
+    const query = params.toString();
+    navigate(query ? `/news?${query}` : '/news');
   };
 
-  const visibleNews = filteredNews.slice(0, visibleCount);
+  const updateFilter = (key: keyof NewsFilterState, value: string) => {
+    navigateToFilters({ ...activeFilters, [key]: value });
+  };
+
+  const pageHref = (page: number) => {
+    const params = serializeNewsFilters(activeFilters);
+    if (page > 1) params.set('page', String(page));
+    const query = params.toString();
+    return query ? `/news?${query}` : '/news';
+  };
 
   return (
     <div className={styles.sectionContainer}>
@@ -61,20 +64,21 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         Stay updated with the latest climate-related news
       </p>
 
-      {/* Filter UI */}
       <div className={styles.filterContainer}>
         {/* Year Filter */}
         <div className={styles.filterGroup}>
           <div className={styles.selectWrapper}>
             <select
               id="year-filter"
-              onChange={(e) => setSelectedYear(e.target.value)}
-              value={selectedYear}
+              onChange={(e) => updateFilter('year', e.target.value)}
+              value={activeFilters.year}
             >
-              <option value="All Years">All Published Years</option>
-              <option value="2025">2025</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
+              <option value="">All Published Years</option>
+              {YEAR_OPTIONS.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
             </select>
             <span className={styles.menuDropdown}>
               <img alt="icon" src={IconChevronDown.src} />
@@ -85,13 +89,16 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         {/* Type Filter */}
         <div className={styles.filterGroup}>
           <select
-            id="type-filter"
-            onChange={(e) => setSelectedType(e.target.value)}
-            value={selectedType}
+            id="mode-filter"
+            onChange={(e) => updateFilter('mode', e.target.value)}
+            value={activeFilters.mode}
           >
-            <option value="All">All News Types</option>
-            <option value="National">National</option>
-            <option value="International">International</option>
+            <option value="">All News Types</option>
+            {MODE_OPTIONS.map((mode) => (
+              <option key={mode} value={mode}>
+                {mode}
+              </option>
+            ))}
           </select>
           <span className={styles.menuDropdown}>
             <img alt="icon" src={IconChevronDown.src} />
@@ -102,62 +109,15 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         <div className={styles.filterGroup}>
           <select
             id="category-filter"
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            value={selectedCategory}
+            onChange={(e) => updateFilter('category', e.target.value)}
+            value={activeFilters.category}
           >
-            <option value="All">All News Categories</option>
-            <option value="Climate Justice">Climate Justice</option>
-            <option value="Social Equity">Social Equity</option>
-            <option value="Gender and Climate">Gender and Climate</option>
-            <option value="Youth Empowerment">Youth Empowerment</option>
-            <option value="Climate Litigation & Legal Action">
-              Climate Litigation & Legal Action
-            </option>
-            <option value="Climate Activism & Advocacy">
-              Climate Activism & Advocacy
-            </option>
-            <option value="Research & Education">Research & Education</option>
-            <option value="Science Communication">Science Communication</option>
-            <option value="Media Communication">Media Communication</option>
-            <option value="Indigenous Knowledge">Indigenous Knowledge</option>
-            <option value="Climate and Mental Health">
-              Climate and Mental Health
-            </option>
-            <option value="Ecosystem Conservation">
-              Ecosystem Conservation
-            </option>
-            <option value="Wildlife & Biodiversity">
-              Wildlife & Biodiversity
-            </option>
-            <option value="Renewable Energy">Renewable Energy</option>
-            <option value="Environment">Environment</option>
-            <option value="Sustainability">Sustainability</option>
-            <option value="Pollution & Waste Management">
-              Pollution & Waste Management
-            </option>
-            <option value="Circular Economy">Circular Economy</option>
-            <option value="Transportation & Mobility">
-              Transportation & Mobility
-            </option>
-            <option value="Nature-Based Solutions">
-              Nature-Based Solutions
-            </option>
-            <option value="Carbon Sequestration">Carbon Sequestration</option>
-            <option value="Food, Water & Agriculture">
-              Food, Water & Agriculture
-            </option>
-            <option value="Climate Adaptation & Mitigation">
-              Climate Adaptation & Mitigation
-            </option>
-            <option value="Disaster Risk Management">
-              Disaster Risk Management
-            </option>
-            <option value="Community Resilience">Community Resilience</option>
-            <option value="Climate Finance">Climate Finance</option>
-            <option value="Carbon Markets">Carbon Markets</option>
-            <option value="Loss & Damage">Loss & Damage</option>
-            <option value="Climate Technology">Climate Technology</option>
-            <option value="Digital Solutions">Digital Solutions</option>
+            <option value="">All News Categories</option>
+            {CATEGORY_OPTIONS.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
           </select>
           <span className={styles.menuDropdown}>
             <img alt="icon" src={IconChevronDown.src} />
@@ -165,16 +125,18 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         </div>
       </div>
 
-      {visibleNews.length > 0 ? (
+      <div className={styles.totalCount}>Total: {totalNews}</div>
+
+      {news.length > 0 ? (
         <div className={styles.newsContainer}>
-          {visibleNews.map((news) => (
+          {news.map((item) => (
             <NewsCard
-              key={news.id}
-              title={news.title}
-              source={news.source}
-              mode={news.mode}
-              publishedDate={news.publishedDate}
-              newsLink={news.newsLink}
+              key={item.id}
+              title={item.title}
+              source={item.source}
+              mode={item.mode}
+              publishedDate={item.publishedDate}
+              newsLink={item.newsLink}
             />
           ))}
         </div>
@@ -182,17 +144,34 @@ const NewsFilter: React.FC<Props> = ({ newsData }) => {
         <p className={styles.noResults}>No news found!</p>
       )}
 
-      {/* Load More Button */}
-      {visibleCount < filteredNews.length && (
-        <div className={styles.loadMoreWrapper}>
-          <button
-            type="button"
-            className={styles.loadMoreButton}
-            onClick={handleLoadMore}
-          >
-            Load More
-          </button>
-        </div>
+      {totalPages > 1 && (
+        <nav className={styles.pagination} aria-label="News pages">
+          {currentPage > 1 ? (
+            <a
+              className={styles.pageLink}
+              href={pageHref(currentPage - 1)}
+              data-astro-prefetch="hover"
+            >
+              Previous
+            </a>
+          ) : (
+            <span className={styles.pageLinkDisabled}>Previous</span>
+          )}
+          <span className={styles.pageStatus}>
+            Page {currentPage} of {totalPages}
+          </span>
+          {currentPage < totalPages ? (
+            <a
+              className={styles.pageLink}
+              href={pageHref(currentPage + 1)}
+              data-astro-prefetch="hover"
+            >
+              Next
+            </a>
+          ) : (
+            <span className={styles.pageLinkDisabled}>Next</span>
+          )}
+        </nav>
       )}
     </div>
   );
