@@ -1,6 +1,11 @@
-import { createSlug } from 'src/utils/slug';
 import type { Blog, BlogResponse } from '../types/blog';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import {
+  API_BASE_URL,
+  ApiError,
+  fetchAllPages,
+  findBySlug,
+  handleResponse,
+} from './index';
 
 const blogsRequest = (path = '') =>
   fetch(`${API_BASE_URL}/api/v1/blogs${path}`, {
@@ -86,20 +91,20 @@ export const getBlogById = async (id: string): Promise<Blog | undefined> => {
   }
 };
 
+export const fetchAllBlogSummaries = async (): Promise<Blog[]> =>
+  fetchAllPages<Blog>((opts) => fetchAllBlogs(opts));
+
 export const getBlogBySlug = async (
-  slug: string
+  slug: string,
+  firstPage?: BlogResponse
 ): Promise<Blog | undefined> => {
   if (!slug) return;
-  try {
-    const response = await fetchAllBlogs();
-    const summary = response.data.find(
-      (blog) => createSlug(blog.title) === slug
-    );
-    return summary ? await getBlogById(summary.id) : undefined;
-  } catch (error) {
-    console.error(`Error fetching blog with slug ${slug}:`, error);
-    return undefined;
-  }
+  const summary = await findBySlug(
+    slug,
+    (opts) => fetchAllBlogs(opts),
+    firstPage
+  );
+  return summary ? await getBlogById(summary.id) : undefined;
 };
 
 export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {

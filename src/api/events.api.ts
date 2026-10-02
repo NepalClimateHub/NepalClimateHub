@@ -4,7 +4,13 @@ import type {
   EventSummary,
   EventSummaryResponse,
 } from '../types/event';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import {
+  API_BASE_URL,
+  ApiError,
+  fetchAllPages,
+  findBySlug,
+  handleResponse,
+} from './index';
 
 export const fetchEvents = async (): Promise<EventResponse> => {
   if (!API_BASE_URL) {
@@ -73,26 +79,8 @@ export const fetchEventSummaries = async (
   return handleResponse<EventSummaryResponse>(response);
 };
 
-const FETCH_ALL_BATCH_SIZE = 100;
-
-export const fetchAllEventSummaries = async (): Promise<EventSummary[]> => {
-  const all: EventSummary[] = [];
-  let offset = 0;
-  let total = Number.POSITIVE_INFINITY;
-
-  while (all.length < total) {
-    const { data, meta } = await fetchEventSummaries({
-      limit: FETCH_ALL_BATCH_SIZE,
-      offset,
-    });
-    total = meta?.count ?? all.length + data.length;
-    if (data.length === 0) break;
-    all.push(...data);
-    offset += FETCH_ALL_BATCH_SIZE;
-  }
-
-  return all;
-};
+export const fetchAllEventSummaries = async (): Promise<EventSummary[]> =>
+  fetchAllPages<EventSummary>((opts) => fetchEventSummaries(opts));
 
 export const fetchEventById = async (
   id: string
@@ -122,4 +110,19 @@ export const fetchEventById = async (
       }`
     );
   }
+};
+
+export const getEventBySlug = async (
+  slug: string,
+  firstPage?: EventSummaryResponse
+): Promise<Event | undefined> => {
+  if (!slug) return;
+  const summary = await findBySlug(
+    slug,
+    (opts) => fetchEventSummaries(opts),
+    firstPage
+  );
+  if (!summary) return undefined;
+  const { data } = await fetchEventById(summary.id);
+  return data;
 };
