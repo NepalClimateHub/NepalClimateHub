@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import styles from '../styles/components/Blogs.module.css';
 import BlogCard, { type BlogCardData } from './BlogCard';
 import WriteBlog from './WriteBlog';
 
 interface Props {
   blogs: BlogCardData[];
+  activeCategory: string;
+  currentPage: number;
+  totalPages: number;
 }
 
 const categories = [
@@ -20,16 +22,21 @@ const categories = [
   'Climate Science',
 ];
 
-export default function BlogCategoryFilter({ blogs }: Props) {
-  const [activeCategory, setActiveCategory] = useState('All');
+export default function BlogCategoryFilter({
+  blogs,
+  activeCategory,
+  currentPage,
+  totalPages,
+}: Props) {
+  const hrefFor = (category: string, page = 1) => {
+    const params = new URLSearchParams();
 
-  const filteredBlogs =
-    activeCategory === 'All'
-      ? blogs
-      : blogs.filter(
-          (blog) =>
-            blog.category?.toLowerCase() === activeCategory.toLowerCase()
-        );
+    if (category !== 'All') params.set('category', category);
+    if (page > 1) params.set('page', String(page));
+
+    const query = params.toString();
+    return query ? `/blogs?${query}` : '/blogs';
+  };
 
   return (
     <div className={styles.sectionContainer}>
@@ -39,30 +46,58 @@ export default function BlogCategoryFilter({ blogs }: Props) {
       {/* Category Filter Buttons */}
       <div className={styles.filterContainer}>
         {categories.map((category) => (
-          <button
+          <a
             key={category}
-            type="button"
             className={`${styles.filterButton} ${
               activeCategory === category
                 ? styles.filterButtonActive
                 : styles.filterButtonInactive
             }`}
-            onClick={() => setActiveCategory(category)}
+            href={hrefFor(category)}
+            aria-current={activeCategory === category ? 'page' : undefined}
           >
             {category.replace('-', ' ')}
-          </button>
+          </a>
         ))}
       </div>
 
-      {filteredBlogs.length > 0 ? (
+      {blogs.length > 0 ? (
         // Blog Cards Grid
         <div className={styles.blogsGrid}>
-          {filteredBlogs.map((blog) => (
+          {blogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />
           ))}
         </div>
       ) : (
         <p className={styles.noResults}>No blogs found in this category.</p>
+      )}
+
+      {totalPages > 1 && (
+        <nav className={styles.pagination} aria-label="Blog pages">
+          {currentPage > 1 ? (
+            <a
+              className={styles.pageLink}
+              href={hrefFor(activeCategory, currentPage - 1)}
+            >
+              Previous
+            </a>
+          ) : (
+            <span className={styles.pageLinkDisabled}>Previous</span>
+          )}
+          <span className={styles.pageStatus}>
+            Page {currentPage} of {totalPages}
+          </span>
+          {currentPage < totalPages ? (
+            <a
+              className={styles.pageLink}
+              href={hrefFor(activeCategory, currentPage + 1)}
+            >
+              Next
+            </a>
+          ) : (
+            <span className={styles.pageLinkDisabled}>Next</span>
+          )}
+        </nav>
       )}
     </div>
   );
