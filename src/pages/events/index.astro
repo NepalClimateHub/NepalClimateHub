@@ -4,13 +4,18 @@ export const prerender = false;
 
 import '../../styles/global.css';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchEventSummaries } from '../../api';
+import { fetchAllEventSummaries, fetchEventSummaries } from '../../api';
 import EventFilter from '../../components/EventFilter';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
+import {
+  filterEvents,
+  hasActiveEventFilters,
+  parseEventFilters,
+} from '../../utils/eventFilters';
 
 const PAGE_SIZE = 12;
 const requestedPage = Number.parseInt(
@@ -19,20 +24,15 @@ const requestedPage = Number.parseInt(
 );
 const currentPage =
   Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
-const offset = (currentPage - 1) * PAGE_SIZE;
 
-const { data: apiEvents, meta } = await fetchEventSummaries({
-  limit: PAGE_SIZE,
-  offset,
-});
-const totalEvents = meta?.count || 0;
-const totalPages = Math.max(1, Math.ceil(totalEvents / PAGE_SIZE));
+const activeFilters = parseEventFilters(Astro.url.searchParams);
+const filtersActive = hasActiveEventFilters(activeFilters);
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
 }
 
-const events = (apiEvents || []).map((event: any) => {
+function mapEventSummary(event: any) {
   const formatMap: Record<string, string> = {
     IN_PERSON: 'In-person',
     VIRTUAL: 'Virtual',
@@ -75,7 +75,35 @@ const events = (apiEvents || []).map((event: any) => {
     description: stripHtml(event.description || '') || '',
     address: event.address,
   };
-});
+}
+
+let events: ReturnType<typeof mapEventSummary>[];
+let totalEvents: number;
+let totalPages: number;
+
+if (!filtersActive) {
+  const offset = (currentPage - 1) * PAGE_SIZE;
+  const { data: apiEvents, meta } = await fetchEventSummaries({
+    limit: PAGE_SIZE,
+    offset,
+  });
+  totalEvents = meta?.count || 0;
+  totalPages = Math.max(1, Math.ceil(totalEvents / PAGE_SIZE));
+  events = (apiEvents || []).map(mapEventSummary);
+} else {
+  const allSummaries = await fetchAllEventSummaries();
+  const filtered = filterEvents(
+    allSummaries.map(mapEventSummary),
+    activeFilters
+  );
+  totalEvents = filtered.length;
+  totalPages = Math.max(1, Math.ceil(totalEvents / PAGE_SIZE));
+  const safePage = Math.min(currentPage, totalPages);
+  const offset = (safePage - 1) * PAGE_SIZE;
+  events = filtered.slice(offset, offset + PAGE_SIZE);
+}
+
+const safeCurrentPage = Math.min(currentPage, totalPages);
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -99,10 +127,11 @@ const events = (apiEvents || []).map((event: any) => {
         <EventFilter
           client:load
           events={events}
-          currentPage={currentPage}
+          currentPage={safeCurrentPage}
           pageSize={PAGE_SIZE}
           totalEvents={totalEvents}
           totalPages={totalPages}
+          activeFilters={activeFilters}
         />
       </section>
     </div>

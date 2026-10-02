@@ -1,19 +1,22 @@
+import { navigate } from 'astro:transitions/client';
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import filterIcon from '../assets/icons/RightIcon.png';
 import styles from '../styles/components/EventFilter.module.css';
+import {
+  type EventFilterCandidate,
+  type EventFilterKey,
+  type EventFilterState,
+  filterOptions,
+  hasActiveEventFilters,
+  serializeEventFilters,
+} from '../utils/eventFilters';
 import { CardContainer } from './CardContainer';
 
-interface Event {
+interface Event extends EventFilterCandidate {
   id: string | number;
   title: string;
-  type: string;
-  locationType: string;
-  status: string;
-  format: string;
-  cost: string;
-  category: string[];
   address: {
     street: string | null;
     city: string | null;
@@ -29,111 +32,8 @@ interface Props {
   pageSize: number;
   totalEvents: number;
   totalPages: number;
+  activeFilters: EventFilterState;
 }
-
-const filterOptions = [
-  {
-    name: 'type',
-    label: 'Event Type',
-    defaultOption: 'All Types',
-    options: [
-      'Conference',
-      'Side Event',
-      'Seminar',
-      'Summit',
-      'Symposium',
-      'Webinar',
-      'Workshop',
-      'March',
-      'Event',
-    ],
-  },
-  {
-    name: 'locationType',
-    label: 'Location',
-    defaultOption: 'All Locations',
-    options: ['National', 'International'],
-  },
-  {
-    name: 'province',
-    label: 'Province',
-    defaultOption: 'All Provinces',
-    options: [
-      'Koshi',
-      'Madhesh',
-      'Bagmati',
-      'Gandaki',
-      'Lumbini',
-      'Karnali',
-      'Sudurpaschim',
-      'All 7 provinces',
-    ],
-  },
-  {
-    name: 'status',
-    label: 'Status',
-    defaultOption: 'All Status',
-    options: ['Open', 'Upcoming', 'Closed'],
-  },
-  {
-    name: 'format',
-    label: 'Format',
-    defaultOption: 'All Formats',
-    options: ['In-person', 'Virtual', 'Hybrid'],
-  },
-  {
-    name: 'cost',
-    label: 'Cost',
-    defaultOption: 'All Cost Types',
-    options: [
-      'Fully Funded',
-      'Partially Funded',
-      'Paid',
-      'Free',
-      'Invite only',
-    ],
-  },
-  {
-    name: 'category',
-    label: 'Category',
-    defaultOption: 'All Categories',
-    options: [
-      'Climate Mitigation',
-      'Climate Adaptation',
-      'Climate Activism & Advocacy',
-      'Climate Justice',
-      'Social Equity',
-      'Gender and Climate',
-      'Youth Empowerment',
-      'Climate Litigation',
-      'Research & Education',
-      'Science Communication',
-      'Media Communication',
-      'Indigenous Knowledge',
-      'Climate and Mental Health',
-      'Ecosystem Conservation',
-      'Wildlife & Biodiversity',
-      'Renewable Energy',
-      'Environment',
-      'Sustainability',
-      'Pollution & Waste Management',
-      'Circular Economy',
-      'Transportation & Mobility',
-      'Nature-Based Solutions',
-      'Carbon Sequestration',
-      'Food, Water & Agriculture',
-      'Disaster Risk Management',
-      'Community Resilience',
-      'Climate Finance',
-      'Carbon Markets',
-      'Loss & Damage',
-      'Climate Technology',
-      'Digital Solutions',
-      'Climate Policy',
-      'Climate Diplomacy',
-    ],
-  },
-];
 
 const EventFilter: React.FC<Props> = ({
   events,
@@ -141,18 +41,8 @@ const EventFilter: React.FC<Props> = ({
   pageSize,
   totalEvents,
   totalPages,
+  activeFilters,
 }) => {
-  const [filteredEvents, setFilteredEvents] = useState(events);
-  const [filters, setFilters] = useState({
-    type: [] as string[],
-    locationType: [] as string[],
-    province: [] as string[],
-    status: [] as string[],
-    format: [] as string[],
-    cost: [] as string[],
-    category: [] as string[],
-  });
-
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     type: true,
     locationType: false,
@@ -169,19 +59,23 @@ const EventFilter: React.FC<Props> = ({
     setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
-  const toggleSelection = (name: keyof typeof filters, value: string) => {
-    setFilters((prev) => {
-      const current = new Set(prev[name]);
-      if (current.has(value)) {
-        current.delete(value);
-      } else {
-        current.add(value);
-      }
-      return { ...prev, [name]: Array.from(current) };
-    });
+  const navigateToFilters = (nextFilters: EventFilterState) => {
+    const params = serializeEventFilters(nextFilters);
+    const query = params.toString();
+    navigate(query ? `/events?${query}` : '/events');
   };
 
-  const getCountsFor = (name: string, options: string[]) => {
+  const toggleSelection = (name: EventFilterKey, value: string) => {
+    const current = new Set(activeFilters[name]);
+    if (current.has(value)) {
+      current.delete(value);
+    } else {
+      current.add(value);
+    }
+    navigateToFilters({ ...activeFilters, [name]: Array.from(current) });
+  };
+
+  const getCountsFor = (name: EventFilterKey, options: string[]) => {
     const counts: Record<string, number> = {};
     options.forEach((opt) => {
       counts[opt] = 0;
@@ -196,67 +90,24 @@ const EventFilter: React.FC<Props> = ({
         const val = event.address?.state?.trim();
         if (val && counts[val] !== undefined) counts[val]++;
       } else {
-        const val = (event as any)[name]?.trim?.();
+        const val = event[name]?.trim?.();
         if (val && counts[val] !== undefined) counts[val]++;
       }
     });
     return counts;
   };
 
-  useEffect(() => {
-    let result = events;
-
-    (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
-      const selected = filters[key];
-      if (selected.length > 0) {
-        if (key === 'category') {
-          result = result.filter((event) =>
-            selected.some((val) =>
-              event.category?.some((c) => c.trim() === val.trim())
-            )
-          );
-        } else if (key === 'province') {
-          result = result.filter((event) => {
-            const val = event.address?.state?.trim() || '';
-            return selected.some((s) => s.trim() === val);
-          });
-        } else if (key === 'cost') {
-          result = result.filter((event) => {
-            const eventCost = event.cost ? event.cost.trim() : '';
-            return selected.some(
-              (s) =>
-                eventCost === s.trim() || (eventCost === '' && s === 'Free')
-            );
-          });
-        } else {
-          result = result.filter((event) => {
-            const val = ((event as any)[key] as string) || '';
-            return selected.some((s) => val.trim() === s.trim());
-          });
-        }
-      }
-    });
-
-    setFilteredEvents(result);
-  }, [filters, events]);
-
   const resetFilters = () => {
-    setFilters({
-      type: [],
-      locationType: [],
-      province: [],
-      status: [],
-      format: [],
-      cost: [],
-      category: [],
-    });
+    navigate('/events');
   };
 
-  const hasActiveFilters = Object.values(filters).some(
-    (selected) => selected.length > 0
-  );
-  const pageHref = (page: number) =>
-    page > 1 ? `/events?page=${page}` : '/events';
+  const hasActiveFilters = hasActiveEventFilters(activeFilters);
+  const pageHref = (page: number) => {
+    const params = serializeEventFilters(activeFilters);
+    if (page > 1) params.set('page', String(page));
+    const query = params.toString();
+    return query ? `/events?${query}` : '/events';
+  };
 
   return (
     <div className={styles.eventFilterWrapper}>
@@ -275,9 +126,7 @@ const EventFilter: React.FC<Props> = ({
             className={styles.filterIcon}
           />
         </button>
-        <div className={styles.totalCount}>
-          Total: {hasActiveFilters ? filteredEvents.length : totalEvents}
-        </div>
+        <div className={styles.totalCount}>Total: {totalEvents}</div>
       </div>
 
       <aside
@@ -317,8 +166,7 @@ const EventFilter: React.FC<Props> = ({
                     }`}
                   >
                     {options.map((option) => {
-                      const checked =
-                        filters[name as keyof typeof filters].includes(option);
+                      const checked = activeFilters[name].includes(option);
                       return (
                         <li key={option} className={styles.checkboxItem}>
                           <label className={styles.checkboxLabel}>
@@ -326,12 +174,7 @@ const EventFilter: React.FC<Props> = ({
                               type="checkbox"
                               className={styles.checkbox}
                               checked={checked}
-                              onChange={() =>
-                                toggleSelection(
-                                  name as keyof typeof filters,
-                                  option
-                                )
-                              }
+                              onChange={() => toggleSelection(name, option)}
                             />
                             <span className={styles.checkboxText}>
                               {option}
@@ -357,8 +200,8 @@ const EventFilter: React.FC<Props> = ({
       <section className={styles.results}>
         {/* Selected filter chips */}
         <div className={styles.selectedChipsRow}>
-          {(Object.keys(filters) as (keyof typeof filters)[]).flatMap((key) =>
-            filters[key].map((value) => (
+          {(Object.keys(activeFilters) as EventFilterKey[]).flatMap((key) =>
+            activeFilters[key].map((value) => (
               <button
                 key={`${String(key)}-${value}`}
                 type="button"
@@ -370,9 +213,7 @@ const EventFilter: React.FC<Props> = ({
               </button>
             ))
           )}
-          {(Object.keys(filters) as (keyof typeof filters)[]).some(
-            (k) => filters[k].length > 0
-          ) && (
+          {hasActiveFilters && (
             <button
               type="button"
               className={styles.chipDanger}
@@ -383,17 +224,17 @@ const EventFilter: React.FC<Props> = ({
             </button>
           )}
         </div>
-        {filteredEvents.length === 0 ? (
+        {events.length === 0 ? (
           <p className={styles.noResults}>No events found.</p>
         ) : (
           <CardContainer
-            cardsArray={filteredEvents}
+            cardsArray={events}
             dataType="events"
             initialCardCount={pageSize}
           />
         )}
 
-        {!hasActiveFilters && totalPages > 1 && (
+        {totalPages > 1 && (
           <nav className={styles.pagination} aria-label="Event pages">
             {currentPage > 1 ? (
               <a

@@ -1,6 +1,7 @@
 import type {
   Event,
   EventResponse,
+  EventSummary,
   EventSummaryResponse,
 } from '../types/event';
 import { API_BASE_URL, ApiError, handleResponse } from './index';
@@ -70,6 +71,27 @@ export const fetchEventSummaries = async (
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
   });
   return handleResponse<EventSummaryResponse>(response);
+};
+
+const FETCH_ALL_BATCH_SIZE = 100;
+
+export const fetchAllEventSummaries = async (): Promise<EventSummary[]> => {
+  const all: EventSummary[] = [];
+  let offset = 0;
+  let total = Number.POSITIVE_INFINITY;
+
+  while (all.length < total) {
+    const { data, meta } = await fetchEventSummaries({
+      limit: FETCH_ALL_BATCH_SIZE,
+      offset,
+    });
+    total = meta?.count ?? all.length + data.length;
+    if (data.length === 0) break;
+    all.push(...data);
+    offset += FETCH_ALL_BATCH_SIZE;
+  }
+
+  return all;
 };
 
 export const fetchEventById = async (
