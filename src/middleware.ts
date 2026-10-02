@@ -45,6 +45,10 @@ function getCloudflareRuntime(locals: unknown): CloudflareRuntime | undefined {
 }
 
 function canonicalBlogCacheUrl(url: URL): URL {
+  if (url.pathname !== '/blogs') {
+    return new URL(url.pathname, url.origin);
+  }
+
   const canonical = new URL('/blogs', url.origin);
   const category = url.searchParams.get('category');
   const page = Number.parseInt(url.searchParams.get('page') || '1', 10);
@@ -81,17 +85,21 @@ function withCacheHeaders(
 }
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const isBlogPage = context.url.pathname === '/blogs';
+  const isBlogListingPage = context.url.pathname === '/blogs';
+  const isBlogDetailPage = /^\/blogs\/[a-z0-9-]+$/.test(context.url.pathname);
+  const isCacheableBlogPage = isBlogListingPage || isBlogDetailPage;
   const hasPrivateRequestState =
     context.request.headers.has('authorization') ||
     context.request.headers.has('cookie');
 
   if (
     context.request.method !== 'GET' ||
-    !isBlogPage ||
+    !isCacheableBlogPage ||
     hasPrivateRequestState
   ) {
-    return isBlogPage ? withCacheHeaders(await next(), 'BYPASS') : next();
+    return isCacheableBlogPage
+      ? withCacheHeaders(await next(), 'BYPASS')
+      : next();
   }
 
   const cacheRequest = new Request(canonicalBlogCacheUrl(context.url), {
@@ -116,7 +124,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
       runtime.caches.default
         .put(cacheRequest, response.clone())
         .catch((error) => {
-          console.error('Failed to cache /blogs response', error);
+          console.error('Failed to cache public blog response', error);
         })
     );
   }
