@@ -1,34 +1,84 @@
 ---
+// Mark this page as dynamic (not pre-rendered)
+export const prerender = false;
+
 import '../styles/global.css';
-import { fetchResourceSummaries } from '../api';
+import { fetchAllResourceSummaries, fetchResourceSummaries } from '../api';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import ResourceFilter from '../components/ResourceFilter';
 import CardFilterSection from '../layouts/CardFilterSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
+import type { ResourceSummary } from '../types/resource';
+import {
+  filterResources,
+  hasActiveResourceFilters,
+  parseResourceFilters,
+  serializeResourceFilters,
+} from '../utils/resourceFilters';
 
-// Fetch resources from API
-let apiResources: any[] = [];
+const PAGE_SIZE = 12;
+const requestedPage = Number.parseInt(
+  Astro.url.searchParams.get('page') || '1',
+  10
+);
+const currentPage =
+  Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
 
-try {
-  const response = await fetchResourceSummaries();
-  apiResources = response.data || [];
-} catch (error) {
-  console.error('Error fetching resources:', error);
-  // Fallback to empty array if API fails
-  apiResources = [];
+const activeFilters = parseResourceFilters(Astro.url.searchParams);
+const filtersActive = hasActiveResourceFilters(activeFilters);
+
+function mapResourceSummary(resource: ResourceSummary) {
+  return {
+    id: resource.id,
+    title: resource.title,
+    description: resource.overview,
+    href: resource.link,
+    type: resource.type,
+    level: resource.level,
+    bannerImageUrl: resource.bannerImageUrl,
+  };
 }
 
-// Transform API data to match the expected Resource interface
-const resources = apiResources.map((resource) => ({
-  id: Number.parseInt(resource.id, 10),
-  title: resource.title,
-  description: resource.overview,
-  href: resource.link,
-  type: resource.type,
-  level: resource.level,
-  bannerImageUrl: resource.bannerImageUrl,
-}));
+let resources: ReturnType<typeof mapResourceSummary>[];
+let totalResources: number;
+let totalPages: number;
+
+try {
+  if (!filtersActive) {
+    const offset = (currentPage - 1) * PAGE_SIZE;
+    const { data: apiResources, meta } = await fetchResourceSummaries({
+      limit: PAGE_SIZE,
+      offset,
+    });
+    totalResources = meta?.count || 0;
+    totalPages = Math.max(1, Math.ceil(totalResources / PAGE_SIZE));
+    resources = (apiResources || []).map(mapResourceSummary);
+  } else {
+    const allSummaries = await fetchAllResourceSummaries();
+    const filtered = filterResources(
+      allSummaries.map(mapResourceSummary),
+      activeFilters
+    );
+    totalResources = filtered.length;
+    totalPages = Math.max(1, Math.ceil(totalResources / PAGE_SIZE));
+    const safePage = Math.min(currentPage, totalPages);
+    const offset = (safePage - 1) * PAGE_SIZE;
+    resources = filtered.slice(offset, offset + PAGE_SIZE);
+  }
+} catch (error) {
+  console.error('Error fetching resources:', error);
+  resources = [];
+  totalResources = 0;
+  totalPages = 1;
+}
+
+if (totalResources > 0 && currentPage > totalPages) {
+  const redirectParams = serializeResourceFilters(activeFilters);
+  if (totalPages > 1) redirectParams.set('page', String(totalPages));
+  const query = redirectParams.toString();
+  return Astro.redirect(`/resources${query ? `?${query}` : ''}`, 302);
+}
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -46,7 +96,15 @@ const resources = apiResources.map((resource) => ({
       </section>
 
       <section class="resource-cards-section">
-        <ResourceFilter client:load resources={resources} />
+        <ResourceFilter
+          client:load
+          resources={resources}
+          currentPage={currentPage}
+          pageSize={PAGE_SIZE}
+          totalResources={totalResources}
+          totalPages={totalPages}
+          activeFilters={activeFilters}
+        />
       </section>
     </div>
 

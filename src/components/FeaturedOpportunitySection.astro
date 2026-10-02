@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components';
 // import opportunityJSON from '../data/opportunitiesTemp.json';
 import { fetchOpportunitySummaries } from '../api';
 import logo from '../assets/logo/secondaryLogo.svg';
-import type { Opportunity } from '../types/opportunity';
+import type { OpportunitySummary } from '../types/opportunity';
 import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 import { createSlug } from '../utils/slug';
 
@@ -18,7 +18,7 @@ interface Props {
   endIndex: number | string;
   title: string;
   currentOpportunityId?: string | number;
-  opportunities?: Opportunity[];
+  opportunities?: OpportunitySummary[];
 }
 
 const { startIndex, endIndex, title, opportunities } = Astro.props as Props;

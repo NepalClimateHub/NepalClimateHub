@@ -225,6 +225,46 @@
   background-color: #f0f0f0;
 }
 
+.totalCount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.pageLink,
+.pageLinkDisabled {
+  border: 1px solid #cefe00;
+  border-radius: 22px;
+  padding: 8px 16px;
+  color: #364fc7;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pageLink:hover {
+  background-color: #f8f9fa;
+}
+
+.pageLinkDisabled {
+  border-color: #d1d5db;
+  color: #9ca3af;
+}
+
+.pageStatus {
+  color: #464646;
+  font-size: 14px;
+}
+
 @media (max-width: 1024px) {
   .newsContainer {
     grid-template-columns: repeat(2, 1fr);

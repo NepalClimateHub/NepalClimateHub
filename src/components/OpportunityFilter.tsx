@@ -1,22 +1,24 @@
+import { navigate } from 'astro:transitions/client';
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import filterIcon from '../assets/icons/RightIcon.png';
 import styles from '../styles/components/Opportunities.module.css';
+import {
+  type OpportunityFilterCandidate,
+  type OpportunityFilterKey,
+  type OpportunityFilterState,
+  filterOptions,
+  hasActiveOpportunityFilters,
+  serializeOpportunityFilters,
+} from '../utils/opportunityFilters';
 import { CardContainer } from './CardContainer';
 
-interface Opportunity {
+interface Opportunity extends OpportunityFilterCandidate {
   id: string | number;
   title: string;
-  type: string;
-  locationType: string;
-  province: string;
-  status: string;
-  format: string;
-  cost: string;
   organization: string;
   description: string;
-  category: string[];
   bannerImage: string;
   applicationDeadline: string;
   duration: string;
@@ -33,116 +35,33 @@ interface Opportunity {
 
 interface Props {
   opportunities: Opportunity[];
+  currentPage: number;
+  pageSize: number;
+  totalOpportunities: number;
+  totalPages: number;
+  activeFilters: OpportunityFilterState;
 }
 
-const filterOptions = [
-  {
-    name: 'type',
-    label: 'Opportunity Type',
-    defaultOption: 'All Types',
-    options: [
-      'Internship',
-      'Fellowship',
-      'Volunteer',
-      'Job',
-      'Grants',
-      'Scholarship',
-      'Training',
-      'Grant',
-    ],
-  },
-  {
-    name: 'locationType',
-    label: 'Location',
-    defaultOption: 'All Locations',
-    options: ['National', 'International'],
-  },
-  {
-    name: 'province',
-    label: 'Province',
-    defaultOption: 'All Provinces',
-    options: [
-      'Koshi',
-      'Madhesh',
-      'Bagmati',
-      'Gandaki',
-      'Lumbini',
-      'Karnali',
-      'Sudurpaschim',
-    ],
-  },
-  {
-    name: 'status',
-    label: 'Status',
-    defaultOption: 'All Status',
-    options: ['Open', 'Upcoming', 'Closed'],
-  },
-  {
-    name: 'format',
-    label: 'Format',
-    defaultOption: 'All Formats',
-    options: ['Physical', 'Online', 'Hybrid'],
-  },
-  {
-    name: 'cost',
-    label: 'Cost',
-    defaultOption: 'All Cost Types',
-    options: ['Fully_Funded', 'Partially_Funded', 'Paid', 'Free'],
-  },
-  {
-    name: 'category',
-    label: 'Category',
-    defaultOption: 'All Categories',
-    options: [
-      'Climate Mitigation',
-      'Climate Adaptation',
-      'Climate Activism & Advocacy',
-      'Climate Justice',
-      'Social Equity',
-      'Gender and Climate',
-      'Youth Empowerment',
-      'Climate Litigation',
-      'Research & Education',
-      'Science Communication',
-      'Media Communication',
-      'Indigenous Knowledge',
-      'Climate and Mental Health',
-      'Ecosystem Conservation',
-      'Wildlife & Biodiversity',
-      'Renewable Energy',
-      'Environment',
-      'Sustainability',
-      'Pollution & Waste Management',
-      'Circular Economy',
-      'Transportation & Mobility',
-      'Nature-Based Solutions',
-      'Carbon Sequestration',
-      'Food, Water & Agriculture',
-      'Disaster Risk Management',
-      'Community Resilience',
-      'Climate Finance',
-      'Carbon Markets',
-      'Loss & Damage',
-      'Climate Technology',
-      'Digital Solutions',
-      'Climate Policy',
-      'Climate Diplomacy',
-    ],
-  },
-];
+const FIELD_ACCESSORS: Record<
+  Exclude<OpportunityFilterKey, 'category'>,
+  (opportunity: Opportunity) => string
+> = {
+  type: (opportunity) => opportunity.type,
+  locationType: (opportunity) => opportunity.locationType,
+  province: (opportunity) => opportunity.province,
+  status: (opportunity) => opportunity.status,
+  format: (opportunity) => opportunity.format,
+  cost: (opportunity) => opportunity.cost,
+};
 
-const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
-  const [filteredOpportunities, setFilteredOpportunities] =
-    useState(opportunities);
-  const [filters, setFilters] = useState({
-    type: [] as string[],
-    locationType: [] as string[],
-    province: [] as string[],
-    status: [] as string[],
-    format: [] as string[],
-    cost: [] as string[],
-    category: [] as string[],
-  });
+const OpportunityFilter: React.FC<Props> = ({
+  opportunities,
+  currentPage,
+  pageSize,
+  totalOpportunities,
+  totalPages,
+  activeFilters,
+}) => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     type: true,
     locationType: false,
@@ -152,97 +71,72 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
     cost: false,
     category: false,
   });
+
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
-  const toggleExpanded = (name: string) =>
+  const toggleExpanded = (name: string) => {
     setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
-
-  const toggleSelection = (name: keyof typeof filters, value: string) => {
-    setFilters((prev) => {
-      const current = new Set(prev[name]);
-      if (current.has(value)) current.delete(value);
-      else current.add(value);
-      return { ...prev, [name]: Array.from(current) };
-    });
   };
 
-  const getCountsFor = (name: string, options: string[]) => {
+  const navigateToFilters = (nextFilters: OpportunityFilterState) => {
+    const params = serializeOpportunityFilters(nextFilters);
+    const query = params.toString();
+    navigate(query ? `/opportunities?${query}` : '/opportunities');
+  };
+
+  const toggleSelection = (name: OpportunityFilterKey, value: string) => {
+    const current = new Set(activeFilters[name]);
+    if (current.has(value)) {
+      current.delete(value);
+    } else {
+      current.add(value);
+    }
+    navigateToFilters({ ...activeFilters, [name]: Array.from(current) });
+  };
+
+  const getCountsFor = (name: OpportunityFilterKey, options: string[]) => {
     const counts: Record<string, number> = {};
     options.forEach((opt) => {
       counts[opt] = 0;
     });
 
-    opportunities.forEach((opp) => {
-      if (name === 'category') {
+    if (name === 'category') {
+      opportunities.forEach((opportunity) => {
         options.forEach((opt) => {
           if (
-            opp.category?.some(
+            opportunity.category.some(
               (c) => c.trim().toLowerCase() === opt.trim().toLowerCase()
             )
           ) {
             counts[opt]++;
           }
         });
-      } else if (name === 'province') {
-        const val = opp.province?.trim()?.toLowerCase();
-        options.forEach((opt) => {
-          if (val === opt.trim().toLowerCase()) {
-            counts[opt]++;
-          }
-        });
-      } else {
-        const val = (opp as any)[name]?.trim?.()?.toLowerCase();
-        options.forEach((opt) => {
-          if (val === opt.trim().toLowerCase()) {
-            counts[opt]++;
-          }
-        });
-      }
+      });
+      return counts;
+    }
+
+    const getValue = FIELD_ACCESSORS[name];
+    opportunities.forEach((opportunity) => {
+      const val = getValue(opportunity).trim().toLowerCase();
+      options.forEach((opt) => {
+        if (val === opt.trim().toLowerCase()) counts[opt]++;
+      });
     });
 
     return counts;
   };
 
-  useEffect(() => {
-    let result = opportunities;
-    (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
-      const selected = filters[key];
-      if (selected.length > 0) {
-        if (key === 'category') {
-          result = result.filter((opp) =>
-            selected.some((val) =>
-              opp.category?.some(
-                (c) => c.toLowerCase().trim() === val.toLowerCase().trim()
-              )
-            )
-          );
-        } else if (key === 'province') {
-          result = result.filter((opp) => {
-            const val = opp.province?.toLowerCase().trim() || '';
-            return selected.some((s) => s.toLowerCase().trim() === val);
-          });
-        } else {
-          result = result.filter((opp) => {
-            const val =
-              ((opp as any)[key] as string).toLocaleLowerCase().trim() || '';
-            return selected.some((s) => val === s.toLowerCase().trim());
-          });
-        }
-      }
-    });
-    setFilteredOpportunities(result);
-  }, [filters, opportunities]);
+  const resetFilters = () => {
+    navigate('/opportunities');
+  };
 
-  const resetFilters = () =>
-    setFilters({
-      type: [],
-      locationType: [],
-      province: [],
-      status: [],
-      format: [],
-      cost: [],
-      category: [],
-    });
+  const hasActiveFilters = hasActiveOpportunityFilters(activeFilters);
+  const pageHref = (page: number) => {
+    const params = serializeOpportunityFilters(activeFilters);
+    if (page > 1) params.set('page', String(page));
+    const query = params.toString();
+    return query ? `/opportunities?${query}` : '/opportunities';
+  };
 
   return (
     <div className={styles.eventFilterWrapper}>
@@ -251,6 +145,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
           type="button"
           className={styles.addFilterButton}
           onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+          aria-label="Toggle filters"
         >
           <span>Add Filter</span>
           <img
@@ -259,13 +154,16 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
             className={styles.filterIcon}
           />
         </button>
-        <div className={styles.totalCount}>
-          Total: {filteredOpportunities.length}
-        </div>
+        <div className={styles.totalCount}>Total: {totalOpportunities}</div>
       </div>
 
       <aside
-        className={`${styles.sidebar} ${isMobileFilterOpen ? styles.mobileFilterOpen : styles.mobileFilterClosed}`}
+        className={`${styles.sidebar} ${
+          isMobileFilterOpen
+            ? styles.mobileFilterOpen
+            : styles.mobileFilterClosed
+        }`}
+        aria-label="Opportunity filters"
       >
         <div className={styles.sidebarInner}>
           <div className={styles.filterContainer}>
@@ -282,18 +180,21 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
                   >
                     <span>{label}</span>
                     <span
-                      className={`${styles.chevron} ${expanded[name] ? styles.chevronOpen : ''}`}
+                      className={`${styles.chevron} ${
+                        expanded[name] ? styles.chevronOpen : ''
+                      }`}
                     >
                       <FaChevronDown />
                     </span>
                   </button>
                   <ul
                     id={`${name}-options`}
-                    className={`${styles.checkboxList} ${expanded[name] ? '' : styles.collapsed}`}
+                    className={`${styles.checkboxList} ${
+                      expanded[name] ? '' : styles.collapsed
+                    }`}
                   >
                     {options.map((option) => {
-                      const checked =
-                        filters[name as keyof typeof filters].includes(option);
+                      const checked = activeFilters[name].includes(option);
                       return (
                         <li key={option} className={styles.checkboxItem}>
                           <label className={styles.checkboxLabel}>
@@ -301,12 +202,7 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
                               type="checkbox"
                               className={styles.checkbox}
                               checked={checked}
-                              onChange={() =>
-                                toggleSelection(
-                                  name as keyof typeof filters,
-                                  option
-                                )
-                              }
+                              onChange={() => toggleSelection(name, option)}
                             />
                             <span className={styles.checkboxText}>
                               {option.replace(/_/g, ' ')}
@@ -328,22 +224,23 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
 
       <section className={styles.results}>
         <div className={styles.selectedChipsRow}>
-          {(Object.keys(filters) as (keyof typeof filters)[]).flatMap((key) =>
-            filters[key].map((value) => (
-              <button
-                key={`${String(key)}-${value}`}
-                type="button"
-                className={styles.chip}
-                onClick={() => toggleSelection(key, value)}
-              >
-                <span className={styles.chipText}>{value}</span>
-                <span className={styles.chipClose}>×</span>
-              </button>
-            ))
+          {(Object.keys(activeFilters) as OpportunityFilterKey[]).flatMap(
+            (key) =>
+              activeFilters[key].map((value) => (
+                <button
+                  key={`${String(key)}-${value}`}
+                  type="button"
+                  className={styles.chip}
+                  onClick={() => toggleSelection(key, value)}
+                >
+                  <span className={styles.chipText}>
+                    {value.replace(/_/g, ' ')}
+                  </span>
+                  <span className={styles.chipClose}>×</span>
+                </button>
+              ))
           )}
-          {(Object.keys(filters) as (keyof typeof filters)[]).some(
-            (k) => filters[k].length > 0
-          ) && (
+          {hasActiveFilters && (
             <button
               type="button"
               className={styles.chipDanger}
@@ -354,14 +251,44 @@ const OpportunityFilter: React.FC<Props> = ({ opportunities }) => {
             </button>
           )}
         </div>
-        {filteredOpportunities.length === 0 ? (
+        {opportunities.length === 0 ? (
           <p className={styles.noResults}>No opportunities found.</p>
         ) : (
           <CardContainer
-            cardsArray={filteredOpportunities}
+            cardsArray={opportunities}
             dataType="opportunities"
-            initialCardCount={8}
+            initialCardCount={pageSize}
           />
+        )}
+
+        {totalPages > 1 && (
+          <nav className={styles.pagination} aria-label="Opportunity pages">
+            {currentPage > 1 ? (
+              <a
+                className={styles.pageLink}
+                href={pageHref(currentPage - 1)}
+                data-astro-prefetch="hover"
+              >
+                Previous
+              </a>
+            ) : (
+              <span className={styles.pageLinkDisabled}>Previous</span>
+            )}
+            <span className={styles.pageStatus}>
+              Page {currentPage} of {totalPages}
+            </span>
+            {currentPage < totalPages ? (
+              <a
+                className={styles.pageLink}
+                href={pageHref(currentPage + 1)}
+                data-astro-prefetch="hover"
+              >
+                Next
+              </a>
+            ) : (
+              <span className={styles.pageLinkDisabled}>Next</span>
+            )}
+          </nav>
         )}
       </section>
     </div>

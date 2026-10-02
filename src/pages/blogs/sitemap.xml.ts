@@ -1,14 +1,10 @@
-import { fetchAllBlogs } from 'src/api';
+import { fetchAllBlogSummaries } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
 export async function GET() {
-  const data = await fetchAllBlogs();
+  const blogs = await fetchAllBlogSummaries();
 
-  if (!data || !data.data) {
-    throw new Error('Error fetching blogs');
-  }
-
-  const urls = data.data
+  const urls = blogs
     .map((blog) => {
       return `
     <url>
