@@ -1,3 +1,4 @@
+import { BLOG_CATEGORIES } from '../constants/blogCategories';
 import styles from '../styles/components/Blogs.module.css';
 import BlogCard, { type BlogCardData } from './BlogCard';
 import WriteBlog from './WriteBlog';
@@ -9,18 +10,7 @@ interface Props {
   totalPages: number;
 }
 
-const categories = [
-  'All',
-  'Voices & Stories',
-  'Community',
-  'Education',
-  'Environment',
-  'Climate Technology',
-  'Climate Policy',
-  'Sustainability',
-  'Climate Justice',
-  'Climate Science',
-];
+const categories = ['All', ...BLOG_CATEGORIES];
 
 export default function BlogCategoryFilter({
   blogs,

@@ -31,11 +31,9 @@ function stripHtml(html: string): string {
 
 const cleanDescription = stripHtml(description);
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-// Construct full URL properly for SSR - use pathname + search + hash to ensure correct URL
-const pathname = Astro.url.pathname;
-const search = Astro.url.search;
-const hash = Astro.url.hash;
-const fullPath = `${pathname}${search}${hash}`;
+// Edge-cached routes get a whitelisted path from middleware so tracking params never leak into cached meta.
+const fullPath =
+  Astro.locals.canonicalPath ?? `${Astro.url.pathname}${Astro.url.search}`;
 // Use ogUrl if provided, otherwise construct from site + pathname
 const currentUrl = ogUrl || `${siteUrl}${fullPath}`;
 const fullOgImage = ogImage.startsWith('http')

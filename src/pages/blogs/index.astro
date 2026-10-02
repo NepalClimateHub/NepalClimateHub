@@ -10,23 +10,13 @@ import BlogCard from '../../components/BlogCard';
 import BlogCategoryFilter from '../../components/BlogCategoryFilter.tsx';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import { BLOG_CATEGORY_SET } from '../../constants/blogCategories';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Blog } from '../../types/blog';
 
 const PAGE_SIZE = 12;
-const categories = new Set([
-  'Voices & Stories',
-  'Community',
-  'Education',
-  'Environment',
-  'Climate Technology',
-  'Climate Policy',
-  'Sustainability',
-  'Climate Justice',
-  'Climate Science',
-]);
 const requestedCategory = Astro.url.searchParams.get('category') || 'All';
-const activeCategory = categories.has(requestedCategory)
+const activeCategory = BLOG_CATEGORY_SET.has(requestedCategory)
   ? requestedCategory
   : 'All';
 const requestedPage = Number.parseInt(

@@ -20,9 +20,6 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-const ua = Astro.request.headers.get('user-agent') ?? '';
-const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
-
 const { detail } = Astro.params;
 
 if (!detail) {
@@ -63,10 +60,7 @@ const blogDetail = {
 };
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-const pathname = Astro.url.pathname;
-const search = Astro.url.search;
-const hash = Astro.url.hash;
-const fullPath = `${pathname}${search}${hash}`;
+const fullPath = Astro.url.pathname;
 const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
 const metaDescription =
   `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
@@ -123,14 +117,10 @@ const authorImagePlaceholder = `https://ui-avatars.com/api/?name=${encodeURIComp
             />
           </div>
 
-          {
-            !isMobile && (
-              <div class="sidebar-section stay-connected">
+          <div class="sidebar-section stay-connected">
                 <h2 class="sidebar-title">Stay Connected</h2>
                 <EmailSubscriptionForm formBtnVariant="primary" />
               </div>
-            )
-          }
 
           <section class="top-reads-section">
             <BlogHighlights title="Top Reads" blogs={topReads} />

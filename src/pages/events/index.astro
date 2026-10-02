@@ -15,6 +15,7 @@ import {
   filterEvents,
   hasActiveEventFilters,
   parseEventFilters,
+  serializeEventFilters,
 } from '../../utils/eventFilters';
 
 const PAGE_SIZE = 12;
@@ -103,7 +104,12 @@ if (!filtersActive) {
   events = filtered.slice(offset, offset + PAGE_SIZE);
 }
 
-const safeCurrentPage = Math.min(currentPage, totalPages);
+if (totalEvents > 0 && currentPage > totalPages) {
+  const redirectParams = serializeEventFilters(activeFilters);
+  if (totalPages > 1) redirectParams.set('page', String(totalPages));
+  const query = redirectParams.toString();
+  return Astro.redirect(`/events${query ? `?${query}` : ''}`, 302);
+}
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -127,7 +133,7 @@ const safeCurrentPage = Math.min(currentPage, totalPages);
         <EventFilter
           client:load
           events={events}
-          currentPage={safeCurrentPage}
+          currentPage={currentPage}
           pageSize={PAGE_SIZE}
           totalEvents={totalEvents}
           totalPages={totalPages}
