@@ -12,7 +12,21 @@ import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 
-const { data: apiEvents } = await fetchEventSummaries();
+const PAGE_SIZE = 12;
+const requestedPage = Number.parseInt(
+  Astro.url.searchParams.get('page') || '1',
+  10
+);
+const currentPage =
+  Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+const offset = (currentPage - 1) * PAGE_SIZE;
+
+const { data: apiEvents, meta } = await fetchEventSummaries({
+  limit: PAGE_SIZE,
+  offset,
+});
+const totalEvents = meta?.count || 0;
+const totalPages = Math.max(1, Math.ceil(totalEvents / PAGE_SIZE));
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -82,7 +96,14 @@ const events = (apiEvents || []).map((event: any) => {
       </section>
 
       <section class="event-cards-section">
-        <EventFilter client:load events={events} />
+        <EventFilter
+          client:load
+          events={events}
+          currentPage={currentPage}
+          pageSize={PAGE_SIZE}
+          totalEvents={totalEvents}
+          totalPages={totalPages}
+        />
       </section>
     </div>
 

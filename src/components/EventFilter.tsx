@@ -25,6 +25,10 @@ interface Event {
 
 interface Props {
   events: Event[];
+  currentPage: number;
+  pageSize: number;
+  totalEvents: number;
+  totalPages: number;
 }
 
 const filterOptions = [
@@ -131,7 +135,13 @@ const filterOptions = [
   },
 ];
 
-const EventFilter: React.FC<Props> = ({ events }) => {
+const EventFilter: React.FC<Props> = ({
+  events,
+  currentPage,
+  pageSize,
+  totalEvents,
+  totalPages,
+}) => {
   const [filteredEvents, setFilteredEvents] = useState(events);
   const [filters, setFilters] = useState({
     type: [] as string[],
@@ -242,6 +252,12 @@ const EventFilter: React.FC<Props> = ({ events }) => {
     });
   };
 
+  const hasActiveFilters = Object.values(filters).some(
+    (selected) => selected.length > 0
+  );
+  const pageHref = (page: number) =>
+    page > 1 ? `/events?page=${page}` : '/events';
+
   return (
     <div className={styles.eventFilterWrapper}>
       {/* Mobile Add Filter Button and Total Count */}
@@ -259,7 +275,9 @@ const EventFilter: React.FC<Props> = ({ events }) => {
             className={styles.filterIcon}
           />
         </button>
-        <div className={styles.totalCount}>Total: {filteredEvents.length}</div>
+        <div className={styles.totalCount}>
+          Total: {hasActiveFilters ? filteredEvents.length : totalEvents}
+        </div>
       </div>
 
       <aside
@@ -371,8 +389,38 @@ const EventFilter: React.FC<Props> = ({ events }) => {
           <CardContainer
             cardsArray={filteredEvents}
             dataType="events"
-            initialCardCount={8}
+            initialCardCount={pageSize}
           />
+        )}
+
+        {!hasActiveFilters && totalPages > 1 && (
+          <nav className={styles.pagination} aria-label="Event pages">
+            {currentPage > 1 ? (
+              <a
+                className={styles.pageLink}
+                href={pageHref(currentPage - 1)}
+                data-astro-prefetch="hover"
+              >
+                Previous
+              </a>
+            ) : (
+              <span className={styles.pageLinkDisabled}>Previous</span>
+            )}
+            <span className={styles.pageStatus}>
+              Page {currentPage} of {totalPages}
+            </span>
+            {currentPage < totalPages ? (
+              <a
+                className={styles.pageLink}
+                href={pageHref(currentPage + 1)}
+                data-astro-prefetch="hover"
+              >
+                Next
+              </a>
+            ) : (
+              <span className={styles.pageLinkDisabled}>Next</span>
+            )}
+          </nav>
         )}
       </section>
     </div>
