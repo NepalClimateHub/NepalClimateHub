@@ -126,13 +126,3 @@ export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {
 
 export const getFeaturedPost = (blogs: Blog[]): Blog | null =>
   blogs.find((blog) => blog.isFeatured) || null;
-
-export const getTopReadPosts = async (): Promise<Blog[]> => {
-  try {
-    const { data } = await fetchAllBlogs();
-    return data.filter((blog) => blog.isTopRead).slice(0, 3);
-  } catch (error) {
-    console.error('Error fetching top read posts:', error);
-    return [];
-  }
-};
