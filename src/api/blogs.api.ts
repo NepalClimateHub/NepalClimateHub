@@ -27,7 +27,7 @@ const assertApiBaseUrl = () => {
 export const fetchAllBlogs = async (): Promise<BlogResponse> => {
   assertApiBaseUrl();
   try {
-    const response = await blogsRequest('?excludeContent=true');
+    const response = await blogsRequest('?view=summary');
     return await handleResponse<BlogResponse>(response);
   } catch (error) {
     console.error('Error fetching all blogs:', error);
