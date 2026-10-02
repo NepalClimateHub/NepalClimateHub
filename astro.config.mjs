@@ -20,9 +20,11 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  // Keep navigation client-side without automatically prefetching CMS-backed pages.
+  // Only links explicitly marked with `data-astro-prefetch` are warmed. This avoids
+  // speculative CMS traffic while making cacheable, high-intent navigations instant.
   prefetch: {
     prefetchAll: false,
+    defaultStrategy: 'hover',
   },
   env: {
     schema: {

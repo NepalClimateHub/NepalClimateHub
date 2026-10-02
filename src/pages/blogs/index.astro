@@ -13,22 +13,58 @@ import Header from '../../components/Header.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Blog } from '../../types/blog';
 
-// Fetch blogs from API
-let apiBlogs: Blog[] = [];
+const PAGE_SIZE = 12;
+const categories = new Set([
+  'Voices & Stories',
+  'Community',
+  'Education',
+  'Environment',
+  'Climate Technology',
+  'Climate Policy',
+  'Sustainability',
+  'Climate Justice',
+  'Climate Science',
+]);
+const requestedCategory = Astro.url.searchParams.get('category') || 'All';
+const activeCategory = categories.has(requestedCategory)
+  ? requestedCategory
+  : 'All';
+const requestedPage = Number.parseInt(Astro.url.searchParams.get('page') || '1', 10);
+const currentPage = Number.isFinite(requestedPage) && requestedPage > 0
+  ? requestedPage
+  : 1;
+const offset = (currentPage - 1) * PAGE_SIZE;
+
+let pageBlogs: Blog[] = [];
+let totalBlogs = 0;
 let featuredBlog: Blog | null = null;
 
 try {
-  const response = await fetchAllBlogs();
-  apiBlogs = response.data || [];
-  featuredBlog = getFeaturedPost(apiBlogs);
+  const pageRequest = fetchAllBlogs({
+    category: activeCategory === 'All' ? undefined : activeCategory,
+    limit: PAGE_SIZE,
+    offset,
+  });
+  const featuredRequest =
+    activeCategory === 'All' && currentPage === 1
+      ? pageRequest
+      : fetchAllBlogs({ limit: PAGE_SIZE, offset: 0 });
+  const [pageResponse, featuredResponse] = await Promise.all([
+    pageRequest,
+    featuredRequest,
+  ]);
+
+  pageBlogs = pageResponse.data || [];
+  totalBlogs = pageResponse.meta?.count || 0;
+  featuredBlog = getFeaturedPost(featuredResponse.data || []);
 } catch (error) {
   console.error('Error fetching blogs:', error);
-  // Fallback to empty arrays if API fails
-  apiBlogs = [];
+  pageBlogs = [];
+  totalBlogs = 0;
   featuredBlog = null;
 }
-const latestBlogs: Blog[] = apiBlogs.slice(0, 3);
-const categoryBlogs = apiBlogs.map(
+const latestBlogs: Blog[] = pageBlogs.slice(0, 3);
+const categoryBlogs = pageBlogs.map(
   ({
     id,
     title,
@@ -53,6 +89,7 @@ const categoryBlogs = apiBlogs.map(
     bannerImageUrl,
   })
 );
+const totalPages = Math.max(1, Math.ceil(totalBlogs / PAGE_SIZE));
 ---
 
 <BaseLayout title="Blogs | Nepal Climate Hub">
@@ -90,7 +127,12 @@ const categoryBlogs = apiBlogs.map(
     </section>
 
     <section class="category-section">
-      <BlogCategoryFilter client:load blogs={categoryBlogs} />
+      <BlogCategoryFilter
+        blogs={categoryBlogs}
+        activeCategory={activeCategory}
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
     </section>
 
     <section class="footer-section">

@@ -11,6 +11,13 @@ const blogsRequest = (path = '') =>
     },
   });
 
+export interface BlogListOptions {
+  category?: string;
+  isFeatured?: boolean;
+  limit?: number;
+  offset?: number;
+}
+
 const assertApiBaseUrl = () => {
   if (!API_BASE_URL) {
     throw new ApiError(
@@ -21,13 +28,26 @@ const assertApiBaseUrl = () => {
 };
 
 /**
- * Fetches every blog without `content`. Use this for listings, cards and sitemaps;
- * fetch a single blog with `getBlogById` when its body is needed.
+ * Fetches the compact card projection. Callers that render a page should provide
+ * a bounded `limit` and `offset`; full bodies remain detail-only.
  */
-export const fetchAllBlogs = async (): Promise<BlogResponse> => {
+export const fetchAllBlogs = async (
+  options: BlogListOptions = {}
+): Promise<BlogResponse> => {
   assertApiBaseUrl();
   try {
-    const response = await blogsRequest('?excludeContent=true');
+    const params = new URLSearchParams({ view: 'summary' });
+
+    if (options.category) params.set('category', options.category);
+    if (options.isFeatured !== undefined) {
+      params.set('isFeatured', String(options.isFeatured));
+    }
+    if (options.limit !== undefined) params.set('limit', String(options.limit));
+    if (options.offset !== undefined) {
+      params.set('offset', String(options.offset));
+    }
+
+    const response = await blogsRequest(`?${params.toString()}`);
     return await handleResponse<BlogResponse>(response);
   } catch (error) {
     console.error('Error fetching all blogs:', error);

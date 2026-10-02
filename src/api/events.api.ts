@@ -44,7 +44,14 @@ export const fetchEvents = async (): Promise<EventResponse> => {
   }
 };
 
-export const fetchEventSummaries = async (): Promise<EventSummaryResponse> => {
+export interface EventSummaryOptions {
+  limit?: number;
+  offset?: number;
+}
+
+export const fetchEventSummaries = async (
+  options: EventSummaryOptions = {}
+): Promise<EventSummaryResponse> => {
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
@@ -52,7 +59,13 @@ export const fetchEventSummaries = async (): Promise<EventSummaryResponse> => {
     );
   }
 
-  const response = await fetch(`${API_BASE_URL}/api/v1/events?view=summary`, {
+  const params = new URLSearchParams({ view: 'summary' });
+  if (options.limit !== undefined) params.set('limit', String(options.limit));
+  if (options.offset !== undefined) {
+    params.set('offset', String(options.offset));
+  }
+
+  const response = await fetch(`${API_BASE_URL}/api/v1/events?${params}`, {
     method: 'GET',
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
   });
