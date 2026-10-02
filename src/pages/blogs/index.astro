@@ -5,7 +5,7 @@ export const prerender = false;
 import '../../styles/global.css';
 import BlogHighlights from '@components/BlogHighlights.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchAllBlogs, getFeaturedPost } from '../../api';
+import { fetchAllBlogs, fetchFeaturedBlogs, getFeaturedPost } from '../../api';
 import BlogCard from '../../components/BlogCard';
 import BlogCategoryFilter from '../../components/BlogCategoryFilter.tsx';
 import Footer from '../../components/Footer.astro';
@@ -29,15 +29,19 @@ const requestedCategory = Astro.url.searchParams.get('category') || 'All';
 const activeCategory = categories.has(requestedCategory)
   ? requestedCategory
   : 'All';
-const requestedPage = Number.parseInt(Astro.url.searchParams.get('page') || '1', 10);
-const currentPage = Number.isFinite(requestedPage) && requestedPage > 0
-  ? requestedPage
-  : 1;
+const requestedPage = Number.parseInt(
+  Astro.url.searchParams.get('page') || '1',
+  10
+);
+const currentPage =
+  Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
 const offset = (currentPage - 1) * PAGE_SIZE;
+const reuseLatestFromPage = activeCategory === 'All' && currentPage === 1;
 
 let pageBlogs: Blog[] = [];
 let totalBlogs = 0;
 let featuredBlog: Blog | null = null;
+let latestBlogs: Blog[] = [];
 
 try {
   const pageRequest = fetchAllBlogs({
@@ -45,25 +49,39 @@ try {
     limit: PAGE_SIZE,
     offset,
   });
-  const featuredRequest =
-    activeCategory === 'All' && currentPage === 1
-      ? pageRequest
-      : fetchAllBlogs({ limit: PAGE_SIZE, offset: 0 });
-  const [pageResponse, featuredResponse] = await Promise.all([
+  const featuredRequest = fetchFeaturedBlogs().catch((error) => {
+    console.error('Error fetching featured blog:', error);
+    return null;
+  });
+  const latestRequest = reuseLatestFromPage
+    ? null
+    : fetchAllBlogs({ limit: 3, offset: 0 }).catch((error) => {
+        console.error('Error fetching latest blogs:', error);
+        return null;
+      });
+
+  const [pageResponse, featuredResponse, latestResponse] = await Promise.all([
     pageRequest,
     featuredRequest,
+    latestRequest,
   ]);
 
   pageBlogs = pageResponse.data || [];
   totalBlogs = pageResponse.meta?.count || 0;
-  featuredBlog = getFeaturedPost(featuredResponse.data || []);
+
+  const featuredBlogs = featuredResponse?.data || [];
+  featuredBlog = getFeaturedPost(featuredBlogs) || featuredBlogs[0] || null;
+
+  latestBlogs = reuseLatestFromPage
+    ? pageBlogs.slice(0, 3)
+    : latestResponse?.data || [];
 } catch (error) {
   console.error('Error fetching blogs:', error);
   pageBlogs = [];
   totalBlogs = 0;
   featuredBlog = null;
+  latestBlogs = [];
 }
-const latestBlogs: Blog[] = pageBlogs.slice(0, 3);
 const categoryBlogs = pageBlogs.map(
   ({
     id,
@@ -90,6 +108,17 @@ const categoryBlogs = pageBlogs.map(
   })
 );
 const totalPages = Math.max(1, Math.ceil(totalBlogs / PAGE_SIZE));
+
+if (totalBlogs > 0 && currentPage > totalPages) {
+  const redirectParams = new URLSearchParams();
+  if (activeCategory !== 'All') redirectParams.set('category', activeCategory);
+  if (totalPages > 1) redirectParams.set('page', String(totalPages));
+  const query = redirectParams.toString();
+  return Astro.redirect(
+    `${Astro.url.pathname}${query ? `?${query}` : ''}`,
+    302
+  );
+}
 ---
 
 <BaseLayout title="Blogs | Nepal Climate Hub">
