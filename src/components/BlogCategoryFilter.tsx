@@ -55,6 +55,7 @@ export default function BlogCategoryFilter({
             }`}
             href={hrefFor(category)}
             aria-current={activeCategory === category ? 'page' : undefined}
+            data-astro-prefetch="hover"
           >
             {category.replace('-', ' ')}
           </a>
@@ -78,6 +79,7 @@ export default function BlogCategoryFilter({
             <a
               className={styles.pageLink}
               href={hrefFor(activeCategory, currentPage - 1)}
+              data-astro-prefetch="hover"
             >
               Previous
             </a>
@@ -91,6 +93,7 @@ export default function BlogCategoryFilter({
             <a
               className={styles.pageLink}
               href={hrefFor(activeCategory, currentPage + 1)}
+              data-astro-prefetch="hover"
             >
               Next
             </a>
