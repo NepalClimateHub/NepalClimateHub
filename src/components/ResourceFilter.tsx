@@ -1,87 +1,48 @@
+import { navigate } from 'astro:transitions/client';
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import filterIcon from '../assets/icons/RightIcon.png';
 import styles from '../styles/components/ResourceFilter.module.css';
+import {
+  RESOURCE_FILTER_KEYS,
+  type ResourceFilterKey,
+  type ResourceFilterOptionItem,
+  type ResourceFilterState,
+  filterOptions,
+  getLabelForValue,
+  hasActiveResourceFilters,
+  serializeResourceFilters,
+} from '../utils/resourceFilters';
 import { CardContainer } from './CardContainer';
 
 interface Resource {
-  id: number;
+  id: string;
   title: string;
-  description: string;
-  href: string;
+  description?: string;
+  href?: string;
   type: string;
-  level: string;
+  level?: string;
   bannerImageUrl?: string;
-}
-
-interface FilterOption {
-  value: string;
-  label: string;
-}
-
-interface FilterConfig {
-  name: string;
-  label: string;
-  defaultOption: string;
-  options: FilterOption[];
-  inputType: 'radio' | 'checkbox';
 }
 
 interface Props {
   resources: Resource[];
+  currentPage: number;
+  pageSize: number;
+  totalResources: number;
+  totalPages: number;
+  activeFilters: ResourceFilterState;
 }
 
-const filterOptions: FilterConfig[] = [
-  {
-    name: 'type',
-    label: 'Resource Type',
-    defaultOption: 'All Types',
-    options: [
-      { value: 'DOCUMENTARY', label: 'Documentary' },
-      { value: 'PODCASTS_AND_TELEVISION', label: 'Podcasts And Television' },
-      { value: 'COURSES', label: 'Courses' },
-      { value: 'PLANS_AND_POLICIES', label: 'Plans And Policies' },
-      { value: 'DATA_RESOURCES', label: 'Data Resources' },
-      { value: 'PLATFORMS', label: 'Platforms' },
-      { value: 'RESEARCH_ARTICLES', label: 'Research Articles' },
-      { value: 'THESES_&_DISSERTATIONS', label: 'Theses And Dissertations' },
-      { value: 'CASE_STUDIES', label: 'Case Studies' },
-      { value: 'REPORTS', label: 'Reports' },
-      { value: 'TOOLKITS_AND_GUIDES', label: 'Toolkits And Guides' },
-    ] as FilterOption[],
-    inputType: 'radio' as const,
-  },
-  {
-    name: 'level',
-    label: 'Level',
-    defaultOption: 'All Levels',
-    options: [
-      { value: 'INTERNATIONAL', label: 'International' },
-      { value: 'REGIONAL', label: 'Regional' },
-      { value: 'NATIONAL', label: 'National' },
-      { value: 'PROVINCIAL', label: 'Provincial' },
-      { value: 'LOCAL', label: 'Local' },
-    ] as FilterOption[],
-    inputType: 'checkbox' as const,
-  },
-];
-
-const ResourceFilter: React.FC<Props> = ({ resources }) => {
-  const [filteredResources, setFilteredResources] = useState(resources);
-  const [filters, setFilters] = useState({
-    type: [] as string[],
-    level: [] as string[],
-  });
-
-  // Helper function to get label for a value
-  const getLabelForValue = (name: string, value: string) => {
-    const filterOption = filterOptions.find((option) => option.name === name);
-    if (!filterOption) return value;
-    const option = filterOption.options.find((opt) => opt.value === value);
-    return option ? option.label : value;
-  };
-
+const ResourceFilter: React.FC<Props> = ({
+  resources,
+  currentPage,
+  pageSize,
+  totalResources,
+  totalPages,
+  activeFilters,
+}) => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     type: true,
     level: false,
@@ -93,60 +54,53 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
     setExpanded((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
-  const toggleSelection = (name: keyof typeof filters, value: string) => {
+  const navigateToFilters = (nextFilters: ResourceFilterState) => {
+    const params = serializeResourceFilters(nextFilters);
+    const query = params.toString();
+    navigate(query ? `/resources?${query}` : '/resources');
+  };
+
+  const toggleSelection = (name: ResourceFilterKey, value: string) => {
     if (name === 'type') {
-      // Radio button behavior - only one selection
-      setFilters((prev) => ({
-        ...prev,
-        [name]: prev[name].includes(value) ? [] : [value],
-      }));
+      const isSame =
+        activeFilters.type.length === 1 && activeFilters.type[0] === value;
+      navigateToFilters({ ...activeFilters, type: isSame ? [] : [value] });
     } else {
-      // Checkbox behavior - multiple selections
-      setFilters((prev) => {
-        const current = new Set(prev[name]);
-        if (current.has(value)) {
-          current.delete(value);
-        } else {
-          current.add(value);
-        }
-        return { ...prev, [name]: Array.from(current) };
-      });
+      const current = new Set(activeFilters.level);
+      if (current.has(value)) {
+        current.delete(value);
+      } else {
+        current.add(value);
+      }
+      navigateToFilters({ ...activeFilters, level: Array.from(current) });
     }
   };
 
-  const getCountsFor = (name: string, options: FilterOption[]) => {
+  const getCountsFor = (
+    name: ResourceFilterKey,
+    options: ResourceFilterOptionItem[]
+  ) => {
     const counts: Record<string, number> = {};
     options.forEach((opt) => {
       counts[opt.value] = 0;
     });
     resources.forEach((resource) => {
-      const val = (resource as any)[name]?.trim();
+      const val = (name === 'type' ? resource.type : resource.level)?.trim();
       if (val && counts[val] !== undefined) counts[val]++;
     });
     return counts;
   };
 
-  useEffect(() => {
-    let result = resources;
-
-    (Object.keys(filters) as (keyof typeof filters)[]).forEach((key) => {
-      const selected = filters[key];
-      if (selected.length > 0) {
-        result = result.filter((resource) => {
-          const val = ((resource as any)[key] as string) || '';
-          return selected.some((s) => val.trim() === s.trim());
-        });
-      }
-    });
-
-    setFilteredResources(result);
-  }, [filters, resources]);
-
   const resetFilters = () => {
-    setFilters({
-      type: [],
-      level: [],
-    });
+    navigate('/resources');
+  };
+
+  const hasActiveFilters = hasActiveResourceFilters(activeFilters);
+  const pageHref = (page: number) => {
+    const params = serializeResourceFilters(activeFilters);
+    if (page > 1) params.set('page', String(page));
+    const query = params.toString();
+    return query ? `/resources?${query}` : '/resources';
   };
 
   return (
@@ -166,9 +120,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
             className={styles.filterIcon}
           />
         </button>
-        <div className={styles.totalCount}>
-          Total: {filteredResources.length}
-        </div>
+        <div className={styles.totalCount}>Total: {totalResources}</div>
       </div>
 
       <aside
@@ -208,9 +160,9 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
                     }`}
                   >
                     {options.map((option) => {
-                      const checked = filters[
-                        name as keyof typeof filters
-                      ].includes(option.value);
+                      const checked = activeFilters[name].includes(
+                        option.value
+                      );
                       return (
                         <li key={option.value} className={styles.checkboxItem}>
                           <label className={styles.checkboxLabel}>
@@ -220,10 +172,7 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
                               className={styles.checkbox}
                               checked={checked}
                               onChange={() =>
-                                toggleSelection(
-                                  name as keyof typeof filters,
-                                  option.value
-                                )
+                                toggleSelection(name, option.value)
                               }
                             />
                             <span className={styles.checkboxText}>
@@ -238,22 +187,17 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
               );
             })}
           </div>
-          {/* <button onClick={resetFilters} className={styles.resetButton}>
-            Reset Filters
-          </button> */}
         </div>
       </aside>
 
       <section className={styles.results}>
         {/* Selected filter chips - only show when filters are selected */}
-        {(Object.keys(filters) as (keyof typeof filters)[]).some(
-          (k) => filters[k].length > 0
-        ) && (
+        {hasActiveFilters && (
           <div className={styles.selectedChipsRow}>
-            {(Object.keys(filters) as (keyof typeof filters)[]).flatMap((key) =>
-              filters[key].map((value) => (
+            {RESOURCE_FILTER_KEYS.flatMap((key) =>
+              activeFilters[key].map((value) => (
                 <button
-                  key={`${String(key)}-${value}`}
+                  key={`${key}-${value}`}
                   type="button"
                   className={styles.chip}
                   onClick={() => toggleSelection(key, value)}
@@ -275,14 +219,44 @@ const ResourceFilter: React.FC<Props> = ({ resources }) => {
             </button>
           </div>
         )}
-        {filteredResources.length === 0 ? (
+        {resources.length === 0 ? (
           <p className={styles.noResults}>No resources found.</p>
         ) : (
           <CardContainer
-            cardsArray={filteredResources}
+            cardsArray={resources}
             dataType="resources"
-            initialCardCount={12}
+            initialCardCount={pageSize}
           />
+        )}
+
+        {totalPages > 1 && (
+          <nav className={styles.pagination} aria-label="Resource pages">
+            {currentPage > 1 ? (
+              <a
+                className={styles.pageLink}
+                href={pageHref(currentPage - 1)}
+                data-astro-prefetch="hover"
+              >
+                Previous
+              </a>
+            ) : (
+              <span className={styles.pageLinkDisabled}>Previous</span>
+            )}
+            <span className={styles.pageStatus}>
+              Page {currentPage} of {totalPages}
+            </span>
+            {currentPage < totalPages ? (
+              <a
+                className={styles.pageLink}
+                href={pageHref(currentPage + 1)}
+                data-astro-prefetch="hover"
+              >
+                Next
+              </a>
+            ) : (
+              <span className={styles.pageLinkDisabled}>Next</span>
+            )}
+          </nav>
         )}
       </section>
     </div>
