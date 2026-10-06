@@ -11,6 +11,7 @@ import Header from '../../components/Header.astro';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
+import { getEventStatus } from '../../utils/listingStatus';
 
 const { data: apiEvents } = await fetchEventSummaries();
 
@@ -26,12 +27,6 @@ const events = (apiEvents || []).map((event: any) => {
     'In-person': 'In-person',
     Virtual: 'Virtual',
     Hybrid: 'Hybrid',
-  };
-
-  const statusMap: Record<string, string> = {
-    OPEN: 'Open',
-    UPCOMING: 'Upcoming',
-    CLOSED: 'Closed',
   };
 
   const costMap: Record<string, string> = {
@@ -53,7 +48,7 @@ const events = (apiEvents || []).map((event: any) => {
     locationType:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    status: statusMap[event.status.toUpperCase()] || 'Closed',
+    status: getEventStatus(event),
     format: formatMap[event.format] || 'In-person',
     cost: event.cost ? costMap[event.cost] || 'Free' : 'Free',
     category: event.tags?.map((tag: any) => tag.tag) || [],

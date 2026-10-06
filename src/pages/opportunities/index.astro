@@ -12,6 +12,7 @@ import OpportunityFilter from '../../components/OpportunityFilter';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import opportunitiesTemp from '../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
+import { getOpportunityStatus } from '../../utils/listingStatus';
 
 const { data: apiOpportunities } = await fetchOpportunitySummaries();
 
@@ -27,7 +28,7 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
     opportunity.locationType.charAt(0).toUpperCase() +
     opportunity.locationType.slice(1).toLowerCase(),
   province: opportunity.address?.state || '',
-  status: opportunity.status || '',
+  status: getOpportunityStatus(opportunity),
   format: opportunity.format || '',
   cost: opportunity.cost || '',
   organization: (opportunity as any).organization || '',

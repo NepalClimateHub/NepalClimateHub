@@ -62,6 +62,7 @@ export interface OpportunitySummary {
   type: string;
   format: string;
   status?: string;
+  applicationDeadline?: string | null;
   cost?: string | null;
   bannerImageUrl?: string | null;
   address?: { state?: string | null } | null;

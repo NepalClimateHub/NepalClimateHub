@@ -9,6 +9,7 @@ import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Opportunity as ApiOpportunity } from '../../types/opportunity';
+import { getOpportunityStatus } from '../../utils/listingStatus';
 import { createSlug } from '../../utils/slug';
 
 // Mark this page as dynamic (not pre-rendered)
@@ -32,6 +33,7 @@ if (!apiOpportunity) {
 
 const opportunityDetail = {
   ...apiOpportunity,
+  status: getOpportunityStatus(apiOpportunity),
   bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
   description: apiOpportunity.description || '',
   locationType:
