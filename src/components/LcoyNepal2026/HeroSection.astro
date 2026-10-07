@@ -55,7 +55,13 @@ import heroImage from "../../assets/lcoy/images/heroimage.jpg";
       <div class="hero-right">
         <div class="hero-image-container">
           <div class="hero-image-wrapper">
-            <img src={heroImage.src} alt="LCOY Nepal 2026 hero" />
+            <img
+              src={heroImage.src}
+              width={heroImage.width}
+              height={heroImage.height}
+              fetchpriority="high"
+              alt="LCOY Nepal 2026 hero"
+            />
           </div>
           <p class="hero-image-credit">Picture courtesy: Kirtan Pandit</p>
         </div>
