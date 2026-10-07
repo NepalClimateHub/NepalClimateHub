@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 
 interface FAQItem {
@@ -7,6 +7,7 @@ interface FAQItem {
 }
 
 const FAQSection = () => {
+  const baseId = useId();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs: FAQItem[] = [
@@ -135,6 +136,9 @@ const FAQSection = () => {
               {/* Accordion Button */}
               <button
                 type="button"
+                id={`${baseId}-q${index}`}
+                aria-expanded={openIndex === index}
+                aria-controls={`${baseId}-a${index}`}
                 onClick={() => toggleAccordion(index)}
                 className="faq-btn"
                 style={{
@@ -168,7 +172,9 @@ const FAQSection = () => {
 
               {/* Accordion Answer */}
               {openIndex === index && (
-                <div
+                <section
+                  id={`${baseId}-a${index}`}
+                  aria-labelledby={`${baseId}-q${index}`}
                   className="faq-answer"
                   style={{
                     marginTop: '16px',
@@ -179,7 +185,7 @@ const FAQSection = () => {
                   }}
                 >
                   {faq.answer}
-                </div>
+                </section>
               )}
             </div>
           ))}

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { FiArrowDownRight } from 'react-icons/fi';
 import styles from '../../styles/components/ErasmusMundusAccordion.module.css';
 
 const ErasmusMundusAccordion = () => {
+  const baseId = useId();
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
@@ -64,7 +65,9 @@ const ErasmusMundusAccordion = () => {
             type="button"
             className={`${styles.accordionQuestion} ${openIndex === index ? styles.active : ''}`}
             onClick={() => toggleAccordion(index)}
+            id={`${baseId}-q${index}`}
             aria-expanded={openIndex === index}
+            aria-controls={`${baseId}-a${index}`}
           >
             <span>{faq.question}</span>
             <FiArrowDownRight
@@ -73,7 +76,13 @@ const ErasmusMundusAccordion = () => {
             />
           </button>
           {openIndex === index && (
-            <div className={styles.accordionAnswer}>{faq.answer}</div>
+            <section
+              id={`${baseId}-a${index}`}
+              aria-labelledby={`${baseId}-q${index}`}
+              className={styles.accordionAnswer}
+            >
+              {faq.answer}
+            </section>
           )}
         </div>
       ))}
