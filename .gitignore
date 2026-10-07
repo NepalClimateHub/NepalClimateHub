@@ -35,7 +35,6 @@ postgres_data/
 # lock files
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
 .claude/
 
 # Local multi-agent accessibility/performance work tracker
