@@ -24,6 +24,8 @@ const {staff} = await fetchMembers();
             <div class="member-image-container">
               <img
                 src={optimizeImageUrl(member.photoUrl, 600)}
+                srcset={`${optimizeImageUrl(member.photoUrl, 410)} 410w, ${optimizeImageUrl(member.photoUrl, 1040)} 1040w`}
+                sizes="(max-width: 568px) calc(100vw - 48px), 205px"
                 alt={member.name}
                 class="member-image"
                 width="205"
