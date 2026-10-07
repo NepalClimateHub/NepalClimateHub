@@ -10,6 +10,7 @@ import CardDetailSection from '../../layouts/CardDetailSection.astro';
 // import eventsTemp from '../../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Event as ApiEvent, EventSummary } from '../../types/event';
+import { getEventStatus } from '../../utils/listingStatus';
 // import eventJSON from '../../data/dummy-event.json';
 
 function stripHtml(html: string): string {
@@ -41,6 +42,7 @@ if (!apiEvent) {
 
 const eventData = {
   ...apiEvent,
+  status: getEventStatus(apiEvent),
   bannerImage: apiEvent.bannerImageUrl,
   description: apiEvent.description || '',
   locationType:
