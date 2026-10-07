@@ -184,7 +184,7 @@ const OpportunityFilter: React.FC<Props> = ({
                         expanded[name] ? styles.chevronOpen : ''
                       }`}
                     >
-                      <FaChevronDown />
+                      <FaChevronDown aria-hidden="true" />
                     </span>
                   </button>
                   <ul

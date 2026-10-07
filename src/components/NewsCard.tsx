@@ -36,7 +36,7 @@ export default function News({
         <div className={styles.wrapper}>
           <div className={styles.details}>
             <div className={styles.address}>
-              <BiTargetLock className={styles.addressIcon} />
+              <BiTargetLock aria-hidden="true" className={styles.addressIcon} />
               <span className={styles.addressText}>{mode}</span>
             </div>
             <div className={styles.date}>
