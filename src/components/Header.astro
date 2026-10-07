@@ -33,7 +33,7 @@ export interface Props {
   </div>
 
   <!-- main nagivation bar -->
-  <nav>
+  <nav id="site-menu">
     <ul class="main-menu">
       <li class="menu-heading">
         <button
@@ -110,11 +110,18 @@ export interface Props {
     </div>
 
     <!-- cross icon for mobile layout -->
-    <div class="cross-icon"><Icon name="cross" /></div>
+    <button type="button" class="cross-icon" aria-label="Close menu">
+      <Icon name="cross" />
+    </button>
   </nav>
 
   <!-- menu button for mobile device -->
-  <button type="button" class="header-cta">
+  <button
+    type="button"
+    class="header-cta"
+    aria-expanded="false"
+    aria-controls="site-menu"
+  >
     <Icon name="hugeicons:energy" class="energy-icon" /> Action Menu
   </button>
 </header>
@@ -131,6 +138,29 @@ export interface Props {
     }
   }
 
+  function syncMenuInert() {
+    const nav = document.querySelector('header.section-container nav');
+    if (!nav) return;
+    nav.inert =
+      !nav.classList.contains('active') &&
+      !window.matchMedia('(min-width: 768px)').matches;
+  }
+
+  function setMenuOpen(open, restoreFocus) {
+    const header = document.querySelector('header.section-container');
+    const nav = header?.querySelector('nav');
+    const menuButton = header?.querySelector('.header-cta');
+    if (!nav || !menuButton) return;
+    nav.classList.toggle('active', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    syncMenuInert();
+    if (open) {
+      header.querySelector('.cross-icon')?.focus({ preventScroll: true });
+    } else if (restoreFocus) {
+      menuButton.focus();
+    }
+  }
+
   function initializeHeader() {
     const header = document.querySelector('header.section-container');
     if (!header || header.dataset.initialized) return;
@@ -141,12 +171,23 @@ export interface Props {
     const crossIcon = header.querySelector('.cross-icon');
 
     menuButton?.addEventListener('click', () => {
-      nav?.classList.toggle('active');
+      setMenuOpen(!nav?.classList.contains('active'), true);
     });
 
-    crossIcon?.addEventListener('click', () => {
-      nav?.classList.remove('active');
+    crossIcon?.addEventListener('click', () => setMenuOpen(false, true));
+
+    nav?.addEventListener('click', (event) => {
+      const target = event.target;
+      if (
+        nav.classList.contains('active') &&
+        target instanceof Element &&
+        target.closest('a')
+      ) {
+        setMenuOpen(false, true);
+      }
     });
+
+    syncMenuInert();
 
     for (const trigger of header.querySelectorAll('.menu-trigger')) {
       const item = trigger.parentElement;
@@ -188,8 +229,17 @@ export interface Props {
       }
     });
 
+    window
+      .matchMedia('(min-width: 768px)')
+      .addEventListener('change', () => syncMenuInert());
+
     document.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
+      if (document.querySelector('header.section-container nav.active')) {
+        closeDropdowns();
+        setMenuOpen(false, true);
+        return;
+      }
       const open = document.querySelector(
         'header.section-container .menu-heading.is-open',
       );
@@ -327,6 +377,11 @@ export interface Props {
   }
 
   .cross-icon {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
     position: absolute;
     right: 18px;
     top: 40px;
