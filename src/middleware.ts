@@ -1,10 +1,15 @@
 import { defineMiddleware } from 'astro:middleware';
 import { BLOG_CATEGORY_SET } from './constants/blogCategories';
+import { parseEventFilters, serializeEventFilters } from './utils/eventFilters';
+import { parseNewsFilters, serializeNewsFilters } from './utils/newsFilters';
 import {
-  EVENT_FILTER_KEYS,
-  parseEventFilters,
-  serializeEventFilters,
-} from './utils/eventFilters';
+  parseOpportunityFilters,
+  serializeOpportunityFilters,
+} from './utils/opportunityFilters';
+import {
+  parseResourceFilters,
+  serializeResourceFilters,
+} from './utils/resourceFilters';
 
 const PUBLIC_CACHE_CONTROL =
   'public, max-age=60, s-maxage=300, stale-while-revalidate=600, stale-if-error=86400';
@@ -79,24 +84,24 @@ function canonicalBlogsKey(url: URL): URL {
   return canonical;
 }
 
-function canonicalEventsKey(url: URL): URL {
-  const canonical = new URL('/events', url.origin);
-  const filterParams = serializeEventFilters(
-    parseEventFilters(url.searchParams)
-  );
+function filteredListingKey(
+  pathname: string,
+  normalizeFilters: (params: URLSearchParams) => URLSearchParams
+) {
+  return (url: URL): URL => {
+    const canonical = new URL(pathname, url.origin);
+    for (const [key, value] of normalizeFilters(url.searchParams)) {
+      canonical.searchParams.set(key, value);
+    }
 
-  for (const key of EVENT_FILTER_KEYS) {
-    const value = filterParams.get(key);
-    if (value) canonical.searchParams.set(key, value);
-  }
+    const page = Number.parseInt(url.searchParams.get('page') || '1', 10);
+    if (Number.isFinite(page) && page > 1) {
+      canonical.searchParams.set('page', String(page));
+    }
 
-  const page = Number.parseInt(url.searchParams.get('page') || '1', 10);
-  if (Number.isFinite(page) && page > 1) {
-    canonical.searchParams.set('page', String(page));
-  }
-
-  canonical.searchParams.sort();
-  return canonical;
+    canonical.searchParams.sort();
+    return canonical;
+  };
 }
 
 interface CacheRoute {
@@ -111,18 +116,38 @@ const CACHE_ROUTES: CacheRoute[] = [
     test: (p) => BLOG_DETAIL_PATTERN.test(p),
     canonicalKey: canonicalPathOnlyKey,
   },
-  { test: (p) => p === '/events', canonicalKey: canonicalEventsKey },
+  {
+    test: (p) => p === '/events',
+    canonicalKey: filteredListingKey('/events', (params) =>
+      serializeEventFilters(parseEventFilters(params))
+    ),
+  },
   {
     test: (p) => EVENT_DETAIL_PATTERN.test(p),
     canonicalKey: canonicalPathOnlyKey,
   },
-  { test: (p) => p === '/opportunities', canonicalKey: canonicalPathOnlyKey },
+  {
+    test: (p) => p === '/opportunities',
+    canonicalKey: filteredListingKey('/opportunities', (params) =>
+      serializeOpportunityFilters(parseOpportunityFilters(params))
+    ),
+  },
   {
     test: (p) => OPPORTUNITY_DETAIL_PATTERN.test(p),
     canonicalKey: canonicalPathOnlyKey,
   },
-  { test: (p) => p === '/resources', canonicalKey: canonicalPathOnlyKey },
-  { test: (p) => p === '/news', canonicalKey: canonicalPathOnlyKey },
+  {
+    test: (p) => p === '/resources',
+    canonicalKey: filteredListingKey('/resources', (params) =>
+      serializeResourceFilters(parseResourceFilters(params))
+    ),
+  },
+  {
+    test: (p) => p === '/news',
+    canonicalKey: filteredListingKey('/news', (params) =>
+      serializeNewsFilters(parseNewsFilters(params))
+    ),
+  },
 ];
 
 function matchCacheRoute(pathname: string): CacheRoute | undefined {
