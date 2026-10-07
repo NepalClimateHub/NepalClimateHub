@@ -154,6 +154,24 @@ function matchCacheRoute(pathname: string): CacheRoute | undefined {
   return CACHE_ROUTES.find((route) => route.test(pathname));
 }
 
+function withSecurityHeaders(response: Response) {
+  if (!response.headers.get('content-type')?.startsWith('text/html')) {
+    return response;
+  }
+
+  const headers = new Headers(response.headers);
+  headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  headers.set('X-Frame-Options', 'SAMEORIGIN');
+  headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function withCacheHeaders(
   response: Response,
   status: 'HIT' | 'MISS' | 'BYPASS'
@@ -167,18 +185,20 @@ function withCacheHeaders(
   headers.set('Vary', 'Accept-Encoding');
   headers.set('X-NCH-Cache', status);
 
-  return new Response(response.body, {
-    status: response.status,
-    statusText: response.statusText,
-    headers,
-  });
+  return withSecurityHeaders(
+    new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    })
+  );
 }
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  if (context.isPrerendered) return next();
+  if (context.isPrerendered) return withSecurityHeaders(await next());
 
   const route = matchCacheRoute(context.url.pathname);
-  if (!route) return next();
+  if (!route) return withSecurityHeaders(await next());
 
   if (context.request.method !== 'GET') {
     return withCacheHeaders(await next(), 'BYPASS');
