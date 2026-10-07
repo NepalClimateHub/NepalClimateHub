@@ -90,10 +90,15 @@ const featuredEvents = filteredEvents.slice(start, Math.min(end, start + 4));
     }
 
     <div class="card-controls event-card-controls">
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
+      {
+        featuredEvents.map((_, index) => (
+          <button
+            type="button"
+            class="bar bar-event-section"
+            aria-label={`Show event ${index + 1} of ${featuredEvents.length}`}
+          />
+        ))
+      }
     </div>
   </div>
 

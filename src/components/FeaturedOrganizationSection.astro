@@ -55,10 +55,15 @@ console.log(startIndex, endIndex);
 		<!-- slide control bars for mobile display -->
 
 		<div class="card-controls organization-card-controls">
-			<span class="bar bar-organization-section"></span>
-			<span class="bar bar-organization-section"></span>
-			<span class="bar bar-organization-section"></span>
-			<span class="bar bar-organization-section"></span>
+			{
+				organizationJSON.slice(startIndex, endIndex).map((_, index, list) => (
+					<button
+						type="button"
+						class="bar bar-organization-section"
+						aria-label={`Show organization ${index + 1} of ${list.length}`}
+					/>
+				))
+			}
 		</div>
 	</div>
 

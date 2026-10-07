@@ -134,10 +134,15 @@ export function createMobileSlider(
     }
 
     // Update the active control bar
-    bars.forEach((bar) => {
-      bar.classList.remove('active');
+    bars.forEach((bar, index) => {
+      const isActive = index === activeIndex;
+      bar.classList.toggle('active', isActive);
+      if (isActive) {
+        bar.setAttribute('aria-current', 'true');
+      } else {
+        bar.removeAttribute('aria-current');
+      }
     });
-    bars[activeIndex].classList.add('active');
   }
 
   // Function to handle click events on the control bars

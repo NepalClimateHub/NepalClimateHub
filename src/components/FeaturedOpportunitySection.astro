@@ -119,10 +119,15 @@ const featuredOpportunities = transformedOpportunities.slice(
     <!-- slide control bars for mobile display -->
 
     <div class="card-controls opportunity-card-controls">
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
+      {
+        featuredOpportunities.map((_, index) => (
+          <button
+            type="button"
+            class="bar bar-opportunity-section"
+            aria-label={`Show opportunity ${index + 1} of ${featuredOpportunities.length}`}
+          />
+        ))
+      }
     </div>
   </div>
 

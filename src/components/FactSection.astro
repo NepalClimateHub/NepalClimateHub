@@ -52,9 +52,9 @@ import { Icon } from 'astro-icon/components';
 		<!-- slide control bars for mobile display -->
 
 		<div class="card-controls fact-card-controls">
-			<span class="bar fact-section-bar"></span>
-			<span class="bar fact-section-bar"></span>
-			<span class="bar fact-section-bar"></span>
+			<button type="button" class="bar fact-section-bar" aria-label="Show fact 1 of 3"></button>
+			<button type="button" class="bar fact-section-bar" aria-label="Show fact 2 of 3"></button>
+			<button type="button" class="bar fact-section-bar" aria-label="Show fact 3 of 3"></button>
 		</div>
 	</div>
 </div>
@@ -135,16 +135,25 @@ import { Icon } from 'astro-icon/components';
 		display: flex;
 		gap: 8px;
 		opacity: 0;
+		visibility: hidden;
 	}
 
 	.card-controls .bar {
 		display: block;
 		width: 25px;
 		height: 5px;
+		padding: 0;
+		border: 0;
 		border-radius: 2px;
 		background-color: #1a1b1e;
 		opacity: 0.5;
 		cursor: pointer;
+		appearance: none;
+	}
+
+	.card-controls .bar:focus-visible {
+		outline: 2px solid #364fc7;
+		outline-offset: 2px;
 	}
 
 	.card-controls .bar.active {
@@ -178,6 +187,7 @@ import { Icon } from 'astro-icon/components';
 
 		.card-controls {
 			opacity: 1;
+			visibility: visible;
 		}
 	}
 </style>
