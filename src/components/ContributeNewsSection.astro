@@ -39,10 +39,11 @@ import { Icon } from 'astro-icon/components';
         Sharing knowledge empowers our community to take informed climate
         action!
       </p>
-      <button class="news-btn"
-        ><a href="https://forms.gle/Uvfn5vaptxi9KCwQA" target="_blank"
-          >Submit News</a
-        ></button
+      <a
+        class="news-btn"
+        href="https://forms.gle/Uvfn5vaptxi9KCwQA"
+        target="_blank"
+      >Submit News</a
       >
     </div>
     <div class="news-image">
@@ -126,12 +127,6 @@ import { Icon } from 'astro-icon/components';
   }
 
   .news-btn {
-    border: none;
-    background-color: none;
-    border-radius: 16px;
-  }
-
-  .news-btn a {
     background-color: #1a1b1e;
     padding: 8px 16px;
     border-radius: 16px;
@@ -144,7 +139,7 @@ import { Icon } from 'astro-icon/components';
     transition: all 0.1s ease-in-out;
   }
 
-  .news-btn a:hover {
+  .news-btn:hover {
     background-color: #cefe00;
     color: #25262b;
   }

@@ -36,11 +36,12 @@ import { Icon } from 'astro-icon/components';
       <p class="opportunity-note">
         Every opportunity shared can change someone's future in climate action!
       </p>
-      <button class="opportunity-btn">
-        <a href="https://forms.gle/YQsCTQYw5nKAr9em9" target="_blank"
-          >Submit Opportunity</a
-        >
-      </button>
+      <a
+        class="opportunity-btn"
+        href="https://forms.gle/YQsCTQYw5nKAr9em9"
+        target="_blank"
+      >Submit Opportunity</a
+      >
     </div>
     <div class="opportunity-image">
       <img
@@ -126,12 +127,6 @@ import { Icon } from 'astro-icon/components';
   }
 
   .opportunity-btn {
-    border: none;
-    background-color: none;
-    border-radius: 16px;
-  }
-
-  .opportunity-btn a {
     background-color: #1a1b1e;
     padding: 8px 16px;
     border-radius: 16px;
@@ -144,7 +139,7 @@ import { Icon } from 'astro-icon/components';
     transition: all 0.1s ease-in-out;
   }
 
-  .opportunity-btn a:hover {
+  .opportunity-btn:hover {
     background-color: #cefe00;
     color: #25262b;
   }
