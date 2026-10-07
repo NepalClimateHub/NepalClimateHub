@@ -70,8 +70,13 @@ const linkedInIconPath =
     <div class="slideshow-container">
       <div class="slides-wrapper">
         {
-          slides.map((t) => (
-            <div class="mySlides" data-original-index={t.originalIndex}>
+          slides.map((t, i) => (
+            <div
+              class="mySlides"
+              data-original-index={t.originalIndex}
+              aria-hidden={i < 2 || i > 4 ? "true" : undefined}
+              inert={i < 2 || i > 4}
+            >
               <div class="image-wrapper">
                 <img
                   src={t.image.src}
@@ -127,12 +132,20 @@ const linkedInIconPath =
   </div>
   <br />
 
-  <div style="text-align: center" class="controls">
-    <a class="prev" data-slide-step="-1">&#10094;</a>
-    <a class="next" data-slide-step="1">&#10095;</a>
-    <span class="dot" data-slide-to="1"></span>
-    <span class="dot" data-slide-to="2"></span>
-    <span class="dot" data-slide-to="3"></span>
+  <div class="controls" role="group" aria-label="Testimonial controls">
+    <button type="button" class="prev" data-slide-step="-1" aria-label="Previous testimonial">&#10094;</button>
+    <button type="button" class="next" data-slide-step="1" aria-label="Next testimonial">&#10095;</button>
+    {
+      [1, 2, 3].map((n) => (
+        <button
+          type="button"
+          class="dot"
+          data-slide-to={n}
+          aria-label={`Show testimonial ${n} of 3`}
+        />
+      ))
+    }
+    <button type="button" class="pause" aria-pressed="false">Pause</button>
   </div>
 </div>
 
@@ -152,6 +165,9 @@ const linkedInIconPath =
 
     let current = 1;
     let displayed = 2;
+    const pauseBtn = root.querySelector<HTMLButtonElement>(".pause");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let userPaused = reducedMotion.matches;
     let timer: number | undefined;
 
     const slideWidth = () => {
@@ -170,7 +186,12 @@ const linkedInIconPath =
       slidesWrapper.style.transition = TRANSITION;
     };
     const updateDots = () => {
-      dots.forEach((dot, i) => dot.classList.toggle("active", i === current - 1));
+      dots.forEach((dot, i) => {
+        const active = i === current - 1;
+        dot.classList.toggle("active", active);
+        if (active) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
     };
     const step = (n: number) => {
       current += n;
@@ -186,7 +207,23 @@ const linkedInIconPath =
     };
     const start = () => {
       stop();
+      if (userPaused) return;
       timer = window.setInterval(() => step(1), AUTO_SLIDE_MS);
+    };
+    const renderPause = () => {
+      if (!pauseBtn) return;
+      pauseBtn.textContent = userPaused ? "Play" : "Pause";
+      pauseBtn.setAttribute("aria-pressed", String(userPaused));
+      pauseBtn.setAttribute("aria-label", userPaused ? "Play testimonial rotation" : "Pause testimonial rotation");
+    };
+    const togglePause = () => {
+      userPaused = !userPaused;
+      renderPause();
+      if (userPaused) stop();
+      else start();
+    };
+    const onFocusOut = (event: FocusEvent) => {
+      if (!root.contains(event.relatedTarget as Node | null)) start();
     };
     const stop = () => {
       if (timer !== undefined) window.clearInterval(timer);
@@ -208,12 +245,16 @@ const linkedInIconPath =
 
     jump();
     updateDots();
+    renderPause();
     start();
     slidesWrapper.addEventListener("transitionend", onTransitionEnd);
     root.addEventListener("click", onClick);
     container.addEventListener("mouseenter", stop);
     container.addEventListener("mouseleave", start);
     window.addEventListener("resize", jump);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("focusout", onFocusOut);
+    pauseBtn?.addEventListener("click", togglePause);
 
     teardown = () => {
       stop();
@@ -222,6 +263,9 @@ const linkedInIconPath =
       container.removeEventListener("mouseenter", stop);
       container.removeEventListener("mouseleave", start);
       window.removeEventListener("resize", jump);
+      root.removeEventListener("focusin", stop);
+      root.removeEventListener("focusout", onFocusOut);
+      pauseBtn?.removeEventListener("click", togglePause);
     };
   }
 
@@ -314,6 +358,37 @@ const linkedInIconPath =
   }
 
   .prev,
+  .next,
+  .dot,
+  .pause {
+    border: 0;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+  }
+
+  .pause {
+    display: block;
+    margin: 8px auto 0;
+    padding: 4px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .pause:hover {
+    background-color: rgba(0, 0, 0, 0.089);
+  }
+
+  .prev:focus-visible,
+  .next:focus-visible,
+  .dot:focus-visible,
+  .pause:focus-visible {
+    outline: 2px solid #1a1b1e;
+    outline-offset: 2px;
+  }
+
+  .prev,
   .next {
     cursor: pointer;
     position: absolute;
@@ -353,6 +428,7 @@ const linkedInIconPath =
     height: 12px;
     width: 12px;
     margin: 0 2px;
+    padding: 0;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
