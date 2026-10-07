@@ -51,7 +51,10 @@ export const fetchVacancies = async (): Promise<VacanciesResponse> => {
   } catch (error) {
     console.error('Error fetching vacancies:', error);
     if (error instanceof ApiError) throw error;
-    throw new ApiError(500, `Failed to fetch vacancies: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    throw new ApiError(
+      500,
+      `Failed to fetch vacancies: ${error instanceof Error ? error.message : 'Unknown error'}`
+    );
   }
 };
 
@@ -75,8 +78,14 @@ export const applyToVacancy = async (
     });
     return handleResponse<{ data: any }>(response);
   } catch (error) {
-    console.error(`Error submitting application to vacancy ${vacancyId}:`, error);
+    console.error(
+      `Error submitting application to vacancy ${vacancyId}:`,
+      error
+    );
     if (error instanceof ApiError) throw error;
-    throw new ApiError(500, `Failed to submit application: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    throw new ApiError(
+      500,
+      `Failed to submit application: ${error instanceof Error ? error.message : 'Unknown error'}`
+    );
   }
 };

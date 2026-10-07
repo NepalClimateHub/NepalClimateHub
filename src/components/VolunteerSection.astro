@@ -9,7 +9,6 @@ interface Props {
 
 const { volunteers } = Astro.props;
 
-
 const getLinkedInUrl = (url: string) =>
   url.startsWith('http') ? url : `https://${url}`;
 ---

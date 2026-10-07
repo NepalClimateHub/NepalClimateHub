@@ -14,7 +14,7 @@ let project: Project | undefined;
 let otherProjects: Project[] = [];
 
 if (!details) {
-  return Astro.rewrite("/404");
+  return Astro.rewrite('/404');
 }
 
 try {
@@ -24,7 +24,7 @@ try {
 }
 
 if (!project) {
-  return Astro.rewrite("/404");
+  return Astro.rewrite('/404');
 }
 
 try {

@@ -1,3 +1,3 @@
-import jaldeep from "./jaldeep.jpg";
+import jaldeep from './jaldeep.jpg';
 
 export { jaldeep };

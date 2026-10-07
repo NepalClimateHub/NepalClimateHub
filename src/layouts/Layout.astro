@@ -8,8 +8,8 @@ interface Props {
   fontStylesheetHref?: string;
 }
 
-import { getLangFromUrl } from '../i18n/utils';
 import { ClientRouter } from 'astro:transitions';
+import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const {
