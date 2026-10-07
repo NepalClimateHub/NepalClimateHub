@@ -29,7 +29,11 @@ const inputId = `userEmail-${crypto.randomUUID().slice(0, 8)}`;
 </div>
 
 <script>
-  document.querySelectorAll<HTMLFormElement>("form[data-email-form]").forEach((form) => {
+  const initializeEmailSubscriptionForms = () => {
+    document.querySelectorAll<HTMLFormElement>("form[data-email-form]").forEach((form) => {
+      if (form.dataset.emailFormInitialized === "true") return;
+
+      form.dataset.emailFormInitialized = "true";
   const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
   const emailMessage = form.parentElement?.querySelector<HTMLElement>(".emailMessage");
 
@@ -82,7 +86,11 @@ const inputId = `userEmail-${crypto.randomUUID().slice(0, 8)}`;
       }
     });
   }
-  });
+    });
+  };
+
+  initializeEmailSubscriptionForms();
+  document.addEventListener("astro:page-load", initializeEmailSubscriptionForms);
 </script>
 
 <style>
