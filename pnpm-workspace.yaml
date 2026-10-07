@@ -1,9 +1,6 @@
 allowBuilds:
-  '@biomejs/biome': set this to true or false
-  '@prisma/client': set this to true or false
-  '@prisma/engines': set this to true or false
-  esbuild: set this to true or false
-  lefthook: set this to true or false
-  prisma: set this to true or false
-  sharp: set this to true or false
-  workerd: set this to true or false
+  '@biomejs/biome': false
+  esbuild: true
+  lefthook: false
+  sharp: true
+  workerd: true
