@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
+const year = new Date().getFullYear();
 ---
 
 <footer class="section-container">
@@ -135,7 +136,7 @@ import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
     </div>
 
     <p class="footer-note">
-      &copy; 2025 Nepal Climate Hub. All Rights Reserved.
+      &copy; {year} Nepal Climate Hub. All Rights Reserved.
     </p>
   </div>
 </footer>
