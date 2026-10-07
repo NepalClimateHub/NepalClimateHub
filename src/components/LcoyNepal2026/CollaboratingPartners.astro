@@ -38,30 +38,39 @@ import {
 const youthPartners = [
   {
     logo: aslf,
+    name: 'ASLF',
   },
   {
     logo: byan,
+    name: 'BYAN',
   },
   {
     logo: ycnn,
+    name: 'YCNN',
   },
   {
     logo: nch,
+    name: 'Nepal Climate Hub',
   },
   {
     logo: Resilience_labs,
+    name: 'Resilience Labs',
   },
   {
     logo: swiof,
+    name: 'SWIOF',
   },
   {
     logo: wff,
+    name: 'WFF',
   },
   {
     logo: ycgn,
+    name: 'YCGN',
   },
   {
     logo: wycj,
+    name: 'WYCJ',
   },
 ];
 ---
@@ -219,7 +228,11 @@ const youthPartners = [
           youthPartners.map((partner) => (
             <div class="partner-card">
               {partner.logo ? (
-                <img class="partner-logo" src={partner.logo.src} />
+                <img
+                  class="partner-logo"
+                  src={partner.logo.src}
+                  alt={partner.name}
+                />
               ) : (
                 <span class="partner-logo-text">PARTNER LOGO</span>
               )}
