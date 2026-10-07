@@ -4,7 +4,7 @@ export const prerender = false;
 
 import '../../styles/global.css';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchOpportunities } from '../../api';
+import { fetchOpportunitySummaries } from '../../api';
 import logo from '../../assets/logo/secondaryLogo.svg';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -12,8 +12,9 @@ import OpportunityFilter from '../../components/OpportunityFilter';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import opportunitiesTemp from '../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
+import { getOpportunityStatus } from '../../utils/listingStatus';
 
-const { data: apiOpportunities } = await fetchOpportunities();
+const { data: apiOpportunities } = await fetchOpportunitySummaries();
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -27,7 +28,7 @@ const opportunities = (apiOpportunities || []).map((opportunity: any) => ({
     opportunity.locationType.charAt(0).toUpperCase() +
     opportunity.locationType.slice(1).toLowerCase(),
   province: opportunity.address?.state || '',
-  status: opportunity.status || '',
+  status: getOpportunityStatus(opportunity),
   format: opportunity.format || '',
   cost: opportunity.cost || '',
   organization: (opportunity as any).organization || '',

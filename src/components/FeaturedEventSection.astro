@@ -2,12 +2,26 @@
 import '../styles/global.css';
 import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
-import { fetchEvents } from '../api';
+import { fetchEventSummaries } from '../api';
+import type { Event } from '../types/event';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 // import eventsTemp from '../data/eventsTemp.json';
 import { createSlug } from '../utils/slug';
-const { startIndex, endIndex, title, currentEventId } = Astro.props;
 
-const { data: apiEvents } = await fetchEvents();
+interface Props {
+  startIndex: number | string;
+  endIndex: number | string;
+  title: string;
+  currentEventId?: string;
+  events?: Event[];
+}
+
+const { startIndex, endIndex, title, currentEventId, events } =
+  Astro.props as Props;
+const start = Number(startIndex);
+const end = Number(endIndex);
+
+const apiEvents = events ?? (await fetchEventSummaries()).data;
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
@@ -18,24 +32,15 @@ const transformedEvents = (apiEvents || [])
     (event) =>
       event?.bannerImageUrl && event.title && event.tags && event.locationType
   )
-  .map((event: any) => ({
+  .map((event) => ({
     id: event.id,
     title: event.title,
-    type: event.type,
     location:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    province: event.address?.state || '',
-    status: event.status,
-    format: event.format,
-    cost: event.cost,
-    category: event.tags?.map((tag: any) => tag.tag) || [],
+    category: event.tags?.map((tag) => tag.tag) || [],
     bannerImage: event.bannerImageUrl || '/placeholder.svg',
     description: stripHtml(event.description || '') || '',
-    organizer: event.organizer || '',
-    startDate: event.startDate || '',
-    registrationLink: event.registrationLink || '',
-    contactEmail: event.contactEmail || '',
   }));
 
 const filteredEvents = currentEventId
@@ -44,10 +49,7 @@ const filteredEvents = currentEventId
     )
   : transformedEvents;
 
-const featuredEvents = filteredEvents.slice(
-  startIndex,
-  Math.min(endIndex, startIndex + 4)
-);
+const featuredEvents = filteredEvents.slice(start, Math.min(end, start + 4));
 ---
 
 <div class="section-container featured-card-section">
@@ -59,9 +61,11 @@ const featuredEvents = filteredEvents.slice(
         <a class="card event-card" href={`/events/${createSlug(event.title)}`}>
           <div class="img-wrapper" style="padding: 0px;">
             <img
-              src={event.bannerImage || "/placeholder.svg"}
+              src={optimizeImageUrl(event.bannerImage || "/placeholder.svg")}
               alt={event.title}
               style="object-fit: cover;"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="details">

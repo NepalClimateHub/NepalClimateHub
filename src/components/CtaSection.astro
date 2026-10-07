@@ -1,11 +1,7 @@
 ---
+import youtubePlayButton from '../assets/youtube-play-button.png';
 import '../styles/global.css';
 ---
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
-  rel="stylesheet"
-/>
 
 <div class="section-container">
   <div class="content-section">
@@ -22,11 +18,30 @@ import '../styles/global.css';
       UN Chief calls for climate action from Mt. Everest
     </h3>
     <div class="video">
-      <iframe
-        src="https://www.youtube.com/embed/bN3gVb__tmA?si=1lgCaagaTFdJ7XY-"
-        title="YouTube video player"
-        allow="autoplay; clipboard-write; encrypted-media;"
-        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <a
+        class="video-facade"
+        href="https://www.youtube.com/watch?v=bN3gVb__tmA"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Play UN Chief calls for climate action from Mt. Everest"
+      >
+        <img
+          class="video-thumbnail"
+          src="https://i.ytimg.com/vi/bN3gVb__tmA/mqdefault.jpg"
+          alt=""
+          width="320"
+          height="180"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          class="play-icon"
+          src={youtubePlayButton.src}
+          alt=""
+          width="48"
+          height="48"
+        />
+      </a>
     </div>
     <p class="description">
       “The world cannot wait!” –UN chief, Antonio Guterres from the base of Mt.
@@ -34,6 +49,40 @@ import '../styles/global.css';
     </p>
   </div>
 </div>
+
+<script>
+  const videoFacade = document.querySelector<HTMLAnchorElement>('.video-facade');
+  const videoContainer = videoFacade?.closest<HTMLElement>('.video');
+
+  videoFacade?.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (!videoContainer || videoContainer.classList.contains('is-loading')) {
+      return;
+    }
+
+    videoContainer.classList.add('is-loading');
+
+    const iframe = document.createElement('iframe');
+    iframe.className = 'video-iframe';
+    iframe.src =
+      'https://www.youtube-nocookie.com/embed/bN3gVb__tmA?autoplay=1';
+    iframe.title = 'UN Chief calls for climate action from Mt. Everest';
+    iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+
+    iframe.addEventListener('load', () => {
+      window.setTimeout(() => {
+        videoContainer.classList.add('is-player-ready');
+        videoFacade.tabIndex = -1;
+        videoFacade.setAttribute('aria-hidden', 'true');
+      }, 300);
+    });
+
+    videoContainer.append(iframe);
+  });
+</script>
 
 <style>
   .section-container {
@@ -83,23 +132,77 @@ import '../styles/global.css';
   .video-section {
     width: 55%;
     display: grid;
-    grid-template-rows: 80px 80px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas: "video title" "video description";
     grid-gap: 0px 16px;
+    min-height: 180px;
   }
 
   .video {
     display: block;
+    position: relative;
     border-radius: 16px;
     grid-area: video;
+    align-self: start;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-width: 0;
+    overflow: hidden;
   }
 
-  iframe {
+  .video-facade,
+  :global(.video-iframe) {
+    position: absolute;
+    inset: 0;
+    display: block;
     width: 100%;
     height: 100%;
     border-radius: 16px;
     border: none;
+  }
+
+  .video-facade {
+    z-index: 1;
+    min-width: 0;
+    overflow: hidden;
+    background: #1a1b1e;
+    opacity: 1;
+    transition: opacity 120ms ease-out;
+  }
+
+  :global(.video-iframe) {
+    opacity: 0;
+  }
+
+  .video.is-player-ready .video-facade {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .video.is-player-ready :global(.video-iframe) {
+    opacity: 1;
+  }
+
+  .video-facade:focus-visible {
+    outline: 3px solid #364fc7;
+    outline-offset: -3px;
+  }
+
+  .video-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    transform: translate(-50%, -50%);
   }
 
   .video-title {
@@ -115,6 +218,7 @@ import '../styles/global.css';
     line-height: 14px;
     grid-area: description;
     width: 85%;
+    margin-top: 12px;
   }
 
   @media screen and (max-width: 1180px) {
@@ -126,7 +230,7 @@ import '../styles/global.css';
     .video {
       width: 100%;
       margin: 0 auto;
-      height: 220px;
+      height: auto;
       margin-bottom: 12px;
     }
 

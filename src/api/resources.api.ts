@@ -1,4 +1,7 @@
-import type { ResourceResponse } from '../types/resource';
+import type {
+  ResourceResponse,
+  ResourceSummaryResponse,
+} from '../types/resource';
 import { API_BASE_URL, ApiError, handleResponse } from './index';
 
 export const fetchAllResources = async (): Promise<ResourceResponse> => {
@@ -37,3 +40,25 @@ export const fetchAllResources = async (): Promise<ResourceResponse> => {
     );
   }
 };
+
+export const fetchResourceSummaries =
+  async (): Promise<ResourceSummaryResponse> => {
+    if (!API_BASE_URL) {
+      throw new ApiError(
+        500,
+        'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+      );
+    }
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/v1/resources?view=summary`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return handleResponse<ResourceSummaryResponse>(response);
+  };

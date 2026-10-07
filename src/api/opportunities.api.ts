@@ -1,4 +1,8 @@
-import type { Opportunity, OpportunityResponse } from '../types/opportunity';
+import type {
+  Opportunity,
+  OpportunityResponse,
+  OpportunitySummaryResponse,
+} from '../types/opportunity';
 import { API_BASE_URL, ApiError, handleResponse } from './index';
 
 export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
@@ -39,6 +43,28 @@ export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
     );
   }
 };
+
+export const fetchOpportunitySummaries =
+  async (): Promise<OpportunitySummaryResponse> => {
+    if (!API_BASE_URL) {
+      throw new ApiError(
+        500,
+        'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+      );
+    }
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/v1/opportunities?view=summary`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return handleResponse<OpportunitySummaryResponse>(response);
+  };
 
 export const fetchOpportunityById = async (
   id: string

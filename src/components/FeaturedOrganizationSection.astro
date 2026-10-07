@@ -5,6 +5,7 @@ import '../styles/global.css';
 import '../styles/components/FeaturedCardStyles.css';
 
 import { Icon } from 'astro-icon/components';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 
 //sample organization JSON organization
 import organizationJSON from '../data/organizations.json';
@@ -24,7 +25,13 @@ console.log(startIndex, endIndex);
 			organizationJSON.slice(startIndex, endIndex).map((organization) => (
 			<a class="card organization-card" href={`/organizations/${organization.slug}`}>
 					<div class="img-wrapper" style="padding: 4px 8px">
-						<img src={organization.logoUrl} alt={organization.name} style="object-fit: contain;" />
+						<img
+							src={optimizeImageUrl(organization.logoUrl)}
+							alt={organization.name}
+							loading="lazy"
+							decoding="async"
+							style="object-fit: contain;"
+						/>
 					</div>
 					<div class="details">
 						<h3 class="name">{organization.name}</h3>

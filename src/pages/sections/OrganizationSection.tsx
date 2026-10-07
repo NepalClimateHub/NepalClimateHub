@@ -1,28 +1,29 @@
-import { NuqsAdapter } from 'nuqs/adapters/react';
 import { CardContainer } from '../../components/CardContainer';
-import OrganizationsJSON from '../../data/organizations.json';
-import { withNuqsAdapter } from '../../provider/nuqsProvider';
 
-const Organization = () => {
+interface OrganizationListing {
+  id: number;
+  name: string;
+  description: string;
+  address: string;
+  tags: string[];
+  logoUrl: string;
+  slug: string;
+}
+
+interface OrganizationSectionProps {
+  cardsArray: OrganizationListing[];
+}
+
+const Organization = ({ cardsArray }: OrganizationSectionProps) => {
   return (
-    <>
-      <NuqsAdapter>
-        <section className="organization-cards-section">
-          <CardContainer
-            cardsArray={OrganizationsJSON}
-            dataType="organization"
-            initialCardCount="12/"
-          />
-        </section>
-        {/* <div className="!py-4">
-          <Paginator
-            paginationOptions={paginationOptions}
-            totalCount={totalCount}
-          />
-        </div> */}
-      </NuqsAdapter>
-    </>
+    <section className="organization-cards-section">
+      <CardContainer
+        cardsArray={cardsArray}
+        dataType="organization"
+        initialCardCount="12/"
+      />
+    </section>
   );
 };
 
-export const OrganizationSection = withNuqsAdapter(Organization);
+export const OrganizationSection = Organization;

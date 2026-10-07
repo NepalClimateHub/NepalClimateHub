@@ -54,6 +54,26 @@ export interface OpportunityResponse {
   };
 }
 
+export interface OpportunitySummary {
+  id: string | number;
+  title: string;
+  description: string;
+  locationType: string;
+  type: string;
+  format: string;
+  status?: string;
+  applicationDeadline?: string | null;
+  cost?: string | null;
+  bannerImageUrl?: string | null;
+  address?: { state?: string | null } | null;
+  tags?: { tag: string }[];
+}
+
+export interface OpportunitySummaryResponse {
+  data: OpportunitySummary[];
+  meta: { count: number };
+}
+
 export interface SingleOpportunityResponse {
   data: Opportunity;
   meta: any; // Adjust meta type if known
