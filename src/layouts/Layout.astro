@@ -35,10 +35,9 @@ const siteUrl = Astro.site || 'https://nepalclimatehub.org';
 const fullPath =
   Astro.locals.canonicalPath ?? `${Astro.url.pathname}${Astro.url.search}`;
 // Use ogUrl if provided, otherwise construct from site + pathname
-const currentUrl = ogUrl || `${siteUrl}${fullPath}`;
-const fullOgImage = ogImage.startsWith('http')
-  ? ogImage
-  : `${siteUrl}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+const currentUrl =
+  ogUrl || new URL(fullPath.replace(/^\/{2,}/, '/'), siteUrl).href;
+const fullOgImage = new URL(ogImage, siteUrl).href;
 const ogTitle = title.includes('|') ? title.split('|')[0].trim() : title;
 ---
 
