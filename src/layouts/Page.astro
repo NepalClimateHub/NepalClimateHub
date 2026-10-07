@@ -46,68 +46,102 @@ const organizationJsonLd = JSON.stringify({
   fontStylesheetHref={homepageFontStylesheet}
 >
   <script type="application/ld+json" set:html={organizationJsonLd}></script>
-  <main class="main-container">
-    <section class="hero-section">
+  <div class="main-container home-shell">
+    <div class="hero-header">
       <Header logoColor="white" />
-      <HeroContent />
-    </section>
+    </div>
 
-    <section class="cta-section">
-      <CtaSection />
-    </section>
+    <main class="home-main">
+      <section class="hero-section">
+        <HeroContent />
+      </section>
 
-    <section class="fact-section">
-      <FactSection />
-    </section>
+      <section class="cta-section">
+        <CtaSection />
+      </section>
 
-    <section class="activist-section">
-      <ActivistSection startIndex="0" endIndex="4" title="Climate Champions" />
-    </section>
+      <section class="fact-section">
+        <FactSection />
+      </section>
 
-    <section class="organization-section">
-      <FeaturedOrganizationSection
-        startIndex="0"
-        endIndex="4"
-        title="Organizations"
-      />
-    </section>
+      <section class="activist-section">
+        <ActivistSection startIndex="0" endIndex="4" title="Climate Champions" />
+      </section>
 
-    <section class="event-section">
-      <FeaturedEventSection startIndex="0" endIndex="4" title="Latest Events" />
-    </section>
+      <section class="organization-section">
+        <FeaturedOrganizationSection
+          startIndex="0"
+          endIndex="4"
+          title="Organizations"
+        />
+      </section>
 
-    <section class="opportunity-section">
-      <FeaturedOpportunitySection
-        startIndex="0"
-        endIndex="4"
-        title="New Opportunities"
-      />
-    </section>
+      <section class="event-section">
+        <FeaturedEventSection startIndex="0" endIndex="4" title="Latest Events" />
+      </section>
 
-    <section class="news-section">
-      <FeaturedNewsSection />
-    </section>
+      <section class="opportunity-section">
+        <FeaturedOpportunitySection
+          startIndex="0"
+          endIndex="4"
+          title="New Opportunities"
+        />
+      </section>
 
-    <section class="!bg-gray-white">
-      <Testimonials />
-    </section>
+      <section class="news-section">
+        <FeaturedNewsSection />
+      </section>
+
+      <section class="!bg-gray-white">
+        <Testimonials />
+      </section>
+    </main>
 
     <section class="footer-section">
       <Footer />
     </section>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
-  section {
+  section,
+  .hero-header {
     padding: 0px 48px;
   }
 
-  .hero-section {
+  .home-shell {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .home-shell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 488px;
+    z-index: -1;
     background-image: url("../assets/homepage-hero-desktop.jpg");
     background-position: center;
     background-size: cover;
+  }
+
+  .home-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 488px hero minus Header's outer height: 88px + 18px/18px margins */
+  .hero-section {
+    height: 364px;
+  }
+
+  @media screen and (min-width: 768px) {
+    /* Header margins switch to 24px/32px here */
+    .hero-section {
+      height: 344px;
+    }
   }
 
   .fact-section {
@@ -130,11 +164,12 @@ const organizationJsonLd = JSON.stringify({
   }
 
   @media screen and (max-width: 768px) {
-    section {
+    section,
+    .hero-header {
       padding: 0px;
     }
 
-    .hero-section {
+    .home-shell::before {
       background-position: left;
     }
   }
