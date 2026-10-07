@@ -21,9 +21,11 @@ import imageTwo from '../assets/lcoy/images/lcoynepaltwo.jpg';
 import Header from '../components/LcoyNepal2026/Header.astro';
 import HeroSection from '../components/LcoyNepal2026/HeroSection.astro';
 import BaseLayout from '../layouts/Layout.astro';
+const fontStylesheetHref =
+  'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Zilla+Slab:wght@400;500;600;700&display=swap';
 ---
 
-<BaseLayout title="LCOY Nepal 2026">
+<BaseLayout title="LCOY Nepal 2026" fontStylesheetHref={fontStylesheetHref}>
   <main class="main-container">
     <Header />
 
