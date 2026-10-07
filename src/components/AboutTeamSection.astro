@@ -39,7 +39,7 @@ const {staff} = await fetchMembers();
                   <a
                     href={member.linkedinProfile}
                     class="social-link"
-                    aria-label="LinkedIn profile"
+                    aria-label={`${member.name} on LinkedIn`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
