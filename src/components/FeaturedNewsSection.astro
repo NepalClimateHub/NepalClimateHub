@@ -11,7 +11,6 @@ import type { SortData } from '../utils/sortNewsArray.js';
 
 // Fetch news data from API
 const { data: apiNews } = await fetchNews();
-// console.log(apiNews);
 
 const transformedData: SortData[] = (apiNews || []).map((item, index) => ({
   id: index.toString(),

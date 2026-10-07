@@ -82,7 +82,6 @@ import { API_BASE_URL } from 'astro:env/client';
       const email = emailInput.value.trim();
 
       if (!API_BASE_URL) {
-        console.error('API_BASE_URL is not configured');
         emailMessage.textContent =
           'Unable to subscribe. Please try again later.';
         emailMessage.hidden = false;

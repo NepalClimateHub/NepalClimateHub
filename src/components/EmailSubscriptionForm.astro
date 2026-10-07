@@ -50,7 +50,6 @@ const inputId = `userEmail-${crypto.randomUUID().slice(0, 8)}`;
       const email = emailInput.value.trim();
       
       if (!API_BASE_URL) {
-        console.error("API_BASE_URL is not configured");
         emailMessage.textContent = "Unable to subscribe. Please try again later.";
         emailMessage.style.display = "block";
         emailMessage.style.color = "#ef4444";
@@ -78,8 +77,7 @@ const inputId = `userEmail-${crypto.randomUUID().slice(0, 8)}`;
         } else {
           throw new Error(`HTTP ${response.status}`);
         }
-      } catch (error) {
-        console.error("Subscription error:", error);
+      } catch {
         emailMessage.textContent = "Unable to subscribe. Please try again later.";
         emailMessage.style.display = "block";
         emailMessage.style.color = "#ef4444";

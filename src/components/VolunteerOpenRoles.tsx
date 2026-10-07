@@ -98,8 +98,7 @@ export const VolunteerOpenRoles: React.FC<VolunteerOpenRolesProps> = ({
         if (res?.data && Array.isArray(res.data)) {
           setVacancies(res.data);
         }
-      } catch (err) {
-        console.error('Error fetching vacancies client-side:', err);
+      } catch {
         if (vacancies.length === 0) {
           setError('Failed to load open roles.');
         }
@@ -166,7 +165,6 @@ export const VolunteerOpenRoles: React.FC<VolunteerOpenRolesProps> = ({
       });
       setSubmitSuccess(true);
     } catch (err: any) {
-      console.error('Application submission error:', err);
       setSubmitError(
         err?.message || 'Failed to submit application. Please try again.'
       );
