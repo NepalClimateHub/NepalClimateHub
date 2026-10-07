@@ -1,6 +1,11 @@
-import { createSlug } from 'src/utils/slug';
 import type { Blog, BlogResponse } from '../types/blog';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import {
+  API_BASE_URL,
+  ApiError,
+  fetchAllPages,
+  findBySlug,
+  handleResponse,
+} from './index';
 
 const blogsRequest = (path = '') =>
   fetch(`${API_BASE_URL}/api/v1/blogs${path}`, {
@@ -10,6 +15,13 @@ const blogsRequest = (path = '') =>
       'Content-Type': 'application/json',
     },
   });
+
+export interface BlogListOptions {
+  category?: string;
+  isFeatured?: boolean;
+  limit?: number;
+  offset?: number;
+}
 
 const assertApiBaseUrl = () => {
   if (!API_BASE_URL) {
@@ -21,13 +33,26 @@ const assertApiBaseUrl = () => {
 };
 
 /**
- * Fetches every blog without `content`. Use this for listings, cards and sitemaps;
- * fetch a single blog with `getBlogById` when its body is needed.
+ * Fetches the compact card projection. Callers that render a page should provide
+ * a bounded `limit` and `offset`; full bodies remain detail-only.
  */
-export const fetchAllBlogs = async (): Promise<BlogResponse> => {
+export const fetchAllBlogs = async (
+  options: BlogListOptions = {}
+): Promise<BlogResponse> => {
   assertApiBaseUrl();
   try {
-    const response = await blogsRequest('?excludeContent=true');
+    const params = new URLSearchParams({ view: 'summary' });
+
+    if (options.category) params.set('category', options.category);
+    if (options.isFeatured !== undefined) {
+      params.set('isFeatured', String(options.isFeatured));
+    }
+    if (options.limit !== undefined) params.set('limit', String(options.limit));
+    if (options.offset !== undefined) {
+      params.set('offset', String(options.offset));
+    }
+
+    const response = await blogsRequest(`?${params.toString()}`);
     return await handleResponse<BlogResponse>(response);
   } catch (error) {
     console.error('Error fetching all blogs:', error);
@@ -66,20 +91,20 @@ export const getBlogById = async (id: string): Promise<Blog | undefined> => {
   }
 };
 
+export const fetchAllBlogSummaries = async (): Promise<Blog[]> =>
+  fetchAllPages<Blog>((opts) => fetchAllBlogs(opts));
+
 export const getBlogBySlug = async (
-  slug: string
+  slug: string,
+  firstPage?: BlogResponse
 ): Promise<Blog | undefined> => {
   if (!slug) return;
-  try {
-    const response = await fetchAllBlogs();
-    const summary = response.data.find(
-      (blog) => createSlug(blog.title) === slug
-    );
-    return summary ? await getBlogById(summary.id) : undefined;
-  } catch (error) {
-    console.error(`Error fetching blog with slug ${slug}:`, error);
-    return undefined;
-  }
+  const summary = await findBySlug(
+    slug,
+    (opts) => fetchAllBlogs(opts),
+    firstPage
+  );
+  return summary ? await getBlogById(summary.id) : undefined;
 };
 
 export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {
@@ -101,13 +126,3 @@ export const fetchFeaturedBlogs = async (): Promise<BlogResponse> => {
 
 export const getFeaturedPost = (blogs: Blog[]): Blog | null =>
   blogs.find((blog) => blog.isFeatured) || null;
-
-export const getTopReadPosts = async (): Promise<Blog[]> => {
-  try {
-    const { data } = await fetchAllBlogs();
-    return data.filter((blog) => blog.isTopRead).slice(0, 3);
-  } catch (error) {
-    console.error('Error fetching top read posts:', error);
-    return [];
-  }
-};

@@ -1,30 +1,31 @@
 ---
-// import newsTemp from '../data/newsTemp.json';
-import { fetchNews } from '../api';
-import logo from '../assets/logo/secondaryLogo.svg';
-import NewsFilter from '../components/NewsFilter.jsx';
-import sortNewsArray from '../utils/sortNewsArray.js';
-import type { SortData } from '../utils/sortNewsArray.js';
+import NewsFilter from '../components/NewsFilter';
+import type { NewsFilterState } from '../utils/newsFilters';
+import type { SortData } from '../utils/sortNewsArray';
 
-const { data: newsData } = await fetchNews();
-const transformedData: SortData[] = (newsData || []).map((item, index) => ({
-  id: index.toString(),
-  title: item.title,
-  source: item.source,
-  mode: item.mode,
-  category: item.tags.map((tag: any) => String(tag.tag)),
-  publishedDate: item.publishedDate,
-  publishedYear: item.publishedYear,
-  newsLink: item.newsLink,
-  contributedBy: item.contributedBy,
-  imgSrc: item.bannerImageUrl || logo.src,
-}));
+interface Props {
+  news: SortData[];
+  currentPage: number;
+  pageSize: number;
+  totalNews: number;
+  totalPages: number;
+  activeFilters: NewsFilterState;
+}
 
-const NewsJSON = sortNewsArray(transformedData);
+const { news, currentPage, pageSize, totalNews, totalPages, activeFilters } =
+  Astro.props;
 ---
 
 <div class="section-container">
-  <NewsFilter client:load newsData={NewsJSON} />
+  <NewsFilter
+    client:load
+    news={news}
+    currentPage={currentPage}
+    pageSize={pageSize}
+    totalNews={totalNews}
+    totalPages={totalPages}
+    activeFilters={activeFilters}
+  />
 </div>
 <style>
   .section-container {
@@ -47,7 +48,7 @@ const NewsJSON = sortNewsArray(transformedData);
     .news-card {
       width: 100%;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    
+
     }
   }
 </style>

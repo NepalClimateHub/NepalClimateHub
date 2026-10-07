@@ -1,15 +1,13 @@
 ---
 import '../../styles/global.css';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchOpportunities } from '../../api';
+import { fetchOpportunitySummaries, getOpportunityBySlug } from '../../api';
 import ConnectCard from '../../components/ConnectCard.astro';
 import FeaturedOpportunitySection from '../../components/FeaturedOpportunitySection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
-import type { Opportunity as ApiOpportunity } from '../../types/opportunity';
-import { createSlug } from '../../utils/slug';
 
 // Mark this page as dynamic (not pre-rendered)
 export const prerender = false;
@@ -17,13 +15,13 @@ export const prerender = false;
 // Fetch data at runtime
 const { detail } = Astro.params;
 
-// Fetch all opportunities to find the matching one
-const response = await fetchOpportunities();
-const allOpportunities = response.data || [];
-
-// Find the opportunity that matches the slug
-const apiOpportunity = allOpportunities.find(
-  (opportunity: ApiOpportunity) => createSlug(opportunity.title) === detail
+const opportunitySummariesPage = await fetchOpportunitySummaries({
+  limit: 100,
+});
+const opportunitySummaries = opportunitySummariesPage.data;
+const apiOpportunity = await getOpportunityBySlug(
+  detail ?? '',
+  opportunitySummariesPage
 );
 
 if (!apiOpportunity) {
@@ -53,10 +51,7 @@ function stripHtml(html: string): string {
 }
 
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-const pathname = Astro.url.pathname;
-const search = Astro.url.search;
-const hash = Astro.url.hash;
-const fullPath = `${pathname}${search}${hash}`;
+const fullPath = Astro.url.pathname;
 const metaDescription =
   stripHtml(opportunityDetail.description) ||
   `Apply for ${opportunityDetail.title} - ${opportunityDetail.locationType} opportunity in Nepal.`;
@@ -100,7 +95,7 @@ const metaUrl = `${siteUrl}${fullPath}`;
         endIndex={4}
         title="Other Opportunities"
         currentOpportunityId={apiOpportunity.id}
-        opportunities={allOpportunities}
+        opportunities={opportunitySummaries}
       />
     </section>
 
