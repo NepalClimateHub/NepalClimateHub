@@ -1,9 +1,9 @@
+import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { defineConfig, envField } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
-import node from '@astrojs/node';
 
 // Dokploy runs a Node server; the GitHub Action deploys to Cloudflare Workers
 // and sets DEPLOY_TARGET=cloudflare.
@@ -41,8 +41,8 @@ export default defineConfig({
     },
   },
   i18n: {
-    defaultLocale: "en",
-    locales: ["es", "en"],
+    defaultLocale: 'en',
+    locales: ['es', 'en'],
     routing: {
       prefixDefaultLocale: false,
     },

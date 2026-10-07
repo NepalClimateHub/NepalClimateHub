@@ -11,13 +11,13 @@ import Header from '../../components/Header.astro';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
-import { getEventStatus } from '../../utils/listingStatus';
 import {
   filterEvents,
   hasActiveEventFilters,
   parseEventFilters,
   serializeEventFilters,
 } from '../../utils/eventFilters';
+import { getEventStatus } from '../../utils/listingStatus';
 
 const PAGE_SIZE = 12;
 const requestedPage = Number.parseInt(

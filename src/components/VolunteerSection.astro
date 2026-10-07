@@ -1,10 +1,10 @@
 ---
-import type { Member } from "src/types/member";
-import formerVolunteersData from "../data/formerVolunteers.json";
+import type { Member } from 'src/types/member';
+import formerVolunteersData from '../data/formerVolunteers.json';
 import {
   buildVolunteerDirectory,
   collectYears,
-} from "../utils/volunteerDirectory";
+} from '../utils/volunteerDirectory';
 
 interface Props {
   volunteers: Member[];
@@ -14,31 +14,31 @@ const { volunteers } = Astro.props;
 
 const { active, former } = buildVolunteerDirectory(
   volunteers,
-  formerVolunteersData,
+  formerVolunteersData
 );
 
 const sections = [
   {
-    id: "active-volunteers",
-    title: "Meet our Volunteers",
+    id: 'active-volunteers',
+    title: 'Meet our Volunteers',
     description:
-      "Our volunteers come from diverse backgrounds, united by a shared commitment to climate action in Nepal.",
-    label: "volunteers",
+      'Our volunteers come from diverse backgrounds, united by a shared commitment to climate action in Nepal.',
+    label: 'volunteers',
     members: active,
     years: collectYears(active),
   },
   {
-    id: "former-volunteers",
-    title: "Former Volunteers",
-    description: "",
-    label: "former volunteers",
+    id: 'former-volunteers',
+    title: 'Former Volunteers',
+    description: '',
+    label: 'former volunteers',
     members: former,
     years: collectYears(former),
   },
 ].filter((section) => section.members.length > 0);
 
 const getLinkedInUrl = (url: string) =>
-  url.startsWith("http") ? url : `https://${url}`;
+  url.startsWith('http') ? url : `https://${url}`;
 ---
 
 <>
