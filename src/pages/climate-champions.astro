@@ -40,7 +40,7 @@ const transformedActivists = ActivistsJSON.map((activist) => ({
 
       <section class="activist-cards-section">
         <CardContainer
-          client:load
+          client:visible
           cardsArray={transformedActivists}
           dataType="activist"
           initialCardCount="12"
