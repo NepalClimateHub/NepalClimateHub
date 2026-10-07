@@ -10,6 +10,7 @@ import Header from '@components/Header.astro';
 import HeroContent from '@components/HeroContent.astro';
 import Testimonials from '@components/Testimonials.astro';
 import heroImage from '../assets/homepage-hero-desktop.jpg';
+import logo from '../assets/logo/mainLogo.svg';
 import '../styles/global.css';
 
 interface Props {
@@ -24,6 +25,19 @@ import BaseLayout from './Layout.astro';
 const { title } = Astro.props;
 const homepageFontStylesheet =
   'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Zilla+Slab:wght@700&display=swap';
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
+const organizationJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Nepal Climate Hub',
+  url: siteUrl,
+  logo: new URL(logo.src, siteUrl).href,
+  sameAs: [
+    'https://www.linkedin.com/company/nepalclimatehub/',
+    'https://www.instagram.com/nepalclimatehub',
+    'https://www.facebook.com/nepalclimatehub',
+  ],
+}).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout
@@ -31,6 +45,7 @@ const homepageFontStylesheet =
   preloadImage={heroImage.src}
   fontStylesheetHref={homepageFontStylesheet}
 >
+  <script type="application/ld+json" set:html={organizationJsonLd}></script>
   <main class="main-container">
     <section class="hero-section">
       <Header logoColor="white" />
