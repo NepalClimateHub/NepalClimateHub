@@ -58,6 +58,33 @@ const metaDescription =
   `Join ${eventData.title} - ${eventData.locationType} event organized by ${eventData.organizer || 'Nepal Climate Hub'}.`;
 const metaImage = eventData.bannerImage || '/favicon.png';
 const metaUrl = `${siteUrl}${fullPath}`;
+const eventFormat = apiEvent.format?.trim().toLowerCase();
+const isVirtualEvent = eventFormat === 'online' || eventFormat === 'virtual';
+const isHybridEvent = eventFormat === 'hybrid';
+const eventLocation = isVirtualEvent
+  ? { '@type': 'VirtualLocation', url: metaUrl }
+  : apiEvent.location
+    ? { '@type': 'Place', name: apiEvent.location }
+    : undefined;
+const eventJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  ...(apiEvent.title && { name: apiEvent.title }),
+  ...(apiEvent.startDate && { startDate: apiEvent.startDate }),
+  ...(eventLocation && { location: eventLocation }),
+  eventAttendanceMode: `https://schema.org/${
+    isVirtualEvent
+      ? 'OnlineEventAttendanceMode'
+      : isHybridEvent
+        ? 'MixedEventAttendanceMode'
+        : 'OfflineEventAttendanceMode'
+  }`,
+  ...(apiEvent.organizer && {
+    organizer: { '@type': 'Organization', name: apiEvent.organizer },
+  }),
+  url: metaUrl,
+};
+const eventJsonLdString = JSON.stringify(eventJsonLd).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout
@@ -66,6 +93,7 @@ const metaUrl = `${siteUrl}${fullPath}`;
   ogImage={metaImage}
   ogUrl={metaUrl}
 >
+  <script type="application/ld+json" set:html={eventJsonLdString}></script>
   <main class="main-container">
     <!-- header section  -->
     <section class="header-section">
