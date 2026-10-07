@@ -36,11 +36,15 @@ export interface Props {
   <nav>
     <ul class="main-menu">
       <li class="menu-heading">
-        <a href="#"
+        <button
+          type="button"
+          class="menu-trigger"
+          aria-expanded="false"
+          aria-controls="submenu-connect"
           >Connect <span class="dropdown-icon"><Icon name="dropdown" /></span
-          ></a
+          ></button
         >
-        <ul class="sub-menu">
+        <ul class="sub-menu" id="submenu-connect">
           <li><a href="/organizations">Organizations</a></li>
           <li><a href="/climate-champions">Climate Champions</a></li>
           <li><a href="/events">Events</a></li>
@@ -55,10 +59,15 @@ export interface Props {
       </li>
 
       <li class="menu-heading">
-        <a href="#"
-          >Learn <span class="dropdown-icon"><Icon name="dropdown" /></span></a
+        <button
+          type="button"
+          class="menu-trigger"
+          aria-expanded="false"
+          aria-controls="submenu-learn"
+          >Learn <span class="dropdown-icon"><Icon name="dropdown" /></span
+          ></button
         >
-        <ul class="sub-menu">
+        <ul class="sub-menu" id="submenu-learn">
           <li><a href="/resources">Resources</a></li>
           <li><a href="/action-steps">Action Steps</a></li>
           <li><a href="/news">News</a></li>
@@ -67,10 +76,15 @@ export interface Props {
       </li>
 
       <li class="menu-heading">
-        <a href="#"
-          >Join <span class="dropdown-icon"><Icon name="dropdown" /></span></a
+        <button
+          type="button"
+          class="menu-trigger"
+          aria-expanded="false"
+          aria-controls="submenu-join"
+          >Join <span class="dropdown-icon"><Icon name="dropdown" /></span
+          ></button
         >
-        <ul class="sub-menu">
+        <ul class="sub-menu" id="submenu-join">
           <li><a href="/volunteer">Volunteer</a></li>
           <li><a href="/contribute">Contribute</a></li>
           <li><a href="/donate">Donate</a></li>
@@ -107,6 +121,16 @@ export interface Props {
 
 <!-- script to toggle menu in mobile device -->
 <script data-astro-rerun>
+  function closeDropdowns(except) {
+    for (const item of document.querySelectorAll(
+      'header.section-container .menu-heading.is-open',
+    )) {
+      if (item === except) continue;
+      item.classList.remove('is-open');
+      item.querySelector('.menu-trigger')?.setAttribute('aria-expanded', 'false');
+    }
+  }
+
   function initializeHeader() {
     const header = document.querySelector('header.section-container');
     if (!header || header.dataset.initialized) return;
@@ -124,12 +148,55 @@ export interface Props {
       nav?.classList.remove('active');
     });
 
+    for (const trigger of header.querySelectorAll('.menu-trigger')) {
+      const item = trigger.parentElement;
+      if (!item) continue;
+
+      trigger.addEventListener('click', () => {
+        const open = trigger.getAttribute('aria-expanded') !== 'true';
+        closeDropdowns(item);
+        item.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+      });
+
+      item.addEventListener('focusout', (event) => {
+        const next = event.relatedTarget;
+        if (!(next instanceof Node) || !item.contains(next)) {
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      item.addEventListener('mouseenter', () => closeDropdowns(item));
+    }
+
     const logoHome = header.querySelector('#logoHome');
     const logoOther = header.querySelector('#logoOther');
     if (window.location.pathname !== '/' && logoHome && logoOther) {
       logoHome.style.display = 'none';
       logoOther.style.display = 'block';
     }
+  }
+
+  if (!window.nchHeaderDropdownsBound) {
+    window.nchHeaderDropdownsBound = true;
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element) || !target.closest('.menu-heading.is-open')) {
+        closeDropdowns();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const open = document.querySelector(
+        'header.section-container .menu-heading.is-open',
+      );
+      if (!open) return;
+      closeDropdowns();
+      open.querySelector('.menu-trigger')?.focus();
+    });
   }
 
   document.addEventListener('astro:page-load', initializeHeader);
@@ -205,7 +272,22 @@ export interface Props {
   }
 
   /* menu sub-headings */
-  nav .menu-heading > a {
+  .menu-trigger {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+  }
+
+  .menu-trigger:focus-visible {
+    outline: 2px solid #1a1b1e;
+    outline-offset: 2px;
+  }
+
+  nav .menu-heading > a,
+  nav .menu-heading > .menu-trigger {
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
@@ -340,11 +422,14 @@ export interface Props {
 
     /* Keep text white when hovering over menu heading OR when submenu is active */
     .main-menu li.menu-heading:hover > a,
-    .main-menu li.menu-heading:focus-within > a {
+    .main-menu li.menu-heading:focus-within > a,
+    .main-menu li.menu-heading:hover > .menu-trigger,
+    .main-menu li.menu-heading:focus-within > .menu-trigger {
       color: white;
     }
 
-    nav .menu-heading a {
+    nav .menu-heading a,
+    nav .menu-heading > .menu-trigger {
       margin: 0;
       font-size: 14px;
       line-height: 20px;
@@ -356,7 +441,8 @@ export interface Props {
       overflow: hidden;
     }
 
-    nav .menu-heading a::before {
+    nav .menu-heading a::before,
+    nav .menu-heading > .menu-trigger::before {
       content: "";
       position: absolute;
       top: 0;
@@ -372,7 +458,8 @@ export interface Props {
       transition: left 0.5s ease;
     }
 
-    nav .menu-heading a:hover::before {
+    nav .menu-heading a:hover::before,
+    nav .menu-heading > .menu-trigger:hover::before {
       left: 100%;
     }
 
@@ -391,7 +478,8 @@ export interface Props {
       transition: transform 0.2s ease;
     }
 
-    .menu-heading:hover .dropdown-icon {
+    .menu-heading:hover .dropdown-icon,
+    .menu-heading.is-open .dropdown-icon {
       transform: rotate(180deg);
     }
 
@@ -418,7 +506,8 @@ export interface Props {
       perspective: 1000px;
     }
 
-    .menu-heading:hover > .sub-menu {
+    .menu-heading:hover > .sub-menu,
+    .menu-heading.is-open > .sub-menu {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0) rotateX(0deg);
@@ -426,7 +515,7 @@ export interface Props {
     }
 
     /* Add delay when closing (wrap up effect) */
-    .menu-heading:not(:hover) > .sub-menu {
+    .menu-heading:not(:hover):not(.is-open) > .sub-menu {
       transition: all 0.2s ease-in;
       transform: translateX(-50%) translateY(-10px) rotateX(-90deg);
     }
@@ -453,27 +542,32 @@ export interface Props {
       transition: all 0.2s ease;
     }
 
-    .menu-heading:hover .sub-menu li {
+    .menu-heading:hover .sub-menu li,
+    .menu-heading.is-open .sub-menu li {
       opacity: 1;
       transform: translateY(0);
     }
 
     /* Staggered fall down animation */
-    .menu-heading:hover .sub-menu li:nth-child(1) {
+    .menu-heading:hover .sub-menu li:nth-child(1),
+    .menu-heading.is-open .sub-menu li:nth-child(1) {
       transition-delay: 0.1s;
     }
-    .menu-heading:hover .sub-menu li:nth-child(2) {
+    .menu-heading:hover .sub-menu li:nth-child(2),
+    .menu-heading.is-open .sub-menu li:nth-child(2) {
       transition-delay: 0.15s;
     }
-    .menu-heading:hover .sub-menu li:nth-child(3) {
+    .menu-heading:hover .sub-menu li:nth-child(3),
+    .menu-heading.is-open .sub-menu li:nth-child(3) {
       transition-delay: 0.2s;
     }
-    .menu-heading:hover .sub-menu li:nth-child(4) {
+    .menu-heading:hover .sub-menu li:nth-child(4),
+    .menu-heading.is-open .sub-menu li:nth-child(4) {
       transition-delay: 0.25s;
     }
 
     /* Wrap up animation (reverse stagger when closing) */
-    .menu-heading:not(:hover) .sub-menu li {
+    .menu-heading:not(:hover):not(.is-open) .sub-menu li {
       transition-delay: 0s;
       transform: translateY(-10px);
       opacity: 0;
