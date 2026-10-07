@@ -4,10 +4,64 @@ export const prerender = false;
 
 import '../../styles/global.css';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { fetchAllNews } from '../../api';
+import logo from '../../assets/logo/secondaryLogo.svg';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import NewsStoriesSection from '../../components/NewsStoriesSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import {
+  filterNews,
+  hasActiveNewsFilters,
+  parseNewsFilters,
+  serializeNewsFilters,
+} from '../../utils/newsFilters';
+import sortNewsArray from '../../utils/sortNewsArray';
+import type { SortData } from '../../utils/sortNewsArray';
+
+const PAGE_SIZE = 9;
+
+const requestedPage = Number.parseInt(
+  Astro.url.searchParams.get('page') || '1',
+  10
+);
+const currentPage =
+  Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+
+const activeFilters = parseNewsFilters(Astro.url.searchParams);
+const filtersActive = hasActiveNewsFilters(activeFilters);
+
+// API orders by createdAt but the UI sorts by publishedDate, so fetch all before paginating.
+const newsData = await fetchAllNews();
+
+const mapped: SortData[] = newsData.map((item) => ({
+  id: item.id,
+  title: item.title,
+  source: item.source,
+  mode: item.mode,
+  category: item.tags.map((tag) => tag.tag),
+  publishedDate: item.publishedDate,
+  publishedYear: item.publishedYear,
+  newsLink: item.newsLink,
+  contributedBy: item.contributedBy,
+  imgSrc: item.bannerImageUrl || logo.src,
+}));
+
+const sorted = sortNewsArray(mapped);
+const filtered = filtersActive ? filterNews(sorted, activeFilters) : sorted;
+
+const totalNews = filtered.length;
+const totalPages = Math.max(1, Math.ceil(totalNews / PAGE_SIZE));
+const safePage = Math.min(currentPage, totalPages);
+const offset = (safePage - 1) * PAGE_SIZE;
+const news = filtered.slice(offset, offset + PAGE_SIZE);
+
+if (totalNews > 0 && currentPage > totalPages) {
+  const redirectParams = serializeNewsFilters(activeFilters);
+  if (totalPages > 1) redirectParams.set('page', String(totalPages));
+  const query = redirectParams.toString();
+  return Astro.redirect(`/news${query ? `?${query}` : ''}`, 302);
+}
 ---
 
 <BaseLayout title="Nepal Climate Hub">
@@ -27,9 +81,14 @@ import BaseLayout from '../../layouts/Layout.astro';
 		</section>
 
     <section class="news-section">
-     
-      <NewsStoriesSection />
-	 
+      <NewsStoriesSection
+        news={news}
+        currentPage={safePage}
+        pageSize={PAGE_SIZE}
+        totalNews={totalNews}
+        totalPages={totalPages}
+        activeFilters={activeFilters}
+      />
     </section>
 
 		<section class="footer-section">
@@ -54,4 +113,3 @@ import BaseLayout from '../../layouts/Layout.astro';
 		}
 	}
 </style>
-

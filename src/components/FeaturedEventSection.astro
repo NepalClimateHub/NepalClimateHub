@@ -3,7 +3,7 @@ import '../styles/global.css';
 import '../styles/components/FeaturedCardStyles.css';
 import { Icon } from 'astro-icon/components';
 import { fetchEventSummaries } from '../api';
-import type { Event } from '../types/event';
+import type { EventSummary } from '../types/event';
 import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 // import eventsTemp from '../data/eventsTemp.json';
 import { createSlug } from '../utils/slug';
@@ -13,7 +13,7 @@ interface Props {
   endIndex: number | string;
   title: string;
   currentEventId?: string;
-  events?: Event[];
+  events?: EventSummary[];
 }
 
 const { startIndex, endIndex, title, currentEventId, events } =

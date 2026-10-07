@@ -1,51 +1,46 @@
 ---
-import "../../styles/global.css";
-import AboutBlogAuthor from "@components/AboutBlogAuthor.astro";
-import AuthorInfoandShareBlog from "@components/AuthorInfoandShareBlog.astro";
-import BlogHighlights from "@components/BlogHighlights.astro";
-import EmailSubscriptionForm from "@components/EmailSubscriptionForm.astro";
-import type { Blog as BlogType } from "src/types/blog";
-import { fetchAllBlogs, getBlogById } from "../../api";
-import { createSlug } from "../../utils/slug";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import HtmlRenderer from "../../components/HtmlRenderer.astro";
-import BaseLayout from "../../layouts/Layout.astro";
+import '../../styles/global.css';
+import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
+import type { Blog as BlogType } from 'src/types/blog';
+import { fetchAllBlogs, getBlogBySlug } from '../../api';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HtmlRenderer from '../../components/HtmlRenderer.astro';
+import BaseLayout from '../../layouts/Layout.astro';
 
-import Breadcrumbs from "@components/Breadcrumbs.astro";
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 
 function stripHtml(html: string): string {
   return html
-    .replace(/<[^>]*>/g, "")
-    .replace(/\s+/g, " ")
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
     .trim();
 }
-
-const ua = Astro.request.headers.get("user-agent") ?? "";
-const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
 const { detail } = Astro.params;
 
 if (!detail) {
-  return Astro.rewrite("/404");
+  return Astro.rewrite('/404');
 }
 
 let apiBlog: BlogType | null = null;
 let topReads: BlogType[] = [];
 
 try {
-  const { data: blogSummaries } = await fetchAllBlogs();
-  const summary = blogSummaries.find((blog) => createSlug(blog.title) === detail);
-  apiBlog = summary ? (await getBlogById(summary.id)) || null : null;
-  topReads = blogSummaries.filter((blog) => blog.isTopRead).slice(0, 3);
+  const recentBlogs = await fetchAllBlogs({ limit: 100 });
+  apiBlog = (await getBlogBySlug(detail, recentBlogs)) ?? null;
+  topReads = recentBlogs.data.filter((post) => post.isTopRead).slice(0, 3);
 } catch (error) {
-  console.error("Error fetching blog:", error);
+  console.error('Error fetching blog:', error);
   apiBlog = null;
   topReads = [];
 }
 
 if (!apiBlog) {
-  return Astro.rewrite("/404");
+  return Astro.rewrite('/404');
 }
 
 const blogDetail = {
@@ -64,19 +59,16 @@ const blogDetail = {
   authorRole: apiBlog.authorUser?.currentRole,
 };
 
-const siteUrl = Astro.site || "https://nepalclimatehub.org";
-const pathname = Astro.url.pathname;
-const search = Astro.url.search;
-const hash = Astro.url.hash;
-const fullPath = `${pathname}${search}${hash}`;
-const metaImage = blogDetail.bannerImageUrl || "/favicon.png";
+const siteUrl = Astro.site || 'https://nepalclimatehub.org';
+const fullPath = Astro.url.pathname;
+const metaImage = blogDetail.bannerImageUrl || '/favicon.png';
 const metaDescription =
   `${stripHtml(blogDetail.excerpt)} - ${blogDetail.author}` ||
   `Read about ${blogDetail.title} on Nepal Climate Hub.`;
 const metaUrl = `${siteUrl}${fullPath}`;
 
 const authorImagePlaceholder = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-  blogDetail.author,
+  blogDetail.author
 )}&background=1a1b1e&color=cefe00&size=72`;
 ---
 
@@ -125,14 +117,10 @@ const authorImagePlaceholder = `https://ui-avatars.com/api/?name=${encodeURIComp
             />
           </div>
 
-          {
-            !isMobile && (
-              <div class="sidebar-section stay-connected">
+          <div class="sidebar-section stay-connected">
                 <h2 class="sidebar-title">Stay Connected</h2>
                 <EmailSubscriptionForm formBtnVariant="primary" />
               </div>
-            )
-          }
 
           <section class="top-reads-section">
             <BlogHighlights title="Top Reads" blogs={topReads} />
