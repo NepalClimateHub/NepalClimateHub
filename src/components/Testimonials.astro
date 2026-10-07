@@ -128,120 +128,108 @@ const linkedInIconPath =
   <br />
 
   <div style="text-align: center" class="controls">
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+    <a class="prev" data-slide-step="-1">&#10094;</a>
+    <a class="next" data-slide-step="1">&#10095;</a>
+    <span class="dot" data-slide-to="1"></span>
+    <span class="dot" data-slide-to="2"></span>
+    <span class="dot" data-slide-to="3"></span>
   </div>
 </div>
 
-<script is:inline>
-  const slidesWrapper = document.querySelector(".slides-wrapper");
-  const dots = document.getElementsByClassName("dot");
-  const allSlides = document.getElementsByClassName("mySlides");
+<script>
+  const NUM_SLIDES = 3;
+  const AUTO_SLIDE_MS = 4000;
+  const TRANSITION = "transform 0.5s ease-in-out";
+  let teardown: (() => void) | undefined;
 
-  if (!slidesWrapper || allSlides.length === 0 || dots.length === 0) {
-    console.error("Required DOM elements are missing.");
-  } else {
-    const numOriginalSlides = 3;
-    let currentRealSlideIndex = 1;
-    let displayedIndex = 2;
-    let slideWidth;
+  function initTestimonials() {
+    const slidesWrapper = document.querySelector<HTMLElement>(".slides-wrapper");
+    const container = document.querySelector<HTMLElement>(".slideshow-container");
+    const root = container?.closest<HTMLElement>(".section-container") ?? container;
+    const dots = document.querySelectorAll<HTMLElement>(".dot");
+    const allSlides = document.querySelectorAll<HTMLElement>(".mySlides");
+    if (!slidesWrapper || !container || !root || allSlides.length === 0 || dots.length === 0) return;
 
-    slidesWrapper.style.transition = "none";
-    positionSlideshow();
-    void slidesWrapper.offsetWidth;
-    slidesWrapper.style.transition = "transform 0.5s ease-in-out";
-    updateDots();
+    let current = 1;
+    let displayed = 2;
+    let timer: number | undefined;
 
-    function plusSlides(n) {
-      currentRealSlideIndex += n;
-      displayedIndex += n;
-      applySlideTransition();
-      updateDots();
-    }
-
-    function currentSlide(n) {
-      currentRealSlideIndex = n;
-      displayedIndex = currentRealSlideIndex - 1 + 2;
-      applySlideTransition();
-      updateDots();
-    }
-
-    window['currentSlide'] = currentSlide;
-
-    function applySlideTransition() {
-      slideWidth = getSlideFullWidth();
-      slidesWrapper.style.transform = `translateX(-${displayedIndex * slideWidth}px)`;
-    }
-
-    function positionSlideshow() {
-      slideWidth = getSlideFullWidth();
-      slidesWrapper.style.transform = `translateX(-${displayedIndex * slideWidth}px)`;
-    }
-
-    function getSlideFullWidth() {
+    const slideWidth = () => {
       const style = getComputedStyle(slidesWrapper);
-      const gap = parseInt(style.columnGap || style.gap || "0", 10);
+      const gap = Number.parseInt(style.columnGap || style.gap || "0", 10);
       return allSlides[0].offsetWidth + gap;
-    }
-
-    function updateDots() {
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      if (dots[currentRealSlideIndex - 1]) {
-        dots[currentRealSlideIndex - 1].className += " active";
-      }
-    }
-
-    slidesWrapper.addEventListener("transitionend", () => {
-      if (currentRealSlideIndex > numOriginalSlides) {
-        slidesWrapper.style.transition = "none";
-        currentRealSlideIndex = 1;
-        displayedIndex = currentRealSlideIndex - 1 + 2;
-        applySlideTransition();
-        void slidesWrapper.offsetWidth;
-        slidesWrapper.style.transition = "transform 0.5s ease-in-out";
-        updateDots();
-      } else if (currentRealSlideIndex < 1) {
-        slidesWrapper.style.transition = "none";
-        currentRealSlideIndex = numOriginalSlides;
-        displayedIndex = currentRealSlideIndex - 1 + 2;
-        applySlideTransition();
-        void slidesWrapper.offsetWidth;
-        slidesWrapper.style.transition = "transform 0.5s ease-in-out";
-        updateDots();
-      }
-    });
-
-    let autoSlideInterval = setInterval(() => {
-      plusSlides(1);
-    }, 4000);
-
-    const slideshowContainer = document.querySelector(".slideshow-container");
-    if (slideshowContainer) {
-      slideshowContainer.addEventListener("mouseenter", () => {
-        clearInterval(autoSlideInterval);
-      });
-
-      slideshowContainer.addEventListener("mouseleave", () => {
-        autoSlideInterval = setInterval(() => {
-          plusSlides(1);
-        }, 3000);
-      });
-    }
-
-    window.addEventListener("resize", () => {
-      slideWidth = getSlideFullWidth();
+    };
+    const place = () => {
+      slidesWrapper.style.transform = `translateX(-${displayed * slideWidth()}px)`;
+    };
+    const jump = () => {
       slidesWrapper.style.transition = "none";
-      displayedIndex = currentRealSlideIndex - 1 + 2;
-      applySlideTransition();
+      displayed = current + 1;
+      place();
       void slidesWrapper.offsetWidth;
-      slidesWrapper.style.transition = "transform 0.5s ease-in-out";
-    });
+      slidesWrapper.style.transition = TRANSITION;
+    };
+    const updateDots = () => {
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === current - 1));
+    };
+    const step = (n: number) => {
+      current += n;
+      displayed += n;
+      place();
+      updateDots();
+    };
+    const goTo = (n: number) => {
+      current = n;
+      displayed = n + 1;
+      place();
+      updateDots();
+    };
+    const start = () => {
+      stop();
+      timer = window.setInterval(() => step(1), AUTO_SLIDE_MS);
+    };
+    const stop = () => {
+      if (timer !== undefined) window.clearInterval(timer);
+      timer = undefined;
+    };
+    const onTransitionEnd = () => {
+      if (current > NUM_SLIDES) current = 1;
+      else if (current < 1) current = NUM_SLIDES;
+      else return;
+      jump();
+      updateDots();
+    };
+    const onClick = (event: Event) => {
+      const target = (event.target as HTMLElement).closest<HTMLElement>("[data-slide-step], [data-slide-to]");
+      if (!target) return;
+      if (target.dataset.slideStep) step(Number(target.dataset.slideStep));
+      else goTo(Number(target.dataset.slideTo));
+    };
+
+    jump();
+    updateDots();
+    start();
+    slidesWrapper.addEventListener("transitionend", onTransitionEnd);
+    root.addEventListener("click", onClick);
+    container.addEventListener("mouseenter", stop);
+    container.addEventListener("mouseleave", start);
+    window.addEventListener("resize", jump);
+
+    teardown = () => {
+      stop();
+      slidesWrapper.removeEventListener("transitionend", onTransitionEnd);
+      root.removeEventListener("click", onClick);
+      container.removeEventListener("mouseenter", stop);
+      container.removeEventListener("mouseleave", start);
+      window.removeEventListener("resize", jump);
+    };
   }
+
+  document.addEventListener("astro:page-load", initTestimonials);
+  document.addEventListener("astro:before-swap", () => {
+    teardown?.();
+    teardown = undefined;
+  });
 </script>
 
 <style>
