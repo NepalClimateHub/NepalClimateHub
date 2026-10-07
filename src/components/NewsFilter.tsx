@@ -59,7 +59,7 @@ const NewsFilter: React.FC<Props> = ({
 
   return (
     <div className={styles.sectionContainer}>
-      <h2 className={styles.pageTitle}>News</h2>
+      <h1 className={styles.pageTitle}>News</h1>
       <p className={styles.pageTagline}>
         Stay updated with the latest climate-related news
       </p>
