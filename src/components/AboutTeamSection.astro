@@ -1,6 +1,7 @@
 ---
 // import teamData from '../data/team.json';
 import {fetchMembers} from 'src/api/members.api';
+import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 const {staff} = await fetchMembers();
 ---
 
@@ -22,9 +23,13 @@ const {staff} = await fetchMembers();
           <div class="team-member">
             <div class="member-image-container">
               <img
-                src={member.photoUrl}
+                src={optimizeImageUrl(member.photoUrl, 600)}
                 alt={member.name}
                 class="member-image"
+                width="205"
+                height="305"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
