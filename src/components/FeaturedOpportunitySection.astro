@@ -101,11 +101,9 @@ const featuredOpportunities = transformedOpportunities.slice(
               </span>
               <span class="address">{oppportunity.location}</span>
             </p>
-            <p
-              class="about"
-              set:html={oppportunity.description.substring(0, 108) + "..."}
-              style="font-style: normal;"
-            />
+            <p class="about" style="font-style: normal;">
+              {`${stripHtml(oppportunity.description).substring(0, 108)}...`}
+            </p>
             <div class="tags">
               {oppportunity.category.slice(0, 3).map((tag: string) => (
                 <span class="tag">{tag}</span>
