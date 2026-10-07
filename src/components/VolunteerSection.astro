@@ -1,291 +1,368 @@
 ---
-import type { Member } from 'src/types/member';
-import formerVolunteers from '../data/formerVolunteers.json';
+import type { Member } from "src/types/member";
+import formerVolunteersData from "../data/formerVolunteers.json";
+import {
+  buildVolunteerDirectory,
+  collectYears,
+} from "../utils/volunteerDirectory";
 
 interface Props {
   volunteers: Member[];
-  // formerVolunteers: Member[];
 }
 
 const { volunteers } = Astro.props;
 
+const { active, former } = buildVolunteerDirectory(
+  volunteers,
+  formerVolunteersData,
+);
+
+const sections = [
+  {
+    id: "active-volunteers",
+    title: "Meet our Volunteers",
+    description:
+      "Our volunteers come from diverse backgrounds, united by a shared commitment to climate action in Nepal.",
+    label: "volunteers",
+    members: active,
+    years: collectYears(active),
+  },
+  {
+    id: "former-volunteers",
+    title: "Former Volunteers",
+    description: "",
+    label: "former volunteers",
+    members: former,
+    years: collectYears(former),
+  },
+].filter((section) => section.members.length > 0);
+
 const getLinkedInUrl = (url: string) =>
-  url.startsWith('http') ? url : `https://${url}`;
+  url.startsWith("http") ? url : `https://${url}`;
 ---
+
 <>
-<div class="section-container">
-  <h2 class="section-title">Meet our Volunteers</h2>
-  <p class="section-description">
-    Our volunteers come from diverse backgrounds, united by a shared commitment to climate action in Nepal.
-  </p>
-  
+  {
+    sections.map((section) => (
+      <div class='section-container' data-volunteer-directory id={section.id}>
+        <h2 class='section-title'>{section.title}</h2>
+        {section.description && (
+          <p class='section-description'>{section.description}</p>
+        )}
 
-  <div class="container">
-    <div
-      class:list={[
-        'team-grid',
-        { 'team-grid--single': volunteers.length === 1 },
-      ]}
-    >
-      {
-        volunteers.map((member) => (
-          <div class="team-member">
-            <div class="member-image-container">
-              <img
-                src={member.photoUrl}
-                alt={member.name}
-                class="member-image"
-              />
-            </div>
-
-            <div class="member-content">
-              <p class="member-bio">{member.bio}</p>
-
-              <div class="member-info">
-                <h4 class="member-name">{member.name}</h4>
-                <p class="member-title">{`${member.role} | ${member.team}`}</p>
-                <p class="member-duration">{`June 2026 - current`}</p>
-
-                {
-                  member.linkedinProfile && (
-                    <a
-                      href={getLinkedInUrl(member.linkedinProfile)}
-                      class="social-link"
-                      aria-label="LinkedIn profile"
-                      target="_blank"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM8 7C8.55228 7 9 7.44772 9 8V8.01C9 8.56228 8.55228 9.01 8 9.01C7.44772 9.01 7 8.56228 7 8.01V8C7 7.44772 7.44772 7 8 7ZM8 10C8.55228 10 9 10.4477 9 11V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V11C7 10.4477 7.44772 10 8 10ZM11 16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13C13 12.7348 13.1054 12.4804 13.2929 12.2929C13.4804 12.1054 13.7348 12 14 12C14.2652 12 14.5196 12.1054 14.7071 12.2929C14.8946 12.4804 15 12.7348 15 13V16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16V13C17 12.2043 16.6839 11.4413 16.1213 10.8787C15.5587 10.3161 14.7957 10 14 10C13.5483 10 13.1071 10.1019 12.7071 10.2929C12.5261 10.1119 12.2761 10 12 10C11.4477 10 11 10.4477 11 11V16Z"
-                          fill="#212529"
-                        />
-                      </svg>
-                    </a>
-                  )
-                }
-              </div>
-            </div>
+        {section.years.length > 0 && (
+          <div
+            class='year-filter'
+            role='group'
+            aria-label={`Filter ${section.label} by year`}
+          >
+            <button
+              type='button'
+              class='year-chip'
+              data-year='all'
+              aria-pressed='true'
+            >
+              All years
+              <span class='year-count'>{section.members.length}</span>
+            </button>
+            {section.years.map((year) => (
+              <button
+                type='button'
+                class='year-chip'
+                data-year={year}
+                aria-pressed='false'
+              >
+                {year}
+                <span class='year-count'>
+                  {section.members.filter((m) => m.years.includes(year)).length}
+                </span>
+              </button>
+            ))}
           </div>
-        ))
-      }
-    </div>
-  </div>
-</div>
+        )}
 
-{
-  formerVolunteers.length > 0 && (
-    <div class="section-container">
-      <h2 class="section-title">Former Volunteers</h2>
-
-      <div class="container">
-        <div
-          class:list={[
-            'team-grid',
-            { 'team-grid--single': formerVolunteers.length === 1 },
-          ]}
-        >
-          {
-            formerVolunteers.map((member) => (
-              <div class="team-member">
-                <div class="member-image-container">
+        <div class='container'>
+          <div
+            class:list={[
+              "team-grid",
+              { "team-grid--single": section.members.length === 1 },
+            ]}
+          >
+            {section.members.map((member) => (
+              <div class='team-member' data-years={member.years.join(" ")}>
+                <div class='member-image-container'>
                   <img
                     src={member.image}
                     alt={member.name}
-                    class="member-image"
+                    class='member-image'
+                    loading='lazy'
+                    decoding='async'
                   />
                 </div>
 
-                <div class="member-content">
-                  <p class="member-bio">{member.bio}</p>
+                <div class='member-content'>
+                  <p class='member-bio'>{member.bio}</p>
 
-                  <div class="member-info">
-                    <h4 class="member-name">{member.name}</h4>
-                    <p class="member-title">{member.title}</p>
-                    <p class="member-duration">
-                      {member.volunteerDate}
-                    </p>
+                  <div class='member-info'>
+                    <h4 class='member-name'>{member.name}</h4>
+                    <p class='member-title'>{member.title}</p>
+                    {member.duration && (
+                      <p class='member-duration'>{member.duration}</p>
+                    )}
 
-                    {
-                      member.linkedIn && (
-                        <a
-                          href={getLinkedInUrl(member.linkedIn)}
-                          class="social-link"
-                          aria-label="LinkedIn profile"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                    {member.linkedIn && (
+                      <a
+                        href={getLinkedInUrl(member.linkedIn)}
+                        class='social-link'
+                        aria-label={`${member.name} on LinkedIn`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          width='24'
+                          height='24'
+                          viewBox='0 0 24 24'
+                          fill='none'
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM8 7C8.55228 7 9 7.44772 9 8V8.01C9 8.56228 8.55228 9.01 8 9.01C7.44772 9.01 7 8.56228 7 8.01V8C7 7.44772 7.44772 7 8 7ZM8 10C8.55228 10 9 10.4477 9 11V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V11C7 10.4477 7.44772 10 8 10ZM11 16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13C13 12.7348 13.1054 12.4804 13.2929 12.2929C13.4804 12.1054 13.7348 12 14 12C14.2652 12 14.5196 12.1054 14.7071 12.2929C14.8946 12.4804 15 12.7348 15 13V16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16V13C17 12.2043 16.6839 11.4413 16.1213 10.8787C15.5587 10.3161 14.7957 10 14 10C13.5483 10 13.1071 10.1019 12.7071 10.2929C12.5261 10.1119 12.2761 10 12 10C11.4477 10 11 10.4477 11 11V16Z"
-                              fill="#212529"
-                            />
-                          </svg>
-                        </a>
-                      )
-                    }
+                          <path
+                            fill-rule='evenodd'
+                            clip-rule='evenodd'
+                            d='M6 5C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5H6ZM3 6C3 4.34315 4.34315 3 6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6ZM8 7C8.55228 7 9 7.44772 9 8V8.01C9 8.56228 8.55228 9.01 8 9.01C7.44772 9.01 7 8.56228 7 8.01V8C7 7.44772 7.44772 7 8 7ZM8 10C8.55228 10 9 10.4477 9 11V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V11C7 10.4477 7.44772 10 8 10ZM11 16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13C13 12.7348 13.1054 12.4804 13.2929 12.2929C13.4804 12.1054 13.7348 12 14 12C14.2652 12 14.5196 12.1054 14.7071 12.2929C14.8946 12.4804 15 12.7348 15 13V16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16V13C17 12.2043 16.6839 11.4413 16.1213 10.8787C15.5587 10.3161 14.7957 10 14 10C13.5483 10 13.1071 10.1019 12.7071 10.2929C12.5261 10.1119 12.2761 10 12 10C11.4477 10 11 10.4477 11 11V16Z'
+                            fill='#212529'
+                          />
+                        </svg>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
-            ))
-          }
+            ))}
+          </div>
+          <p class='no-results' data-empty hidden>
+            No {section.label} for the selected year.
+          </p>
         </div>
       </div>
-    </div>
-  )
-}
+    ))
+  }
 </>
 
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-volunteer-directory]")
+    .forEach((section) => {
+      const chips = section.querySelectorAll<HTMLButtonElement>("[data-year]");
+      const cards = section.querySelectorAll<HTMLElement>("[data-years]");
+      const grid = section.querySelector<HTMLElement>(".team-grid");
+      const empty = section.querySelector<HTMLElement>("[data-empty]");
+
+      chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const year = chip.dataset.year;
+          let visible = 0;
+
+          chips.forEach((c) =>
+            c.setAttribute("aria-pressed", String(c === chip)),
+          );
+          cards.forEach((card) => {
+            const years = (card.dataset.years || "").split(" ");
+            const show = year === "all" || years.includes(year || "");
+            card.hidden = !show;
+            if (show) visible++;
+          });
+
+          grid?.classList.toggle("team-grid--single", visible === 1);
+          if (empty) empty.hidden = visible > 0;
+        });
+      });
+    });
+</script>
+
 <style>
-.section-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 120px;
-}
-
-.section-title {
-  font-size: 30px;
-  font-weight: 700;
-  color: #1a1b1e;
-  margin: 0;
-  margin-bottom: 8px;
-  line-height: 42px;
-}
-
-.section-description {
-  font-size: 18px;
-  line-height: 24px;
-  color: #1A1B1E;
-  margin-bottom: 50px;
-}
-
-.container {
-  margin: 0 auto;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem 2rem;
-  margin-top: 3rem;
-}
-
-.team-grid--single {
-  grid-template-columns: 1fr;
-  max-width: 720px;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.team-member {
-  display: flex;
-  gap: 1.5rem;
-  align-items: stretch;
-}
-
-.member-image-container {
-  flex-shrink: 0;
-  position: relative;
-  width: 205px;
-  height: 305px;
-  border-radius: 12px;
-  background-color: #f5f5f5;
-}
-
-.member-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.member-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.member-bio {
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 34px;
-  color: #333;
-}
-
-.member-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.member-title, .member-duration {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.member-title {
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-
-.member-date {
-  font-size: 0.85rem;
-  color: #888;
-  margin-bottom: 0.5rem;
-}
-
-.social-link {
-  display: inline-flex;
-  margin-top: 14px;
-}
-
-@media (max-width: 1280px) {
   .section-container {
-      padding: 40px 48px;
-      margin-bottom: 50px;
-    }
-}
-
-@media (max-width: 1024px) {
-}
-
-@media (max-width: 768px) {
-  .section-container {
-      padding: 20px 24px;
-      margin-bottom: 32px;
-    }
-}
-
-@media (max-width: 992px) {
-  .team-grid {
-    grid-template-columns: 1fr;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 120px;
   }
-}
 
-@media (max-width: 568px) {
+  .section-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0;
+    margin-bottom: 8px;
+    line-height: 42px;
+  }
+
+  .section-description {
+    font-size: 18px;
+    line-height: 24px;
+    color: #1a1b1e;
+    margin-bottom: 50px;
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+
+  .year-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .year-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid #1a1b1e;
+    border-radius: 16px;
+    background: transparent;
+    color: #1a1b1e;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .year-chip:hover {
+    background-color: #f1f3f5;
+  }
+
+  .year-chip[aria-pressed="true"] {
+    background-color: #cefe00;
+    border-color: #cefe00;
+  }
+
+  .year-chip:focus-visible {
+    outline: 2px solid #1a1b1e;
+    outline-offset: 2px;
+  }
+
+  .year-count {
+    font-size: 12px;
+    color: #555;
+  }
+
+  .team-member[hidden] {
+    display: none;
+  }
+
+  .no-results {
+    margin-top: 3rem;
+    color: #555;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+    margin-top: 3rem;
+  }
+
+  .team-grid--single {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
   .team-member {
-    flex-direction: column;
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
   }
 
   .member-image-container {
-    width: 100%;
-    height: 300px;
+    flex-shrink: 0;
+    position: relative;
+    width: 205px;
+    height: 305px;
+    border-radius: 12px;
+    background-color: #f5f5f5;
   }
-}
+
+  .member-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .member-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .member-bio {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 34px;
+    color: #333;
+  }
+
+  .member-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .member-title,
+  .member-duration {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .member-title {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .member-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+
+  .social-link {
+    display: inline-flex;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 1280px) {
+    .section-container {
+      padding: 40px 48px;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    .section-container {
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 568px) {
+    .team-member {
+      flex-direction: column;
+    }
+
+    .member-image-container {
+      width: 100%;
+      height: 300px;
+    }
+  }
 </style>

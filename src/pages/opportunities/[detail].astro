@@ -8,6 +8,7 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardDetailSection from '../../layouts/CardDetailSection.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import { getOpportunityStatus } from '../../utils/listingStatus';
 
 // Mark this page as dynamic (not pre-rendered)
 export const prerender = false;
@@ -30,6 +31,7 @@ if (!apiOpportunity) {
 
 const opportunityDetail = {
   ...apiOpportunity,
+  status: getOpportunityStatus(apiOpportunity),
   bannerImage: apiOpportunity.bannerImageUrl || '/placeholder.svg',
   description: apiOpportunity.description || '',
   locationType:
