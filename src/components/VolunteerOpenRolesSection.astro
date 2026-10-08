@@ -1,13 +1,13 @@
 ---
-import { VolunteerOpenRoles } from "./VolunteerOpenRoles";
-import { fetchVacancies, type Vacancy } from "../api/vacancies.api";
+import { type Vacancy, fetchVacancies } from '../api/vacancies.api';
+import { VolunteerOpenRoles } from './VolunteerOpenRoles';
 
 let initialVacancies: Vacancy[] = [];
 try {
   const res = await fetchVacancies();
   initialVacancies = res?.data || [];
 } catch (error) {
-  console.error("Error pre-fetching vacancies during SSR:", error);
+  console.error('Error pre-fetching vacancies during SSR:', error);
 }
 ---
 

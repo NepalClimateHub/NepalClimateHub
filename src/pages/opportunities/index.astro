@@ -15,8 +15,8 @@ import OpportunityFilter from '../../components/OpportunityFilter';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import opportunitiesTemp from '../data/opportunitiesTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
-import { getOpportunityStatus } from '../../utils/listingStatus';
 import type { OpportunitySummary } from '../../types/opportunity';
+import { getOpportunityStatus } from '../../utils/listingStatus';
 import {
   filterOpportunities,
   hasActiveOpportunityFilters,
@@ -99,7 +99,8 @@ if (totalOpportunities > 0 && currentPage > totalPages) {
 }
 ---
 
-<BaseLayout title="Nepal Climate Hub - Opportunities">
+<BaseLayout title="Opportunities | Nepal Climate Hub"
+  description="Browse fellowships, grants, jobs, volunteering and training opportunities for young climate leaders in Nepal.">
   <main class="main-container">
     <!-- Header Section -->
     <section class="header-section">

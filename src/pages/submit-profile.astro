@@ -121,7 +121,8 @@ if (Astro.request.method === 'POST') {
 }
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title="Submit Your Profile | Nepal Climate Hub"
+  description="Join the Nepal Climate Hub directory: submit your profile as a climate champion or organization to be featured and connect with others.">
 	<main class="main-container">
 		<!-- header section  -->
 
@@ -233,6 +234,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-name"
+								autocomplete="name"
 								required
 								name="activist-name"
 							/>
@@ -255,8 +257,9 @@ if (Astro.request.method === 'POST') {
 								>Email <span class="required-asterisk">*</span></label
 							>
 							<input
-								type="text"
+								type="email"
 								id="activist-email"
+								autocomplete="email"
 								required
 								name="activist-email"
 							/>
@@ -264,7 +267,12 @@ if (Astro.request.method === 'POST') {
 
 						<div class="form-field">
 							<label for="activist-number">Phone Number</label>
-							<input type="tel" id="activist-number" name="activist-number" />
+							<input
+								type="tel"
+								id="activist-number"
+								autocomplete="tel"
+								name="activist-number"
+							/>
 						</div>
 
 						<div class="form-field">
@@ -272,6 +280,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-facebook"
+								inputmode="url"
 								name="activist-facebook"
 							/>
 						</div>
@@ -281,6 +290,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-linkedin"
+								inputmode="url"
 								name="activist-linkedin"
 							/>
 						</div>
@@ -290,6 +300,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-instagram"
+								inputmode="url"
 								name="activist-instagram"
 							/>
 						</div>
@@ -301,6 +312,8 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-website"
+								inputmode="url"
+								autocomplete="url"
 								name="activist-website"
 							/>
 						</div>
@@ -329,13 +342,14 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-logo"
+								inputmode="url"
 								required
 								name="activist-card-image"
 							/>
 						</div>
 
 						<div class="form-field">
-							<label for="activist-picture"
+							<label for="activist-image"
 								>Link to your picture that will be visible next to your bio.<span
 									class="required-asterisk">*</span
 								></label
@@ -343,6 +357,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="activist-image"
+								inputmode="url"
 								required
 								name="activist-profile-image"
 							/>
@@ -454,6 +469,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-name"
+								autocomplete="organization"
 								required
 								name="organization-name"
 							/>
@@ -476,8 +492,9 @@ if (Astro.request.method === 'POST') {
 								>Email <span class="required-asterisk">*</span></label
 							>
 							<input
-								type="text"
+								type="email"
 								id="organization-email"
+								autocomplete="email"
 								required
 								name="organization-email"
 							/>
@@ -490,6 +507,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="tel"
 								id="organization-number"
+								autocomplete="tel"
 								required
 								name="organization-number"
 							/>
@@ -500,6 +518,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-facebook"
+								inputmode="url"
 								name="organization-facebook"
 							/>
 						</div>
@@ -509,6 +528,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-linkedin"
+								inputmode="url"
 								name="organization-linkedin"
 							/>
 						</div>
@@ -518,6 +538,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-instagram"
+								inputmode="url"
 								name="organization-instagram"
 							/>
 						</div>
@@ -531,6 +552,8 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-website"
+								inputmode="url"
+								autocomplete="url"
 								required
 								name="organization-website"
 							/>
@@ -560,6 +583,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-card-image"
+								inputmode="url"
 								required
 								name="organization-card-image"
 							/>
@@ -573,6 +597,7 @@ if (Astro.request.method === 'POST') {
 							<input
 								type="text"
 								id="organization-profile-image"
+								inputmode="url"
 								required
 								name="organization-profile-image"
 							/>
@@ -586,7 +611,7 @@ if (Astro.request.method === 'POST') {
 									>250 words max</i
 								>) <span class="required-asterisk">*</span></label
 							>
-							<textarea name="organization-bio" id="organization-bio"
+							<textarea name="organization-bio" id="organization-bio" required
 							></textarea>
 						</div>
 

@@ -111,9 +111,7 @@ export default function BlogCard({
                   {formattedDate}
                 </time>
                 <span className={styles.dotSeparator} />
-                <span
-                  className={styles.readingTime}
-                >{`${readingTime} read`}</span>
+                <span className={styles.readingTime}>{readingTime}</span>
               </div>
             </div>
           </div>

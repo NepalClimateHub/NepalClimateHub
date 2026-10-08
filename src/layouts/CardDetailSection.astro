@@ -40,9 +40,10 @@ const cleanedFormat = eventFormat.replace(/_/g, '-').toLowerCase().trim();
 const eventCost = activeDataObject?.cost || '';
 const cleanedCost = eventCost.replace(/_/g, ' ').toLowerCase().trim();
 
-const { date: eventStartDate, time: eventStartTime } = activeDataObject?.startDate ? formatDateTime(
+const { date: eventStartDate, time: eventStartTime } =
   activeDataObject?.startDate
-) : { date: '-', time: '-' };
+    ? formatDateTime(activeDataObject?.startDate)
+    : { date: '-', time: '-' };
 
 const opportunityDuration = activeDataObject?.duration || 'Not disclosed';
 
@@ -69,12 +70,12 @@ const processedDescription = description.replace(/<br\s*\/?>/gi, '<br><br>');
 
     <div class="card-main">
      <div class="card-details-wrapper">
-      <h2 class="card-name">
+      <h1 class="card-name">
         {name}
-      </h2>
+      </h1>
       <div class="address">
         <span class="icon">
-          <Icon name="mdi:my-location" class="icon" />
+          <Icon aria-hidden="true" name="mdi:my-location" class="icon" />
         </span>
         {location}
       </div>

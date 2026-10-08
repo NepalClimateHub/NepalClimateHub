@@ -12,32 +12,27 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.9",
     "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/node": "^9.5.5",
     "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@iconify-json/hugeicons": "^1.2.31",
     "@iconify-json/mdi": "^1.2.3",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
     "astro": "^5.18.2",
     "astro-icon": "^1.1.5",
-    "dotenv": "^16.6.1",
     "nuqs": "^2.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.7.0",
-    "react-router-dom": "^6.30.4",
-    "typescript": "^5.9.3"
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@biomejs/biome": "1.9.4",
-    "@tgwf/co2": "^0.15.0",
     "@types/node": "^22.0.0",
-    "@types/ws": "^8.18.1",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "lefthook": "^1.13.6",
+    "typescript": "^5.9.3",
     "wrangler": "^4.131.0"
   },
   "engines": {

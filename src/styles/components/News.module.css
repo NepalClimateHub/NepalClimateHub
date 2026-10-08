@@ -158,6 +158,11 @@
   padding-right: 30px;
 }
 
+.filterContainer select:focus-visible {
+  outline: 2px solid #364fc7;
+  outline-offset: 2px;
+}
+
 .menuDropdown {
   position: absolute;
   right: 12px;
@@ -309,4 +314,16 @@
   .newsContainer {
     grid-template-columns: 1fr;
   }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

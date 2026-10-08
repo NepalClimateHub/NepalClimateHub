@@ -22,6 +22,8 @@ We crafted NepalClimateHub using a modern, efficient tech stack:
 
 Want to explore NepalClimateHub locally? Follow these steps:
 
+Requires Node 22 (see `.nvmrc`) and npm.
+
 1. Clone this repository:
 
    ```bash
@@ -43,7 +45,7 @@ Want to explore NepalClimateHub locally? Follow these steps:
 
 4. Setup env file and fill the environment
    ```bash
-   cp .env.example .env
+   cp .env.sample .env
    ```
    
 6. Run the application
@@ -53,6 +55,8 @@ Want to explore NepalClimateHub locally? Follow these steps:
 
 ## ☁️ Deployment (Cloudflare Workers)
 
+
+Adapter selection (`astro.config.mjs`): `DEPLOY_TARGET=cloudflare` (set by the GitHub Action) builds for Cloudflare Workers; otherwise the build is a Node standalone server (Dokploy), started with `npm start`.
 The site is an Astro SSR app (`output: 'server'`) built with `@astrojs/cloudflare` and deployed
 to Cloudflare Workers with static assets. Configuration lives in `wrangler.jsonc`.
 
@@ -80,7 +84,7 @@ Notes:
   assets. `public/.assetsignore` keeps `_worker.js` and `_routes.json` out of the asset bundle.
 - `API_BASE_URL` is read through `import.meta.env`, so it is inlined at **build** time. Set it in
   `.env` locally, or as a build environment variable if building on Cloudflare Workers Builds.
-  The same value is also exposed as a runtime `var` in `wrangler.jsonc` for `Astro.locals.runtime.env`.
+  It is not a runtime binding in `wrangler.jsonc`; runtime `vars` are only for values the deployed Worker needs.
   Use `npx wrangler secret put <NAME>` for anything sensitive.
 - Run `npm run cf-typegen` after changing bindings in `wrangler.jsonc` to regenerate
   `worker-configuration.d.ts` (gitignored).
@@ -107,5 +111,4 @@ The goal for this project is to create a free to use starter kit for creating lo
 
 ## URLs
 
-Staging : https://nch-staging.netlify.app
 Production: https://nepalclimatehub.org

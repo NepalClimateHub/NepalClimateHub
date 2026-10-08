@@ -11,13 +11,13 @@ import Header from '../../components/Header.astro';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
-import { getEventStatus } from '../../utils/listingStatus';
 import {
   filterEvents,
   hasActiveEventFilters,
   parseEventFilters,
   serializeEventFilters,
 } from '../../utils/eventFilters';
+import { getEventStatus } from '../../utils/listingStatus';
 
 const PAGE_SIZE = 12;
 const requestedPage = Number.parseInt(
@@ -107,7 +107,8 @@ if (totalEvents > 0 && currentPage > totalPages) {
 }
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title="Events | Nepal Climate Hub"
+  description="Find upcoming and past climate events, conferences and workshops in Nepal, from local youth gatherings to national conferences.">
   <main class="main-container">
     <section class="header-section">
       <Header logoColor="#1A1B1E" />

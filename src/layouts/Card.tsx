@@ -190,7 +190,7 @@ export const Card = <T,>({ data, dataType }: CardProps<T>) => {
         <h3 className={styles['organization-name']}>{title}</h3>
         <p className={styles.location}>
           <span className={styles.icon}>
-            <BiMap />
+            <BiMap aria-hidden="true" />
           </span>
           <span className={styles.address}>{location}</span>
         </p>

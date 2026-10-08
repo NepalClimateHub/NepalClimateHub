@@ -97,15 +97,13 @@ const featuredOpportunities = transformedOpportunities.slice(
             <h3 class="name">{oppportunity.title}</h3>
             <p class="location">
               <span class="icon">
-                <Icon name="mdi:my-location" class="icon" />
+                <Icon aria-hidden="true" name="mdi:my-location" class="icon" />
               </span>
               <span class="address">{oppportunity.location}</span>
             </p>
-            <p
-              class="about"
-              set:html={oppportunity.description.substring(0, 108) + "..."}
-              style="font-style: normal;"
-            />
+            <p class="about" style="font-style: normal;">
+              {`${stripHtml(oppportunity.description).substring(0, 108)}...`}
+            </p>
             <div class="tags">
               {oppportunity.category.slice(0, 3).map((tag: string) => (
                 <span class="tag">{tag}</span>
@@ -119,15 +117,20 @@ const featuredOpportunities = transformedOpportunities.slice(
     <!-- slide control bars for mobile display -->
 
     <div class="card-controls opportunity-card-controls">
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
-      <span class="bar bar-opportunity-section"></span>
+      {
+        featuredOpportunities.map((_, index) => (
+          <button
+            type="button"
+            class="bar bar-opportunity-section"
+            aria-label={`Show opportunity ${index + 1} of ${featuredOpportunities.length}`}
+          />
+        ))
+      }
     </div>
   </div>
 
   <!-- link to redirect landing page of opportunities -->
-  <a href="/opportunities" class="cta-link">See All</a>
+  <a href="/opportunities" class="cta-link" aria-label="See all opportunities">See All</a>
 </div>
 
 <style>

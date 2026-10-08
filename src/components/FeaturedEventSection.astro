@@ -72,7 +72,7 @@ const featuredEvents = filteredEvents.slice(start, Math.min(end, start + 4));
             <h3 class="name">{event.title}</h3>
             <p class="location">
               <span class="icon">
-                <Icon name="mdi:my-location" class="icon" />
+                <Icon aria-hidden="true" name="mdi:my-location" class="icon" />
               </span>
               <span class="address">{event.location}</span>
             </p>
@@ -90,14 +90,19 @@ const featuredEvents = filteredEvents.slice(start, Math.min(end, start + 4));
     }
 
     <div class="card-controls event-card-controls">
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
-      <span class="bar bar-event-section"></span>
+      {
+        featuredEvents.map((_, index) => (
+          <button
+            type="button"
+            class="bar bar-event-section"
+            aria-label={`Show event ${index + 1} of ${featuredEvents.length}`}
+          />
+        ))
+      }
     </div>
   </div>
 
-  <a href="/events" class="cta-link">See All</a>
+  <a href="/events" class="cta-link" aria-label="See all events">See All</a>
 </div>
 
 <script>

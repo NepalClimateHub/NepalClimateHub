@@ -1,10 +1,10 @@
 ---
-import lcoyLogo from "../../assets/lcoy/logo/lcoyLogo.jpg";
+import lcoyLogo from '../../assets/lcoy/logo/lcoyLogo.jpg';
 
 const navItems = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "partners", label: "Partners" },
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'partners', label: 'Partners' },
   // { id: "speakers", label: "Speakers" },
   // { id: "faq", label: "FAQ" },
 ];
@@ -17,9 +17,11 @@ const navItems = [
     </a>
 
     <button
+      type="button"
       class="menu-toggle"
-      aria-label="Toggle navigation menu"
+      aria-label="Menu"
       aria-expanded="false"
+      aria-controls="lcoy-nav"
     >
       <span class="hamburger">
         <span></span>
@@ -28,7 +30,7 @@ const navItems = [
       </span>
     </button>
 
-    <nav class="nav-links" aria-label="Page navigation">
+    <nav class="nav-links" id="lcoy-nav" aria-label="Page navigation">
       {
         navItems.map((item) => (
           <a class="nav-link" href={`#${item.id}`} data-target={item.id}>
@@ -53,21 +55,54 @@ const navItems = [
     });
   };
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const menuToggle = document.querySelector(".lcoy-header .menu-toggle");
+  const navLinks = document.querySelector(".lcoy-header .nav-links");
+
+  const syncNavInert = () => {
+    if (!navLinks) return;
+    navLinks.inert = mobileQuery.matches && !navLinks.classList.contains("open");
+  };
+
+  const setMenuOpen = (open, restoreFocus) => {
+    if (!menuToggle || !navLinks) return;
+    menuToggle.setAttribute("aria-expanded", String(open));
+    navLinks.classList.toggle("open", open);
+    syncNavInert();
+    if (open) {
+      navLinks.querySelector("a")?.focus();
+    } else if (restoreFocus) {
+      menuToggle.focus();
+    }
+  };
 
   menuToggle?.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", !isOpen);
-    navLinks?.classList.toggle("open");
+    setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true", true);
   });
 
   document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", () => {
-      menuToggle?.setAttribute("aria-expanded", "false");
-      navLinks?.classList.remove("open");
-    });
+    link.addEventListener("click", () => setMenuOpen(false, false));
   });
+
+  syncNavInert();
+
+  if (!window.nchLcoyMenuBound) {
+    window.nchLcoyMenuBound = true;
+    mobileQuery.addEventListener("change", () => {
+      const nav = document.querySelector(".lcoy-header .nav-links");
+      if (nav) nav.inert = mobileQuery.matches && !nav.classList.contains("open");
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      const toggle = document.querySelector(".lcoy-header .menu-toggle");
+      const nav = document.querySelector(".lcoy-header .nav-links");
+      if (!toggle || !nav?.classList.contains("open")) return;
+      toggle.setAttribute("aria-expanded", "false");
+      nav.classList.remove("open");
+      nav.inert = mobileQuery.matches;
+      toggle.focus();
+    });
+  }
 
   window.addEventListener("hashchange", updateActiveNav);
   window.addEventListener("DOMContentLoaded", updateActiveNav);

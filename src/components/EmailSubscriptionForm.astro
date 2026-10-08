@@ -6,46 +6,50 @@ interface Props {
 }
 
 const { formBtnVariant = 'footer' } = Astro.props;
+const inputId = `userEmail-${crypto.randomUUID().slice(0, 8)}`;
 ---
 
 
 <p>Subscribe to future news and updates.</p>
 
 <div class="emailWrapper">
-    <form class="form" method="post" id="emailForm" data-api-url={API_BASE_URL}>
+    <form class="form" method="post" data-email-form data-api-url={API_BASE_URL}>
+        <label for={inputId} class="visually-hidden">Email address</label>
         <input
-        id="userEmail"
+        id={inputId}
         type="email"
         placeholder="Email"
         name="email"
-        autocomplete="off"
+        autocomplete="email"
         required
         />
         <button class={formBtnVariant}>Submit</button>
     </form>
-    <p class="emailMessage" id="emailMessage"></p>
+    <p class="emailMessage" role="status" aria-live="polite"></p>
 </div>
 
 <script>
-  const form = document.getElementById("emailForm") as HTMLFormElement;
-  const emailInput = document.getElementById("userEmail") as HTMLInputElement;
-  const emailMessage = document.querySelector(".emailMessage") as HTMLElement;
+  const initializeEmailSubscriptionForms = () => {
+    document.querySelectorAll<HTMLFormElement>("form[data-email-form]").forEach((form) => {
+      if (form.dataset.emailFormInitialized === "true") return;
+
+      form.dataset.emailFormInitialized = "true";
+  const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
+  const emailMessage = form.parentElement?.querySelector<HTMLElement>(".emailMessage");
 
   // Get API URL from data attribute (set server-side)
-  const API_BASE_URL = form?.getAttribute("data-api-url");
+  const API_BASE_URL = form.getAttribute("data-api-url");
 
-  if (form && emailInput && emailMessage) {
+  if (emailInput && emailMessage) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       
       // Reset previous state
       emailMessage.textContent = "";
-      emailMessage.style.display = "none";
       
       const email = emailInput.value.trim();
       
       if (!API_BASE_URL) {
-        console.error("API_BASE_URL is not configured");
         emailMessage.textContent = "Unable to subscribe. Please try again later.";
         emailMessage.style.display = "block";
         emailMessage.style.color = "#ef4444";
@@ -73,14 +77,18 @@ const { formBtnVariant = 'footer' } = Astro.props;
         } else {
           throw new Error(`HTTP ${response.status}`);
         }
-      } catch (error) {
-        console.error("Subscription error:", error);
+      } catch {
         emailMessage.textContent = "Unable to subscribe. Please try again later.";
         emailMessage.style.display = "block";
         emailMessage.style.color = "#ef4444";
       }
     });
   }
+    });
+  };
+
+  initializeEmailSubscriptionForms();
+  document.addEventListener("astro:page-load", initializeEmailSubscriptionForms);
 </script>
 
 <style>
@@ -95,6 +103,18 @@ p {
   position: relative;
   /* height: 70px; */
   margin-top: 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .emailMessage {

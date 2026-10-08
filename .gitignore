@@ -37,6 +37,9 @@ package-lock.json
 yarn.lock
 .claude/
 
+# Local multi-agent accessibility/performance work tracker
+ACCESSIBILITY_WORK_TRACKER.md
+
 # Cloudflare / Wrangler
 .wrangler/
 .dev.vars

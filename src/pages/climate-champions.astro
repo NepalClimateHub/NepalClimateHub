@@ -16,7 +16,8 @@ const transformedActivists = ActivistsJSON.map((activist) => ({
 }));
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title="Climate Champions | Nepal Climate Hub"
+  description="Meet the young climate champions and activists across Nepal leading action in their communities, and get inspired to join them.">
   <main class="main-container">
     <!-- header section  -->
 
@@ -40,7 +41,7 @@ const transformedActivists = ActivistsJSON.map((activist) => ({
 
       <section class="activist-cards-section">
         <CardContainer
-          client:load
+          client:visible
           cardsArray={transformedActivists}
           dataType="activist"
           initialCardCount="12"

@@ -5,7 +5,7 @@ const { heading, filter, type } = Astro.props;
 ---
 
 <div class="section-container">
-  <h2 class="page-title">{heading}</h2>
+  <h1 class="page-title">{heading}</h1>
   {
     type == "organization" && (
       <p class="page-tagline">
@@ -74,7 +74,7 @@ const { heading, filter, type } = Astro.props;
     filter == "true" && (
       <div class="filter-wrapper">
         {/* <button class="filter-btn">
-          Filter by locations and causes <Icon name="dropdown" class="icon" />{" "}
+          Filter by locations and causes <Icon aria-hidden="true" name="dropdown" class="icon" />{" "}
         </button> */}
       </div>
     )

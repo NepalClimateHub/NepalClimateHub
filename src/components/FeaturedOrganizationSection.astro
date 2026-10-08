@@ -10,8 +10,6 @@ import { optimizeImageUrl } from '../utils/optimizeImageUrl';
 //sample organization JSON organization
 import organizationJSON from '../data/organizations.json';
 const { startIndex, endIndex, title } = Astro.props;
-
-console.log(startIndex, endIndex);
 ---
 
 <div class="section-container featured-card-section">
@@ -37,7 +35,7 @@ console.log(startIndex, endIndex);
 						<h3 class="name">{organization.name}</h3>
 						<p class="location">
 							<span class="icon">
-								<Icon name="mdi:my-location" class="icon" />
+								<Icon aria-hidden="true" name="mdi:my-location" class="icon" />
 							</span>
 							<span class="address">{organization.address}</span>
 						</p>
@@ -55,15 +53,20 @@ console.log(startIndex, endIndex);
 		<!-- slide control bars for mobile display -->
 
 		<div class="card-controls organization-card-controls">
-			<span class="bar bar-organization-section"></span>
-			<span class="bar bar-organization-section"></span>
-			<span class="bar bar-organization-section"></span>
-			<span class="bar bar-organization-section"></span>
+			{
+				organizationJSON.slice(startIndex, endIndex).map((_, index, list) => (
+					<button
+						type="button"
+						class="bar bar-organization-section"
+						aria-label={`Show organization ${index + 1} of ${list.length}`}
+					/>
+				))
+			}
 		</div>
 	</div>
 
 	<!-- link to redirect landing page of organizations -->
-	<a href="/organizations" class="cta-link">See All</a>
+	<a href="/organizations" class="cta-link" aria-label="See all organizations">See All</a>
 </div>
 
 <script>
