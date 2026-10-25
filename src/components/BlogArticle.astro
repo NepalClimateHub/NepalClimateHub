@@ -1,0 +1,233 @@
+---
+import AboutBlogAuthor from '@components/AboutBlogAuthor.astro';
+import AuthorInfoandShareBlog from '@components/AuthorInfoandShareBlog.astro';
+import BlogHighlights from '@components/BlogHighlights.astro';
+import EmailSubscriptionForm from '@components/EmailSubscriptionForm.astro';
+import type { Blog as BlogType } from 'src/types/blog';
+import HtmlRenderer from './HtmlRenderer.astro';
+
+interface ArticleBlog {
+  title: string;
+  content: string;
+  author: string;
+  readingTime: string;
+  publishedDate: string;
+  tags: Array<{ tag: string }>;
+  authorImage?: string;
+  authorRole?: string;
+  authorBio?: string;
+  authorLinkedin?: string;
+}
+
+interface Props {
+  blog: ArticleBlog;
+  topReads: BlogType[];
+  showBottomAuthor: boolean;
+  authorImagePlaceholder: string;
+}
+
+const { blog, topReads, showBottomAuthor, authorImagePlaceholder } =
+  Astro.props;
+---
+
+<section class="blog-detail-section">
+  <header class="blog-header section-container">
+    <h1 class="blog-title">{blog.title}</h1>
+    <AuthorInfoandShareBlog
+      authorName={blog.author}
+      authorImageUrl={blog.authorImage || authorImagePlaceholder}
+      date={blog.publishedDate}
+      readTime={blog.readingTime}
+    />
+  </header>
+
+  <div class="blog-grid section-container">
+    <article class="blog-content">
+      <HtmlRenderer content={blog.content} />
+    </article>
+
+    <aside class="blog-sidebar">
+      <div id="author-section-top" class="author-section">
+        <AboutBlogAuthor
+          authorName={blog.author}
+          authorImageUrl={blog.authorImage || authorImagePlaceholder}
+          authorRole={blog.authorRole}
+          authorBio={blog.authorBio}
+          authorLinkedin={blog.authorLinkedin}
+        />
+      </div>
+
+      <div class="sidebar-section stay-connected">
+        <h2 class="sidebar-title">Stay Connected</h2>
+        <EmailSubscriptionForm formBtnVariant="primary" />
+      </div>
+
+      <section class="top-reads-section">
+        <BlogHighlights title="Top Reads" blogs={topReads} />
+      </section>
+
+      {
+        blog.tags.length > 0 && (
+          <div class="sidebar-section">
+            <h2 class="sidebar-title">Tags</h2>
+            <div class="tags-container">
+              {blog.tags.map((tag) => (
+                <span class="tag">{tag?.tag}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </aside>
+  </div>
+
+  {
+    showBottomAuthor && (
+      <div id="author-section-bottom" class="section-container author-section">
+        <AboutBlogAuthor
+          authorName={blog.author}
+          authorImageUrl={blog.authorImage || authorImagePlaceholder}
+          authorRole={blog.authorRole}
+          authorBio={blog.authorBio}
+          authorLinkedin={blog.authorLinkedin}
+        />
+      </div>
+    )
+  }
+</section>
+
+<style>
+  section {
+    padding: 0 48px;
+  }
+
+  .blog-detail-section {
+    margin-top: 24px;
+    padding-bottom: 80px;
+  }
+
+  .blog-header {
+    margin-bottom: 16px;
+  }
+
+  .blog-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 35%);
+    gap: 40px;
+  }
+
+  .blog-content {
+    width: 100%;
+  }
+
+  .blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .sidebar-section {
+    width: 100%;
+  }
+
+  .sidebar-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111827;
+  }
+
+  .top-reads-section {
+    padding: 0;
+    position: sticky;
+    top: 16px;
+  }
+
+  .stay-connected {
+    background-color: #1a1b1e;
+    padding: 32px;
+    border-radius: 16px;
+  }
+
+  .stay-connected .sidebar-title {
+    color: #ffffff;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    background-color: #ffffff;
+    color: #364fc7;
+    padding: 6px 12px;
+    border: 1px solid #cefe00;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .author-section {
+    margin-top: 60px;
+  }
+
+  #author-section-top {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    .blog-detail-section {
+      padding-bottom: 32px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .stay-connected {
+      display: none;
+    }
+
+    .blog-sidebar {
+      position: static;
+    }
+
+    .author-section {
+      margin-top: 32px;
+    }
+
+    #author-section-bottom {
+      display: none;
+    }
+
+    #author-section-top {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 0;
+    }
+
+    .blog-detail-section {
+      padding: 0 24px;
+    }
+
+    .blog-title {
+      font-size: 20px;
+    }
+  }
+</style>
