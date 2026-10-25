@@ -11,7 +11,7 @@ try {
 }
 ---
 
-<div class="section-container">
+<div class="open-roles-container">
   <div class="open-roles-section">
     <h2 class="sub-heading">Open roles</h2>
     <p class="roles-intro">
@@ -23,10 +23,10 @@ try {
 </div>
 
 <style is:global>
-  .section-container {
+  .open-roles-container {
     max-width: 1280px;
-    margin: 0 auto;
-    margin-bottom: 120px;
+    margin: 0 auto 120px;
+    box-sizing: border-box;
   }
 
   .open-roles-section {
@@ -86,6 +86,8 @@ try {
 
   .role-card {
     width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
     background: #ffffff;
     border: 1px solid #e8eaed;
     border-radius: 20px;
@@ -198,6 +200,7 @@ try {
   }
 
   .role-list li {
+    overflow-wrap: anywhere;
     margin-bottom: 8px;
     line-height: 1.5;
     color: #374151;
@@ -220,6 +223,7 @@ try {
     cursor: pointer;
     background: #cefe00;
     color: #1a1b1e;
+    text-decoration: none;
     transition:
       background 0.2s ease,
       transform 0.15s ease;
@@ -248,192 +252,45 @@ try {
     text-decoration: none;
   }
 
-  /* Modal Styling */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .modal-content {
-    background: #ffffff;
-    border-radius: 20px;
-    max-width: 650px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 32px;
-    position: relative;
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  }
-
-  .modal-close {
+  .sr-only {
     position: absolute;
-    top: 16px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #64748b;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
-  .modal-close:hover {
-    color: #0f172a;
+  @media screen and (max-width: 1280px) {
+    .open-roles-container {
+      padding: 0 48px;
+      margin-bottom: 50px;
+    }
   }
 
-  .modal-header {
-    margin-bottom: 24px;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 16px;
-  }
-
-  .modal-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0 0 4px;
-  }
-
-  .modal-subtitle {
-    font-size: 14px;
-    color: #64748b;
-    margin: 0;
-  }
-
-  .modal-error-alert {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    color: #991b1b;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
-
-  .vacancy-apply-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-group-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .form-group label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #334155;
-  }
-
-  .form-group label .req {
-    color: #ef4444;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s ease;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: #364fc7;
-  }
-
-  .modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 12px;
-    padding-top: 16px;
-    border-top: 1px solid #f1f5f9;
-  }
-
-  .cancel-button {
-    background: #f1f5f9;
-    color: #334155;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .cancel-button:hover {
-    background: #e2e8f0;
-  }
-
-  .modal-success-state {
-    text-align: center;
-    padding: 24px 12px;
-  }
-
-  .success-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #dcfce7;
-    color: #166534;
-    font-size: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-  }
-
-  .success-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0 0 8px;
-  }
-
-  .success-text {
-    font-size: 15px;
-    color: #475569;
-    margin: 0 0 24px;
-    line-height: 1.6;
-  }
-
-  @media screen and (max-width: 768px) {
-    .section-container {
-      padding: 20px 24px;
-      margin-bottom: 32px;
+  @media screen and (max-width: 1024px) {
+    .role-card__title-block {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .role-content {
       grid-template-columns: 1fr;
     }
+  }
 
-    .form-group-row {
-      grid-template-columns: 1fr;
+  @media screen and (max-width: 768px) {
+    .open-roles-container {
+      padding: 20px 24px;
+      margin-bottom: 32px;
     }
 
-    .modal-content {
-      padding: 20px;
+    .apply-button--wide {
+      width: 100%;
     }
   }
 </style>

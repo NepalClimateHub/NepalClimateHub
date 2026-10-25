@@ -12,6 +12,7 @@ export interface Vacancy {
   location?: string;
   type?: string;
   deadline?: string;
+  googleFormLink?: string;
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
