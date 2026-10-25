@@ -25,7 +25,7 @@ const sections = [
       'Our volunteers come from diverse backgrounds, united by a shared commitment to climate action in Nepal.',
     label: 'volunteers',
     members: active,
-    years: collectYears(active),
+    years: [] as number[],
   },
   {
     id: 'former-volunteers',
@@ -35,7 +35,20 @@ const sections = [
     members: former,
     years: collectYears(former),
   },
-].filter((section) => section.members.length > 0);
+]
+  .filter((section) => section.members.length > 0)
+  .map((section) => {
+    // Default to the most recent year; members outside it start hidden.
+    const defaultYear = section.years[0];
+    const isVisible = (member: (typeof section.members)[number]) =>
+      defaultYear === undefined || member.years.includes(defaultYear);
+    return {
+      ...section,
+      defaultYear,
+      isVisible,
+      visibleCount: section.members.filter(isVisible).length,
+    };
+  });
 
 const getLinkedInUrl = (url: string) =>
   url.startsWith('http') ? url : `https://${url}`;
@@ -56,26 +69,14 @@ const getLinkedInUrl = (url: string) =>
             role='group'
             aria-label={`Filter ${section.label} by year`}
           >
-            <button
-              type='button'
-              class='year-chip'
-              data-year='all'
-              aria-pressed='true'
-            >
-              All years
-              <span class='year-count'>{section.members.length}</span>
-            </button>
             {section.years.map((year) => (
               <button
                 type='button'
                 class='year-chip'
                 data-year={year}
-                aria-pressed='false'
+                aria-pressed={year === section.defaultYear ? 'true' : 'false'}
               >
                 {year}
-                <span class='year-count'>
-                  {section.members.filter((m) => m.years.includes(year)).length}
-                </span>
               </button>
             ))}
           </div>
@@ -85,11 +86,15 @@ const getLinkedInUrl = (url: string) =>
           <div
             class:list={[
               "team-grid",
-              { "team-grid--single": section.members.length === 1 },
+              { "team-grid--single": section.visibleCount === 1 },
             ]}
           >
             {section.members.map((member) => (
-              <div class='team-member' data-years={member.years.join(" ")}>
+              <div
+                class='team-member'
+                data-years={member.years.join(" ")}
+                hidden={!section.isVisible(member)}
+              >
                 <div class='member-image-container'>
                   <img
                     src={member.image}
@@ -167,7 +172,7 @@ const getLinkedInUrl = (url: string) =>
           );
           cards.forEach((card) => {
             const years = (card.dataset.years || "").split(" ");
-            const show = year === "all" || years.includes(year || "");
+            const show = years.includes(year || "");
             card.hidden = !show;
             if (show) visible++;
           });
@@ -191,7 +196,7 @@ const getLinkedInUrl = (url: string) =>
     font-weight: 700;
     color: #1a1b1e;
     margin: 0;
-    margin-bottom: 8px;
+    margin-bottom: 32px;
     line-height: 42px;
   }
 
@@ -199,7 +204,7 @@ const getLinkedInUrl = (url: string) =>
     font-size: 18px;
     line-height: 24px;
     color: #1a1b1e;
-    margin-bottom: 50px;
+    margin: -24px 0 50px;
   }
 
   .container {
@@ -209,40 +214,37 @@ const getLinkedInUrl = (url: string) =>
   .year-filter {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+    gap: 12px;
   }
 
   .year-chip {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border: 1px solid #1a1b1e;
-    border-radius: 16px;
-    background: transparent;
-    color: #1a1b1e;
-    font-size: 14px;
+    justify-content: center;
+    min-width: 80px;
+    padding: 8px 20px;
+    border: 1px solid #cefe00;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #364fc7;
+    font-size: 16px;
+    line-height: 1.5;
     cursor: pointer;
+    transition: background-color 0.2s ease;
   }
 
   .year-chip:hover {
-    background-color: #f1f3f5;
+    background-color: #f7ffd6;
   }
 
   .year-chip[aria-pressed="true"] {
     background-color: #cefe00;
-    border-color: #cefe00;
+    color: #1a1b1e;
   }
 
   .year-chip:focus-visible {
     outline: 2px solid #1a1b1e;
     outline-offset: 2px;
-  }
-
-  .year-count {
-    font-size: 12px;
-    color: #555;
   }
 
   .team-member[hidden] {
