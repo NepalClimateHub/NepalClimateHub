@@ -1,5 +1,16 @@
-import type { Opportunity, OpportunityResponse } from '../types/opportunity';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import type {
+  Opportunity,
+  OpportunityResponse,
+  OpportunitySummary,
+  OpportunitySummaryResponse,
+} from '../types/opportunity';
+import {
+  API_BASE_URL,
+  ApiError,
+  fetchAllPages,
+  findBySlug,
+  handleResponse,
+} from './index';
 
 export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
   if (!API_BASE_URL) {
@@ -40,6 +51,45 @@ export const fetchOpportunities = async (): Promise<OpportunityResponse> => {
   }
 };
 
+export interface OpportunitySummaryOptions {
+  limit?: number;
+  offset?: number;
+}
+
+export const fetchOpportunitySummaries = async (
+  options: OpportunitySummaryOptions = {}
+): Promise<OpportunitySummaryResponse> => {
+  if (!API_BASE_URL) {
+    throw new ApiError(
+      500,
+      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+    );
+  }
+
+  const params = new URLSearchParams({ view: 'summary' });
+  if (options.limit !== undefined) params.set('limit', String(options.limit));
+  if (options.offset !== undefined) {
+    params.set('offset', String(options.offset));
+  }
+
+  const response = await fetch(
+    `${API_BASE_URL}/api/v1/opportunities?${params}`,
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  return handleResponse<OpportunitySummaryResponse>(response);
+};
+
+export const fetchAllOpportunitySummaries = async (): Promise<
+  OpportunitySummary[]
+> =>
+  fetchAllPages<OpportunitySummary>((opts) => fetchOpportunitySummaries(opts));
+
 export const fetchOpportunityById = async (
   id: string
 ): Promise<{
@@ -68,4 +118,19 @@ export const fetchOpportunityById = async (
       }`
     );
   }
+};
+
+export const getOpportunityBySlug = async (
+  slug: string,
+  firstPage?: OpportunitySummaryResponse
+): Promise<Opportunity | undefined> => {
+  if (!slug) return;
+  const summary = await findBySlug(
+    slug,
+    (opts) => fetchOpportunitySummaries(opts),
+    firstPage
+  );
+  if (!summary) return undefined;
+  const { data } = await fetchOpportunityById(String(summary.id));
+  return data;
 };

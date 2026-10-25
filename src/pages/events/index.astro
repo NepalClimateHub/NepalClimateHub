@@ -4,21 +4,37 @@ export const prerender = false;
 
 import '../../styles/global.css';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchEvents } from '../../api';
+import { fetchAllEventSummaries, fetchEventSummaries } from '../../api';
 import EventFilter from '../../components/EventFilter';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import CardFilterSection from '../../layouts/CardFilterSection.astro';
 // import eventsTemp from '../data/eventsTemp.json';
 import BaseLayout from '../../layouts/Layout.astro';
+import {
+  filterEvents,
+  hasActiveEventFilters,
+  parseEventFilters,
+  serializeEventFilters,
+} from '../../utils/eventFilters';
+import { getEventStatus } from '../../utils/listingStatus';
 
-const { data: apiEvents } = await fetchEvents();
+const PAGE_SIZE = 12;
+const requestedPage = Number.parseInt(
+  Astro.url.searchParams.get('page') || '1',
+  10
+);
+const currentPage =
+  Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+
+const activeFilters = parseEventFilters(Astro.url.searchParams);
+const filtersActive = hasActiveEventFilters(activeFilters);
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '');
 }
 
-const events = (apiEvents || []).map((event: any) => {
+function mapEventSummary(event: any) {
   const formatMap: Record<string, string> = {
     IN_PERSON: 'In-person',
     VIRTUAL: 'Virtual',
@@ -26,12 +42,6 @@ const events = (apiEvents || []).map((event: any) => {
     'In-person': 'In-person',
     Virtual: 'Virtual',
     Hybrid: 'Hybrid',
-  };
-
-  const statusMap: Record<string, string> = {
-    OPEN: 'Open',
-    UPCOMING: 'Upcoming',
-    CLOSED: 'Closed',
   };
 
   const costMap: Record<string, string> = {
@@ -53,22 +63,52 @@ const events = (apiEvents || []).map((event: any) => {
     locationType:
       event.locationType.charAt(0).toUpperCase() +
       event.locationType.slice(1).toLowerCase(),
-    status: statusMap[event.status.toUpperCase()] || 'Closed',
+    status: getEventStatus(event),
     format: formatMap[event.format] || 'In-person',
     cost: event.cost ? costMap[event.cost] || 'Free' : 'Free',
     category: event.tags?.map((tag: any) => tag.tag) || [],
     bannerImage: event.bannerImageUrl,
     description: stripHtml(event.description || '') || '',
-    organizer: event.organizer,
-    startDate: event.startDate,
-    registrationLink: event.registrationLink,
-    contactEmail: event.contactEmail,
     address: event.address,
   };
-});
+}
+
+let events: ReturnType<typeof mapEventSummary>[];
+let totalEvents: number;
+let totalPages: number;
+
+if (!filtersActive) {
+  const offset = (currentPage - 1) * PAGE_SIZE;
+  const { data: apiEvents, meta } = await fetchEventSummaries({
+    limit: PAGE_SIZE,
+    offset,
+  });
+  totalEvents = meta?.count || 0;
+  totalPages = Math.max(1, Math.ceil(totalEvents / PAGE_SIZE));
+  events = (apiEvents || []).map(mapEventSummary);
+} else {
+  const allSummaries = await fetchAllEventSummaries();
+  const filtered = filterEvents(
+    allSummaries.map(mapEventSummary),
+    activeFilters
+  );
+  totalEvents = filtered.length;
+  totalPages = Math.max(1, Math.ceil(totalEvents / PAGE_SIZE));
+  const safePage = Math.min(currentPage, totalPages);
+  const offset = (safePage - 1) * PAGE_SIZE;
+  events = filtered.slice(offset, offset + PAGE_SIZE);
+}
+
+if (totalEvents > 0 && currentPage > totalPages) {
+  const redirectParams = serializeEventFilters(activeFilters);
+  if (totalPages > 1) redirectParams.set('page', String(totalPages));
+  const query = redirectParams.toString();
+  return Astro.redirect(`/events${query ? `?${query}` : ''}`, 302);
+}
 ---
 
-<BaseLayout title="Nepal Climate Hub">
+<BaseLayout title="Events | Nepal Climate Hub"
+  description="Find upcoming and past climate events, conferences and workshops in Nepal, from local youth gatherings to national conferences.">
   <main class="main-container">
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
@@ -86,7 +126,15 @@ const events = (apiEvents || []).map((event: any) => {
       </section>
 
       <section class="event-cards-section">
-        <EventFilter client:load events={events} />
+        <EventFilter
+          client:load
+          events={events}
+          currentPage={currentPage}
+          pageSize={PAGE_SIZE}
+          totalEvents={totalEvents}
+          totalPages={totalPages}
+          activeFilters={activeFilters}
+        />
       </section>
     </div>
 

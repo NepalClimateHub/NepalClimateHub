@@ -72,7 +72,7 @@ const Pagination: React.FC<PaginationProps> = ({
         disabled={currentPage === 1}
         aria-label="Previous page"
       >
-        <FaChevronLeft className={styles.chevron} />
+        <FaChevronLeft aria-hidden="true" className={styles.chevron} />
       </button>
 
       {/* Page numbers */}
@@ -107,7 +107,7 @@ const Pagination: React.FC<PaginationProps> = ({
         disabled={currentPage === totalPages}
         aria-label="Next page"
       >
-        <FaChevronRight className={styles.chevron} />
+        <FaChevronRight aria-hidden="true" className={styles.chevron} />
       </button>
     </div>
   );

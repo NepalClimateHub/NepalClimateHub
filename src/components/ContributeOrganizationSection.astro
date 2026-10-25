@@ -19,7 +19,7 @@ import { Icon } from 'astro-icon/components';
       </div>
       <ul class="organization-list">
         <li>
-          <Icon
+          <Icon aria-hidden="true"
             name="hugeicons:arrow-right-02"
             class="arrow-icon right-arrow-icon"
           />
@@ -27,21 +27,21 @@ import { Icon } from 'astro-icon/components';
           enthusiasts, professionals, champions, and change makers
         </li>
         <li>
-          <Icon
+          <Icon aria-hidden="true"
             name="hugeicons:arrow-right-02"
             class="arrow-icon right-arrow-icon"
           />
           Resource sharing – Promote knowledge exchange and collaboration
         </li>
         <li>
-          <Icon
+          <Icon aria-hidden="true"
             name="hugeicons:arrow-right-02"
             class="arrow-icon right-arrow-icon"
           />
           Attract talent – Connect with individuals passionate about climate action
         </li>
         <li>
-          <Icon
+          <Icon aria-hidden="true"
             name="hugeicons:arrow-right-02"
             class="arrow-icon right-arrow-icon"
           />
@@ -52,10 +52,11 @@ import { Icon } from 'astro-icon/components';
       <p class="organization-note">
         Every opportunity shared can change someone's future in climate action!
       </p>
-      <button class="organization-btn"
-        ><a href="https://forms.gle/ygtkox9TaQtWP9FK6" target="_blank"
-          >Submit Organization</a
-        ></button
+      <a
+        class="organization-btn"
+        href="https://forms.gle/ygtkox9TaQtWP9FK6"
+        target="_blank"
+      >Submit Organization</a
       >
     </div>
     <div class="organization-image">
@@ -143,12 +144,6 @@ import { Icon } from 'astro-icon/components';
   }
 
   .organization-btn {
-    border: none;
-    background-color: none;
-    border-radius: 16px;
-  }
-
-  .organization-btn a {
     background-color: #1a1b1e;
     padding: 8px 16px;
     border-radius: 16px;
@@ -161,7 +156,7 @@ import { Icon } from 'astro-icon/components';
     transition: all 0.1s ease-in-out;
   }
 
-  .organization-btn a:hover {
+  .organization-btn:hover {
     background-color: #cefe00;
     color: #25262b;
   }

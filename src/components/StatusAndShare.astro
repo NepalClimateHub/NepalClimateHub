@@ -8,7 +8,6 @@ interface Props {
 const { status } = Astro.props;
 
 const cleanedStatus = status.toLowerCase().trim();
-const statusClass = status ? `status-${cleanedStatus}` : 'status-unknown';
 ---
 
 <div class="container">

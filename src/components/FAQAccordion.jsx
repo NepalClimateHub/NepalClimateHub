@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { FiArrowDownRight } from 'react-icons/fi';
+import styles from '../styles/components/FAQAccordion.module.css';
 
 const FAQAccordion = () => {
+  const baseId = useId();
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
@@ -42,7 +44,7 @@ const FAQAccordion = () => {
   };
 
   return (
-    <div className="faq-accordion">
+    <div className={styles.faqAccordion}>
       {faqs.map((faq, index) => (
         <div
           key={index}
@@ -54,102 +56,29 @@ const FAQAccordion = () => {
         >
           <button
             type="button"
-            className={`accordion-question ${openIndex === index ? 'active' : ''}`}
+            className={`${styles.accordionQuestion} ${openIndex === index ? styles.active : ''}`}
             onClick={() => toggleAccordion(index)}
+            id={`${baseId}-q${index}`}
             aria-expanded={openIndex === index}
+            aria-controls={`${baseId}-a${index}`}
           >
             <span>{faq.question}</span>
             <FiArrowDownRight
               size={20}
-              className={`accordion-icon ${openIndex === index ? 'open' : ''}`}
+              className={`${styles.accordionIcon} ${openIndex === index ? styles.open : ''}`}
             />
           </button>
           {openIndex === index && (
-            <div className="accordion-answer">{faq.answer}</div>
+            <section
+              id={`${baseId}-a${index}`}
+              aria-labelledby={`${baseId}-q${index}`}
+              className={styles.accordionAnswer}
+            >
+              {faq.answer}
+            </section>
           )}
         </div>
       ))}
-
-      <style>{`
-        .faq-accordion {
-          width: 100%;
-        }
-
-        .accordion-item {
-          /* border applied conditionally via inline style */
-        }
-
-        .accordion-question {
-          width: 100%;
-          padding: 24px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 16px;
-          font-family: 'Zilla Slab', serif;
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 22px;
-          color: #1A1B1E;
-          text-align: left;
-          transition: all 0.3s ease;
-        }
-          
-        .accordion-question.active {
-          color: #364FC7;
-        }
-
-        .accordion-question span {
-          flex: 1;
-        }
-
-        .accordion-icon {
-          flex-shrink: 0;
-          color: #1A1B1E;
-          transition: transform 0.3s ease;
-        }
-
-        .accordion-icon.open {
-          transform: rotate(90deg);
-        }
-
-        .accordion-answer {
-          padding: 0 24px 24px 24px;
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 24px;
-          color: #A8A8A8;
-          animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .accordion-question {
-            padding: 20px;
-            font-size: 16px;
-            line-height: 20px;
-          }
-
-          .accordion-answer {
-            padding: 0 20px 20px 20px;
-            font-size: 14px;
-            line-height: 20px;
-          }
-        }
-      `}</style>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
+const year = new Date().getFullYear();
 ---
 
 <footer class="section-container">
@@ -15,7 +16,7 @@ import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
         Passionate about climate knowledge and action? Help keep Nepal Climate
         Hub running.
       </p>
-      <button><a href="/volunteer">Volunteer</a></button>
+      <a class="footer-cta" href="/volunteer">Volunteer</a>
     </div>
 
     <div class="column">
@@ -23,7 +24,7 @@ import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
         Don’t see your organization on Nepal Climate Hub? Register your profile
         with us!
       </p>
-      <button><a href="/contribute">Submit profile</a></button>
+      <a class="footer-cta" href="/contribute">Submit profile</a>
     </div>
 
     <div class="column">
@@ -135,7 +136,7 @@ import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
     </div>
 
     <p class="footer-note">
-      &copy; 2025 Nepal Climate Hub. All Rights Reserved.
+      &copy; {year} Nepal Climate Hub. All Rights Reserved.
     </p>
   </div>
 </footer>
@@ -174,22 +175,17 @@ import EmailSubscriptionForm from './EmailSubscriptionForm.astro';
     margin-bottom: 18px;
   }
 
-  .content-wrapper button {
-    border: none;
-    border-radius: 16px;
-    display: block;
-  }
-
-  .content-wrapper button a {
+  .content-wrapper .footer-cta {
     text-decoration: none;
     font-size: 14px;
     padding: 8px 16px;
     border-radius: 16px;
     background-color: #cefe00;
     color: #25262b;
+    display: inline-block;
   }
 
-  .content-wrapper button a:hover {
+  .content-wrapper .footer-cta:hover {
     background-color: #1a1b1e;
     color: white;
     border: 1px solid white;

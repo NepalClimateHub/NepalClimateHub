@@ -28,9 +28,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Check formatting and linting
+        run: npx biome ci src
+
       # Runs on pull requests too, so a broken build is caught before merge.
       - name: Build
         run: npm run build
+        env:
+          DEPLOY_TARGET: cloudflare
 
       - name: Deploy to Cloudflare Workers
         if: github.event_name == 'push'

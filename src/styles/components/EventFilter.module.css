@@ -181,6 +181,39 @@
   border-radius: 6px;
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.pageLink,
+.pageLinkDisabled {
+  border: 1px solid #cefe00;
+  border-radius: 22px;
+  padding: 8px 16px;
+  color: #364fc7;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pageLink:hover {
+  background-color: #f8f9fa;
+}
+
+.pageLinkDisabled {
+  border-color: #d1d5db;
+  color: #9ca3af;
+}
+
+.pageStatus {
+  color: #464646;
+  font-size: 14px;
+}
+
 /* Hide mobile filter header on desktop */
 .mobileFilterHeader {
   display: none;

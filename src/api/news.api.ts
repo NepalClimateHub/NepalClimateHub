@@ -1,7 +1,14 @@
-import type { NewsResponse } from '../types/news';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import type { NewsItem, NewsResponse } from '../types/news';
+import { API_BASE_URL, ApiError, fetchAllPages, handleResponse } from './index';
 
-export const fetchNews = async (): Promise<NewsResponse> => {
+export interface NewsOptions {
+  limit?: number;
+  offset?: number;
+}
+
+export const fetchNews = async (
+  options: NewsOptions = {}
+): Promise<NewsResponse> => {
   if (!API_BASE_URL) {
     throw new ApiError(
       500,
@@ -10,7 +17,13 @@ export const fetchNews = async (): Promise<NewsResponse> => {
   }
 
   try {
-    const url = `${API_BASE_URL}/api/v1/news`;
+    const params = new URLSearchParams();
+    if (options.limit !== undefined) params.set('limit', String(options.limit));
+    if (options.offset !== undefined) {
+      params.set('offset', String(options.offset));
+    }
+    const query = params.toString();
+    const url = `${API_BASE_URL}/api/v1/news${query ? `?${query}` : ''}`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -39,3 +52,6 @@ export const fetchNews = async (): Promise<NewsResponse> => {
     );
   }
 };
+
+export const fetchAllNews = async (): Promise<NewsItem[]> =>
+  fetchAllPages<NewsItem>((opts) => fetchNews(opts));

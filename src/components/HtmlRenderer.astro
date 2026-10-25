@@ -10,12 +10,14 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
 
 <div id={uid} class={`html-rendered ${className}`} set:html={content} />
 
-<script>
+<script data-astro-rerun>
   // Group consecutive images into a grid container
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeHtmlRenderers() {
     const renderers = document.querySelectorAll('[id^="html-renderer-"]');
     
     renderers.forEach(renderer => {
+      if (renderer.dataset.rendered) return;
+      renderer.dataset.rendered = 'true';
       const children = Array.from(renderer.children);
       let i = 0;
       let figureCounter = 1;
@@ -98,7 +100,10 @@ const uid = `html-renderer-${Math.random().toString(36).slice(2)}`;
         }
       }
     });
-  });
+  }
+
+  document.addEventListener('astro:page-load', initializeHtmlRenderers);
+  initializeHtmlRenderers();
 </script>
 
 <style is:global>

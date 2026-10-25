@@ -66,3 +66,24 @@ export interface EventResponse {
     count: number;
   };
 }
+
+export interface EventSummary {
+  id: string;
+  title: string;
+  description: string;
+  locationType: string;
+  type: string;
+  format: string;
+  status: string;
+  startDate?: string | null;
+  registrationDeadline?: string | null;
+  cost?: string | null;
+  bannerImageUrl?: string | null;
+  address?: { state?: string | null } | null;
+  tags?: { tag: string }[];
+}
+
+export interface EventSummaryResponse {
+  data: EventSummary[];
+  meta: { count: number };
+}

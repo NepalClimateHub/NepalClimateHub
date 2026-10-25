@@ -1,14 +1,10 @@
-import { fetchOpportunities } from 'src/api';
+import { fetchAllOpportunitySummaries } from 'src/api';
 import { createSlug } from 'src/utils/slug';
 
 export async function GET() {
-  const data = await fetchOpportunities();
+  const opportunities = await fetchAllOpportunitySummaries();
 
-  if (!data || !data.data) {
-    throw new Error('Error fetching Opportunities');
-  }
-
-  const urls = data.data
+  const urls = opportunities
     .map((opportunity) => {
       return `
     <url>

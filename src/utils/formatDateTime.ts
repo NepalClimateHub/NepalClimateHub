@@ -40,12 +40,19 @@ export function formatDateTime(isoString?: string | null): FormattedDateTime {
   const monthIndex = Number(monthStr) - 1;
   const day = Number(dayStr);
 
-  if (!year || isNaN(monthIndex) || !day || monthIndex < 0 || monthIndex > 11) {
+  if (
+    !year ||
+    Number.isNaN(monthIndex) ||
+    !day ||
+    monthIndex < 0 ||
+    monthIndex > 11
+  ) {
     return { date: '-', time: '-' };
   }
 
   const month = MONTH_NAMES[monthIndex];
-  const weekday = WEEKDAY_NAMES[new Date(Date.UTC(year, monthIndex, day)).getUTCDay()];
+  const weekday =
+    WEEKDAY_NAMES[new Date(Date.UTC(year, monthIndex, day)).getUTCDay()];
   const formattedDate = `${weekday}, ${day} ${month} ${year}`;
 
   const hours24 = Number(timePart.split(':')[0]) || 0;

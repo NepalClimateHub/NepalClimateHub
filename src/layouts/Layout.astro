@@ -4,8 +4,11 @@ interface Props {
   description?: string;
   ogImage?: string;
   ogUrl?: string;
+  preloadImage?: string;
+  fontStylesheetHref?: string;
 }
 
+import { ClientRouter } from 'astro:transitions';
 import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -14,6 +17,8 @@ const {
   description = "Nepal Climate Hub is a centralized platform built to educate, connect, and empower Nepal's young people to take positive climate action.",
   ogImage = 'https://nepalclimatehub.org/favicon.png',
   ogUrl,
+  preloadImage,
+  fontStylesheetHref = 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Zilla+Slab:wght@400;500;600;700&display=swap',
 } = Astro.props;
 
 // Strip HTML tags from description for meta tags
@@ -26,30 +31,40 @@ function stripHtml(html: string): string {
 
 const cleanDescription = stripHtml(description);
 const siteUrl = Astro.site || 'https://nepalclimatehub.org';
-// Construct full URL properly for SSR - use pathname + search + hash to ensure correct URL
-const pathname = Astro.url.pathname;
-const search = Astro.url.search;
-const hash = Astro.url.hash;
-const fullPath = `${pathname}${search}${hash}`;
+// Edge-cached routes get a whitelisted path from middleware so tracking params never leak into cached meta.
+const fullPath =
+  Astro.locals.canonicalPath ?? `${Astro.url.pathname}${Astro.url.search}`;
 // Use ogUrl if provided, otherwise construct from site + pathname
-const currentUrl = ogUrl || `${siteUrl}${fullPath}`;
-const fullOgImage = ogImage.startsWith('http')
-  ? ogImage
-  : `${siteUrl}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+const currentUrl =
+  ogUrl || new URL(fullPath.replace(/^\/{2,}/, '/'), siteUrl).href;
+const fullOgImage = new URL(ogImage, siteUrl).href;
 const ogTitle = title.includes('|') ? title.split('|')[0].trim() : title;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
+    <ClientRouter />
     <meta charset="UTF-8" />
     <meta name="description" content={cleanDescription} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta
-      name="keywords"
-      content="climate change in Nepal, causes of climate change in nepal, impact of climate change in Nepal, climate adaptation strategies in Nepal, climate finance in Nepal, climate justice in Nepal, COP Nepal, climate change mitigation strategies, loss and damage due to climate change in Nepal, climate change vulnerability in Nepal, climate change research in Nepal, youth activism for climate change in Nepal, climate change education in Nepal, renewable energy initiatives in Nepal, biodiversity loss in Nepal, effects of global warming in Nepal, climate change policies in Nepal, sustainable development goals in Nepal, community-based adaptation in Nepal, climate organizations in Nepal, climate activists in Nepal, climate finance resources in Nepal, opportunities for climate action in Nepal, climate change job opportunities in Nepal, Nepal's Nationally Determined Contributions (NDCs), locally led adaptation plans in Nepal, climate change policies and frameworks in Nepal, Nepal Climate Change Knowledge Management Centre, government agencies for climate action in Nepal, climate change networks in Nepal, NGOs working on climate issues in Nepal, climate change consulting services in Nepal, climate risk assessment services in Nepal, climate adaptation solutions in Nepal, sustainable business practices in Nepal, Digobikas institute, Climate fellowship nepal, Climate events nepal, funding opportunities for climate projects in Nepal, climate change impact assessments, carbon offset programs in Nepal, renewable energy solutions in Nepal, green technology investments in Nepal, climate resilience planning services, learn about climate change impacts in Nepal, enroll in climate change courses in Nepal, download climate change reports for Nepal, register for climate workshops in Nepal, access climate change data in Nepal, apply for climate grants in Nepal, participate in climate action campaigns in Nepal, donate to climate initiatives in Nepal, join climate advocacy groups in Nepal, volunteer for climate projects in Nepal, YOUNGO Nepal, local conference of youth, national climate conference, nepalese youth in climate action, nyca, climate conferences in Nepal"
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href={fontStylesheetHref}
     />
+    {
+      preloadImage && (
+        <link
+          rel="preload"
+          as="image"
+          href={preloadImage}
+          fetchpriority="high"
+        />
+      )
+    }
     <meta name="robots" content="index, follow" />
     <!-- for sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -75,35 +90,6 @@ const ogTitle = title.includes('|') ? title.split('|')[0].trim() : title;
     <title>{title}</title>
   </head>
   <body>
-    <div
-      id="global-loader"
-      style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:white;z-index:9999;"
-    >
-      <div class="spinner"></div>
-    </div>
     <slot />
-    <script>
-      window.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("global-loader")?.remove();
-      });
-    </script>
-    <style>
-      .spinner {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #3498db;
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
   </body>
 </html>

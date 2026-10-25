@@ -2,11 +2,6 @@
 import { API_BASE_URL } from 'astro:env/client';
 ---
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap"
-  rel="stylesheet"
-/>
-
 <div class="section-container">
   <div class="with-us-grid">
     <div class="with-us-image-col">
@@ -82,7 +77,6 @@ import { API_BASE_URL } from 'astro:env/client';
       const email = emailInput.value.trim();
 
       if (!API_BASE_URL) {
-        console.error('API_BASE_URL is not configured');
         emailMessage.textContent =
           'Unable to subscribe. Please try again later.';
         emailMessage.hidden = false;

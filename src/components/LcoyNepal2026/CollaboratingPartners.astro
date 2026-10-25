@@ -1,79 +1,76 @@
 ---
 import {
+  Resilience_labs,
   aslf,
   byan,
-  nch,
-  Resilience_labs,
-  swiof,
-  unicef,
-  wff,
-  wycj,
-  ycgn,
-  ycnn,
-  yasen,
-  nyca,
+  cen,
+  fan,
   fao,
-  icimod,
-  koica,
-  yuwa,
-  prc,
-  unfpa,
-  planInternational,
   gef,
   gon,
-  wwf,
-  whh,
-  wat,
-  yee,
-  just,
-  fan,
-  cen,
-  yae,
-  she,
-  iwmi,
   hostehoina,
+  icimod,
+  iwmi,
+  just,
+  koica,
+  nch,
+  nyca,
   nyn,
-} from "../../assets/lcoy/logo/partners";
-
-const strategicPartners = [
-  {
-    logo: unicef,
-  },
-];
-
-const inclusionPartners = [
-  {
-    logo: byan,
-  },
-];
+  planInternational,
+  prc,
+  she,
+  swiof,
+  unfpa,
+  unicef,
+  wat,
+  wff,
+  whh,
+  wwf,
+  wycj,
+  yae,
+  yasen,
+  ycgn,
+  ycnn,
+  yee,
+  yuwa,
+} from '../../assets/lcoy/logo/partners';
 
 const youthPartners = [
   {
     logo: aslf,
+    name: 'ASLF',
   },
   {
     logo: byan,
+    name: 'BYAN',
   },
   {
     logo: ycnn,
+    name: 'YCNN',
   },
   {
     logo: nch,
+    name: 'Nepal Climate Hub',
   },
   {
     logo: Resilience_labs,
+    name: 'Resilience Labs',
   },
   {
     logo: swiof,
+    name: 'SWIOF',
   },
   {
     logo: wff,
+    name: 'WFF',
   },
   {
     logo: ycgn,
+    name: 'YCGN',
   },
   {
     logo: wycj,
+    name: 'WYCJ',
   },
 ];
 ---
@@ -231,7 +228,11 @@ const youthPartners = [
           youthPartners.map((partner) => (
             <div class="partner-card">
               {partner.logo ? (
-                <img class="partner-logo" src={partner.logo.src} />
+                <img
+                  class="partner-logo"
+                  src={partner.logo.src}
+                  alt={partner.name}
+                />
               ) : (
                 <span class="partner-logo-text">PARTNER LOGO</span>
               )}

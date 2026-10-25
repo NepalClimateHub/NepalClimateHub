@@ -2,6 +2,7 @@
 // time and supplies the default. This module is isomorphic (it reaches the browser via
 // VolunteerOpenRoles.tsx), so the import has to come from `astro:env/client`.
 import { API_BASE_URL as rawApiBaseUrl } from 'astro:env/client';
+import { createSlug } from '../utils/slug';
 
 // Normalize the URL to fix common issues (missing slashes, trailing slashes, etc.)
 function normalizeApiUrl(url: string | undefined): string | undefined {
@@ -57,6 +58,71 @@ export async function handleResponse<T>(response: Response): Promise<T> {
     );
   }
   return response.json();
+}
+
+export interface PagedResult<T> {
+  data: T[];
+  meta?: { count?: number };
+}
+
+const FETCH_ALL_BATCH_SIZE = 100;
+
+/** Pages through a list endpoint (batches of 100) until it runs out of data or hits `meta.count`. */
+export async function fetchAllPages<T>(
+  fetchPage: (opts: { limit: number; offset: number }) => Promise<
+    PagedResult<T>
+  >
+): Promise<T[]> {
+  const all: T[] = [];
+  let offset = 0;
+  let total = Number.POSITIVE_INFINITY;
+
+  while (all.length < total) {
+    const { data, meta } = await fetchPage({
+      limit: FETCH_ALL_BATCH_SIZE,
+      offset,
+    });
+    total = meta?.count ?? all.length + data.length;
+    if (data.length === 0) break;
+    all.push(...data);
+    offset += FETCH_ALL_BATCH_SIZE;
+  }
+
+  return all;
+}
+
+/**
+ * Resolves a title-derived slug against a paged list endpoint. Checks the first page
+ * (the common case) before paging through the rest, then returns the matching summary
+ * so callers can fetch the full item by id.
+ */
+export async function findBySlug<T extends { title: string }>(
+  slug: string,
+  fetchPage: (opts: { limit: number; offset: number }) => Promise<
+    PagedResult<T>
+  >,
+  prefetchedFirstPage?: PagedResult<T>
+): Promise<T | undefined> {
+  const firstPage =
+    prefetchedFirstPage ??
+    (await fetchPage({ limit: FETCH_ALL_BATCH_SIZE, offset: 0 }));
+  const firstMatch = firstPage.data.find(
+    (item) => createSlug(item.title) === slug
+  );
+  if (firstMatch) return firstMatch;
+
+  const total = firstPage.meta?.count ?? firstPage.data.length;
+  let offset = firstPage.data.length;
+
+  while (offset < total) {
+    const page = await fetchPage({ limit: FETCH_ALL_BATCH_SIZE, offset });
+    if (page.data.length === 0) break;
+    const match = page.data.find((item) => createSlug(item.title) === slug);
+    if (match) return match;
+    offset += page.data.length;
+  }
+
+  return undefined;
 }
 
 export { API_BASE_URL };

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /success
+
+Sitemap: https://nepalclimatehub.org/sitemap-index.xml

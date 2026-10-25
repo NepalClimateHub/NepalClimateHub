@@ -1,232 +1,232 @@
-import erasmusNepalLogo from "../assets/erasmus/logos/erasmusNepal.jpg";
-import sheTech from "../assets/erasmus/logos/sheTech.png";
-import rotaractBalaju from "../assets/erasmus/logos/rotaractBalaju.jpg";
-import soes from "../assets/erasmus/logos/soes.jpg";
-import cess from "../assets/erasmus/logos/cess.jpg";
-import sowrec from "../assets/erasmus/logos/sowrec.jpg";
-import bcnHetauda from "../assets/erasmus/logos/bcnHetauda.webp";
-import nycaHetauda from "../assets/erasmus/logos/nycaHetauda.png";
-import safeNepal from "../assets/erasmus/logos/safeNepal.jpg";
-import awsCloudPnc from "../assets/erasmus/logos/awsCloudPnc.jpg";
-import stemSisters from "../assets/erasmus/logos/stemSisters.jpg";
-import kvaa from "../assets/erasmus/logos/kvaa.png";
-import ainfyn from "../assets/erasmus/logos/ainfyn.jpeg";
+import ainfyn from '../assets/erasmus/logos/ainfyn.jpeg';
+import awsCloudPnc from '../assets/erasmus/logos/awsCloudPnc.jpg';
+import bcnHetauda from '../assets/erasmus/logos/bcnHetauda.webp';
+import cess from '../assets/erasmus/logos/cess.jpg';
+import erasmusNepalLogo from '../assets/erasmus/logos/erasmusNepal.jpg';
+import kvaa from '../assets/erasmus/logos/kvaa.png';
+import nycaHetauda from '../assets/erasmus/logos/nycaHetauda.png';
+import rotaractBalaju from '../assets/erasmus/logos/rotaractBalaju.jpg';
+import safeNepal from '../assets/erasmus/logos/safeNepal.jpg';
+import sheTech from '../assets/erasmus/logos/sheTech.png';
+import soes from '../assets/erasmus/logos/soes.jpg';
+import sowrec from '../assets/erasmus/logos/sowrec.jpg';
+import stemSisters from '../assets/erasmus/logos/stemSisters.jpg';
 
 // Speakers Data
 export const speakers = [
   {
-    id: "speaker-1",
-    name: "Sumeera Shrestha",
-    qualification: "Country Representative at Erasmus Mundus Association",
-    location: "Masters in Development Economics (2010-2012) | Poland, Belgium",
+    id: 'speaker-1',
+    name: 'Sumeera Shrestha',
+    qualification: 'Country Representative at Erasmus Mundus Association',
+    location: 'Masters in Development Economics (2010-2012) | Poland, Belgium',
     linkedinUrl: null,
     image:
-      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sumeera%20Shrestha.jpeg",
+      'https://ik.imagekit.io/nch/Erasmus%20Speakers/Sumeera%20Shrestha.jpeg',
   },
   {
-    id: "speaker-2",
-    name: "Nirisha Manandhar",
-    qualification: "Senior Associate AI Engineer at PwC",
+    id: 'speaker-2',
+    name: 'Nirisha Manandhar',
+    qualification: 'Senior Associate AI Engineer at PwC',
     location:
-      "Master in Transition, Innovation and Sustainability Environments (2023-2025) | Portugal, Ireland, Poland, Austria",
+      'Master in Transition, Innovation and Sustainability Environments (2023-2025) | Portugal, Ireland, Poland, Austria',
     linkedinUrl: null,
     image:
-      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Nirisha-Manandhar.png",
+      'https://ik.imagekit.io/nch/Erasmus%20Speakers/Nirisha-Manandhar.png',
   },
   {
-    id: "speaker-3",
-    name: "Sunika Joshi",
-    qualification: "Co-founder of Lighthouse Neural",
-    location: "Global MINDS program (2018–2020) | Poland, Turkey, Portugal",
+    id: 'speaker-3',
+    name: 'Sunika Joshi',
+    qualification: 'Co-founder of Lighthouse Neural',
+    location: 'Global MINDS program (2018–2020) | Poland, Turkey, Portugal',
     linkedinUrl: null,
-    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sunika-Joshi.jpg",
+    image: 'https://ik.imagekit.io/nch/Erasmus%20Speakers/Sunika-Joshi.jpg',
   },
   {
-    id: "speaker-4",
-    name: "Aakriti Maraseni",
-    qualification: "Erasmus Mundus Scholar",
+    id: 'speaker-4',
+    name: 'Aakriti Maraseni',
+    qualification: 'Erasmus Mundus Scholar',
     location:
-      "Master’s in Aquaculture, Environment and Society (2024-2026) | Scotland, Greece, France",
+      'Master’s in Aquaculture, Environment and Society (2024-2026) | Scotland, Greece, France',
     linkedinUrl: null,
     image:
-      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Aakriti%20Maraseni.jpg",
+      'https://ik.imagekit.io/nch/Erasmus%20Speakers/Aakriti%20Maraseni.jpg',
   },
   {
-    id: "speaker-5",
-    name: "Manisha Koirala",
-    qualification: "Erasmus Mundus Scholar",
+    id: 'speaker-5',
+    name: 'Manisha Koirala',
+    qualification: 'Erasmus Mundus Scholar',
     location: "Master's in Plant Breeding (2024-2026) | Hungary, Austria",
     linkedinUrl: null,
     image:
-      "https://ik.imagekit.io/nch/Erasmus%20Speakers/Manisha%20Koirala.jpg",
+      'https://ik.imagekit.io/nch/Erasmus%20Speakers/Manisha%20Koirala.jpg',
   },
   {
-    id: "speaker-6",
-    name: "Bibek Pant",
-    qualification: "Founder of Nepal Climate Hub",
+    id: 'speaker-6',
+    name: 'Bibek Pant',
+    qualification: 'Founder of Nepal Climate Hub',
     location:
-      "Masters in Geospatial Technologies (2024-2026) | Spain, Germany, Portugal",
+      'Masters in Geospatial Technologies (2024-2026) | Spain, Germany, Portugal',
     linkedinUrl: null,
-    image: "https://ik.imagekit.io/mbccqjudb/production/Bibek_m5Ebi4sGA.webp",
+    image: 'https://ik.imagekit.io/mbccqjudb/production/Bibek_m5Ebi4sGA.webp',
   },
   {
-    id: "speaker-7",
-    name: "Rakshya Silwal",
-    qualification: "Economic Governance Advisor at GIZ Nepal",
+    id: 'speaker-7',
+    name: 'Rakshya Silwal',
+    qualification: 'Economic Governance Advisor at GIZ Nepal',
     location: "Masters in Gender and Women's Studies (2018-2020) | Poland, UK",
     linkedinUrl: null,
-    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Rakshya.jpg",
+    image: 'https://ik.imagekit.io/nch/Erasmus%20Speakers/Rakshya.jpg',
   },
   {
-    id: "speaker-8",
-    name: "Sarkal Jyakhwa",
-    qualification: "Junior Research Fellow, University of Tartu, Estonia",
-    location: "Master’s degree in Plant Breeding (2020-2022) | France, Finland",
+    id: 'speaker-8',
+    name: 'Sarkal Jyakhwa',
+    qualification: 'Junior Research Fellow, University of Tartu, Estonia',
+    location: 'Master’s degree in Plant Breeding (2020-2022) | France, Finland',
     linkedinUrl: null,
-    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Sarkal.png",
+    image: 'https://ik.imagekit.io/nch/Erasmus%20Speakers/Sarkal.png',
   },
   {
-    id: "speaker-9",
-    name: "Nabin Bhatta",
-    qualification: "Erasmus Mundus Scholar",
+    id: 'speaker-9',
+    name: 'Nabin Bhatta',
+    qualification: 'Erasmus Mundus Scholar',
     location:
-      "Masters in Management and Engineering of Environment and Energy (2024-2026) | Hungary, Italy, France",
+      'Masters in Management and Engineering of Environment and Energy (2024-2026) | Hungary, Italy, France',
     linkedinUrl: null,
-    image: "https://ik.imagekit.io/nch/Erasmus%20Speakers/Nabin%20Bhatta.jpg",
+    image: 'https://ik.imagekit.io/nch/Erasmus%20Speakers/Nabin%20Bhatta.jpg',
   },
   {
-    id: "speaker-10",
-    name: "To be updated",
+    id: 'speaker-10',
+    name: 'To be updated',
     qualification: null,
     location: null,
     linkedinUrl: null,
-    image: "https://placehold.co/400x400?text=Speaker+Image",
+    image: 'https://placehold.co/400x400?text=Speaker+Image',
   },
 ];
 
 // Impact Stats Data
 export const impactStats = [
   {
-    id: "stat-1",
-    number: "915",
-    label: "Registrations",
+    id: 'stat-1',
+    number: '915',
+    label: 'Registrations',
   },
   {
-    id: "stat-2",
-    number: "7",
-    label: "Provinces represented",
+    id: 'stat-2',
+    number: '7',
+    label: 'Provinces represented',
   },
   {
-    id: "stat-3",
-    number: "10",
-    label: "Nepalese universities",
+    id: 'stat-3',
+    number: '10',
+    label: 'Nepalese universities',
   },
   {
-    id: "stat-4",
-    number: "10+",
-    label: "Speakers",
+    id: 'stat-4',
+    number: '10+',
+    label: 'Speakers',
   },
 ];
 
 export const supportedBy = [
   {
-    id: "supporter-1",
-    name: "Erasmus Nepal",
+    id: 'supporter-1',
+    name: 'Erasmus Nepal',
     logo: erasmusNepalLogo.src,
   },
 ];
 
 export const communityPartners = [
   {
-    id: "community-1",
-    name: "SheTech PNC",
+    id: 'community-1',
+    name: 'SheTech PNC',
     logo: sheTech.src,
   },
   {
-    id: "community-2",
-    name: "Rotaract Club of Balaju",
+    id: 'community-2',
+    name: 'Rotaract Club of Balaju',
     logo: rotaractBalaju.src,
   },
   {
-    id: "community-3",
-    name: "Society of Engineering Students(SOES)",
+    id: 'community-3',
+    name: 'Society of Engineering Students(SOES)',
     logo: soes.src,
   },
   {
-    id: "community-4",
-    name: "CESS(Club of Environmental Science Saptagandaki)",
+    id: 'community-4',
+    name: 'CESS(Club of Environmental Science Saptagandaki)',
     logo: cess.src,
   },
   {
-    id: "community-5",
-    name: "Society for Wildlife Research and Conservation (SOWREC)",
+    id: 'community-5',
+    name: 'Society for Wildlife Research and Conservation (SOWREC)',
     logo: sowrec.src,
   },
   {
-    id: "community-6",
-    name: "BCN Hetauda",
+    id: 'community-6',
+    name: 'BCN Hetauda',
     logo: bcnHetauda.src,
   },
   {
-    id: "community-7",
-    name: "NYCA Hetauda",
+    id: 'community-7',
+    name: 'NYCA Hetauda',
     logo: nycaHetauda.src,
   },
   {
-    id: "community-8",
-    name: "SAFE-Nepal",
+    id: 'community-8',
+    name: 'SAFE-Nepal',
     logo: safeNepal.src,
   },
   {
-    id: "community-9",
-    name: "AWS-Cloud Club PNC",
+    id: 'community-9',
+    name: 'AWS-Cloud Club PNC',
     logo: awsCloudPnc.src,
   },
   {
-    id: "community-10",
-    name: "Stem Sisters",
+    id: 'community-10',
+    name: 'Stem Sisters',
     logo: stemSisters.src,
   },
   {
-    id: "community-11",
-    name: "Kopila Valley Alumni Association",
+    id: 'community-11',
+    name: 'Kopila Valley Alumni Association',
     logo: kvaa.src,
   },
   {
-    id: "community-12",
-    name: "Amnesty International Nepal Forestry Youth Network (AINFYN)",
+    id: 'community-12',
+    name: 'Amnesty International Nepal Forestry Youth Network (AINFYN)',
     logo: ainfyn.src,
   },
 ];
 
 // Hero Section Data
 export const heroData = {
-  badge: "2nd edition",
-  title: "Erasmus Mundus Connect Nepal 2026",
+  badge: '2nd edition',
+  title: 'Erasmus Mundus Connect Nepal 2026',
   subtitle:
     "Empowering Nepalese students to access fully funded European education and bring global knowledge back to solve Nepal's climate, environmental, technological, and development challenges.",
-  buttonText: "Register Here",
+  buttonText: 'Register Here',
   buttonLink:
-    "https://docs.google.com/forms/d/e/1FAIpQLSfpkILPVtVxKY3kI8Lyo-chYR5A8soGPTLcENCghBhKjwZOBA/viewform?usp=sharing&ouid=105240458402098881478",
+    'https://docs.google.com/forms/d/e/1FAIpQLSfpkILPVtVxKY3kI8Lyo-chYR5A8soGPTLcENCghBhKjwZOBA/viewform?usp=sharing&ouid=105240458402098881478',
   infoItems: [
     {
-      label: "Date",
-      value: "September 19, 2026",
+      label: 'Date',
+      value: 'September 19, 2026',
     },
     {
-      label: "Speakers",
-      value: "8+",
+      label: 'Speakers',
+      value: '8+',
     },
     {
-      label: "Location",
-      value: "Virtual",
+      label: 'Location',
+      value: 'Virtual',
     },
   ],
 };
 
 // About Section Data
 export const aboutData = {
-  title: "About the event",
+  title: 'About the event',
   paragraphs: [
     "Erasmus Mundus Connect Nepal 2026 is one of the NCH's flagship capacity-building event helping Nepalese students and graduates prepare for the Erasmus Mundus Joint Master's Scholarship – a prestigious, fully funded European Union program covering 200+ master's degrees across climate, environment, agriculture, forestry, food systems, technology and more.",
     "Investing in young people is one of the most effective ways to address Nepal's long-term environmental and development challenges. Erasmus Mundus equips youth with new knowledge, global networks, and practical skills to apply locally. Through this initiative, we make these opportunities more accessible offering structured guidance, mentorship, and application support to help more Nepalese students win scholarships and bring global knowledge back to solve local environmental, climate, agricultural, technological, and development challenges.",
@@ -235,93 +235,93 @@ export const aboutData = {
   quote:
     "Many talented students, despite their potential, remain unaware that these scholarships exist. Many more don't know how to prepare a competitive application. And most lack the support system needed to turn interest and potential into an actual offer. We hope to bridge this gap!",
   highlights: [
-    "climate, environment, agriculture, forestry, food systems, technology",
-    "Investing in young people",
-    "915",
+    'climate, environment, agriculture, forestry, food systems, technology',
+    'Investing in young people',
+    '915',
   ],
 };
 
 // Scholarship Benefit Section Data
 export const scholarshipBenefitData = {
-  title: "Scholarship Benefit",
+  title: 'Scholarship Benefit',
   subtitle:
-    "The Erasmus Mundus scholarship covers most or all of your costs to study in Europe, and comes with significant opportunities for personal and professional growth.",
-  heading: "What is covered",
+    'The Erasmus Mundus scholarship covers most or all of your costs to study in Europe, and comes with significant opportunities for personal and professional growth.',
+  heading: 'What is covered',
   benefits: [
-    { id: "benefit-1", text: "Full Tuition Fees" },
-    { id: "benefit-2", text: "Travel allowance" },
-    { id: "benefit-3", text: "Monthly living stipend (1,400 Euros)" },
-    { id: "benefit-4", text: "Health Insurance" },
+    { id: 'benefit-1', text: 'Full Tuition Fees' },
+    { id: 'benefit-2', text: 'Travel allowance' },
+    { id: 'benefit-3', text: 'Monthly living stipend (1,400 Euros)' },
+    { id: 'benefit-4', text: 'Health Insurance' },
     {
-      id: "benefit-5",
-      text: "Study in two or more European countries",
+      id: 'benefit-5',
+      text: 'Study in two or more European countries',
     },
     {
-      id: "benefit-6",
-      text: "Joint degree from an international university consortium",
+      id: 'benefit-6',
+      text: 'Joint degree from an international university consortium',
     },
     {
-      id: "benefit-7",
-      text: "Access to a global network of scholars, researchers, and professionals",
+      id: 'benefit-7',
+      text: 'Access to a global network of scholars, researchers, and professionals',
     },
   ],
 };
 
 // What You Will Learn Section Data
 export const whatYouWillLearnData = {
-  title: "What you will learn",
+  title: 'What you will learn',
   subtitle:
-    "Our program is based on properly guiding you through every aspect of the scholarship, covering the entire application journey.",
+    'Our program is based on properly guiding you through every aspect of the scholarship, covering the entire application journey.',
   items: [
     {
-      id: "learn-1",
-      number: "01",
-      text: "Understand the Erasmus Mundus scholarship",
+      id: 'learn-1',
+      number: '01',
+      text: 'Understand the Erasmus Mundus scholarship',
     },
     {
-      id: "learn-2",
-      number: "02",
-      text: "Navigate the Erasmus Mundus programme catalogue",
+      id: 'learn-2',
+      number: '02',
+      text: 'Navigate the Erasmus Mundus programme catalogue',
     },
     {
-      id: "learn-3",
-      number: "03",
-      text: "Research programs, requirements, and partner universities",
+      id: 'learn-3',
+      number: '03',
+      text: 'Research programs, requirements, and partner universities',
     },
     {
-      id: "learn-4",
-      number: "04",
-      text: "Choose programs that match their interests",
+      id: 'learn-4',
+      number: '04',
+      text: 'Choose programs that match their interests',
     },
     {
-      id: "learn-5",
-      number: "05",
-      text: "Build a CV the admission committee wants (in European format)",
+      id: 'learn-5',
+      number: '05',
+      text: 'Build a CV the admission committee wants (in European format)',
     },
     {
-      id: "learn-6",
-      number: "06",
-      text: "Write a compelling motivation letter",
+      id: 'learn-6',
+      number: '06',
+      text: 'Write a compelling motivation letter',
     },
     {
-      id: "learn-7",
-      number: "07",
-      text: "Secure strong reference letters",
+      id: 'learn-7',
+      number: '07',
+      text: 'Secure strong reference letters',
     },
     {
-      id: "learn-8",
-      number: "08",
-      text: "Avoid common application mistakes",
+      id: 'learn-8',
+      number: '08',
+      text: 'Avoid common application mistakes',
     },
     {
-      id: "learn-9",
-      number: "09",
-      text: "Learn directly from previous scholarship recipients",
+      id: 'learn-9',
+      number: '09',
+      text: 'Learn directly from previous scholarship recipients',
     },
     {
-      id: "learn-10",
-      number: "10",
-      text: "Ask questions during an interactive Q&A session",
+      id: 'learn-10',
+      number: '10',
+      text: 'Ask questions during an interactive Q&A session',
     },
   ],
   footer:
@@ -330,35 +330,35 @@ export const whatYouWillLearnData = {
 
 // Who Should Attend Section Data
 export const whoShouldAttendData = {
-  title: "Who should attend",
+  title: 'Who should attend',
   items: [
-    { id: "attend-1", number: 1, text: "Undergraduate students" },
-    { id: "attend-2", number: 2, text: "Recent graduates" },
-    { id: "attend-3", number: 3, text: "Young professionals" },
-    { id: "attend-4", number: 4, text: "Researchers" },
+    { id: 'attend-1', number: 1, text: 'Undergraduate students' },
+    { id: 'attend-2', number: 2, text: 'Recent graduates' },
+    { id: 'attend-3', number: 3, text: 'Young professionals' },
+    { id: 'attend-4', number: 4, text: 'Researchers' },
     {
-      id: "attend-5",
+      id: 'attend-5',
       number: 5,
       text: "Anyone planning to pursue a fully funded master's degree in Europe",
     },
   ],
   description:
-    "Although Nepal Climate Hub focuses on climate and sustainability, the Erasmus Mundus scholarship spans 200+ masters, making this event relevant to students from all academic backgrounds.",
+    'Although Nepal Climate Hub focuses on climate and sustainability, the Erasmus Mundus scholarship spans 200+ masters, making this event relevant to students from all academic backgrounds.',
   quote:
-    "Students who participate gain an extra edge and confidence in their application journey, moving far ahead with the preparation guidance, tips, and personal experiences of previous scholars, insights you will rarely find elsewhere in your preparation journey.",
+    'Students who participate gain an extra edge and confidence in their application journey, moving far ahead with the preparation guidance, tips, and personal experiences of previous scholars, insights you will rarely find elsewhere in your preparation journey.',
 };
 
 // FAQ Section Data
 export const faqData = {
-  badgeText: "Frequently asked questions",
-  title: "Everything you need to know",
+  badgeText: 'Frequently asked questions',
+  title: 'Everything you need to know',
   description:
-    "Have questions about the event? Check our FAQ section or reach out to the Nepal Climate Hub team for more information.",
+    'Have questions about the event? Check our FAQ section or reach out to the Nepal Climate Hub team for more information.',
 };
 
 // Last Edition Impact Section Data
 export const lastEditionImpactData = {
-  title: "Last Edition Impact",
+  title: 'Last Edition Impact',
   subtitle:
-    "The first edition, held on August 2025, exceeded all expectations.",
+    'The first edition, held on August 2025, exceeded all expectations.',
 };

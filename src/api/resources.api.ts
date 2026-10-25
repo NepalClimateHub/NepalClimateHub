@@ -1,5 +1,9 @@
-import type { ResourceResponse } from '../types/resource';
-import { API_BASE_URL, ApiError, handleResponse } from './index';
+import type {
+  ResourceResponse,
+  ResourceSummary,
+  ResourceSummaryResponse,
+} from '../types/resource';
+import { API_BASE_URL, ApiError, fetchAllPages, handleResponse } from './index';
 
 export const fetchAllResources = async (): Promise<ResourceResponse> => {
   if (!API_BASE_URL) {
@@ -37,3 +41,34 @@ export const fetchAllResources = async (): Promise<ResourceResponse> => {
     );
   }
 };
+
+export interface ResourceSummaryOptions {
+  limit?: number;
+  offset?: number;
+}
+
+export const fetchResourceSummaries = async (
+  options: ResourceSummaryOptions = {}
+): Promise<ResourceSummaryResponse> => {
+  if (!API_BASE_URL) {
+    throw new ApiError(
+      500,
+      'API_BASE_URL is not configured. Please set API_BASE_URL in your environment variables.'
+    );
+  }
+
+  const params = new URLSearchParams({ view: 'summary' });
+  if (options.limit !== undefined) params.set('limit', String(options.limit));
+  if (options.offset !== undefined) {
+    params.set('offset', String(options.offset));
+  }
+
+  const response = await fetch(`${API_BASE_URL}/api/v1/resources?${params}`, {
+    method: 'GET',
+    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+  });
+  return handleResponse<ResourceSummaryResponse>(response);
+};
+
+export const fetchAllResourceSummaries = async (): Promise<ResourceSummary[]> =>
+  fetchAllPages<ResourceSummary>((opts) => fetchResourceSummaries(opts));

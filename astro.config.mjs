@@ -1,18 +1,35 @@
+import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { defineConfig, envField } from 'astro/config';
-import net0Integration from './toolbar/integration.ts';
-import cloudflare from '@astrojs/cloudflare';
+
+// Dokploy runs a Node server; the GitHub Action deploys to Cloudflare Workers
+// and sets DEPLOY_TARGET=cloudflare.
+const isCloudflare = process.env.DEPLOY_TARGET === 'cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 4321,
+  },
   site: 'https://nepalclimatehub.org',
   output: 'server',
+  devToolbar: {
+    enabled: false,
+  },
+  // Only links explicitly marked with `data-astro-prefetch` are warmed. This avoids
+  // speculative CMS traffic while making cacheable, high-intent navigations instant.
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover',
+  },
   env: {
     schema: {
       // `context: 'client'` because src/api/index.ts is isomorphic: it is pulled into
-      // the browser bundle via VolunteerOpenRoles.tsx (client:load). The value is
+      // the browser bundle via the hydrated VolunteerOpenRoles.tsx island. The value is
       // inlined at build time from `.env` and is public anyway.
       API_BASE_URL: envField.string({
         context: 'client',
@@ -31,7 +48,6 @@ export default defineConfig({
     },
   },
   integrations: [
-    net0Integration,
     sitemap({
       customSitemaps: [
         'https://nepalclimatehub.org/blogs/sitemap.xml',
@@ -42,13 +58,18 @@ export default defineConfig({
     [icon()],
     react(),
   ],
-  adapter: cloudflare({
-    imageService: 'compile',
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  adapter: isCloudflare
+    ? cloudflare({
+        imageService: 'compile',
+        platformProxy: {
+          enabled: true,
+        },
+      })
+    : node({ mode: 'standalone' }),
   vite: {
+    server: {
+      allowedHosts: ['nepalclimatehub.org', '.nepalclimatehub.org'],
+    },
     resolve: {
       alias: {
         '@layouts': '/src/layouts',

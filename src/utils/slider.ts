@@ -2,10 +2,9 @@ export function createMobileSlider(
   cards: NodeListOf<HTMLElement>,
   bars: NodeListOf<HTMLElement>
 ) {
-  // Check if the device is a mobile device
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  // If the device is not a mobile device, return without doing anything
-  if (!isMobile) return;
+  // Match the viewport breakpoint where the slider controls are visible.
+  const isNarrowViewport = window.matchMedia('(max-width: 768px)').matches;
+  if (!isNarrowViewport) return;
 
   // Set the initial active index
   let activeIndex = 0;
@@ -134,10 +133,15 @@ export function createMobileSlider(
     }
 
     // Update the active control bar
-    bars.forEach((bar) => {
-      bar.classList.remove('active');
+    bars.forEach((bar, index) => {
+      const isActive = index === activeIndex;
+      bar.classList.toggle('active', isActive);
+      if (isActive) {
+        bar.setAttribute('aria-current', 'true');
+      } else {
+        bar.removeAttribute('aria-current');
+      }
     });
-    bars[activeIndex].classList.add('active');
   }
 
   // Function to handle click events on the control bars
