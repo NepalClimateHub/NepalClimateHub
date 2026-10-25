@@ -1,4 +1,6 @@
+import { getSecret } from 'astro:env/server';
 import { defineMiddleware } from 'astro:middleware';
+import type { APIContext } from 'astro';
 import { BLOG_CATEGORY_SET } from './constants/blogCategories';
 import { parseEventFilters, serializeEventFilters } from './utils/eventFilters';
 import { parseNewsFilters, serializeNewsFilters } from './utils/newsFilters';
@@ -194,7 +196,72 @@ function withCacheHeaders(
   );
 }
 
+const BLOG_PREVIEW_PATH = '/blog-preview';
+const UNSAFE_METHODS = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
+const FORM_CONTENT_TYPES = [
+  'application/x-www-form-urlencoded',
+  'multipart/form-data',
+  'text/plain',
+];
+
+function isFormSubmission(request: Request): boolean {
+  const contentType = request.headers.get('content-type')?.toLowerCase() ?? '';
+  return (
+    UNSAFE_METHODS.has(request.method) &&
+    FORM_CONTENT_TYPES.some((type) => contentType.startsWith(type))
+  );
+}
+
+function allowedPreviewOrigins(): string[] {
+  return (getSecret('PREVIEW_ALLOWED_ORIGINS') ?? '')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+function isTrustedOrigin(context: APIContext): boolean {
+  const origin = context.request.headers.get('origin');
+  if (!origin) return false;
+  if (context.url.pathname === BLOG_PREVIEW_PATH) {
+    return allowedPreviewOrigins().includes(origin);
+  }
+  return origin === context.url.origin;
+}
+
+// Mirrors Astro's checkOrigin, except /blog-preview accepts the allow-listed CMS origins.
+function rejectCrossSiteForm(context: APIContext): Response | null {
+  if (!isFormSubmission(context.request) || isTrustedOrigin(context)) {
+    return null;
+  }
+  return new Response('Cross-site POST form submissions are forbidden', {
+    status: 403,
+  });
+}
+
+function allowPreviewFraming(response: Response): Response {
+  const headers = new Headers(response.headers);
+  headers.delete('X-Frame-Options');
+  const ancestors = ["'self'", ...allowedPreviewOrigins()].join(' ');
+  const policy = headers.get('Content-Security-Policy');
+  headers.set(
+    'Content-Security-Policy',
+    `${policy ? `${policy}; ` : ''}frame-ancestors ${ancestors}`
+  );
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export const onRequest = defineMiddleware(async (context, next) => {
+  const rejection = rejectCrossSiteForm(context);
+  if (rejection) return rejection;
+
+  if (context.url.pathname === BLOG_PREVIEW_PATH) {
+    return allowPreviewFraming(withSecurityHeaders(await next()));
+  }
+
   if (context.isPrerendered) return withSecurityHeaders(await next());
 
   const route = matchCacheRoute(context.url.pathname);

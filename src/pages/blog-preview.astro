@@ -1,0 +1,85 @@
+---
+export const prerender = false;
+import '../styles/global.css';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { fetchAllBlogs } from '../api';
+import BlogArticle from '../components/BlogArticle.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/Layout.astro';
+import { parseBlogPreview } from '../utils/blogPreview';
+
+const headers = Astro.response.headers;
+headers.set('Cache-Control', 'no-store');
+headers.set('X-Robots-Tag', 'noindex, nofollow');
+headers.set(
+  'Content-Security-Policy',
+  "script-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+);
+
+if (Astro.request.method !== 'POST') {
+  return new Response('Method Not Allowed', {
+    status: 405,
+    headers: { Allow: 'POST', 'Cache-Control': 'no-store' },
+  });
+}
+
+const form = await Astro.request.formData().catch(() => null);
+const blog = parseBlogPreview(form?.get('payload'));
+
+if (!blog) {
+  return new Response('Invalid preview payload', {
+    status: 400,
+    headers: { 'Cache-Control': 'no-store' },
+  });
+}
+
+const topReads = await fetchAllBlogs({ limit: 100 })
+  .then((recent) => recent.data.filter((post) => post.isTopRead).slice(0, 3))
+  .catch(() => []);
+
+const authorImagePlaceholder = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+  blog.author
+)}&background=1a1b1e&color=cefe00&size=72`;
+---
+
+<BaseLayout title={`${blog.title} | Nepal Climate Hub`}>
+  <main class="main-container">
+    <section class="header-section">
+      <Header logoColor="#1A1B1E" />
+      <Breadcrumbs data={[{ label: "Blogs", href: "/blogs" }]} />
+    </section>
+
+    <BlogArticle
+      blog={blog}
+      topReads={topReads}
+      showBottomAuthor
+      authorImagePlaceholder={authorImagePlaceholder}
+    />
+
+    <section class="footer-section">
+      <Footer />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  section {
+    padding: 0 48px;
+  }
+
+  .footer-section {
+    background-color: #1a1b1e;
+    color: white;
+  }
+
+  .header-section {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 0;
+    }
+  }
+</style>
