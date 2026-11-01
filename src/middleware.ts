@@ -197,6 +197,7 @@ function withCacheHeaders(
 }
 
 const BLOG_PREVIEW_PATH = '/blog-preview';
+const DEFAULT_PREVIEW_ORIGIN = 'https://cms.nepalclimatehub.org';
 const UNSAFE_METHODS = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
 const FORM_CONTENT_TYPES = [
   'application/x-www-form-urlencoded',
@@ -213,7 +214,8 @@ function isFormSubmission(request: Request): boolean {
 }
 
 function allowedPreviewOrigins(): string[] {
-  return (getSecret('PREVIEW_ALLOWED_ORIGINS') ?? '')
+  const configured = getSecret('PREVIEW_ALLOWED_ORIGINS')?.trim();
+  return (configured || DEFAULT_PREVIEW_ORIGIN)
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);

@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import '../styles/global.css';
+import { CMS_API_BASE_URL } from 'astro:env/server';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import { fetchAllBlogs } from '../api';
 import BlogArticle from '../components/BlogArticle.astro';
@@ -8,6 +9,58 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import BaseLayout from '../layouts/Layout.astro';
 import { parseBlogPreview } from '../utils/blogPreview';
+
+const PREVIEW_ROLES = new Set(['SUPER_ADMIN', 'ADMIN', 'CONTENT_ADMIN']);
+
+const previewAccessToken = (value: FormDataEntryValue | null): string | null =>
+  typeof value === 'string' && value.length > 0 && value.length <= 8192
+    ? value
+    : null;
+
+const previewAuthorizationError = async (
+  accessToken: string | null
+): Promise<Response | null> => {
+  if (!accessToken) {
+    return new Response('Preview authentication is required', {
+      status: 401,
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  }
+
+  let response: Response;
+  try {
+    response = await fetch(`${CMS_API_BASE_URL}/api/v1/users/me`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        Accept: 'application/json',
+      },
+    });
+  } catch {
+    return new Response('Preview authentication is temporarily unavailable', {
+      status: 503,
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  }
+
+  if (!response.ok) {
+    return new Response('Preview authentication failed', {
+      status: 401,
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  }
+
+  const body = (await response.json().catch(() => null)) as {
+    data?: { role?: unknown };
+  } | null;
+  if (!PREVIEW_ROLES.has(String(body?.data?.role))) {
+    return new Response('Preview access is forbidden', {
+      status: 403,
+      headers: { 'Cache-Control': 'no-store' },
+    });
+  }
+
+  return null;
+};
 
 const headers = Astro.response.headers;
 headers.set('Cache-Control', 'no-store');
@@ -25,6 +78,11 @@ if (Astro.request.method !== 'POST') {
 }
 
 const form = await Astro.request.formData().catch(() => null);
+const authorizationError = await previewAuthorizationError(
+  previewAccessToken(form?.get('accessToken') ?? null)
+);
+if (authorizationError) return authorizationError;
+
 const blog = parseBlogPreview(form?.get('payload'));
 
 if (!blog) {

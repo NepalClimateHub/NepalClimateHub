@@ -44,6 +44,11 @@ export default defineConfig({
         access: "public",
         default: "https://api.cms.nepalclimatehub.org",
       }),
+      CMS_API_BASE_URL: envField.string({
+        context: "server",
+        access: "public",
+        default: "https://api.cms.nepalclimatehub.org",
+      }),
       // Secrets: read at runtime from the Worker env. Set with `wrangler secret put`,
       // and mirror them in `.dev.vars` for local dev. Read via `getSecret('NAME')`.
       // Comma-separated CMS origins allowed to POST to /blog-preview.
