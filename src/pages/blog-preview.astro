@@ -10,7 +10,12 @@ import Header from '../components/Header.astro';
 import BaseLayout from '../layouts/Layout.astro';
 import { parseBlogPreview } from '../utils/blogPreview';
 
-const PREVIEW_ROLES = new Set(['SUPER_ADMIN', 'ADMIN', 'CONTENT_ADMIN']);
+const PREVIEW_ROLES = new Set([
+  "SUPER_ADMIN",
+  "ADMIN",
+  "CONTENT_ADMIN",
+  "ORGANIZATION",
+]);
 
 const previewAccessToken = (value: FormDataEntryValue | null): string | null =>
   typeof value === 'string' && value.length > 0 && value.length <= 8192
