@@ -1,14 +1,14 @@
 ---
 export const prerender = false;
-import '../styles/global.css';
-import { CMS_API_BASE_URL } from 'astro:env/server';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
-import { fetchAllBlogs } from '../api';
-import BlogArticle from '../components/BlogArticle.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import BaseLayout from '../layouts/Layout.astro';
-import { parseBlogPreview } from '../utils/blogPreview';
+import "../styles/global.css";
+import { CMS_API_BASE_URL } from "astro:env/server";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import { fetchAllBlogs } from "../api";
+import BlogArticle from "../components/BlogArticle.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/Layout.astro";
+import { parseBlogPreview } from "../utils/blogPreview";
 
 const PREVIEW_ROLES = new Set([
   "SUPER_ADMIN",
@@ -18,17 +18,17 @@ const PREVIEW_ROLES = new Set([
 ]);
 
 const previewAccessToken = (value: FormDataEntryValue | null): string | null =>
-  typeof value === 'string' && value.length > 0 && value.length <= 8192
+  typeof value === "string" && value.length > 0 && value.length <= 8192
     ? value
     : null;
 
 const previewAuthorizationError = async (
-  accessToken: string | null
+  accessToken: string | null,
 ): Promise<Response | null> => {
   if (!accessToken) {
-    return new Response('Preview authentication is required', {
+    return new Response("Preview authentication is required", {
       status: 401,
-      headers: { 'Cache-Control': 'no-store' },
+      headers: { "Cache-Control": "no-store" },
     });
   }
 
@@ -37,20 +37,20 @@ const previewAuthorizationError = async (
     response = await fetch(`${CMS_API_BASE_URL}/api/v1/users/me`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
-        Accept: 'application/json',
+        Accept: "application/json",
       },
     });
   } catch {
-    return new Response('Preview authentication is temporarily unavailable', {
+    return new Response("Preview authentication is temporarily unavailable", {
       status: 503,
-      headers: { 'Cache-Control': 'no-store' },
+      headers: { "Cache-Control": "no-store" },
     });
   }
 
   if (!response.ok) {
-    return new Response('Preview authentication failed', {
+    return new Response("Preview authentication failed", {
       status: 401,
-      headers: { 'Cache-Control': 'no-store' },
+      headers: { "Cache-Control": "no-store" },
     });
   }
 
@@ -58,9 +58,9 @@ const previewAuthorizationError = async (
     data?: { role?: unknown };
   } | null;
   if (!PREVIEW_ROLES.has(String(body?.data?.role))) {
-    return new Response('Preview access is forbidden', {
+    return new Response("Preview access is forbidden", {
       status: 403,
-      headers: { 'Cache-Control': 'no-store' },
+      headers: { "Cache-Control": "no-store" },
     });
   }
 
@@ -68,32 +68,32 @@ const previewAuthorizationError = async (
 };
 
 const headers = Astro.response.headers;
-headers.set('Cache-Control', 'no-store');
-headers.set('X-Robots-Tag', 'noindex, nofollow');
+headers.set("Cache-Control", "no-store");
+headers.set("X-Robots-Tag", "noindex, nofollow");
 headers.set(
-  'Content-Security-Policy',
-  "script-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+  "Content-Security-Policy",
+  "script-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'",
 );
 
-if (Astro.request.method !== 'POST') {
-  return new Response('Method Not Allowed', {
+if (Astro.request.method !== "POST") {
+  return new Response("Method Not Allowed", {
     status: 405,
-    headers: { Allow: 'POST', 'Cache-Control': 'no-store' },
+    headers: { Allow: "POST", "Cache-Control": "no-store" },
   });
 }
 
 const form = await Astro.request.formData().catch(() => null);
 const authorizationError = await previewAuthorizationError(
-  previewAccessToken(form?.get('accessToken') ?? null)
+  previewAccessToken(form?.get("accessToken") ?? null),
 );
 if (authorizationError) return authorizationError;
 
-const blog = parseBlogPreview(form?.get('payload'));
+const blog = parseBlogPreview(form?.get("payload"));
 
 if (!blog) {
-  return new Response('Invalid preview payload', {
+  return new Response("Invalid preview payload", {
     status: 400,
-    headers: { 'Cache-Control': 'no-store' },
+    headers: { "Cache-Control": "no-store" },
   });
 }
 
@@ -102,14 +102,14 @@ const topReads = await fetchAllBlogs({ limit: 100 })
   .catch(() => []);
 
 const authorImagePlaceholder = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-  blog.author
+  blog.author,
 )}&background=1a1b1e&color=cefe00&size=72`;
 ---
 
 <BaseLayout title={`${blog.title} | Nepal Climate Hub`}>
-  <main class="main-container">
-    <section class="header-section">
-      <Header logoColor="#1A1B1E" />
+  <main class='main-container'>
+    <section class='header-section'>
+      <Header logoColor='#1A1B1E' />
       <Breadcrumbs data={[{ label: "Blogs", href: "/blogs" }]} />
     </section>
 
@@ -120,7 +120,7 @@ const authorImagePlaceholder = `https://ui-avatars.com/api/?name=${encodeURIComp
       authorImagePlaceholder={authorImagePlaceholder}
     />
 
-    <section class="footer-section">
+    <section class='footer-section'>
       <Footer />
     </section>
   </main>
