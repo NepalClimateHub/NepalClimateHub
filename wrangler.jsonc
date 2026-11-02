@@ -23,5 +23,7 @@
   // Vite from `.env` (or the Workers Builds env vars), so a runtime binding would
   // never be read. Runtime `vars` are for values only the deployed Worker needs.
   // Anything sensitive goes through `wrangler secret put`, never in this file.
-  "vars": {}
+  "vars": {
+    "PREVIEW_ALLOWED_ORIGINS": "https://cms.nepalclimatehub.org"
+  }
 }
