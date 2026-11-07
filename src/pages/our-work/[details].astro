@@ -3,7 +3,13 @@ import '../../styles/global.css';
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import HtmlRenderer from '@components/HtmlRenderer.astro';
-import { RiAlarmLine } from 'react-icons/ri';
+import ProjectCard from '@components/ProjectCard.astro';
+import {
+  RiArrowRightDoubleLine,
+  RiCalendarLine,
+  RiLayoutGridLine,
+  RiTimeLine,
+} from 'react-icons/ri';
 import { fetchAllProjects, getProject } from '../../api';
 import BaseLayout from '../../layouts/Layout.astro';
 import type { Project } from '../../types/project';
@@ -31,102 +37,91 @@ try {
   const response = await fetchAllProjects();
   otherProjects = (response.data || [])
     .filter((p) => createSlug(p.title) !== details)
-    .slice(0, 4);
+    .slice(0, 3);
 } catch (error) {
   console.error('Error fetching other projects:', error);
 }
+
+const status = (project.status || '').toLowerCase().trim();
+const projectType = project.tags?.length
+  ? project.tags.map((t) => t.tag).join(', ')
+  : '—';
+
+const metaItems = [
+  { Icon: RiTimeLine, label: 'Project Status', value: status || '—' },
+  { Icon: RiLayoutGridLine, label: 'Project Type', value: projectType },
+  { Icon: RiCalendarLine, label: 'Duration', value: project.duration || '—' },
+];
 ---
+
 <BaseLayout title={`${project.title} | Nepal Climate Hub`}>
   <main class="main-container">
-    <!-- Header Section -->
     <section class="header-section">
       <Header logoColor="#1A1B1E" />
       <div class="mini-nav">
         <a href="/">Home</a>
-        <span style="color: #364FC7">/</span>
+        <span style="color: #364FC7"> / </span>
         <a href="/our-work">Our Work</a>
       </div>
     </section>
 
-    <!-- Project Image -->
-    <section class="project-image-section">
-      <img src={project.bannerImageUrl} alt={project.title} />
-    </section>
-
-    <!-- Project Details -->
-    <section class="project-details-section">
-      <div class="project-container section-container">
-        <!-- Status Badge & Title -->
-        <div class="project-header">
-          <span class="status-badge">{project.status.toLowerCase()}</span>
+    <!-- Intro: title + description / image -->
+    <section class="project-intro-section">
+      <div class="section-container intro-grid">
+        <div class="intro-text">
           <h1 class="project-title">{project.title}</h1>
-        </div>
-
-        <!-- Duration Section -->
-        <div class="content-section">
-          <div class="section-label">Status</div>
-          <div class="section-content">
-            <span class="status-badge">{project.status.toLowerCase()}</span>
-          </div>
-        </div>
-
-        <!-- Overview Section -->
-        <div class="content-section">
-          <div class="section-label">Overview</div>
-          <div class="section-content">
-            <p>{project.overview}</p>
-          </div>
-        </div>
-
-        <!-- Description Section -->
-        <div class="content-section">
-          <div class="section-label">Description</div>
-          <div class="section-content">
+          {project.overview && <p class="project-overview">{project.overview}</p>}
+          <div class="project-description">
             <HtmlRenderer content={project.description} />
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Other Works Section -->
-    <section class="our-work-section">
-      <div class="section-container">
-        <h2 class="section-title">Other works</h2>
-
-        <div class="grid">
-          {otherProjects.map((project) => (
-            <a href={`/our-work/${createSlug(project.title)}`} class="card-link">
-              <div class="card">
-                <div class="card-image">
-                  <img src={project.bannerImageUrl} alt={project.title} />
-                </div>
-                <div class="card-content">
-                  <h3 class="card-title">{project.title}</h3>
-                  <p class="card-overview">
-                    <span class="overview-label">Overview:</span> {project.overview}
-                  </p>
-
-                  <div class="card-duration">
-                    <RiAlarmLine aria-hidden="true" size={15} />
-                    <span class="duration-text">
-                      <span class="duration-label">Duration:</span> {project.duration}
-                    </span>
-                  </div>
-
-                  <div class="card-tags">
-                    {project.tags.map((tag) => (
-                      <span class="tag">{tag.tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
+        <div class="intro-media">
+          <img src={project.bannerImageUrl} alt={project.title} />
         </div>
       </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Meta bar -->
+    <section class="project-meta-section">
+      <div class="section-container meta-bar">
+        {
+          metaItems.map(({ Icon, label, value }) => (
+            <div class="meta-item">
+              <div class="meta-icon">
+                <Icon aria-hidden="true" size={16} />
+              </div>
+              <div>
+                <p class="meta-label">{label}</p>
+                <p class="meta-value">{value}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Other Works -->
+    {
+      otherProjects.length > 0 && (
+        <section class="other-works-section">
+          <div class="section-container">
+            <div class="other-works-header">
+              <h2 class="section-title">Other Works</h2>
+              <a href="/our-work" class="see-all">
+                See All <RiArrowRightDoubleLine aria-hidden="true" size={14} />
+              </a>
+            </div>
+            <div class="grid">
+              {otherProjects.map((p) => (
+                <ProjectCard project={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     <section class="footer-section">
       <Footer />
     </section>
@@ -138,217 +133,161 @@ try {
     padding: 0px 48px;
   }
 
-  /* Project Image Section */
-  .project-image-section {
-    width: 100%;
-    aspect-ratio: 3;
-    overflow: hidden;
+  .crumb-current {
+    font-size: 12px;
+    line-height: 14px;
+    color: #868e96;
   }
 
-  .project-image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Project Details Section */
-  .project-details-section {
-    padding: 48px;
+  /* Intro */
+  .project-intro-section {
+    padding: 32px 48px 40px;
     background-color: #ffffff;
   }
 
-  .project-container {
-    margin: 0 auto;
-  }
-
-  .project-header {
-    margin-bottom: 48px;
-  }
-
-  .status-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    background-color: transparent;
-    border: 1px solid #cefe00;
-    border-radius: 20px;
-    font-size: 12px;
-    color: #364fc7;
-    font-weight: 500;
-    margin-bottom: 8px;
-    text-transform: capitalize;
-    height: fit-content;
-    width: fit-content;
+  .intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
   }
 
   .project-title {
-    font-size: 1.75rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    color: #000;
-    font-family: "Zilla Slab", serif;
-    font-weight: bold;
-    line-height: 36px;
-    font-size: 30px;
-  }
-
-  /* Content Sections */
-  .content-section {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 32px;
-    margin-bottom: 48px;
-    align-items: flex-start;
-  }
-
-  .section-label {
-    font-size: 18px;
+    font-family: 'Zilla Slab', serif;
+    font-size: 36px;
+    line-height: 44px;
     font-weight: 700;
     color: #1a1b1e;
+    margin: 0 0 20px;
   }
 
-  .section-content {
+  .project-overview {
     font-size: 16px;
-    color: #464646;
-    line-height: 24px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #1a1b1e;
+    margin: 0 0 16px;
   }
 
-  .status-badge-detail {
-    display: inline-block;
+  .project-description {
+    font-size: 15px;
+    line-height: 24px;
+    color: #464646;
   }
-  
-  /* Our Work Section */
-  .our-work-section {
-    padding: 35px 48px;
+
+  .intro-media {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background-color: #f1f3f5;
+  }
+
+  .intro-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .media-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    background-color: #cefe00;
+    color: #1a1b1e;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  /* Meta bar */
+  .project-meta-section {
+    padding: 0 48px 48px;
     background-color: #ffffff;
   }
 
-  .section-container {
-    /* max-width: 984px; */
-    margin: 0 auto;
+  .meta-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 20px 28px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .meta-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #cefe00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #1a1b1e;
+  }
+
+  .meta-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1b1e;
+    margin: 0 0 2px;
+  }
+
+  .meta-value {
+    font-size: 13px;
+    color: #464646;
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  /* Other works */
+  .other-works-section {
+    padding: 8px 48px 80px;
+    background-color: #ffffff;
+  }
+
+  .other-works-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
   }
 
   .section-title {
     font-size: 24px;
-    color: #1a1b1e;
     line-height: 32px;
-    margin: 0 0 32px 0;
     font-weight: 700;
+    color: #1a1b1e;
+    margin: 0;
+  }
+
+  .see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #364fc7;
+  }
+
+  .see-all:hover {
+    text-decoration: underline;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 110px;
-  }
-
-  .card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .card-link:hover {
-    transform: translateY(-4px);
-  }
-
-  .card-link:hover .card {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  }
-
-  .card {
-    border-radius: 12px;
-    padding: 12px;
-    background-color: #f8f9fa;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow 0.2s ease;
-  }
-
-  .card-image {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .card-title {
-    font-size: 16px;
-    color: #1a1b1e;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.4;
-  }
-
-  .card-overview {
-    font-size: 12px;
-    color: #464646;
-    line-height: 1.4;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .overview-label {
-    font-weight: 700;
-  }
-
-  .card-duration {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: #464646;
-  }
-
-  .card-duration :global(svg) {
-    color: #d9d9d9;
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-  }
-
-  .duration-text {
-    display: flex;
-    gap: 4px;
-  }
-
-  .duration-label {
-    font-weight: 700;
-  }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
-  .tag {
-    padding: 4px 9px;
-    background-color: transparent;
-    border: 1px solid #cefe00;
-    border-radius: 20px;
-    font-size: 12px;
-    color: #364fc7;
-    font-weight: 500;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 
   .footer-section {
@@ -358,65 +297,61 @@ try {
 
   /* Responsive */
   @media screen and (max-width: 1280px) {
-    .project-details-section {
-      padding: 35px 24px;
+    .project-intro-section {
+      padding: 28px 24px 32px;
+    }
+
+    .project-meta-section {
+      padding: 0 24px 40px;
+    }
+
+    .other-works-section {
+      padding: 8px 24px 64px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .intro-media {
+      order: -1;
     }
 
     .grid {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media screen and (max-width: 768px) {
-    .project-image-section {
-      aspect-ratio: auto;
-      height: 250px;
+    .header-section {
+      padding: 0px;
     }
 
-    .project-details-section {
-      padding: 24px;
-    }
-
-    .project-header {
-      margin-bottom: 32px;
+    .project-intro-section {
+      padding: 20px 24px 24px;
     }
 
     .project-title {
-      font-size: 24px;
+      font-size: 28px;
+      line-height: 36px;
     }
 
-    .content-section {
+    .meta-bar {
       grid-template-columns: 1fr;
       gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .section-label {
-      font-size: 16px;
-    }
-
-    .section-content {
-      font-size: 14px;
-    }
-
-    .our-work-section {
-      padding: 24px;
+      padding: 20px;
     }
 
     .section-title {
-      font-size: 18px;
-      margin-bottom: 24px;
+      font-size: 22px;
     }
 
     .grid {
       grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 48px;
-    }
-
-    .card {
-      padding: 12px;
+      gap: 16px;
     }
   }
 </style>
