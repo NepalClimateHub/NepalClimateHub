@@ -1,0 +1,170 @@
+---
+import { RiCalendarLine, RiGlobalLine } from 'react-icons/ri';
+import type { Project } from 'src/types/project';
+import { createSlug } from 'src/utils/slug';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const status = (project.status || '').toLowerCase().trim();
+const statusClass = ['ongoing', 'completed', 'upcoming'].includes(status)
+  ? `status-${status}`
+  : 'status-unknown';
+const primaryTag = project.tags?.[0]?.tag;
+const searchText = [
+  project.title,
+  project.overview,
+  ...(project.tags || []).map((t) => t.tag),
+]
+  .join(' ')
+  .toLowerCase();
+---
+
+<a
+  href={`/our-work/${createSlug(project.title)}`}
+  class="project-card"
+  data-status={status}
+  data-search={searchText}
+>
+  <div class="card-image">
+    <img src={project.bannerImageUrl} alt={project.title} loading="lazy" />
+    {status && <span class={`status-badge ${statusClass}`}>{status}</span>}
+  </div>
+
+  <div class="card-body">
+    <h3 class="card-title">{project.title}</h3>
+
+    <div class="card-meta">
+      {
+        primaryTag && (
+          <span class="meta-item">
+            <RiGlobalLine aria-hidden="true" size={13} />
+            {primaryTag}
+          </span>
+        )
+      }
+      {
+        project.duration && (
+          <span class="meta-item">
+            <RiCalendarLine aria-hidden="true" size={13} />
+            {project.duration}
+          </span>
+        )
+      }
+    </div>
+
+    <p class="card-overview">Overview: {project.overview}</p>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #f1f3f5;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .status-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 2px 10px;
+    border: 1px solid #cefe00;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 16px;
+  }
+
+  .status-ongoing {
+    background-color: #ffffff;
+    color: #364fc7;
+  }
+
+  .status-completed {
+    background-color: #364fc7;
+    color: #ffffff;
+  }
+
+  .status-upcoming,
+  .status-unknown {
+    background-color: #1a1b1e;
+    color: #ffffff;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1a1b1e;
+    margin: 0;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #464646;
+  }
+
+  .meta-item :global(svg) {
+    color: #1a1b1e;
+    flex-shrink: 0;
+  }
+
+  .card-overview {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #464646;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
