@@ -52,7 +52,7 @@
 /* Blog Cards Grid */
 .blogsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -125,7 +125,7 @@
 /* Highlight Card */
 .blogCardHighlight {
   display: grid;
-  grid-template-columns: 3fr 5fr;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
   background-color: #f8f9fa;
   border-radius: 8px;
   overflow: hidden;
@@ -372,7 +372,7 @@
 
 @media screen and (max-width: 1024px) {
   .blogsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .filterContainer {
@@ -395,7 +395,7 @@
   }
 
   .blogsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .writeBlogBannerContainer {
